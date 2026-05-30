@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Nos solutions" description="6 blocs d'intervention PerfEco : diagnostic organisationnel, pilotage, optimisation processus, transformation digitale, accompagnement dirigeant, formation.">
+  <Nav />
+  <main class="pt-16">
+
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Nos solutions</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">Des résultats concrets pour chaque fonction</h1>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Nos interventions couvrent l'ensemble des enjeux de performance organisationnelle — de la visibilité financière à la transformation digitale pragmatique.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-20 px-4">
+      <div class="max-w-5xl mx-auto space-y-8">
+        {[
+          {
+            num: '01',
+            title: 'Diagnostic organisationnel',
+            target: 'DG / DAF / COO',
+            desc: 'PerfEco analyse le fonctionnement réel de votre organisation avant toute recommandation.',
+            items: ['Cartographie des processus réels', 'Identification des blocages et circuits de validation', 'Analyse des rôles et responsabilités', 'Repérage des doublons et pertes de temps', 'Évaluation de la qualité du pilotage'],
+          },
+          {
+            num: '02',
+            title: 'Pilotage de la performance',
+            target: 'DG / DAF',
+            desc: 'Structurer un pilotage fiable, utilisable en COMEX, basé sur des faits — pas des intuitions.',
+            items: ['KPI utiles et actionnables', 'Tableaux de bord COMEX et DAF', 'Reporting cash-flow, marges, coûts, délais', 'Consolidation des informations multi-entités', 'Automatisation du reporting'],
+          },
+          {
+            num: '03',
+            title: 'Optimisation des processus',
+            target: 'COO / Directions opérationnelles',
+            desc: 'Simplifier les processus sans déstabiliser l\'organisation. Réduire les frictions qui ralentissent tout.',
+            items: ['Suppression des étapes inutiles', 'Clarification des seuils de validation', 'Meilleure répartition des responsabilités', 'Réduction des lenteurs et délais', 'Amélioration de la coordination inter-services'],
+          },
+          {
+            num: '04',
+            title: 'Transformation digitale pragmatique',
+            target: 'DSI / DG',
+            desc: 'Le digital au service de l\'organisation — pas l\'inverse. Des outils adaptés au territoire.',
+            items: ['Automatisation du reporting', 'ERP / CRM / outils métiers adaptés', 'Power BI et tableaux de bord', 'Gouvernance et sécurité SI', 'Rationalisation des outils existants'],
+          },
+          {
+            num: '05',
+            title: 'Accompagnement dirigeant / COMEX',
+            target: 'DG / DAF / COO / DSI',
+            desc: 'PerfEco parle le langage des dirigeants. Synthèses, dossiers, notes de décision — directement actionnables.',
+            items: ['Préparation de rendez-vous stratégiques', 'Dossiers et notes COMEX', 'Plans d\'action et matrices d\'opportunités', 'Synthèses exécutives', 'Structuration des arbitrages dirigeants'],
+          },
+          {
+            num: '06',
+            title: 'Formation et transfert de compétences',
+            target: 'Équipes de direction',
+            desc: 'PerfEco ne vise pas à rendre le client dépendant. La logique est de transférer les méthodes et rendre les équipes autonomes.',
+            items: ['Formation aux méthodes PerfEco', 'Travail avec les équipes en place', 'Installation de pratiques durables', 'Autonomie progressive des équipes', 'Suivi post-mission'],
+          },
+        ].map(sol => (
+          <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-8 flex flex-col sm:flex-row gap-6">
+            <div class="shrink-0">
+              <div class="text-5xl font-bold text-teal/20">{sol.num}</div>
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <h2 class="text-xl font-bold text-navy">{sol.title}</h2>
+                <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">{sol.target}</span>
+              </div>
+              <p class="text-gray-600 mb-4">{sol.desc}</p>
+              <ul class="grid sm:grid-cols-2 gap-2">
+                {sol.items.map(item => (
+                  <li class="flex items-start gap-2 text-sm text-gray-600">
+                    <span class="text-teal mt-0.5 shrink-0">→</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-14">
+        <a href="/contact" class="inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white font-bold px-6 py-3.5 rounded-lg transition-colors shadow text-lg">
+          Discuter de votre situation
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>

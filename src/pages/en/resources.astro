@@ -1,0 +1,64 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base title="Resources — PerfEco Consulting" description="PerfEco blog: practical articles on organisational performance, executive management and digital transformation in New Caledonia.">
+  <Nav />
+  <main class="pt-16">
+
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Resources</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">Insights for executives</h1>
+        <p class="text-gray-300 text-lg">Practical articles on organisational performance, management and transformation — in the NC &amp; Pacific context.</p>
+      </div>
+    </section>
+
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="space-y-8">
+          <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Management reporting</span>
+              <time class="text-xs text-gray-400">15 January 2025</time>
+            </div>
+            <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Why your executive committee does not trust the numbers — and how to fix it</h2>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">Reliable reporting is not built by adding columns to a spreadsheet. It starts with a decision about what the executive committee really needs to see in order to decide.</p>
+          </article>
+
+          <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Processes</span>
+              <time class="text-xs text-gray-400">8 January 2025</time>
+            </div>
+            <h2 class="text-xl font-bold text-navy mb-3 leading-snug">The 5 processes that are silently slowing down your organisation</h2>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">Performance does not collapse. It degrades silently — through approval circuits that are too long, unmeasured duplication, friction that no one accounts for.</p>
+          </article>
+
+          <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Digital</span>
+              <time class="text-xs text-gray-400">20 December 2024</time>
+            </div>
+            <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Digitalisation: where to start when resources are limited</h2>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">The classic mistake: buying a tool before clarifying the process. Effective digitalisation starts with simplification — not technology.</p>
+          </article>
+        </div>
+
+        <div class="mt-14 bg-gray-50 rounded-xl p-8 text-center">
+          <h2 class="text-xl font-bold text-navy mb-3">Receive future articles</h2>
+          <p class="text-gray-600 text-sm mb-6">Analysis and practical guides on executive performance in NC &amp; French Polynesia — no jargon, directly actionable.</p>
+          <form name="newsletter-en" method="POST" data-netlify="true" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input type="hidden" name="form-name" value="newsletter-en" />
+            <input type="email" name="email" required placeholder="your@email.nc" class="flex-1 border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+            <button type="submit" class="bg-teal hover:bg-teal-dark text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>

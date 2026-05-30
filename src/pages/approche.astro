@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Notre approche" description="PerfEco part du fonctionnement réel de votre organisation — pas d'un modèle théorique. Découvrez notre méthode en 4 piliers.">
+  <Nav />
+  <main class="pt-16">
+
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Notre approche</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+          Nous partons du fonctionnement réel —<br />
+          <span class="text-gray-400 font-normal">pas d'une restructuration déjà écrite.</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Avant même la première réunion, nous analysons les signaux visibles : organigramme, rattachements, nature des contrats sur les postes clés. Nous arrivons avec des hypothèses — pas des questions génériques.
+        </p>
+      </div>
+    </section>
+
+    <!-- Vision -->
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid sm:grid-cols-3 gap-10 mb-20">
+          {[
+            { num: '01', title: 'Voir clair — lucidité', desc: 'Lecture objective du fonctionnement réel. La proximité interne filtre la réalité. Nous rendons visible ce que vous ne pouvez plus voir de l\'intérieur.' },
+            { num: '02', title: 'Décider — légitimité', desc: 'Base neutre pour arbitrer les évolutions et les rendre compréhensibles par les équipes. Pas de recommandations hors-sol.' },
+            { num: '03', title: 'Exécuter — action', desc: 'Plan concret et activable. L\'enjeu n\'est pas un rapport — c\'est un changement visible, mesurable, ancré dans votre réalité.' },
+          ].map(item => (
+            <div>
+              <div class="text-5xl font-bold text-teal/20 mb-3">{item.num}</div>
+              <h3 class="text-lg font-bold text-navy mb-3">{item.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- 4 piliers -->
+        <h2 class="text-3xl font-bold text-navy text-center mb-10">4 piliers calibrés sur vos contraintes réelles</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          {[
+            { num: '01', title: 'Visibilité financière renforcée', desc: 'Reporting fiable, cash-flow maîtrisé, marges sécurisées. Décisions basées sur des faits, pas sur des intuitions.' },
+            { num: '02', title: 'Simplification organisationnelle', desc: 'Clarification des rôles, responsabilités et lignes managériales. Fluidité des processus transverses.' },
+            { num: '03', title: 'Digitalisation pragmatique', desc: 'Automatisation ciblée, outils adaptés au territoire. Pas de technologie pour la technologie.' },
+            { num: '04', title: 'Pilotage par les indicateurs', desc: 'KPI concrets, suivi régulier, résultats objectivés et mesurables à chaque étape de la mission.' },
+          ].map(p => (
+            <div class="border border-gray-100 rounded-xl p-6 shadow-sm">
+              <div class="text-teal font-bold text-xs mb-2">Pilier {p.num}</div>
+              <h3 class="font-bold text-navy text-lg mb-3">{p.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Séquence -->
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-navy mb-12">Séquence d'intervention</h2>
+        <div class="grid sm:grid-cols-3 gap-6">
+          {[
+            { phase: 'Phase 1', label: 'Diagnostic ciblé', duration: '4 semaines', desc: 'Analyse du fonctionnement réel. Identification des blocages prioritaires. Hypothèses validées terrain.' },
+            { phase: 'Phase 2', label: 'Structuration', duration: '3 mois', desc: 'Mise en œuvre des recommandations. Clarification des processus. Installation des indicateurs de pilotage.' },
+            { phase: 'Phase 3', label: 'Accompagnement', duration: '6 mois', desc: 'Suivi continu, ajustements, transfert de compétences. L\'organisation devient autonome.' },
+          ].map(p => (
+            <div class="bg-white rounded-xl p-6 shadow-sm text-left">
+              <div class="text-xs font-bold text-teal uppercase tracking-wide mb-1">{p.phase}</div>
+              <div class="text-xl font-bold text-navy mb-1">{p.label}</div>
+              <div class="text-sm text-gray-400 mb-4">{p.duration}</div>
+              <p class="text-gray-600 text-sm leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-4 text-center">
+      <p class="text-xl text-navy font-medium italic max-w-2xl mx-auto mb-8">
+        « Notre rôle n'est pas de produire un diagnostic théorique. C'est de rendre lisible le fonctionnement réel pour permettre des décisions claires. »
+      </p>
+      <a href="/contact" class="inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white font-bold px-6 py-3 rounded-lg transition-colors">
+        Demander un diagnostic 30 min
+      </a>
+    </section>
+
+  </main>
+  <Footer />
+</Base>

@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base title="About — PerfEco Consulting" description="Jean-Michel Blaise, founder of PerfEco Consulting. Engineer, MBA, 20+ years of experience in organisational performance across New Caledonia and French Polynesia.">
+  <Nav />
+  <main class="pt-16">
+
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">About</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">Jean-Michel Blaise</h1>
+        <p class="text-gray-300 text-lg">Founder, PerfEco Consulting — Engineer, MBA, 20+ years Pacific</p>
+      </div>
+    </section>
+
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+
+        <div class="flex flex-col sm:flex-row gap-8 items-start mb-12">
+          <img src="/photos/jmb-portrait.jpg" alt="Jean-Michel Blaise — Founder PerfEco Consulting"
+            class="w-48 h-56 rounded-2xl object-cover shadow-lg object-[center_15%] shrink-0" />
+          <div>
+            <h2 class="text-2xl font-black text-navy uppercase mb-1">Jean-Michel Blaise</h2>
+            <p class="text-teal font-bold mb-4">Founder, PerfEco Consulting</p>
+            <div class="space-y-4 text-gray-600 leading-relaxed">
+              <p>Engineer and MBA graduate, Jean-Michel Blaise has spent over 20 years at the intersection of organisation, information systems and operational performance — in demanding environments across New Caledonia and French Polynesia.</p>
+              <p>His background covers transformation assignments at British Telecom Global Services, Atos Origin, ENGIE Pacific IT, Vale / Prony Resources, and several projects linked to the European Commission, ESA and NATO.</p>
+              <p>Our belief: performance cannot be imposed. It must be clarified, managed and improved with the teams.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-10 mb-16">
+          <div class="sm:col-span-2">
+            <h2 class="text-2xl font-bold text-navy mb-6">What guides our approach</h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="border border-gray-100 rounded-xl p-5 shadow-sm">
+                <h3 class="font-bold text-navy mb-2">Field first</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Understand before recommending. Before the first meeting, signals are already analysed.</p>
+              </div>
+              <div class="border border-gray-100 rounded-xl p-5 shadow-sm">
+                <h3 class="font-bold text-navy mb-2">Pacific grounding</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Adapt solutions to local realities. 20 years in NC and PF organisations.</p>
+              </div>
+              <div class="border border-gray-100 rounded-xl p-5 shadow-sm">
+                <h3 class="font-bold text-navy mb-2">No preset agenda</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Start from facts, not from a standard model. Recommendations come from reality.</p>
+              </div>
+              <div class="border border-gray-100 rounded-xl p-5 shadow-sm">
+                <h3 class="font-bold text-navy mb-2">Measurable results</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Define KPIs from the start. The goal is visible change, not a report.</p>
+              </div>
+              <div class="border border-gray-100 rounded-xl p-5 shadow-sm sm:col-span-2">
+                <h3 class="font-bold text-navy mb-2">Skills transfer</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Help teams become more autonomous. Every assignment builds lasting internal capability.</p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4">
+            {[
+              { label: 'Background', value: 'Engineer + MBA' },
+              { label: 'Experience', value: '20+ years Pacific' },
+              { label: 'Areas', value: 'NC & French Polynesia' },
+              { label: 'Contact', value: 'contact@perfeco.nc' },
+            ].map(item => (
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="text-xs text-gray-400 uppercase tracking-wide mb-1">{item.label}</div>
+                <div class="font-semibold text-navy text-sm">{item.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <blockquote class="bg-navy-dark text-white rounded-2xl p-10">
+          <p class="text-xl italic text-gray-200 leading-relaxed mb-6">
+            "Jean-Michel managed complex organisational challenges with tact and method. He demonstrated a strong ability to deliver on time and on budget. I recommend him without reservation."
+          </p>
+          <footer class="text-teal font-medium">
+            Emmanuel Fouché, Director EPI<br />
+            <span class="text-gray-400 font-normal text-sm">ENGIE Pacific IT — Noumea, July 2024</span>
+          </footer>
+        </blockquote>
+
+        <div class="mt-14 bg-gray-50 rounded-xl p-8">
+          <h2 class="text-xl font-bold text-navy mb-6">Team &amp; partners</h2>
+          <div class="flex flex-col sm:flex-row gap-6 items-start">
+            <div>
+              <h3 class="font-semibold text-navy mb-1">Lionel Moreira</h3>
+              <p class="text-teal text-sm font-medium mb-3">Senior Consultant — Organisation &amp; Industrial Performance</p>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                Expertise in transforming complex industrial organisations, cost optimisation and performance analysis. International experience in the energy, mining and oil &amp; gas sectors.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>

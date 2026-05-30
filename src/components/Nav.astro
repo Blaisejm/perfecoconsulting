@@ -1,0 +1,98 @@
+---
+const isEN = Astro.url.pathname.startsWith('/en');
+const lang = isEN ? 'en' : 'fr';
+
+const navLinks = isEN ? [
+  { href: '/en/approach', label: 'Our Approach' },
+  { href: '/en/solutions', label: 'Solutions' },
+  { href: '/en/sectors', label: 'Sectors' },
+  { href: '/en/results', label: 'Results' },
+  { href: '/en/resources', label: 'Resources' },
+  { href: '/en/about', label: 'About' },
+] : [
+  { href: '/approche', label: 'Notre approche' },
+  { href: '/solutions', label: 'Nos solutions' },
+  { href: '/secteurs', label: 'Secteurs' },
+  { href: '/resultats', label: 'Résultats' },
+  { href: '/ressources', label: 'Ressources' },
+  { href: '/a-propos', label: 'À propos' },
+];
+
+const ctaLabel = isEN ? 'Free 30-min Diagnostic' : 'Diagnostic 30 min';
+const ctaHref = isEN ? '/en/contact' : '/contact';
+
+// Switcher : FR <-> EN (garde la page équivalente)
+const frPath = Astro.url.pathname.replace(/^\/en(\/|$)/, '/').replace(/\/$/, '') || '/';
+const enPath = isEN ? Astro.url.pathname : ('/en' + (Astro.url.pathname === '/' ? '' : Astro.url.pathname));
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+
+    <!-- Logo -->
+    <a href={isEN ? '/en' : '/'} class="flex items-center gap-3 group">
+      <img src="/logo-perfeco.svg" alt="PerfEco Consulting" class="h-10 w-auto" />
+      <span class="hidden sm:block text-xs text-gray-500 font-medium border-l border-gray-200 pl-3">
+        Consulting
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden lg:flex items-center gap-1">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class={`px-3 py-2 rounded text-sm font-medium transition-colors ${
+              currentPath.startsWith(link.href)
+                ? 'text-teal bg-teal/5'
+                : 'text-gray-600 hover:text-navy hover:bg-gray-50'
+            }`}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- CTA + sélecteur de langue -->
+    <div class="flex items-center gap-3">
+
+      <!-- Sélecteur FR / EN -->
+      <div class="hidden sm:flex items-center gap-1 border border-gray-200 rounded-lg overflow-hidden text-xs font-bold">
+        <a
+          href={frPath}
+          class={`px-2.5 py-1.5 transition-colors ${!isEN ? 'bg-navy text-white' : 'text-gray-500 hover:bg-gray-100'}`}
+        >
+          FR
+        </a>
+        <a
+          href={enPath}
+          class={`px-2.5 py-1.5 transition-colors ${isEN ? 'bg-navy text-white' : 'text-gray-500 hover:bg-gray-100'}`}
+        >
+          EN
+        </a>
+      </div>
+
+      <a
+        href={ctaHref}
+        class="hidden sm:inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors shadow-sm"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        {ctaLabel}
+      </a>
+
+      <!-- Mobile menu button -->
+      <button
+        id="menu-toggle"
+        class="lg:hidden p-2 rounded text-gray-600 hover:text-navy hover:bg-gray-100 transition-colors"
+        aria-label="Menu"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>

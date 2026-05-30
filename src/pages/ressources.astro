@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+// Articles de blog — à terme géré via CMS Decap
+const articles = [
+  {
+    slug: 'reporting-fiable-comex',
+    titre: 'Pourquoi votre COMEX ne fait pas confiance aux chiffres — et comment y remédier',
+    date: '2025-01-15',
+    categorie: 'Pilotage',
+    extrait: 'Un reporting fiable ne se construit pas en ajoutant des colonnes à un tableau Excel. Il commence par une décision sur ce que le COMEX doit réellement voir pour décider.',
+  },
+  {
+    slug: 'processus-qui-ralentissent',
+    titre: 'Les 5 processus qui ralentissent silencieusement votre organisation',
+    date: '2025-01-08',
+    categorie: 'Processus',
+    extrait: 'La performance ne s\'effondre pas. Elle se dégrade silencieusement — via des circuits de validation trop longs, des doublons non mesurés, des frictions que personne ne comptabilise.',
+  },
+  {
+    slug: 'digitalisation-pragmatique',
+    titre: 'Digitalisation : par où commencer quand on a peu de ressources',
+    date: '2024-12-20',
+    categorie: 'Digital',
+    extrait: 'L\'erreur classique : acheter un outil avant d\'avoir clarifié le processus. La digitalisation efficace commence par la simplification — pas par la technologie.',
+  },
+];
+---
+
+<Base title="Ressources" description="Blog PerfEco : articles et guides pratiques sur la performance organisationnelle, le pilotage dirigeant et la transformation digitale en Nouvelle-Calédonie.">
+  <Nav />
+  <main class="pt-16">
+
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Ressources</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">Insights pour dirigeants</h1>
+        <p class="text-gray-300 text-lg">Articles pratiques sur la performance organisationnelle, le pilotage et la transformation — dans le contexte NC & Pacifique.</p>
+      </div>
+    </section>
+
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+
+        <div class="space-y-8">
+          {articles.map(article => (
+            <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8 flex flex-col sm:flex-row gap-6">
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">{article.categorie}</span>
+                  <time class="text-xs text-gray-400">{new Date(article.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                </div>
+                <h2 class="text-xl font-bold text-navy mb-3 leading-snug">{article.titre}</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">{article.extrait}</p>
+                <a href={`/ressources/${article.slug}`} class="text-teal font-semibold text-sm hover:underline inline-flex items-center gap-1">
+                  Lire l'article →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="mt-14 bg-gray-50 rounded-xl p-8 text-center">
+          <h2 class="text-xl font-bold text-navy mb-3">Recevoir les prochains articles</h2>
+          <p class="text-gray-600 text-sm mb-6">Analyses et guides pratiques sur la performance dirigeante en NC & Polynésie — sans jargon, directement actionnables.</p>
+          <form name="newsletter" method="POST" data-netlify="true" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input type="hidden" name="form-name" value="newsletter" />
+            <input type="email" name="email" required placeholder="votre@email.nc" class="flex-1 border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+            <button type="submit" class="bg-teal hover:bg-teal-dark text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors">
+              S'inscrire
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>

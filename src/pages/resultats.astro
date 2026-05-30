@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Résultats clients" description="Cas clients PerfEco : ENGIE Pacifique, Vale/Prony Resources, Groupe Dumez. Résultats mesurables en NC et Polynésie française.">
+  <Nav />
+  <main class="pt-16">
+
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Résultats clients</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">Des environnements complexes, des territoires exigeants</h1>
+        <p class="text-gray-300 text-lg">Filiales de groupes internationaux, multi-entités, contraintes réglementaires locales.</p>
+      </div>
+    </section>
+
+    <!-- KPIs globaux -->
+    <section class="py-16 px-4 bg-gray-50">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-3 gap-6 text-center">
+          {[
+            { value: '–30%', label: 'Temps administratif', sub: 'Sur les processus clés' },
+            { value: '–25%', label: 'Coûts inefficaces', sub: 'Identifiés et éliminés' },
+            { value: '+40%', label: 'Gain de performance', sub: 'Mesuré par KPI' },
+          ].map(s => (
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <div class="text-3xl sm:text-4xl font-bold text-teal mb-1">{s.value}</div>
+              <div class="font-semibold text-navy text-sm mb-1">{s.label}</div>
+              <div class="text-gray-400 text-xs">{s.sub}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Cas clients -->
+    <section class="py-20 px-4">
+      <div class="max-w-5xl mx-auto space-y-10">
+        {[
+          {
+            client: 'ENGIE Pacifique (EPI)',
+            sector: 'Énergie & IT',
+            context: 'Transformation organisationnelle sous forte pression réglementaire. Environnement multi-entités avec enjeux de gouvernance SI complexes.',
+            results: ['+35% réactivité décisionnelle', '–25% erreurs de reporting', '90% adoption outils en 2 mois'],
+            quote: 'Jean-Michel a très bien su gérer les défis organisationnels dans un contexte managérial où il fallait faire preuve de tact. Il a montré une véritable capacité à délivrer en respectant les coûts et les délais. Je le recommande sans réserve.',
+            author: 'Emmanuel Fouché, Directeur EPI, ENGIE Pacifique Informatique — Nouméa, juillet 2024',
+          },
+          {
+            client: 'Vale / Prony Resources',
+            sector: 'Industrie minière',
+            context: 'Pilotage de projet en environnement industriel complexe. Enjeux de reporting multi-niveaux et de réduction des délais de traitement.',
+            results: ['3 mois → 5 jours (réduction des délais)', '+20% précision des reportings', '+30% gain de temps projet'],
+            quote: null,
+            author: null,
+          },
+          {
+            client: 'Groupe Dumez / VCOM',
+            sector: 'BTP & Multi-entités',
+            context: 'Structuration et digitalisation d\'un groupe multi-entités en transformation. Besoin de cohérence organisationnelle et d\'adoption des outils.',
+            results: ['+20% temps opérationnel libéré', '+30% productivité mesurée', '40% adoption outils en 3 mois'],
+            quote: null,
+            author: null,
+          },
+        ].map(cas => (
+          <div class="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
+            <div class="bg-navy p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <h2 class="text-xl font-bold text-white">{cas.client}</h2>
+                <span class="text-teal text-sm font-medium">{cas.sector}</span>
+              </div>
+              <div class="flex gap-3">
+                {cas.results.map(r => (
+                  <div class="bg-teal/20 text-teal text-xs font-semibold px-3 py-1.5 rounded-full text-center">{r}</div>
+                ))}
+              </div>
+            </div>
+            <div class="p-6 sm:p-8">
+              <p class="text-gray-600 mb-4 leading-relaxed"><strong class="text-navy">Contexte :</strong> {cas.context}</p>
+              {cas.quote && (
+                <blockquote class="border-l-4 border-teal pl-4 mt-4">
+                  <p class="text-gray-600 italic">« {cas.quote} »</p>
+                  <footer class="text-gray-400 text-sm mt-2">— {cas.author}</footer>
+                </blockquote>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-14">
+        <p class="text-gray-500 mb-6">Ces résultats ont été obtenus dans des environnements contraints, avec des équipes réduites et des délais stricts.</p>
+        <a href="/contact" class="inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white font-bold px-6 py-3.5 rounded-lg transition-colors shadow text-lg">
+          Discuter de votre situation
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>

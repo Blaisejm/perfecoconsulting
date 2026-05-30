@@ -1,0 +1,272 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="PerfEco Consulting | Performance organisationnelle & transformation digitale en Nouvelle-Calédonie"
+  description="PerfEco aide les dirigeants à clarifier l'organisation, fiabiliser le pilotage et améliorer la performance grâce à une approche terrain, mesurable et pragmatique."
+>
+  <Nav />
+
+  <main class="pt-16">
+
+    <!-- HERO -->
+    <section class="relative text-white overflow-hidden" style="background: linear-gradient(145deg, #1A3A7A 0%, #2E5DB3 50%, #3A6FD4 100%);">
+      <div class="absolute bottom-0 left-0 right-0 opacity-20">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="white"/>
+        </svg>
+      </div>
+
+      <div class="max-w-5xl mx-auto px-4 py-24 relative lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 border border-white/30 text-white/90 text-xs font-semibold px-4 py-1.5 rounded-full mb-8 uppercase tracking-widest">
+            <span class="w-1.5 h-1.5 bg-teal rounded-full animate-pulse"></span>
+            Nouvelle-Calédonie &amp; Polynésie française
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight mb-4 tracking-tight">
+            Optimisez votre organisation.<br />
+            <span class="text-teal">Décidez avec confiance.</span>
+          </h1>
+
+          <p class="text-lg text-white/80 max-w-2xl mb-10 leading-relaxed">
+            PerfEco Consulting aide les DG, DAF, COO et DSI à clarifier leur fonctionnement, fiabiliser leur pilotage et améliorer la performance — à partir du terrain, pas d'un modèle théorique.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-16">
+            <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-teal hover:bg-teal-light text-white font-black px-8 py-4 rounded-xl transition-colors shadow-lg text-base uppercase tracking-wide">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              Demander un diagnostic stratégique
+            </a>
+            <a href="/approche" class="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white hover:bg-white/10 font-bold px-8 py-4 rounded-xl transition-colors text-base uppercase tracking-wide">
+              Découvrir notre approche
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-6 sm:gap-12 border-t border-white/15 pt-10">
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-teal">+20 ANS</div>
+              <div class="text-white/60 text-sm mt-1">d'expérience Pacifique</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-teal">NC + PF</div>
+              <div class="text-white/60 text-sm mt-1">zones d'intervention</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-teal">KPI</div>
+              <div class="text-white/60 text-sm mt-1">définis dès le démarrage</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden lg:block">
+          <img
+            src="/photos/jmb-presentation.jpg"
+            alt="Jean-Michel Blaise — PerfEco Consulting"
+            class="rounded-2xl shadow-2xl object-cover object-top w-full h-[480px]"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLÈME -->
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Ce que nous observons sur le terrain</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy">
+            Les équipes avancent, mais les priorités,<br />
+            <span class="text-gray-500 font-normal">les données et les décisions ne sont pas toujours alignées.</span>
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
+            <span class="text-2xl shrink-0">📊</span>
+            <div>
+              <h3 class="font-semibold text-navy mb-1">Données partielles</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">Chaque direction travaille avec sa propre version de la réalité.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
+            <span class="text-2xl shrink-0">⚡</span>
+            <div>
+              <h3 class="font-semibold text-navy mb-1">Profils clés surchargés</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">Les meilleurs éléments portent trop de sujets critiques.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
+            <span class="text-2xl shrink-0">💸</span>
+            <div>
+              <h3 class="font-semibold text-navy mb-1">Coûts invisibles</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">Reprises, doublons et délais ne sont pas toujours mesurés.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
+            <span class="text-2xl shrink-0">🔄</span>
+            <div>
+              <h3 class="font-semibold text-navy mb-1">Processus transverses fragiles</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">Les frictions ralentissent l'exécution et la décision.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFFÉRENCIATION -->
+    <section class="py-20 px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Ce qui nous distingue</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy">
+            Nous partons de votre fonctionnement réel —<br />
+            <span class="font-normal text-gray-500">pas d'une solution déjà écrite.</span>
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-8 mb-14">
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-teal/10 text-teal font-bold text-sm flex items-center justify-center mx-auto mb-4">01</div>
+            <h3 class="font-bold text-navy text-lg mb-2">Voir clair</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Analyser objectivement l'organisation, les flux, les irritants et les données disponibles.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-teal/10 text-teal font-bold text-sm flex items-center justify-center mx-auto mb-4">02</div>
+            <h3 class="font-bold text-navy text-lg mb-2">Décider</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Aider la direction à arbitrer avec une base neutre, claire et partageable.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-teal/10 text-teal font-bold text-sm flex items-center justify-center mx-auto mb-4">03</div>
+            <h3 class="font-bold text-navy text-lg mb-2">Exécuter</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Transformer le diagnostic en actions concrètes, mesurables et compréhensibles par les équipes.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="bg-navy/5 rounded-lg p-4 text-center">
+            <div class="font-semibold text-navy text-sm mb-1">Organisation</div>
+            <div class="text-gray-500 text-xs leading-tight">Rôles, responsabilités, lignes managériales</div>
+          </div>
+          <div class="bg-navy/5 rounded-lg p-4 text-center">
+            <div class="font-semibold text-navy text-sm mb-1">Processus</div>
+            <div class="text-gray-500 text-xs leading-tight">Flux réels, frictions, points de blocage</div>
+          </div>
+          <div class="bg-navy/5 rounded-lg p-4 text-center">
+            <div class="font-semibold text-navy text-sm mb-1">SI &amp; outils</div>
+            <div class="text-gray-500 text-xs leading-tight">Adoption réelle, qualité des données</div>
+          </div>
+          <div class="bg-navy/5 rounded-lg p-4 text-center">
+            <div class="font-semibold text-navy text-sm mb-1">Pilotage</div>
+            <div class="text-gray-500 text-xs leading-tight">KPI concrets, visibilité décisionnelle</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÉSULTATS -->
+    <section class="py-20 px-4 bg-navy-dark text-white">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Ce que vous gagnez</p>
+          <h2 class="text-3xl sm:text-4xl font-bold">Des résultats concrets pour la direction et les équipes</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 mb-14">
+          <div class="bg-white/5 rounded-xl p-6 text-center">
+            <div class="text-teal text-3xl mb-2">📉</div>
+            <div class="text-white font-semibold">Moins de temps administratif</div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-6 text-center">
+            <div class="text-teal text-3xl mb-2">🎯</div>
+            <div class="text-white font-semibold">Des reportings plus fiables</div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-6 text-center">
+            <div class="text-teal text-3xl mb-2">⚡</div>
+            <div class="text-white font-semibold">Des décisions plus rapides</div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-6 text-center">
+            <div class="text-teal text-3xl mb-2">💰</div>
+            <div class="text-white font-semibold">Moins de coûts inefficaces</div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-6 text-center">
+            <div class="text-teal text-3xl mb-2">🤝</div>
+            <div class="text-white font-semibold">Des équipes mieux alignées</div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-6 text-center">
+            <div class="text-teal text-3xl mb-2">📊</div>
+            <div class="text-white font-semibold">Une performance mesurable</div>
+          </div>
+        </div>
+
+        <blockquote class="bg-white/5 rounded-2xl p-8 text-center">
+          <p class="text-xl italic text-gray-200 leading-relaxed mb-4">
+            « Jean-Michel a su gérer des défis organisationnels complexes avec tact et méthode. Il a démontré une réelle capacité à délivrer dans le respect des coûts et des délais. Je le recommande sans réserve. »
+          </p>
+          <footer class="text-teal font-medium">
+            Emmanuel Fouché, Directeur EPI<br />
+            <span class="text-gray-400 font-normal text-sm">ENGIE Pacifique Informatique — Nouméa, juillet 2024</span>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- MÉTHODE -->
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Notre méthode</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-4">Une approche progressive pour sécuriser la performance</h2>
+        <p class="text-gray-500 mb-12">Trois phases structurées, adaptées à votre contexte et à vos priorités.</p>
+
+        <div class="grid sm:grid-cols-3 gap-6">
+          <div class="rounded-xl p-8 text-center bg-navy/10 text-navy">
+            <div class="text-xs font-bold uppercase tracking-widest mb-3 opacity-70">Phase 1</div>
+            <div class="text-xl font-bold mb-2">Diagnostic ciblé</div>
+            <div class="text-sm opacity-70 mb-3">Comprendre le fonctionnement réel, les irritants et les priorités.</div>
+          </div>
+          <div class="rounded-xl p-8 text-center bg-teal/10 text-teal">
+            <div class="text-xs font-bold uppercase tracking-widest mb-3 opacity-70">Phase 2</div>
+            <div class="text-xl font-bold mb-2">Structuration</div>
+            <div class="text-sm opacity-70 mb-3">Clarifier les processus, les rôles, les indicateurs et les décisions.</div>
+          </div>
+          <div class="rounded-xl p-8 text-center bg-navy-dark text-white">
+            <div class="text-xs font-bold uppercase tracking-widest mb-3 opacity-70">Phase 3</div>
+            <div class="text-xl font-bold mb-2">Accompagnement</div>
+            <div class="text-sm opacity-70 mb-3">Piloter la mise en oeuvre, mesurer les gains et transférer les compétences.</div>
+          </div>
+        </div>
+
+        <a href="/approche" class="inline-flex items-center gap-2 mt-10 text-teal font-semibold hover:underline">
+          Découvrir l'approche PerfEco →
+        </a>
+      </div>
+    </section>
+
+    <!-- FONDATEUR -->
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-12 flex flex-col sm:flex-row gap-8 items-start">
+          <div class="shrink-0">
+            <img src="/photos/jmb-portrait.jpg" alt="Jean-Michel Blaise" class="w-24 h-24 rounded-full object-cover shadow-lg object-[center_15%]" />
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-navy mb-1">Jean-Michel Blaise</h2>
+            <p class="text-teal font-medium mb-4">Fondateur, PerfEco Consulting</p>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              Ingénieur, MBA, avec plus de 20 ans d'expérience dans l'organisation, les systèmes d'information et la performance opérationnelle dans le Pacifique. Son parcours couvre des environnements complexes en Nouvelle-Calédonie, en Polynésie française et à l'international.
+            </p>
+            <p class="text-gray-600 leading-relaxed mb-6 italic">
+              Notre conviction : une organisation performante ne se décrète pas. Elle se clarifie, se pilote et se transforme avec les équipes.
+            </p>
+            <a href="/a-propos" class="text-teal font-semibold hover:underline">En savoir plus →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Base>

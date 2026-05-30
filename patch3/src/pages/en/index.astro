@@ -1,0 +1,188 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base
+  title="Organisational Performance NC & PF"
+  description="PerfEco Consulting helps CEOs, CFOs, COOs and CIOs in New Caledonia improve their organisational and digital performance."
+>
+  <Nav />
+
+  <main class="pt-16">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="relative text-white overflow-hidden" style="background: linear-gradient(145deg, #1A3A7A 0%, #2E5DB3 50%, #3A6FD4 100%);">
+      <div class="absolute bottom-0 left-0 right-0 opacity-20">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="white"/>
+        </svg>
+      </div>
+
+      <div class="max-w-5xl mx-auto px-4 py-24 relative lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 border border-white/30 text-white/90 text-xs font-semibold px-4 py-1.5 rounded-full mb-8 uppercase tracking-widest">
+            <span class="w-1.5 h-1.5 bg-teal rounded-full animate-pulse"></span>
+            New Caledonia & French Polynesia
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl font-black uppercase leading-tight mb-6 tracking-tight">
+            YOUR ORGANISATION<br />
+            CAN <span class="text-teal">PERFORM BETTER.</span><br />
+            <span class="text-3xl font-bold normal-case text-white/80">We help you prove it.</span>
+          </h1>
+
+          <p class="text-lg text-white/80 max-w-xl mb-10 leading-relaxed">
+            PerfEco helps CEOs, CFOs, COOs and CIOs regain control, align their teams and make confident decisions — based on how the organisation actually works, not on theoretical models.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-12">
+            <a href="/en/contact" class="inline-flex items-center justify-center gap-2 bg-teal hover:bg-teal-light text-white font-black px-8 py-4 rounded-xl transition-colors shadow-lg text-base uppercase tracking-wide">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              Free 30-min Diagnostic
+            </a>
+            <a href="/en/approach" class="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white hover:bg-white/10 font-bold px-8 py-4 rounded-xl transition-colors text-base uppercase tracking-wide">
+              Our Approach
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-6 border-t border-white/15 pt-8">
+            {[
+              { value: '20+ YRS', label: 'Pacific experience' },
+              { value: 'NC + PF', label: 'areas of intervention' },
+              { value: 'KPI', label: 'defined from day one' },
+            ].map(stat => (
+              <div>
+                <div class="text-2xl font-black text-teal">{stat.value}</div>
+                <div class="text-white/60 text-sm mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Photo hero -->
+        <div class="hidden lg:block">
+          <img
+            src="/photos/jmb-presentation.jpg"
+            alt="Jean-Michel Blaise — PerfEco Consulting"
+            class="rounded-2xl shadow-2xl object-cover w-full h-[480px]"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PROBLEM ═══ -->
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-teal font-bold text-sm uppercase tracking-wide mb-3">What we observe in the field</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-navy uppercase">
+            Every department moves forward.<br />
+            <span class="text-gray-400 font-normal normal-case text-2xl">But not always in the same direction.</span>
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          {[
+            { icon: '📊', title: 'Decisions based on partial data', desc: 'Each department operates with its own version of reality. Decisions are slowed down or biased.' },
+            { icon: '⚡', title: 'Overloaded key staff', desc: 'The most capable carry the heaviest load. Burnout and departure risks are structurally underestimated.' },
+            { icon: '💸', title: 'Hidden costs out of control', desc: 'Rework, duplication, wasted time — these costs appear in no dashboard.' },
+            { icon: '🔄', title: 'Accumulated delays', desc: 'Unformalized cross-functional processes create friction that no one measures.' },
+          ].map(item => (
+            <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
+              <span class="text-2xl shrink-0">{item.icon}</span>
+              <div>
+                <h3 class="font-bold text-navy mb-1">{item.title}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Photo + quote -->
+        <div class="mt-12 grid sm:grid-cols-2 gap-8 items-center">
+          <img src="/photos/jmb-complexite.jpg" alt="The complexity that overwhelms" class="rounded-2xl shadow-lg object-cover w-full h-72" />
+          <blockquote class="bg-navy-dark text-white rounded-xl p-8">
+            <p class="text-lg italic text-gray-200 leading-relaxed">
+              "Management makes decisions — but without a truly shared vision. PerfEco makes visible what internal proximity no longer allows you to see."
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RESULTS ═══ -->
+    <section class="py-20 px-4" style="background: linear-gradient(135deg, #1A3A7A 0%, #2E5DB3 100%);">
+      <div class="max-w-5xl mx-auto text-white">
+        <div class="text-center mb-14">
+          <p class="text-teal font-bold text-sm uppercase tracking-wide mb-3">Measurable results</p>
+          <h2 class="text-3xl sm:text-4xl font-black uppercase">Concrete results for every function</h2>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6 mb-14 text-center">
+          {[
+            { value: '–30%', label: 'Administrative time' },
+            { value: '–25%', label: 'Inefficient costs' },
+            { value: '+40%', label: 'Performance gain' },
+          ].map(stat => (
+            <div class="bg-white/10 rounded-xl p-6">
+              <div class="text-4xl font-black text-teal mb-2">{stat.value}</div>
+              <div class="text-gray-300 text-sm">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6">
+          {[
+            { client: 'ENGIE Pacific', results: ['+35% decision speed', '–25% reporting errors', '90% tool adoption (2 months)'], quote: 'Jean-Michel demonstrated a real ability to deliver... I recommend him unreservedly.', author: 'Emmanuel Fouché, Director EPI' },
+            { client: 'Vale / Prony Resources', results: ['3 months → 5 days (delays)', '+20% reporting accuracy', '+30% project time saved'], quote: null, author: null },
+            { client: 'Groupe Dumez / VCOM', results: ['+20% operational time freed', '+30% productivity gain', '40% tool adoption (3 months)'], quote: null, author: null },
+          ].map(ref => (
+            <div class="bg-white/10 rounded-xl p-6">
+              <h4 class="font-bold text-teal mb-4">{ref.client}</h4>
+              <ul class="space-y-2 mb-4">
+                {ref.results.map(r => (
+                  <li class="text-gray-300 text-sm flex items-start gap-2">
+                    <span class="text-teal mt-0.5">✓</span>{r}
+                  </li>
+                ))}
+              </ul>
+              {ref.quote && (
+                <blockquote class="border-t border-white/10 pt-4">
+                  <p class="text-gray-400 text-xs italic">"{ref.quote}"</p>
+                  <footer class="text-gray-500 text-xs mt-1">— {ref.author}</footer>
+                </blockquote>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ABOUT FOUNDER ═══ -->
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-12 flex flex-col sm:flex-row gap-8 items-start">
+          <div class="shrink-0">
+            <img src="/photos/jmb-portrait.jpg" alt="Jean-Michel Blaise" class="w-32 h-32 rounded-full object-cover shadow-lg object-top" />
+          </div>
+          <div>
+            <h2 class="text-2xl font-black text-navy mb-1 uppercase">Jean-Michel Blaise</h2>
+            <p class="text-teal font-bold mb-4">Founder, PerfEco Consulting</p>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              Engineer by training, MBA holder, Jean-Michel Blaise has spent over 20 years at the intersection of organisation, information systems and operational performance — in demanding environments across New Caledonia and French Polynesia.
+            </p>
+            <blockquote class="border-l-4 border-teal pl-4 text-gray-600 text-sm italic">
+              "Jean-Michel demonstrated excellent ability to handle organisational challenges in a complex managerial context requiring tact. He showed a real capacity to deliver on time and on budget. I recommend him unreservedly."
+              <footer class="not-italic text-gray-400 mt-1">— Emmanuel Fouché, Director EPI, ENGIE Pacific IT</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Base>

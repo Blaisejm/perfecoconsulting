@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="À propos" description="Jean-Michel Blaise, fondateur de PerfEco Consulting. 20+ ans d'expérience en performance organisationnelle en Nouvelle-Calédonie et Polynésie française.">
+  <Nav />
+  <main class="pt-16">
+
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">À propos</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">Jean-Michel Blaise</h1>
+        <p class="text-gray-300 text-lg">Fondateur, PerfEco Consulting — Ingénieur, MBA, +20 ans Pacifique</p>
+      </div>
+    </section>
+
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+
+        <!-- Photo + bio -->
+        <div class="flex flex-col sm:flex-row gap-8 items-start mb-12">
+          <img
+            src="/photos/jmb-portrait.jpg"
+            alt="Jean-Michel Blaise — Fondateur PerfEco Consulting"
+            class="w-48 h-56 rounded-2xl object-cover shadow-lg object-top shrink-0"
+          />
+          <div>
+            <h2 class="text-2xl font-black text-navy uppercase mb-1">Jean-Michel Blaise</h2>
+            <p class="text-teal font-bold mb-4">Fondateur, PerfEco Consulting</p>
+            <div class="space-y-4 text-gray-600 leading-relaxed">
+              <p>Ingénieur de formation, MBA, Jean-Michel Blaise a passé plus de 20 ans à l'intersection de l'organisation, des systèmes d'information et de la performance opérationnelle — dans des environnements contraints en Nouvelle-Calédonie et en Polynésie française.</p>
+              <p>Son parcours couvre des missions de transformation chez British Telecom Global Services, Atos Origin, ENGIE Pacifique Informatique, Vale / Prony Resources, et plusieurs projets liés à la Commission européenne, l'ESA et l'OTAN.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-10 mb-16">
+          <div class="sm:col-span-2 space-y-5 text-gray-600 leading-relaxed">
+            <p>
+              Ingénieur de formation, MBA, Jean-Michel Blaise a passé plus de 20 ans à l'intersection de l'organisation, des systèmes d'information et de la performance opérationnelle — dans des environnements contraints en Nouvelle-Calédonie et en Polynésie française.
+            </p>
+            <p>
+              Son parcours couvre des missions de transformation et de performance chez British Telecom Global Services, Atos Origin, ENGIE Pacifique Informatique, Vale / Prony Resources, et plusieurs projets liés à la Commission européenne, l'ESA et l'OTAN.
+            </p>
+            <p>
+              À travers PerfEco, il met cette expérience au service des dirigeants qui veulent reprendre la maîtrise de leur organisation — sans audit théorique, sans recommandations hors-sol, avec des résultats mesurables dès les premières semaines.
+            </p>
+          </div>
+          <div class="space-y-4">
+            {[
+              { label: 'Formation', value: 'Ingénieur + MBA' },
+              { label: 'Expérience', value: '+20 ans Pacifique' },
+              { label: 'Zones', value: 'NC & Polynésie française' },
+              { label: 'Contact', value: 'contact@perfeco.nc' },
+            ].map(item => (
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="text-xs text-gray-400 uppercase tracking-wide mb-1">{item.label}</div>
+                <div class="font-semibold text-navy text-sm">{item.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Ce qui distingue JMB -->
+        <h2 class="text-2xl font-bold text-navy mb-8">Ce qui distingue notre approche</h2>
+        <div class="grid sm:grid-cols-2 gap-6 mb-16">
+          {[
+            { title: 'Lecture terrain avant tout', desc: 'Avant la 1re réunion, les signaux sont déjà analysés. Organigramme, rattachements, nature des contrats sur les postes clés. Pas de questions génériques — des hypothèses.' },
+            { title: 'Ancrage Pacifique', desc: '20 ans dans des organisations NC et PF. Une connaissance réelle des contraintes locales : taille des structures, pression budgétaire, pénurie de compétences, contexte social.' },
+            { title: 'Sans agenda préconçu', desc: 'Les recommandations sont issues du réel, pas d\'un modèle. PerfEco ne vend pas une méthodologie — il s\'adapte à votre fonctionnement réel.' },
+            { title: 'Résultats mesurables', desc: 'Les KPI sont définis dès le démarrage de chaque mission. L\'enjeu n\'est pas un rapport — c\'est un changement visible.' },
+          ].map(item => (
+            <div class="border border-gray-100 rounded-xl p-6 shadow-sm">
+              <h3 class="font-bold text-navy mb-2">{item.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Témoignage -->
+        <blockquote class="bg-navy-dark text-white rounded-2xl p-10">
+          <p class="text-xl italic text-gray-200 leading-relaxed mb-6">
+            « Jean-Michel a très bien su gérer les défis organisationnels dans un contexte managérial où il fallait faire preuve de tact. Il a montré une véritable capacité à délivrer en respectant les coûts et les délais

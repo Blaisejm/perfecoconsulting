@@ -1,0 +1,294 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Performance organisationnelle NC & PF">
+  <Nav />
+
+  <main class="pt-16">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="relative text-white overflow-hidden" style="background: linear-gradient(145deg, #1A3A7A 0%, #2E5DB3 50%, #3A6FD4 100%);">
+      <!-- Vague décorative bas (style LinkedIn PerfEco) -->
+      <div class="absolute bottom-0 left-0 right-0 opacity-20">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="white"/>
+        </svg>
+      </div>
+
+      <div class="max-w-5xl mx-auto px-4 py-24 relative lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+        <div>
+        <!-- Badge géo -->
+        <div class="inline-flex items-center gap-2 border border-white/30 text-white/90 text-xs font-semibold px-4 py-1.5 rounded-full mb-8 uppercase tracking-widest">
+          <span class="w-1.5 h-1.5 bg-teal rounded-full animate-pulse"></span>
+          Nouvelle-Calédonie & Polynésie française
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight mb-6 tracking-tight">
+          VOTRE ORGANISATION<br />
+          PEUT <span class="text-teal">MIEUX PILOTER.</span><br />
+          <span class="text-3xl sm:text-4xl font-bold normal-case text-white/80">Nous vous aidons à le démontrer.</span>
+        </h1>
+
+        <p class="text-lg text-white/80 max-w-2xl mb-10 leading-relaxed">
+          PerfEco aide les DG, DAF, COO et DSI à reprendre le contrôle, aligner leurs équipes et décider avec confiance — en partant du fonctionnement réel, pas d'un modèle théorique.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mb-16">
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-teal hover:bg-teal-light text-white font-black px-8 py-4 rounded-xl transition-colors shadow-lg text-base uppercase tracking-wide">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            Diagnostic gratuit 30 min
+          </a>
+          <a href="/approche" class="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white hover:bg-white/10 font-bold px-8 py-4 rounded-xl transition-colors text-base uppercase tracking-wide">
+            Notre approche
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-6 sm:gap-12 border-t border-white/15 pt-10">
+          {[
+            { value: '+20 ANS', label: "d'expérience Pacifique" },
+            { value: 'NC + PF', label: "zones d'intervention" },
+            { value: 'KPI', label: 'définis dès le départ' },
+          ].map(stat => (
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-teal">{stat.value}</div>
+              <div class="text-white/60 text-sm mt-1">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+        </div>
+
+        <!-- Photo hero (desktop) -->
+        <div class="hidden lg:block">
+          <img
+            src="/photos/jmb-presentation.jpg"
+            alt="Jean-Michel Blaise — PerfEco Consulting"
+            class="rounded-2xl shadow-2xl object-cover w-full h-[480px]"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PROBLÈME ═══ -->
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Ce que nous observons sur le terrain</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy">
+            Chaque direction avance.<br />
+            <span class="text-gray-500 font-normal">Mais pas toujours dans la même direction.</span>
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          {[
+            {
+              icon: '📊',
+              title: 'Décisions sur données partielles',
+              desc: 'Chaque direction fonctionne avec sa propre version de la réalité. Les arbitrages sont ralentis ou biaisés.',
+            },
+            {
+              icon: '⚡',
+              title: 'Surcharge des profils clés',
+              desc: 'Les plus compétents portent davantage. Risque d\'épuisement et de départ structurellement sous-estimé.',
+            },
+            {
+              icon: '💸',
+              title: 'Coûts invisibles non maîtrisés',
+              desc: 'Reprises, doublons, temps excessif — ces coûts n\'apparaissent dans aucun tableau de bord.',
+            },
+            {
+              icon: '🔄',
+              title: 'Retards accumulés',
+              desc: 'Les processus transverses non formalisés créent des frictions que personne ne mesure.',
+            },
+          ].map(item => (
+            <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
+              <span class="text-2xl shrink-0">{item.icon}</span>
+              <div>
+                <h3 class="font-semibold text-navy mb-1">{item.title}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <blockquote class="mt-10 bg-navy-dark text-white rounded-xl p-8 text-center">
+          <p class="text-lg italic text-gray-200 leading-relaxed">
+            « La direction décide — mais sans vision réellement partagée. PerfEco rend visible ce que la proximité interne ne permet plus de voir. »
+          </p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ═══ DIFFÉRENCIATION ═══ -->
+    <section class="py-20 px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Ce qui nous distingue</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy">
+            Nous partons du fonctionnement réel —<br />
+            <span class="font-normal text-gray-500">pas d'une restructuration déjà écrite.</span>
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-8 mb-14">
+          {[
+            { num: '01', title: 'Voir clair', desc: 'Lecture objective du fonctionnement réel. La proximité interne filtre la réalité.' },
+            { num: '02', title: 'Décider', desc: 'Base neutre pour arbitrer les évolutions et les rendre compréhensibles par les équipes.' },
+            { num: '03', title: 'Exécuter', desc: 'Plan concret et activable. L\'enjeu n\'est pas un rapport — c\'est un changement visible.' },
+          ].map(item => (
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-teal/10 text-teal font-bold text-sm flex items-center justify-center mx-auto mb-4">{item.num}</div>
+              <h3 class="font-bold text-navy text-lg mb-2">{item.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- 4 piliers -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {[
+            { label: 'Organisation', desc: 'Rôles, responsabilités, lignes managériales' },
+            { label: 'Processus', desc: 'Flux réels, frictions, points de blocage' },
+            { label: 'SI & outils', desc: 'Adoption réelle, qualité des données' },
+            { label: 'Pilotage', desc: 'KPI concrets, visibilité décisionnelle' },
+          ].map(p => (
+            <div class="bg-navy/5 rounded-lg p-4 text-center">
+              <div class="font-semibold text-navy text-sm mb-1">{p.label}</div>
+              <div class="text-gray-500 text-xs leading-tight">{p.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RÉSULTATS ═══ -->
+    <section class="py-20 px-4 bg-navy-dark text-white">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Ce que vous obtiendrez</p>
+          <h2 class="text-3xl sm:text-4xl font-bold">Des résultats concrets pour chaque fonction</h2>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6 mb-14 text-center">
+          {[
+            { value: '–30%', label: 'Temps administratif' },
+            { value: '–25%', label: 'Coûts inefficaces' },
+            { value: '+40%', label: 'Gain de performance' },
+          ].map(stat => (
+            <div class="bg-white/5 rounded-xl p-6">
+              <div class="text-4xl font-bold text-teal mb-2">{stat.value}</div>
+              <div class="text-gray-300 text-sm">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Références -->
+        <h3 class="text-center text-gray-400 text-sm uppercase tracking-wide mb-8">Ils nous font confiance</h3>
+        <div class="grid sm:grid-cols-3 gap-6">
+          {[
+            {
+              client: 'ENGIE Pacifique',
+              results: ['+35% réactivité décisionnelle', '–25% erreurs de reporting', '90% adoption outils (2 mois)'],
+              quote: 'Jean-Michel a montré une véritable capacité à délivrer... Je le recommande sans réserve.',
+              author: 'Emmanuel Fouché, Directeur EPI',
+            },
+            {
+              client: 'Vale / Prony Resources',
+              results: ['3 mois → 5 jours (délais)', '+20% précision reportings', '+30% gain temps projet'],
+              quote: null,
+              author: null,
+            },
+            {
+              client: 'Groupe Dumez / VCOM',
+              results: ['+20% temps opérationnel libéré', '+30% productivité mesurée', '40% adoption outils (3 mois)'],
+              quote: null,
+              author: null,
+            },
+          ].map(ref => (
+            <div class="bg-white/5 rounded-xl p-6">
+              <h4 class="font-bold text-teal mb-4">{ref.client}</h4>
+              <ul class="space-y-2 mb-4">
+                {ref.results.map(r => (
+                  <li class="text-gray-300 text-sm flex items-start gap-2">
+                    <span class="text-teal mt-0.5">✓</span>
+                    {r}
+                  </li>
+                ))}
+              </ul>
+              {ref.quote && (
+                <blockquote class="border-t border-white/10 pt-4 mt-4">
+                  <p class="text-gray-400 text-xs italic">« {ref.quote} »</p>
+                  <footer class="text-gray-500 text-xs mt-1">— {ref.author}</footer>
+                </blockquote>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="/resultats" class="inline-flex items-center gap-2 text-teal hover:text-white transition-colors font-medium">
+            Voir tous les cas clients
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ MÉTHODE ═══ -->
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Notre méthode</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-12">Comment nous sécurisons votre organisation</h2>
+
+        <div class="grid sm:grid-cols-3 gap-6">
+          {[
+            { phase: 'Phase 1', label: 'Diagnostic ciblé', duration: '4 semaines', color: 'bg-navy/10 text-navy' },
+            { phase: 'Phase 2', label: 'Structuration', duration: '3 mois', color: 'bg-teal/10 text-teal' },
+            { phase: 'Phase 3', label: 'Accompagnement', duration: '6 mois', color: 'bg-navy-dark text-white' },
+          ].map(p => (
+            <div class={`rounded-xl p-8 text-center ${p.color}`}>
+              <div class="text-xs font-bold uppercase tracking-widest mb-3 opacity-70">{p.phase}</div>
+              <div class="text-xl font-bold mb-2">{p.label}</div>
+              <div class="text-sm opacity-70">{p.duration}</div>
+            </div>
+          ))}
+        </div>
+
+        <a href="/approche" class="inline-flex items-center gap-2 mt-10 text-teal font-semibold hover:underline">
+          Découvrir notre approche complète →
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══ FONDATEUR ═══ -->
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-12 flex flex-col sm:flex-row gap-8 items-start">
+          <div class="shrink-0">
+            <div class="w-24 h-24 rounded-full bg-navy/10 flex items-center justify-center text-4xl">
+              👤
+            </div>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-navy mb-1">Jean-Michel Blaise</h2>
+            <p class="text-teal font-medium mb-4">Fondateur, PerfEco Consulting</p>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              Ingénieur de formation, MBA, Jean-Michel Blaise a passé plus de 20 ans à l'intersection de l'organisation, des SI et de la performance opérationnelle — dans des environnements contraints en Nouvelle-Calédonie et en Polynésie.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { label: 'Lecture terrain', desc: 'Signaux analysés avant la 1re réunion' },
+                { label: 'Ancrage Pacifique', desc: '20 ans NC & PF' },
+                { label: 'Sans agenda', desc: 'Issu du réel, pas d\'un modèle' },
+                { label: 'Résultats', desc: 'KPI définis dès le démarrage' },
+              ].map(item => (
+                <div class="bg-gray-50 rounded-lg p-3">
+                  <div class="font-semibold text-navy text-xs mb-1">{item.label}</div>
+                  <div class="

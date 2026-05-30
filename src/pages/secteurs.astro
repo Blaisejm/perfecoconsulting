@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Secteurs" description="PerfEco intervient dans l'industrie, l'énergie, le BTP, la banque, le secteur public en Nouvelle-Calédonie et Polynésie française.">
+  <Nav />
+  <main class="pt-16">
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Secteurs</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">Des environnements complexes, une méthode adaptée</h1>
+        <p class="text-gray-300 text-lg">Filiales de groupes internationaux, multi-entités, contraintes réglementaires locales — PerfEco connaît ces contextes de l'intérieur.</p>
+      </div>
+    </section>
+
+    <section class="py-20 px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid sm:grid-cols-2 gap-8">
+          {[
+            {
+              icon: '⚡',
+              title: 'Industrie & Énergie',
+              refs: 'ENGIE, Vale, Prony Resources, TotalEnergies, Enercal',
+              desc: 'Environnements sous pression réglementaire et technique. Enjeux de reporting multi-niveaux, de gouvernance SI et de pilotage de projets industriels complexes.',
+              enjeux: ['Fiabilité des reportings de production', 'Pilotage multi-entités', 'Conformité réglementaire', 'Transformation organisationnelle'],
+            },
+            {
+              icon: '🏗️',
+              title: 'BTP & Maintenance',
+              refs: 'Dumez, VCOM, groupes multi-entités',
+              desc: 'Groupes en transformation nécessitant une structuration solide et une digitalisation pragmatique des processus opérationnels.',
+              enjeux: ['Structuration multi-entités', 'Suivi de chantiers', 'Adoption des outils', 'Coordination inter-équipes'],
+            },
+            {
+              icon: '🏦',
+              title: 'Banque & Assurances',
+              refs: 'Structures financières du Pacifique',
+              desc: 'Contraintes réglementaires locales et régionales. Besoins de reporting fiable, de conformité et de pilotage des risques.',
+              enjeux: ['Pilotage des risques', 'Reporting réglementaire', 'Simplification des processus', 'Gouvernance des données'],
+            },
+            {
+              icon: '🏛️',
+              title: 'Secteur public & Parapublic',
+              refs: 'Province Sud, OPT, CCI, CAFAT, CHT Médipôle, CHS',
+              desc: 'Collectivités et établissements publics NC & PF confrontés à des pressions budgétaires croissantes et des besoins de modernisation.',
+              enjeux: ['Optimisation budgétaire', 'Digitalisation des services', 'Performance des équipes', 'Reporting aux tutelles'],
+            },
+          ].map(s => (
+            <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
+              <div class="text-3xl mb-4">{s.icon}</div>
+              <h2 class="text-xl font-bold text-navy mb-1">{s.title}</h2>
+              <p class="text-teal text-xs font-medium mb-4">{s.refs}</p>
+              <p class="text-gray-600 text-sm leading-relaxed mb-5">{s.desc}</p>
+              <div class="space-y-2">
+                {s.enjeux.map(e => (
+                  <div class="flex items-center gap-2 text-sm text-gray-600">
+                    <span class="w-1.5 h-1.5 bg-teal rounded-full shrink-0"></span>
+                    {e}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-14 bg-navy-dark text-white rounded-2xl p-10 text-center">
+          <h2 class="text-2xl font-bold mb-4">Votre secteur n'est pas listé&nbsp;?</h2>
+          <p class="text-gray-300 mb-6">PerfEco intervient dans tout environnement organisationnel complexe. La méthode s'adapte — les résultats restent mesurables.</p>
+          <a href="/contact" class="inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white font-bold px-6 py-3 rounded-lg transition-colors">
+            Discuter de votre contexte
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
