@@ -1,0 +1,38 @@
+<!-- Bandeau cookies RGPD -->
+<div id="cookie-banner" style="display:none" class="fixed bottom-0 left-0 right-0 z-50 bg-navy-dark text-white px-4 py-4 shadow-lg">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-gray-300 text-center sm:text-left">
+      Ce site utilise Google Analytics pour mesurer l'audience. Aucune donnée personnelle n'est transmise à des tiers.
+      <a href="/mentions-legales" class="underline text-teal hover:text-teal-light ml-1">En savoir plus</a>
+    </p>
+    <div class="flex gap-3 shrink-0">
+      <button id="cookie-refuse" class="text-sm px-4 py-2 rounded-lg border border-gray-500 text-gray-300 hover:border-gray-300 transition-colors">
+        Refuser
+      </button>
+      <button id="cookie-accept" class="text-sm px-4 py-2 rounded-lg bg-teal hover:bg-teal-dark text-white font-semibold transition-colors">
+        Accepter
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  var banner = document.getElementById('cookie-banner');
+  var consent = localStorage.getItem('cookie-consent');
+
+  if (!consent) {
+    banner.style.display = 'block';
+  }
+
+  document.getElementById('cookie-accept').addEventListener('click', function() {
+    localStorage.setItem('cookie-consent', 'accepted');
+    banner.style.display = 'none';
+  });
+
+  document.getElementById('cookie-refuse').addEventListener('click', function() {
+    localStorage.setItem('cookie-consent', 'refused');
+    banner.style.display = 'none';
+    // Désactiver Google Analytics
+    window['ga-disable-G-FTR14WVM1B'] = true;
+  });
+</script>
