@@ -4,16 +4,16 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 ---
 
-<Base title="Request a strategic review — PerfEco Consulting" description="Request a free 30-minute strategic review with Jean-Michel Blaise, founder of PerfEco Consulting.">
+<Base title="Strategic Diagnostic 30 min" description="Request a confidential 30-minute strategic diagnostic with Jean-Michel Blaise, founder of PerfEco Consulting.">
   <Nav />
-  <main class="pt-16">
 
+  <main class="pt-16">
     <section class="bg-navy-dark text-white py-20 px-4">
       <div class="max-w-2xl mx-auto text-center">
-        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Strategic review</p>
-        <h1 class="text-4xl font-bold mb-4">Want a clearer view?</h1>
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Strategic diagnostic</p>
+        <h1 class="text-4xl font-bold mb-4">Ready to take back control&nbsp;?</h1>
         <p class="text-gray-300 text-lg leading-relaxed">
-          In 30 minutes, we identify your main friction points, 2 to 3 concrete improvement opportunities, and a clear view of your real priorities.
+          In 30 minutes, you leave with a clear picture of your organisation, 2 to 3 concrete improvement areas and a vision of your real priorities.
         </p>
       </div>
     </section>
@@ -21,76 +21,101 @@ import Footer from '../../components/Footer.astro';
     <section class="py-20 px-4">
       <div class="max-w-5xl mx-auto grid sm:grid-cols-2 gap-12 items-start">
 
+        <!-- Form -->
         <div>
-          <h2 class="text-2xl font-bold text-navy mb-6">Send a request</h2>
-          <form name="contact-en" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-5">
-            <input type="hidden" name="form-name" value="contact-en" />
-            <p class="hidden"><label>Do not fill: <input name="bot-field" /></label></p>
+          <h2 class="text-2xl font-bold text-navy mb-6">Request a conversation</h2>
+
+          <div id="form-success" style="display:none" class="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+            <p class="text-green-700 font-semibold text-lg mb-2">Message sent!</p>
+            <p class="text-green-600 text-sm">Jean-Michel will get back to you within 24 hours.</p>
+          </div>
+
+          <div id="form-error" style="display:none" class="bg-red-50 border border-red-200 rounded-xl p-4 mb-4">
+            <p class="text-red-600 text-sm">An error occurred. Please try again or contact us directly at contact@perfeco.nc</p>
+          </div>
+
+          <form id="contact-form" class="space-y-5">
 
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
-                <label for="firstname" class="block text-sm font-medium text-gray-700 mb-1">First name *</label>
-                <input type="text" id="firstname" name="firstname" required class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+                <label for="prenom" class="block text-sm font-medium text-gray-700 mb-1">First name *</label>
+                <input type="text" id="prenom" name="prenom" required class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal" />
               </div>
               <div>
-                <label for="lastname" class="block text-sm font-medium text-gray-700 mb-1">Last name *</label>
-                <input type="text" id="lastname" name="lastname" required class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+                <label for="nom" class="block text-sm font-medium text-gray-700 mb-1">Last name *</label>
+                <input type="text" id="nom" name="nom" required class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal" />
               </div>
             </div>
 
             <div>
-              <label for="role" class="block text-sm font-medium text-gray-700 mb-1">Role *</label>
-              <select id="role" name="role" required class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal bg-white">
+              <label for="fonction" class="block text-sm font-medium text-gray-700 mb-1">Role *</label>
+              <select id="fonction" name="fonction" required class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal bg-white">
                 <option value="">Select...</option>
-                <option>Chief Executive Officer</option>
-                <option>Chief Financial Officer</option>
-                <option>Chief Operating Officer</option>
-                <option>Chief Information Officer</option>
+                <option>Chief Executive Officer / CEO</option>
+                <option>Chief Financial Officer / CFO</option>
+                <option>Chief Operating Officer / COO</option>
+                <option>Chief Information Officer / CIO</option>
                 <option>Other executive</option>
               </select>
             </div>
 
             <div>
               <label for="organisation" class="block text-sm font-medium text-gray-700 mb-1">Organisation *</label>
-              <input type="text" id="organisation" name="organisation" required class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+              <input type="text" id="organisation" name="organisation" required class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal" />
             </div>
 
             <div>
               <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Professional email *</label>
-              <input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+              <input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal" />
             </div>
 
             <div>
-              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-              <input type="tel" id="phone" name="phone" class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+              <label for="telephone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+              <input type="tel" id="telephone" name="telephone" class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal" />
             </div>
 
             <div>
-              <label for="challenge" class="block text-sm font-medium text-gray-700 mb-1">What is your main challenge?</label>
-              <textarea id="challenge" name="challenge" rows="4" placeholder="Briefly describe the situation you would like to discuss..." class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal resize-none"></textarea>
+              <label for="sujet" class="block text-sm font-medium text-gray-700 mb-1">What is your main challenge&nbsp;?</label>
+              <textarea id="sujet" name="sujet" rows="4" placeholder="Describe in a few lines the situation you would like to discuss..." class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal resize-none"></textarea>
             </div>
 
-            <button type="submit" class="w-full bg-teal hover:bg-teal-dark text-white font-bold py-3 px-6 rounded-lg transition-colors shadow">
+            <button type="submit" id="submit-btn" class="w-full bg-teal hover:bg-teal-dark text-white font-bold py-3 px-6 rounded-lg transition-colors shadow">
               Send my request
             </button>
-            <p class="text-xs text-gray-400 text-center">Confidential discussion · Response within 24h · Led by Jean-Michel</p>
+
+            <p class="text-xs text-gray-400 text-center">
+              Confidential conversation · Reply within 24h · Led by Jean-Michel
+            </p>
           </form>
         </div>
 
+        <!-- Info -->
         <div class="space-y-8">
           <div class="bg-gray-50 rounded-xl p-6">
-            <h3 class="font-bold text-navy mb-4">What you will get in 30 minutes</h3>
+            <h3 class="font-bold text-navy mb-4">What you will get in 30 min</h3>
             <ul class="space-y-3">
-              <li class="flex items-start gap-3 text-sm text-gray-700"><span class="text-teal font-bold mt-0.5">✓</span>A clear picture of your organisation</li>
-              <li class="flex items-start gap-3 text-sm text-gray-700"><span class="text-teal font-bold mt-0.5">✓</span>2 to 3 concrete improvement opportunities</li>
-              <li class="flex items-start gap-3 text-sm text-gray-700"><span class="text-teal font-bold mt-0.5">✓</span>A clear view of your real priorities</li>
-              <li class="flex items-start gap-3 text-sm text-gray-700"><span class="text-teal font-bold mt-0.5">✓</span>A discussion led personally by Jean-Michel</li>
+              <li class="flex items-start gap-3 text-sm text-gray-700">
+                <span class="text-teal font-bold mt-0.5">✓</span>
+                A clear picture of your organisation
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-700">
+                <span class="text-teal font-bold mt-0.5">✓</span>
+                2 to 3 concrete improvement areas
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-700">
+                <span class="text-teal font-bold mt-0.5">✓</span>
+                A vision of your real priorities
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-700">
+                <span class="text-teal font-bold mt-0.5">✓</span>
+                A conversation led personally by Jean-Michel
+              </li>
             </ul>
           </div>
 
           <div class="bg-navy-dark text-white rounded-xl p-6">
             <p class="text-sm text-gray-400 italic">
-              "Reviews are led personally by Jean-Michel. Slots are intentionally limited to ensure the quality of each discussion."
+              "Diagnostics are led personally by Jean-Michel. Slots are deliberately limited to ensure the quality of each conversation."
             </p>
           </div>
 
@@ -108,5 +133,47 @@ import Footer from '../../components/Footer.astro';
       </div>
     </section>
   </main>
+
   <Footer />
 </Base>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('submit-btn');
+    var success = document.getElementById('form-success');
+    var error = document.getElementById('form-error');
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    error.style.display = 'none';
+
+    var data = {
+      nom: document.getElementById('prenom').value + ' ' + document.getElementById('nom').value,
+      email: document.getElementById('email').value,
+      organisation: document.getElementById('fonction').value + ' — ' + document.getElementById('organisation').value,
+      message: document.getElementById('sujet').value || '(no message)'
+    };
+
+    try {
+      var res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (res.ok) {
+        document.getElementById('contact-form').style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        error.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Send my request';
+      }
+    } catch(err) {
+      error.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Send my request';
+    }
+  });
+</script>
