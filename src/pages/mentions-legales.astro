@@ -1,0 +1,127 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Mentions légales & Politique de confidentialité" description="Mentions légales, politique de confidentialité et informations RGPD de PerfEco Consulting.">
+  <Nav />
+
+  <main class="pt-16">
+    <section class="bg-navy-dark text-white py-16 px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl font-bold mb-4">Mentions légales</h1>
+        <p class="text-gray-300">Politique de confidentialité & RGPD</p>
+      </div>
+    </section>
+
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto space-y-12 text-gray-700">
+
+        <!-- Éditeur -->
+        <div>
+          <h2 class="text-2xl font-bold text-navy mb-4">1. Éditeur du site</h2>
+          <p>Le site <strong>perfeco.nc</strong> est édité par :</p>
+          <ul class="mt-3 space-y-1">
+            <li><strong>Raison sociale :</strong> PerfEco Consulting</li>
+            <li><strong>Forme juridique :</strong> Entreprise individuelle</li>
+            <li><strong>Responsable de publication :</strong> Jean-Michel Blaise</li>
+            <li><strong>Adresse :</strong> Nouvelle-Calédonie</li>
+            <li><strong>Email :</strong> <a href="mailto:contact@perfeco.nc" class="text-teal hover:underline">contact@perfeco.nc</a></li>
+            <li><strong>Téléphone :</strong> +687 73 08 75</li>
+          </ul>
+        </div>
+
+        <!-- Hébergement -->
+        <div>
+          <h2 class="text-2xl font-bold text-navy mb-4">2. Hébergement</h2>
+          <p>Le site est hébergé par :</p>
+          <ul class="mt-3 space-y-1">
+            <li><strong>Société :</strong> Netlify, Inc.</li>
+            <li><strong>Adresse :</strong> 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis</li>
+            <li><strong>Site :</strong> <a href="https://www.netlify.com" class="text-teal hover:underline" target="_blank">www.netlify.com</a></li>
+          </ul>
+        </div>
+
+        <!-- Propriété intellectuelle -->
+        <div>
+          <h2 class="text-2xl font-bold text-navy mb-4">3. Propriété intellectuelle</h2>
+          <p>L'ensemble des contenus présents sur ce site (textes, images, logo, graphismes) sont la propriété exclusive de PerfEco Consulting et sont protégés par les lois applicables en matière de propriété intellectuelle. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+        </div>
+
+        <!-- Collecte de données -->
+        <div>
+          <h2 class="text-2xl font-bold text-navy mb-4">4. Collecte de données personnelles</h2>
+          <p class="mb-3">PerfEco Consulting collecte des données personnelles dans les cas suivants :</p>
+
+          <h3 class="text-lg font-semibold text-navy mb-2">4.1 Formulaire de contact</h3>
+          <p>Les données collectées (nom, email, organisation, message) sont utilisées uniquement pour répondre à votre demande. Elles ne sont pas transmises à des tiers et sont conservées pour une durée maximale de 3 ans.</p>
+
+          <h3 class="text-lg font-semibold text-navy mt-4 mb-2">4.2 Google Analytics</h3>
+          <p>Ce site utilise Google Analytics (Google LLC) pour mesurer l'audience. Des cookies peuvent être déposés sur votre terminal avec votre consentement. Les données collectées (pages visitées, durée de visite, origine géographique approximative) sont anonymisées et ne permettent pas de vous identifier personnellement.</p>
+          <p class="mt-2">Vous pouvez refuser l'utilisation de Google Analytics via le bandeau de consentement présent sur ce site.</p>
+        </div>
+
+        <!-- Cookies -->
+        <div>
+          <h2 class="text-2xl font-bold text-navy mb-4">5. Cookies</h2>
+          <p class="mb-3">Ce site utilise uniquement des cookies analytiques (Google Analytics) soumis à votre consentement préalable. Aucun cookie publicitaire ou de tracking tiers n'est utilisé.</p>
+          <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="text-left p-3 font-semibold text-navy">Cookie</th>
+                <th class="text-left p-3 font-semibold text-navy">Finalité</th>
+                <th class="text-left p-3 font-semibold text-navy">Durée</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-gray-200">
+                <td class="p-3">_ga</td>
+                <td class="p-3">Mesure d'audience (Google Analytics)</td>
+                <td class="p-3">2 ans</td>
+              </tr>
+              <tr class="border-t border-gray-200">
+                <td class="p-3">_ga_*</td>
+                <td class="p-3">Mesure d'audience (Google Analytics 4)</td>
+                <td class="p-3">2 ans</td>
+              </tr>
+              <tr class="border-t border-gray-200">
+                <td class="p-3">cookie-consent</td>
+                <td class="p-3">Mémorisation de votre choix de consentement</td>
+                <td class="p-3">1 an</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Droits -->
+        <div>
+          <h2 class="text-2xl font-bold text-navy mb-4">6. Vos droits</h2>
+          <p class="mb-3">Conformément au Règlement Général sur la Protection des Données (RGPD - UE 2016/679) et aux lois applicables en Nouvelle-Calédonie, vous disposez des droits suivants :</p>
+          <ul class="space-y-2 list-disc list-inside">
+            <li><strong>Droit d'accès</strong> : obtenir une copie de vos données personnelles</li>
+            <li><strong>Droit de rectification</strong> : corriger des données inexactes</li>
+            <li><strong>Droit à l'effacement</strong> : demander la suppression de vos données</li>
+            <li><strong>Droit d'opposition</strong> : vous opposer au traitement de vos données</li>
+            <li><strong>Droit à la portabilité</strong> : recevoir vos données dans un format structuré</li>
+          </ul>
+          <p class="mt-4">Pour exercer ces droits, contactez-nous à : <a href="mailto:contact@perfeco.nc" class="text-teal hover:underline">contact@perfeco.nc</a></p>
+        </div>
+
+        <!-- Responsable -->
+        <div>
+          <h2 class="text-2xl font-bold text-navy mb-4">7. Responsable du traitement</h2>
+          <p>Le responsable du traitement des données est Jean-Michel Blaise, fondateur de PerfEco Consulting, joignable à <a href="mailto:contact@perfeco.nc" class="text-teal hover:underline">contact@perfeco.nc</a>.</p>
+        </div>
+
+        <!-- Mise à jour -->
+        <div class="text-sm text-gray-400 border-t border-gray-200 pt-6">
+          <p>Dernière mise à jour : juin 2026</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>
