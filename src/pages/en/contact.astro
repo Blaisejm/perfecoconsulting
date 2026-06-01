@@ -79,6 +79,7 @@ import Footer from '../../components/Footer.astro';
               <textarea id="sujet" name="sujet" rows="4" placeholder="Describe in a few lines the situation you would like to discuss..." class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal resize-none"></textarea>
             </div>
 
+            <div style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off" id="hp-website" /></div>
             <button type="submit" id="submit-btn" class="w-full bg-teal hover:bg-teal-dark text-white font-bold py-3 px-6 rounded-lg transition-colors shadow">
               Send my request
             </button>
@@ -152,8 +153,9 @@ import Footer from '../../components/Footer.astro';
       nom: document.getElementById('prenom').value + ' ' + document.getElementById('nom').value,
       email: document.getElementById('email').value,
       organisation: document.getElementById('fonction').value + ' — ' + document.getElementById('organisation').value,
-      message: document.getElementById('sujet').value || '(no message)'
-    };
+      message: document.getElementById('sujet').value || '(no message)',
+      honeypot: document.getElementById('hp-website').value
+        };
 
     try {
       var res = await fetch('/api/contact', {
