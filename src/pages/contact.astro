@@ -79,7 +79,7 @@ import Footer from '../components/Footer.astro';
               <textarea id="sujet" name="sujet" rows="4" placeholder="Décrivez en quelques lignes la situation que vous souhaitez aborder..." class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal resize-none"></textarea>
             </div>
 
-            <button type="submit" id="submit-btn" class="w-full bg-teal hover:bg-teal-dark text-white font-bold py-3 px-6 rounded-lg transition-colors shadow">
+            <div style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden" aria-hidden="true"><label for="website">Ne pas remplir</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off" /></div><button type="submit" id="submit-btn" class="w-full bg-teal hover:bg-teal-dark text-white font-bold py-3 px-6 rounded-lg transition-colors shadow">
               Envoyer ma demande
             </button>
 
