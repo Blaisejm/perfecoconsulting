@@ -27,6 +27,7 @@
   document.getElementById('cookie-accept').addEventListener('click', function() {
     localStorage.setItem('cookie-consent', 'accepted');
     banner.style.display = 'none';
+    if (typeof window.loadGA === 'function') window.loadGA();
   });
 
   document.getElementById('cookie-refuse').addEventListener('click', function() {
