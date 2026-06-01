@@ -1,3 +1,18 @@
+// Échappe les caractères HTML pour éviter l'injection
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+// Validation basique du format email
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 export default async (req) => {
   if (req.method !== 'POST') {
     return new Response('Method not allowed', { status: 405 });
@@ -5,14 +20,45 @@ export default async (req) => {
 
   try {
     const body = await req.json();
-    const { nom, email, organisation, message } = body;
+    const { nom, email, organisation, message, honeypot } = body;
 
+    // Protection anti-bot : le champ honeypot doit être vide
+    if (honeypot) {
+      return new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Validation des champs obligatoires
     if (!nom || !email || !message) {
       return new Response(JSON.stringify({ error: 'Champs manquants' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
+
+    // Validation format email
+    if (!isValidEmail(email)) {
+      return new Response(JSON.stringify({ error: 'Email invalide' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Limite de longueur
+    if (nom.length > 100 || email.length > 200 || message.length > 5000) {
+      return new Response(JSON.stringify({ error: 'Données trop longues' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Échappement HTML de tous les champs
+    const safeName = escapeHtml(nom);
+    const safeEmail = escapeHtml(email);
+    const safeOrg = organisation ? escapeHtml(organisation) : '';
+    const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
 
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -24,14 +70,14 @@ export default async (req) => {
         from: 'PerfEco Consulting <noreply@perfeco.nc>',
         to: ['contact@perfeco.nc'],
         reply_to: email,
-        subject: `Nouveau message de ${nom}${organisation ? ' — ' + organisation : ''}`,
+        subject: `Nouveau message de ${safeName}${safeOrg ? ' — ' + safeOrg : ''}`,
         html: `
           <h2>Nouveau message via perfeco.nc</h2>
-          <p><strong>Nom :</strong> ${nom}</p>
-          <p><strong>Email :</strong> ${email}</p>
-          ${organisation ? `<p><strong>Organisation :</strong> ${organisation}</p>` : ''}
+          <p><strong>Nom :</strong> ${safeName}</p>
+          <p><strong>Email :</strong> ${safeEmail}</p>
+          ${safeOrg ? `<p><strong>Organisation :</strong> ${safeOrg}</p>` : ''}
           <p><strong>Message :</strong></p>
-          <p>${message.replace(/\n/g, '<br>')}</p>
+          <p>${safeMessage}</p>
         `,
       }),
     });

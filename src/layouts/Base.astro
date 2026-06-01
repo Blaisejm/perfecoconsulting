@@ -1,5 +1,4 @@
 ---
-import CookieBanner from '../components/CookieBanner.astro';
 export interface Props {
   title: string;
   description?: string;
@@ -45,17 +44,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTR14WVM1B"></script>
+  <!-- Google Analytics : chargement conditionnel au consentement RGPD -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-FTR14WVM1B');
+    function loadGA() {
+      if (window._gaLoaded) return;
+      window._gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FTR14WVM1B';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-FTR14WVM1B');
+    }
+    if (localStorage.getItem('cookie-consent') === 'accepted') {
+      loadGA();
+    }
+    window.loadGA = loadGA;
   </script>
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased">
   <slot />
-  <CookieBanner />
 </body>
 </html>
