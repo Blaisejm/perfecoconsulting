@@ -1,0 +1,153 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base
+  title="Un dossier est-il encore standard ? Les 3 critères clés pour vos managers"
+  description="Complexité, montant, risque : trois critères simples pour savoir quand un dossier doit sortir du traitement standard et déclencher une validation managériale. Guide pratique PerfEco."
+>
+  <Nav />
+  <main class="pt-16">
+
+    <!-- Hero article -->
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-xs bg-teal/20 text-teal font-medium px-3 py-1 rounded-full">Gouvernance</span>
+          <span class="text-xs bg-teal/20 text-teal font-medium px-3 py-1 rounded-full">Management</span>
+          <time class="text-xs text-gray-400">Semaine du 23 juin 2026</time>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold mb-6 leading-snug">
+          Un dossier est-il encore standard ?<br>Les 3 critères que tout manager doit maîtriser
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Un dossier cesse d'être standard dès qu'il dépasse le cadre habituel en complexité, en montant ou en risque. Trois critères simples — mais dont l'absence de clarté coûte cher aux organisations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contenu article -->
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-gray">
+
+        <p class="lead text-xl text-gray-700 font-medium">
+          Dans une organisation performante, la question n'est pas seulement "qui décide ?" — c'est d'abord "comment sait-on qu'une décision nécessite une validation renforcée ?". Sans cadre clair, les équipes sous-valident ce qui devrait remonter, ou sur-valident ce qui pourrait être traité en autonomie. Les deux coûtent cher.
+        </p>
+
+        <div class="bg-gray-50 border-l-4 border-teal rounded-r-xl p-6 my-8">
+          <p class="font-semibold text-gray-800 mb-2">À retenir</p>
+          <ul class="text-gray-700 space-y-1">
+            <li><strong>Standard</strong> = connu, simple, faible risque — traitement courant</li>
+            <li><strong>Complexe</strong> = jugement nécessaire — regard managérial requis</li>
+            <li><strong>Risqué</strong> = validation renforcée — traçabilité et accord explicite</li>
+          </ul>
+        </div>
+
+        <h2>Les 3 critères principaux</h2>
+
+        <h3>1. Le niveau de complexité</h3>
+        <p>
+          Un dossier n'est plus standard dès qu'il comporte l'un de ces éléments :
+        </p>
+        <ul>
+          <li>Plusieurs cas particuliers imbriqués</li>
+          <li>Une situation inhabituelle ou sans précédent clair</li>
+          <li>Des informations incomplètes qui obligent à interpréter</li>
+          <li>Plusieurs services concernés avec des intérêts potentiellement divergents</li>
+          <li>Une difficulté d'interprétation de la règle applicable</li>
+          <li>Une exception explicite à la règle habituelle</li>
+        </ul>
+        <p>
+          La règle pratique : <strong>si le collaborateur hésite, c'est déjà un signal</strong>. L'hésitation indique que le dossier dépasse ce qui peut être traité en autonomie sans risque d'erreur.
+        </p>
+
+        <h3>2. Les montants concernés</h3>
+        <p>
+          Plus l'engagement financier est élevé, plus la décision doit être sécurisée. Cette règle est simple — mais elle suppose que l'organisation ait défini des seuils explicites :
+        </p>
+        <ul>
+          <li>Engagement financier important (au-delà du seuil de délégation)</li>
+          <li>Remise commerciale élevée hors politique tarifaire standard</li>
+          <li>Facture litigieuse dépassant un certain montant</li>
+          <li>Risque de perte ou d'avoir significatif</li>
+          <li>Impact budgétaire mesurable sur l'exercice</li>
+        </ul>
+        <p>
+          Les seuils déclencheurs doivent être <strong>documentés, connus, et stables</strong>. Un manager ne devrait pas avoir à deviner à partir de quel montant il doit consulter son N+1.
+        </p>
+
+        <h3>3. Le niveau de risque engagé</h3>
+        <p>
+          Un dossier sort du standard dès qu'il présente un risque identifiable — même potentiel :
+        </p>
+        <ul>
+          <li>Risque qualité ou sécurité (pour les clients, les équipes, les produits)</li>
+          <li>Risque de conformité réglementaire ou juridique</li>
+          <li>Risque financier ou de perte directe</li>
+          <li>Risque réputationnel (image de l'organisation)</li>
+          <li>Risque client stratégique (relation commerciale ou partenariat important)</li>
+          <li>Risque opérationnel (continuité de service, dépendances critiques)</li>
+        </ul>
+        <p>
+          La logique est simple : <strong>plus le risque est élevé, plus la décision doit être tracée et validée explicitement</strong>. Ce n'est pas une question de méfiance envers les équipes — c'est une condition de la résilience organisationnelle.
+        </p>
+
+        <h2>Les signaux complémentaires</h2>
+        <p>
+          Au-delà des trois critères principaux, certains signaux doivent systématiquement alerter un manager, même si le dossier semble simple en apparence :
+        </p>
+        <ul>
+          <li><strong>Client stratégique ou sensible</strong> — même une décision mineure peut avoir un impact majeur sur la relation</li>
+          <li><strong>Dossier urgent mais inhabituel</strong> — l'urgence ne justifie pas de court-circuiter la validation</li>
+          <li><strong>Absence de précédent clair</strong> — si personne dans l'équipe n'a déjà traité ce cas, il faut remonter</li>
+          <li><strong>Désaccord entre deux services</strong> — un conflit inter-services est toujours un signal d'escalade</li>
+          <li><strong>Impact possible sur plusieurs équipes</strong> — la transversalité justifie une coordination managériale</li>
+          <li><strong>Décision difficile à annuler</strong> — les décisions irréversibles doivent être validées à un niveau supérieur</li>
+        </ul>
+
+        <div class="bg-gray-50 border-l-4 border-teal rounded-r-xl p-6 my-8">
+          <p class="text-gray-700 font-medium">
+            <strong>La règle des signaux complémentaires :</strong> un seul de ces éléments suffit à qualifier le dossier comme "non standard". Ils ne se cumulent pas — ils s'additionnent chacun individuellement au critère de sortie du standard.
+          </p>
+        </div>
+
+        <h2>Ce que cela implique pour l'organisation</h2>
+        <p>
+          Définir ce qui est "standard" n'est pas un exercice de bureaucratie — c'est un investissement dans la fluidité et la sécurité décisionnelle. Les organisations qui ont clarifié ce cadre bénéficient de trois avantages concrets :
+        </p>
+        <ul>
+          <li><strong>Plus d'autonomie opérationnelle</strong> — les équipes traitent en confiance ce qui est dans leur périmètre</li>
+          <li><strong>Moins de sur-validation inutile</strong> — les managers se concentrent sur ce qui mérite réellement leur attention</li>
+          <li><strong>Une meilleure traçabilité</strong> — les décisions à risque sont documentées et leur validation est explicite</li>
+        </ul>
+        <p>
+          En pratique, ce cadre prend la forme d'un <strong>référentiel de qualification des dossiers</strong> : un outil simple (une page, une grille, une check-list) que chaque collaborateur peut consulter avant de décider s'il traite ou s'il escalade.
+        </p>
+
+        <div class="bg-gray-50 border-l-4 border-teal rounded-r-xl p-6 my-8">
+          <p class="text-gray-700 font-medium mb-0">
+            <strong>Vos équipes savent-elles quand escalader ?</strong><br/>
+            PerfEco accompagne les directions générales pour construire des référentiels de décision clairs, des délégations bien calibrées et des circuits de validation qui protègent sans alourdir.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-navy-dark text-white py-16 px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">Construisons votre référentiel de décision</h2>
+        <p class="text-gray-300 mb-8">En 60 minutes, nous identifions les zones de flou décisionnel dans votre organisation et posons les bases d'un cadre de qualification opérationnel.</p>
+        <a href="/contact" class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors">
+          Prendre contact →
+        </a>
+        <p class="text-gray-400 text-sm mt-4">contact@perfeco.nc — +687 73 08 75</p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>
