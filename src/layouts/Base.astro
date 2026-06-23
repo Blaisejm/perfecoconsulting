@@ -3,15 +3,17 @@ export interface Props {
   title: string;
   description?: string;
   image?: string;
+  canonicalOverride?: string;
 }
 
 const {
   title,
   description = "PerfEco Consulting accompagne les DG, DAF, COO et DSI en Nouvelle-Calédonie dans l'amélioration de leur performance organisationnelle et digitale.",
   image = '/og-image.jpg',
+  canonicalOverride,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = canonicalOverride ?? new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
