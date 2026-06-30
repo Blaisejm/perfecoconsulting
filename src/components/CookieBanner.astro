@@ -18,22 +18,21 @@
 
 <script>
   var banner = document.getElementById('cookie-banner');
-  var consent = localStorage.getItem('cookie-consent');
-
-  if (!consent) {
+  if (!localStorage.getItem('cookie-consent')) {
     banner.style.display = 'block';
   }
 
   document.getElementById('cookie-accept').addEventListener('click', function() {
     localStorage.setItem('cookie-consent', 'accepted');
     banner.style.display = 'none';
-    if (typeof window.loadGA === 'function') window.loadGA();
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
   });
 
   document.getElementById('cookie-refuse').addEventListener('click', function() {
     localStorage.setItem('cookie-consent', 'refused');
     banner.style.display = 'none';
-    // Désactiver Google Analytics
-    window['ga-disable-G-FTR14WVM1B'] = true;
+    // analytics_storage reste 'denied' (valeur par défaut Consent Mode v2)
   });
 </script>
