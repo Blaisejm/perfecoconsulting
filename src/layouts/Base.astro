@@ -46,25 +46,28 @@ const canonicalURL = canonicalOverride ?? new URL(Astro.url.pathname, Astro.site
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Google Analytics : chargement conditionnel au consentement RGPD -->
+  <!-- Google Analytics — Consent Mode v2 (RGPD compliant) -->
   <script>
-    function loadGA() {
-      if (window._gaLoaded) return;
-      window._gaLoaded = true;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FTR14WVM1B';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-FTR14WVM1B');
-    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    window.gtag = gtag;
+    // Consent Mode v2 : valeurs par défaut refusées — Google collecte des données anonymisées/modélisées
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+    // Si consentement déjà donné lors d'une visite précédente
     if (localStorage.getItem('cookie-consent') === 'accepted') {
-      loadGA();
+      gtag('consent', 'update', { analytics_storage: 'granted' });
     }
-    window.loadGA = loadGA;
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTR14WVM1B"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-FTR14WVM1B');
   </script>
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased">
