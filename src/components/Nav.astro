@@ -1,4 +1,9 @@
 ---
+interface Props {
+  langAlternate?: string;
+}
+const { langAlternate } = Astro.props;
+
 const isEN = Astro.url.pathname.startsWith('/en');
 const lang = isEN ? 'en' : 'fr';
 
@@ -24,8 +29,8 @@ const ctaLabel = isEN ? 'Free 60-min Diagnostic' : 'Diagnostic 60 min';
 const ctaHref = isEN ? '/en/contact' : '/contact';
 
 // Switcher : FR <-> EN (garde la page équivalente)
-const frPath = Astro.url.pathname.replace(/^\/en(\/|$)/, '/').replace(/\/$/, '') || '/';
-const enPath = isEN ? Astro.url.pathname : ('/en' + (Astro.url.pathname === '/' ? '' : Astro.url.pathname));
+const frPath = langAlternate && isEN ? langAlternate : (Astro.url.pathname.replace(/^\/en(\/|$)/, '/').replace(/\/$/, '') || '/');
+const enPath = langAlternate && !isEN ? langAlternate : (isEN ? Astro.url.pathname : ('/en' + (Astro.url.pathname === '/' ? '' : Astro.url.pathname)));
 
 const currentPath = Astro.url.pathname;
 ---
