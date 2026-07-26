@@ -1,0 +1,26 @@
+{
+  "semaine": "W30",
+  "date_prevue": "2026-07-28",
+  "linkedin_api_version": "202507",
+  "linkedin_company": {
+    "message": "🎯 91,5 % des mégaprojets dépassent leur budget ou leur délai — c'est la conclusion de la base de données de Bent Flyvbjerg, plus de 16 000 grands projets étudiés sur plusieurs décennies.\n\nCe n'est pas un incident isolé. Une étude McKinsey/Oxford sur 5 400 projets IT confirme : +45 % de budget en moyenne, +7 % de délai, 56 % de valeur livrée en moins que prévu.\n\n🔎 Le réflexe le plus commun face à un projet qui ralentit : chercher un responsable. Dans la pratique, c'est rarement la bonne explication.\n\n4 signaux annoncent presque toujours la dérive — souvent des mois à l'avance :\n\n① Le chef de projet devient le goulot d'étranglement — toutes les décisions remontent à une seule personne\n② Le périmètre grossit sans jamais être validé formellement\n③ Chaque mois supplémentaire coûte plus cher que le précédent\n④ Le succès n'est mesuré qu'à la fin, jamais en cours de route\n\n📌 La vraie question n'est pas : « Ce projet est-il dans les temps ? »\n\nC'est plutôt : « Qui a le droit de dire non à une extension de périmètre — et cette personne l'exerce-t-elle vraiment ? »\n\n👉 Sur votre projet le plus critique en cours : la dernière extension de périmètre a-t-elle été arbitrée, ou simplement acceptée au fil de l'eau ?\n\n🌐 Article complet : perfeco.nc/ressources/pourquoi-les-projets-ralentissent\n📩 contact@perfeco.nc\n\n#ExécutionStratégique #GestionDeProjet #Performance #Management #NouvelleCalédonie #Pacifique #PerfEco #COMEX #Leadership",
+    "image_url": "https://www.perfeco.nc/slides/W30/01-couverture-projets-ralentissent.png"
+  },
+  "facebook": {
+    "envoyer": true,
+    "message": "📌 91,5 % des mégaprojets dépassent leur budget ou leur délai (Bent Flyvbjerg, 16 000+ projets étudiés).\n\nCe n'est presque jamais un problème de compétence. 4 signaux annoncent la dérive, souvent des mois à l'avance :\n\n✅ Le chef de projet devient le goulot d'étranglement\n✅ Le périmètre grossit sans jamais être validé\n✅ Chaque mois supplémentaire coûte plus cher\n✅ Le succès n'est mesuré qu'à la fin\n\nSur votre projet le plus critique en cours : qui a le droit de dire non à une extension de périmètre ?\n\n📖 Article complet : perfeco.nc\n📞 +687 73 08 75 · contact@perfeco.nc\n\n#GestionDeProjet #Management #NouvelleCalédonie #PerfEco",
+    "image_url": "https://www.perfeco.nc/slides/W30/01-couverture-projets-ralentissent.png"
+  },
+  "linkedin_profil": {
+    "type": "carousel",
+    "message": "91,5 % des mégaprojets dépassent leur budget ou leur délai. J'ai eu besoin de vérifier ce chiffre deux fois avant d'y croire — il vient de la base de données de Bent Flyvbjerg, plus de 16 000 grands projets étudiés sur plusieurs décennies.\n\nCe qui m'a marqué en le lisant : ce n'est presque jamais un problème de compétence des équipes. C'est un chef de projet qui devient, sans le vouloir, le goulot d'étranglement de son propre projet — parce que chaque décision, même mineure, doit repasser par lui.\n\n4 signaux reviennent systématiquement avant qu'un projet ne dérape vraiment. Le carrousel de la semaine les détaille, avec la question à se poser pour repérer où ça coince sur vos projets en cours.\n\n👉 Sur votre projet le plus critique en ce moment : qui a le droit de dire non à une extension de périmètre ?\n\n#PerfEco #ExécutionStratégique #GestionDeProjet #NouvelleCalédonie",
+    "image_urls": [
+      "https://www.perfeco.nc/slides/W30/01-couverture-projets-ralentissent.png",
+      "https://www.perfeco.nc/slides/W30/02-les-chiffres.png",
+      "https://www.perfeco.nc/slides/W30/03-pas-un-probleme-de-competence.png",
+      "https://www.perfeco.nc/slides/W30/04-les-4-signaux.png",
+      "https://www.perfeco.nc/slides/W30/05-question-diagnostic.png",
+      "https://www.perfeco.nc/slides/W30/06-cta-projets.png"
+    ]
+  }
+}
