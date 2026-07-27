@@ -16,7 +16,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 'lts/*'
 
       - name: WordPress — articles publiés cette semaine + planifiés
         id: wordpress
@@ -47,7 +47,7 @@ jobs:
         continue-on-error: true
         env:
           GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
-        run: node scripts/ga4-report.js > ga4.json && cat ga4.json
+        run: node scripts/ga4-report.cjs > ga4.json && cat ga4.json
 
       - name: Facebook — fan_count + insights page (niveau officiel API)
         id: facebook
