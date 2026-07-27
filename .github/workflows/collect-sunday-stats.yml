@@ -84,10 +84,16 @@ jobs:
             '{semaine: $semaine, collecte_le: $date, wordpress: $wordpress, ga4: $ga4, facebook: $facebook}' \
             > automation-queue/rapport-dimanche-api.json
 
-          cat automation-queue/rapport-dimanche-api.json
+          echo "Résumé (voir le fichier complet dans automation-queue/rapport-dimanche-api.json) :"
+          jq '{semaine, collecte_le, wordpress: {articles_published: .wordpress.articles_published}, ga4_perfeco: .ga4.ga4_perfeco, ga4_perfsystemique: .ga4.ga4_perfsystemique, facebook}' automation-queue/rapport-dimanche-api.json
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Toujours se resynchroniser avant de pousser — évite un rejet "non-fast-forward"
+          # si la branche distante a avancé depuis le checkout (ex. relance d'un ancien run).
+          git pull --no-edit origin main
+
           git add automation-queue/rapport-dimanche-api.json
           if ! git diff --cached --quiet; then
             git commit -m "chore: collecte stats dimanche (WordPress/GA4/Facebook) — $DATE_NC"
