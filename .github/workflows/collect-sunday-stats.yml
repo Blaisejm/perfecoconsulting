@@ -1,0 +1,109 @@
+name: PerfEco — Collecte statistiques dimanche (WordPress + GA4 + Facebook)
+
+on:
+  schedule:
+    - cron: '30 20 * * 6'  # Samedi 20h30 UTC = dimanche 07h30 Nouvelle-Calédonie (30 min avant la routine locale 08h02)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: WordPress — articles publiés cette semaine + planifiés
+        id: wordpress
+        continue-on-error: true
+        env:
+          WP_LOGIN: ${{ secrets.WP_LOGIN }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          AUTH=$(echo -n "$WP_LOGIN:$WP_APP_PASSWORD" | base64 -w0)
+          DEPUIS=$(date -u -d '-7 days' +%Y-%m-%dT00:00:00)
+
+          PUBLISHED=$(curl -sf -H "Authorization: Basic $AUTH" \
+            "https://perfsystemique.fr/wp-json/wp/v2/posts?per_page=5&orderby=date&order=desc&status=publish&after=$DEPUIS" || echo "[]")
+          FUTURE=$(curl -sf -H "Authorization: Basic $AUTH" \
+            "https://perfsystemique.fr/wp-json/wp/v2/posts?per_page=5&orderby=date&order=asc&status=future" || echo "[]")
+
+          ARTICLE_COUNT=$(echo "$PUBLISHED" | jq 'length')
+          COMMENT_TOTAL=$(echo "$PUBLISHED" | jq '[.[].comment_count] | add // 0')
+
+          jq -n --argjson count "$ARTICLE_COUNT" --argjson comments "$COMMENT_TOTAL" \
+            --argjson published "$PUBLISHED" --argjson future "$FUTURE" \
+            '{articles_published: $count, comments_total: $comments, published: $published, upcoming: $future}' > wordpress.json
+
+          cat wordpress.json
+
+      - name: GA4 — perfeco.nc + perfsystemique.fr
+        id: ga4
+        continue-on-error: true
+        env:
+          GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/ga4-report.js > ga4.json && cat ga4.json
+
+      - name: Facebook — fan_count + insights page (niveau officiel API)
+        id: facebook
+        continue-on-error: true
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          PAGE_ID="552866114572775"
+          PAGE_INFO=$(curl -sf "https://graph.facebook.com/v20.0/$PAGE_ID?fields=fan_count,name&access_token=$FB_PAGE_TOKEN" || echo "{}")
+          INSIGHTS=$(curl -sf "https://graph.facebook.com/v20.0/$PAGE_ID/insights?metric=page_post_engagements,page_views_total&period=week&access_token=$FB_PAGE_TOKEN" || echo "{}")
+
+          FAN_COUNT=$(echo "$PAGE_INFO" | jq '.fan_count // 0')
+          ENGAGEMENTS=$(echo "$INSIGHTS" | jq '[.data[]? | select(.name=="page_post_engagements") | .values[-1].value][0] // 0')
+          VIEWS=$(echo "$INSIGHTS" | jq '[.data[]? | select(.name=="page_views_total") | .values[-1].value][0] // 0')
+
+          jq -n --argjson fan "$FAN_COUNT" --argjson eng "$ENGAGEMENTS" --argjson views "$VIEWS" \
+            '{fan_count: $fan, page_post_engagements_week: $eng, page_views_week: $views}' > facebook.json
+
+          cat facebook.json
+
+      - name: Assembler et pousser le fichier de résultats
+        if: always()
+        run: |
+          SEMAINE=$(date -u -d '+11 hours' +%G-W%V)
+          DATE_NC=$(date -u -d '+11 hours' +%Y-%m-%d)
+
+          WP=$(cat wordpress.json 2>/dev/null || echo 'null')
+          GA4=$(cat ga4.json 2>/dev/null || echo 'null')
+          FB=$(cat facebook.json 2>/dev/null || echo 'null')
+
+          mkdir -p automation-queue
+          jq -n --arg semaine "$SEMAINE" --arg date "$DATE_NC" \
+            --argjson wordpress "$WP" --argjson ga4 "$GA4" --argjson facebook "$FB" \
+            '{semaine: $semaine, collecte_le: $date, wordpress: $wordpress, ga4: $ga4, facebook: $facebook}' \
+            > automation-queue/rapport-dimanche-api.json
+
+          cat automation-queue/rapport-dimanche-api.json
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add automation-queue/rapport-dimanche-api.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: collecte stats dimanche (WordPress/GA4/Facebook) — $DATE_NC"
+            git push
+          else
+            echo "Rien à committer (données identiques à la dernière collecte)."
+          fi
+
+      - name: Vérifier les résultats et faire échouer le job si besoin
+        if: always()
+        run: |
+          echo "WordPress : ${{ steps.wordpress.outcome }}"
+          echo "GA4 : ${{ steps.ga4.outcome }}"
+          echo "Facebook : ${{ steps.facebook.outcome }}"
+          if [ "${{ steps.wordpress.outcome }}" = "failure" ] || [ "${{ steps.ga4.outcome }}" = "failure" ] || [ "${{ steps.facebook.outcome }}" = "failure" ]; then
+            echo "::error::Au moins une source a échoué — voir les logs des étapes ci-dessus. Le rapport local du dimanche utilisera des données partielles."
+            exit 1
+          fi
+          echo "✅ Toutes les sources collectées sans erreur."
