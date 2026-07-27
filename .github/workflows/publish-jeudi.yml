@@ -1,0 +1,119 @@
+name: PerfEco — Publication jeudi (post court)
+
+on:
+  schedule:
+    - cron: '0 0 * * 4'  # Jeudi 00h00 UTC = 11h00 Nouvelle-Calédonie
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Vérifier la fraîcheur du contenu
+        run: |
+          set -e
+          FILE="automation-queue/jeudi.json"
+          if [ ! -f "$FILE" ]; then
+            echo "::error::Fichier $FILE introuvable."
+            exit 1
+          fi
+          DATE_PREVUE=$(jq -r '.date_prevue' "$FILE")
+          TODAY_NC=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          if [ "$DATE_PREVUE" != "$TODAY_NC" ]; then
+            echo "::error::date_prevue=$DATE_PREVUE ne correspond pas à aujourd'hui NC ($TODAY_NC). Abandon."
+            exit 1
+          fi
+          echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
+
+      - name: LinkedIn Company Page (Make.com)
+        id: li_company
+        continue-on-error: true
+        run: |
+          FILE="automation-queue/jeudi.json"
+          MESSAGE=$(jq -r '.linkedin_company.message' "$FILE")
+          IMAGE_URL=$(jq -r '.linkedin_company.image_url' "$FILE")
+          SEMAINE=$(jq -r '.semaine' "$FILE")
+          PAYLOAD=$(jq -n --arg msg "$MESSAGE" --arg img "$IMAGE_URL" --arg sem "$SEMAINE" '{message:$msg, image_url:$img, semaine:$sem}')
+          HTTP_CODE=$(curl -s -o /tmp/li.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/eq9mpaycqgaxir6eqew6514mtqcytt9d" -H "Content-Type: application/json; charset=utf-8" -d "$PAYLOAD")
+          echo "HTTP $HTTP_CODE"; cat /tmp/li.txt
+          [ "$HTTP_CODE" = "200" ]
+
+      - name: Facebook
+        id: facebook
+        continue-on-error: true
+        run: |
+          FILE="automation-queue/jeudi.json"
+          ENVOYER=$(jq -r '.facebook.envoyer' "$FILE")
+          if [ "$ENVOYER" != "true" ]; then
+            echo "Ignoré (facebook.envoyer=false)."
+            exit 0
+          fi
+          MESSAGE=$(jq -r '.facebook.message' "$FILE")
+          IMAGE_URL=$(jq -r '.facebook.image_url' "$FILE")
+          SEMAINE=$(jq -r '.semaine' "$FILE")
+          PAYLOAD=$(jq -n --arg msg "$MESSAGE" --arg img "$IMAGE_URL" --arg sem "$SEMAINE" '{message:$msg, image_url:$img, semaine:$sem}')
+          HTTP_CODE=$(curl -s -o /tmp/fb.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/7wp4lv77tq234ckyk6lh9npn5aoh4qlq" -H "Content-Type: application/json; charset=utf-8" -d "$PAYLOAD")
+          echo "HTTP $HTTP_CODE"; cat /tmp/fb.txt
+          [ "$HTTP_CODE" = "200" ]
+
+      - name: LinkedIn profil perso (post court, publication directe)
+        id: li_profil
+        continue-on-error: true
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+        run: |
+          set -e
+          FILE="automation-queue/jeudi.json"
+          MEMBER_URN="urn:li:person:e0QUppRUQ8"
+          API_VERSION=$(jq -r '.linkedin_api_version' "$FILE")
+          MESSAGE=$(jq -r '.linkedin_profil.message' "$FILE")
+          URL=$(jq -r '.linkedin_profil.image_urls[0]' "$FILE")
+
+          curl -sf "$URL" -o slide.png
+
+          INIT=$(curl -sf -X POST "https://api.linkedin.com/rest/images?action=initializeUpload" \
+            -H "Authorization: Bearer $LINKEDIN_TOKEN" \
+            -H "LinkedIn-Version: $API_VERSION" \
+            -H "X-Restli-Protocol-Version: 2.0.0" \
+            -H "Content-Type: application/json" \
+            -d "{\"initializeUploadRequest\":{\"owner\":\"$MEMBER_URN\"}}")
+
+          UPLOAD_URL=$(echo "$INIT" | jq -r '.value.uploadUrl // empty')
+          URN=$(echo "$INIT" | jq -r '.value.image // empty')
+
+          if [ -z "$UPLOAD_URL" ]; then
+            echo "::error::Échec init upload — réponse: $INIT"
+            if echo "$INIT" | grep -q "NONEXISTENT_VERSION"; then
+              echo "::error::426 NONEXISTENT_VERSION — mettre à jour linkedin_api_version dans automation-queue/jeudi.json ET mardi.json"
+            fi
+            exit 1
+          fi
+
+          curl -sf -X PUT "$UPLOAD_URL" -H "Authorization: Bearer $LINKEDIN_TOKEN" -H "Content-Type: image/png" --data-binary "@slide.png"
+
+          POST_BODY=$(jq -n --arg author "$MEMBER_URN" --arg msg "$MESSAGE" --arg urn "$URN" \
+            '{author:$author, commentary:$msg, visibility:"PUBLIC", distribution:{feedDistribution:"MAIN_FEED", targetEntities:[], thirdPartyDistributionChannels:[]}, content:{article:null, media:{id:$urn, title:""}}, lifecycleState:"PUBLISHED"}')
+
+          HTTP_CODE=$(curl -s -o /tmp/lip.txt -w "%{http_code}" -X POST "https://api.linkedin.com/rest/posts" \
+            -H "Authorization: Bearer $LINKEDIN_TOKEN" \
+            -H "LinkedIn-Version: $API_VERSION" \
+            -H "X-Restli-Protocol-Version: 2.0.0" \
+            -H "Content-Type: application/json" \
+            -d "$POST_BODY")
+
+          echo "HTTP $HTTP_CODE"; cat /tmp/lip.txt
+          [ "$HTTP_CODE" = "201" ]
+
+      - name: Vérifier les résultats et faire échouer le job si besoin
+        if: always()
+        run: |
+          echo "LinkedIn Company Page : ${{ steps.li_company.outcome }}"
+          echo "Facebook : ${{ steps.facebook.outcome }}"
+          echo "LinkedIn profil perso : ${{ steps.li_profil.outcome }}"
+          if [ "${{ steps.li_company.outcome }}" = "failure" ] || [ "${{ steps.li_profil.outcome }}" = "failure" ] || [ "${{ steps.facebook.outcome }}" = "failure" ]; then
+            echo "::error::Au moins un canal a échoué — voir les logs des étapes ci-dessus."
+            exit 1
+          fi
+          echo "✅ Tous les canaux tentés se sont terminés sans erreur (profil perso publié directement)."
