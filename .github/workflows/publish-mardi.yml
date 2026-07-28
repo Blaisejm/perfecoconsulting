@@ -29,7 +29,6 @@ jobs:
 
       - name: LinkedIn Company Page (Make.com)
         id: li_company
-        if: false  # ⚠️ TEMPORAIRE 28/07 — déjà publié avec succès ce matin, désactivé pour tester uniquement le profil perso sans doublon. RÉACTIVER après test (retirer cette ligne).
         continue-on-error: true
         run: |
           FILE="automation-queue/mardi.json"
