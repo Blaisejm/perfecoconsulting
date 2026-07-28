@@ -1,0 +1,61 @@
+name: PerfEco — Vérification santé Make.com
+
+on:
+  schedule:
+    - cron: '0 20 * * 0,1,3'  # Dim/Lun/Mer 20h00 UTC = Lun/Mar/Jeu 07h00 Nouvelle-Calédonie (avant chaque jour de publication)
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vérifier scénario Facebook (Integration Webhooks — 6233263)
+        id: fb
+        continue-on-error: true
+        env:
+          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
+        run: |
+          HTTP_CODE=$(curl -s -o /tmp/fb.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6233263")
+          echo "HTTP $HTTP_CODE"; cat /tmp/fb.json
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::Impossible d'interroger le scénario Facebook (6233263) — HTTP $HTTP_CODE"
+            exit 1
+          fi
+          IS_ACTIVE=$(jq -r '.scenario.isActive' /tmp/fb.json)
+          echo "isActive=$IS_ACTIVE"
+          if [ "$IS_ACTIVE" != "true" ]; then
+            echo "::error::Scénario Facebook (Integration Webhooks, 6233263) INACTIF — https://eu1.make.com/1970457/scenarios/6233263/edit — vérifier la queue puis réactiver."
+            exit 1
+          fi
+          echo "✅ Scénario Facebook actif."
+
+      - name: Vérifier scénario LinkedIn (Integration Webhooks, LinkedIn — 6249513)
+        id: li
+        continue-on-error: true
+        env:
+          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
+        run: |
+          HTTP_CODE=$(curl -s -o /tmp/li.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6249513")
+          echo "HTTP $HTTP_CODE"; cat /tmp/li.json
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::Impossible d'interroger le scénario LinkedIn (6249513) — HTTP $HTTP_CODE"
+            exit 1
+          fi
+          IS_ACTIVE=$(jq -r '.scenario.isActive' /tmp/li.json)
+          echo "isActive=$IS_ACTIVE"
+          if [ "$IS_ACTIVE" != "true" ]; then
+            echo "::error::Scénario LinkedIn (Integration Webhooks, LinkedIn, 6249513) INACTIF — https://eu1.make.com/1970457/scenarios/6249513/edit — vérifier la queue puis réactiver."
+            exit 1
+          fi
+          echo "✅ Scénario LinkedIn actif."
+
+      - name: Résumé
+        if: always()
+        run: |
+          echo "Facebook : ${{ steps.fb.outcome }}"
+          echo "LinkedIn : ${{ steps.li.outcome }}"
+          if [ "${{ steps.fb.outcome }}" = "failure" ] || [ "${{ steps.li.outcome }}" = "failure" ]; then
+            echo "::error::Au moins un scénario Make.com est inactif ou injoignable — voir logs ci-dessus. Corriger AVANT le prochain lancement de publication."
+            exit 1
+          fi
+          echo "✅ Les 2 scénarios Make.com sont actifs."
