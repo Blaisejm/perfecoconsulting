@@ -29,7 +29,6 @@ jobs:
 
       - name: LinkedIn Company Page (Make.com)
         id: li_company
-        if: false  # ⚠️ TEMPORAIRE 28/07 (2e fois) — un seul test de plus pour confirmer le profil perso avec la version 202508, sans doublon. RÉACTIVER juste après.
         continue-on-error: true
         run: |
           FILE="automation-queue/mardi.json"
