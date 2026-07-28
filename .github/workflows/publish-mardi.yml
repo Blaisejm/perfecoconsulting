@@ -35,8 +35,22 @@ jobs:
           MESSAGE=$(jq -r '.linkedin_company.message' "$FILE")
           IMAGE_URL=$(jq -r '.linkedin_company.image_url' "$FILE")
           SEMAINE=$(jq -r '.semaine' "$FILE")
-          PAYLOAD=$(jq -n --arg msg "$MESSAGE" --arg img "$IMAGE_URL" --arg sem "$SEMAINE" '{message:$msg, image_url:$img, semaine:$sem}')
-          HTTP_CODE=$(curl -s -o /tmp/li.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/eq9mpaycqgaxir6eqew6514mtqcytt9d" -H "Content-Type: application/json; charset=utf-8" -d "$PAYLOAD")
+
+          echo "DEBUG: longueur MESSAGE=${#MESSAGE} caractères"
+          echo "DEBUG: IMAGE_URL=$IMAGE_URL"
+          echo "DEBUG: SEMAINE=$SEMAINE"
+
+          jq -n --arg msg "$MESSAGE" --arg img "$IMAGE_URL" --arg sem "$SEMAINE" '{message:$msg, image_url:$img, semaine:$sem}' > /tmp/payload.json
+
+          echo "DEBUG: taille du fichier payload en octets :"
+          wc -c < /tmp/payload.json
+          echo "DEBUG: 200 premiers caractères du payload :"
+          head -c 200 /tmp/payload.json
+          echo ""
+          echo "DEBUG: validité JSON du payload :"
+          jq empty /tmp/payload.json && echo "JSON valide" || echo "JSON INVALIDE"
+
+          HTTP_CODE=$(curl -s -o /tmp/li.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/eq9mpaycqgaxir6eqew6514mtqcytt9d" -H "Content-Type: application/json; charset=utf-8" --data-binary @/tmp/payload.json)
           echo "HTTP $HTTP_CODE"; cat /tmp/li.txt
           [ "$HTTP_CODE" = "200" ]
 
