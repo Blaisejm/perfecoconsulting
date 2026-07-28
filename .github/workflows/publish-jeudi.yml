@@ -71,37 +71,56 @@ jobs:
           MESSAGE=$(jq -r '.linkedin_profil.message' "$FILE")
           URL=$(jq -r '.linkedin_profil.image_urls[0]' "$FILE")
 
-          curl -sf "$URL" -o slide.png
+          echo "DEBUG: API_VERSION=$API_VERSION"
+          echo "DEBUG: longueur MESSAGE=${#MESSAGE} caractères"
 
-          INIT=$(curl -sf -X POST "https://api.linkedin.com/rest/images?action=initializeUpload" \
+          DL_CODE=$(curl -s -o slide.png -w "%{http_code}" "$URL")
+          echo "DEBUG: téléchargement image -> HTTP $DL_CODE"
+          if [ "$DL_CODE" != "200" ]; then
+            echo "::error::Échec téléchargement slide ($URL) — HTTP $DL_CODE"
+            exit 1
+          fi
+
+          jq -n --arg owner "$MEMBER_URN" '{initializeUploadRequest:{owner:$owner}}' > /tmp/init_body.json
+          INIT_CODE=$(curl -s -o /tmp/init.json -w "%{http_code}" -X POST "https://api.linkedin.com/rest/images?action=initializeUpload" \
             -H "Authorization: Bearer $LINKEDIN_TOKEN" \
             -H "LinkedIn-Version: $API_VERSION" \
             -H "X-Restli-Protocol-Version: 2.0.0" \
             -H "Content-Type: application/json" \
-            -d "{\"initializeUploadRequest\":{\"owner\":\"$MEMBER_URN\"}}")
+            --data-binary @/tmp/init_body.json)
+          echo "DEBUG: initializeUpload -> HTTP $INIT_CODE"
+          cat /tmp/init.json
 
-          UPLOAD_URL=$(echo "$INIT" | jq -r '.value.uploadUrl // empty')
-          URN=$(echo "$INIT" | jq -r '.value.image // empty')
+          UPLOAD_URL=$(jq -r '.value.uploadUrl // empty' /tmp/init.json)
+          URN=$(jq -r '.value.image // empty' /tmp/init.json)
 
           if [ -z "$UPLOAD_URL" ]; then
-            echo "::error::Échec init upload — réponse: $INIT"
-            if echo "$INIT" | grep -q "NONEXISTENT_VERSION"; then
+            echo "::error::Échec init upload — HTTP $INIT_CODE, réponse ci-dessus"
+            if grep -q "NONEXISTENT_VERSION" /tmp/init.json; then
               echo "::error::426 NONEXISTENT_VERSION — mettre à jour linkedin_api_version dans automation-queue/jeudi.json ET mardi.json"
             fi
             exit 1
           fi
 
-          curl -sf -X PUT "$UPLOAD_URL" -H "Authorization: Bearer $LINKEDIN_TOKEN" -H "Content-Type: image/png" --data-binary "@slide.png"
+          PUT_CODE=$(curl -s -o /tmp/put.txt -w "%{http_code}" -X PUT "$UPLOAD_URL" -H "Authorization: Bearer $LINKEDIN_TOKEN" -H "Content-Type: image/png" --data-binary "@slide.png")
+          echo "DEBUG: upload PUT -> HTTP $PUT_CODE"
+          if [ "$PUT_CODE" != "201" ] && [ "$PUT_CODE" != "200" ]; then
+            echo "::error::Échec upload PUT — HTTP $PUT_CODE"
+            cat /tmp/put.txt
+            exit 1
+          fi
 
-          POST_BODY=$(jq -n --arg author "$MEMBER_URN" --arg msg "$MESSAGE" --arg urn "$URN" \
-            '{author:$author, commentary:$msg, visibility:"PUBLIC", distribution:{feedDistribution:"MAIN_FEED", targetEntities:[], thirdPartyDistributionChannels:[]}, content:{article:null, media:{id:$urn, title:""}}, lifecycleState:"PUBLISHED"}')
+          jq -n --arg author "$MEMBER_URN" --arg msg "$MESSAGE" --arg urn "$URN" \
+            '{author:$author, commentary:$msg, visibility:"PUBLIC", distribution:{feedDistribution:"MAIN_FEED", targetEntities:[], thirdPartyDistributionChannels:[]}, content:{article:null, media:{id:$urn, title:""}}, lifecycleState:"PUBLISHED"}' > /tmp/post_body.json
+
+          echo "DEBUG: taille POST_BODY :"; wc -c < /tmp/post_body.json
 
           HTTP_CODE=$(curl -s -o /tmp/lip.txt -w "%{http_code}" -X POST "https://api.linkedin.com/rest/posts" \
             -H "Authorization: Bearer $LINKEDIN_TOKEN" \
             -H "LinkedIn-Version: $API_VERSION" \
             -H "X-Restli-Protocol-Version: 2.0.0" \
             -H "Content-Type: application/json" \
-            -d "$POST_BODY")
+            --data-binary @/tmp/post_body.json)
 
           echo "HTTP $HTTP_CODE"; cat /tmp/lip.txt
           [ "$HTTP_CODE" = "201" ]
