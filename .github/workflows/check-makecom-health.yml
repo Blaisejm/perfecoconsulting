@@ -1,4 +1,4 @@
-name: PerfEco — Vérification santé Make.com
+name: PerfEco — Vérification santé Make.com & API LinkedIn
 
 on:
   schedule:
@@ -9,6 +9,8 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - name: Vérifier scénario Facebook (Integration Webhooks — 6233263)
         id: fb
         continue-on-error: true
@@ -49,13 +51,52 @@ jobs:
           fi
           echo "✅ Scénario LinkedIn actif."
 
+      - name: Vérifier version API LinkedIn (426 NONEXISTENT_VERSION)
+        id: li_version
+        continue-on-error: true
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+        run: |
+          MEMBER_URN="urn:li:person:e0QUppRUQ8"
+          API_VERSION=$(jq -r '.linkedin_api_version' automation-queue/mardi.json)
+          echo "DEBUG: API_VERSION=$API_VERSION (source : automation-queue/mardi.json)"
+
+          if [ -f automation-queue/jeudi.json ]; then
+            API_VERSION_JEUDI=$(jq -r '.linkedin_api_version' automation-queue/jeudi.json)
+            if [ "$API_VERSION_JEUDI" != "$API_VERSION" ]; then
+              echo "::warning::linkedin_api_version diffère entre mardi.json ($API_VERSION) et jeudi.json ($API_VERSION_JEUDI) — à aligner."
+            fi
+          fi
+
+          jq -n --arg owner "$MEMBER_URN" '{initializeUploadRequest:{owner:$owner}}' > /tmp/li_version_body.json
+          HTTP_CODE=$(curl -s -o /tmp/li_version.json -w "%{http_code}" -X POST "https://api.linkedin.com/rest/images?action=initializeUpload" \
+            -H "Authorization: Bearer $LINKEDIN_TOKEN" \
+            -H "LinkedIn-Version: $API_VERSION" \
+            -H "X-Restli-Protocol-Version: 2.0.0" \
+            -H "Content-Type: application/json" \
+            --data-binary @/tmp/li_version_body.json)
+          echo "HTTP $HTTP_CODE"; cat /tmp/li_version.json
+
+          if [ "$HTTP_CODE" = "426" ] || grep -q "NONEXISTENT_VERSION" /tmp/li_version.json; then
+            echo "::error::linkedin_api_version=$API_VERSION expiré (426 NONEXISTENT_VERSION) — mettre à jour automation-queue/mardi.json ET jeudi.json avec une version récente (format AAAAMM, ex. $(date +%Y%m))."
+            exit 1
+          fi
+
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::Appel initializeUpload LinkedIn inattendu — HTTP $HTTP_CODE (voir réponse ci-dessus). Vérifier LINKEDIN_TOKEN ou la disponibilité de l'API LinkedIn."
+            exit 1
+          fi
+
+          echo "✅ Version API LinkedIn ($API_VERSION) valide."
+
       - name: Résumé
         if: always()
         run: |
-          echo "Facebook : ${{ steps.fb.outcome }}"
-          echo "LinkedIn : ${{ steps.li.outcome }}"
-          if [ "${{ steps.fb.outcome }}" = "failure" ] || [ "${{ steps.li.outcome }}" = "failure" ]; then
-            echo "::error::Au moins un scénario Make.com est inactif ou injoignable — voir logs ci-dessus. Corriger AVANT le prochain lancement de publication."
+          echo "Facebook (Make.com) : ${{ steps.fb.outcome }}"
+          echo "LinkedIn (Make.com) : ${{ steps.li.outcome }}"
+          echo "Version API LinkedIn : ${{ steps.li_version.outcome }}"
+          if [ "${{ steps.fb.outcome }}" = "failure" ] || [ "${{ steps.li.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ]; then
+            echo "::error::Au moins une vérification a échoué — voir logs ci-dessus. Corriger AVANT le prochain lancement de publication."
             exit 1
           fi
-          echo "✅ Les 2 scénarios Make.com sont actifs."
+          echo "✅ Scénarios Make.com actifs et version API LinkedIn valide."
