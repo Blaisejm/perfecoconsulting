@@ -1,4 +1,4 @@
-name: PerfEco — Vérification santé Make.com & API LinkedIn
+name: PerfEco — Vérification santé pré-publication (Make.com, API LinkedIn, WordPress)
 
 on:
   schedule:
@@ -89,14 +89,67 @@ jobs:
 
           echo "✅ Version API LinkedIn ($API_VERSION) valide."
 
+      - name: Vérifier l'article WordPress avant publication (mardi 11h03)
+        id: wp_check
+        continue-on-error: true
+        env:
+          WP_LOGIN: ${{ secrets.WP_LOGIN }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          TODAY_DOW=$(TZ="Pacific/Noumea" date +%u)
+          if [ "$TODAY_DOW" != "2" ]; then
+            echo "Pas mardi (jour NC=$TODAY_DOW) — aucun article WordPress à vérifier aujourd'hui."
+            exit 0
+          fi
+
+          FILE="automation-queue/mardi.json"
+          POST_ID=$(jq -r '.wordpress_post_id // empty' "$FILE")
+          if [ -z "$POST_ID" ]; then
+            echo "::error::Champ wordpress_post_id absent de $FILE — impossible de vérifier l'article avant la publication de 11h03. L'ajouter lors de la préparation du brief hebdomadaire (perfeco-brief-hebdomadaire, étape 4.9)."
+            exit 1
+          fi
+
+          AUTH=$(printf '%s:%s' "$WP_LOGIN" "$WP_APP_PASSWORD" | base64 -w0)
+          HTTP_CODE=$(curl -s -o /tmp/wp_post.json -w "%{http_code}" -H "Authorization: Basic $AUTH" "https://perfsystemique.fr/wp-json/wp/v2/posts/$POST_ID?context=edit")
+          echo "HTTP $HTTP_CODE"
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::Impossible de récupérer l'article WordPress #$POST_ID — HTTP $HTTP_CODE"
+            exit 1
+          fi
+
+          STATUS=$(jq -r '.status' /tmp/wp_post.json)
+          CATEGORIES=$(jq -r '.categories | join(",")' /tmp/wp_post.json)
+          TAGS_COUNT=$(jq -r '.tags | length' /tmp/wp_post.json)
+          echo "status=$STATUS categories=$CATEGORIES tags_count=$TAGS_COUNT"
+
+          FAIL=0
+          if [ "$STATUS" != "future" ] && [ "$STATUS" != "publish" ]; then
+            echo "::error::Article WordPress #$POST_ID a le statut '$STATUS' (attendu : future ou publish) — https://perfsystemique.fr/wp-admin/post.php?post=$POST_ID&action=edit"
+            FAIL=1
+          fi
+          if [ "$CATEGORIES" = "1" ] || [ -z "$CATEGORIES" ]; then
+            echo "::error::Article WordPress #$POST_ID est encore dans la catégorie 'Uncategorized' (ID 1) ou sans catégorie — https://perfsystemique.fr/wp-admin/post.php?post=$POST_ID&action=edit"
+            FAIL=1
+          fi
+          if [ "$TAGS_COUNT" = "0" ]; then
+            echo "::error::Article WordPress #$POST_ID n'a aucune étiquette — https://perfsystemique.fr/wp-admin/post.php?post=$POST_ID&action=edit"
+            FAIL=1
+          fi
+
+          if [ "$FAIL" = "1" ]; then
+            exit 1
+          fi
+          echo "✅ Article WordPress #$POST_ID prêt (statut=$STATUS, catégorie(s)=$CATEGORIES, $TAGS_COUNT étiquette(s))."
+
       - name: Résumé
         if: always()
         run: |
           echo "Facebook (Make.com) : ${{ steps.fb.outcome }}"
           echo "LinkedIn (Make.com) : ${{ steps.li.outcome }}"
           echo "Version API LinkedIn : ${{ steps.li_version.outcome }}"
-          if [ "${{ steps.fb.outcome }}" = "failure" ] || [ "${{ steps.li.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ]; then
+          echo "Article WordPress : ${{ steps.wp_check.outcome }}"
+          if [ "${{ steps.fb.outcome }}" = "failure" ] || [ "${{ steps.li.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ]; then
             echo "::error::Au moins une vérification a échoué — voir logs ci-dessus. Corriger AVANT le prochain lancement de publication."
             exit 1
           fi
-          echo "✅ Scénarios Make.com actifs et version API LinkedIn valide."
+          echo "✅ Scénarios Make.com actifs, version API LinkedIn valide, article WordPress prêt (si mardi)."
