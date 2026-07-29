@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 20 * * 0,1,3'  # Dim/Lun/Mer 20h00 UTC = Lun/Mar/Jeu 07h00 Nouvelle-Calédonie (avant chaque jour de publication)
   workflow_dispatch:
+    inputs:
+      force_wp_check:
+        description: "Forcer la vérification WordPress même si ce n'est pas mardi (test manuel)"
+        type: boolean
+        default: false
 
 jobs:
   check:
@@ -97,7 +102,7 @@ jobs:
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
         run: |
           TODAY_DOW=$(TZ="Pacific/Noumea" date +%u)
-          if [ "$TODAY_DOW" != "2" ]; then
+          if [ "$TODAY_DOW" != "2" ] && [ "${{ inputs.force_wp_check }}" != "true" ]; then
             echo "Pas mardi (jour NC=$TODAY_DOW) — aucun article WordPress à vérifier aujourd'hui."
             exit 0
           fi
