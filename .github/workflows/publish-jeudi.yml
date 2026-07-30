@@ -29,6 +29,7 @@ jobs:
 
       - name: LinkedIn Company Page (Make.com)
         id: li_company
+        if: false  # ⚠️ TEMPORAIRE 30/07 — déjà publié avec succès ce jour, test isolé du fix li_profil (422). RÉACTIVER après confirmation.
         continue-on-error: true
         run: |
           FILE="automation-queue/jeudi.json"
@@ -42,6 +43,7 @@ jobs:
 
       - name: Facebook
         id: facebook
+        if: false  # ⚠️ TEMPORAIRE 30/07 — déjà publié avec succès ce jour, test isolé du fix li_profil (422). RÉACTIVER après confirmation.
         continue-on-error: true
         run: |
           FILE="automation-queue/jeudi.json"
