@@ -5,6 +5,9 @@ on:
     - cron: '0 0 * * 4'  # Jeudi 00h00 UTC = 11h00 Nouvelle-Calédonie
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -115,7 +118,7 @@ jobs:
 
           echo "DEBUG: taille POST_BODY :"; wc -c < /tmp/post_body.json
 
-          HTTP_CODE=$(curl -s -o /tmp/lip.txt -w "%{http_code}" -X POST "https://api.linkedin.com/rest/posts" \
+          HTTP_CODE=$(curl -s -D /tmp/lip_headers.txt -o /tmp/lip.txt -w "%{http_code}" -X POST "https://api.linkedin.com/rest/posts" \
             -H "Authorization: Bearer $LINKEDIN_TOKEN" \
             -H "LinkedIn-Version: $API_VERSION" \
             -H "X-Restli-Protocol-Version: 2.0.0" \
@@ -123,7 +126,35 @@ jobs:
             --data-binary @/tmp/post_body.json)
 
           echo "HTTP $HTTP_CODE"; cat /tmp/lip.txt
-          [ "$HTTP_CODE" = "201" ]
+          if [ "$HTTP_CODE" != "201" ]; then
+            exit 1
+          fi
+
+          POST_URN=$(grep -i '^x-restli-id:' /tmp/lip_headers.txt | tr -d '\r' | cut -d' ' -f2-)
+          if [ -z "$POST_URN" ]; then
+            POST_URN=$(jq -r '.id // empty' /tmp/lip.txt)
+          fi
+          echo "DEBUG: POST_URN=$POST_URN (pour vérification après-midi)"
+          echo "post_urn=$POST_URN" >> "$GITHUB_OUTPUT"
+
+      - name: Enregistrer l'URN du post publié (pour vérification après-midi)
+        id: save_urn
+        if: steps.li_profil.outcome == 'success'
+        continue-on-error: true
+        run: |
+          URN="${{ steps.li_profil.outputs.post_urn }}"
+          if [ -z "$URN" ]; then
+            echo "::warning::URN du post publié introuvable dans la réponse LinkedIn — check-publication-afternoon.yml ne pourra pas vérifier ce canal cet après-midi."
+            exit 0
+          fi
+          jq --arg urn "$URN" --arg t "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '. + {published_post_urn: $urn, published_at: $t}' automation-queue/jeudi.json > /tmp/jeudi_updated.json
+          mv /tmp/jeudi_updated.json automation-queue/jeudi.json
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add automation-queue/jeudi.json
+          git commit -m "chore: enregistrer URN LinkedIn profil perso jeudi pour vérification après-midi"
+          git pull --no-edit origin main
+          git push origin main
 
       - name: Vérifier les résultats et faire échouer le job si besoin
         if: always()
