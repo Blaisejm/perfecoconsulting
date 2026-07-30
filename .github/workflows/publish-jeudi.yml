@@ -111,7 +111,7 @@ jobs:
           fi
 
           jq -n --arg author "$MEMBER_URN" --arg msg "$MESSAGE" --arg urn "$URN" \
-            '{author:$author, commentary:$msg, visibility:"PUBLIC", distribution:{feedDistribution:"MAIN_FEED", targetEntities:[], thirdPartyDistributionChannels:[]}, content:{article:null, media:{id:$urn, title:""}}, lifecycleState:"PUBLISHED"}' > /tmp/post_body.json
+            '{author:$author, commentary:$msg, visibility:"PUBLIC", distribution:{feedDistribution:"MAIN_FEED", targetEntities:[], thirdPartyDistributionChannels:[]}, content:{media:{id:$urn, title:""}}, lifecycleState:"PUBLISHED"}' > /tmp/post_body.json
 
           echo "DEBUG: taille POST_BODY :"; wc -c < /tmp/post_body.json
 
