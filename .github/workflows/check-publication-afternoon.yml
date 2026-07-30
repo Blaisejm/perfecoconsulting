@@ -95,6 +95,64 @@ jobs:
           fi
           echo "✅ Article WordPress #$POST_ID publié et accessible ($LINK)."
 
+      - name: Vérifier l'article perfeco.nc FR+EN (Mardi)
+        id: perfeco_nc_check
+        if: steps.day.outputs.dow == '2'
+        continue-on-error: true
+        run: |
+          URL_FR=$(jq -r '.perfeco_nc_url_fr // empty' automation-queue/mardi.json)
+          URL_EN=$(jq -r '.perfeco_nc_url_en // empty' automation-queue/mardi.json)
+          FAIL=0
+
+          if [ -z "$URL_FR" ]; then
+            echo "::error::perfeco_nc_url_fr absent de automation-queue/mardi.json."
+            FAIL=1
+          else
+            CODE_FR=$(curl -s -o /dev/null -w "%{http_code}" "$URL_FR")
+            echo "FR ($URL_FR) -> HTTP $CODE_FR"
+            if [ "$CODE_FR" != "200" ]; then
+              echo "::error::Article perfeco.nc FR inaccessible — $URL_FR — HTTP $CODE_FR"
+              FAIL=1
+            fi
+          fi
+
+          if [ -z "$URL_EN" ]; then
+            echo "::error::perfeco_nc_url_en absent de automation-queue/mardi.json."
+            FAIL=1
+          else
+            CODE_EN=$(curl -s -o /dev/null -w "%{http_code}" "$URL_EN")
+            echo "EN ($URL_EN) -> HTTP $CODE_EN"
+            if [ "$CODE_EN" != "200" ]; then
+              echo "::error::Article perfeco.nc EN inaccessible — $URL_EN — HTTP $CODE_EN"
+              FAIL=1
+            fi
+          fi
+
+          if [ "$FAIL" = "1" ]; then
+            exit 1
+          fi
+          echo "✅ Articles perfeco.nc FR et EN accessibles."
+
+      - name: Vérifier le post LinkedIn Company Page (Mardi/Jeudi — best-effort, non bloquant)
+        id: li_company_check
+        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4'
+        continue-on-error: true
+        env:
+          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
+        run: |
+          # ⚠️ Vérification best-effort : le schéma exact de l'API de logs Make.com n'a pas encore été confirmé
+          # en conditions réelles (pas d'accès direct aux logs privés pour le valider hors ligne). Ce step
+          # affiche la réponse brute pour permettre un affinage après un premier run réel — il n'est PAS
+          # inclus dans le gate pass/fail final tant que le format n'est pas confirmé (voir résumé ci-dessous).
+          HTTP_CODE=$(curl -s -o /tmp/li_logs.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6249513/logs?pg[limit]=5")
+          echo "HTTP $HTTP_CODE"
+          cat /tmp/li_logs.json
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::warning::Impossible d'interroger l'historique d'exécution Make.com (LinkedIn Company, 6249513) — HTTP $HTTP_CODE. Vérifier manuellement linkedin.com/company/perfeco-consulting-nc/posts/."
+            exit 0
+          fi
+          echo "::notice::Réponse brute affichée ci-dessus — à examiner pour confirmer le nom des champs (statut, horodatage) et transformer ce step en vérification bloquante."
+
       - name: Vérifier le post LinkedIn profil perso (Jeudi)
         id: li_profil_check
         if: steps.day.outputs.dow == '4'
@@ -127,10 +185,12 @@ jobs:
         if: always()
         run: |
           echo "Facebook : ${{ steps.fb_check.outcome || 'non applicable aujourd''hui' }}"
-          echo "WordPress : ${{ steps.wp_check.outcome || 'non applicable aujourd''hui' }}"
+          echo "WordPress (perfsystemique.fr) : ${{ steps.wp_check.outcome || 'non applicable aujourd''hui' }}"
+          echo "perfeco.nc (FR+EN) : ${{ steps.perfeco_nc_check.outcome || 'non applicable aujourd''hui' }}"
+          echo "LinkedIn Company Page (best-effort, non bloquant) : ${{ steps.li_company_check.outcome || 'non applicable aujourd''hui' }}"
           echo "LinkedIn profil perso : ${{ steps.li_profil_check.outcome || 'non applicable aujourd''hui' }}"
-          if [ "${{ steps.fb_check.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ] || [ "${{ steps.li_profil_check.outcome }}" = "failure" ]; then
+          if [ "${{ steps.fb_check.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ] || [ "${{ steps.perfeco_nc_check.outcome }}" = "failure" ] || [ "${{ steps.li_profil_check.outcome }}" = "failure" ]; then
             echo "::error::Au moins une publication attendue aujourd'hui n'est PAS confirmée visible — vérifier manuellement et corriger si besoin."
             exit 1
           fi
-          echo "✅ Toutes les publications attendues aujourd'hui (14h00 NC) sont confirmées visibles publiquement."
+          echo "✅ Toutes les publications vérifiables aujourd'hui (14h00 NC) sont confirmées visibles publiquement. LinkedIn Company Page reste à confirmer visuellement pour l'instant (vérification best-effort, voir step dédié)."
