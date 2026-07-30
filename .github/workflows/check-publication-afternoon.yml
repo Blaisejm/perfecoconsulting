@@ -144,7 +144,14 @@ jobs:
           # en conditions réelles (pas d'accès direct aux logs privés pour le valider hors ligne). Ce step
           # affiche la réponse brute pour permettre un affinage après un premier run réel — il n'est PAS
           # inclus dans le gate pass/fail final tant que le format n'est pas confirmé (voir résumé ci-dessous).
-          HTTP_CODE=$(curl -s -o /tmp/li_logs.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6249513/logs?pg[limit]=5")
+          set +e
+          HTTP_CODE=$(curl -s -o /tmp/li_logs.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6249513/logs?pg%5Blimit%5D=5")
+          CURL_EXIT=$?
+          set -e
+          if [ "$CURL_EXIT" != "0" ]; then
+            echo "::warning::curl a échoué (exit $CURL_EXIT) en interrogeant l'historique Make.com — vérification ignorée, non bloquant."
+            exit 0
+          fi
           echo "HTTP $HTTP_CODE"
           cat /tmp/li_logs.json
           if [ "$HTTP_CODE" != "200" ]; then
