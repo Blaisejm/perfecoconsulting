@@ -47,7 +47,10 @@ const canonicalURL = canonicalOverride ?? new URL(Astro.url.pathname, Astro.site
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Google Analytics — Consent Mode v2 (RGPD compliant) -->
-  <script>
+  <!-- is:inline sur les 3 balises : Astro bundle/hoiste les <script> par défaut et peut les
+       réordonner à la compilation, ce qui casse cette séquence (gtag() appelé avant sa propre
+       définition). is:inline force Astro à les laisser telles quelles, dans l'ordre écrit. -->
+  <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){window.dataLayer.push(arguments);}
     window.gtag = gtag;
@@ -64,8 +67,8 @@ const canonicalURL = canonicalOverride ?? new URL(Astro.url.pathname, Astro.site
       gtag('consent', 'update', { analytics_storage: 'granted' });
     }
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTR14WVM1B"></script>
-  <script>
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-FTR14WVM1B"></script>
+  <script is:inline>
     gtag('js', new Date());
     gtag('config', 'G-FTR14WVM1B');
   </script>
