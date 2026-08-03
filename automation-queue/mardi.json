@@ -1,29 +1,29 @@
 {
-  "semaine": "W30",
-  "date_prevue": "2026-07-28",
-  "wordpress_post_id": 106,
-  "perfeco_nc_url_fr": "https://www.perfeco.nc/ressources/pourquoi-les-projets-ralentissent",
-  "perfeco_nc_url_en": "https://www.perfeco.nc/en/resources/why-projects-slow-down",
+  "semaine": "W31",
+  "date_prevue": "2026-08-04",
+  "wordpress_post_id": 110,
+  "perfeco_nc_url_fr": "https://www.perfeco.nc/ressources/les-reunions-ne-remplacent-pas-le-pilotage",
+  "perfeco_nc_url_en": "https://www.perfeco.nc/en/resources/meetings-dont-replace-steering",
   "linkedin_api_version": "202508",
   "linkedin_company": {
-    "message": "🎯 91,5 % des mégaprojets dépassent leur budget ou leur délai — c'est la conclusion de la base de données de Bent Flyvbjerg, plus de 16 000 grands projets étudiés sur plusieurs décennies.\n\nCe n'est pas un incident isolé. Une étude McKinsey/Oxford sur 5 400 projets IT confirme : +45 % de budget en moyenne, +7 % de délai, 56 % de valeur livrée en moins que prévu.\n\n🔎 Le réflexe le plus commun face à un projet qui ralentit : chercher un responsable. Dans la pratique, c'est rarement la bonne explication.\n\n4 signaux annoncent presque toujours la dérive — souvent des mois à l'avance :\n\n① Le chef de projet devient le goulot d'étranglement — toutes les décisions remontent à une seule personne\n② Le périmètre grossit sans jamais être validé formellement\n③ Chaque mois supplémentaire coûte plus cher que le précédent\n④ Le succès n'est mesuré qu'à la fin, jamais en cours de route\n\n📌 La vraie question n'est pas : « Ce projet est-il dans les temps ? »\n\nC'est plutôt : « Qui a le droit de dire non à une extension de périmètre — et cette personne l'exerce-t-elle vraiment ? »\n\n👉 Sur votre projet le plus critique en cours : la dernière extension de périmètre a-t-elle été arbitrée, ou simplement acceptée au fil de l'eau ?\n\n🌐 Article complet : perfeco.nc/ressources/pourquoi-les-projets-ralentissent\n📩 contact@perfeco.nc\n\n#ExécutionStratégique #GestionDeProjet #Performance #Management #NouvelleCalédonie #Pacifique #PerfEco #COMEX #Leadership",
-    "image_url": "https://www.perfeco.nc/slides/W30/01-couverture-projets-ralentissent.png"
+    "message": "🎯 Un cadre dirigeant passe en moyenne 23h par semaine en réunion — contre moins de 10h dans les années 1960 (Harvard Business Review).\n\nLe temps de réunion a plus que doublé en 60 ans. Le pilotage, lui, n'a pas progressé dans les mêmes proportions.\n\n🔎 Bain & Company a documenté un cas devenu classique : un seul comité de direction hebdomadaire, une fois répercuté en réunions de préparation à tous les niveaux, peut mobiliser jusqu'à 300 000 heures de travail par an.\n\nÊtre en réunion n'est pas piloter. Le pilotage réel se joue surtout entre les réunions — pas pendant.\n\n4 signaux trahissent un pilotage qui n'existe qu'en façade :\n\n① Le compte-rendu remplace le suivi — personne ne revérifie que les actions ont été faites\n② Les mêmes sujets reviennent réunion après réunion, sans jamais être tranchés\n③ Personne ne sait qui doit décider — la réunion sert à « aligner », pas à trancher\n④ Le pilotage n'existe qu'en réunion — entre deux comités, plus personne ne regarde les indicateurs\n\n📌 La vraie question n'est pas : « Avons-nous une réunion de suivi sur ce sujet ? »\n\nC'est plutôt : « Si on supprimait la moitié de nos réunions de suivi, le pilotage serait-il vraiment moins bon ? »\n\n👉 Sur votre dernier comité de pilotage : combien de décisions prises ont réellement été suivies d'une action vérifiée la semaine d'après ?\n\n🌐 Article complet : perfeco.nc/ressources/les-reunions-ne-remplacent-pas-le-pilotage\n📩 contact@perfeco.nc\n\n#ExécutionStratégique #Pilotage #Management #NouvelleCalédonie #Pacifique #PerfEco #COMEX #Leadership",
+    "image_url": "https://www.perfeco.nc/slides/W31/01-couverture-reunions-pilotage.png"
   },
   "facebook": {
-    "envoyer": false,
-    "message": "📌 91,5 % des mégaprojets dépassent leur budget ou leur délai (Bent Flyvbjerg, 16 000+ projets étudiés).\n\nCe n'est presque jamais un problème de compétence. 4 signaux annoncent la dérive, souvent des mois à l'avance :\n\n✅ Le chef de projet devient le goulot d'étranglement\n✅ Le périmètre grossit sans jamais être validé\n✅ Chaque mois supplémentaire coûte plus cher\n✅ Le succès n'est mesuré qu'à la fin\n\nSur votre projet le plus critique en cours : qui a le droit de dire non à une extension de périmètre ?\n\n📖 Article complet : perfeco.nc\n📞 +687 73 08 75 · contact@perfeco.nc\n\n#GestionDeProjet #Management #NouvelleCalédonie #PerfEco",
-    "image_url": "https://www.perfeco.nc/slides/W30/01-couverture-projets-ralentissent.png"
+    "envoyer": true,
+    "message": "📌 Un cadre dirigeant passe en moyenne 23h par semaine en réunion (Harvard Business Review) — contre moins de 10h dans les années 1960.\n\nMultiplier les réunions ne garantit pas qu'on pilote quoi que ce soit. 4 signaux trahissent un faux pilotage :\n\n✅ Le compte-rendu remplace le suivi\n✅ Les mêmes sujets reviennent sans fin\n✅ Personne ne sait qui doit décider\n✅ Le pilotage n'existe qu'en réunion\n\nSur votre dernier comité : combien de décisions ont vraiment été suivies d'effet ?\n\n📖 Article complet : perfeco.nc\n📞 +687 73 08 75 · contact@perfeco.nc\n\n#Pilotage #Management #NouvelleCalédonie #PerfEco",
+    "image_url": "https://www.perfeco.nc/slides/W31/00-facebook-couverture-reunions-pilotage.png"
   },
   "linkedin_profil": {
     "type": "carousel",
-    "message": "91,5 % des mégaprojets dépassent leur budget ou leur délai. J'ai eu besoin de vérifier ce chiffre deux fois avant d'y croire — il vient de la base de données de Bent Flyvbjerg, plus de 16 000 grands projets étudiés sur plusieurs décennies.\n\nCe qui m'a marqué en le lisant : ce n'est presque jamais un problème de compétence des équipes. C'est un chef de projet qui devient, sans le vouloir, le goulot d'étranglement de son propre projet — parce que chaque décision, même mineure, doit repasser par lui.\n\n4 signaux reviennent systématiquement avant qu'un projet ne dérape vraiment. Le carrousel de la semaine les détaille, avec la question à se poser pour repérer où ça coince sur vos projets en cours.\n\n👉 Sur votre projet le plus critique en ce moment : qui a le droit de dire non à une extension de périmètre ?\n\n#PerfEco #ExécutionStratégique #GestionDeProjet #NouvelleCalédonie",
+    "message": "23h par semaine en réunion, en moyenne, pour un cadre dirigeant. Ce chiffre vient de recherches largement relayées par Harvard Business Review — et il a plus que doublé depuis les années 1960.\n\nCe qui m'a frappé en creusant le sujet : Bain & Company a documenté qu'un seul comité de direction hebdomadaire, une fois répercuté en réunions de préparation à tous les niveaux, peut mobiliser jusqu'à 300 000 heures de travail par an. Pour UN SEUL comité.\n\nÊtre en réunion donne l'impression de piloter. Ce n'est pas la même chose. Le vrai pilotage se joue surtout entre les réunions — dans le suivi réel des décisions, pas dans le rituel qui les entoure.\n\nLe carrousel de la semaine détaille 4 signaux qui trahissent un pilotage qui n'existe qu'en façade.\n\n👉 Sur votre dernier comité de pilotage : combien de décisions ont réellement été suivies d'une action vérifiée la semaine d'après ?\n\n#PerfEco #ExécutionStratégique #Pilotage #NouvelleCalédonie",
     "image_urls": [
-      "https://www.perfeco.nc/slides/W30/01-couverture-projets-ralentissent.png",
-      "https://www.perfeco.nc/slides/W30/02-les-chiffres.png",
-      "https://www.perfeco.nc/slides/W30/03-pas-un-probleme-de-competence.png",
-      "https://www.perfeco.nc/slides/W30/04-les-4-signaux.png",
-      "https://www.perfeco.nc/slides/W30/05-question-diagnostic.png",
-      "https://www.perfeco.nc/slides/W30/06-cta-projets.png"
+      "https://www.perfeco.nc/slides/W31/01-couverture-reunions-pilotage.png",
+      "https://www.perfeco.nc/slides/W31/02-les-chiffres.png",
+      "https://www.perfeco.nc/slides/W31/03-le-malentendu.png",
+      "https://www.perfeco.nc/slides/W31/04-les-4-signaux.png",
+      "https://www.perfeco.nc/slides/W31/05-question-diagnostic.png",
+      "https://www.perfeco.nc/slides/W31/06-cta-reunions.png"
     ]
   }
 }
