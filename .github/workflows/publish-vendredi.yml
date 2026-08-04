@@ -1,0 +1,75 @@
+name: PerfEco — Publication vendredi (hors-série ponctuel)
+
+on:
+  schedule:
+    - cron: '0 0 * * 5'  # Vendredi 00h00 UTC = 11h00 Nouvelle-Calédonie
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Vérifier la fraîcheur du contenu
+        run: |
+          set -e
+          FILE="automation-queue/vendredi.json"
+          if [ ! -f "$FILE" ]; then
+            echo "::error::Fichier $FILE introuvable — rien à publier."
+            exit 1
+          fi
+          DATE_PREVUE=$(jq -r '.date_prevue' "$FILE")
+          TODAY_NC=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          if [ "$DATE_PREVUE" != "$TODAY_NC" ]; then
+            echo "::error::date_prevue=$DATE_PREVUE ne correspond pas à aujourd'hui NC ($TODAY_NC). Abandon (contenu périmé ou pas encore mis à jour)."
+            exit 1
+          fi
+          echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
+
+      - name: LinkedIn Company Page (Make.com)
+        id: li_company
+        continue-on-error: true
+        run: |
+          FILE="automation-queue/vendredi.json"
+          MESSAGE=$(jq -r '.linkedin_company.message' "$FILE")
+          IMAGE_URL=$(jq -r '.linkedin_company.image_url' "$FILE")
+          SEMAINE=$(jq -r '.semaine' "$FILE")
+
+          echo "DEBUG: longueur MESSAGE=${#MESSAGE} caractères"
+          echo "DEBUG: IMAGE_URL=$IMAGE_URL"
+
+          jq -n --arg msg "$MESSAGE" --arg img "$IMAGE_URL" --arg sem "$SEMAINE" '{message:$msg, image_url:$img, semaine:$sem}' > /tmp/payload.json
+
+          HTTP_CODE=$(curl -s -o /tmp/li.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/eq9mpaycqgaxir6eqew6514mtqcytt9d" -H "Content-Type: application/json; charset=utf-8" --data-binary @/tmp/payload.json)
+          echo "HTTP $HTTP_CODE"; cat /tmp/li.txt
+          [ "$HTTP_CODE" = "200" ]
+
+      - name: Facebook
+        id: facebook
+        continue-on-error: true
+        run: |
+          FILE="automation-queue/vendredi.json"
+          ENVOYER=$(jq -r '.facebook.envoyer' "$FILE")
+          if [ "$ENVOYER" != "true" ]; then
+            echo "Ignoré (facebook.envoyer=false)."
+            exit 0
+          fi
+          MESSAGE=$(jq -r '.facebook.message' "$FILE")
+          IMAGE_URL=$(jq -r '.facebook.image_url' "$FILE")
+          SEMAINE=$(jq -r '.semaine' "$FILE")
+          PAYLOAD=$(jq -n --arg msg "$MESSAGE" --arg img "$IMAGE_URL" --arg sem "$SEMAINE" '{message:$msg, image_url:$img, semaine:$sem}')
+          HTTP_CODE=$(curl -s -o /tmp/fb.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/7wp4lv77tq234ckyk6lh9npn5aoh4qlq" -H "Content-Type: application/json; charset=utf-8" -d "$PAYLOAD")
+          echo "HTTP $HTTP_CODE"; cat /tmp/fb.txt
+          [ "$HTTP_CODE" = "200" ]
+
+      - name: Vérifier les résultats et faire échouer le job si besoin
+        if: always()
+        run: |
+          echo "LinkedIn Company Page : ${{ steps.li_company.outcome }}"
+          echo "Facebook : ${{ steps.facebook.outcome }}"
+          if [ "${{ steps.li_company.outcome }}" = "failure" ] || [ "${{ steps.facebook.outcome }}" = "failure" ]; then
+            echo "::error::Au moins un canal a échoué — voir les logs des étapes ci-dessus."
+            exit 1
+          fi
+          echo "✅ LinkedIn Company Page + Facebook publiés sans erreur (hors-série vendredi)."
