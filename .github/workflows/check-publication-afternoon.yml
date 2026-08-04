@@ -2,7 +2,7 @@ name: PerfEco — Vérification après-midi (publication réellement visible)
 
 on:
   schedule:
-    - cron: '0 3 * * 1,2,4'  # Lun/Mar/Jeu 03h00 UTC = 14h00 Nouvelle-Calédonie (~3h après les publications 11h00)
+    - cron: '0 3 * * 1,2,4,5'  # Lun/Mar/Jeu/Ven 03h00 UTC = 14h00 Nouvelle-Calédonie (~3h après les publications 11h00)
   workflow_dispatch:
 
 jobs:
@@ -16,11 +16,11 @@ jobs:
         run: |
           DOW=$(TZ="Pacific/Noumea" date +%u)
           echo "dow=$DOW" >> "$GITHUB_OUTPUT"
-          echo "Jour NC (1=Lundi, 2=Mardi, 4=Jeudi) = $DOW"
+          echo "Jour NC (1=Lundi, 2=Mardi, 4=Jeudi, 5=Vendredi) = $DOW"
 
-      - name: Vérifier le post Facebook du jour (Lundi/Jeudi, si envoyer=true)
+      - name: Vérifier le post Facebook du jour (Lundi/Jeudi/Vendredi, si envoyer=true)
         id: fb_check
-        if: steps.day.outputs.dow == '1' || steps.day.outputs.dow == '4'
+        if: steps.day.outputs.dow == '1' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5'
         continue-on-error: true
         env:
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
@@ -28,6 +28,8 @@ jobs:
           DOW="${{ steps.day.outputs.dow }}"
           if [ "$DOW" = "1" ]; then
             ENVOYER=$(jq -r '.facebook.envoyer' automation-queue/mardi.json)
+          elif [ "$DOW" = "5" ]; then
+            ENVOYER=$(jq -r '.facebook.envoyer' automation-queue/vendredi.json)
           else
             ENVOYER=$(jq -r '.facebook.envoyer' automation-queue/jeudi.json)
           fi
@@ -133,9 +135,9 @@ jobs:
           fi
           echo "✅ Articles perfeco.nc FR et EN accessibles."
 
-      - name: Vérifier le post LinkedIn Company Page (Mardi/Jeudi)
+      - name: Vérifier le post LinkedIn Company Page (Mardi/Jeudi/Vendredi)
         id: li_company_check
-        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4'
+        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5'
         continue-on-error: true
         env:
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}

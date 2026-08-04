@@ -2,7 +2,7 @@ name: PerfEco — Vérification santé pré-publication (Make.com, API LinkedIn,
 
 on:
   schedule:
-    - cron: '0 20 * * 0,1,3'  # Dim/Lun/Mer 20h00 UTC = Lun/Mar/Jeu 07h00 Nouvelle-Calédonie (avant chaque jour de publication)
+    - cron: '0 20 * * 0,1,3,4'  # Dim/Lun/Mer/Jeu 20h00 UTC = Lun/Mar/Jeu/Ven 07h00 Nouvelle-Calédonie (avant chaque jour de publication)
   workflow_dispatch:
     inputs:
       force_wp_check:
