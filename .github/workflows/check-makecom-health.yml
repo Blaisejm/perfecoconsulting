@@ -56,6 +56,26 @@ jobs:
           fi
           echo "✅ Scénario LinkedIn actif."
 
+      - name: Vérifier que le 3e scénario (PerfEco LinkedIn Publisher, Text Post) est bien désactivé
+        id: extra_scenario
+        continue-on-error: true
+        env:
+          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
+        run: |
+          HTTP_CODE=$(curl -s -o /tmp/extra.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6791084")
+          echo "HTTP $HTTP_CODE"; cat /tmp/extra.json
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::warning::Impossible d'interroger le 3e scénario (PerfEco LinkedIn Publisher, 6791084) — HTTP $HTTP_CODE (non bloquant)"
+            exit 0
+          fi
+          IS_ACTIVE=$(jq -r '.scenario.isActive' /tmp/extra.json)
+          echo "isActive=$IS_ACTIVE"
+          if [ "$IS_ACTIVE" = "true" ]; then
+            echo "::error::Le 3e scénario (PerfEco LinkedIn Publisher / Company Text Post, 6791084) est ACTIF — le plan Make.com ne tolère que 2 scénarios actifs simultanément, ce qui va probablement désactiver un des 2 scénarios essentiels (Facebook 6233263 ou LinkedIn 6249513). Désactiver ce 3e scénario immédiatement : https://eu1.make.com/1970457/scenarios/6791084/edit — voir NOTE-TECHNIQUE-MAKECOM-05082026.md pour le contexte complet."
+            exit 1
+          fi
+          echo "✅ 3e scénario bien désactivé (pas de risque de dépassement de quota)."
+
       - name: Vérifier version API LinkedIn (426 NONEXISTENT_VERSION)
         id: li_version
         continue-on-error: true
@@ -151,10 +171,11 @@ jobs:
         run: |
           echo "Facebook (Make.com) : ${{ steps.fb.outcome }}"
           echo "LinkedIn (Make.com) : ${{ steps.li.outcome }}"
+          echo "3e scénario désactivé : ${{ steps.extra_scenario.outcome }}"
           echo "Version API LinkedIn : ${{ steps.li_version.outcome }}"
           echo "Article WordPress : ${{ steps.wp_check.outcome }}"
-          if [ "${{ steps.fb.outcome }}" = "failure" ] || [ "${{ steps.li.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ]; then
+          if [ "${{ steps.fb.outcome }}" = "failure" ] || [ "${{ steps.li.outcome }}" = "failure" ] || [ "${{ steps.extra_scenario.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ]; then
             echo "::error::Au moins une vérification a échoué — voir logs ci-dessus. Corriger AVANT le prochain lancement de publication."
             exit 1
           fi
-          echo "✅ Scénarios Make.com actifs, version API LinkedIn valide, article WordPress prêt (si mardi)."
+          echo "✅ Scénarios Make.com actifs (et 3e scénario bien désactivé), version API LinkedIn valide, article WordPress prêt (si mardi)."
