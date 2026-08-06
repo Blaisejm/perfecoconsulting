@@ -56,6 +56,56 @@ jobs:
           fi
           echo "✅ Scénario LinkedIn actif."
 
+      - name: Vérifier la fraîcheur du contenu à diffuser aujourd'hui/demain
+        id: content_freshness
+        continue-on-error: true
+        run: |
+          DOW=$(TZ="Pacific/Noumea" date +%u)  # 1=lundi ... 7=dimanche
+          FAIL=0
+
+          check_file() {
+            local file="$1" expected_date="$2" label="$3"
+            if [ ! -f "$file" ]; then
+              echo "::error::[$label] Fichier $file introuvable — rien à diffuser prévu."
+              FAIL=1
+              return
+            fi
+            local actual=$(jq -r '.date_prevue' "$file")
+            if [ "$actual" != "$expected_date" ]; then
+              echo "::error::[$label] $file a date_prevue=$actual, attendu $expected_date — contenu périmé ou pas encore préparé. La diffusion de ce jour échouera si ce n'est pas corrigé avant 11h00 NC."
+              FAIL=1
+            else
+              echo "✅ [$label] $file à jour ($actual)."
+            fi
+          }
+
+          if [ "$DOW" = "1" ]; then
+            TOMORROW=$(TZ="Pacific/Noumea" date -d tomorrow +%Y-%m-%d)
+            ENVOYER=$(jq -r '.facebook.envoyer // "false"' automation-queue/mardi.json 2>/dev/null || echo "false")
+            if [ "$ENVOYER" = "true" ]; then
+              check_file "automation-queue/mardi.json" "$TOMORROW" "Facebook lundi"
+            else
+              echo "facebook.envoyer=$ENVOYER dans mardi.json — publication lundi déjà gérée autrement ou non prévue, pas de vérification de date nécessaire."
+            fi
+          elif [ "$DOW" = "2" ]; then
+            TODAY=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+            check_file "automation-queue/mardi.json" "$TODAY" "Mardi (carrousel + profil perso + Facebook secours)"
+          elif [ "$DOW" = "4" ]; then
+            TODAY=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+            check_file "automation-queue/jeudi.json" "$TODAY" "Jeudi (post court)"
+          elif [ "$DOW" = "5" ]; then
+            TODAY=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+            if [ -f automation-queue/vendredi.json ]; then
+              check_file "automation-queue/vendredi.json" "$TODAY" "Vendredi (hors-série ponctuel)"
+            else
+              echo "Pas de automation-queue/vendredi.json — normal la plupart des semaines (hors-série ponctuel uniquement)."
+            fi
+          fi
+
+          if [ "$FAIL" = "1" ]; then
+            exit 1
+          fi
+
       - name: Vérifier que le 3e scénario (PerfEco LinkedIn Publisher, Text Post) est bien désactivé
         id: extra_scenario
         continue-on-error: true
@@ -171,10 +221,11 @@ jobs:
         run: |
           echo "Facebook (Make.com) : ${{ steps.fb.outcome }}"
           echo "LinkedIn (Make.com) : ${{ steps.li.outcome }}"
+          echo "Fraîcheur du contenu à diffuser : ${{ steps.content_freshness.outcome }}"
           echo "3e scénario désactivé : ${{ steps.extra_scenario.outcome }}"
           echo "Version API LinkedIn : ${{ steps.li_version.outcome }}"
           echo "Article WordPress : ${{ steps.wp_check.outcome }}"
-          if [ "${{ steps.fb.outcome }}" = "failure" ] || [ "${{ steps.li.outcome }}" = "failure" ] || [ "${{ steps.extra_scenario.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ]; then
+          if [ "${{ steps.fb.outcome }}" = "failure" ] || [ "${{ steps.li.outcome }}" = "failure" ] || [ "${{ steps.content_freshness.outcome }}" = "failure" ] || [ "${{ steps.extra_scenario.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ]; then
             echo "::error::Au moins une vérification a échoué — voir logs ci-dessus. Corriger AVANT le prochain lancement de publication."
             exit 1
           fi
