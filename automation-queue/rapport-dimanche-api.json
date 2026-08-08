@@ -1,32 +1,32 @@
 {
-  "semaine": "2026-W31",
-  "collecte_le": "2026-08-02",
+  "semaine": "2026-W32",
+  "collecte_le": "2026-08-09",
   "wordpress": {
     "articles_published": 1,
     "comments_total": 0,
     "published": [
       {
-        "id": 106,
-        "date": "2026-07-28T20:03:00",
-        "date_gmt": "2026-07-28T09:03:00",
+        "id": 110,
+        "date": "2026-08-04T11:03:00",
+        "date_gmt": "2026-08-04T00:03:00",
         "guid": {
-          "rendered": "https://perfsystemique.fr/?p=106"
+          "rendered": "https://perfsystemique.fr/?p=110"
         },
-        "modified": "2026-07-29T11:09:01",
-        "modified_gmt": "2026-07-29T00:09:01",
-        "slug": "pourquoi-les-projets-ralentissent-execution",
+        "modified": "2026-08-03T16:48:24",
+        "modified_gmt": "2026-08-03T05:48:24",
+        "slug": "les-reunions-ne-remplacent-pas-le-pilotage",
         "status": "publish",
         "type": "post",
-        "link": "https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/",
+        "link": "https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/",
         "title": {
-          "rendered": "Pourquoi les projets ralentissent : et ce qui les fait vraiment dérailler"
+          "rendered": "Les réunions ne remplacent pas le pilotage"
         },
         "content": {
-          "rendered": "<div style=\"display:flex; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid #e5e7eb; margin-bottom:32px;\">\n<div>\n<p style=\"margin:0; font-weight:700; color:#111827;\">Jean-Michel Blaise</p>\n<p style=\"margin:4px 0 0; font-size:13px; color:#6B7280;\">Fondateur — PerfEco Consulting NC · <time datetime=\"2026-07-28\">28 juillet 2026</time></p>\n<p style=\"margin:4px 0 0; font-size:12px; color:#001D9F; font-weight:600;\">Série Exécution Stratégique · Article 4/8</p>\n</p></div>\n</div>\n<div style=\"background:#f0f5ff; border:1px solid #c7d9f8; border-radius:8px; padding:14px 18px; margin-bottom:28px;\">\n<p style=\"margin:0; font-size:13px; color:#163D78;\">Disponible en synthèse sur <a href=\"https://www.perfeco.nc/ressources/pourquoi-les-projets-ralentissent\" style=\"color:#001D9F; font-weight:600;\">perfeco.nc (FR) &#8594;</a> et <a href=\"https://www.perfeco.nc/en/resources/why-projects-slow-down\" style=\"color:#001D9F; font-weight:600;\">perfeco.nc (EN) &#8594;</a></p>\n</div>\n<p><strong>Un projet qui ralentit n&rsquo;est presque jamais victime d&rsquo;un seul incident. C&rsquo;est une accumulation de petits signaux, souvent visibles des mois à l&rsquo;avance — mais rarement pris au sérieux avant qu&rsquo;il ne soit trop tard.</strong></p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Sources citées</p>\n<p style=\"margin:0; color:#374151;\">PMI Pulse of the Profession 2025 ; McKinsey &amp; Oxford, &laquo; Delivering large-scale IT projects on time, on budget, and on value &raquo; ; Bent Flyvbjerg &amp; Dan Gardner, <em>How Big Things Get Done</em> ; Boston Consulting Group, étude 2024 sur les grands programmes technologiques.</p>\n</div>\n<h2>Les chiffres sont sans appel</h2>\n<p>La base de données de Bent Flyvbjerg — plus de 16 000 grands projets sur plusieurs décennies — est formelle : <strong>91,5 % des mégaprojets ne respectent ni les délais ni le budget</strong>. Sa &laquo; loi de fer &raquo; des mégaprojets tient en une phrase : trop cher, trop lent, sous les bénéfices attendus — et ce, année après année.</p>\n<p>Ce n&rsquo;est pas propre aux projets d&rsquo;infrastructure. Une étude McKinsey menée avec Oxford sur plus de 5 400 projets IT montre que les grands projets dépassent leur budget de <strong>45 % en moyenne</strong> et leur délai de 7 %, pour une valeur livrée inférieure de 56 % aux prévisions. Chaque année supplémentaire de durée alourdit la facture de 15 %.</p>\n<p>Le PMI, de son côté, mesure un taux d&rsquo;échec des projets de 13 % en 2025 — en légère hausse par rapport à 2024. Et le BCG constate que plus des deux tiers des grands programmes technologiques ne seront pas livrés dans les délais, le budget et le périmètre prévus.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Un chiffre qui recadre le débat</p>\n<p style=\"margin:0; color:#374151;\">Selon le PMI, 45 % des projets finalement réussis étaient, à un moment donné, considérés comme &laquo; à risque d&rsquo;échec &raquo;. Le problème n&rsquo;est donc pas seulement d&rsquo;éviter la dérive — c&rsquo;est de la détecter et d&rsquo;y répondre avant qu&rsquo;elle ne devienne irréversible.</p>\n</div>\n<h2>Ce n&rsquo;est pas un problème de compétence</h2>\n<p>Le réflexe le plus commun face à un projet qui ralentit est de chercher un responsable : un chef de projet dépassé, une équipe mal formée. Dans la pratique, c&rsquo;est rarement la bonne explication.</p>\n<p>Un chef de projet qui centralise trop de décisions finit par devenir lui-même le goulot d&rsquo;étranglement : si chaque arbitrage doit repasser par lui, le projet avance à la vitesse de son agenda — pas à celle de l&rsquo;équipe. C&rsquo;est le même mécanisme que celui décrit dans notre article sur les <a href=\"https://www.perfeco.nc/ressources/qui-a-le-droit-de-decider\" style=\"color:#001D9F;\">droits de décision</a> : un rôle mal calibré ralentit tout le monde, quelle que soit la compétence des personnes impliquées.</p>\n<h2>4 signaux qui annoncent un projet qui ralentit</h2>\n<h3>1. Le chef de projet devient le goulot d&rsquo;étranglement</h3>\n<p>Toutes les décisions, même mineures, remontent à une seule personne — le rythme du projet devient celui de son agenda.</p>\n<h3>2. Le périmètre grossit sans jamais être validé formellement</h3>\n<p>34 % des projets connaissent un dérapage de périmètre (PMI) — chaque ajout semble mineur, mais l&rsquo;accumulation change la nature du projet sans que personne ne le décide explicitement.</p>\n<h3>3. Chaque mois supplémentaire coûte plus cher que le précédent</h3>\n<p>Le dépassement de coût s&rsquo;aggrave avec la durée (McKinsey : +15 % par année supplémentaire) — un projet qui prend du retard ne coûte pas linéairement plus cher, il coûte de plus en plus cher.</p>\n<h3>4. Le succès n&rsquo;est mesuré qu&rsquo;à la fin</h3>\n<p>Sans point d&rsquo;étape où l&rsquo;on peut objectivement dire &laquo; ce projet dérive &raquo;, le signal d&rsquo;alarme n&rsquo;arrive souvent qu&rsquo;au moment où il est trop tard pour corriger sans casse.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Le coût invisible</p>\n<p style=\"margin:0; color:#374151;\">Un budget qui dérape de 45 % ne se voit pas le premier mois — il se construit semaine après semaine, décision après décision non arbitrée, extension après extension du périmètre. Quand il devient visible dans les comptes, il est déjà trop tard pour le traiter à faible coût.</p>\n</div>\n<h2>La question que le COMEX devrait se poser</h2>\n<p>Non pas seulement : &laquo; Ce projet est-il dans les temps ? &raquo;</p>\n<p>Mais plutôt : &laquo; Sur ce projet, qui a le droit de dire non à une extension de périmètre — et cette personne l&rsquo;exerce-t-elle vraiment ? &raquo;</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Question de diagnostic</p>\n<p style=\"margin:0; color:#374151;\">Sur votre projet le plus critique en cours : la dernière extension de périmètre a-t-elle été formellement arbitrée, ou simplement acceptée au fil de l&rsquo;eau ?</p>\n</div>\n<div style=\"background:#163D78; color:#fff; padding:24px 28px; margin:32px 0; border-radius:8px; text-align:center;\">\n<p style=\"margin:0 0 8px; font-weight:700; font-size:1.05em;\">Vos projets critiques dérivent-ils sans que personne ne l&rsquo;arbitre ?</p>\n<p style=\"margin:0 0 12px; color:rgba(255,255,255,0.8);\">PerfEco accompagne les directions générales pour détecter tôt les signaux de dérive projet et redonner de la clarté aux arbitrages — des résultats mesurables dès les premières semaines.</p>\n<p style=\"margin:0; color:#FBAA16; font-weight:600;\">contact@perfeco.nc &middot; +687 73 08 75 &middot; <a href=\"https://www.perfeco.nc/\" style=\"color:#FBAA16;\">https://www.perfeco.nc/</a></p>\n</div>\n<div style=\"border-top:1px solid #e5e7eb; padding-top:24px; margin-top:32px;\">\n<p style=\"font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#9CA3AF; margin-bottom:12px;\">Série Exécution Stratégique</p>\n<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:12px;\">\n<div style=\"background:#f0f5ff; border-radius:8px; padding:14px; border:1px solid #c7d9f8;\">\n<p style=\"font-size:11px; color:#001D9F; font-weight:700; margin:0 0 4px;\">&#8592; Article précédent &middot; Hors-série</p>\n<p style=\"font-size:13px; color:#163D78; font-weight:600; margin:0;\">Qui a vraiment le droit de décider ?</p>\n<p style=\"font-size:11px; color:#6B7280; margin:4px 0 0;\">21 juillet 2026</p>\n</p></div>\n<div style=\"background:#f9fafb; border-radius:8px; padding:14px;\">\n<p style=\"font-size:11px; color:#9CA3AF; font-weight:700; margin:0 0 4px;\">Article suivant &middot; 5/8 &#8594;</p>\n<p style=\"font-size:13px; color:#6B7280; font-weight:600; margin:0;\">Les réunions ne remplacent pas le pilotage</p>\n<p style=\"font-size:11px; color:#6B7280; margin:4px 0 0;\">4 août 2026</p>\n</p></div>\n</div>\n</div>\n",
+          "rendered": "<div style=\"display:flex; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid #e5e7eb; margin-bottom:32px;\">\n<div>\n<p style=\"margin:0; font-weight:700; color:#111827;\">Jean-Michel Blaise</p>\n<p style=\"margin:4px 0 0; font-size:13px; color:#6B7280;\">Fondateur — PerfEco Consulting NC · <time datetime=\"2026-08-04\">4 août 2026</time></p>\n<p style=\"margin:4px 0 0; font-size:12px; color:#001D9F; font-weight:600;\">Série Exécution Stratégique · Article 5/8</p>\n</p></div>\n</div>\n<div style=\"background:#f0f5ff; border:1px solid #c7d9f8; border-radius:8px; padding:14px 18px; margin-bottom:28px;\">\n<p style=\"margin:0; font-size:13px; color:#163D78;\">Disponible en synthèse sur <a href=\"https://www.perfeco.nc/ressources/les-reunions-ne-remplacent-pas-le-pilotage\" style=\"color:#001D9F; font-weight:600;\">perfeco.nc (FR) &#8594;</a> et <a href=\"https://www.perfeco.nc/en/resources/meetings-dont-replace-steering\" style=\"color:#001D9F; font-weight:600;\">perfeco.nc (EN) &#8594;</a></p>\n</div>\n<p><strong>La plupart des directions générales ont le sentiment de piloter parce qu&rsquo;elles se réunissent souvent. C&rsquo;est précisément ce sentiment qui pose problème : la fréquence des réunions n&rsquo;a jamais garanti la qualité du pilotage — et le temps qu&rsquo;elles absorbent ne va pas ailleurs.</strong></p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Sources citées</p>\n<p style=\"margin:0; color:#374151;\">Leslie A. Perlow, Constance Noonan Hadley &amp; Eunice Eun, &laquo; Stop the Meeting Madness &raquo;, Harvard Business Review, 2017 ; Steven G. Rogelberg, <em>The Surprising Science of Meetings</em>, Oxford University Press, 2019 ; Michael Mankins, Chris Brahm &amp; Gregory Caimi, &laquo; Your Scarcest Resource &raquo;, Harvard Business Review, 2014 (Bain &amp; Company).</p>\n</div>\n<h2>Le temps de réunion a explosé</h2>\n<p>Selon les recherches largement relayées par la Harvard Business Review, un cadre dirigeant passe aujourd&rsquo;hui en moyenne <strong>23 heures par semaine en réunion</strong> — contre moins de 10 heures dans les années 1960. Le temps de réunion a plus que doublé en soixante ans, sans que le pilotage de l&rsquo;exécution en ait proportionnellement gagné en qualité.</p>\n<p>Bain &amp; Company a documenté un exemple devenu classique : un unique comité de direction hebdomadaire de trois heures, une fois répercuté en réunions de préparation et de compte-rendu à tous les niveaux de l&rsquo;organisation, peut mobiliser <strong>jusqu&rsquo;à 300&nbsp;000 heures de travail par an</strong>. Ce n&rsquo;est pas un cas isolé — c&rsquo;est un effet de cascade structurel, présent dans la plupart des grandes organisations dès qu&rsquo;un rituel de réunion n&rsquo;est pas remis en question.</p>\n<p>Conséquence directe : la majorité des cadres interrogés dans ces mêmes études jugent leurs réunions de pilotage peu productives ou inefficaces. Le problème n&rsquo;est donc pas seulement le volume — c&rsquo;est l&rsquo;écart entre le temps investi et la valeur réellement produite.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Un chiffre qui recadre le débat</p>\n<p style=\"margin:0; color:#374151;\">300&nbsp;000 heures par an, ce n&rsquo;est pas le coût d&rsquo;une mauvaise réunion — c&rsquo;est le coût d&rsquo;un rituel jamais questionné, qui s&rsquo;est simplement imposé comme la façon par défaut de &laquo; faire du pilotage &raquo;.</p>\n</div>\n<h2>Être en réunion n&rsquo;est pas piloter</h2>\n<p>La réunion donne l&rsquo;impression de contrôler l&rsquo;exécution : on y présente des indicateurs, on y discute des blocages, on en repart avec un compte-rendu. Mais ce rituel rassure plus qu&rsquo;il ne pilote. Le pilotage réel — la vérification que les décisions prises produisent effectivement les résultats attendus — se joue surtout <em>entre</em> les réunions, pas pendant.</p>\n<p>C&rsquo;est le même écart que celui décrit dans notre article sur les <a href=\"https://www.perfeco.nc/ressources/qui-a-le-droit-de-decider\" style=\"color:#001D9F;\">droits de décision</a> : un rituel bien exécuté (la réunion elle-même) ne garantit rien sur ce qui se passe une fois que tout le monde est reparti. Un comité stratégique, un point hebdo, un COPIL projet, une réunion de suivi : chacun produit un compte-rendu diffusé — et c&rsquo;est souvent là que s&rsquo;arrête le suivi réel.</p>\n<h2>4 signaux qui trahissent un faux pilotage</h2>\n<h3>1. Le compte-rendu remplace le suivi</h3>\n<p>La réunion se termine, personne ne revérifie que les actions décidées ont vraiment été faites avant la réunion suivante.</p>\n<h3>2. Les mêmes sujets reviennent sans fin</h3>\n<p>Un point est réabordé réunion après réunion, sans jamais être vraiment tranché — signe que la réunion sert à discuter, pas à décider.</p>\n<h3>3. Personne ne sait qui doit décider</h3>\n<p>La réunion sert à &laquo; aligner &raquo; plutôt qu&rsquo;à trancher : la décision se dilue dans le collectif, et personne n&rsquo;est individuellement responsable du résultat.</p>\n<h3>4. Le pilotage n&rsquo;existe qu&rsquo;en réunion</h3>\n<p>Entre deux comités, plus personne ne regarde vraiment les indicateurs — le tableau de bord n&rsquo;est consulté que lorsqu&rsquo;il est projeté à l&rsquo;écran.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Le coût invisible</p>\n<p style=\"margin:0; color:#374151;\">Un pilotage qui n&rsquo;existe qu&rsquo;en réunion ne coûte pas seulement du temps de réunion — il coûte les décisions qui ne sont jamais suivies d&rsquo;effet entre deux comités, pendant que tout le monde croit que &laquo; ça avance &raquo;.</p>\n</div>\n<h2>La question que le COMEX devrait se poser</h2>\n<p>Non pas seulement : &laquo; Avons-nous une réunion de suivi sur ce sujet ? &raquo;</p>\n<p>Mais plutôt : &laquo; Si on supprimait la moitié de nos réunions de suivi, le pilotage serait-il vraiment moins bon ? &raquo;</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Question de diagnostic</p>\n<p style=\"margin:0; color:#374151;\">Sur votre dernier comité de pilotage : combien de décisions prises ont réellement été suivies d&rsquo;une action vérifiée la semaine d&rsquo;après ?</p>\n</div>\n<div style=\"background:#163D78; color:#fff; padding:24px 28px; margin:32px 0; border-radius:8px; text-align:center;\">\n<p style=\"margin:0 0 8px; font-weight:700; font-size:1.05em;\">Vos comités tournent-ils à plein régime sans jamais vraiment piloter ?</p>\n<p style=\"margin:0 0 12px; color:rgba(255,255,255,0.8);\">PerfEco aide les directions générales à transformer leurs réunions en véritables leviers de pilotage — pas seulement des rituels, des résultats mesurables dès les premières semaines.</p>\n<p style=\"margin:0; color:#FBAA16; font-weight:600;\">contact@perfeco.nc &middot; +687 73 08 75 &middot; <a href=\"https://www.perfeco.nc/\" style=\"color:#FBAA16;\">https://www.perfeco.nc/</a></p>\n</div>\n<div style=\"border-top:1px solid #e5e7eb; padding-top:24px; margin-top:32px;\">\n<p style=\"font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#9CA3AF; margin-bottom:12px;\">Série Exécution Stratégique</p>\n<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:12px;\">\n<div style=\"background:#f0f5ff; border-radius:8px; padding:14px; border:1px solid #c7d9f8;\">\n<p style=\"font-size:11px; color:#001D9F; font-weight:700; margin:0 0 4px;\">&#8592; Article précédent &middot; 4/8</p>\n<p style=\"font-size:13px; color:#163D78; font-weight:600; margin:0;\">Pourquoi les projets ralentissent</p>\n<p style=\"font-size:11px; color:#6B7280; margin:4px 0 0;\">28 juillet 2026</p>\n</p></div>\n<div style=\"background:#f9fafb; border-radius:8px; padding:14px;\">\n<p style=\"font-size:11px; color:#9CA3AF; font-weight:700; margin:0 0 4px;\">Article suivant &middot; 6/8 &#8594;</p>\n<p style=\"font-size:13px; color:#6B7280; font-weight:600; margin:0;\">Le COMEX manque souvent de visibilité</p>\n<p style=\"font-size:11px; color:#6B7280; margin:4px 0 0;\">11 août 2026</p>\n</p></div>\n</div>\n</div>\n",
           "protected": false
         },
         "excerpt": {
-          "rendered": "<p>91,5 % des mégaprojets dépassent budget ou délai. Ce n&rsquo;est presque jamais un problème de compétence. 4 signaux annoncent, souvent des mois à l&rsquo;avance, qu&rsquo;un projet va ralentir.</p>\n",
+          "rendered": "<p>Un cadre dirigeant passe en moyenne 23h par semaine en réunion. Un seul comité de direction hebdomadaire peut mobiliser jusqu&rsquo;à 300 000 heures par an en cascade. Multiplier les réunions ne garantit pas qu&rsquo;on pilote quoi que ce soit.</p>\n",
           "protected": false
         },
         "author": 1,
@@ -54,40 +54,38 @@
           "jetpack_post_was_ever_published": false
         },
         "categories": [
-          9
+          10
         ],
         "tags": [
           20,
-          24,
           32,
+          16,
           13,
           18,
           19,
           26,
-          14,
-          15
+          21
         ],
         "class_list": [
-          "post-106",
+          "post-110",
           "post",
           "type-post",
           "status-publish",
           "format-standard",
           "hentry",
-          "category-strategie",
+          "category-pilotage",
           "tag-comex",
-          "tag-dirigeants",
           "tag-execution",
+          "tag-leadership",
           "tag-management",
           "tag-nouvelle-caledonie",
           "tag-pacifique",
           "tag-perfeco",
-          "tag-performance",
-          "tag-strategie"
+          "tag-pilotage"
         ],
-        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Pourquoi les projets ralentissent : et ce qui les fait vraiment dérailler - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Pourquoi les projets ralentissent : et ce qui les fait vraiment dérailler - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"91,5 % des mégaprojets dépassent budget ou délai. Ce n&#039;est presque jamais un problème de compétence. 4 signaux annoncent, souvent des mois à l&#039;avance, qu&#039;un projet va ralentir.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-07-28T09:03:00+00:00\" />\n<meta property=\"article:modified_time\" content=\"2026-07-29T00:09:01+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"4 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/pourquoi-les-projets-ralentissent-execution\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/pourquoi-les-projets-ralentissent-execution\\/\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Pourquoi les projets ralentissent : et ce qui les fait vraiment dérailler\",\"datePublished\":\"2026-07-28T09:03:00+00:00\",\"dateModified\":\"2026-07-29T00:09:01+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/pourquoi-les-projets-ralentissent-execution\\/\"},\"wordCount\":862,\"keywords\":[\"COMEX\",\"Dirigeants\",\"Exécution\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Performance\",\"Stratégie\"],\"articleSection\":[\"Stratégie\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/pourquoi-les-projets-ralentissent-execution\\/\",\"url\":\"https:\\/\\/perfsystemique.fr\\/pourquoi-les-projets-ralentissent-execution\\/\",\"name\":\"Pourquoi les projets ralentissent : et ce qui les fait vraiment dérailler - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-07-28T09:03:00+00:00\",\"dateModified\":\"2026-07-29T00:09:01+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/pourquoi-les-projets-ralentissent-execution\\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/pourquoi-les-projets-ralentissent-execution\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/pourquoi-les-projets-ralentissent-execution\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Pourquoi les projets ralentissent : et ce qui les fait vraiment dérailler\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Les réunions ne remplacent pas le pilotage - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Les réunions ne remplacent pas le pilotage - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Un cadre dirigeant passe en moyenne 23h par semaine en réunion. Un seul comité de direction hebdomadaire peut mobiliser jusqu&#039;à 300 000 heures par an en cascade. Multiplier les réunions ne garantit pas qu&#039;on pilote quoi que ce soit.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-08-04T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"4 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-reunions-ne-remplacent-pas-le-pilotage\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-reunions-ne-remplacent-pas-le-pilotage\\/\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Les réunions ne remplacent pas le pilotage\",\"datePublished\":\"2026-08-04T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-reunions-ne-remplacent-pas-le-pilotage\\/\"},\"wordCount\":841,\"keywords\":[\"COMEX\",\"Exécution\",\"Leadership\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-reunions-ne-remplacent-pas-le-pilotage\\/\",\"url\":\"https:\\/\\/perfsystemique.fr\\/les-reunions-ne-remplacent-pas-le-pilotage\\/\",\"name\":\"Les réunions ne remplacent pas le pilotage - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-08-04T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-reunions-ne-remplacent-pas-le-pilotage\\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/les-reunions-ne-remplacent-pas-le-pilotage\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-reunions-ne-remplacent-pas-le-pilotage\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Les réunions ne remplacent pas le pilotage\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
         "yoast_head_json": {
-          "title": "Pourquoi les projets ralentissent : et ce qui les fait vraiment dérailler - Perfsystemique.fr",
+          "title": "Les réunions ne remplacent pas le pilotage - Perfsystemique.fr",
           "robots": {
             "index": "index",
             "follow": "follow",
@@ -95,16 +93,15 @@
             "max-image-preview": "max-image-preview:large",
             "max-video-preview": "max-video-preview:-1"
           },
-          "canonical": "https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/",
+          "canonical": "https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/",
           "og_locale": "fr_FR",
           "og_type": "article",
-          "og_title": "Pourquoi les projets ralentissent : et ce qui les fait vraiment dérailler - Perfsystemique.fr",
-          "og_description": "91,5 % des mégaprojets dépassent budget ou délai. Ce n'est presque jamais un problème de compétence. 4 signaux annoncent, souvent des mois à l'avance, qu'un projet va ralentir.",
-          "og_url": "https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/",
+          "og_title": "Les réunions ne remplacent pas le pilotage - Perfsystemique.fr",
+          "og_description": "Un cadre dirigeant passe en moyenne 23h par semaine en réunion. Un seul comité de direction hebdomadaire peut mobiliser jusqu'à 300 000 heures par an en cascade. Multiplier les réunions ne garantit pas qu'on pilote quoi que ce soit.",
+          "og_url": "https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/",
           "og_site_name": "Perfsystemique.fr",
           "article_publisher": "https://www.facebook.com/PerfecoNC/",
-          "article_published_time": "2026-07-28T09:03:00+00:00",
-          "article_modified_time": "2026-07-29T00:09:01+00:00",
+          "article_published_time": "2026-08-04T00:03:00+00:00",
           "author": "Jean-Michel Blaise",
           "twitter_card": "summary_large_image",
           "twitter_misc": {
@@ -116,66 +113,63 @@
             "@graph": [
               {
                 "@type": "Article",
-                "@id": "https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/#article",
+                "@id": "https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/#article",
                 "isPartOf": {
-                  "@id": "https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/"
+                  "@id": "https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/"
                 },
                 "author": {
                   "name": "Jean-Michel Blaise",
                   "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
                 },
-                "headline": "Pourquoi les projets ralentissent : et ce qui les fait vraiment dérailler",
-                "datePublished": "2026-07-28T09:03:00+00:00",
-                "dateModified": "2026-07-29T00:09:01+00:00",
+                "headline": "Les réunions ne remplacent pas le pilotage",
+                "datePublished": "2026-08-04T00:03:00+00:00",
                 "mainEntityOfPage": {
-                  "@id": "https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/"
+                  "@id": "https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/"
                 },
-                "wordCount": 862,
+                "wordCount": 841,
                 "keywords": [
                   "COMEX",
-                  "Dirigeants",
                   "Exécution",
+                  "Leadership",
                   "Management",
                   "Nouvelle-Calédonie",
                   "Pacifique",
                   "PerfEco",
-                  "Performance",
-                  "Stratégie"
+                  "Pilotage"
                 ],
                 "articleSection": [
-                  "Stratégie"
+                  "Pilotage"
                 ],
                 "inLanguage": "fr-FR"
               },
               {
                 "@type": "WebPage",
-                "@id": "https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/",
-                "url": "https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/",
-                "name": "Pourquoi les projets ralentissent : et ce qui les fait vraiment dérailler - Perfsystemique.fr",
+                "@id": "https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/",
+                "url": "https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/",
+                "name": "Les réunions ne remplacent pas le pilotage - Perfsystemique.fr",
                 "isPartOf": {
                   "@id": "https://perfsystemique.fr/#website"
                 },
-                "datePublished": "2026-07-28T09:03:00+00:00",
-                "dateModified": "2026-07-29T00:09:01+00:00",
+                "datePublished": "2026-08-04T00:03:00+00:00",
                 "author": {
                   "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
                 },
                 "breadcrumb": {
-                  "@id": "https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/#breadcrumb"
+                  "@id": "https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/#breadcrumb"
                 },
                 "inLanguage": "fr-FR",
                 "potentialAction": [
                   {
                     "@type": "ReadAction",
                     "target": [
-                      "https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/"
+                      "https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/"
                     ]
                   }
                 ]
               },
               {
                 "@type": "BreadcrumbList",
-                "@id": "https://perfsystemique.fr/pourquoi-les-projets-ralentissent-execution/#breadcrumb",
+                "@id": "https://perfsystemique.fr/les-reunions-ne-remplacent-pas-le-pilotage/#breadcrumb",
                 "itemListElement": [
                   {
                     "@type": "ListItem",
@@ -186,7 +180,7 @@
                   {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Pourquoi les projets ralentissent : et ce qui les fait vraiment dérailler"
+                    "name": "Les réunions ne remplacent pas le pilotage"
                   }
                 ]
               },
@@ -256,7 +250,7 @@
             "external_handle": "",
             "external_id": "552866114572775",
             "profile_link": "https://www.facebook.com/552866114572775",
-            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=FTMb-_H6sdcQ7kNvwH3EnMq&_nc_oc=AdrmZoaJ7raZSywRfBQ_ERxVMzYr6NZycgI8XvLKFR4ZI2joDNzVJsG2n_bY3DXgB7s&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=NGDaEzHD1v-zSct0isdWKw&_nc_tpa=Q5bMBQHzqfFT1Njx5S_DpYkqEWDeSHh2Sd_-NcZSOC0jLTBhYxNkKHOnlrmXWiYrsXZ4pjjbekc6&oh=00_AQF6zthz_WEmm4uyY14ULn6xzu2490tK0UrjCLb_BJvu7w&oe=6A71321B",
+            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=eLzfLdjvl5cQ7kNvwE_v4-5&_nc_oc=Adr-YC6g5cqfmBZ1VuL9icOl_5Agy5FCTbIE4RWHa1RPChOUqKW91IHPFc6M3EalwG8&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=yXZiocRSlYhpWCOPvPS-uw&_nc_tpa=Q5bMBQEjh03odYh6hFiH5vvg_ZpqAilFhNYAJk8Q9wtTjcNIunrpp3CkeZre6ehw7ijHxL380fwq&oh=00_AQE0DoQdwmDExTlnr2wHTITyqB02kbZTOVIHkdPTo3OQFA&oe=6A7D0F9B",
             "service_label": "Facebook",
             "service_name": "facebook",
             "shared": true,
@@ -269,7 +263,7 @@
         "_links": {
           "self": [
             {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/106",
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/110",
               "targetHints": {
                 "allow": [
                   "GET",
@@ -300,36 +294,36 @@
           "replies": [
             {
               "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=106"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=110"
             }
           ],
           "version-history": [
             {
               "count": 1,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/106/revisions"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/110/revisions"
             }
           ],
           "predecessor-version": [
             {
-              "id": 107,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/106/revisions/107"
+              "id": 111,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/110/revisions/111"
             }
           ],
           "wp:attachment": [
             {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=106"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=110"
             }
           ],
           "wp:term": [
             {
               "taxonomy": "category",
               "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=106"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=110"
             },
             {
               "taxonomy": "post_tag",
               "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=106"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=110"
             }
           ],
           "curies": [
@@ -363,6 +357,6 @@
   "facebook": {
     "fan_count": 51,
     "page_post_engagements_week": 0,
-    "page_views_week": 8
+    "page_views_week": 2
   }
 }
