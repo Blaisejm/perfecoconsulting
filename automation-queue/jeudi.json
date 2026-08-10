@@ -1,23 +1,21 @@
 {
-  "semaine": "W31",
-  "date_prevue": "2026-08-06",
+  "semaine": "W32",
+  "date_prevue": "2026-08-13",
   "linkedin_api_version": "202508",
   "linkedin_company": {
-    "message": "🎯 23h par semaine en réunion pour un cadre dirigeant en moyenne (Harvard Business Review) — sans que le pilotage progresse dans les mêmes proportions.\n\n🔎 4 signaux trahissent un pilotage qui n'existe qu'en façade : compte-rendu sans suivi réel, sujets jamais tranchés, personne qui décide vraiment, indicateurs oubliés entre deux comités.\n\n👉 Combien de décisions de votre dernier comité ont réellement été suivies d'une action vérifiée ?\n👇 Je lis tous les commentaires.\n\n🌐 perfeco.nc\n📩 contact@perfeco.nc\n\n#ExécutionStratégique #Pilotage #PerfEco #NouvelleCalédonie",
-    "image_url": "https://www.perfeco.nc/slides/W31/04-les-4-signaux.png"
+    "message": "🎯 4 signaux trahissent un COMEX qui pilote à l'aveugle — sans même s'en rendre compte.\n\n🔎 Les mauvaises nouvelles arrivent toujours adoucies, les tableaux de bord affichent des chiffres périmés, le terrain et la direction ne parlent plus de la même réalité, le problème n'est visible qu'une fois impossible à cacher.\n\n❓ Combien de ces signaux reconnaissez-vous dans votre organisation ?\n👇 Je lis tous les commentaires.\n\n🌐 perfeco.nc\n📩 contact@perfeco.nc\n\n#ExécutionStratégique #Pilotage #PerfEco #NouvelleCalédonie #COMEX",
+    "image_url": "https://www.perfeco.nc/slides/W32/04-les-4-signaux.png"
   },
   "facebook": {
     "envoyer": true,
-    "message": "📌 Être en réunion, ce n'est pas piloter.\n\n✅ 4 signaux trahissent un faux pilotage : comptes-rendus sans suivi, sujets jamais tranchés, personne ne décide, indicateurs oubliés entre deux comités.\n\n❓ Reconnaissez-vous l'un de ces signaux ?\n\n📞 +687 73 08 75\n📩 contact@perfeco.nc\n🌐 perfeco.nc\n\n#Pilotage #Management #NouvelleCalédonie #PerfEco",
-    "image_url": "https://www.perfeco.nc/slides/W31/04-les-4-signaux.png"
+    "message": "📌 4 signaux qui trahissent un COMEX qui pilote à l'aveugle :\n\n✅ Les mauvaises nouvelles arrivent toujours adoucies\n✅ Les tableaux de bord affichent des chiffres périmés\n✅ Le terrain et la direction ne voient plus la même réalité\n✅ Le problème n'est visible qu'une fois impossible à cacher\n\n❓ Reconnaissez-vous l'un de ces signaux ?\n\n📞 +687 73 08 75\n📩 contact@perfeco.nc\n🌐 perfeco.nc\n\n#Pilotage #Management #NouvelleCalédonie #PerfEco #COMEX",
+    "image_url": "https://www.perfeco.nc/slides/W32/04-les-4-signaux.png"
   },
   "linkedin_profil": {
     "type": "single",
-    "message": "💼 23h par semaine en réunion pour un cadre dirigeant en moyenne (Harvard Business Review) — un chiffre qui m'a marqué cette semaine.\n\n⚠️ 4 signaux trahissent un pilotage qui n'existe qu'en façade : compte-rendu sans suivi, sujets jamais tranchés, personne qui décide vraiment, indicateurs oubliés entre deux comités.\n\n👉 Sur votre dernier comité : combien de décisions ont vraiment été suivies d'une action vérifiée ?\n👇 Je lis tous les commentaires.\n\n🌐 perfeco.nc\n📩 contact@perfeco.nc\n\n#PerfEco #ExécutionStratégique #Pilotage #NouvelleCalédonie",
+    "message": "💼 75% des dirigeants ne font pas confiance aux données sur lesquelles ils s'appuient pour décider (Gartner, 2025) — un chiffre qui m'a arrêté net cette semaine.\n\n🔹 Les mauvaises nouvelles arrivent toujours adoucies — jamais la donnée brute.\n🔹 Les tableaux de bord affichent des chiffres déjà périmés.\n🔹 Le terrain et la direction ne parlent plus de la même réalité.\n🔹 Le problème n'est visible qu'une fois impossible à cacher.\n\n⚠️ Ce n'est presque jamais de la malhonnêteté — plutôt un effet structurel qu'on appelle l'« effet Mum ».\n\n👉 Combien de ces signaux reconnaissez-vous chez vous ?\n\n📩 contact@perfeco.nc\n🌐 perfeco.nc\n\n#PerfEco #ExécutionStratégique #Pilotage #NouvelleCalédonie",
     "image_urls": [
-      "https://www.perfeco.nc/slides/W31/04-les-4-signaux.png"
+      "https://www.perfeco.nc/slides/W32/04-les-4-signaux.png"
     ]
-  },
-  "published_post_urn": "urn:li:share:7490980492914159616",
-  "published_at": "2026-08-06T04:02:05Z"
+  }
 }
