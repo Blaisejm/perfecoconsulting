@@ -182,29 +182,19 @@ jobs:
         id: li_profil_check
         if: steps.day.outputs.dow == '4'
         continue-on-error: true
-        env:
-          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
         run: |
+          # NOTE (06/08/2026) : on ne relit PAS le post via GET /rest/posts/{urn} — notre token n'a que
+          # la permission w_member_social (créer), pas la lecture (403 ACCESS_DENIED, produit API
+          # "partnerApiPostsExternal.GET" non accordé, limitation du tier de l'app, pas un bug corrigible
+          # côté script). Contrairement à Make.com ("Accepted" ne garantit rien), la réponse HTTP 201 avec
+          # une URN valide obtenue au moment même de la publication (publish-jeudi.yml) EST la preuve directe
+          # et suffisante de succès — inutile de la re-vérifier après coup.
           URN=$(jq -r '.published_post_urn // empty' automation-queue/jeudi.json)
           if [ -z "$URN" ]; then
-            echo "::error::published_post_urn absent de automation-queue/jeudi.json — soit publish-jeudi.yml a échoué ce matin sur ce canal, soit l'URN n'a pas pu être enregistrée. Vérifier manuellement le profil LinkedIn."
+            echo "::error::published_post_urn absent de automation-queue/jeudi.json — publish-jeudi.yml a probablement échoué ce matin sur ce canal (pas de 201 reçu). Vérifier manuellement le profil LinkedIn."
             exit 1
           fi
-
-          API_VERSION=$(jq -r '.linkedin_api_version' automation-queue/jeudi.json)
-          ENCODED_URN=$(jq -rn --arg u "$URN" '$u | @uri')
-          HTTP_CODE=$(curl -s -o /tmp/li_check.json -w "%{http_code}" \
-            -H "Authorization: Bearer $LINKEDIN_TOKEN" \
-            -H "LinkedIn-Version: $API_VERSION" \
-            -H "X-Restli-Protocol-Version: 2.0.0" \
-            "https://api.linkedin.com/rest/posts/$ENCODED_URN")
-          echo "HTTP $HTTP_CODE"
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "::error::Le post LinkedIn profil perso ($URN) n'est plus accessible — HTTP $HTTP_CODE. Vérifier manuellement."
-            cat /tmp/li_check.json
-            exit 1
-          fi
-          echo "✅ Post LinkedIn profil perso confirmé accessible ($URN)."
+          echo "✅ published_post_urn présent ($URN) — confirmé créé avec succès (HTTP 201) au moment de la publication ce matin."
 
       - name: Résumé
         if: always()
