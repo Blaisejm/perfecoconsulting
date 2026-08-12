@@ -16,117 +16,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Vérifier scénario Facebook (Integration Webhooks — 6233263)
-        id: fb
+      - name: Vérifier scénario PerfEco Social Publisher (6916780)
+        id: social_publisher
         continue-on-error: true
         env:
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
         run: |
-          HTTP_CODE=$(curl -s -o /tmp/fb.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6233263")
-          echo "HTTP $HTTP_CODE"; cat /tmp/fb.json
+          HTTP_CODE=$(curl -s -o /tmp/sp.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6916780")
+          echo "HTTP $HTTP_CODE"; cat /tmp/sp.json
           if [ "$HTTP_CODE" != "200" ]; then
-            echo "::error::Impossible d'interroger le scénario Facebook (6233263) — HTTP $HTTP_CODE"
+            echo "::error::Impossible d'interroger le scénario PerfEco Social Publisher (6916780) — HTTP $HTTP_CODE"
             exit 1
           fi
-          IS_ACTIVE=$(jq -r '.scenario.isActive' /tmp/fb.json)
+          IS_ACTIVE=$(jq -r '.scenario.isActive' /tmp/sp.json)
           echo "isActive=$IS_ACTIVE"
           if [ "$IS_ACTIVE" != "true" ]; then
-            echo "::error::Scénario Facebook (Integration Webhooks, 6233263) INACTIF — https://eu1.make.com/1970457/scenarios/6233263/edit — vérifier la queue puis réactiver."
+            echo "::error::Scénario PerfEco Social Publisher (6916780) INACTIF — https://eu1.make.com/1970457/scenarios/6916780/edit — vérifier la queue puis réactiver. Rappel : plan Make.com limité à 2 scénarios actifs, vérifier qu'aucun 3e n'a été activé par erreur."
             exit 1
           fi
-          echo "✅ Scénario Facebook actif."
+          echo "✅ Scénario PerfEco Social Publisher actif."
 
-      - name: Vérifier scénario LinkedIn (Integration Webhooks, LinkedIn — 6249513)
-        id: li
-        continue-on-error: true
-        env:
-          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
-        run: |
-          HTTP_CODE=$(curl -s -o /tmp/li.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6249513")
-          echo "HTTP $HTTP_CODE"; cat /tmp/li.json
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "::error::Impossible d'interroger le scénario LinkedIn (6249513) — HTTP $HTTP_CODE"
-            exit 1
-          fi
-          IS_ACTIVE=$(jq -r '.scenario.isActive' /tmp/li.json)
-          echo "isActive=$IS_ACTIVE"
-          if [ "$IS_ACTIVE" != "true" ]; then
-            echo "::error::Scénario LinkedIn (Integration Webhooks, LinkedIn, 6249513) INACTIF — https://eu1.make.com/1970457/scenarios/6249513/edit — vérifier la queue puis réactiver."
-            exit 1
-          fi
-          echo "✅ Scénario LinkedIn actif."
-
-      - name: Vérifier la fraîcheur du contenu à diffuser aujourd'hui/demain
-        id: content_freshness
-        continue-on-error: true
-        run: |
-          DOW=$(TZ="Pacific/Noumea" date +%u)  # 1=lundi ... 7=dimanche
-          FAIL=0
-
-          check_file() {
-            local file="$1" expected_date="$2" label="$3"
-            if [ ! -f "$file" ]; then
-              echo "::error::[$label] Fichier $file introuvable — rien à diffuser prévu."
-              FAIL=1
-              return
-            fi
-            local actual=$(jq -r '.date_prevue' "$file")
-            if [ "$actual" != "$expected_date" ]; then
-              echo "::error::[$label] $file a date_prevue=$actual, attendu $expected_date — contenu périmé ou pas encore préparé. La diffusion de ce jour échouera si ce n'est pas corrigé avant 11h00 NC."
-              FAIL=1
-            else
-              echo "✅ [$label] $file à jour ($actual)."
-            fi
-          }
-
-          if [ "$DOW" = "1" ]; then
-            TOMORROW=$(TZ="Pacific/Noumea" date -d tomorrow +%Y-%m-%d)
-            ENVOYER=$(jq -r '.facebook.envoyer // "false"' automation-queue/mardi.json 2>/dev/null || echo "false")
-            if [ "$ENVOYER" = "true" ]; then
-              check_file "automation-queue/mardi.json" "$TOMORROW" "Facebook lundi"
-            else
-              echo "facebook.envoyer=$ENVOYER dans mardi.json — publication lundi déjà gérée autrement ou non prévue, pas de vérification de date nécessaire."
-            fi
-          elif [ "$DOW" = "2" ]; then
-            TODAY=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
-            check_file "automation-queue/mardi.json" "$TODAY" "Mardi (carrousel + profil perso + Facebook secours)"
-          elif [ "$DOW" = "4" ]; then
-            TODAY=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
-            check_file "automation-queue/jeudi.json" "$TODAY" "Jeudi (post court)"
-          elif [ "$DOW" = "5" ]; then
-            TODAY=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
-            if [ -f automation-queue/vendredi.json ]; then
-              check_file "automation-queue/vendredi.json" "$TODAY" "Vendredi (hors-série ponctuel)"
-            else
-              echo "Pas de automation-queue/vendredi.json — normal la plupart des semaines (hors-série ponctuel uniquement)."
-            fi
-          fi
-
-          if [ "$FAIL" = "1" ]; then
-            exit 1
-          fi
-
-      - name: Vérifier que le 3e scénario (PerfEco LinkedIn Publisher, Text Post) est bien désactivé
-        id: extra_scenario
-        continue-on-error: true
-        env:
-          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
-        run: |
-          HTTP_CODE=$(curl -s -o /tmp/extra.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6791084")
-          echo "HTTP $HTTP_CODE"; cat /tmp/extra.json
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "::warning::Impossible d'interroger le 3e scénario (PerfEco LinkedIn Publisher, 6791084) — HTTP $HTTP_CODE (non bloquant)"
-            exit 0
-          fi
-          IS_ACTIVE=$(jq -r '.scenario.isActive' /tmp/extra.json)
-          echo "isActive=$IS_ACTIVE"
-          if [ "$IS_ACTIVE" = "true" ]; then
-            echo "::error::Le 3e scénario (PerfEco LinkedIn Publisher / Company Text Post, 6791084) est ACTIF — le plan Make.com ne tolère que 2 scénarios actifs simultanément, ce qui va probablement désactiver un des 2 scénarios essentiels (Facebook 6233263 ou LinkedIn 6249513). Désactiver ce 3e scénario immédiatement : https://eu1.make.com/1970457/scenarios/6791084/edit — voir NOTE-TECHNIQUE-MAKECOM-05082026.md pour le contexte complet."
-            exit 1
-          fi
-          echo "✅ 3e scénario bien désactivé (pas de risque de dépassement de quota)."
-
-      - name: Vérifier version API LinkedIn (426 NONEXISTENT_VERSION)
+      - name: Vérifier version API LinkedIn (426 NONEXISTENT_VERSION — utilisée pour le carrousel DRAFT du mardi)
         id: li_version
         continue-on-error: true
         env:
@@ -135,13 +45,6 @@ jobs:
           MEMBER_URN="urn:li:person:e0QUppRUQ8"
           API_VERSION=$(jq -r '.linkedin_api_version' automation-queue/mardi.json)
           echo "DEBUG: API_VERSION=$API_VERSION (source : automation-queue/mardi.json)"
-
-          if [ -f automation-queue/jeudi.json ]; then
-            API_VERSION_JEUDI=$(jq -r '.linkedin_api_version' automation-queue/jeudi.json)
-            if [ "$API_VERSION_JEUDI" != "$API_VERSION" ]; then
-              echo "::warning::linkedin_api_version diffère entre mardi.json ($API_VERSION) et jeudi.json ($API_VERSION_JEUDI) — à aligner."
-            fi
-          fi
 
           jq -n --arg owner "$MEMBER_URN" '{initializeUploadRequest:{owner:$owner}}' > /tmp/li_version_body.json
           HTTP_CODE=$(curl -s -o /tmp/li_version.json -w "%{http_code}" -X POST "https://api.linkedin.com/rest/images?action=initializeUpload" \
@@ -153,7 +56,7 @@ jobs:
           echo "HTTP $HTTP_CODE"; cat /tmp/li_version.json
 
           if [ "$HTTP_CODE" = "426" ] || grep -q "NONEXISTENT_VERSION" /tmp/li_version.json; then
-            echo "::error::linkedin_api_version=$API_VERSION expiré (426 NONEXISTENT_VERSION) — mettre à jour automation-queue/mardi.json ET jeudi.json avec une version récente (format AAAAMM, ex. $(date +%Y%m))."
+            echo "::error::linkedin_api_version=$API_VERSION expiré (426 NONEXISTENT_VERSION) — mettre à jour automation-queue/mardi.json avec une version récente (format AAAAMM, ex. $(date +%Y%m)). Utilisée uniquement pour le carrousel DRAFT du profil perso du mardi."
             exit 1
           fi
 
@@ -180,7 +83,7 @@ jobs:
           FILE="automation-queue/mardi.json"
           POST_ID=$(jq -r '.wordpress_post_id // empty' "$FILE")
           if [ -z "$POST_ID" ]; then
-            echo "::error::Champ wordpress_post_id absent de $FILE — impossible de vérifier l'article avant la publication de 11h03. L'ajouter lors de la préparation du brief hebdomadaire (perfeco-brief-hebdomadaire, étape 4.9)."
+            echo "::error::Champ wordpress_post_id absent de $FILE — impossible de vérifier l'article avant la publication de 11h03."
             exit 1
           fi
 
@@ -219,14 +122,11 @@ jobs:
       - name: Résumé
         if: always()
         run: |
-          echo "Facebook (Make.com) : ${{ steps.fb.outcome }}"
-          echo "LinkedIn (Make.com) : ${{ steps.li.outcome }}"
-          echo "Fraîcheur du contenu à diffuser : ${{ steps.content_freshness.outcome }}"
-          echo "3e scénario désactivé : ${{ steps.extra_scenario.outcome }}"
-          echo "Version API LinkedIn : ${{ steps.li_version.outcome }}"
+          echo "PerfEco Social Publisher : ${{ steps.social_publisher.outcome }}"
+          echo "Version API LinkedIn (carrousel mardi) : ${{ steps.li_version.outcome }}"
           echo "Article WordPress : ${{ steps.wp_check.outcome }}"
-          if [ "${{ steps.fb.outcome }}" = "failure" ] || [ "${{ steps.li.outcome }}" = "failure" ] || [ "${{ steps.content_freshness.outcome }}" = "failure" ] || [ "${{ steps.extra_scenario.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ]; then
+          if [ "${{ steps.social_publisher.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ]; then
             echo "::error::Au moins une vérification a échoué — voir logs ci-dessus. Corriger AVANT le prochain lancement de publication."
             exit 1
           fi
-          echo "✅ Scénarios Make.com actifs (et 3e scénario bien désactivé), version API LinkedIn valide, article WordPress prêt (si mardi)."
+          echo "✅ Scénario Make.com actif, version API LinkedIn valide, article WordPress prêt (si mardi)."
