@@ -20,7 +20,7 @@ jobs:
 
       - name: Vérifier le post Facebook du jour
         id: fb_check
-        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5' || steps.day.outputs.dow == '3'  # TEMPORAIRE 12/08 test
+        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5'
         continue-on-error: true
         env:
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
@@ -124,7 +124,7 @@ jobs:
 
       - name: Vérifier l'exécution PerfEco Social Publisher (LinkedIn Company + profil perso si non suspendu)
         id: social_publisher_check
-        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5' || steps.day.outputs.dow == '3'  # TEMPORAIRE 12/08 test
+        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5'
         continue-on-error: true
         env:
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
