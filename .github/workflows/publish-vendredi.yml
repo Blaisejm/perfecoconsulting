@@ -1,4 +1,4 @@
-name: PerfEco — Publication vendredi (hors-série ponctuel)
+name: PerfEco — Publication vendredi (veille économique, webhook unique)
 
 on:
   schedule:
@@ -27,49 +27,37 @@ jobs:
           fi
           echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
 
-      - name: LinkedIn Company Page (Make.com)
-        id: li_company
-        continue-on-error: true
+      - name: Publication réseaux sociaux (webhook unique — LinkedIn Company + LinkedIn perso + Facebook)
+        id: social
         run: |
+          set -e
           FILE="automation-queue/vendredi.json"
-          MESSAGE=$(jq -r '.linkedin_company.message' "$FILE")
-          IMAGE_URL=$(jq -r '.linkedin_company.image_url' "$FILE")
+          MESSAGE=$(jq -r '.social_post.message' "$FILE")
+          IMAGE_URL=$(jq -r '.social_post.image_url' "$FILE")
           SEMAINE=$(jq -r '.semaine' "$FILE")
 
           echo "DEBUG: longueur MESSAGE=${#MESSAGE} caractères"
           echo "DEBUG: IMAGE_URL=$IMAGE_URL"
+          echo "DEBUG: SEMAINE=$SEMAINE"
 
-          jq -n --arg msg "$MESSAGE" --arg img "$IMAGE_URL" --arg sem "$SEMAINE" '{message:$msg, image_url:$img, semaine:$sem}' > /tmp/payload.json
+          HTTP_CODE=$(curl -s -o /tmp/resp.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/bp97dhwfnsx2yxmxr8sguhlvrdjl6kx6" \
+            --data-urlencode "message=$MESSAGE" \
+            --data-urlencode "image_url=$IMAGE_URL" \
+            --data-urlencode "semaine=$SEMAINE")
 
-          HTTP_CODE=$(curl -s -o /tmp/li.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/eq9mpaycqgaxir6eqew6514mtqcytt9d" -H "Content-Type: application/json; charset=utf-8" --data-binary @/tmp/payload.json)
-          echo "HTTP $HTTP_CODE"; cat /tmp/li.txt
-          [ "$HTTP_CODE" = "200" ]
-
-      - name: Facebook
-        id: facebook
-        continue-on-error: true
-        run: |
-          FILE="automation-queue/vendredi.json"
-          ENVOYER=$(jq -r '.facebook.envoyer' "$FILE")
-          if [ "$ENVOYER" != "true" ]; then
-            echo "Ignoré (facebook.envoyer=false)."
-            exit 0
+          echo "HTTP $HTTP_CODE"; cat /tmp/resp.txt
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::Échec de l'appel webhook — HTTP $HTTP_CODE. NB : un code 200 'Accepted' ne garantit pas la publication réelle si le scénario Make.com est désactivé — vérifier check-publication-afternoon.yml cet après-midi."
+            exit 1
           fi
-          MESSAGE=$(jq -r '.facebook.message' "$FILE")
-          IMAGE_URL=$(jq -r '.facebook.image_url' "$FILE")
-          SEMAINE=$(jq -r '.semaine' "$FILE")
-          PAYLOAD=$(jq -n --arg msg "$MESSAGE" --arg img "$IMAGE_URL" --arg sem "$SEMAINE" '{message:$msg, image_url:$img, semaine:$sem}')
-          HTTP_CODE=$(curl -s -o /tmp/fb.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/7wp4lv77tq234ckyk6lh9npn5aoh4qlq" -H "Content-Type: application/json; charset=utf-8" -d "$PAYLOAD")
-          echo "HTTP $HTTP_CODE"; cat /tmp/fb.txt
-          [ "$HTTP_CODE" = "200" ]
+          echo "✅ Webhook accepté (HTTP 200) — vérification réelle faite par check-publication-afternoon.yml."
 
       - name: Vérifier les résultats et faire échouer le job si besoin
         if: always()
         run: |
-          echo "LinkedIn Company Page : ${{ steps.li_company.outcome }}"
-          echo "Facebook : ${{ steps.facebook.outcome }}"
-          if [ "${{ steps.li_company.outcome }}" = "failure" ] || [ "${{ steps.facebook.outcome }}" = "failure" ]; then
-            echo "::error::Au moins un canal a échoué — voir les logs des étapes ci-dessus."
+          echo "Publication réseaux sociaux : ${{ steps.social.outcome }}"
+          if [ "${{ steps.social.outcome }}" = "failure" ]; then
+            echo "::error::L'appel au webhook a échoué — voir les logs ci-dessus."
             exit 1
           fi
-          echo "✅ LinkedIn Company Page + Facebook publiés sans erreur (hors-série vendredi)."
+          echo "✅ Appel webhook réussi (LinkedIn Company + LinkedIn perso + Facebook, même message/image)."

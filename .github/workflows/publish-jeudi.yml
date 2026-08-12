@@ -1,12 +1,9 @@
-name: PerfEco — Publication jeudi (post court)
+name: PerfEco — Publication jeudi (post court, webhook unique)
 
 on:
   schedule:
     - cron: '0 0 * * 4'  # Jeudi 00h00 UTC = 11h00 Nouvelle-Calédonie
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   publish:
@@ -30,140 +27,37 @@ jobs:
           fi
           echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
 
-      - name: LinkedIn Company Page (Make.com)
-        id: li_company
-        continue-on-error: true
-        run: |
-          FILE="automation-queue/jeudi.json"
-          MESSAGE=$(jq -r '.linkedin_company.message' "$FILE")
-          IMAGE_URL=$(jq -r '.linkedin_company.image_url' "$FILE")
-          SEMAINE=$(jq -r '.semaine' "$FILE")
-          PAYLOAD=$(jq -n --arg msg "$MESSAGE" --arg img "$IMAGE_URL" --arg sem "$SEMAINE" '{message:$msg, image_url:$img, semaine:$sem}')
-          HTTP_CODE=$(curl -s -o /tmp/li.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/eq9mpaycqgaxir6eqew6514mtqcytt9d" -H "Content-Type: application/json; charset=utf-8" -d "$PAYLOAD")
-          echo "HTTP $HTTP_CODE"; cat /tmp/li.txt
-          [ "$HTTP_CODE" = "200" ]
-
-      - name: Facebook
-        id: facebook
-        continue-on-error: true
-        run: |
-          FILE="automation-queue/jeudi.json"
-          ENVOYER=$(jq -r '.facebook.envoyer' "$FILE")
-          if [ "$ENVOYER" != "true" ]; then
-            echo "Ignoré (facebook.envoyer=false)."
-            exit 0
-          fi
-          MESSAGE=$(jq -r '.facebook.message' "$FILE")
-          IMAGE_URL=$(jq -r '.facebook.image_url' "$FILE")
-          SEMAINE=$(jq -r '.semaine' "$FILE")
-          PAYLOAD=$(jq -n --arg msg "$MESSAGE" --arg img "$IMAGE_URL" --arg sem "$SEMAINE" '{message:$msg, image_url:$img, semaine:$sem}')
-          HTTP_CODE=$(curl -s -o /tmp/fb.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/7wp4lv77tq234ckyk6lh9npn5aoh4qlq" -H "Content-Type: application/json; charset=utf-8" -d "$PAYLOAD")
-          echo "HTTP $HTTP_CODE"; cat /tmp/fb.txt
-          [ "$HTTP_CODE" = "200" ]
-
-      - name: LinkedIn profil perso (post court, publication directe)
-        id: li_profil
-        continue-on-error: true
-        env:
-          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+      - name: Publication réseaux sociaux (webhook unique — LinkedIn Company + LinkedIn perso + Facebook)
+        id: social
         run: |
           set -e
           FILE="automation-queue/jeudi.json"
-          MEMBER_URN="urn:li:person:e0QUppRUQ8"
-          API_VERSION=$(jq -r '.linkedin_api_version' "$FILE")
-          MESSAGE=$(jq -r '.linkedin_profil.message' "$FILE")
-          URL=$(jq -r '.linkedin_profil.image_urls[0]' "$FILE")
+          MESSAGE=$(jq -r '.social_post.message' "$FILE")
+          IMAGE_URL=$(jq -r '.social_post.image_url' "$FILE")
+          SEMAINE=$(jq -r '.semaine' "$FILE")
 
-          echo "DEBUG: API_VERSION=$API_VERSION"
           echo "DEBUG: longueur MESSAGE=${#MESSAGE} caractères"
+          echo "DEBUG: IMAGE_URL=$IMAGE_URL"
+          echo "DEBUG: SEMAINE=$SEMAINE"
 
-          DL_CODE=$(curl -s -o slide.png -w "%{http_code}" "$URL")
-          echo "DEBUG: téléchargement image -> HTTP $DL_CODE"
-          if [ "$DL_CODE" != "200" ]; then
-            echo "::error::Échec téléchargement slide ($URL) — HTTP $DL_CODE"
+          HTTP_CODE=$(curl -s -o /tmp/resp.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/bp97dhwfnsx2yxmxr8sguhlvrdjl6kx6" \
+            --data-urlencode "message=$MESSAGE" \
+            --data-urlencode "image_url=$IMAGE_URL" \
+            --data-urlencode "semaine=$SEMAINE")
+
+          echo "HTTP $HTTP_CODE"; cat /tmp/resp.txt
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::Échec de l'appel webhook — HTTP $HTTP_CODE. NB : un code 200 'Accepted' ne garantit pas la publication réelle si le scénario Make.com est désactivé — vérifier check-publication-afternoon.yml cet après-midi."
             exit 1
           fi
-
-          jq -n --arg owner "$MEMBER_URN" '{initializeUploadRequest:{owner:$owner}}' > /tmp/init_body.json
-          INIT_CODE=$(curl -s -o /tmp/init.json -w "%{http_code}" -X POST "https://api.linkedin.com/rest/images?action=initializeUpload" \
-            -H "Authorization: Bearer $LINKEDIN_TOKEN" \
-            -H "LinkedIn-Version: $API_VERSION" \
-            -H "X-Restli-Protocol-Version: 2.0.0" \
-            -H "Content-Type: application/json" \
-            --data-binary @/tmp/init_body.json)
-          echo "DEBUG: initializeUpload -> HTTP $INIT_CODE"
-          cat /tmp/init.json
-
-          UPLOAD_URL=$(jq -r '.value.uploadUrl // empty' /tmp/init.json)
-          URN=$(jq -r '.value.image // empty' /tmp/init.json)
-
-          if [ -z "$UPLOAD_URL" ]; then
-            echo "::error::Échec init upload — HTTP $INIT_CODE, réponse ci-dessus"
-            if grep -q "NONEXISTENT_VERSION" /tmp/init.json; then
-              echo "::error::426 NONEXISTENT_VERSION — mettre à jour linkedin_api_version dans automation-queue/jeudi.json ET mardi.json"
-            fi
-            exit 1
-          fi
-
-          PUT_CODE=$(curl -s -o /tmp/put.txt -w "%{http_code}" -X PUT "$UPLOAD_URL" -H "Authorization: Bearer $LINKEDIN_TOKEN" -H "Content-Type: image/png" --data-binary "@slide.png")
-          echo "DEBUG: upload PUT -> HTTP $PUT_CODE"
-          if [ "$PUT_CODE" != "201" ] && [ "$PUT_CODE" != "200" ]; then
-            echo "::error::Échec upload PUT — HTTP $PUT_CODE"
-            cat /tmp/put.txt
-            exit 1
-          fi
-
-          jq -n --arg author "$MEMBER_URN" --arg msg "$MESSAGE" --arg urn "$URN" \
-            '{author:$author, commentary:$msg, visibility:"PUBLIC", distribution:{feedDistribution:"MAIN_FEED", targetEntities:[], thirdPartyDistributionChannels:[]}, content:{media:{id:$urn, title:""}}, lifecycleState:"PUBLISHED"}' > /tmp/post_body.json
-
-          echo "DEBUG: taille POST_BODY :"; wc -c < /tmp/post_body.json
-
-          HTTP_CODE=$(curl -s -D /tmp/lip_headers.txt -o /tmp/lip.txt -w "%{http_code}" -X POST "https://api.linkedin.com/rest/posts" \
-            -H "Authorization: Bearer $LINKEDIN_TOKEN" \
-            -H "LinkedIn-Version: $API_VERSION" \
-            -H "X-Restli-Protocol-Version: 2.0.0" \
-            -H "Content-Type: application/json" \
-            --data-binary @/tmp/post_body.json)
-
-          echo "HTTP $HTTP_CODE"; cat /tmp/lip.txt
-          if [ "$HTTP_CODE" != "201" ]; then
-            exit 1
-          fi
-
-          POST_URN=$(grep -i '^x-restli-id:' /tmp/lip_headers.txt | tr -d '\r' | cut -d' ' -f2-)
-          if [ -z "$POST_URN" ]; then
-            POST_URN=$(jq -r '.id // empty' /tmp/lip.txt)
-          fi
-          echo "DEBUG: POST_URN=$POST_URN (pour vérification après-midi)"
-          echo "post_urn=$POST_URN" >> "$GITHUB_OUTPUT"
-
-      - name: Enregistrer l'URN du post publié (pour vérification après-midi)
-        id: save_urn
-        if: steps.li_profil.outcome == 'success'
-        continue-on-error: true
-        run: |
-          URN="${{ steps.li_profil.outputs.post_urn }}"
-          if [ -z "$URN" ]; then
-            echo "::warning::URN du post publié introuvable dans la réponse LinkedIn — check-publication-afternoon.yml ne pourra pas vérifier ce canal cet après-midi."
-            exit 0
-          fi
-          jq --arg urn "$URN" --arg t "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '. + {published_post_urn: $urn, published_at: $t}' automation-queue/jeudi.json > /tmp/jeudi_updated.json
-          mv /tmp/jeudi_updated.json automation-queue/jeudi.json
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add automation-queue/jeudi.json
-          git commit -m "chore: enregistrer URN LinkedIn profil perso jeudi pour vérification après-midi"
-          git pull --no-edit origin main
-          git push origin main
+          echo "✅ Webhook accepté (HTTP 200) — vérification réelle faite par check-publication-afternoon.yml."
 
       - name: Vérifier les résultats et faire échouer le job si besoin
         if: always()
         run: |
-          echo "LinkedIn Company Page : ${{ steps.li_company.outcome }}"
-          echo "Facebook : ${{ steps.facebook.outcome }}"
-          echo "LinkedIn profil perso : ${{ steps.li_profil.outcome }}"
-          if [ "${{ steps.li_company.outcome }}" = "failure" ] || [ "${{ steps.li_profil.outcome }}" = "failure" ] || [ "${{ steps.facebook.outcome }}" = "failure" ]; then
-            echo "::error::Au moins un canal a échoué — voir les logs des étapes ci-dessus."
+          echo "Publication réseaux sociaux : ${{ steps.social.outcome }}"
+          if [ "${{ steps.social.outcome }}" = "failure" ]; then
+            echo "::error::L'appel au webhook a échoué — voir les logs ci-dessus."
             exit 1
           fi
-          echo "✅ Tous les canaux tentés se sont terminés sans erreur (profil perso publié directement)."
+          echo "✅ Appel webhook réussi (LinkedIn Company + LinkedIn perso + Facebook, même message/image)."

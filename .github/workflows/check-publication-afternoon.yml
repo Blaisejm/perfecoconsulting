@@ -2,7 +2,7 @@ name: PerfEco — Vérification après-midi (publication réellement visible)
 
 on:
   schedule:
-    - cron: '0 3 * * 1,2,4,5'  # Lun/Mar/Jeu/Ven 03h00 UTC = 14h00 Nouvelle-Calédonie (~3h après les publications 11h00)
+    - cron: '0 3 * * 2,4,5'  # Mar/Jeu/Ven 03h00 UTC = 14h00 Nouvelle-Calédonie (~3h après les publications 11h00)
   workflow_dispatch:
 
 jobs:
@@ -16,28 +16,15 @@ jobs:
         run: |
           DOW=$(TZ="Pacific/Noumea" date +%u)
           echo "dow=$DOW" >> "$GITHUB_OUTPUT"
-          echo "Jour NC (1=Lundi, 2=Mardi, 4=Jeudi, 5=Vendredi) = $DOW"
+          echo "Jour NC (2=Mardi, 4=Jeudi, 5=Vendredi) = $DOW"
 
-      - name: Vérifier le post Facebook du jour (Lundi/Jeudi/Vendredi, si envoyer=true)
+      - name: Vérifier le post Facebook du jour
         id: fb_check
-        if: steps.day.outputs.dow == '1' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5'
+        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5'
         continue-on-error: true
         env:
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
         run: |
-          DOW="${{ steps.day.outputs.dow }}"
-          if [ "$DOW" = "1" ]; then
-            ENVOYER=$(jq -r '.facebook.envoyer' automation-queue/mardi.json)
-          elif [ "$DOW" = "5" ]; then
-            ENVOYER=$(jq -r '.facebook.envoyer' automation-queue/vendredi.json)
-          else
-            ENVOYER=$(jq -r '.facebook.envoyer' automation-queue/jeudi.json)
-          fi
-          if [ "$ENVOYER" != "true" ]; then
-            echo "facebook.envoyer=$ENVOYER — Facebook non attendu aujourd'hui via ce mécanisme, vérification ignorée."
-            exit 0
-          fi
-
           HTTP_CODE=$(curl -s -o /tmp/fb_posts.json -w "%{http_code}" "https://graph.facebook.com/v19.0/552866114572775/posts?fields=created_time,message&limit=5&access_token=$FB_PAGE_TOKEN")
           echo "HTTP $HTTP_CODE"
           if [ "$HTTP_CODE" != "200" ]; then
@@ -135,15 +122,15 @@ jobs:
           fi
           echo "✅ Articles perfeco.nc FR et EN accessibles."
 
-      - name: Vérifier le post LinkedIn Company Page (Mardi/Jeudi/Vendredi)
-        id: li_company_check
+      - name: Vérifier l'exécution PerfEco Social Publisher (LinkedIn Company + profil perso si non suspendu)
+        id: social_publisher_check
         if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5'
         continue-on-error: true
         env:
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
         run: |
           set +e
-          HTTP_CODE=$(curl -s -o /tmp/li_logs.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6249513/logs?pg%5Blimit%5D=5")
+          HTTP_CODE=$(curl -s -o /tmp/li_logs.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6916780/logs?pg%5Blimit%5D=5")
           CURL_EXIT=$?
           set -e
           if [ "$CURL_EXIT" != "0" ]; then
@@ -152,14 +139,14 @@ jobs:
           fi
           echo "HTTP $HTTP_CODE"
           if [ "$HTTP_CODE" != "200" ]; then
-            echo "::error::Impossible d'interroger l'historique d'exécution Make.com (LinkedIn Company, 6249513) — HTTP $HTTP_CODE"
+            echo "::error::Impossible d'interroger l'historique d'exécution Make.com (PerfEco Social Publisher, 6916780) — HTTP $HTTP_CODE"
             cat /tmp/li_logs.json
             exit 1
           fi
 
           LATEST=$(jq -c '[.scenarioLogs[] | select(.eventType=="EXECUTION_END")] | sort_by(.timestamp) | last // empty' /tmp/li_logs.json)
           if [ -z "$LATEST" ] || [ "$LATEST" = "null" ]; then
-            echo "::error::Aucune exécution récente trouvée dans l'historique Make.com (LinkedIn Company, 6249513)."
+            echo "::error::Aucune exécution récente trouvée dans l'historique Make.com (PerfEco Social Publisher, 6916780)."
             exit 1
           fi
           TIMESTAMP=$(echo "$LATEST" | jq -r '.timestamp')
@@ -169,32 +156,14 @@ jobs:
           THRESHOLD=$(( $(date -u +%s) - 5*3600 ))
           EXEC_EPOCH=$(date -d "$TIMESTAMP" +%s)
           if [ "$EXEC_EPOCH" -lt "$THRESHOLD" ]; then
-            echo "::error::La dernière exécution Make.com (LinkedIn Company) date de plus de 5h ($TIMESTAMP) — aucune publication récente détectée. Vérifier manuellement linkedin.com/company/perfeco-consulting-nc/posts/."
+            echo "::error::La dernière exécution Make.com (PerfEco Social Publisher) date de plus de 5h ($TIMESTAMP) — aucune publication récente détectée. Vérifier manuellement linkedin.com/company/perfeco-consulting-nc/posts/."
             exit 1
           fi
           if [ "$STATUS" != "1" ]; then
-            echo "::error::Dernière exécution Make.com (LinkedIn Company) en statut $STATUS (≠1=succès) à $TIMESTAMP — vérifier manuellement linkedin.com/company/perfeco-consulting-nc/posts/."
+            echo "::error::Dernière exécution Make.com (PerfEco Social Publisher) en statut $STATUS (≠1=succès) à $TIMESTAMP — vérifier manuellement."
             exit 1
           fi
-          echo "✅ Exécution Make.com (LinkedIn Company) confirmée réussie ($TIMESTAMP)."
-
-      - name: Vérifier le post LinkedIn profil perso (Jeudi)
-        id: li_profil_check
-        if: steps.day.outputs.dow == '4'
-        continue-on-error: true
-        run: |
-          # NOTE (06/08/2026) : on ne relit PAS le post via GET /rest/posts/{urn} — notre token n'a que
-          # la permission w_member_social (créer), pas la lecture (403 ACCESS_DENIED, produit API
-          # "partnerApiPostsExternal.GET" non accordé, limitation du tier de l'app, pas un bug corrigible
-          # côté script). Contrairement à Make.com ("Accepted" ne garantit rien), la réponse HTTP 201 avec
-          # une URN valide obtenue au moment même de la publication (publish-jeudi.yml) EST la preuve directe
-          # et suffisante de succès — inutile de la re-vérifier après coup.
-          URN=$(jq -r '.published_post_urn // empty' automation-queue/jeudi.json)
-          if [ -z "$URN" ]; then
-            echo "::error::published_post_urn absent de automation-queue/jeudi.json — publish-jeudi.yml a probablement échoué ce matin sur ce canal (pas de 201 reçu). Vérifier manuellement le profil LinkedIn."
-            exit 1
-          fi
-          echo "✅ published_post_urn présent ($URN) — confirmé créé avec succès (HTTP 201) au moment de la publication ce matin."
+          echo "✅ Exécution Make.com (PerfEco Social Publisher) confirmée réussie ($TIMESTAMP)."
 
       - name: Résumé
         if: always()
@@ -202,10 +171,9 @@ jobs:
           echo "Facebook : ${{ steps.fb_check.outcome || 'non applicable aujourd''hui' }}"
           echo "WordPress (perfsystemique.fr) : ${{ steps.wp_check.outcome || 'non applicable aujourd''hui' }}"
           echo "perfeco.nc (FR+EN) : ${{ steps.perfeco_nc_check.outcome || 'non applicable aujourd''hui' }}"
-          echo "LinkedIn Company Page : ${{ steps.li_company_check.outcome || 'non applicable aujourd''hui' }}"
-          echo "LinkedIn profil perso : ${{ steps.li_profil_check.outcome || 'non applicable aujourd''hui' }}"
-          if [ "${{ steps.fb_check.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ] || [ "${{ steps.perfeco_nc_check.outcome }}" = "failure" ] || [ "${{ steps.li_company_check.outcome }}" = "failure" ] || [ "${{ steps.li_profil_check.outcome }}" = "failure" ]; then
+          echo "PerfEco Social Publisher (LinkedIn) : ${{ steps.social_publisher_check.outcome || 'non applicable aujourd''hui' }}"
+          if [ "${{ steps.fb_check.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ] || [ "${{ steps.perfeco_nc_check.outcome }}" = "failure" ] || [ "${{ steps.social_publisher_check.outcome }}" = "failure" ]; then
             echo "::error::Au moins une publication attendue aujourd'hui n'est PAS confirmée visible — vérifier manuellement et corriger si besoin."
             exit 1
           fi
-          echo "✅ Toutes les publications attendues aujourd'hui (14h00 NC) sont confirmées visibles publiquement."
+          echo "✅ Toutes les publications attendues aujourd'hui (14h00 NC) sont confirmées."
