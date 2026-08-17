@@ -1,0 +1,25 @@
+{
+  "_comment": "⚠️ FICHIER DE STAGING — NE PAS RENOMMER À LA MAIN AVANT LE 19/08/2026. Contenu de la campagne W34 (8/8, diffusion mardi 25/08), produit en avance le 17/08/2026. Il doit remplacer automation-queue/mardi.json APRÈS la publication du mardi 18/08 (W33). La tâche one-time perfeco-bascule-mardi-w34 (19/08 09h00 NC) fait la copie + commit + push. Si elle échoue, faire manuellement : cp automation-queue/mardi-W34-pret.json automation-queue/mardi.json puis commit/push.",
+  "semaine": "W34",
+  "date_prevue": "2026-08-25",
+  "wordpress_post_id": 119,
+  "perfeco_nc_url_fr": "https://www.perfeco.nc/ressources/remettre-organisation-au-service-strategie",
+  "perfeco_nc_url_en": "https://www.perfeco.nc/en/resources/realigning-the-organisation-behind-the-strategy",
+  "linkedin_api_version": "202509",
+  "social_post": {
+    "message": "🎯 Huit semaines, sept constats. Et une seule cause.\n\nDepuis fin juin, cette série a passé en revue sept façons dont l'exécution stratégique déraille :\n\n1️⃣ Les plans stratégiques n'aboutissent pas\n2️⃣ Une stratégie ne suffit pas\n3️⃣ La richesse ne suffit pas\n4️⃣ Les projets ralentissent\n5️⃣ Les réunions ne remplacent pas le pilotage\n6️⃣ Le COMEX manque de visibilité\n7️⃣ Les KPI ne font pas la performance\n\n🔎 Sept symptômes différents, une même racine : l'organisation est construite pour fonctionner, pas pour exécuter.\n\n⚠️ Le réflexe, quand l'exécution déçoit, est de refaire un plan. Nouveau plan, nouveaux objectifs, nouveau reporting — et la même organisation. Tout change, sauf la façon dont on décide, on se réunit, on voit et on mesure.\n\n✅ Les 4 alignements à traiter, dans cet ordre :\n\n① DÉCIDER — qui tranche, à quel niveau, sans remonter au COMEX\n② RYTHMER — un rituel court qui produit des arbitrages, pas de l'information\n③ VOIR — l'information qui remonte sans être adoucie à chaque étage\n④ MESURER — des indicateurs qui déclenchent une décision\n\n🔑 L'ordre compte : mesurer avant d'avoir clarifié qui décide ne produit rien. C'est pour cela que tant de tableaux de bord, pourtant bien construits, restent lettre morte.\n\n👉 Le test le plus inconfortable, et le plus utile : si vous n'écriviez aucun nouveau plan cette année, exécuteriez-vous mieux ou moins bien celui qui existe déjà ?\n\n💡 Si la réponse est « mieux », le problème n'a jamais été la stratégie. Il a toujours été l'organisation censée la porter — et c'est une bonne nouvelle, parce que c'est la partie sur laquelle un dirigeant a réellement prise.\n\n🌐 Article complet : perfeco.nc/ressources/remettre-organisation-au-service-strategie\n📩 contact@perfeco.nc\n📞 +687 73 08 75\n\n#ExécutionStratégique #Pilotage #Organisation #Gouvernance #NouvelleCalédonie #Pacifique #PerfEco #COMEX #Leadership",
+    "image_url": "https://www.perfeco.nc/slides/W34/00-facebook-couverture-alignement.png"
+  },
+  "linkedin_profil": {
+    "type": "carousel",
+    "message": "Huit semaines, sept constats — et une conclusion qui m'a surpris moi-même en écrivant ce dernier épisode.\n\n🔎 En reprenant la série dans l'ordre — plans qui n'aboutissent pas, projets qui ralentissent, réunions qui n'arbitrent rien, indicateurs qui ne déclenchent rien — je m'attendais à sept problèmes distincts. Ce sont sept angles du même.\n\nL'organisation est construite pour fonctionner. Pas pour exécuter une stratégie.\n\n⚠️ Et quand l'exécution déçoit, le réflexe est presque toujours le même : refaire un plan. On change le contenu de la stratégie sans jamais toucher au système censé la porter.\n\n📊 Le carrousel de cette semaine clôt la série avec les 4 alignements — décider, rythmer, voir, mesurer — et l'ordre dans lequel les traiter.\n\n👉 La question que je retiens : si vous n'écriviez aucun nouveau plan cette année, exécuteriez-vous mieux ou moins bien celui qui existe déjà ?\n\nMerci à celles et ceux qui ont suivi les huit épisodes. Une nouvelle série démarre début septembre.\n\n#PerfEco #ExécutionStratégique #Organisation #NouvelleCalédonie",
+    "image_urls": [
+      "https://www.perfeco.nc/slides/W34/01-couverture-alignement.png",
+      "https://www.perfeco.nc/slides/W34/02-recap-serie.png",
+      "https://www.perfeco.nc/slides/W34/03-le-reflexe-du-plan.png",
+      "https://www.perfeco.nc/slides/W34/04-les-4-alignements.png",
+      "https://www.perfeco.nc/slides/W34/05-par-ou-commencer.png",
+      "https://www.perfeco.nc/slides/W34/06-cta-alignement.png"
+    ]
+  }
+}
