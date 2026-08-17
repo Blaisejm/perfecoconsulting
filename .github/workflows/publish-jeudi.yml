@@ -27,7 +27,15 @@ jobs:
           fi
           echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
 
-      - name: Publication réseaux sociaux (webhook unique — LinkedIn Company + LinkedIn perso + Facebook)
+      # ⚠️ Depuis le 17/08/2026 (décision Jean-Michel) : le post court du jeudi ne part PLUS
+      # sur le profil perso — uniquement LinkedIn Company Page + Facebook.
+      # Objectif : garantir un minimum de 48h entre deux posts du profil perso
+      # (avant : carrousel mardi → post court jeudi → veille éco vendredi = 24h entre jeudi et vendredi).
+      # Le profil perso ne reçoit donc plus que 2 posts/semaine : mardi (carrousel) et vendredi (veille éco).
+      # Mécanisme : suffixe "-NOCAROUSEL" sur le champ `semaine`, filtré côté Make.com sur la route
+      # "LinkedIn perso" — même levier que publish-mardi.yml, déjà éprouvé en production.
+      # Pour revenir en arrière (fin du test) : retirer le suffixe ci-dessous, rien d'autre à changer.
+      - name: Publication réseaux sociaux (webhook unique — LinkedIn Company + Facebook, profil perso exclu)
         id: social
         run: |
           set -e
@@ -38,12 +46,12 @@ jobs:
 
           echo "DEBUG: longueur MESSAGE=${#MESSAGE} caractères"
           echo "DEBUG: IMAGE_URL=$IMAGE_URL"
-          echo "DEBUG: SEMAINE=$SEMAINE"
+          echo "DEBUG: SEMAINE (avec suffixe NOCAROUSEL pour bloquer la route profil perso) = ${SEMAINE}-NOCAROUSEL"
 
           HTTP_CODE=$(curl -s -o /tmp/resp.txt -w "%{http_code}" -X POST "https://hook.eu1.make.com/bp97dhwfnsx2yxmxr8sguhlvrdjl6kx6" \
             --data-urlencode "message=$MESSAGE" \
             --data-urlencode "image_url=$IMAGE_URL" \
-            --data-urlencode "semaine=$SEMAINE")
+            --data-urlencode "semaine=${SEMAINE}-NOCAROUSEL")
 
           echo "HTTP $HTTP_CODE"; cat /tmp/resp.txt
           if [ "$HTTP_CODE" != "200" ]; then
@@ -60,4 +68,4 @@ jobs:
             echo "::error::L'appel au webhook a échoué — voir les logs ci-dessus."
             exit 1
           fi
-          echo "✅ Appel webhook réussi (LinkedIn Company + LinkedIn perso + Facebook, même message/image)."
+          echo "✅ Appel webhook réussi (LinkedIn Company + Facebook — profil perso volontairement exclu depuis le 17/08/2026)."
