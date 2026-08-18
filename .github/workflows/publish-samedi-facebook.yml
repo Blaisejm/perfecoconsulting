@@ -1,8 +1,8 @@
-name: PerfEco — Republication Facebook (dimanche, reprise du jeudi)
+name: PerfEco — Republication Facebook (samedi, reprise du jeudi)
 
 on:
   schedule:
-    - cron: '30 4 * * 0'  # Dimanche 04h30 UTC = 15h30 Nouvelle-Calédonie
+    - cron: '30 4 * * 6'  # Samedi 04h30 UTC = 15h30 Nouvelle-Calédonie
   workflow_dispatch:
 
 jobs:
@@ -21,8 +21,8 @@ jobs:
             exit 1
           fi
           DATE_PREVUE=$(jq -r '.date_prevue' "$FILE")
-          # Le jeudi de cette semaine = dimanche - 3 jours
-          THURSDAY_NC=$(TZ="Pacific/Noumea" date -d "-3 days" +%Y-%m-%d)
+          # Le jeudi de cette semaine = samedi - 2 jours
+          THURSDAY_NC=$(TZ="Pacific/Noumea" date -d "-2 days" +%Y-%m-%d)
           if [ "$DATE_PREVUE" != "$THURSDAY_NC" ]; then
             echo "::error::date_prevue=$DATE_PREVUE ne correspond pas au jeudi de cette semaine ($THURSDAY_NC) — contenu périmé, pas encore mis à jour, ou jeudi n'a pas eu de publication cette semaine. Abandon (pas de republication au hasard)."
             exit 1
