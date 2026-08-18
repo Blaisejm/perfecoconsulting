@@ -1,4 +1,4 @@
-name: PerfEco — Publication mardi (Company + Facebook webhook unique, profil perso carrousel DRAFT)
+name: PerfEco — Publication mardi (carrousel : Company + Facebook + profil perso, tout publié directement)
 
 on:
   schedule:
@@ -49,7 +49,7 @@ jobs:
           echo "HTTP $HTTP_CODE"; cat /tmp/resp.txt
           [ "$HTTP_CODE" = "200" ]
 
-      - name: LinkedIn profil perso (carrousel, DRAFT — appel API direct)
+      - name: LinkedIn profil perso (carrousel PUBLIÉ directement — appel API direct)
         id: li_profil
         continue-on-error: true
         env:
@@ -118,7 +118,7 @@ jobs:
           done
 
           jq -n --arg author "$MEMBER_URN" --arg msg "$MESSAGE" --argjson images "$IMAGES_JSON" \
-            '{author:$author, commentary:$msg, visibility:"PUBLIC", distribution:{feedDistribution:"MAIN_FEED", targetEntities:[], thirdPartyDistributionChannels:[]}, content:{multiImage:{images:$images}}, lifecycleState:"DRAFT"}' > /tmp/post_body.json
+            '{author:$author, commentary:$msg, visibility:"PUBLIC", distribution:{feedDistribution:"MAIN_FEED", targetEntities:[], thirdPartyDistributionChannels:[]}, content:{multiImage:{images:$images}}, lifecycleState:"PUBLISHED"}' > /tmp/post_body.json
 
           echo "DEBUG: taille POST_BODY :"; wc -c < /tmp/post_body.json
 
@@ -136,9 +136,10 @@ jobs:
         if: always()
         run: |
           echo "LinkedIn Company Page + Facebook (webhook unique) : ${{ steps.social.outcome }}"
-          echo "LinkedIn profil perso (carrousel DRAFT) : ${{ steps.li_profil.outcome }}"
+          echo "LinkedIn profil perso (carrousel publié directement) : ${{ steps.li_profil.outcome }}"
           if [ "${{ steps.social.outcome }}" = "failure" ] || [ "${{ steps.li_profil.outcome }}" = "failure" ]; then
             echo "::error::Au moins un canal a échoué — voir les logs des étapes ci-dessus."
             exit 1
           fi
-          echo "✅ Company Page + Facebook publiés via le webhook unique. Profil perso créé en DRAFT (carrousel) — à finaliser manuellement sur LinkedIn."
+          echo "✅ Company Page + Facebook envoyés via le webhook unique. Profil perso : carrousel PUBLIÉ directement (plus de brouillon à finaliser)."
+          echo "⚠️ Un HTTP 201 confirme la création du post côté LinkedIn, pas la diffusion Company Page/Facebook (qui dépend du scénario Make.com) — vérification réelle par check-apres-publication.yml."
