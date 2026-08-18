@@ -122,22 +122,46 @@ jobs:
           fi
           echo "✅ Articles perfeco.nc FR et EN accessibles."
 
-      - name: Vérifier l'exécution PerfEco Social Publisher (LinkedIn Company + profil perso si non suspendu)
+      - name: Vérifier que les BONS canaux ont été servis (opérations Make)
         id: social_publisher_check
         if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5'
         continue-on-error: true
         env:
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
         run: |
+          # ------------------------------------------------------------------
+          # POURQUOI CE CONTRÔLE A CHANGÉ (18/08/2026)
+          #
+          # L'ancienne version se contentait de vérifier qu'une exécution Make
+          # récente existait et qu'elle était en statut 1 (succès). Insuffisant :
+          # le 16/08/2026, la republication censée ne toucher QUE Facebook a
+          # publié sur les 3 canaux (filtre FBONLY inexistant) — l'exécution
+          # était bel et bien "réussie", et ce contrôle affichait ✅ pendant que
+          # deux doublons LinkedIn restaient en ligne 2 jours.
+          #
+          # L'API Make n'expose pas le détail par module (endpoints de détail
+          # testés le 18/08 : HTTP 400). En revanche le journal expose
+          # `operations` = le nombre de modules réellement exécutés. C'est un
+          # indicateur fiable des routes qui ont tourné.
+          #
+          # Correspondance établie sur données réelles le 18/08/2026 :
+          #   5 opérations = 3 routes (Company + profil perso + Facebook)
+          #                  observé 14/08 (vendredi) et 16/08 (l'incident)
+          #   4 opérations = 2 routes (Company + Facebook, perso filtré)
+          #                  observé 18/08 (mardi, après correction des filtres)
+          #   3 opérations = 1 route  (Facebook seul, cas FBONLY) — ATTENDU,
+          #                  jamais encore observé : le 16/08 a fait 5 au lieu de 3
+          #   2 opérations + statut 3 = exécution en erreur (ex. payload corrompu
+          #                  d'1 octet du 17/08)
+          # ------------------------------------------------------------------
           set +e
-          HTTP_CODE=$(curl -s -o /tmp/li_logs.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6916780/logs?pg%5Blimit%5D=5")
+          HTTP_CODE=$(curl -s -o /tmp/li_logs.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6916780/logs?pg%5Blimit%5D=10")
           CURL_EXIT=$?
           set -e
           if [ "$CURL_EXIT" != "0" ]; then
             echo "::error::curl a échoué (exit $CURL_EXIT) en interrogeant l'historique Make.com."
             exit 1
           fi
-          echo "HTTP $HTTP_CODE"
           if [ "$HTTP_CODE" != "200" ]; then
             echo "::error::Impossible d'interroger l'historique d'exécution Make.com (PerfEco Social Publisher, 6916780) — HTTP $HTTP_CODE"
             cat /tmp/li_logs.json
@@ -146,43 +170,53 @@ jobs:
 
           LATEST=$(jq -c '[.scenarioLogs[] | select(.eventType=="EXECUTION_END")] | sort_by(.timestamp) | last // empty' /tmp/li_logs.json)
           if [ -z "$LATEST" ] || [ "$LATEST" = "null" ]; then
-            echo "::error::Aucune exécution récente trouvée dans l'historique Make.com (PerfEco Social Publisher, 6916780)."
+            echo "::error::Aucune exécution trouvée dans l'historique Make.com (PerfEco Social Publisher, 6916780)."
             exit 1
           fi
           TIMESTAMP=$(echo "$LATEST" | jq -r '.timestamp')
           STATUS=$(echo "$LATEST" | jq -r '.status')
-          echo "DEBUG: dernière exécution -> timestamp=$TIMESTAMP status=$STATUS (1=succès)"
+          OPS=$(echo "$LATEST" | jq -r '.operations')
+          DOW="${{ steps.day.outputs.dow }}"
+
+          case "$DOW" in
+            2) EXPECTED=4; CANAUX="LinkedIn Company + Facebook (profil perso servi hors Make, par l'API LinkedIn directe)" ;;
+            4) EXPECTED=4; CANAUX="LinkedIn Company + Facebook (profil perso volontairement exclu depuis le 17/08)" ;;
+            5) EXPECTED=5; CANAUX="LinkedIn Company + profil perso + Facebook" ;;
+            *) EXPECTED=0; CANAUX="(jour sans publication attendue)" ;;
+          esac
+
+          echo "Dernière exécution : $TIMESTAMP — statut=$STATUS opérations=$OPS"
+          echo "Attendu aujourd'hui : $EXPECTED opérations — $CANAUX"
 
           THRESHOLD=$(( $(date -u +%s) - 5*3600 ))
           EXEC_EPOCH=$(date -d "$TIMESTAMP" +%s)
           if [ "$EXEC_EPOCH" -lt "$THRESHOLD" ]; then
-            echo "::error::La dernière exécution Make.com (PerfEco Social Publisher) date de plus de 5h ($TIMESTAMP) — aucune publication récente détectée. Vérifier manuellement linkedin.com/company/perfeco-consulting-nc/posts/."
+            echo "::error::La dernière exécution Make.com date de plus de 5h ($TIMESTAMP) — la publication de 11h00 n'a pas été traitée. Causes usuelles : scénario désactivé (le webhook accepte puis met en file sans exécuter), ou workflow de publication non déclenché. Vérifier eu1.make.com/1970457/scenarios/6916780 ET la page LinkedIn."
             exit 1
           fi
-          if [ "$STATUS" != "1" ]; then
-            echo "::error::Dernière exécution Make.com (PerfEco Social Publisher) en statut $STATUS (≠1=succès) à $TIMESTAMP — vérifier manuellement."
-            exit 1
-          fi
-          echo "✅ Exécution Make.com (PerfEco Social Publisher) confirmée réussie ($TIMESTAMP)."
 
-      - name: DIAGNOSTIC TEMPORAIRE — historique des opérations par exécution
-        id: diag
-        if: always()
-        continue-on-error: true
-        env:
-          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
-        run: |
-          for L in 10 20; do
-            CODE=$(curl -s -o /tmp/d.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN"               "https://eu1.make.com/api/v2/scenarios/6916780/logs?pg%5Blimit%5D=$L")
-            N=$(jq -r 'if (.scenarioLogs|type)=="array" then (.scenarioLogs|length) else "NULL" end' /tmp/d.json 2>/dev/null)
-            echo "### limit=$L -> HTTP $CODE, scenarioLogs=$N"
-            if [ "$N" = "NULL" ] || [ -z "$N" ]; then
-              echo "REPONSE BRUTE (300 premiers octets) :"; head -c 300 /tmp/d.json; echo
-              continue
-            fi
-            jq -r '.scenarioLogs[] | select(.eventType=="EXECUTION_END")
-                   | [.timestamp, ("status=" + (.status|tostring)), ("ops=" + (.operations|tostring))] | @tsv' /tmp/d.json
-          done
+          if [ "$STATUS" != "1" ]; then
+            echo "::error::Exécution Make.com en statut $STATUS (≠1) à $TIMESTAMP. Un statut 3 signale une erreur d'exécution — vérifier la file du webhook (eu1.make.com/1970457/hooks/3534727/queue) : un payload corrompu y bloque souvent le scénario et finit par le désactiver."
+            exit 1
+          fi
+
+          if [ "$OPS" -gt "$EXPECTED" ]; then
+            echo "::error::SUR-PUBLICATION — $OPS opérations au lieu de $EXPECTED. Plus de canaux que prévu ont été servis : un filtre Make ne bloque pas ce qu'il devrait. Vérifier les 2 routes LinkedIn du scénario 6916780 (elles doivent utiliser « Does not contain », jamais « Not equal to ») PUIS supprimer les publications en trop. Attendu : $CANAUX."
+            exit 1
+          fi
+          if [ "$OPS" -lt "$EXPECTED" ]; then
+            echo "::error::SOUS-PUBLICATION — $OPS opérations au lieu de $EXPECTED. Un canal attendu n'a pas été servi : filtre trop restrictif, module en erreur, ou identifiants expirés. Attendu : $CANAUX."
+            exit 1
+          fi
+
+          echo "✅ $OPS opérations = les bons canaux ont été servis ($CANAUX) — $TIMESTAMP."
+
+      # ⚠️ À FAIRE quand la republication du samedi sera réactivée
+      # (publish-samedi-republication-facebook.yml, cron actuellement suspendu) :
+      # ajouter 6 au cron de ce workflow (`0 3 * * 2,4,5,6`) et la branche
+      # correspondante ci-dessus — `6) EXPECTED=3; CANAUX="Facebook uniquement"`.
+      # Sans cela, la republication du week-end reste le seul créneau non surveillé,
+      # et c'est précisément celui qui a produit l'incident du 16/08.
 
       - name: Résumé
         if: always()
