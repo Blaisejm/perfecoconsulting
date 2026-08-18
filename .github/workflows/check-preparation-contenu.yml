@@ -1,0 +1,88 @@
+name: "PerfEco — Vérification préparation contenu (filet indépendant de Cowork)"
+
+# ---------------------------------------------------------------------------
+# POURQUOI CE WORKFLOW EXISTE (18/08/2026)
+#
+# Cause racine établie ce jour, preuves à l'appui : les routines Cowork qui
+# préparent le contenu (mardi-carrousel-creation, jeudi-postcourt-creation,
+# vendredi-veilleeco-creation) meurent parfois SILENCIEUSEMENT.
+#
+# Transcripts retrouvés :
+#   perfeco-fix-veille-eco-j7   14/08 → "401 OAuth access token has expired"
+#   perfeco-verif-github-actions 15/08 → idem
+# La session fait 4 messages : prompt, premier appel d'outil, échec 401, fin.
+#
+# La tâche se déclenche (lastRunAt confirmé) mais ne produit rien, et surtout
+# NE PEUT PAS PRÉVENIR : envoyer un brouillon Gmail est aussi un appel d'outil.
+# Sept occurrences depuis le 12/07/2026 étaient restées sans explication, et
+# l'hypothèse "Maintenir actif de Cowork" n'a jamais été la bonne.
+#
+# GitHub Actions ne dépend pas du token Claude : c'est le seul observateur
+# capable de constater qu'une routine Cowork n'a rien produit. En cas d'échec,
+# GitHub envoie sa notification native — indépendante de Cowork et de Gmail.
+#
+# ⚠️ Ne jamais déplacer cette vérification dans une routine Cowork : elle
+# perdrait exactement la propriété qui la rend utile.
+# ---------------------------------------------------------------------------
+
+on:
+  schedule:
+    - cron: '0 8 * * *'   # Tous les jours 08h00 UTC = 19h00 NC (après la routine Cowork de 17h)
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Vérifier que le contenu des prochaines échéances est prêt
+        run: |
+          set -e
+          TODAY=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          TODAY_EPOCH=$(date -d "$TODAY" +%s)
+          echo "Date NC du jour : $TODAY"
+          FAIL=0
+
+          # Pour chaque format : fichier de file d'attente + jour de diffusion
+          check_format () {
+            LABEL="$1"; FILE="$2"; DOW_NAME="$3"; ROUTINE="$4"
+
+            if [ ! -f "$FILE" ]; then
+              echo "::error::$LABEL — fichier $FILE introuvable. La routine $ROUTINE ne l'a jamais écrit."
+              FAIL=1
+              return
+            fi
+
+            DATE_PREVUE=$(jq -r '.date_prevue // empty' "$FILE")
+            SEMAINE=$(jq -r '.semaine // "?"' "$FILE")
+            if [ -z "$DATE_PREVUE" ]; then
+              echo "::error::$LABEL — champ date_prevue absent de $FILE (semaine=$SEMAINE)."
+              FAIL=1
+              return
+            fi
+
+            # Prochaine occurrence du jour de diffusion
+            NEXT=$(TZ="Pacific/Noumea" date -d "next $DOW_NAME" +%Y-%m-%d)
+            NEXT_EPOCH=$(date -d "$NEXT" +%s)
+            PREVUE_EPOCH=$(date -d "$DATE_PREVUE" +%s)
+            JOURS_RESTANTS=$(( (NEXT_EPOCH - TODAY_EPOCH) / 86400 ))
+
+            echo "$LABEL : date_prevue=$DATE_PREVUE (semaine $SEMAINE) — prochaine diffusion $NEXT dans $JOURS_RESTANTS j"
+
+            # Contenu périmé alors que l'échéance approche : personne n'a préparé
+            if [ "$PREVUE_EPOCH" -lt "$TODAY_EPOCH" ] && [ "$JOURS_RESTANTS" -le 3 ]; then
+              echo "::error::$LABEL NON PRÉPARÉ — $FILE porte encore $DATE_PREVUE (semaine $SEMAINE), une date passée, alors que la diffusion du $NEXT est dans $JOURS_RESTANTS jour(s). La routine $ROUTINE n'a rien produit. Cause la plus fréquente : token OAuth Claude expiré au moment du déclenchement (la tâche démarre, meurt au 1er appel d'outil, ne peut pas alerter). Vérifier que Cowork est authentifié, puis relancer $ROUTINE à la main."
+              FAIL=1
+            fi
+          }
+
+          check_format "MARDI (carrousel)"      automation-queue/mardi.json    Tuesday  "mardi-carrousel-creation"
+          check_format "JEUDI (post court)"     automation-queue/jeudi.json    Thursday "jeudi-postcourt-creation"
+          check_format "VENDREDI (veille éco)"  automation-queue/vendredi.json Friday   "vendredi-veilleeco-creation"
+
+          if [ "$FAIL" = "1" ]; then
+            echo "::error::Au moins un format n'est pas prêt pour son échéance. Ce workflow est le SEUL filet capable de le détecter quand une routine Cowork meurt silencieusement — ne pas l'ignorer."
+            exit 1
+          fi
+          echo "✅ Les 3 formats sont préparés pour leurs prochaines échéances."
