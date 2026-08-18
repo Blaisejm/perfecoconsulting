@@ -172,11 +172,17 @@ jobs:
         env:
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
         run: |
-          curl -s -H "Authorization: Token $MAKE_API_TOKEN"             "https://eu1.make.com/api/v2/scenarios/6916780/logs?pg%5Blimit%5D=60" -o /tmp/d_logs.json
-          echo "=== executions terminees (timestamp | status | operations) ==="
-          jq -r '[.scenarioLogs[] | select(.eventType=="EXECUTION_END")]
-                 | sort_by(.timestamp) | reverse | .[]
-                 | "\(.timestamp)  status=\(.status)  operations=\(.operations)"' /tmp/d_logs.json
+          for L in 10 20; do
+            CODE=$(curl -s -o /tmp/d.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN"               "https://eu1.make.com/api/v2/scenarios/6916780/logs?pg%5Blimit%5D=$L")
+            N=$(jq -r 'if (.scenarioLogs|type)=="array" then (.scenarioLogs|length) else "NULL" end' /tmp/d.json 2>/dev/null)
+            echo "### limit=$L -> HTTP $CODE, scenarioLogs=$N"
+            if [ "$N" = "NULL" ] || [ -z "$N" ]; then
+              echo "REPONSE BRUTE (300 premiers octets) :"; head -c 300 /tmp/d.json; echo
+              continue
+            fi
+            jq -r '.scenarioLogs[] | select(.eventType=="EXECUTION_END")
+                   | [.timestamp, ("status=" + (.status|tostring)), ("ops=" + (.operations|tostring))] | @tsv' /tmp/d.json
+          done
 
       - name: Résumé
         if: always()
