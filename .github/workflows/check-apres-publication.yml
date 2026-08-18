@@ -97,7 +97,7 @@ jobs:
             echo "::error::perfeco_nc_url_fr absent de automation-queue/mardi.json."
             FAIL=1
           else
-            CODE_FR=$(curl -s -o /dev/null -w "%{http_code}" "$URL_FR")
+            CODE_FR=$(curl -sL -o /dev/null -w "%{http_code}" "$URL_FR")
             echo "FR ($URL_FR) -> HTTP $CODE_FR"
             if [ "$CODE_FR" != "200" ]; then
               echo "::error::Article perfeco.nc FR inaccessible — $URL_FR — HTTP $CODE_FR"
@@ -109,7 +109,7 @@ jobs:
             echo "::error::perfeco_nc_url_en absent de automation-queue/mardi.json."
             FAIL=1
           else
-            CODE_EN=$(curl -s -o /dev/null -w "%{http_code}" "$URL_EN")
+            CODE_EN=$(curl -sL -o /dev/null -w "%{http_code}" "$URL_EN")
             echo "EN ($URL_EN) -> HTTP $CODE_EN"
             if [ "$CODE_EN" != "200" ]; then
               echo "::error::Article perfeco.nc EN inaccessible — $URL_EN — HTTP $CODE_EN"
@@ -165,32 +165,18 @@ jobs:
           fi
           echo "✅ Exécution Make.com (PerfEco Social Publisher) confirmée réussie ($TIMESTAMP)."
 
-      - name: DIAGNOSTIC TEMPORAIRE — structure du détail d'exécution Make (à retirer après analyse)
+      - name: DIAGNOSTIC TEMPORAIRE — historique des opérations par exécution
         id: diag
         if: always()
         continue-on-error: true
         env:
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
         run: |
-          echo "=== 1. Clés d'un scenarioLog ==="
-          curl -s -H "Authorization: Token $MAKE_API_TOKEN" \
-            "https://eu1.make.com/api/v2/scenarios/6916780/logs?pg%5Blimit%5D=3" -o /tmp/d_logs.json
-          jq -r '.scenarioLogs[0] | keys | join(", ")' /tmp/d_logs.json
-          echo "--- 3 dernières entrées (résumé) ---"
-          jq -c '.scenarioLogs[] | {imtId, timestamp, status, eventType, operations, transfer}' /tmp/d_logs.json
-
-          EXEC_ID=$(jq -r '[.scenarioLogs[] | select(.eventType=="EXECUTION_END")] | sort_by(.timestamp) | last | .imtId // empty' /tmp/d_logs.json)
-          echo "=== 2. Détail de l'exécution $EXEC_ID ==="
-          if [ -n "$EXEC_ID" ]; then
-            for EP in "logs/$EXEC_ID" "logs/$EXEC_ID/blueprint" "executions/$EXEC_ID"; do
-              CODE=$(curl -s -o /tmp/d_exec.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" \
-                "https://eu1.make.com/api/v2/scenarios/6916780/$EP")
-              echo "--- GET .../$EP -> HTTP $CODE (taille $(wc -c < /tmp/d_exec.json) octets)"
-              if [ "$CODE" = "200" ]; then
-                jq -r 'paths(scalars) | map(tostring) | join(".")' /tmp/d_exec.json 2>/dev/null | sed 's/\.[0-9]\+\./.N./g' | sort -u | head -40
-              fi
-            done
-          fi
+          curl -s -H "Authorization: Token $MAKE_API_TOKEN"             "https://eu1.make.com/api/v2/scenarios/6916780/logs?pg%5Blimit%5D=60" -o /tmp/d_logs.json
+          echo "=== executions terminees (timestamp | status | operations) ==="
+          jq -r '[.scenarioLogs[] | select(.eventType=="EXECUTION_END")]
+                 | sort_by(.timestamp) | reverse | .[]
+                 | "\(.timestamp)  status=\(.status)  operations=\(.operations)"' /tmp/d_logs.json
 
       - name: Résumé
         if: always()
