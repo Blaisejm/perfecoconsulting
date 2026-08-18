@@ -33,7 +33,7 @@ jobs:
       # (avant : carrousel mardi → post court jeudi → veille éco vendredi = 24h entre jeudi et vendredi).
       # Le profil perso ne reçoit donc plus que 2 posts/semaine : mardi (carrousel) et vendredi (veille éco).
       # Mécanisme : suffixe "-NOCAROUSEL" sur le champ `semaine`, filtré côté Make.com sur la route
-      # "LinkedIn perso" — même levier que publish-mardi.yml, déjà éprouvé en production.
+      # "LinkedIn perso" — même levier que publish-mardi-carrousel.yml, déjà éprouvé en production.
       # Pour revenir en arrière (fin du test) : retirer le suffixe ci-dessous, rien d'autre à changer.
       - name: Publication réseaux sociaux (webhook unique — LinkedIn Company + Facebook, profil perso exclu)
         id: social
@@ -55,10 +55,10 @@ jobs:
 
           echo "HTTP $HTTP_CODE"; cat /tmp/resp.txt
           if [ "$HTTP_CODE" != "200" ]; then
-            echo "::error::Échec de l'appel webhook — HTTP $HTTP_CODE. NB : un code 200 'Accepted' ne garantit pas la publication réelle si le scénario Make.com est désactivé — vérifier check-publication-afternoon.yml cet après-midi."
+            echo "::error::Échec de l'appel webhook — HTTP $HTTP_CODE. NB : un code 200 'Accepted' ne garantit pas la publication réelle si le scénario Make.com est désactivé — vérifier check-apres-publication.yml cet après-midi."
             exit 1
           fi
-          echo "✅ Webhook accepté (HTTP 200) — vérification réelle faite par check-publication-afternoon.yml."
+          echo "✅ Webhook accepté (HTTP 200) — vérification réelle faite par check-apres-publication.yml."
 
       - name: Vérifier les résultats et faire échouer le job si besoin
         if: always()
