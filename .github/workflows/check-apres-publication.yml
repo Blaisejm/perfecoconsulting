@@ -165,6 +165,33 @@ jobs:
           fi
           echo "✅ Exécution Make.com (PerfEco Social Publisher) confirmée réussie ($TIMESTAMP)."
 
+      - name: DIAGNOSTIC TEMPORAIRE — structure du détail d'exécution Make (à retirer après analyse)
+        id: diag
+        if: always()
+        continue-on-error: true
+        env:
+          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
+        run: |
+          echo "=== 1. Clés d'un scenarioLog ==="
+          curl -s -H "Authorization: Token $MAKE_API_TOKEN" \
+            "https://eu1.make.com/api/v2/scenarios/6916780/logs?pg%5Blimit%5D=3" -o /tmp/d_logs.json
+          jq -r '.scenarioLogs[0] | keys | join(", ")' /tmp/d_logs.json
+          echo "--- 3 dernières entrées (résumé) ---"
+          jq -c '.scenarioLogs[] | {imtId, timestamp, status, eventType, operations, transfer}' /tmp/d_logs.json
+
+          EXEC_ID=$(jq -r '[.scenarioLogs[] | select(.eventType=="EXECUTION_END")] | sort_by(.timestamp) | last | .imtId // empty' /tmp/d_logs.json)
+          echo "=== 2. Détail de l'exécution $EXEC_ID ==="
+          if [ -n "$EXEC_ID" ]; then
+            for EP in "logs/$EXEC_ID" "logs/$EXEC_ID/blueprint" "executions/$EXEC_ID"; do
+              CODE=$(curl -s -o /tmp/d_exec.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" \
+                "https://eu1.make.com/api/v2/scenarios/6916780/$EP")
+              echo "--- GET .../$EP -> HTTP $CODE (taille $(wc -c < /tmp/d_exec.json) octets)"
+              if [ "$CODE" = "200" ]; then
+                jq -r 'paths(scalars) | map(tostring) | join(".")' /tmp/d_exec.json 2>/dev/null | sed 's/\.[0-9]\+\./.N./g' | sort -u | head -40
+              fi
+            done
+          fi
+
       - name: Résumé
         if: always()
         run: |
