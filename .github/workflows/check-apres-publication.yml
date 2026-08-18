@@ -2,7 +2,8 @@ name: PerfEco — Vérification après-midi (publication réellement visible)
 
 on:
   schedule:
-    - cron: '0 3 * * 2,4,5'  # Mar/Jeu/Ven 03h00 UTC = 14h00 Nouvelle-Calédonie (~3h après les publications 11h00)
+    - cron: '0 3 * * 2,4,5'   # Mar/Jeu/Ven 03h00 UTC = 14h00 NC (~3h apres les publications de 11h00)
+    - cron: '30 7 * * 6'      # Samedi 07h30 UTC = 18h30 NC (~3h après la republication Facebook de 15h30)
   workflow_dispatch:
 
 jobs:
@@ -16,11 +17,11 @@ jobs:
         run: |
           DOW=$(TZ="Pacific/Noumea" date +%u)
           echo "dow=$DOW" >> "$GITHUB_OUTPUT"
-          echo "Jour NC (2=Mardi, 4=Jeudi, 5=Vendredi) = $DOW"
+          echo "Jour NC (2=Mardi, 4=Jeudi, 5=Vendredi, 6=Samedi/republication FB) = $DOW"
 
       - name: Vérifier le post Facebook du jour
         id: fb_check
-        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5'
+        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5' || steps.day.outputs.dow == '6'
         continue-on-error: true
         env:
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
@@ -124,7 +125,7 @@ jobs:
 
       - name: Vérifier que les BONS canaux ont été servis (opérations Make)
         id: social_publisher_check
-        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5'
+        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5' || steps.day.outputs.dow == '6'
         continue-on-error: true
         env:
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
@@ -182,6 +183,7 @@ jobs:
             2) EXPECTED=4; CANAUX="LinkedIn Company + Facebook (profil perso servi hors Make, par l'API LinkedIn directe)" ;;
             4) EXPECTED=4; CANAUX="LinkedIn Company + Facebook (profil perso volontairement exclu depuis le 17/08)" ;;
             5) EXPECTED=5; CANAUX="LinkedIn Company + profil perso + Facebook" ;;
+            6) EXPECTED=3; CANAUX="Facebook UNIQUEMENT (republication du jeudi, suffixe FBONLY)" ;;
             *) EXPECTED=0; CANAUX="(jour sans publication attendue)" ;;
           esac
 
@@ -211,22 +213,15 @@ jobs:
 
           echo "✅ $OPS opérations = les bons canaux ont été servis ($CANAUX) — $TIMESTAMP."
 
-      # ⚠️ À FAIRE quand la republication du samedi sera réactivée
-      # (publish-samedi-republication-facebook.yml, cron actuellement suspendu) :
-      # ajouter 6 au cron de ce workflow (`0 3 * * 2,4,5,6`) et la branche
-      # correspondante ci-dessus — `6) EXPECTED=3; CANAUX="Facebook uniquement"`.
-      # Sans cela, la republication du week-end reste le seul créneau non surveillé,
-      # et c'est précisément celui qui a produit l'incident du 16/08.
-
       - name: Résumé
         if: always()
         run: |
           echo "Facebook : ${{ steps.fb_check.outcome || 'non applicable aujourd''hui' }}"
           echo "WordPress (perfsystemique.fr) : ${{ steps.wp_check.outcome || 'non applicable aujourd''hui' }}"
           echo "perfeco.nc (FR+EN) : ${{ steps.perfeco_nc_check.outcome || 'non applicable aujourd''hui' }}"
-          echo "PerfEco Social Publisher (LinkedIn) : ${{ steps.social_publisher_check.outcome || 'non applicable aujourd''hui' }}"
+          echo "Canaux réellement servis (opérations Make) : ${{ steps.social_publisher_check.outcome || 'non applicable aujourd''hui' }}"
           if [ "${{ steps.fb_check.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ] || [ "${{ steps.perfeco_nc_check.outcome }}" = "failure" ] || [ "${{ steps.social_publisher_check.outcome }}" = "failure" ]; then
             echo "::error::Au moins une publication attendue aujourd'hui n'est PAS confirmée visible — vérifier manuellement et corriger si besoin."
             exit 1
           fi
-          echo "✅ Toutes les publications attendues aujourd'hui (14h00 NC) sont confirmées."
+          echo "✅ Toutes les publications attendues aujourd'hui sont confirmées, sur les bons canaux."

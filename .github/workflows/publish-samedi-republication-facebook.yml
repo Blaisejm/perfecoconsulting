@@ -1,22 +1,26 @@
 name: PerfEco — Republication Facebook (samedi, reprise du jeudi)
 
 on:
-  # ⚠️ SUSPENDU le 18/08/2026 — ne se déclenche plus automatiquement.
+  # RÉACTIVÉ le 18/08/2026 à la demande de Jean-Michel.
   #
-  # Motif : le 16/08/2026 cette republication est partie sur les DEUX routes LinkedIn
-  # (Company Page + profil perso) en plus de Facebook, alors qu'elle est censée être
-  # Facebook uniquement. Le suffixe "-FBONLY" envoyé dans le champ `semaine` ne bloque
-  # rien tant qu'un filtre correspondant n'existe pas côté Make.com sur le scénario
-  # 6916780 — filtre qui n'a jamais été vérifié depuis la création de ce workflow (13/08).
-  # Résultat : doublon exact du post du jeudi 13/08 sur les 2 canaux LinkedIn.
+  # Historique : suspendu le 18/08 au matin après l'incident du 16/08 — cette
+  # republication, censée ne toucher que Facebook, était partie sur les DEUX routes
+  # LinkedIn en plus, créant un doublon du post du jeudi 13/08. Cause : le suffixe
+  # "-FBONLY" ne bloque rien par lui-même, et le filtre correspondant n'existait pas
+  # côté Make.com.
   #
-  # Pour réactiver : d'abord ajouter sur les 2 routes LinkedIn du scénario 6916780 un
-  # filtre `semaine` → "Does not contain" → "FBONLY" (et non "Does not equal", qui laisse
-  # passer une valeur suffixée comme "W32-FBONLY"). Vérifier ensuite par un run manuel
-  # (workflow_dispatch) que seul Facebook reçoit le post, PUIS décommenter le cron.
+  # Depuis, le filtre a été créé sur les 2 routes LinkedIn du scénario 6916780
+  # (`semaine` → "Does not contain" → "FBONLY"). ⚠️ Il n'a PAS encore tourné sur une
+  # republication réelle : le premier passage en conditions réelles est le samedi
+  # 22/08/2026. Il ne pouvait pas être testé avant, le contrôle de fraîcheur ci-dessous
+  # exigeant que `jeudi.json` porte la date du jeudi écoulé.
   #
-  # schedule:
-  #   - cron: '30 4 * * 6'  # Samedi 04h30 UTC = 15h30 Nouvelle-Calédonie
+  # Filet de sécurité mis en place en contrepartie : `check-apres-publication.yml`
+  # tourne désormais aussi le samedi à 18h30 NC (3h après) et vérifie que l'exécution
+  # Make n'a consommé que 3 opérations — c'est-à-dire Facebook seul. Toute
+  # sur-publication déclenche une alerte le jour même.
+  schedule:
+    - cron: '30 4 * * 6'  # Samedi 04h30 UTC = 15h30 Nouvelle-Calédonie
   workflow_dispatch:
 
 jobs:
