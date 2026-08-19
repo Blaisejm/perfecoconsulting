@@ -23,14 +23,22 @@ pilotage**. Jamais du commentaire d'actualité pour lui-même.
 
 ## Étape 1 — Calculer la date cible
 
-La cible est le **vendredi qui tombe 9 jours après aujourd'hui** (régime J-9).
-Calcule la vraie date, ne la suppose pas. Vérifie qu'elle n'est ni un jour férié
-français ni un jour férié calédonien (Fête de la Citoyenneté : 24 septembre) ;
-si c'en est un, signale-le et propose un décalage.
+Pars du **vendredi qui tombe 9 jours après aujourd'hui** (régime J-9), calculé et non
+supposé. **Puis compare-le au tableau de l'étape 2 : si ce vendredi y figure déjà, la
+cible est le vendredi suivant qui n'y figure pas.** La production peut avoir de
+l'avance ; le tableau fait foi, pas le calcul.
+
+Vérifie ensuite que la date retenue n'est ni un jour férié français ni un jour férié
+calédonien (Fête de la Citoyenneté : 24 septembre) ; si c'en est un, signale-le et
+propose un décalage.
+
+*(Corrigé le 19/08/2026 : le run #2 a buté sur cette contradiction — J-9 donnait le
+28/08, déjà couvert. Il a eu raison de demander plutôt que de trancher seul.)*
 
 ## Étape 2 — Sujets déjà traités, à ne pas reprendre
 
-Ni le même indicateur, ni le même angle :
+Ni le même indicateur, ni le même angle. **Ce tableau vaut aussi comme calendrier :
+un vendredi qui y figure est déjà pourvu.**
 
 | Vendredi | Sujet |
 |---|---|
