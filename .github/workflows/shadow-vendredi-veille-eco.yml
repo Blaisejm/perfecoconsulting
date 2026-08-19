@@ -83,44 +83,32 @@ jobs:
       # Le connecteur Gmail s'authentifie de façon interactive : il n'existe pas
       # dans un run headless. L'issue GitHub le remplace — notification native,
       # historique persistant, aucun service tiers à maintenir.
+      #
+      # ⚠️ Corrigé après le run #1 (19/08/2026), qui a échoué ICI en exit 2 alors
+      # que la routine elle-même avait abouti. Deux fautes, toutes deux les miennes :
+      #   1. le corps de l'issue était composé en bash, avec des accolades `${:-}`
+      #      contenant des accents et des backticks — terrain à quoting glissant ;
+      #   2. la première tentative portait `2>/dev/null` pour absorber un label
+      #      inexistant, ce qui a DÉTRUIT le message d'erreur. C'est exactement la
+      #      règle posée le 28/07 sur `curl -sf` : ne jamais museler un appel dont
+      #      l'échec doit être diagnostiqué.
+      # Désormais : le corps est composé par Node (voir claude-agent-run.mjs),
+      # l'appel est unique, sans label, et ses erreurs sont visibles.
       - name: Publier le résultat en issue
         if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COST: ${{ steps.run.outputs.cost }}
-          TURNS: ${{ steps.run.outputs.turns }}
-          OUTCOME: ${{ steps.run.outcome }}
         run: |
-          BODY=sortie-essai/issue.md
-          mkdir -p sortie-essai
-
-          {
-            echo "> **Essai en parallèle — rien n'a été publié.**"
-            echo "> La routine Cowork \`vendredi-veilleeco-creation\` reste la production."
-            echo "> Cette issue sert à comparer les deux sorties de la même semaine."
-            echo
-            echo "| | |"
-            echo "|---|---|"
-            echo "| Résultat | \`$OUTCOME\` |"
-            echo "| Coût du run | ${COST:-non lu — voir \`result.json\` dans l'artefact} |"
-            echo "| Tours | ${TURNS:-non lu} |"
-            echo "| Trace complète | artefact \`essai-veille-eco-${{ github.run_number }}\` |"
-            echo "| Run | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |"
-            echo
-            echo "---"
-            echo
-            if [ -s sortie-essai/sortie.md ]; then
-              cat sortie-essai/sortie.md
-            else
-              echo "⚠️ Aucune sortie produite — la routine s'est arrêtée avant de conclure."
-              echo "Voir le log du run et \`transcript.json\` dans l'artefact."
-            fi
-          } > "$BODY"
+          if [ ! -s sortie-essai/issue.md ]; then
+            echo "::error::sortie-essai/issue.md absent ou vide — le script Node n'a rien écrit."
+            exit 1
+          fi
+          echo "── Titre ──"
+          cat sortie-essai/issue-title.txt
+          echo "── Corps (30 premières lignes) ──"
+          head -30 sortie-essai/issue.md
+          echo "──────────"
 
           gh issue create \
-            --title "[Essai clé API] Veille éco — run #${{ github.run_number }} ($OUTCOME)" \
-            --body-file "$BODY" \
-            --label "essai-cle-api" 2>/dev/null \
-          || gh issue create \
-            --title "[Essai clé API] Veille éco — run #${{ github.run_number }} ($OUTCOME)" \
-            --body-file "$BODY"
+            --title "$(cat sortie-essai/issue-title.txt)" \
+            --body-file sortie-essai/issue.md

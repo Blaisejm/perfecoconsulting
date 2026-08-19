@@ -13,6 +13,11 @@
  * Cowork, sans rien publier, pour comparer les sorties et mesurer le coût réel.
  *
  * Usage : node scripts/claude-agent-run.mjs <fichier-prompt> <dossier-sortie>
+ *
+ * Le script écrit TOUJOURS `issue.md` et `issue-title.txt` dans le dossier de sortie,
+ * y compris quand il échoue — c'est le workflow qui les publie. Composer le corps de
+ * l'issue ici plutôt qu'en bash évite les pièges de quoting qui ont fait échouer le
+ * run #1 (19/08/2026).
  */
 
 import { query } from '@anthropic-ai/claude-agent-sdk';
@@ -25,14 +30,54 @@ if (!promptFile || !outDir) {
   console.error('Usage : node scripts/claude-agent-run.mjs <fichier-prompt> <dossier-sortie>');
   process.exit(2);
 }
+mkdirSync(resolve(outDir), { recursive: true });
+
+const runNumber = process.env.GITHUB_RUN_NUMBER ?? '0';
+const runUrl =
+  process.env.GITHUB_SERVER_URL && process.env.GITHUB_REPOSITORY && process.env.GITHUB_RUN_ID
+    ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
+    : '(hors GitHub Actions)';
+
+/** Compose l'issue et l'écrit sur disque. Appelé sur TOUS les chemins de sortie. */
+function ecrireIssue({ etat, cout, tours, corps, erreur }) {
+  const lignes = [
+    '> **Essai en parallèle — rien n\'a été publié.**',
+    '> La routine Cowork `vendredi-veilleeco-creation` reste la production.',
+    '> Cette issue sert à comparer les deux sorties de la même semaine.',
+    '',
+    '| | |',
+    '|---|---|',
+    `| État | ${etat} |`,
+    `| Coût du run | ${cout === null || cout === undefined ? 'non lu — voir result.json dans l\'artefact' : '$' + Number(cout).toFixed(4)} |`,
+    `| Tours | ${tours ?? 'non lu'} |`,
+    `| Trace complète | artefact \`essai-veille-eco-${runNumber}\` |`,
+    `| Run | ${runUrl} |`,
+    '',
+    '---',
+    '',
+  ];
+
+  if (erreur) {
+    lignes.push('## La routine a échoué', '', '```', String(erreur).slice(0, 3000), '```', '');
+  }
+  lignes.push(corps && corps.trim() ? corps : '_Aucune sortie produite._');
+
+  writeFileSync(resolve(outDir, 'issue.md'), lignes.join('\n'));
+  writeFileSync(
+    resolve(outDir, 'issue-title.txt'),
+    `Essai cle API - veille eco - run ${runNumber} (${etat})`,
+  );
+}
+
 if (!process.env.ANTHROPIC_API_KEY) {
-  console.error('::error::ANTHROPIC_API_KEY absent. Ajouter le secret dans Settings → Secrets and variables → Actions.');
+  const message =
+    'ANTHROPIC_API_KEY absent. Ajouter le secret dans Settings > Secrets and variables > Actions.';
+  console.error(`::error::${message}`);
+  ecrireIssue({ etat: 'échec', cout: null, tours: null, corps: '', erreur: message });
   process.exit(2);
 }
 
 const prompt = readFileSync(resolve(promptFile), 'utf8');
-mkdirSync(resolve(outDir), { recursive: true });
-
 const transcript = [];
 let resultMessage = null;
 
@@ -93,14 +138,18 @@ try {
   }
 } catch (error) {
   writeFileSync(resolve(outDir, 'transcript.json'), JSON.stringify(transcript, null, 2));
+  const message = error?.stack ?? error?.message ?? String(error);
   console.error(`::error::La routine a échoué : ${error?.message ?? error}`);
+  ecrireIssue({ etat: 'échec', cout: null, tours: null, corps: '', erreur: message });
   process.exit(1);
 }
 
 writeFileSync(resolve(outDir, 'transcript.json'), JSON.stringify(transcript, null, 2));
 
 if (!resultMessage) {
-  console.error("::error::Aucun message de type 'result' — la routine s'est arrêtée sans conclure.");
+  const message = "Aucun message de type 'result' — la routine s'est arrêtée sans conclure.";
+  console.error(`::error::${message}`);
+  ecrireIssue({ etat: 'échec', cout: null, tours: null, corps: '', erreur: message });
   process.exit(1);
 }
 
@@ -109,25 +158,34 @@ if (!resultMessage) {
 // exacte, et on durcira la lecture ensuite plutôt que de deviner maintenant.
 writeFileSync(resolve(outDir, 'result.json'), JSON.stringify(resultMessage, null, 2));
 
-const finalText = resultMessage.result ?? textOf(resultMessage) ?? '';
-writeFileSync(resolve(outDir, 'sortie.md'), String(finalText));
+const finalText = String(resultMessage.result ?? textOf(resultMessage) ?? '');
+writeFileSync(resolve(outDir, 'sortie.md'), finalText);
 
 const cost = resultMessage.total_cost_usd ?? resultMessage.cost_usd ?? null;
 const turns = resultMessage.num_turns ?? null;
 const ms = resultMessage.duration_ms ?? null;
+const enErreur = Boolean(resultMessage.is_error) || resultMessage.subtype === 'error_max_turns';
 
 console.log('\n──────── Bilan du run ────────');
 console.log(`Coût     : ${cost === null ? 'non lu — voir result.json' : `$${Number(cost).toFixed(4)}`}`);
 console.log(`Tours    : ${turns ?? 'non lu'}`);
 console.log(`Durée    : ${ms === null ? 'non lue' : `${Math.round(ms / 1000)} s`}`);
-console.log(`Sortie   : ${resolve(outDir, 'sortie.md')}`);
+console.log(`Champs du message result : ${Object.keys(resultMessage).join(', ')}`);
 
-// Rendre le coût lisible par le workflow, pour l'afficher dans l'issue.
+ecrireIssue({
+  etat: enErreur ? 'terminé en erreur' : 'succès',
+  cout: cost,
+  tours: turns,
+  corps: finalText,
+  erreur: null,
+});
+
+// Rendre le coût lisible par le workflow.
 if (process.env.GITHUB_OUTPUT) {
   writeFileSync(process.env.GITHUB_OUTPUT, `cost=${cost ?? ''}\nturns=${turns ?? ''}\n`, { flag: 'a' });
 }
 
-if (resultMessage.is_error || resultMessage.subtype === 'error_max_turns') {
+if (enErreur) {
   console.error(`::error::Run terminé en erreur (subtype=${resultMessage.subtype ?? 'inconnu'}).`);
   process.exit(1);
 }
