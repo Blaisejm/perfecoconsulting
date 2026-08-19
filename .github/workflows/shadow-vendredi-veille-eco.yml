@@ -1,4 +1,10 @@
-name: "PerfEco — ESSAI Claude par clé API (veille éco vendredi, ne publie rien)"
+# Nom volontairement préfixé « ESSAI » et NON « PerfEco » : dans la liste des
+# workflows, il se détache ainsi des huit workflows de production au lieu de se
+# ranger au milieu d'eux. Le 19/08/2026, Jean-Michel a ouvert par erreur
+# « PerfEco — Publication vendredi » en cherchant celui-ci — deux noms trop proches.
+# Seul le champ `name` change : le fichier garde son chemin, donc son identifiant
+# et son historique de runs (leçon du 18/08 sur le renommage des workflows).
+name: "ESSAI (ne publie rien) — Claude par clé API, veille éco vendredi"
 
 # ---------------------------------------------------------------------------
 # POURQUOI CE WORKFLOW EXISTE (19/08/2026)
