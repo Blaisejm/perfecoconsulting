@@ -1,0 +1,126 @@
+name: "PerfEco — ESSAI Claude par clé API (veille éco vendredi, ne publie rien)"
+
+# ---------------------------------------------------------------------------
+# POURQUOI CE WORKFLOW EXISTE (19/08/2026)
+#
+# Les routines de production tournent dans Cowork avec un jeton OAuth interactif.
+# Quand il expire, la session meurt au PREMIER appel d'outil — elle ne peut même
+# pas envoyer l'alerte, puisque envoyer un mail est aussi un appel d'outil.
+# Cause racine établie le 18/08/2026 (voir check-preparation-contenu.yml).
+#
+# Une clé API n'a pas ce mode de défaillance : pas d'expiration silencieuse, pas
+# de session à maintenir, pas de PC allumé. Ce workflow est le premier essai de
+# cette voie — il tourne EN PARALLÈLE de la routine Cowork, sans rien publier.
+#
+# Ce qu'il cherche à établir, en trois points :
+#   1. le Claude Agent SDK suit-il une routine écrite en Markdown ?
+#   2. la veille et la vérification des chiffres à la source tiennent-elles sans
+#      supervision humaine ?
+#   3. combien ça coûte réellement par run ?
+#
+# Volontairement HORS PÉRIMÈTRE : génération d'image, export Puppeteer, écriture
+# dans automation-queue, git push, publication. Ces briques sont déjà éprouvées ;
+# les rejouer coûterait cher sans rien apprendre. On teste ce qu'on ignore.
+#
+# ⚠️ Ce workflow ne remplace RIEN tant que la comparaison n'a pas été faite sur
+# plusieurs semaines. La routine Cowork reste la production.
+# ---------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Mercredi 08h00 NC = mardi 21h00 UTC — même créneau que la routine Cowork,
+    # pour que les deux sorties portent sur la même semaine.
+    # (Les cron GitHub partent souvent avec 2-3h de retard : sans importance ici.)
+    - cron: '0 21 * * 2'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  essai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Installer le Claude Agent SDK
+        run: npm install --no-save @anthropic-ai/claude-agent-sdk
+
+      - name: Vérifier que la clé API est présente
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::Secret ANTHROPIC_API_KEY absent."
+            echo "Settings → Secrets and variables → Actions → New repository secret."
+            echo "⚠️ Une clé API suppose un compte de facturation API Anthropic,"
+            echo "   distinct de l'abonnement Claude."
+            exit 1
+          fi
+          echo "✅ Clé API présente."
+
+      - name: Exécuter la routine veille éco
+        id: run
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/claude-agent-run.mjs automation-agent/vendredi-veille-eco.md sortie-essai
+
+      - name: Conserver la trace complète
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: essai-veille-eco-${{ github.run_number }}
+          path: sortie-essai/
+          retention-days: 30
+
+      # Le connecteur Gmail s'authentifie de façon interactive : il n'existe pas
+      # dans un run headless. L'issue GitHub le remplace — notification native,
+      # historique persistant, aucun service tiers à maintenir.
+      - name: Publier le résultat en issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COST: ${{ steps.run.outputs.cost }}
+          TURNS: ${{ steps.run.outputs.turns }}
+          OUTCOME: ${{ steps.run.outcome }}
+        run: |
+          BODY=sortie-essai/issue.md
+          mkdir -p sortie-essai
+
+          {
+            echo "> **Essai en parallèle — rien n'a été publié.**"
+            echo "> La routine Cowork \`vendredi-veilleeco-creation\` reste la production."
+            echo "> Cette issue sert à comparer les deux sorties de la même semaine."
+            echo
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Résultat | \`$OUTCOME\` |"
+            echo "| Coût du run | ${COST:-non lu — voir \`result.json\` dans l'artefact} |"
+            echo "| Tours | ${TURNS:-non lu} |"
+            echo "| Trace complète | artefact \`essai-veille-eco-${{ github.run_number }}\` |"
+            echo "| Run | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |"
+            echo
+            echo "---"
+            echo
+            if [ -s sortie-essai/sortie.md ]; then
+              cat sortie-essai/sortie.md
+            else
+              echo "⚠️ Aucune sortie produite — la routine s'est arrêtée avant de conclure."
+              echo "Voir le log du run et \`transcript.json\` dans l'artefact."
+            fi
+          } > "$BODY"
+
+          gh issue create \
+            --title "[Essai clé API] Veille éco — run #${{ github.run_number }} ($OUTCOME)" \
+            --body-file "$BODY" \
+            --label "essai-cle-api" 2>/dev/null \
+          || gh issue create \
+            --title "[Essai clé API] Veille éco — run #${{ github.run_number }} ($OUTCOME)" \
+            --body-file "$BODY"
