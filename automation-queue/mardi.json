@@ -1,5 +1,4 @@
 {
-  "_comment": "⚠️ FICHIER DE STAGING — NE PAS RENOMMER À LA MAIN AVANT LE 19/08/2026. Contenu de la campagne W34 (8/8, diffusion mardi 25/08), produit en avance le 17/08/2026. Il doit remplacer automation-queue/mardi.json APRÈS la publication du mardi 18/08 (W33). La tâche one-time perfeco-bascule-mardi-w34 (19/08 09h00 NC) fait la copie + commit + push. Si elle échoue, faire manuellement : cp automation-queue/mardi-W34-pret.json automation-queue/mardi.json puis commit/push.",
   "semaine": "W34",
   "date_prevue": "2026-08-25",
   "wordpress_post_id": 119,
