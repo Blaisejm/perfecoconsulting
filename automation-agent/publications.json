@@ -310,6 +310,118 @@
       "note": "Production attendue le mercredi 26/08 par vendredi-veilleeco-creation (régime J-9)"
     },
     {
+      "id": "2026-09-08-mardi",
+      "date_nc": "2026-09-08",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel — Serie 2, episode 2/8",
+      "sujet": "Choisir les 3-5 indicateurs qui comptent (2/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-09-10-jeudi",
+      "date_nc": "2026-09-10",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir (suit l episode 2/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-09-11-vendredi",
+      "date_nc": "2026-09-11",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-09-15-mardi",
+      "date_nc": "2026-09-15",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel — Serie 2, episode 3/8",
+      "sujet": "Le journal de decision (3/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-09-17-jeudi",
+      "date_nc": "2026-09-17",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir (suit l episode 3/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-09-18-vendredi",
+      "date_nc": "2026-09-18",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
       "id": "2026-09-21-mardi",
       "date_nc": "2026-09-21",
       "heure_nc": "11:00",
@@ -360,6 +472,1318 @@
       "bascule": null,
       "preuve": null,
       "note": "Seul jour ferie propre a la Nouvelle-Caledonie. DECISION DE JEAN-MICHEL (21/08/2026) : semaine du 24/09 en horaires exceptionnels, a cause du jeudi 24/09 ferie en NC (Fete de la Citoyennete). Post long avance au LUNDI 21/09, post court avance au MERCREDI 23/09. Veille eco du vendredi 25/09 inchangee. Exception limitee a cette semaine : la serie reprend le mardi le 29/09."
+    },
+    {
+      "id": "2026-09-25-vendredi",
+      "date_nc": "2026-09-25",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-09-29-mardi",
+      "date_nc": "2026-09-29",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel — Serie 2, episode 5/8",
+      "sujet": "Le rituel hebdomadaire qui pilote vraiment (5/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-01-jeudi",
+      "date_nc": "2026-10-01",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir (suit l episode 5/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-02-vendredi",
+      "date_nc": "2026-10-02",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-06-mardi",
+      "date_nc": "2026-10-06",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel — Serie 2, episode 6/8",
+      "sujet": "Remonter l information sans la deformer (6/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-08-jeudi",
+      "date_nc": "2026-10-08",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir (suit l episode 6/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-09-vendredi",
+      "date_nc": "2026-10-09",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-13-mardi",
+      "date_nc": "2026-10-13",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel — Serie 2, episode 7/8",
+      "sujet": "Le tableau de bord vivant (7/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-15-jeudi",
+      "date_nc": "2026-10-15",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir (suit l episode 7/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-16-vendredi",
+      "date_nc": "2026-10-16",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-20-mardi",
+      "date_nc": "2026-10-20",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel — Serie 2, episode 8/8",
+      "sujet": "Installer le rythme durablement (synthese + CTA) (8/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-22-jeudi",
+      "date_nc": "2026-10-22",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir (suit l episode 8/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-23-vendredi",
+      "date_nc": "2026-10-23",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-27-mardi",
+      "date_nc": "2026-10-27",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-29-jeudi",
+      "date_nc": "2026-10-29",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-10-30-vendredi",
+      "date_nc": "2026-10-30",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-01-ferie",
+      "date_nc": "2026-11-01",
+      "heure_nc": "11:00",
+      "format": "ferie",
+      "libelle": "Jour ferie NC — aucune publication",
+      "sujet": "Toussaint",
+      "semaine": null,
+      "canaux": [],
+      "statut": "annule",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": "Ne tombe pas un jour de publication : sans impact."
+    },
+    {
+      "id": "2026-11-03-mardi",
+      "date_nc": "2026-11-03",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-05-jeudi",
+      "date_nc": "2026-11-05",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-06-vendredi",
+      "date_nc": "2026-11-06",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-10-mardi",
+      "date_nc": "2026-11-10",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-11-ferie",
+      "date_nc": "2026-11-11",
+      "heure_nc": "11:00",
+      "format": "ferie",
+      "libelle": "Jour ferie NC — aucune publication",
+      "sujet": "Armistice",
+      "semaine": null,
+      "canaux": [],
+      "statut": "annule",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": "Ne tombe pas un jour de publication : sans impact."
+    },
+    {
+      "id": "2026-11-12-jeudi",
+      "date_nc": "2026-11-12",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-13-vendredi",
+      "date_nc": "2026-11-13",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-17-mardi",
+      "date_nc": "2026-11-17",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-19-jeudi",
+      "date_nc": "2026-11-19",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-20-vendredi",
+      "date_nc": "2026-11-20",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-24-mardi",
+      "date_nc": "2026-11-24",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-26-jeudi",
+      "date_nc": "2026-11-26",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-11-27-vendredi",
+      "date_nc": "2026-11-27",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-01-mardi",
+      "date_nc": "2026-12-01",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-03-jeudi",
+      "date_nc": "2026-12-03",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-04-vendredi",
+      "date_nc": "2026-12-04",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-08-mardi",
+      "date_nc": "2026-12-08",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-10-jeudi",
+      "date_nc": "2026-12-10",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-11-vendredi",
+      "date_nc": "2026-12-11",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-15-mardi",
+      "date_nc": "2026-12-15",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-17-jeudi",
+      "date_nc": "2026-12-17",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-18-vendredi",
+      "date_nc": "2026-12-18",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-22-mardi",
+      "date_nc": "2026-12-22",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-24-jeudi",
+      "date_nc": "2026-12-24",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-25-ferie",
+      "date_nc": "2026-12-25",
+      "heure_nc": "--:--",
+      "format": "ferie",
+      "libelle": "JOUR FERIE — Noel (un vendredi)",
+      "sujet": "aucune publication",
+      "semaine": null,
+      "canaux": [],
+      "statut": "annule",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": "Veille economique reportee au samedi 2026-12-26. REGLE GENERALE posee par Jean-Michel le 21/08/2026 : si le vendredi est ferie, la veille economique bascule au SAMEDI. Cron samedi ajoute a publish-vendredi-veille-eco.yml. ATTENTION ce samedi-la : la republication Facebook du post court tourne a 15h30 NC — Facebook recevrait 2 posts le meme jour. Suspendre la republication cette semaine-la, ou l assumer."
+    },
+    {
+      "id": "2026-12-26-vendredi",
+      "date_nc": "2026-12-26",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC — BASCULEE AU SAMEDI (Noel ferie)",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": "Le vendredi 2026-12-25 est ferie (Noel). REGLE GENERALE posee par Jean-Michel le 21/08/2026 : si le vendredi est ferie, la veille economique bascule au SAMEDI. Cron samedi ajoute a publish-vendredi-veille-eco.yml. ATTENTION ce samedi-la : la republication Facebook du post court tourne a 15h30 NC — Facebook recevrait 2 posts le meme jour. Suspendre la republication cette semaine-la, ou l assumer."
+    },
+    {
+      "id": "2026-12-29-mardi",
+      "date_nc": "2026-12-29",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2026-12-31-jeudi",
+      "date_nc": "2026-12-31",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-01-ferie",
+      "date_nc": "2027-01-01",
+      "heure_nc": "--:--",
+      "format": "ferie",
+      "libelle": "JOUR FERIE — Jour de l An (un vendredi)",
+      "sujet": "aucune publication",
+      "semaine": null,
+      "canaux": [],
+      "statut": "annule",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": "Veille economique reportee au samedi 2027-01-02. REGLE GENERALE posee par Jean-Michel le 21/08/2026 : si le vendredi est ferie, la veille economique bascule au SAMEDI. Cron samedi ajoute a publish-vendredi-veille-eco.yml. ATTENTION ce samedi-la : la republication Facebook du post court tourne a 15h30 NC — Facebook recevrait 2 posts le meme jour. Suspendre la republication cette semaine-la, ou l assumer."
+    },
+    {
+      "id": "2027-01-02-vendredi",
+      "date_nc": "2027-01-02",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC — BASCULEE AU SAMEDI (Jour de l An ferie)",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": "Le vendredi 2027-01-01 est ferie (Jour de l An). REGLE GENERALE posee par Jean-Michel le 21/08/2026 : si le vendredi est ferie, la veille economique bascule au SAMEDI. Cron samedi ajoute a publish-vendredi-veille-eco.yml. ATTENTION ce samedi-la : la republication Facebook du post court tourne a 15h30 NC — Facebook recevrait 2 posts le meme jour. Suspendre la republication cette semaine-la, ou l assumer."
+    },
+    {
+      "id": "2027-01-05-mardi",
+      "date_nc": "2027-01-05",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-07-jeudi",
+      "date_nc": "2027-01-07",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-08-vendredi",
+      "date_nc": "2027-01-08",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-12-mardi",
+      "date_nc": "2027-01-12",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-14-jeudi",
+      "date_nc": "2027-01-14",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-15-vendredi",
+      "date_nc": "2027-01-15",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-19-mardi",
+      "date_nc": "2027-01-19",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-21-jeudi",
+      "date_nc": "2027-01-21",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-22-vendredi",
+      "date_nc": "2027-01-22",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-26-mardi",
+      "date_nc": "2027-01-26",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-28-jeudi",
+      "date_nc": "2027-01-28",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-01-29-vendredi",
+      "date_nc": "2027-01-29",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-02-mardi",
+      "date_nc": "2027-02-02",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-04-jeudi",
+      "date_nc": "2027-02-04",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-05-vendredi",
+      "date_nc": "2027-02-05",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-09-mardi",
+      "date_nc": "2027-02-09",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-11-jeudi",
+      "date_nc": "2027-02-11",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-12-vendredi",
+      "date_nc": "2027-02-12",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-16-mardi",
+      "date_nc": "2027-02-16",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-18-jeudi",
+      "date_nc": "2027-02-18",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-19-vendredi",
+      "date_nc": "2027-02-19",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-23-mardi",
+      "date_nc": "2027-02-23",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-25-jeudi",
+      "date_nc": "2027-02-25",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
+    },
+    {
+      "id": "2027-02-26-vendredi",
+      "date_nc": "2027-02-26",
+      "heure_nc": "11:00",
+      "format": "vendredi",
+      "libelle": "Veille economique NC",
+      "sujet": "a definir",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": null
     }
-  ]
+  ],
+  "_horizon": "2027-02-28"
 }

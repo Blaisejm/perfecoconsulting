@@ -2,8 +2,24 @@ name: PerfEco — Publication vendredi (veille économique, webhook unique)
 
 on:
   schedule:
-    - cron: '0 0 * * 5'  # Vendredi 00h00 UTC = 11h00 Nouvelle-Calédonie
+    - cron: '0 0 * * 5'  # Vendredi 00h00 UTC = 11h00 Nouvelle-Calédonie (cas normal)
+    - cron: '0 0 * * 6'  # Samedi 00h00 UTC = 11h00 NC — vendredi férié (voir ci-dessous)
   workflow_dispatch:
+
+# ⚠️ POURQUOI UN CRON LE SAMEDI (ajouté le 21/08/2026)
+#
+# Règle générale posée par Jean-Michel : **si le vendredi est férié, la veille économique
+# bascule au samedi.** Deux cas connus sur les six prochains mois, tous deux un vendredi :
+# Noël (25/12/2026) → samedi 26/12, et le Jour de l'An (01/01/2027) → samedi 02/01.
+#
+# Même mécanique que les crons lundi/mercredi des deux autres publications : un écart de
+# date le VENDREDI reste une anomalie bruyante, un écart le samedi est une sortie normale.
+#
+# ⚠️ TÉLESCOPAGE À SURVEILLER CES SAMEDIS-LÀ : publish-samedi-republication-facebook.yml
+# republie le post court sur Facebook à 15h30 NC. Un samedi de bascule, Facebook recevrait
+# donc DEUX posts le même jour (veille éco 11h + republication 15h30). LinkedIn n'est pas
+# concerné (la republication est filtrée FBONLY), mais la règle d'espacement vise aussi
+# Facebook : suspendre la republication ce samedi-là, ou l'assumer explicitement.
 
 jobs:
   publish:
@@ -12,6 +28,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Vérifier la fraîcheur du contenu
+        id: fraicheur
         run: |
           set -e
           FILE="automation-queue/vendredi.json"
@@ -21,14 +38,25 @@ jobs:
           fi
           DATE_PREVUE=$(jq -r '.date_prevue' "$FILE")
           TODAY_NC=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          DOW=$(TZ="Pacific/Noumea" date +%u)
           if [ "$DATE_PREVUE" != "$TODAY_NC" ]; then
-            echo "::error::date_prevue=$DATE_PREVUE ne correspond pas à aujourd'hui NC ($TODAY_NC). Abandon (contenu périmé ou pas encore mis à jour)."
-            exit 1
+            if [ "$DOW" = "5" ]; then
+              # Vendredi, le jour habituel : un écart est une vraie anomalie.
+              echo "::error::date_prevue=$DATE_PREVUE ne correspond pas à aujourd'hui NC ($TODAY_NC). Abandon (contenu périmé ou pas encore mis à jour)."
+              exit 1
+            fi
+            # Samedi : jour de repli quand le vendredi est férié. Rien à publier la
+            # plupart des semaines — cas NORMAL, pas une erreur.
+            echo "publier=false" >> "$GITHUB_OUTPUT"
+            echo "Rien à publier aujourd'hui : la file vise le $DATE_PREVUE, nous sommes le $TODAY_NC. Sortie normale."
+            exit 0
           fi
+          echo "publier=true" >> "$GITHUB_OUTPUT"
           echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
 
       - name: Publication réseaux sociaux (webhook unique — LinkedIn Company + LinkedIn perso + Facebook)
         id: social
+        if: steps.fraicheur.outputs.publier == 'true'
         run: |
           set -e
           FILE="automation-queue/vendredi.json"

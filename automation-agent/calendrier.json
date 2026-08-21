@@ -22,9 +22,7 @@
     "seconde source de vérité. L'historique rédigé des sujets reste dans",
     "SUIVI-AUTOMATISATION.md."
   ],
-
   "fuseau": "Pacific/Noumea",
-
   "formats": {
     "mardi": {
       "libelle": "Carrousel — Exécution stratégique",
@@ -35,8 +33,18 @@
       "routine": "mardi-carrousel-creation",
       "workflow": "publish-mardi-carrousel.yml",
       "preparation_jours": 8,
-      "canaux": ["linkedin_company", "linkedin_perso", "facebook"],
-      "champs_requis": ["semaine", "date_prevue", "social_post.message", "social_post.image_url", "linkedin_api_version"]
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "champs_requis": [
+        "semaine",
+        "date_prevue",
+        "social_post.message",
+        "social_post.image_url",
+        "linkedin_api_version"
+      ]
     },
     "jeudi": {
       "libelle": "Post court",
@@ -47,8 +55,16 @@
       "routine": "jeudi-postcourt-creation",
       "workflow": "publish-jeudi-post-court.yml",
       "preparation_jours": 8,
-      "canaux": ["linkedin_company", "facebook"],
-      "champs_requis": ["semaine", "date_prevue", "social_post.message", "social_post.image_url"]
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "champs_requis": [
+        "semaine",
+        "date_prevue",
+        "social_post.message",
+        "social_post.image_url"
+      ]
     },
     "vendredi": {
       "libelle": "Veille économique NC",
@@ -59,11 +75,19 @@
       "routine": "vendredi-veilleeco-creation",
       "workflow": "publish-vendredi-veille-eco.yml",
       "preparation_jours": 9,
-      "canaux": ["linkedin_company", "linkedin_perso", "facebook"],
-      "champs_requis": ["semaine", "date_prevue", "social_post.message", "social_post.image_url"]
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "champs_requis": [
+        "semaine",
+        "date_prevue",
+        "social_post.message",
+        "social_post.image_url"
+      ]
     }
   },
-
   "espacement": {
     "_comment": [
       "Règle posée par Jean-Michel le 17/08/2026, enfreinte le 21/08 : deux posts à 2 h",
@@ -74,7 +98,6 @@
     "heures_min_linkedin_perso": 48,
     "max_par_jour_company_page": 1
   },
-
   "routines": {
     "_comment": [
       "TOUTES les routines Cowork, avec leur cadence attendue et la tolérance au-delà de",
@@ -96,16 +119,39 @@
       "tolerance_jours : au-delà de ce silence, le contrôle quotidien alerte.",
       "Les tâches one-time n'ont pas de cadence et ne figurent pas ici."
     ],
-    "mardi-carrousel-creation":     { "cadence": "hebdomadaire (lundi 08h08)",        "tolerance_jours": 8 },
-    "jeudi-postcourt-creation":     { "cadence": "hebdomadaire (mercredi 08h03)",     "tolerance_jours": 8 },
-    "vendredi-veilleeco-creation":  { "cadence": "hebdomadaire (mercredi 08h05)",     "tolerance_jours": 8 },
-    "perfeco-rappel-quotidien":     { "cadence": "quotidienne (17h00)",               "tolerance_jours": 2 },
-    "perfeco-rapport-dimanche":     { "cadence": "hebdomadaire (dimanche 08h02)",     "tolerance_jours": 8 },
-    "perfeco-verif-github-actions": { "cadence": "lundi-vendredi (12h09)",            "tolerance_jours": 4 },
-    "perfeco-verif-linkedin-mdp":   { "cadence": "lundi et jeudi (07h00)",            "tolerance_jours": 5 },
-    "veille-marches-publics-nc":    { "cadence": "lundi-vendredi (07h03)",            "tolerance_jours": 4 }
+    "mardi-carrousel-creation": {
+      "cadence": "hebdomadaire (lundi 08h08)",
+      "tolerance_jours": 8
+    },
+    "jeudi-postcourt-creation": {
+      "cadence": "hebdomadaire (mercredi 08h03)",
+      "tolerance_jours": 8
+    },
+    "vendredi-veilleeco-creation": {
+      "cadence": "hebdomadaire (mercredi 08h05)",
+      "tolerance_jours": 8
+    },
+    "perfeco-rappel-quotidien": {
+      "cadence": "quotidienne (17h00)",
+      "tolerance_jours": 2
+    },
+    "perfeco-rapport-dimanche": {
+      "cadence": "hebdomadaire (dimanche 08h02)",
+      "tolerance_jours": 8
+    },
+    "perfeco-verif-github-actions": {
+      "cadence": "lundi-vendredi (12h09)",
+      "tolerance_jours": 4
+    },
+    "perfeco-verif-linkedin-mdp": {
+      "cadence": "lundi et jeudi (07h00)",
+      "tolerance_jours": 5
+    },
+    "veille-marches-publics-nc": {
+      "cadence": "lundi-vendredi (07h03)",
+      "tolerance_jours": 4
+    }
   },
-
   "regle_j7": {
     "_comment": [
       "Règle d'or du 10/08/2026, renforcée le 19/08 : « relancer » signifie PRODUIRE le",
@@ -114,5 +160,29 @@
       "devient une erreur bloquante du contrôle quotidien."
     ],
     "seuil_alerte_jours": 7
+  },
+  "jours_feries": {
+    "_comment": [
+      "REGLES DE DECALAGE POUR JOUR FERIE (Nouvelle-Caledonie), posees par Jean-Michel le 21/08/2026.",
+      "Les feries NC sont ceux de metropole + le 24 septembre (Fete de la Citoyennete), soit 12 par an.",
+      "",
+      "Ces regles ne sont pas appliquees automatiquement : elles disent quoi PROPOSER. Les dates",
+      "reelles vivent dans publications.json, qui fait foi — c'est lui que lisent les routines et",
+      "les workflows.",
+      "",
+      "Les crons de publication ont ete elargis en consequence (lundi, mercredi, samedi) : un ecart",
+      "de date le jour habituel reste une anomalie bruyante, un ecart le jour de repli est une",
+      "sortie normale."
+    ],
+    "vendredi_ferie": "Basculer la veille economique au SAMEDI (regle explicite du 21/08/2026). Verifier le telescopage avec la republication Facebook de 15h30.",
+    "jeudi_ferie": "Avancer le post court au MERCREDI. Applique a la semaine du 24/09/2026, ou le post long a aussi ete avance au lundi.",
+    "mardi_ferie": "Avancer le post long au LUNDI (par symetrie ; jamais rencontre a ce jour).",
+    "feries_connus": {
+      "2026-09-24": "Fete de la Citoyennete (jeudi)",
+      "2026-11-01": "Toussaint (dimanche)",
+      "2026-11-11": "Armistice (mercredi)",
+      "2026-12-25": "Noel (vendredi)",
+      "2027-01-01": "Jour de l An (vendredi)"
+    }
   }
 }

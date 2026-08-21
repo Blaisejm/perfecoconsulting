@@ -39,6 +39,7 @@
 [CmdletBinding()]
 param(
     [switch] $Rafraichir,
+    [switch] $Cahier,
     [switch] $Tout,
     [int]    $Jours = 21,
 
@@ -179,6 +180,74 @@ $couleur = @{
     'publie' = 'Green'; 'publie_hors_pipeline' = 'Magenta'; 'en_file' = 'Green'
     'en_staging' = 'Yellow'; 'en_production' = 'Yellow'; 'prevu' = 'Gray'
     'echec' = 'Red'; 'echeance_depassee' = 'Red'; 'annule' = 'DarkGray'
+}
+
+# ---------------------------------------------------------------------------
+# -Cahier : la vue à 6 mois, mois par mois.
+#
+# Demandée par Jean-Michel le 21/08/2026 (« ne serait-il pas préférable de rédiger et
+# centraliser le cahier de prochaine publication à 6 mois ? »). Son intérêt n'est pas
+# de remplir des sujets six mois à l'avance — c'est de voir VENIR les obstacles :
+# les trois collisions avec un jour férié de la période étaient toutes invisibles
+# jusqu'ici, et celle du 24/09 n'a été découverte qu'à 34 jours.
+# ---------------------------------------------------------------------------
+if ($Cahier) {
+    $MOIS = @('', 'janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre')
+    Write-Host ""
+    Write-Host "CAHIER DES PUBLICATIONS PerfEco — horizon $($reg._horizon)" -ForegroundColor Cyan
+    Write-Host ("=" * 78) -ForegroundColor DarkGray
+
+    $aVenir = $reg.publications | Where-Object {
+        [datetime]::ParseExact($_.date_nc,'yyyy-MM-dd',$null) -ge $today
+    } | Sort-Object date_nc, heure_nc
+
+    $moisCourant = ''
+    foreach ($e in $aVenir) {
+        $d = [datetime]::ParseExact($e.date_nc,'yyyy-MM-dd',$null)
+        $m = "$($MOIS[$d.Month]) $($d.Year)"
+        if ($m -ne $moisCourant) {
+            $moisCourant = $m
+            Write-Host ""
+            Write-Host ("  ── $m ──").ToUpper() -ForegroundColor Cyan
+        }
+        $c = $couleur[$e.statut]; if (-not $c) { $c = 'Gray' }
+        $i = $icone[$e.statut];   if (-not $i) { $i = '[?]   ' }
+        $alerte = if (($e.libelle -match 'FERIE|FÉRIÉ') -or ($e.format -eq 'ferie')) { '  ⚠️' } else { '' }
+
+        # `format` nomme un TYPE de contenu (les files s'appellent mardi.json, jeudi.json…),
+        # pas un jour. Lors d'un décalage pour férié, le type « mardi » sort un lundi : sans
+        # ce marqueur, la ligne « lun. 21/09  mardi » se lit comme une erreur de saisie.
+        $jourAttendu = @{ mardi = 2; jeudi = 4; vendredi = 5 }[$e.format]
+        $decale = if ($jourAttendu -and [int]$d.DayOfWeek -ne $jourAttendu) { ' (décalé)' } else { '' }
+
+        Write-Host ("  {0} {1}  {2,-9}{3} {4}{5}" -f $i, $d.ToString('ddd dd/MM'), $e.format, $decale, $e.sujet, $alerte) `
+            -ForegroundColor $(if ($alerte) { 'Red' } elseif ($decale) { 'Cyan' } else { $c })
+    }
+
+    Write-Host ""
+    Write-Host ("=" * 78) -ForegroundColor DarkGray
+    Write-Host "DÉCISIONS À PRENDRE — obstacles connus sur l'horizon" -ForegroundColor Yellow
+    # Un arbitrage clos n'est plus une décision à prendre : le laisser ici noierait les
+    # vraies dans du bruit résolu.
+    $obstacles = $aVenir | Where-Object {
+        $_.note -and ($_.libelle -match 'FERIE|FÉRIÉ' -or $_.note -match 'ARBITR|arbitr') -and
+        $_.note -notmatch 'ARBITRAGE CLOS' -and $_.note -notmatch 'sans impact'
+    }
+    if ($obstacles) {
+        foreach ($o in $obstacles) {
+            $j = [int](([datetime]::ParseExact($o.date_nc,'yyyy-MM-dd',$null)) - $today).TotalDays
+            Write-Host ""
+            Write-Host ("  {0}  (dans {1} j)  {2}" -f $o.date_nc, $j, $o.libelle) -ForegroundColor Yellow
+            Write-Host ("      {0}" -f $o.note) -ForegroundColor Gray
+        }
+    } else {
+        Write-Host "  Aucun obstacle connu sur l'horizon." -ForegroundColor Green
+    }
+    Write-Host ""
+    Write-Host "  Les sujets « à définir » sont normaux : le cahier réserve les CRÉNEAUX." -ForegroundColor DarkGray
+    Write-Host "  Chaque routine hebdomadaire remplit le sien à J-8 en le lisant ici." -ForegroundColor DarkGray
+    Write-Host ""
+    return
 }
 
 Write-Host ""

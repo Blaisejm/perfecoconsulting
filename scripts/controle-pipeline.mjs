@@ -132,15 +132,45 @@ dire(`Date du jour (${fuseau}) : ${today}`);
 dire(`Seuil d'alerte J-${seuil} — au-delà, une échéance non préparée devient bloquante.`);
 dire('');
 
+// Le registre central est chargé ICI, avant la boucle des formats : c'est lui qui
+// donne la date de la prochaine diffusion, y compris lors d'un décalage pour férié.
+// Il est revérifié en détail plus bas (section « Registre central des publications »).
+const REGISTRE = 'automation-agent/publications.json';
+const regf = chargerJson(REGISTRE);
+const regPub = regf.ok ? regf.data : null;
+
 const echeances = [];
 
 for (const [cle, f] of Object.entries(calendrier.formats)) {
   dire(`──── ${cle.toUpperCase()} — ${f.libelle} ────`);
 
-  const jourVoulu = JOURS[f.jour];
-  const prochaine = prochaineOccurrence(today, jourVoulu);
+  // ── QUELLE EST LA PROCHAINE DIFFUSION ? ──────────────────────────────────
+  // LE REGISTRE FAIT FOI, le jour de la semaine n'est qu'un repli.
+  //
+  // Corrigé le 21/08/2026. Ce contrôle déduisait la prochaine échéance du seul
+  // jour de la semaine (« prochain mardi »). La semaine du 24/09/2026 publie le
+  // lundi 21/09 et le mercredi 23/09 (jeudi férié en NC, décision de Jean-Michel) :
+  // le contrôle aurait attendu le mardi 22/09, constaté que la file porte le 21/09,
+  // et déclaré une anomalie BLOQUANTE sur un pipeline parfaitement correct.
+  // Le filet indépendant aurait crié au loup précisément la semaine sensible — et
+  // c'est ainsi qu'un filet cesse d'être lu.
+  const registrePrevu = (regPub?.publications ?? [])
+    .filter((p) => p.format === cle && p.date_nc >= today && p.statut !== 'annule')
+    .map((p) => p.date_nc)
+    .sort()[0];
+
+  const parJour = prochaineOccurrence(today, JOURS[f.jour]);
+  const prochaine = registrePrevu ?? parJour;
   const restant = ecartJours(today, prochaine);
-  dire(`  Prochaine diffusion : ${prochaine} (dans ${restant} j, ${f.heure_nc} NC)`);
+
+  if (registrePrevu && registrePrevu !== parJour) {
+    dire(`  Prochaine diffusion : ${prochaine} (dans ${restant} j, ${f.heure_nc} NC) — ⚠️ DÉCALAGE EXCEPTIONNEL, le jour habituel serait le ${parJour}. Source : automation-agent/publications.json.`);
+  } else {
+    dire(`  Prochaine diffusion : ${prochaine} (dans ${restant} j, ${f.heure_nc} NC)`);
+    if (!registrePrevu) {
+      alerter(`${cle} — aucune échéance à venir dans le registre : la date est déduite du jour de la semaine (${parJour}), ce qui ne tient pas compte des décalages pour férié. Ajouter l'entrée dans publications.json.`);
+    }
+  }
 
   // ── Fichier de file d'attente ────────────────────────────────────────────
   if (!existsSync(f.file)) {
@@ -313,9 +343,7 @@ dire('');
 // publication faite HORS pipeline lui était invisible. Elle est désormais
 // inscrite au registre, donc visible d'ici — et opposable à l'espacement.
 dire('──── Registre central des publications ────');
-const REGISTRE = 'automation-agent/publications.json';
-const regf = chargerJson(REGISTRE);
-
+// (chargé plus haut : c'est lui qui a fourni la date de chaque prochaine diffusion)
 if (!regf.ok) {
   bloquant(`${REGISTRE} illisible : ${regf.erreur}. C'est la source unique que consultent toutes les routines de publication — sans lui, chacune recalcule sa date dans son coin, ce qui est exactement ce qu'on a cherché à faire cesser.`);
 } else {
