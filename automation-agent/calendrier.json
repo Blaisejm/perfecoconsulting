@@ -150,6 +150,10 @@
     "veille-marches-publics-nc": {
       "cadence": "lundi-vendredi (07h03)",
       "tolerance_jours": 4
+    },
+    "perfeco-revue-semestrielle": {
+      "cadence": "semestrielle (1er fevrier et 1er aout, 08h00)",
+      "tolerance_jours": 190
     }
   },
   "regle_j7": {

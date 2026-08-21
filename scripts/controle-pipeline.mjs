@@ -397,6 +397,58 @@ if (!regf.ok) {
     }
   }
 
+  // 4. L'horizon du cahier recule-t-il ? (ajouté le 21/08/2026)
+  //    Le cahier est censé garder ~6 mois d'avance, entretenu chaque jour par
+  //    etendre-cahier.ps1. Si l'horizon fond, c'est que ce script ne tourne plus —
+  //    et personne ne verrait venir les jours fériés. Le symptôme précède la panne.
+  const horizon = regf.data._horizon;
+  if (!horizon) {
+    alerter(`Registre — aucun horizon déclaré (_horizon). Lancer automation-agent/etendre-cahier.ps1.`);
+  } else {
+    const reste = ecartJours(today, horizon);
+    dire(`  Horizon du cahier : ${horizon} (${reste} j d'avance).`);
+    if (reste < 60) {
+      bloquant(`Cahier — l'horizon n'est plus qu'à ${reste} j (${horizon}). etendre-cahier.ps1 ne tourne plus : les jours fériés à venir ne seront plus détectés, et c'est exactement ce qui a failli faire publier un post un jour férié le 24/09/2026.`);
+    } else if (reste < 120) {
+      alerter(`Cahier — horizon à ${reste} j seulement (${horizon}). L'entretien automatique semble avoir cessé ; vérifier que etendre-cahier.ps1 est bien appelé chaque jour.`);
+    }
+  }
+
+  // 4bis. La revue semestrielle a-t-elle encore lieu ? (21/08/2026)
+  //     Une routine semestrielle qui meurt est invisible pendant six mois — le pire
+  //     rapport signal/délai de tout le dispositif. Cette clé est écrite par la revue
+  //     elle-même ; son vieillissement est donc une preuve d'effet, pas de déclenchement.
+  const revue = regf.data._derniere_revue;
+  if (!revue) {
+    alerter(`Registre — aucune revue semestrielle enregistrée (_derniere_revue). La première est prévue le 1er février ou le 1er août ; d'ici là, l'entretien quotidien suffit.`);
+  } else {
+    const depuis = ecartJours(revue, today);
+    dire(`  Dernière revue semestrielle : ${revue} (il y a ${depuis} j).`);
+    if (depuis > 213) {
+      bloquant(`Revue semestrielle — dernière le ${revue}, il y a ${depuis} j (plus de 7 mois). perfeco-revue-semestrielle ne s'exécute plus : les jours fériés ne sont plus revérifiés à la source et aucune planification éditoriale n'a lieu.`);
+    }
+  }
+
+  // 5. Les arbitrages OUVERTS — les questions qui attendent Jean-Michel.
+  //    « Sauf s'il y a des questions, je dois être informé pour prendre les bonnes
+  //    décisions » (21/08/2026). Ce contrôle tourne dans GitHub Actions : il informe
+  //    même si Cowork est en panne, ce qui est précisément quand ça compte.
+  const arbitrages = pubs.filter((p) => p.arbitrage?.statut === 'ouvert');
+  if (arbitrages.length) {
+    dire(`  ${arbitrages.length} arbitrage(s) en attente de décision :`);
+    for (const a of arbitrages) {
+      const j = ecartJours(today, a.arbitrage.echeance);
+      dire(`    [${a.date_nc}] ${a.arbitrage.question} — à trancher avant le ${a.arbitrage.echeance} (${j} j)`);
+      if (j <= 0) {
+        bloquant(`Arbitrage DÉPASSÉ — « ${a.arbitrage.question} » devait être tranché avant le ${a.arbitrage.echeance}. La publication du ${a.date_nc} approche sans décision.`);
+      } else if (j <= 21) {
+        alerter(`Arbitrage à rendre dans ${j} j (avant le ${a.arbitrage.echeance}) — « ${a.arbitrage.question} »`);
+      }
+    }
+  } else {
+    dire('  Aucun arbitrage en attente.');
+  }
+
   const manuelles = pubs.filter((p) => p.statut === 'publie_hors_pipeline');
   if (manuelles.length) {
     dire(`  ${manuelles.length} publication(s) hors pipeline enregistrée(s) — désormais visibles de ce contrôle :`);
