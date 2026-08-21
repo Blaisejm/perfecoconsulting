@@ -9,7 +9,18 @@
     "IL NE CONTIENT QUE DES RÈGLES, JAMAIS D'ÉTAT. L'état réel se lit dans les fichiers",
     "automation-queue/*.json. Dupliquer l'état ici garantirait une divergence tôt ou tard —",
     "c'est exactement ce qui s'est produit entre les scripts PS1 et les files d'attente.",
-    "L'historique des sujets publiés reste dans SUIVI-AUTOMATISATION.md."
+    "",
+    "COMPLÉMENT AJOUTÉ LE 21/08/2026 — automation-agent/publications.json :",
+    "Jean-Michel a demandé le soir même un registre central des publications, avec dates,",
+    "heures et niveau de préparation, « parce qu'il y a trop de routines Claude Work et",
+    "Claude Code qui agissent de manière indépendante ». Ce registre porte donc l'ÉTAT et",
+    "l'axe temporel (passé + avenir), là où ce fichier-ci garde les RÈGLES.",
+    "",
+    "La mise en garde ci-dessus reste valable et a été respectée : dans publications.json,",
+    "le statut des échéances à venir n'est JAMAIS saisi à la main — il est recalculé depuis",
+    "automation-queue/ par planning.ps1 -Rafraichir. C'est un cache vérifié, pas une",
+    "seconde source de vérité. L'historique rédigé des sujets reste dans",
+    "SUIVI-AUTOMATISATION.md."
   ],
 
   "fuseau": "Pacific/Noumea",
