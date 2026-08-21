@@ -2,6 +2,34 @@
   command = "npm run build"
   publish = "dist"
 
+  # ---------------------------------------------------------------------------
+  # NE DÉPLOYER QUE SI LE SITE PUBLIÉ CHANGE RÉELLEMENT (21/08/2026)
+  #
+  # Constat : du 30/07 au 21/08, 62 commits ont déclenché 66 déploiements de
+  # production, soit 990 des 1 000 crédits du mois — enveloppe épuisée le 21/08.
+  # Or 55 de ces 62 commits ne modifiaient RIEN du site publié :
+  #   · 43 ne touchaient que l'automatisation (.github/, automation-queue/,
+  #     automation-agent/, scripts/) — fichiers jamais servis par le site ;
+  #   · 12 ne touchaient que public/slides/, les sources de carrousel utilisées
+  #     par Puppeteer. Vérifié le 21/08 : `/slides/` n'est référencé nulle part
+  #     dans src/. 140 Mo déployés que le site n'utilise pas (à comparer aux
+  #     576 Ko de public/photos, qui, elles, sont bien affichées).
+  # Seuls 7 commits ont réellement modifié le site.
+  #
+  # La commande ci-dessous décide s'il faut construire. Convention Netlify :
+  # code de sortie 0 = build annulé, code non nul = build lancé. `git diff
+  # --quiet` sort 0 quand il n'y a AUCUNE différence sur les chemins listés —
+  # donc rien à publier, donc pas de build.
+  #
+  # Sécurité : au premier build (pas de $CACHED_COMMIT_REF) ou si le git diff
+  # échoue (clone superficiel), on sort non nul, donc on construit. En cas de
+  # doute, le site est toujours reconstruit — jamais l'inverse.
+  #
+  # ⚠️ Si une page se met un jour à afficher une image de public/slides/,
+  # ajouter ce chemin à la liste ci-dessous, sinon la mise à jour ne partira pas.
+  # ---------------------------------------------------------------------------
+  ignore = 'if [ -z "$CACHED_COMMIT_REF" ]; then exit 1; fi; git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- src astro.config.mjs package.json package-lock.json tailwind.config.mjs netlify.toml public/photos public/favicon.svg public/logo-perfeco.svg public/robots.txt public/sitemap.xml'
+
 [build.environment]
   NODE_VERSION = "20"
 
