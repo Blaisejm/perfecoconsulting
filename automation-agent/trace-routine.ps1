@@ -119,7 +119,9 @@ function Commit-Repo {
 
     $hash = (Invoke-Git -Repo $Repo -GitArgs @('rev-parse', '--short', 'HEAD')) -join ''
     if ($hash) {
-        $commits += "$Etiquette=$($hash.Trim())"
+        # $script: obligatoire : sans lui, PowerShell crée une variable locale à la
+        # fonction et le champ `commits` du journal ressort vide (constaté au 1er test).
+        $script:commits         += "$Etiquette=$($hash.Trim())"
         $script:fichiersTouches += $modifies
         Write-Host "  [$Etiquette] commit $($hash.Trim()) — $($modifies.Count) fichier(s), auteur '$Routine'"
     } else {
