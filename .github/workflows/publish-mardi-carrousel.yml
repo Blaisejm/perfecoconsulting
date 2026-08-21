@@ -16,7 +16,15 @@ on:
 # ne se déclenche que le mardi, et le mardi 22/09 il aurait trouvé une date_prevue au
 # 21/09 — donc abandonné. Échec silencieux garanti.
 #
-# CE CRON SUPPLÉMENTAIRE EST SANS EFFET DE BORD : l'étape de contrôle ci-dessous exige
+# CE CRON SUPPLÉMENTAIRE NE FAIT PAS ÉCHOUER LE WORKFLOW LES AUTRES SEMAINES, mais
+# cela a demandé un correctif : la garde de fraîcheur sortait en `exit 1` dès que la
+# date ne correspondait pas, donc le workflow aurait échoué tous les lundis. Elle
+# distingue désormais deux cas — un écart le mardi (jour habituel) reste une anomalie
+# bruyante, un écart le jour de rattrapage est une sortie normale (`publier=false`,
+# étapes suivantes sautées). Sans cette distinction, une alerte hebdomadaire sans objet
+# aurait fini par noyer les vraies.
+#
+# L'étape de contrôle ci-dessous exige
 # que `date_prevue` soit exactement la date du jour en NC. Tous les autres lundis de
 # l'année, la file porte une date de mardi et le run s'arrête proprement sans rien
 # publier. Le coût est un run à vide par semaine ; le bénéfice est que le pipeline
@@ -29,6 +37,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Vérifier la fraîcheur du contenu
+        id: fraicheur
         run: |
           set -e
           FILE="automation-queue/mardi.json"
@@ -38,14 +47,30 @@ jobs:
           fi
           DATE_PREVUE=$(jq -r '.date_prevue' "$FILE")
           TODAY_NC=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          DOW=$(TZ="Pacific/Noumea" date +%u)
           if [ "$DATE_PREVUE" != "$TODAY_NC" ]; then
-            echo "::error::date_prevue=$DATE_PREVUE ne correspond pas à aujourd'hui NC ($TODAY_NC). Abandon."
-            exit 1
+            # Deux situations très différentes, à ne pas confondre (corrigé le 21/08/2026) :
+            if [ "$DOW" = "2" ]; then
+              # Mardi, le jour habituel : la file DEVRAIT porter la date du jour.
+              # Un écart ici est une vraie anomalie — c'est le filet qui a rattrapé
+              # plusieurs bascules ratées. On échoue bruyamment.
+              echo "::error::date_prevue=$DATE_PREVUE ne correspond pas à aujourd'hui NC ($TODAY_NC). Abandon."
+              exit 1
+            fi
+            # Lundi : jour ajouté pour absorber les décalages de férié. Rien à publier
+            # ici la plupart des semaines — c'est le cas NORMAL, surtout pas une erreur.
+            # Sans cette distinction, le workflow échouerait chaque semaine et noierait
+            # les vraies alertes.
+            echo "publier=false" >> "$GITHUB_OUTPUT"
+            echo "Rien à publier aujourd'hui : la file vise le $DATE_PREVUE, nous sommes le $TODAY_NC. Sortie normale."
+            exit 0
           fi
+          echo "publier=true" >> "$GITHUB_OUTPUT"
           echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
 
       - name: LinkedIn Company Page + Facebook (webhook unique, profil perso suspendu via filtre Make)
         id: social
+        if: steps.fraicheur.outputs.publier == 'true'
         continue-on-error: true
         run: |
           set -e
@@ -68,6 +93,7 @@ jobs:
 
       - name: LinkedIn profil perso (carrousel PUBLIÉ directement — appel API direct)
         id: li_profil
+        if: steps.fraicheur.outputs.publier == 'true'
         continue-on-error: true
         env:
           LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
