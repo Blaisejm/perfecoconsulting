@@ -240,7 +240,7 @@
       "heure_nc": "11:00",
       "format": "vendredi",
       "libelle": "Veille économique NC",
-      "sujet": "Plan de charge NC",
+      "sujet": "Plan de charge NC — accroche tourisme (ISEE T2 2026)",
       "semaine": "HS-veille-eco-plan-de-charge",
       "canaux": [
         "linkedin_company",
@@ -251,15 +251,15 @@
       "source": "automation-queue/vendredi-2026-08-28-pret.json",
       "bascule": "perfeco-bascule-vendredi-28082026 — samedi 22/08 09:00 NC",
       "preuve": "message 1662 car., visuels HTTP 200, commits b8c33ce puis 17cd011",
-      "note": "ARBITRAGE OUVERT : l'accroche reprend les chiffres ISEE déjà publiés le 21/08. Réécrire sur l'indicateur IEOM 99,3, ou assumer la répétition. Décision avant le 27/08."
+      "note": "ARBITRAGE CLOS le 21/08 : accroche reecrite sur les chiffres du tourisme (17 000 visiteurs T2 2026, +37 %, 61 % du niveau 2023 - ISEE publie le 13/08), validee par Jean-Michel. Les chiffres emploi/creations (77 640 salaries, 1 132 activites) ont ete retires : ils avaient ete servis aux memes audiences le 21/08 par un post hors pipeline. Visuel inchange (aucun chiffre : Plus d activite. Plus de dossiers. Autant de bras qu avant.)."
     },
     {
       "id": "2026-09-01-mardi",
       "date_nc": "2026-09-01",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Carrousel — Série 2, épisode 1",
-      "sujet": "⚠️ THÈME NON DÉFINI",
+      "libelle": "Carrousel — Serie 2, episode 1",
+      "sujet": "Serie 2 « Le Rythme de Pilotage » 1/8 — le rythme de pilotage, qu est-ce que c est vraiment",
       "semaine": "W35",
       "canaux": [
         "linkedin_company",
@@ -270,7 +270,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "BLOQUANT : mardi-carrousel-creation se déclenche le lundi 24/08 08h08 NC pour produire cette date. Sans thème arbitré, elle choisira seule. Lié à l'arbitrage du déplacement mardi→mercredi (bascule prévue au 02/09)."
+      "note": "Theme DEFINI depuis le 10/08/2026 (mon alerte du 21/08 17h disait le contraire : erreur, je n avais pas lu la section dediee en fin de SUIVI-AUTOMATISATION.md). Etaye le 21/08 par McKinsey The State of Organizations 2026 : moins de 25 % des organisations tiennent une amelioration durable, 2/3 se jugent trop complexes. Chiffres a revalider dans le PDF source avant publication. Produit par mardi-carrousel-creation le lundi 24/08 08h08 NC."
     },
     {
       "id": "2026-09-03-jeudi",
@@ -308,6 +308,24 @@
       "bascule": null,
       "preuve": null,
       "note": "Production attendue le mercredi 26/08 par vendredi-veilleeco-creation (régime J-9)"
+    },
+    {
+      "id": "2026-09-24-jeudi",
+      "date_nc": "2026-09-24",
+      "heure_nc": "11:00",
+      "format": "jeudi",
+      "libelle": "Post court — CONFLIT JOUR FERIE",
+      "sujet": "a definir (semaine de l episode 4/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": "JOUR FERIE EN NOUVELLE-CALEDONIE — Fete de la Citoyennete (24 septembre), seul ferie NC en plus de ceux de metropole. Tombe un jeudi, donc sur un post court. A arbitrer avant le mercredi 16/09 : decaler au mercredi 23/09, ou sauter cette semaine. Meme mecanisme que l incident du 14/07 (Fete Nationale) qui avait decale toute la serie 1."
     }
   ]
 }
