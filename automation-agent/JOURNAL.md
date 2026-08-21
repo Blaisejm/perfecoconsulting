@@ -43,6 +43,8 @@ Cowork. Une routine morte ne peut pas mentir sur son propre compte.
 | `effet` | ✅ | ce qui a **changé**, en clair. Jamais « routine exécutée » |
 | `preuve` | ✅ | commit, chemin de fichier, URL, identifiant de brouillon… ou `"aucune"` |
 | `alerte` | ✅ | ce qui reste bloqué, ou `null` |
+| `fichiers` | ✅ | *(depuis le 21/08/2026)* chemins réellement modifiés, renseignés automatiquement |
+| `commits` | ✅ | *(depuis le 21/08/2026)* `suivi=<hash>` et/ou `projet=<hash>` |
 
 **`effet` et `preuve` sont le cœur.** Une ligne qui dit « routine exécutée » sans dire
 quoi ni le prouver reproduit exactement le défaut du `lastRunAt`.
@@ -52,19 +54,63 @@ plupart des jours. Ce qui doit alerter, c'est le **silence**, pas l'inaction ass
 
 ## Comment écrire sa ligne
 
-Dernière étape de la routine, après tout le reste :
+**Une seule commande, en toute dernière étape.** Ne plus écrire la ligne à la main.
 
-```bash
-cd C:\Projets\perfecoconsulting
-echo '{"routine":"...","fin_nc":"...","resultat":"...","effet":"...","preuve":"...","alerte":null}' >> automation-agent/journal-executions.jsonl
-git add automation-agent/journal-executions.jsonl
-git commit -m "journal: <routine> - <resultat>"
-git pull --no-edit origin main
-git push origin main
+```powershell
+& 'C:\Projets\perfecoconsulting\automation-agent\trace-routine.ps1' `
+    -Routine "<nom exact de la tache>" `
+    -Resultat "succes" `
+    -Effet   "<ce qui a CHANGE>" `
+    -Preuve  "<commit, fichier, URL, id de brouillon, ou aucune>" `
+    -Alerte  "<ce qui reste bloque, ou omettre>"
 ```
+
+Le script fait trois choses que la méthode manuelle ne faisait pas :
+
+1. Il commite les modifications **des deux dépôts** — `C:\Projets\perfecoconsulting`
+   *et* `C:\Users\jmbla\OneDrive\Documents\claude IA` (la zone de suivi, versionnée
+   depuis le 21/08/2026 seulement).
+2. Il signe ces commits **du nom de la routine**, pas de « Jean-Michel Blaise ».
+3. Il renseigne `fichiers` et `commits` tout seul, à partir de ce que git constate —
+   donc sans risque d'oubli ni de déclaration inexacte.
 
 Format en ajout seul, une ligne par enregistrement : deux routines qui écrivent le même
 jour ne produisent pas de conflit de fusion.
+
+## Retrouver qui a touché quoi
+
+C'est la raison d'être du dispositif — question posée par Jean-Michel le 21/08/2026 :
+*« Tu dois à tout moment savoir précisément quelle routine a travaillé sur un fichier et
+à quel moment. »*
+
+```powershell
+# Historique d'un fichier : chaque passage, sa routine, sa date
+& 'C:\Projets\perfecoconsulting\automation-agent\qui-a-touche.ps1' SUIVI-AUTOMATISATION.md
+
+# Tout ce qu'une routine a modifié
+& 'C:\Projets\perfecoconsulting\automation-agent\qui-a-touche.ps1' -Routine mardi-carrousel-creation
+
+# Vue d'ensemble : dernier passage de chaque routine, silences signalés en rouge
+& 'C:\Projets\perfecoconsulting\automation-agent\qui-a-touche.ps1'
+```
+
+Et directement en git, puisque l'auteur du commit est la routine :
+
+```bash
+git log --format="%an  %ad  %s" --date=short -- <fichier>
+git log --author=perfeco-rappel-quotidien
+```
+
+### Deux limites à connaître
+
+- **Le dépôt de suivi n'a pas de remote.** Il vit sur le disque, répliqué par OneDrive.
+  L'historique est donc local : une perte de la machine emporterait les versions, pas les
+  fichiers eux-mêmes (OneDrive les conserve). Un dépôt GitHub privé lèverait ce point —
+  décision à prendre par Jean-Michel, rien n'est poussé sans son accord.
+- **Six scripts ne sont pas versionnés** car ils contiennent un secret en dur (token
+  LinkedIn, webhooks Make.com) — voir le bloc dédié dans `.gitignore` de la zone de suivi.
+  Leurs modifications restent tracées par le champ `fichiers` du journal, mais sans diff.
+  À réintégrer une fois les secrets sortis du code.
 
 ## Qui doit en écrire
 
