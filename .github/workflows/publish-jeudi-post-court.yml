@@ -2,8 +2,24 @@ name: PerfEco — Publication jeudi (post court, webhook unique)
 
 on:
   schedule:
-    - cron: '0 0 * * 4'  # Jeudi 00h00 UTC = 11h00 Nouvelle-Calédonie
+    - cron: '0 0 * * 4'  # Jeudi 00h00 UTC = 11h00 Nouvelle-Calédonie (cas normal)
+    - cron: '0 0 * * 3'  # Mercredi 00h00 UTC = 11h00 NC — décalages exceptionnels (voir ci-dessous)
   workflow_dispatch:
+
+# ⚠️ POURQUOI UN CRON LE MERCREDI (ajouté le 21/08/2026)
+#
+# Décision de Jean-Michel pour la semaine du 24/09/2026 : le jeudi 24/09 étant férié en
+# Nouvelle-Calédonie (Fête de la Citoyenneté), le post court est avancé au MERCREDI 23/09
+# (et le post long au lundi 21/09).
+#
+# CE CRON SUPPLÉMENTAIRE EST SANS EFFET DE BORD : l'étape de contrôle ci-dessous exige que
+# `date_prevue` soit exactement la date du jour en NC. Tous les autres mercredis, la file
+# porte une date de jeudi et le run s'arrête proprement sans rien publier.
+#
+# 🔗 CONSÉQUENCE À NE PAS OUBLIER : publish-samedi-republication-facebook.yml reprend le
+# post court du jeudi et exigeait que `date_prevue` vaille samedi − 2 jours. Sa garde a été
+# élargie le même jour pour accepter aussi samedi − 3 (mercredi), sans quoi la
+# republication du samedi 26/09 aurait été abandonnée.
 
 jobs:
   publish:

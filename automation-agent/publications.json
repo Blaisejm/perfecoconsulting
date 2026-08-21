@@ -310,12 +310,31 @@
       "note": "Production attendue le mercredi 26/08 par vendredi-veilleeco-creation (régime J-9)"
     },
     {
-      "id": "2026-09-24-jeudi",
-      "date_nc": "2026-09-24",
+      "id": "2026-09-21-mardi",
+      "date_nc": "2026-09-21",
+      "heure_nc": "11:00",
+      "format": "mardi",
+      "libelle": "Post long / carrousel — Serie 2, episode 4/8 (AVANCE AU LUNDI)",
+      "sujet": "La cascade d objectifs sans bureaucratie (4/8)",
+      "semaine": null,
+      "canaux": [
+        "linkedin_company",
+        "linkedin_perso",
+        "facebook"
+      ],
+      "statut": "prevu",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": "DECISION DE JEAN-MICHEL (21/08/2026) : semaine du 24/09 en horaires exceptionnels, a cause du jeudi 24/09 ferie en NC (Fete de la Citoyennete). Post long avance au LUNDI 21/09, post court avance au MERCREDI 23/09. Veille eco du vendredi 25/09 inchangee. Exception limitee a cette semaine : la serie reprend le mardi le 29/09. Publie un LUNDI : cron lundi ajoute a publish-mardi-carrousel.yml. Production par mardi-carrousel-creation le lundi 14/09 (viser le 21/09, PAS le 22/09)."
+    },
+    {
+      "id": "2026-09-23-jeudi",
+      "date_nc": "2026-09-23",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court — CONFLIT JOUR FERIE",
-      "sujet": "a definir (semaine de l episode 4/8)",
+      "libelle": "Post court (AVANCE AU MERCREDI)",
+      "sujet": "a definir (suit l episode 4/8)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -325,7 +344,22 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "JOUR FERIE EN NOUVELLE-CALEDONIE — Fete de la Citoyennete (24 septembre), seul ferie NC en plus de ceux de metropole. Tombe un jeudi, donc sur un post court. A arbitrer avant le mercredi 16/09 : decaler au mercredi 23/09, ou sauter cette semaine. Meme mecanisme que l incident du 14/07 (Fete Nationale) qui avait decale toute la serie 1."
+      "note": "DECISION DE JEAN-MICHEL (21/08/2026) : semaine du 24/09 en horaires exceptionnels, a cause du jeudi 24/09 ferie en NC (Fete de la Citoyennete). Post long avance au LUNDI 21/09, post court avance au MERCREDI 23/09. Veille eco du vendredi 25/09 inchangee. Exception limitee a cette semaine : la serie reprend le mardi le 29/09. Publie un MERCREDI : cron mercredi ajoute a publish-jeudi-post-court.yml, et la garde de la republication du samedi 26/09 elargie (elle exigeait un jeudi). Production par jeudi-postcourt-creation le mercredi 16/09 (viser le 23/09, PAS le 24/09)."
+    },
+    {
+      "id": "2026-09-24-ferie",
+      "date_nc": "2026-09-24",
+      "heure_nc": "--:--",
+      "format": "ferie",
+      "libelle": "JOUR FERIE NC — aucune publication",
+      "sujet": "Fete de la Citoyennete (24 septembre)",
+      "semaine": null,
+      "canaux": [],
+      "statut": "annule",
+      "source": null,
+      "bascule": null,
+      "preuve": null,
+      "note": "Seul jour ferie propre a la Nouvelle-Caledonie. DECISION DE JEAN-MICHEL (21/08/2026) : semaine du 24/09 en horaires exceptionnels, a cause du jeudi 24/09 ferie en NC (Fete de la Citoyennete). Post long avance au LUNDI 21/09, post court avance au MERCREDI 23/09. Veille eco du vendredi 25/09 inchangee. Exception limitee a cette semaine : la serie reprend le mardi le 29/09."
     }
   ]
 }

@@ -2,7 +2,12 @@ name: PerfEco — Vérification santé pré-publication (Make.com, API LinkedIn,
 
 on:
   schedule:
-    - cron: '0 20 * * 0,1,3,4'  # Dim/Lun/Mer/Jeu 20h00 UTC = Lun/Mar/Jeu/Ven 07h00 Nouvelle-Calédonie (avant chaque jour de publication)
+    - cron: '0 20 * * 0,1,2,3,4'  # Dim→Jeu 20h00 UTC = Lun→Ven 07h00 Nouvelle-Calédonie (avant chaque jour de publication)
+  # Le mardi 20h UTC (= mercredi 07h NC) a été ajouté le 21/08/2026 : la semaine du
+  # 24/09/2026 publie le lundi et le mercredi (jeudi 24/09 férié en NC), et le mercredi
+  # n'était couvert par aucune vérification avant publication. Les autres semaines, ce run
+  # vérifie l'infrastructure (scénario Make actif, token LinkedIn valide) — utile tous les
+  # jours et sans faux positif.
   workflow_dispatch:
     inputs:
       force_wp_check:
@@ -74,9 +79,13 @@ jobs:
           WP_LOGIN: ${{ secrets.WP_LOGIN }}
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
         run: |
-          TODAY_DOW=$(TZ="Pacific/Noumea" date +%u)
-          if [ "$TODAY_DOW" != "2" ] && [ "${{ inputs.force_wp_check }}" != "true" ]; then
-            echo "Pas mardi (jour NC=$TODAY_DOW) — aucun article WordPress à vérifier aujourd'hui."
+          TODAY_NC=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          CARROUSEL_DATE=$(jq -r '.date_prevue // ""' automation-queue/mardi.json 2>/dev/null)
+          # Indexé sur la date du carrousel, plus sur « est-on mardi ? » (21/08/2026) :
+          # l'article WordPress accompagne le CARROUSEL, quel que soit le jour où il sort.
+          # La semaine du 24/09/2026 le publie un lundi — l'ancien test l'aurait ignoré.
+          if [ "$CARROUSEL_DATE" != "$TODAY_NC" ] && [ "${{ inputs.force_wp_check }}" != "true" ]; then
+            echo "Le carrousel n'est pas publié aujourd'hui (file=$CARROUSEL_DATE, aujourd'hui=$TODAY_NC) — aucun article WordPress à vérifier."
             exit 0
           fi
 
