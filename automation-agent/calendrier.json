@@ -1,0 +1,107 @@
+{
+  "_comment": [
+    "SOURCE DE VÉRITÉ DU PLANNING DE DIFFUSION PerfEco — versionnée, lue par le contrôle quotidien.",
+    "",
+    "POURQUOI CE FICHIER (21/08/2026) : jusqu'ici la cadence n'existait que dans la tête des",
+    "routines et dans SUIVI-AUTOMATISATION.md, qui vit dans OneDrive et qu'aucun contrôle",
+    "automatique ne peut lire. Un contrôle indépendant de Cowork a besoin des règles ici.",
+    "",
+    "IL NE CONTIENT QUE DES RÈGLES, JAMAIS D'ÉTAT. L'état réel se lit dans les fichiers",
+    "automation-queue/*.json. Dupliquer l'état ici garantirait une divergence tôt ou tard —",
+    "c'est exactement ce qui s'est produit entre les scripts PS1 et les files d'attente.",
+    "L'historique des sujets publiés reste dans SUIVI-AUTOMATISATION.md."
+  ],
+
+  "fuseau": "Pacific/Noumea",
+
+  "formats": {
+    "mardi": {
+      "libelle": "Carrousel — Exécution stratégique",
+      "jour": "mardi",
+      "heure_nc": "11:00",
+      "file": "automation-queue/mardi.json",
+      "prefixe_staging": "automation-queue/mardi-",
+      "routine": "mardi-carrousel-creation",
+      "workflow": "publish-mardi-carrousel.yml",
+      "preparation_jours": 8,
+      "canaux": ["linkedin_company", "linkedin_perso", "facebook"],
+      "champs_requis": ["semaine", "date_prevue", "social_post.message", "social_post.image_url", "linkedin_api_version"]
+    },
+    "jeudi": {
+      "libelle": "Post court",
+      "jour": "jeudi",
+      "heure_nc": "11:00",
+      "file": "automation-queue/jeudi.json",
+      "prefixe_staging": "automation-queue/jeudi-",
+      "routine": "jeudi-postcourt-creation",
+      "workflow": "publish-jeudi-post-court.yml",
+      "preparation_jours": 8,
+      "canaux": ["linkedin_company", "facebook"],
+      "champs_requis": ["semaine", "date_prevue", "social_post.message", "social_post.image_url"]
+    },
+    "vendredi": {
+      "libelle": "Veille économique NC",
+      "jour": "vendredi",
+      "heure_nc": "11:00",
+      "file": "automation-queue/vendredi.json",
+      "prefixe_staging": "automation-queue/vendredi-",
+      "routine": "vendredi-veilleeco-creation",
+      "workflow": "publish-vendredi-veille-eco.yml",
+      "preparation_jours": 9,
+      "canaux": ["linkedin_company", "linkedin_perso", "facebook"],
+      "champs_requis": ["semaine", "date_prevue", "social_post.message", "social_post.image_url"]
+    }
+  },
+
+  "espacement": {
+    "_comment": [
+      "Règle posée par Jean-Michel le 17/08/2026, enfreinte le 21/08 : deux posts à 2 h",
+      "d'intervalle sur le profil perso ET sur la Company Page. Aucun garde-fou automatique",
+      "ne peut empêcher une publication ad hoc faite hors pipeline — ces seuils servent au",
+      "contrôle quotidien pour signaler une collision PRÉVUE entre deux échéances."
+    ],
+    "heures_min_linkedin_perso": 48,
+    "max_par_jour_company_page": 1
+  },
+
+  "routines": {
+    "_comment": [
+      "TOUTES les routines Cowork, avec leur cadence attendue et la tolérance au-delà de",
+      "laquelle leur silence devient une anomalie.",
+      "",
+      "Demandé par Jean-Michel le 21/08/2026 : « il est important de déterminer quel",
+      "traitement est intervenu en dernier et avec quel résultat, date et heure ».",
+      "",
+      "Le champ lastRunAt de Cowork ne répond PAS à cette question : il prouve un",
+      "déclenchement, jamais un résultat. Démonstration du 21/08 — la tâche",
+      "perfeco-veille-eco-21082026 affiche lastRunAt = 20/08 09:00:40 et s'est",
+      "auto-désactivée comme accomplie ; git prouve qu'elle n'a rien écrit.",
+      "",
+      "D'où le journal : chaque routine écrit sa ligne EN FIN d'exécution, dans",
+      "automation-agent/journal-executions.jsonl. Une routine qui meurt au premier appel",
+      "d'outil n'écrit rien — l'absence de ligne EST le signal, et il est visible depuis",
+      "GitHub Actions, qui ne dépend pas du jeton Cowork.",
+      "",
+      "tolerance_jours : au-delà de ce silence, le contrôle quotidien alerte.",
+      "Les tâches one-time n'ont pas de cadence et ne figurent pas ici."
+    ],
+    "mardi-carrousel-creation":     { "cadence": "hebdomadaire (lundi 08h08)",        "tolerance_jours": 8 },
+    "jeudi-postcourt-creation":     { "cadence": "hebdomadaire (mercredi 08h03)",     "tolerance_jours": 8 },
+    "vendredi-veilleeco-creation":  { "cadence": "hebdomadaire (mercredi 08h05)",     "tolerance_jours": 8 },
+    "perfeco-rappel-quotidien":     { "cadence": "quotidienne (17h00)",               "tolerance_jours": 2 },
+    "perfeco-rapport-dimanche":     { "cadence": "hebdomadaire (dimanche 08h02)",     "tolerance_jours": 8 },
+    "perfeco-verif-github-actions": { "cadence": "lundi-vendredi (12h09)",            "tolerance_jours": 4 },
+    "perfeco-verif-linkedin-mdp":   { "cadence": "lundi et jeudi (07h00)",            "tolerance_jours": 5 },
+    "veille-marches-publics-nc":    { "cadence": "lundi-vendredi (07h03)",            "tolerance_jours": 4 }
+  },
+
+  "regle_j7": {
+    "_comment": [
+      "Règle d'or du 10/08/2026, renforcée le 19/08 : « relancer » signifie PRODUIRE le",
+      "contenu manquant chaque jour, pas envoyer un rappel.",
+      "seuil_alerte_jours : à partir de combien de jours restants une échéance non préparée",
+      "devient une erreur bloquante du contrôle quotidien."
+    ],
+    "seuil_alerte_jours": 7
+  }
+}
