@@ -39,13 +39,23 @@ jobs:
             exit 1
           fi
           DATE_PREVUE=$(jq -r '.date_prevue' "$FILE")
-          # Le jeudi de cette semaine = samedi - 2 jours
+          # Le jeudi de cette semaine = samedi - 2 jours (cas normal)
           THURSDAY_NC=$(TZ="Pacific/Noumea" date -d "-2 days" +%Y-%m-%d)
-          if [ "$DATE_PREVUE" != "$THURSDAY_NC" ]; then
-            echo "::error::date_prevue=$DATE_PREVUE ne correspond pas au jeudi de cette semaine ($THURSDAY_NC) — contenu périmé, pas encore mis à jour, ou jeudi n'a pas eu de publication cette semaine. Abandon (pas de republication au hasard)."
+          # Le mercredi = samedi - 3 jours. Élargi le 21/08/2026 : quand le jeudi est férié
+          # en NC, le post court est avancé au mercredi (décision de Jean-Michel pour la
+          # semaine du 24/09/2026). Sans ce cas, la republication du samedi 26/09 aurait été
+          # abandonnée alors qu'un post court parfaitement valide venait d'être publié.
+          WEDNESDAY_NC=$(TZ="Pacific/Noumea" date -d "-3 days" +%Y-%m-%d)
+          if [ "$DATE_PREVUE" = "$THURSDAY_NC" ]; then
+            echo "Contenu du jeudi $THURSDAY_NC confirmé, prêt à republier sur Facebook."
+          elif [ "$DATE_PREVUE" = "$WEDNESDAY_NC" ]; then
+            echo "Contenu du mercredi $WEDNESDAY_NC confirmé (semaine à jeudi férié), prêt à republier sur Facebook."
+          else
+            echo "::error::date_prevue=$DATE_PREVUE ne correspond ni au jeudi ($THURSDAY_NC) ni au mercredi ($WEDNESDAY_NC) de cette semaine — contenu périmé, pas encore mis à jour, ou aucune publication de post court cette semaine. Abandon (pas de republication au hasard)."
             exit 1
           fi
-          echo "Contenu du jeudi $THURSDAY_NC confirmé, prêt à republier sur Facebook."
+          # La fenêtre reste volontairement étroite (2 jours nommés, pas « les 4 derniers
+          # jours ») : republier au hasard un contenu ancien serait pire que ne rien republier.
 
       - name: Republier sur Facebook uniquement (webhook unique, LinkedIn bloqué par filtre Make)
         id: social

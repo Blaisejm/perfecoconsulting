@@ -2,8 +2,25 @@ name: "PerfEco — Publication mardi (carrousel : Company + Facebook + profil pe
 
 on:
   schedule:
-    - cron: '0 0 * * 2'  # Mardi 00h00 UTC = 11h00 Nouvelle-Calédonie
+    - cron: '0 0 * * 2'  # Mardi 00h00 UTC = 11h00 Nouvelle-Calédonie (cas normal)
+    - cron: '0 0 * * 1'  # Lundi 00h00 UTC = 11h00 NC — décalages exceptionnels (voir ci-dessous)
   workflow_dispatch:
+
+# ⚠️ POURQUOI UN CRON LE LUNDI (ajouté le 21/08/2026)
+#
+# Décision de Jean-Michel pour la semaine du 24/09/2026 : le jeudi 24/09 étant férié
+# en Nouvelle-Calédonie (Fête de la Citoyenneté), cette semaine-là publie
+# exceptionnellement le LUNDI (post long) et le MERCREDI (post court).
+#
+# Sans cron le lundi, le post long du lundi 21/09 ne serait jamais parti : le workflow
+# ne se déclenche que le mardi, et le mardi 22/09 il aurait trouvé une date_prevue au
+# 21/09 — donc abandonné. Échec silencieux garanti.
+#
+# CE CRON SUPPLÉMENTAIRE EST SANS EFFET DE BORD : l'étape de contrôle ci-dessous exige
+# que `date_prevue` soit exactement la date du jour en NC. Tous les autres lundis de
+# l'année, la file porte une date de mardi et le run s'arrête proprement sans rien
+# publier. Le coût est un run à vide par semaine ; le bénéfice est que le pipeline
+# absorbe désormais n'importe quel décalage pour férié, sans intervention.
 
 jobs:
   publish:

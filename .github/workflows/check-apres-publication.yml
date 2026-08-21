@@ -2,9 +2,21 @@ name: PerfEco — Vérification après-midi (publication réellement visible)
 
 on:
   schedule:
-    - cron: '0 3 * * 2,4,5'   # Mar/Jeu/Ven 03h00 UTC = 14h00 NC (~3h apres les publications de 11h00)
-    - cron: '30 7 * * 6'      # Samedi 07h30 UTC = 18h30 NC (~3h après la republication Facebook de 15h30)
+    - cron: '0 3 * * 1,2,3,4,5'  # Lun→Ven 03h00 UTC = 14h00 NC (~3h après les publications de 11h00)
+    - cron: '30 7 * * 6'         # Samedi 07h30 UTC = 18h30 NC (~3h après la republication Facebook de 15h30)
   workflow_dispatch:
+
+# ⚠️ REFONTE DU 21/08/2026 — ce contrôle ne raisonne plus par JOUR DE LA SEMAINE
+#
+# Il ne tournait que les mardi/jeudi/vendredi et filtrait ses étapes sur le jour. Or la
+# semaine du 24/09/2026 publie exceptionnellement le lundi et le mercredi (jeudi 24/09
+# férié en NC, décision de Jean-Michel du 21/08) : la semaine la plus risquée de l'année
+# aurait été la SEULE sans aucune vérification après publication.
+#
+# Il raisonne désormais sur ce qui a RÉELLEMENT été publié : une file d'attente dont
+# `date_prevue` vaut la date du jour en NC. C'est la même question que se posent les
+# workflows de publication eux-mêmes, donc les deux ne peuvent plus diverger.
+# Les jours sans publication, toutes les étapes sont sautées et le run se termine à vide.
 
 jobs:
   check:
@@ -12,16 +24,50 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Déterminer le jour NC
+      - name: Déterminer ce qui a été publié aujourd'hui
         id: day
         run: |
           DOW=$(TZ="Pacific/Noumea" date +%u)
+          TODAY_NC=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
           echo "dow=$DOW" >> "$GITHUB_OUTPUT"
-          echo "Jour NC (2=Mardi, 4=Jeudi, 5=Vendredi, 6=Samedi/republication FB) = $DOW"
+
+          # Une file d'attente portant la date du jour = un contenu publié à 11h00 NC.
+          # C'est le critère exact des workflows de publication, donc les deux ne peuvent
+          # pas diverger — contrairement à un filtre par jour de la semaine.
+          date_de() { [ -f "$1" ] && jq -r '.date_prevue // ""' "$1" || echo ""; }
+
+          CARROUSEL=false; POSTCOURT=false; VEILLE=false
+          [ "$(date_de automation-queue/mardi.json)"    = "$TODAY_NC" ] && CARROUSEL=true
+          [ "$(date_de automation-queue/jeudi.json)"    = "$TODAY_NC" ] && POSTCOURT=true
+          [ "$(date_de automation-queue/vendredi.json)" = "$TODAY_NC" ] && VEILLE=true
+
+          # Le samedi est une republication : elle ne s'appuie sur aucune file datée du jour.
+          REPUBLICATION=false
+          [ "$DOW" = "6" ] && REPUBLICATION=true
+
+          FORMAT=aucun
+          $CARROUSEL     && FORMAT=carrousel
+          $POSTCOURT     && FORMAT=postcourt
+          $VEILLE        && FORMAT=veille
+          $REPUBLICATION && FORMAT=republication
+
+          PUBLICATION=false
+          [ "$FORMAT" != "aucun" ] && PUBLICATION=true
+
+          {
+            echo "carrousel=$CARROUSEL"
+            echo "publication=$PUBLICATION"
+            echo "format=$FORMAT"
+          } >> "$GITHUB_OUTPUT"
+
+          echo "Date NC : $TODAY_NC (jour $DOW) — publication détectée : $FORMAT"
+          if [ "$FORMAT" = "aucun" ]; then
+            echo "Aucune file ne porte la date du jour : rien n'a été publié, contrôle sans objet."
+          fi
 
       - name: Vérifier le post Facebook du jour
         id: fb_check
-        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5' || steps.day.outputs.dow == '6'
+        if: steps.day.outputs.publication == 'true'
         continue-on-error: true
         env:
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
@@ -51,7 +97,7 @@ jobs:
 
       - name: Vérifier l'article WordPress (Mardi)
         id: wp_check
-        if: steps.day.outputs.dow == '2'
+        if: steps.day.outputs.carrousel == 'true'
         continue-on-error: true
         env:
           WP_LOGIN: ${{ secrets.WP_LOGIN }}
@@ -87,7 +133,7 @@ jobs:
 
       - name: Vérifier l'article perfeco.nc FR+EN (Mardi)
         id: perfeco_nc_check
-        if: steps.day.outputs.dow == '2'
+        if: steps.day.outputs.carrousel == 'true'
         continue-on-error: true
         run: |
           URL_FR=$(jq -r '.perfeco_nc_url_fr // empty' automation-queue/mardi.json)
@@ -125,7 +171,7 @@ jobs:
 
       - name: Vérifier que les BONS canaux ont été servis (opérations Make)
         id: social_publisher_check
-        if: steps.day.outputs.dow == '2' || steps.day.outputs.dow == '4' || steps.day.outputs.dow == '5' || steps.day.outputs.dow == '6'
+        if: steps.day.outputs.publication == 'true'
         continue-on-error: true
         env:
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
@@ -177,14 +223,17 @@ jobs:
           TIMESTAMP=$(echo "$LATEST" | jq -r '.timestamp')
           STATUS=$(echo "$LATEST" | jq -r '.status')
           OPS=$(echo "$LATEST" | jq -r '.operations')
-          DOW="${{ steps.day.outputs.dow }}"
+          FORMAT="${{ steps.day.outputs.format }}"
 
-          case "$DOW" in
-            2) EXPECTED=4; CANAUX="LinkedIn Company + Facebook (profil perso servi hors Make, par l'API LinkedIn directe)" ;;
-            4) EXPECTED=4; CANAUX="LinkedIn Company + Facebook (profil perso volontairement exclu depuis le 17/08)" ;;
-            5) EXPECTED=5; CANAUX="LinkedIn Company + profil perso + Facebook" ;;
-            6) EXPECTED=3; CANAUX="Facebook UNIQUEMENT (republication du jeudi, suffixe FBONLY)" ;;
-            *) EXPECTED=0; CANAUX="(jour sans publication attendue)" ;;
+          # Indexé sur le FORMAT publié, plus sur le jour de la semaine : la semaine du
+          # 24/09/2026 publie le lundi et le mercredi (jeudi férié NC), et un index par
+          # jour aurait attendu 0 opération un jour de vraie publication.
+          case "$FORMAT" in
+            carrousel)     EXPECTED=4; CANAUX="LinkedIn Company + Facebook (profil perso servi hors Make, par l'API LinkedIn directe)" ;;
+            postcourt)     EXPECTED=4; CANAUX="LinkedIn Company + Facebook (profil perso volontairement exclu depuis le 17/08)" ;;
+            veille)        EXPECTED=5; CANAUX="LinkedIn Company + profil perso + Facebook" ;;
+            republication) EXPECTED=3; CANAUX="Facebook UNIQUEMENT (republication du post court, suffixe FBONLY)" ;;
+            *)             EXPECTED=0; CANAUX="(jour sans publication attendue)" ;;
           esac
 
           echo "Dernière exécution : $TIMESTAMP — statut=$STATUS opérations=$OPS"
