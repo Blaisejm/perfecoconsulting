@@ -36,53 +36,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Vérifier que le contenu des prochaines échéances est prêt
-        run: |
-          set -e
-          TODAY=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
-          TODAY_EPOCH=$(date -d "$TODAY" +%s)
-          echo "Date NC du jour : $TODAY"
-          FAIL=0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
 
-          # Pour chaque format : fichier de file d'attente + jour de diffusion
-          check_format () {
-            LABEL="$1"; FILE="$2"; DOW_NAME="$3"; ROUTINE="$4"
-
-            if [ ! -f "$FILE" ]; then
-              echo "::error::$LABEL — fichier $FILE introuvable. La routine $ROUTINE ne l'a jamais écrit."
-              FAIL=1
-              return
-            fi
-
-            DATE_PREVUE=$(jq -r '.date_prevue // empty' "$FILE")
-            SEMAINE=$(jq -r '.semaine // "?"' "$FILE")
-            if [ -z "$DATE_PREVUE" ]; then
-              echo "::error::$LABEL — champ date_prevue absent de $FILE (semaine=$SEMAINE)."
-              FAIL=1
-              return
-            fi
-
-            # Prochaine occurrence du jour de diffusion
-            NEXT=$(TZ="Pacific/Noumea" date -d "next $DOW_NAME" +%Y-%m-%d)
-            NEXT_EPOCH=$(date -d "$NEXT" +%s)
-            PREVUE_EPOCH=$(date -d "$DATE_PREVUE" +%s)
-            JOURS_RESTANTS=$(( (NEXT_EPOCH - TODAY_EPOCH) / 86400 ))
-
-            echo "$LABEL : date_prevue=$DATE_PREVUE (semaine $SEMAINE) — prochaine diffusion $NEXT dans $JOURS_RESTANTS j"
-
-            # Contenu périmé alors que l'échéance approche : personne n'a préparé
-            if [ "$PREVUE_EPOCH" -lt "$TODAY_EPOCH" ] && [ "$JOURS_RESTANTS" -le 3 ]; then
-              echo "::error::$LABEL NON PRÉPARÉ — $FILE porte encore $DATE_PREVUE (semaine $SEMAINE), une date passée, alors que la diffusion du $NEXT est dans $JOURS_RESTANTS jour(s). La routine $ROUTINE n'a rien produit. Cause la plus fréquente : token OAuth Claude expiré au moment du déclenchement (la tâche démarre, meurt au 1er appel d'outil, ne peut pas alerter). Vérifier que Cowork est authentifié, puis relancer $ROUTINE à la main."
-              FAIL=1
-            fi
-          }
-
-          check_format "MARDI (carrousel)"      automation-queue/mardi.json    Tuesday  "mardi-carrousel-creation"
-          check_format "JEUDI (post court)"     automation-queue/jeudi.json    Thursday "jeudi-postcourt-creation"
-          check_format "VENDREDI (veille éco)"  automation-queue/vendredi.json Friday   "vendredi-veilleeco-creation"
-
-          if [ "$FAIL" = "1" ]; then
-            echo "::error::Au moins un format n'est pas prêt pour son échéance. Ce workflow est le SEUL filet capable de le détecter quand une routine Cowork meurt silencieusement — ne pas l'ignorer."
-            exit 1
-          fi
-          echo "✅ Les 3 formats sont préparés pour leurs prochaines échéances."
+      # Le corps bash d'origine ne vérifiait que la présence de `date_prevue`.
+      # Les pannes des 19 et 21/08/2026 lui échappaient toutes : schéma périmé
+      # (message vide), bascule exécutée sans écrire, image injoignable, dérive
+      # de date. Le contrôle est désormais dans un script versionné et testable.
+      #
+      # Il vérifie aussi le journal d'exécution : quel traitement est intervenu
+      # en dernier pour chaque routine, quand, avec quel résultat — demande de
+      # Jean-Michel du 21/08/2026. Voir automation-agent/JOURNAL.md.
+      - name: Contrôle du pipeline (files, schéma, images, staging, journal)
+        run: node scripts/controle-pipeline.mjs
