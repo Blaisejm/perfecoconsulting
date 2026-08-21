@@ -230,7 +230,9 @@ for (const [cle, f] of Object.entries(calendrier.formats)) {
     dire(`  ℹ️ contenu en avance sur ${datePrevue}`);
   }
 
-  echeances.push({ cle, prochaine, canaux: f.canaux });
+  // `pret` / `staging` sont exposés pour le contrôle du registre central plus bas :
+  // ils disent l'état RÉEL constaté dans les fichiers, seul juge du statut déclaré.
+  echeances.push({ cle, prochaine, canaux: f.canaux, pret: datePrevue === prochaine, staging: couvertParStaging });
   dire('');
 }
 
@@ -302,9 +304,77 @@ for (const [d, cles] of Object.entries(parDate)) {
 }
 dire(`  ${Object.keys(parDate).length} date(s) d'échéance distincte(s) — aucune collision programmée détectée.`);
 dire('');
-dire('⚠️ Rappel : ce contrôle ne voit que le pipeline. Une publication ad hoc faite hors');
-dire('   pipeline (constatée le 21/08/2026) lui est invisible et peut malgré tout entrer');
-dire('   en collision avec une diffusion programmée.');
+
+// ── REGISTRE CENTRAL DES PUBLICATIONS ───────────────────────────────────────
+// Ajouté le 21/08/2026, à la demande de Jean-Michel : « il y a trop de routines
+// Claude Work et Claude Code qui agissent de manière indépendante ».
+//
+// Ce bloc comble le trou que le contrôle signalait lui-même jusqu'ici : une
+// publication faite HORS pipeline lui était invisible. Elle est désormais
+// inscrite au registre, donc visible d'ici — et opposable à l'espacement.
+dire('──── Registre central des publications ────');
+const REGISTRE = 'automation-agent/publications.json';
+const regf = chargerJson(REGISTRE);
+
+if (!regf.ok) {
+  bloquant(`${REGISTRE} illisible : ${regf.erreur}. C'est la source unique que consultent toutes les routines de publication — sans lui, chacune recalcule sa date dans son coin, ce qui est exactement ce qu'on a cherché à faire cesser.`);
+} else {
+  const pubs = regf.data.publications ?? [];
+  const aVenir = pubs.filter((p) => p.date_nc >= today);
+  dire(`  ${pubs.length} publication(s) enregistrée(s), dont ${aVenir.length} à venir.`);
+
+  // 1. Le registre a-t-il dérivé de la réalité des files d'attente ?
+  //    Le statut y est censé être recalculé, jamais déclaré : toute divergence
+  //    signale soit un -Rafraichir jamais lancé, soit une saisie manuelle.
+  for (const e of echeances) {
+    const p = aVenir.find((x) => x.date_nc === e.prochaine && x.format === e.cle);
+    if (!p) {
+      alerter(`Registre — aucune entrée pour l'échéance ${e.cle} du ${e.prochaine}. Les routines qui lisent le registre ne la verront pas. Ajouter l'entrée, ou lancer planning.ps1 -Rafraichir.`);
+      continue;
+    }
+    const reel = e.pret ? 'en_file' : e.staging ? 'en_staging' : 'prevu';
+    if (p.statut !== reel && !String(p.statut).startsWith('publie')) {
+      alerter(`Registre — ${e.cle} du ${e.prochaine} : le registre dit « ${p.statut} », les fichiers disent « ${reel} ». Le statut doit être recalculé (planning.ps1 -Rafraichir), jamais saisi.`);
+    }
+  }
+
+  // 2. Échéances passées jamais marquées publiées : une diffusion a pu être perdue.
+  for (const p of pubs) {
+    if (p.date_nc < today && !String(p.statut).startsWith('publie') && p.statut !== 'annule') {
+      const age = ecartJours(p.date_nc, today);
+      bloquant(`Registre — la publication « ${p.sujet || p.id} » était prévue le ${p.date_nc} (il y a ${age} j) et n'est toujours pas marquée publiée (statut « ${p.statut} »). Soit elle n'est jamais partie, soit personne n'a clos son suivi.`);
+    }
+  }
+
+  // 3. Espacement, en tenant compte des publications MANUELLES.
+  //    C'est ce que le pipeline seul ne pouvait pas voir : le 21/08/2026, un post
+  //    publié à la main est parti 2 h avant la veille éco, sur les mêmes canaux.
+  const parJour = {};
+  for (const p of pubs) {
+    if (p.statut === 'annule') continue;
+    const surCompany = (p.canaux ?? []).includes('linkedin_company');
+    if (surCompany) (parJour[p.date_nc] ??= []).push(p);
+  }
+  for (const [d, liste] of Object.entries(parJour)) {
+    if (liste.length <= maxJour) continue;
+    const quoi = liste.map((x) => x.format).join(', ');
+    // Bloquant seulement si la collision est ENCORE ÉVITABLE. Une collision déjà
+    // survenue est un fait acquis : la signaler en erreur ferait échouer ce contrôle
+    // tous les jours sur quelque chose que personne ne peut plus corriger — et un
+    // filet qui échoue en permanence cesse d'être lu.
+    if (d > today) {
+      bloquant(`Espacement — ${liste.length} publications sur la Company Page prévues le ${d} : ${quoi}. Règle du 17/08 : jamais plus de ${maxJour} par jour. C'est encore évitable : décaler l'une des deux.`);
+    } else {
+      alerter(`Espacement — ${liste.length} publications sur la Company Page le ${d} : ${quoi}. Déjà survenu, non corrigeable ; à prendre en compte en lisant les statistiques de la semaine.`);
+    }
+  }
+
+  const manuelles = pubs.filter((p) => p.statut === 'publie_hors_pipeline');
+  if (manuelles.length) {
+    dire(`  ${manuelles.length} publication(s) hors pipeline enregistrée(s) — désormais visibles de ce contrôle :`);
+    for (const m of manuelles) dire(`    ${m.date_nc} — ${m.sujet ?? m.id}`);
+  }
+}
 dire('');
 
 // ── Bilan ───────────────────────────────────────────────────────────────────
