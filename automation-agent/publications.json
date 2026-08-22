@@ -1,4 +1,4 @@
-{
+﻿{
     "_comment":  [
                      "REGISTRE CENTRAL DES PUBLICATIONS PerfEco — passé et à venir, une entrée par publication.",
                      "",
@@ -29,7 +29,7 @@
                      "et les canaux ; les heures exactes de publication n\u0027ont pas toujours été conservées."
                  ],
     "fuseau":  "Pacific/Noumea",
-    "derniere_maj":  "2026-08-21",
+    "derniere_maj":  "2026-08-22",
     "publications":  [
                          {
                              "id":  "2026-08-11-mardi",
@@ -191,11 +191,11 @@
                              "canaux":  [
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
+                             "statut":  "publie",
                              "source":  "automation-queue/jeudi.json",
                              "bascule":  null,
-                             "preuve":  null,
-                             "note":  "1er passage réel du filtre FBONLY. Facebook SEUL doit recevoir. Exige que jeudi.json porte encore le 20/08 — donc la bascule jeudi ne doit pas passer avant."
+                             "preuve":  "Verifie de visu le 22/08 a 17h30 NC. Facebook : post en ligne (capture JM, horodate 1 h). LinkedIn Company : AUCUN post du 22/08, le test des 3 questions n y figure qu une fois (2 j = original du 20/08). LinkedIn profil perso : aucun post du 22/08, dernier = veille eco du 21/08. Filtre FBONLY concluant sur les 2 routes LinkedIn.",
+                             "note":  "1er passage réel du filtre FBONLY. Facebook SEUL doit recevoir. Exige que jeudi.json porte encore le 20/08 — donc la bascule jeudi ne doit pas passer avant. | RESULTAT : filtre FBONLY VALIDE au 1er passage reel (les 2 routes LinkedIn ont bien ete bloquees). ATTENTION ESPACEMENT : Facebook a recu 4 posts en 5 jours (carrousel 18/08, post court 20/08, veille eco 21/08, republication 22/08) et la republication du 22/08 est un DOUBLON du post court que Facebook avait deja recu le 20/08. Point souleve par JM le 22/08."
                          },
                          {
                              "id":  "2026-08-25-mardi",
