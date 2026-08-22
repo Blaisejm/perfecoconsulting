@@ -167,7 +167,7 @@
                              "heure_nc":  "11:00",
                              "format":  "vendredi",
                              "libelle":  "Veille économique NC",
-                             "sujet":  "Emploi NC / ISEE — 77 640 salariés, 1 132 activités",
+                             "sujet":  "Veille eco — emploi NC : -11 400 emplois salaries en 2024, 56 020 salaries dans le prive au T3 2025 (ISEE) — angle retention RH plutot que recrutement",
                              "semaine":  "HS-veille-eco-emploi-nc",
                              "canaux":  [
                                             "linkedin_company",
@@ -177,8 +177,8 @@
                              "statut":  "publie",
                              "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
-                             "preuve":  "workflow publish-vendredi-veille-eco.yml en succès à 11h47 NC",
-                             "note":  "Mesure J+7 attendue le 28/08"
+                             "preuve":  "workflow publish-vendredi-veille-eco.yml en succes a 11h47 NC. Publication verifiee de visu sur les 3 canaux le 22/08 (captures JM) : Facebook, LinkedIn Company et profil perso, visuel « Le vivier se resserre. Retenir compte double. »",
+                             "note":  "CORRIGE le 22/08/2026 : le sujet inscrit ici etait FAUX — il reprenait les chiffres du post ad-hoc du meme jour (77 640 salaries, 1 132 activites) alors que la veille eco publiee portait sur -11 400 emplois / retention RH. Consequence de l erreur : les chiffres emploi/retention apparaissaient comme non utilises, et les chiffres ISEE 77 640/1 132 comme servis deux fois. L arbitrage du 28/08 (accroche reecrite sur le tourisme) reste valide : ce sont bien le post ad-hoc qui avait consomme 77 640/1 132."
                          },
                          {
                              "id":  "2026-08-22-samedi",
