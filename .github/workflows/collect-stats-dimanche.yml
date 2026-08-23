@@ -2,7 +2,10 @@ name: PerfEco — Collecte statistiques dimanche (WordPress + GA4 + Facebook)
 
 on:
   schedule:
-    - cron: '30 20 * * 6'  # Samedi 20h30 UTC = dimanche 07h30 Nouvelle-Calédonie (30 min avant la routine locale 08h02)
+    - cron: '30 20 * * 1'  # Lundi 20h30 UTC = mardi 07h30 Nouvelle-Calédonie (1 h avant le rapport local de 08h30)
+    # Déplacé du samedi au lundi le 23/08/2026 (décision JM) : le rapport passe du dimanche au mardi
+    # pour couvrir la semaine ISO complète — LinkedIn publie la Company Page avec 2 jours de décalage,
+    # un export du dimanche ne couvrait que lundi→vendredi.
   workflow_dispatch:
 
 permissions:
