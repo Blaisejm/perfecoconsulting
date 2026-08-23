@@ -1,4 +1,11 @@
 ---
+// Bandeau de consentement cookies — câblé le 23/08/2026 (décision JM).
+// Il existait depuis l'origine mais n'était importé NULLE PART : le consentement
+// ne pouvait donc jamais être accordé, analytics_storage restait 'denied' à vie,
+// et GA4 ne mesurait rien depuis le 01/06/2026. Ne pas retirer cet import sans
+// retirer aussi la mention du bandeau dans /mentions-legales et /en/legal.
+import CookieBanner from '../components/CookieBanner.astro';
+
 export interface Props {
   title: string;
   description?: string;
@@ -75,5 +82,6 @@ const canonicalURL = canonicalOverride ?? new URL(Astro.url.pathname, Astro.site
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased">
   <slot />
+  <CookieBanner />
 </body>
 </html>
