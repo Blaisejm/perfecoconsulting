@@ -1,4 +1,4 @@
-﻿{
+{
     "_comment":  [
                      "REGISTRE CENTRAL DES PUBLICATIONS PerfEco — passé et à venir, une entrée par publication.",
                      "",
@@ -29,7 +29,7 @@
                      "et les canaux ; les heures exactes de publication n\u0027ont pas toujours été conservées."
                  ],
     "fuseau":  "Pacific/Noumea",
-    "derniere_maj":  "2026-08-22",
+    "derniere_maj":  "2026-08-23",
     "publications":  [
                          {
                              "id":  "2026-08-11-mardi",
@@ -228,8 +228,8 @@
                                             "linkedin_company",
                                             "facebook"
                                         ],
-                             "statut":  "en_staging",
-                             "source":  "automation-queue/jeudi-W34-pret.json",
+                             "statut":  "en_file",
+                             "source":  "automation-queue/jeudi.json",
                              "bascule":  "perfeco-bascule-jeudi-w34 — samedi 22/08 18:00 NC",
                              "preuve":  "message 1019 car., visuel HTTP 200",
                              "note":  null
@@ -247,8 +247,8 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_staging",
-                             "source":  "automation-queue/vendredi-2026-08-28-pret.json",
+                             "statut":  "en_file",
+                             "source":  "automation-queue/vendredi.json",
                              "bascule":  "perfeco-bascule-vendredi-28082026 — samedi 22/08 09:00 NC",
                              "preuve":  "message 1662 car., visuels HTTP 200, commits b8c33ce puis 17cd011",
                              "note":  "ARBITRAGE CLOS le 21/08 : accroche reecrite sur les chiffres du tourisme (17 000 visiteurs T2 2026, +37 %, 61 % du niveau 2023 - ISEE publie le 13/08), validee par Jean-Michel. Les chiffres emploi/creations (77 640 salaries, 1 132 activites) ont ete retires : ils avaient ete servis aux memes audiences le 21/08 par un post hors pipeline. Visuel inchange (aucun chiffre : Plus d activite. Plus de dossiers. Autant de bras qu avant.)."
