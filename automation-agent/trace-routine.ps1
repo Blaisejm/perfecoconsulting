@@ -135,6 +135,31 @@ function Commit-Repo {
 
 Write-Host "trace-routine — $Routine ($Resultat) — $stamp NC"
 
+# ---------------------------------------------------------------------------
+# 0. Miroir des DÉFINITIONS de routines (ajouté le 24/08/2026, demande de JM).
+#
+#    Les fichiers SKILL.md des tâches planifiées ne sont dans aucun dépôt : une
+#    consigne pouvait donc dériver du réel sans date ni auteur. Trois dérives
+#    déjà payées (détail dans l'en-tête de sync-routines.ps1).
+#
+#    C'est fait ICI, avant le commit, et pas dans une routine dédiée : toute
+#    routine qui clôture emporte le miroir avec elle. Une synchro qui dépendrait
+#    d'une routine de plus retomberait dans le mode de défaillance dominant —
+#    la routine qui meurt au premier appel d'outil et n'écrit rien.
+#
+#    Le commit portera le nom de la routine qui passait là. C'est une
+#    approximation assumée : les définitions sont éditées par des sessions
+#    Claude, pas par les routines elles-mêmes. Ce qu'on gagne, c'est l'HISTORIQUE
+#    du texte et sa date — ce qui manquait totalement.
+# ---------------------------------------------------------------------------
+$sync = Join-Path $REPO_PROJET 'automation-agent\sync-routines.ps1'
+if (Test-Path $sync) {
+    try { & $sync -Silencieux | Out-Null }
+    catch { Write-Warning "sync-routines a echoue (les definitions ne sont pas a jour) : $_" }
+} else {
+    Write-Warning "sync-routines.ps1 introuvable : les definitions de routines ne sont pas versionnees."
+}
+
 Commit-Repo -Repo $REPO_SUIVI  -Etiquette 'suivi'
 Commit-Repo -Repo $REPO_PROJET -Etiquette 'projet' -ExcludeJournal
 
