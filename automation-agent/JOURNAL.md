@@ -112,6 +112,40 @@ git log --author=perfeco-rappel-quotidien
   Leurs modifications restent tracées par le champ `fichiers` du journal, mais sans diff.
   À réintégrer une fois les secrets sortis du code.
 
+## Les définitions de routines sont versionnées aussi (24/08/2026)
+
+Jusqu'au 24/08/2026, tout ce dispositif traçait les fichiers de travail — pas les
+**consignes** qui pilotent les routines. Or celles-ci vivent dans
+`C:\Users\jmbla\.claude\scheduled-tasks\<nom>\SKILL.md`, qui n'est un dépôt d'aucune sorte :
+une consigne pouvait dériver du réel sans date ni auteur, et c'est le mécanisme commun à
+trois dérives déjà payées.
+
+| Quand | La consigne disait | Le réel était |
+|---|---|---|
+| 21/08 | « le samedi est suspendu depuis le 18/08 » | le cron avait été réactivé le 18/08 même — le workflow tournait sans surveillance |
+| 18/08 | surveiller `publish-lundi-facebook.yml` | supprimé du dépôt le 12/08 ; l'API renvoyait son vieux run en `success`, faux « tout va bien » |
+| 24/08 | 7 workflows à surveiller | 9 actifs, dont le filet indépendant lui-même |
+
+`sync-routines.ps1` miroite donc les définitions dans `<suivi>/routines/<nom>.SKILL.md`,
+avec un `INVENTAIRE.md` généré. **Il est appelé par `trace-routine.ps1` à chaque clôture**,
+avant les commits : toute routine qui clôture emporte le miroir avec elle. Confier cette
+synchro à une routine dédiée l'aurait exposée au mode de défaillance dominant — la routine
+qui meurt à son premier appel d'outil et n'écrit rien.
+
+```powershell
+# Ce qu'une consigne disait avant, et quand elle a changé
+git -C "C:\Users\jmbla\OneDrive\Documents\claude IA" log --follow -p -- routines/perfeco-rappel-quotidien.SKILL.md
+```
+
+**Trois choses à savoir.** Le dossier `routines/` est un **miroir, pas la source** : y
+éditer un fichier ne change rien au comportement d'une routine et sera écrasé à la synchro
+suivante. L'auteur du commit est la routine qui passait là, pas celle qui a modifié la
+consigne — les définitions sont éditées par des sessions Claude ; ce qu'on gagne est
+l'historique du texte et sa date, qui manquaient totalement. Enfin le script **refuse
+d'écrire dans un dépôt ayant un remote** (`-AutoriserDepotDistant` pour lever le garde-fou) :
+`perfecoconsulting` est public, et ces définitions portent arbitrages, prospects et
+tactique commerciale — aucun identifiant, c'est vérifié, mais rien qui doive être publié.
+
 ## Qui doit en écrire
 
 **Toutes les routines Cowork**, y compris les tâches one-time — ce sont elles qui ont
