@@ -89,8 +89,47 @@ $routines = Get-ChildItem -Path $SOURCE -Directory |
             Where-Object { $_.Name -notlike '_backup*' } |
             Sort-Object Name
 
-$nouveaux = @(); $modifies = @(); $inchanges = @(); $sansSkill = @()
+$nouveaux = @(); $modifies = @(); $inchanges = @(); $sansSkill = @(); $masques = @()
 $vues     = @{}
+
+# --- Masquage des secrets AVANT écriture dans le miroir -----------------------
+# Ajouté le 24/08/2026 après une erreur de ma part : j'avais annoncé « aucun
+# identifiant dans les définitions » sur la foi d'une recherche des mots
+# « password » et des préfixes de jetons (ghp_, EAA, sk-, nfp_). Elle laissait
+# passer les deux formats réellement présents : le mot de passe applicatif
+# WordPress (6 groupes de 4 caractères, aucun mot-clé autour) et les URL de
+# webhook Make.com (le secret EST le chemin de l'URL). 4 définitions sur 36 en
+# portaient un.
+#
+# Le miroir est de la DOCUMENTATION, jamais exécuté : y masquer un secret ne
+# casse rien, et c'est ce qui rend ce dossier poussable un jour vers un dépôt
+# distant. La source, elle, garde sa valeur en clair — la nettoyer est un autre
+# chantier, qui touche des scripts de publication.
+$MOTIFS_SECRETS = @(
+    @{ Nom = 'mot de passe applicatif WordPress'; Regex = '(?<![A-Za-z0-9])([A-Za-z0-9]{4} ){5}[A-Za-z0-9]{4}(?![A-Za-z0-9])' },
+    @{ Nom = 'webhook Make.com';                  Regex = '(hook\.[a-z0-9]+\.make\.com/)[A-Za-z0-9]{10,}' },
+    @{ Nom = 'jeton Facebook';                    Regex = 'EAA[A-Za-z0-9]{40,}' },
+    @{ Nom = 'jeton LinkedIn';                    Regex = 'AQ[A-Za-z0-9_-]{80,}' },
+    @{ Nom = 'jeton Netlify';                     Regex = 'nfp_[A-Za-z0-9]{20,}' },
+    @{ Nom = 'jeton GitHub';                      Regex = '(ghp_|github_pat_)[A-Za-z0-9_]{20,}' },
+    @{ Nom = 'clé OpenAI';                        Regex = 'sk-[A-Za-z0-9_-]{20,}' },
+    @{ Nom = 'clé privée';                        Regex = '-----BEGIN [A-Z ]*PRIVATE KEY-----[\s\S]*?-----END [A-Z ]*PRIVATE KEY-----' }
+)
+
+function Masquer-Secrets {
+    param([string] $Texte, [string] $Routine)
+    $trouves = @()
+    foreach ($m in $MOTIFS_SECRETS) {
+        if ($Texte -cmatch $m.Regex) {
+            $trouves += $m.Nom
+            # Le préfixe du webhook est conservé : il dit de quoi il s'agit sans
+            # livrer le secret, qui est la partie chemin.
+            $remplacement = if ($m.Nom -eq 'webhook Make.com') { '${1}<<SECRET-MASQUE>>' } else { '<<SECRET-MASQUE>>' }
+            $Texte = [regex]::Replace($Texte, $m.Regex, $remplacement)
+        }
+    }
+    [pscustomobject]@{ Texte = $Texte; Trouves = $trouves }
+}
 
 foreach ($r in $routines) {
     $src = Join-Path $r.FullName 'SKILL.md'
@@ -99,17 +138,25 @@ foreach ($r in $routines) {
     $cible = Join-Path $DEST "$($r.Name).SKILL.md"
     $vues["$($r.Name).SKILL.md"] = $true
 
+    $brut = [System.IO.File]::ReadAllText($src, [System.Text.Encoding]::UTF8)
+    $res  = Masquer-Secrets -Texte $brut -Routine $r.Name
+    if ($res.Trouves.Count -gt 0) {
+        $masques += [pscustomobject]@{ Routine = $r.Name; Types = $res.Trouves }
+    }
+
     if (-not (Test-Path $cible)) {
-        Copy-Item $src $cible -Force
+        [System.IO.File]::WriteAllText($cible, $res.Texte, (New-Object System.Text.UTF8Encoding($false)))
         $nouveaux += $r.Name
     }
     else {
-        # Comparaison sur le contenu, pas sur la date : OneDrive et les copies
-        # rafraichissent les horodatages sans que le texte change.
-        $hSrc = (Get-FileHash $src   -Algorithm SHA256).Hash
-        $hDst = (Get-FileHash $cible -Algorithm SHA256).Hash
-        if ($hSrc -ne $hDst) { Copy-Item $src $cible -Force; $modifies += $r.Name }
-        else                 { $inchanges += $r.Name }
+        # Comparaison sur le CONTENU MASQUÉ, pas sur la source : sinon chaque
+        # passage verrait un écart permanent et réécrirait sans fin.
+        $actuel = [System.IO.File]::ReadAllText($cible, [System.Text.Encoding]::UTF8)
+        if ($actuel -cne $res.Texte) {
+            [System.IO.File]::WriteAllText($cible, $res.Texte, (New-Object System.Text.UTF8Encoding($false)))
+            $modifies += $r.Name
+        }
+        else { $inchanges += $r.Name }
     }
 }
 
@@ -183,6 +230,11 @@ if ($nouveaux.Count -or $modifies.Count -or $supprimes.Count) {
 if ($sansSkill.Count -gt 0) {
     Write-Warning ("Dossier(s) sans SKILL.md : " + ($sansSkill -join ', '))
 }
+if ($masques.Count -gt 0) {
+    Write-Warning "$($masques.Count) definition(s) portent un secret EN CLAIR dans la source (masque dans le miroir) :"
+    foreach ($m in $masques) { Write-Warning "    $($m.Routine) — $($m.Types -join ', ')" }
+    Write-Warning "  La SOURCE reste en clair. A sortir du texte des consignes (chantier distinct)."
+}
 
 [pscustomobject]@{
     Nouveaux  = $nouveaux
@@ -190,4 +242,5 @@ if ($sansSkill.Count -gt 0) {
     Supprimes = $supprimes
     Inchanges = $inchanges.Count
     Total     = $routines.Count
+    Masques   = $masques
 }
