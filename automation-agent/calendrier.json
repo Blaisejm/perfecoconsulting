@@ -156,6 +156,67 @@
       "tolerance_jours": 190
     }
   },
+  "workflows_surveilles": {
+    "_comment": [
+      "Inventaire des workflows GitHub Actions surveillés par perfeco-verif-github-actions.",
+      "",
+      "Demandé par Jean-Michel le 24/08/2026 : la surveillance du 24/08 a trouvé 9 workflows",
+      "actifs dans le dépôt pour 7 seulement dans la consigne écrite de la routine. Deux",
+      "workflows n'étaient donc surveillés par personne, dont check-preparation-contenu.yml,",
+      "qui est précisément le garde-fou censé alerter quand un contenu manque.",
+      "",
+      "Même principe que publications.json pour les dates : la liste sort de la prose de la",
+      "routine (qui vieillit sans qu'on le voie) et vient dans un fichier versionné, comparé",
+      "à chaque exécution à l'inventaire réel renvoyé par l'API GitHub.",
+      "",
+      "publie : true = un échec est une publication potentiellement perdue, alerte prioritaire.",
+      "         false = contrôle ou essai, un échec informe mais ne fait rien perdre.",
+      "controle_fraicheur_heures : au-delà de cet âge du dernier run, l'absence de run EST",
+      "         l'anomalie (cron plus déclenché, workflow désactivé pour inactivité). Ne vaut",
+      "         que pour les cadences quotidiennes ; pour les hebdomadaires, c'est le registre",
+      "         publications.json qui dit si une diffusion a été manquée."
+    ],
+    "publish-mardi-carrousel.yml": {
+      "cadence": "hebdomadaire (mardi 11h00 NC) + run lundi sans publication (decalages feries)",
+      "publie": true
+    },
+    "publish-jeudi-post-court.yml": {
+      "cadence": "hebdomadaire (jeudi 11h00 NC) + run mercredi sans publication (decalages feries)",
+      "publie": true
+    },
+    "publish-vendredi-veille-eco.yml": {
+      "cadence": "hebdomadaire (vendredi 11h00 NC)",
+      "publie": true
+    },
+    "publish-samedi-republication-facebook.yml": {
+      "cadence": "hebdomadaire (samedi, cron 30 4 * * 6)",
+      "publie": true,
+      "note": "reprise Facebook du jeudi, filtre Make FBONLY - surveille depuis le 21/08/2026"
+    },
+    "check-avant-publication.yml": {
+      "cadence": "hebdomadaire (veille de publication)",
+      "publie": false
+    },
+    "check-apres-publication.yml": {
+      "cadence": "hebdomadaire (apres-midi de publication)",
+      "publie": false
+    },
+    "collect-stats-dimanche.yml": {
+      "cadence": "hebdomadaire (dimanche)",
+      "publie": false
+    },
+    "check-preparation-contenu.yml": {
+      "cadence": "quotidienne (cron 0 8 * * * = 19h00 NC)",
+      "publie": false,
+      "controle_fraicheur_heures": 36,
+      "note": "filet independant de Cowork - sa panne serait silencieuse, d'ou le controle de fraicheur. ECHEC VOLONTAIRE : ce workflow sort en failure quand son controle trouve une anomalie de CONTENU (c'est ainsi qu'il notifie) - un failure signifie 'il a trouve quelque chose', pas 'il est casse'. Ajoute a la surveillance le 24/08/2026"
+    },
+    "shadow-vendredi-veille-eco.yml": {
+      "cadence": "hebdomadaire (cron 0 21 * * 2 = mercredi 08h00 NC)",
+      "publie": false,
+      "note": "ESSAI - ne publie rien, ni webhook ni git push ni automation-queue (verifie dans le fichier le 24/08/2026). Banc d'essai de la production par cle API. Ajoute a la surveillance le 24/08/2026"
+    }
+  },
   "regle_j7": {
     "_comment": [
       "Règle d'or du 10/08/2026, renforcée le 19/08 : « relancer » signifie PRODUIRE le",
