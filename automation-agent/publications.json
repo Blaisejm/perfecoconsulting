@@ -29,7 +29,7 @@
                      "et les canaux ; les heures exactes de publication n\u0027ont pas toujours été conservées."
                  ],
     "fuseau":  "Pacific/Noumea",
-    "derniere_maj":  "2026-08-23",
+    "derniere_maj":  "2026-08-26",
     "publications":  [
                          {
                              "id":  "2026-08-11-mardi",
@@ -210,7 +210,7 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "echeance_depassee",
                              "source":  "automation-queue/mardi.json",
                              "bascule":  null,
                              "preuve":  "message 2062 car., WordPress #119, commit cd215ec",
@@ -266,8 +266,8 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_file",
+                             "source":  "automation-queue/mardi.json",
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "Theme DEFINI depuis le 10/08/2026 (mon alerte du 21/08 17h disait le contraire : erreur, je n avais pas lu la section dediee en fin de SUIVI-AUTOMATISATION.md). Etaye le 21/08 par McKinsey The State of Organizations 2026 : moins de 25 % des organisations tiennent une amelioration durable, 2/3 se jugent trop complexes. Chiffres a revalider dans le PDF source avant publication. Produit par mardi-carrousel-creation le lundi 24/08 08h08 NC."
