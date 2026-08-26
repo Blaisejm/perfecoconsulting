@@ -210,10 +210,10 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "echeance_depassee",
+                             "statut":  "publie",
                              "source":  "automation-queue/mardi.json",
                              "bascule":  null,
-                             "preuve":  "message 2062 car., WordPress #119, commit cd215ec",
+                             "preuve":  "message 2062 car., WordPress #119, commit cd215ec ; publication REELLE confirmee le 25/08 par perfeco-verif-github-actions : run publish-mardi 32796804198 (success, LinkedIn Company + Facebook via webhook, profil perso par API directe) et check-apres-publication 32806722574 (success : FB, WordPress, perfeco.nc FR+EN). Statut corrige de echeance_depassee a publie le 26/08 par perfeco-rappel-quotidien : le rafraichissement ne peut pas deduire une publication reussie une fois la file d attente passee a l echeance suivante.",
                              "note":  "Dernier épisode de la série. Le carrousel perso passe en publication directe."
                          },
                          {
@@ -270,7 +270,7 @@
                              "source":  "automation-queue/mardi.json",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "Theme DEFINI depuis le 10/08/2026 (mon alerte du 21/08 17h disait le contraire : erreur, je n avais pas lu la section dediee en fin de SUIVI-AUTOMATISATION.md). Etaye le 21/08 par McKinsey The State of Organizations 2026 : moins de 25 % des organisations tiennent une amelioration durable, 2/3 se jugent trop complexes. Chiffres a revalider dans le PDF source avant publication. Produit par mardi-carrousel-creation le lundi 24/08 08h08 NC."
+                             "note":  "Theme DEFINI depuis le 10/08/2026 (mon alerte du 21/08 17h disait le contraire : erreur, je n avais pas lu la section dediee en fin de SUIVI-AUTOMATISATION.md). Etaye le 21/08 par McKinsey The State of Organizations 2026 : moins de 25 % des organisations tiennent une amelioration durable, 2/3 se jugent trop complexes. Chiffres a revalider dans le PDF source avant publication. ATTRIBUTION CORRIGEE le 26/08 par perfeco-rappel-quotidien : le contenu N A PAS ete produit par mardi-carrousel-creation. Cette routine s est declenchee le 24/08 08h20 NC (lastRunAt confirme) et n a RIEN produit — aucune session Cowork, aucun commit, aucune ligne au journal (10e occurrence du motif 'tache declenchee, aucun effet'). Le carrousel a ete produit le LENDEMAIN 25/08 a 18h45 par perfeco-rappel-quotidien au titre de l Etape 1quater (commit 5fe76b9 : 7 slides W35, articles FR+EN, file mardi 01/09). Consequence a surveiller : mardi-carrousel-creation reste defaillante, sa prochaine tentative est le lundi 31/08 08h08, soit J-1."
                          },
                          {
                              "id":  "2026-09-03-jeudi",
