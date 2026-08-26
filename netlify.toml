@@ -27,8 +27,23 @@
   #
   # ⚠️ Si une page se met un jour à afficher une image de public/slides/,
   # ajouter ce chemin à la liste ci-dessous, sinon la mise à jour ne partira pas.
+  #
+  # 🔴 CORRECTIF 26/08/2026 (vendredi-veilleeco-creation) — public/slides RÉINTÉGRÉ.
+  # Le raisonnement du 21/08 était juste pour les PAGES du site, mais il a manqué
+  # le principal consommateur de public/slides/ : le pipeline social. Les fichiers
+  # automation-queue/*.json portent une `image_url` en
+  # https://www.perfeco.nc/slides/WXX/....png que Make.com va CHERCHER SUR LE SITE
+  # au moment de publier sur LinkedIn et Facebook. Ces images sont donc bien
+  # servies par le site — simplement jamais référencées depuis src/, ce que le
+  # test « grep dans src/ » ne pouvait pas voir.
+  # Conséquence constatée le 26/08 : tout visuel commité après le 21/08 restait en
+  # 404 (W35 du mardi 01/09, W36 du vendredi 04/09), ce qui aurait fait publier
+  # les posts sans image, ou échouer la publication.
+  # Coût accepté : ~12 builds/mois en plus (les commits de slides), à comparer aux
+  # 66 builds/mois d'avant le correctif du 21/08 — l'essentiel de l'économie
+  # (les 43 commits d'automatisation) est conservé.
   # ---------------------------------------------------------------------------
-  ignore = 'if [ -z "$CACHED_COMMIT_REF" ]; then exit 1; fi; git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- src astro.config.mjs package.json package-lock.json tailwind.config.mjs netlify.toml public/photos public/favicon.svg public/logo-perfeco.svg public/robots.txt public/sitemap.xml'
+  ignore = 'if [ -z "$CACHED_COMMIT_REF" ]; then exit 1; fi; git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- src astro.config.mjs package.json package-lock.json tailwind.config.mjs netlify.toml public/photos public/slides public/favicon.svg public/logo-perfeco.svg public/robots.txt public/sitemap.xml'
 
 [build.environment]
   NODE_VERSION = "20"
