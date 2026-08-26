@@ -278,7 +278,7 @@
                              "heure_nc":  "11:00",
                              "format":  "jeudi",
                              "libelle":  "Post court",
-                             "sujet":  "à définir (suit le carrousel du 01/09)",
+                             "sujet":  "Serie 2 « Le Rythme de Pilotage » 1/8 — relire les decisions de la fois d avant (4e marqueur du carrousel du 01/09)",
                              "semaine":  "W35",
                              "canaux":  [
                                             "linkedin_company",
@@ -286,9 +286,9 @@
                                         ],
                              "statut":  "en_staging",
                              "source":  "automation-queue/jeudi-W35-pret.json",
-                             "bascule":  null,
+                             "bascule":  "perfeco-bascule-jeudi-03092026 — samedi 29/08 18:00 NC",
                              "preuve":  null,
-                             "note":  "Production attendue le mercredi 26/08 par jeudi-postcourt-creation"
+                             "note":  "Produit le 26/08 par jeudi-postcourt-creation (J-8). Staging automation-queue/jeudi-W35-pret.json, commit 5252c84, 1 257 car., schema social_post seul. Angle : zoom sur le SEUL 4e marqueur (relire les decisions de la seance precedente, 2 min en ouverture), volontairement pas sur les quatre — les jeudis du 30/07, 13/08 et 27/08 ont deja servi trois listes de quatre d affilee. Bascule programmee SAMEDI 18h00 et non vendredi : publish-samedi-republication-facebook.yml relit jeudi.json le samedi a 15h30 et exige qu il porte encore la date du 27/08. ATTENTION VISUEL EN 404 au 26/08 : W35/04-un-rythme-quatre-choses.png non deploye, deploiements Netlify en echec malgre le correctif netlify.toml (commit 92d45eb) ; redeploiement par API refuse (Forbidden). Meme blocage que le mardi 01/09 et le vendredi 04/09. Action Jean-Michel : crédits de build Netlify."
                          },
                          {
                              "id":  "2026-09-04-vendredi",
