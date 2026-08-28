@@ -120,8 +120,16 @@ try {
                                  -Headers @{ 'User-Agent' = 'Mozilla/5.0 (PerfEco veille)' }
 }
 catch {
-    $err = @{ statut = 'echec'; source = $SOURCE; erreur = $_.Exception.Message }
-    if ($Json) { $err | ConvertTo-Json -Compress } else { Write-Error "Export CSV injoignable : $($_.Exception.Message)" }
+    # En mode -Json, la panne EST la réponse : elle part sur la sortie standard
+    # avec un code retour 0. Un code non nul ferait croire à l'appelant que le
+    # script lui-même a échoué, et risquerait de faire abandonner toute la
+    # routine alors que la Source A reste parfaitement exploitable. C'est le
+    # champ `statut` qui porte l'échec, pas le code de sortie.
+    if ($Json) {
+        @{ statut = 'echec'; source = $SOURCE; erreur = $_.Exception.Message } | ConvertTo-Json -Compress
+        exit 0
+    }
+    Write-Error "Export CSV injoignable : $($_.Exception.Message)"
     exit 1
 }
 
