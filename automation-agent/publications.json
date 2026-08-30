@@ -310,8 +310,8 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_staging",
-                             "source":  "automation-queue/vendredi-2026-09-04-pret.json",
+                             "statut":  "en_file",
+                             "source":  "automation-queue/vendredi.json",
                              "bascule":  "perfeco-bascule-vendredi-04092026 — samedi 29/08 09:00 NC",
                              "preuve":  null,
                              "note":  "Produit le 26/08 par vendredi-veilleeco-creation. Staging vendredi-2026-09-04-pret.json (2 545 car., schéma social_post seul). Angle : la production métallurgique se redresse mais la filière a perdu 1 900 postes en deux ans — recommandation unique : lister les 3 postes dont l\u0027absence arrêterait une activité sous 15 jours et faire écrire UNE page à chacun. ⚠️ VISUEL PAS EN LIGNE au 26/08 : déploiements Netlify en échec (le build passe en local). netlify.toml corrigé (public/slides réintégré au déclencheur, commit 92d45eb) mais les déploiements retournent toujours error — cause probable : crédits de build Netlify épuisés (990/1000 au 21/08). Action Jean-Michel requise. Touche aussi le carrousel du mardi 01/09 (W35) et son article, également en 404."
