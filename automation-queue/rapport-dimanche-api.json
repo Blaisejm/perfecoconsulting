@@ -1,345 +1,10 @@
 {
-  "semaine": "2026-W35",
-  "collecte_le": "2026-08-25",
+  "semaine": "2026-W36",
+  "collecte_le": "2026-09-01",
   "wordpress": {
     "articles_published": 1,
     "comments_total": 0,
     "published": [
-      {
-        "id": 117,
-        "date": "2026-08-18T11:03:00",
-        "date_gmt": "2026-08-18T00:03:00",
-        "guid": {
-          "rendered": "https://perfsystemique.fr/?p=117"
-        },
-        "modified": "2026-08-17T19:19:33",
-        "modified_gmt": "2026-08-17T08:19:33",
-        "slug": "les-kpi-ne-font-pas-la-performance",
-        "status": "publish",
-        "type": "post",
-        "link": "https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/",
-        "title": {
-          "rendered": "Les KPI ne font pas la performance"
-        },
-        "content": {
-          "rendered": "<div style=\"display:flex; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid #e5e7eb; margin-bottom:32px;\">\n<div>\n<p style=\"margin:0; font-weight:700; color:#111827;\">Jean-Michel Blaise</p>\n<p style=\"margin:4px 0 0; font-size:13px; color:#6B7280;\">Fondateur — PerfEco Consulting NC · <time datetime=\"2026-08-18\">18 août 2026</time></p>\n<p style=\"margin:4px 0 0; font-size:12px; color:#001D9F; font-weight:600;\">Série Exécution Stratégique · Article 7/8</p>\n</p></div>\n</div>\n<div style=\"background:#f0f5ff; border:1px solid #c7d9f8; border-radius:8px; padding:14px 18px; margin-bottom:28px;\">\n<p style=\"margin:0; font-size:13px; color:#163D78;\">Disponible en synthèse sur <a href=\"https://www.perfeco.nc/ressources/les-kpi-ne-font-pas-la-performance\" style=\"color:#001D9F; font-weight:600;\">perfeco.nc (FR) &#8594;</a> et <a href=\"https://www.perfeco.nc/en/resources/kpis-do-not-create-performance\" style=\"color:#001D9F; font-weight:600;\">perfeco.nc (EN) &#8594;</a></p>\n</div>\n<p><strong>Presque toutes les organisations que nous rencontrons ont des indicateurs. Beaucoup en ont même trop. Très peu savent dire, indicateur par indicateur, quelle décision se déclenche quand il passe au rouge. C&rsquo;est exactement là que la performance se perd — pas dans la mesure, dans ce qui vient après.</strong></p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Sources citées</p>\n<p style=\"margin:0; color:#374151;\">McKinsey &amp; Company, <em>The State of Organizations 2026</em> (enquête menée auprès de plus de 10 000 dirigeants dans 16 pays et 17 secteurs, juin&ndash;septembre 2025) ; Harvard Business Review, &laquo; What Are Your KPIs Really Measuring? &raquo;.</p>\n</div>\n<h2>Le paradoxe de la mesure</h2>\n<p>Les organisations n&rsquo;ont jamais eu autant d&rsquo;indicateurs à disposition. La performance, elle, ne suit pas. Selon <em>The State of Organizations 2026</em> de McKinsey, <strong>moins de 25% des organisations obtiennent une amélioration durable de leur performance</strong> — et ce, malgré des dispositifs de mesure de plus en plus complets et de plus en plus automatisés.</p>\n<p>La pression, elle, ne faiblit pas : toujours selon la même étude, <strong>43% des dirigeants</strong> placent la productivité en tête de leurs priorités, et <strong>61%</strong> déclarent subir une forte pression pour délivrer des gains. Autrement dit : on n&rsquo;a jamais autant mesuré, jamais autant attendu de résultats — et le taux de transformation réelle reste faible.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Ce que ça dit</p>\n<p style=\"margin:0; color:#374151;\">Le problème n&rsquo;est presque jamais le manque d&rsquo;indicateurs. C&rsquo;est l&rsquo;absence de décision attachée à chacun d&rsquo;eux.</p>\n</div>\n<h2>La chaîne s&rsquo;arrête avant la décision</h2>\n<p>Un indicateur suit presque toujours le même parcours dans une organisation : on le <strong>mesure</strong>, on le <strong>rapporte</strong>, on le <strong>commente</strong> en réunion — et là, très souvent, la chaîne s&rsquo;arrête. La quatrième étape, <strong>décider</strong>, n&rsquo;est outillée nulle part. Personne n&rsquo;a défini à l&rsquo;avance ce qui devait se produire si le chiffre sortait de sa zone acceptable.</p>\n<p>Le résultat est une organisation qui a l&rsquo;air de piloter : des tableaux de bord soignés, des revues régulières, des chiffres commentés avec sérieux. Mais entre le commentaire et l&rsquo;action, il n&rsquo;y a aucun mécanisme — seulement de la bonne volonté. Harvard Business Review formule le test de la manière la plus directe qui soit : un indicateur incapable de faire changer une décision n&rsquo;est pas un outil de pilotage, c&rsquo;est une ligne de reporting de plus.</p>\n<p>C&rsquo;est le prolongement direct du constat de notre article sur <a href=\"https://www.perfeco.nc/ressources/les-reunions-ne-remplacent-pas-le-pilotage\" style=\"color:#001D9F;\">les réunions et le pilotage</a> : un rituel bien tenu ne garantit rien sur ce qui en sort. Et de celui sur <a href=\"https://www.perfeco.nc/ressources/le-comex-manque-de-visibilite\" style=\"color:#001D9F;\">la visibilité du COMEX</a> : disposer d&rsquo;un chiffre fiable ne sert à rien s&rsquo;il ne déclenche aucun arbitrage.</p>\n<h2>4 conditions d&rsquo;un indicateur qui pilote vraiment</h2>\n<h3>1. Un propriétaire nommé</h3>\n<p>Une personne précise, pas une direction. &laquo; La DAF suit ce chiffre &raquo; n&rsquo;est pas un propriétaire — c&rsquo;est une zone de responsabilité diffuse. Si personne n&rsquo;est nommé, personne ne regarde vraiment, et l&rsquo;indicateur ne devient visible qu&rsquo;au moment où il est déjà trop tard.</p>\n<h3>2. Une date de revue fixée</h3>\n<p>Un créneau déjà posé dans les agendas, jamais &laquo; quand on aura le temps &raquo;. La fréquence compte moins que le fait qu&rsquo;elle soit réellement arrêtée : un indicateur revu tous les mois à date fixe pilote mieux qu&rsquo;un indicateur théoriquement suivi en continu et regardé deux fois par an.</p>\n<h3>3. Un seuil défini à l&rsquo;avance</h3>\n<p>Le niveau qui déclenche l&rsquo;alerte est fixé avant, pas négocié une fois le rouge atteint. C&rsquo;est la condition la plus souvent négligée — et la plus protectrice : quand le seuil est discuté au moment où on le franchit, il est presque toujours révisé à la hausse plutôt que traité.</p>\n<h3>4. Une décision pré-engagée</h3>\n<p>On sait déjà ce qu&rsquo;on fera si l&rsquo;indicateur vire au rouge : réallouer, arrêter, escalader, renforcer. Pas nécessairement dans le détail — mais la nature de la réponse est arrêtée d&rsquo;avance. Sans cela, l&rsquo;indicateur est décoratif, quel que soit le soin apporté à sa production.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">La règle</p>\n<p style=\"margin:0; color:#374151;\">Les quatre conditions valent ensemble. Il en manque une, et l&rsquo;indicateur redevient décoratif.</p>\n</div>\n<h2>Le test des 3 questions</h2>\n<p>C&rsquo;est l&rsquo;exercice le plus rentable que peut faire un comité de direction, et il ne prend pas plus d&rsquo;une heure. Prenez votre tableau de bord actuel, et passez <strong>chaque</strong> indicateur au test suivant :</p>\n<ol>\n<li><strong>Qui ?</strong> Quelle personne, nommément, regarde cet indicateur — et pas quelle direction ?</li>\n<li><strong>Quand ?</strong> À quelle date précise est-il revu, et ce créneau est-il déjà dans les agendas ?</li>\n<li><strong>Et alors ?</strong> Quelle décision se déclenche s&rsquo;il vire au rouge ? Si la réponse est &laquo; on en discutera &raquo;, il n&rsquo;y a pas de décision.</li>\n</ol>\n<p>Un indicateur qui échoue à une seule de ces trois questions ne pilote rien. Il a deux issues possibles : le supprimer, ou le réparer. Dans notre expérience, la majorité des tableaux de bord de COMEX sortent de cet exercice nettement allégés — et nettement plus utiles.</p>\n<p>Le gain n&rsquo;est pas cosmétique. Un tableau de bord réduit aux indicateurs qui déclenchent réellement une action rend les revues plus courtes, les arbitrages plus rapides, et surtout rend visible ce qui était jusque-là masqué par le volume : les quelques signaux qui comptent vraiment.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Question de diagnostic</p>\n<p style=\"margin:0; color:#374151;\">Sur votre dernier comité de direction : combien de vos indicateurs ont réellement déclenché une décision, et combien ont seulement été commentés ?</p>\n</div>\n<div style=\"background:#163D78; color:#fff; padding:24px 28px; margin:32px 0; border-radius:8px; text-align:center;\">\n<p style=\"margin:0 0 8px; font-weight:700; font-size:1.05em;\">Combien de vos indicateurs déclenchent une décision ?</p>\n<p style=\"margin:0 0 12px; color:rgba(255,255,255,0.8);\">PerfEco aide les directions générales à transformer un tableau de bord qui informe en un système qui fait décider — moins d&rsquo;indicateurs, un propriétaire par indicateur, des seuils fixés avant la crise.</p>\n<p style=\"margin:0; color:#FBAA16; font-weight:600;\">contact@perfeco.nc &middot; +687 73 08 75 &middot; <a href=\"https://www.perfeco.nc/\" style=\"color:#FBAA16;\">https://www.perfeco.nc/</a></p>\n</div>\n<div style=\"border-top:1px solid #e5e7eb; padding-top:24px; margin-top:32px;\">\n<p style=\"font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#9CA3AF; margin-bottom:12px;\">Série Exécution Stratégique</p>\n<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:12px;\">\n<div style=\"background:#f0f5ff; border-radius:8px; padding:14px; border:1px solid #c7d9f8;\">\n<p style=\"font-size:11px; color:#001D9F; font-weight:700; margin:0 0 4px;\">&#8592; Article précédent &middot; 6/8</p>\n<p style=\"font-size:13px; color:#163D78; font-weight:600; margin:0;\">Le COMEX manque souvent de visibilité</p>\n<p style=\"font-size:11px; color:#6B7280; margin:4px 0 0;\">11 août 2026</p>\n</p></div>\n<div style=\"background:#f9fafb; border-radius:8px; padding:14px;\">\n<p style=\"font-size:11px; color:#9CA3AF; font-weight:700; margin:0 0 4px;\">Article suivant &middot; 8/8 &#8594;</p>\n<p style=\"font-size:13px; color:#6B7280; font-weight:600; margin:0;\">Remettre l&rsquo;organisation au service de la stratégie</p>\n<p style=\"font-size:11px; color:#6B7280; margin:4px 0 0;\">25 août 2026</p>\n</p></div>\n</div>\n</div>\n",
-          "protected": false
-        },
-        "excerpt": {
-          "rendered": "<p>Moins de 25% des organisations obtiennent une amélioration durable de leur performance (McKinsey, The State of Organizations 2026). Mesurer n&rsquo;est pas piloter : ce qui fait la performance, ce n&rsquo;est pas l&rsquo;indicateur, c&rsquo;est la décision qu&rsquo;il déclenche.</p>\n",
-          "protected": false
-        },
-        "author": 1,
-        "featured_media": 0,
-        "comment_status": "closed",
-        "ping_status": "open",
-        "sticky": false,
-        "template": "",
-        "format": "standard",
-        "meta": {
-          "_exactmetrics_skip_tracking": false,
-          "footnotes": "",
-          "jetpack_publicize_message": "",
-          "jetpack_publicize_feature_enabled": false,
-          "jetpack_social_post_already_shared": true,
-          "jetpack_social_options": {
-            "image_generator_settings": {
-              "template": "highway",
-              "default_image_id": 0,
-              "font": "",
-              "enabled": false
-            },
-            "version": 2
-          },
-          "jetpack_post_was_ever_published": false
-        },
-        "categories": [
-          10
-        ],
-        "tags": [
-          20,
-          32,
-          16,
-          13,
-          18,
-          19,
-          26,
-          14,
-          21
-        ],
-        "class_list": [
-          "post-117",
-          "post",
-          "type-post",
-          "status-publish",
-          "format-standard",
-          "hentry",
-          "category-pilotage",
-          "tag-comex",
-          "tag-execution",
-          "tag-leadership",
-          "tag-management",
-          "tag-nouvelle-caledonie",
-          "tag-pacifique",
-          "tag-perfeco",
-          "tag-performance",
-          "tag-pilotage"
-        ],
-        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Les KPI ne font pas la performance - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Les KPI ne font pas la performance - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Moins de 25% des organisations obtiennent une amélioration durable de leur performance (McKinsey, The State of Organizations 2026). Mesurer n&#039;est pas piloter : ce qui fait la performance, ce n&#039;est pas l&#039;indicateur, c&#039;est la décision qu&#039;il déclenche.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-08-18T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"5 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-kpi-ne-font-pas-la-performance\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-kpi-ne-font-pas-la-performance\\/\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Les KPI ne font pas la performance\",\"datePublished\":\"2026-08-18T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-kpi-ne-font-pas-la-performance\\/\"},\"wordCount\":1021,\"keywords\":[\"COMEX\",\"Exécution\",\"Leadership\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Performance\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-kpi-ne-font-pas-la-performance\\/\",\"url\":\"https:\\/\\/perfsystemique.fr\\/les-kpi-ne-font-pas-la-performance\\/\",\"name\":\"Les KPI ne font pas la performance - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-08-18T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-kpi-ne-font-pas-la-performance\\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/les-kpi-ne-font-pas-la-performance\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/les-kpi-ne-font-pas-la-performance\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Les KPI ne font pas la performance\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
-        "yoast_head_json": {
-          "title": "Les KPI ne font pas la performance - Perfsystemique.fr",
-          "robots": {
-            "index": "index",
-            "follow": "follow",
-            "max-snippet": "max-snippet:-1",
-            "max-image-preview": "max-image-preview:large",
-            "max-video-preview": "max-video-preview:-1"
-          },
-          "canonical": "https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/",
-          "og_locale": "fr_FR",
-          "og_type": "article",
-          "og_title": "Les KPI ne font pas la performance - Perfsystemique.fr",
-          "og_description": "Moins de 25% des organisations obtiennent une amélioration durable de leur performance (McKinsey, The State of Organizations 2026). Mesurer n'est pas piloter : ce qui fait la performance, ce n'est pas l'indicateur, c'est la décision qu'il déclenche.",
-          "og_url": "https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/",
-          "og_site_name": "Perfsystemique.fr",
-          "article_publisher": "https://www.facebook.com/PerfecoNC/",
-          "article_published_time": "2026-08-18T00:03:00+00:00",
-          "author": "Jean-Michel Blaise",
-          "twitter_card": "summary_large_image",
-          "twitter_misc": {
-            "Écrit par": "Jean-Michel Blaise",
-            "Durée de lecture estimée": "5 minutes"
-          },
-          "schema": {
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Article",
-                "@id": "https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/#article",
-                "isPartOf": {
-                  "@id": "https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/"
-                },
-                "author": {
-                  "name": "Jean-Michel Blaise",
-                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
-                },
-                "headline": "Les KPI ne font pas la performance",
-                "datePublished": "2026-08-18T00:03:00+00:00",
-                "mainEntityOfPage": {
-                  "@id": "https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/"
-                },
-                "wordCount": 1021,
-                "keywords": [
-                  "COMEX",
-                  "Exécution",
-                  "Leadership",
-                  "Management",
-                  "Nouvelle-Calédonie",
-                  "Pacifique",
-                  "PerfEco",
-                  "Performance",
-                  "Pilotage"
-                ],
-                "articleSection": [
-                  "Pilotage"
-                ],
-                "inLanguage": "fr-FR"
-              },
-              {
-                "@type": "WebPage",
-                "@id": "https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/",
-                "url": "https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/",
-                "name": "Les KPI ne font pas la performance - Perfsystemique.fr",
-                "isPartOf": {
-                  "@id": "https://perfsystemique.fr/#website"
-                },
-                "datePublished": "2026-08-18T00:03:00+00:00",
-                "author": {
-                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
-                },
-                "breadcrumb": {
-                  "@id": "https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/#breadcrumb"
-                },
-                "inLanguage": "fr-FR",
-                "potentialAction": [
-                  {
-                    "@type": "ReadAction",
-                    "target": [
-                      "https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/"
-                    ]
-                  }
-                ]
-              },
-              {
-                "@type": "BreadcrumbList",
-                "@id": "https://perfsystemique.fr/les-kpi-ne-font-pas-la-performance/#breadcrumb",
-                "itemListElement": [
-                  {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Accueil",
-                    "item": "https://perfsystemique.fr/"
-                  },
-                  {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Les KPI ne font pas la performance"
-                  }
-                ]
-              },
-              {
-                "@type": "WebSite",
-                "@id": "https://perfsystemique.fr/#website",
-                "url": "https://perfsystemique.fr/",
-                "name": "Perfsystemique.fr",
-                "description": "Aligner stratégie, organisation, finance et opérations pour une performance durable",
-                "potentialAction": [
-                  {
-                    "@type": "SearchAction",
-                    "target": {
-                      "@type": "EntryPoint",
-                      "urlTemplate": "https://perfsystemique.fr/?s={search_term_string}"
-                    },
-                    "query-input": {
-                      "@type": "PropertyValueSpecification",
-                      "valueRequired": true,
-                      "valueName": "search_term_string"
-                    }
-                  }
-                ],
-                "inLanguage": "fr-FR"
-              },
-              {
-                "@type": "Person",
-                "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953",
-                "name": "Jean-Michel Blaise",
-                "image": {
-                  "@type": "ImageObject",
-                  "inLanguage": "fr-FR",
-                  "@id": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
-                  "url": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
-                  "contentUrl": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
-                  "caption": "Jean-Michel Blaise"
-                },
-                "sameAs": [
-                  "http://perfsystemique.fr"
-                ],
-                "url": "https://perfsystemique.fr/author/admin7804/"
-              }
-            ]
-          }
-        },
-        "jetpack_publicize_connections": [
-          {
-            "id": "32089949",
-            "username": "Jean-Michel  Blaise",
-            "connection_id": "25897449",
-            "display_name": "Jean-Michel  Blaise",
-            "external_handle": "",
-            "external_id": "C7Z6Ry4olO",
-            "profile_link": "https://www.linkedin.com/in/jean-michel-blaise-2867a337b",
-            "profile_picture": "https://media.licdn.com/dms/image/v2/D5603AQFuhUnwnN4zyw/profile-displayphoto-shrink_100_100/B56ZjFQ5KLHAAU-/0/1755656197004?e=1784160000&v=beta&t=z4L4H1kLLPGpvEUC3fnGD_Uj16COBPlF3NJEszZZa_I",
-            "service_label": "LinkedIn",
-            "service_name": "linkedin",
-            "shared": true,
-            "template": "",
-            "wpcom_user_id": 0
-          },
-          {
-            "id": "32089959",
-            "username": "PerfEco Consulting NC",
-            "connection_id": "25897454",
-            "display_name": "PerfEco Consulting NC",
-            "external_handle": "",
-            "external_id": "552866114572775",
-            "profile_link": "https://www.facebook.com/552866114572775",
-            "profile_picture": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=WjV80GN4LskQ7kNvwGr0WmD&_nc_oc=AdpF8-okuH4g5f1iRSbQoHSy6Dp5zSA5tCiotez3sb6sS_q0acinpVv_AdBHVSoDhl8&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&edm=AGaHXAAEAAAA&_nc_gid=M-_OnjaKWfhGtGSHAkXDVg&_nc_tpa=Q5bMBQL5W--agSVXWiTlLSm2aNXN4sJw-T9zkJhTbSc5kF1csRlVKhAPGwlJeEDMjGxo-rJbBIYM&oh=00_AQFkrGmsDaNEWdc_BZMqDaUPUChyrCStF_be9DBtDAtbAA&oe=6A902D5B",
-            "service_label": "Facebook",
-            "service_name": "facebook",
-            "shared": true,
-            "template": "",
-            "wpcom_user_id": 0
-          }
-        ],
-        "jetpack_featured_media_url": "",
-        "jetpack-related-posts": [],
-        "_links": {
-          "self": [
-            {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/117",
-              "targetHints": {
-                "allow": [
-                  "GET",
-                  "POST",
-                  "PUT",
-                  "PATCH",
-                  "DELETE"
-                ]
-              }
-            }
-          ],
-          "collection": [
-            {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts"
-            }
-          ],
-          "about": [
-            {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/types/post"
-            }
-          ],
-          "author": [
-            {
-              "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/users/1"
-            }
-          ],
-          "replies": [
-            {
-              "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=117"
-            }
-          ],
-          "version-history": [
-            {
-              "count": 2,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/117/revisions"
-            }
-          ],
-          "predecessor-version": [
-            {
-              "id": 121,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/117/revisions/121"
-            }
-          ],
-          "wp:attachment": [
-            {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=117"
-            }
-          ],
-          "wp:term": [
-            {
-              "taxonomy": "category",
-              "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=117"
-            },
-            {
-              "taxonomy": "post_tag",
-              "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=117"
-            }
-          ],
-          "curies": [
-            {
-              "name": "wp",
-              "href": "https://api.w.org/{rel}",
-              "templated": true
-            }
-          ]
-        }
-      }
-    ],
-    "upcoming": [
       {
         "id": 119,
         "date": "2026-08-25T11:03:00",
@@ -350,9 +15,9 @@
         "modified": "2026-08-17T18:41:02",
         "modified_gmt": "2026-08-17T07:41:02",
         "slug": "remettre-organisation-au-service-strategie",
-        "status": "future",
+        "status": "publish",
         "type": "post",
-        "link": "https://perfsystemique.fr/?p=119",
+        "link": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/",
         "title": {
           "rendered": "Remettre l&rsquo;organisation au service de la stratégie"
         },
@@ -376,7 +41,7 @@
           "footnotes": "",
           "jetpack_publicize_message": "",
           "jetpack_publicize_feature_enabled": false,
-          "jetpack_social_post_already_shared": false,
+          "jetpack_social_post_already_shared": true,
           "jetpack_social_options": {
             "image_generator_settings": {
               "template": "highway",
@@ -406,7 +71,7 @@
           "post-119",
           "post",
           "type-post",
-          "status-future",
+          "status-publish",
           "format-standard",
           "hentry",
           "category-organisation",
@@ -420,7 +85,7 @@
           "tag-perfeco",
           "tag-strategie"
         ],
-        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Remettre l&#039;organisation au service de la stratégie - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/?p=119\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Remettre l&#039;organisation au service de la stratégie - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Fin de la série Exécution Stratégique. Sept constats, une seule cause : l&#039;organisation est construite pour fonctionner, pas pour exécuter. Les 4 alignements à traiter — décider, rythmer, voir, mesurer — dans cet ordre.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/?p=119\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-08-25T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"5 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=119#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=119\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Remettre l&rsquo;organisation au service de la stratégie\",\"datePublished\":\"2026-08-25T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=119\"},\"wordCount\":914,\"keywords\":[\"COMEX\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Organisation\",\"Pacifique\",\"PerfEco\",\"Stratégie\"],\"articleSection\":[\"Organisation\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=119\",\"url\":\"https:\\/\\/perfsystemique.fr\\/?p=119\",\"name\":\"Remettre l'organisation au service de la stratégie - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-08-25T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=119#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/?p=119\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=119#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Remettre l&rsquo;organisation au service de la stratégie\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Remettre l&#039;organisation au service de la stratégie - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/remettre-organisation-au-service-strategie/\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Remettre l&#039;organisation au service de la stratégie - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Fin de la série Exécution Stratégique. Sept constats, une seule cause : l&#039;organisation est construite pour fonctionner, pas pour exécuter. Les 4 alignements à traiter — décider, rythmer, voir, mesurer — dans cet ordre.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/remettre-organisation-au-service-strategie/\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-08-25T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"5 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Remettre l&rsquo;organisation au service de la stratégie\",\"datePublished\":\"2026-08-25T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/\"},\"wordCount\":914,\"keywords\":[\"COMEX\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Organisation\",\"Pacifique\",\"PerfEco\",\"Stratégie\"],\"articleSection\":[\"Organisation\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/\",\"url\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/\",\"name\":\"Remettre l'organisation au service de la stratégie - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-08-25T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Remettre l&rsquo;organisation au service de la stratégie\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
         "yoast_head_json": {
           "title": "Remettre l'organisation au service de la stratégie - Perfsystemique.fr",
           "robots": {
@@ -430,12 +95,12 @@
             "max-image-preview": "max-image-preview:large",
             "max-video-preview": "max-video-preview:-1"
           },
-          "canonical": "https://perfsystemique.fr/?p=119",
+          "canonical": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/",
           "og_locale": "fr_FR",
           "og_type": "article",
           "og_title": "Remettre l'organisation au service de la stratégie - Perfsystemique.fr",
           "og_description": "Fin de la série Exécution Stratégique. Sept constats, une seule cause : l'organisation est construite pour fonctionner, pas pour exécuter. Les 4 alignements à traiter — décider, rythmer, voir, mesurer — dans cet ordre.",
-          "og_url": "https://perfsystemique.fr/?p=119",
+          "og_url": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/",
           "og_site_name": "Perfsystemique.fr",
           "article_publisher": "https://www.facebook.com/PerfecoNC/",
           "article_published_time": "2026-08-25T00:03:00+00:00",
@@ -450,9 +115,9 @@
             "@graph": [
               {
                 "@type": "Article",
-                "@id": "https://perfsystemique.fr/?p=119#article",
+                "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/#article",
                 "isPartOf": {
-                  "@id": "https://perfsystemique.fr/?p=119"
+                  "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/"
                 },
                 "author": {
                   "name": "Jean-Michel Blaise",
@@ -461,7 +126,7 @@
                 "headline": "Remettre l&rsquo;organisation au service de la stratégie",
                 "datePublished": "2026-08-25T00:03:00+00:00",
                 "mainEntityOfPage": {
-                  "@id": "https://perfsystemique.fr/?p=119"
+                  "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/"
                 },
                 "wordCount": 914,
                 "keywords": [
@@ -482,8 +147,8 @@
               },
               {
                 "@type": "WebPage",
-                "@id": "https://perfsystemique.fr/?p=119",
-                "url": "https://perfsystemique.fr/?p=119",
+                "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/",
+                "url": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/",
                 "name": "Remettre l'organisation au service de la stratégie - Perfsystemique.fr",
                 "isPartOf": {
                   "@id": "https://perfsystemique.fr/#website"
@@ -493,21 +158,21 @@
                   "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
                 },
                 "breadcrumb": {
-                  "@id": "https://perfsystemique.fr/?p=119#breadcrumb"
+                  "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/#breadcrumb"
                 },
                 "inLanguage": "fr-FR",
                 "potentialAction": [
                   {
                     "@type": "ReadAction",
                     "target": [
-                      "https://perfsystemique.fr/?p=119"
+                      "https://perfsystemique.fr/remettre-organisation-au-service-strategie/"
                     ]
                   }
                 ]
               },
               {
                 "@type": "BreadcrumbList",
-                "@id": "https://perfsystemique.fr/?p=119#breadcrumb",
+                "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/#breadcrumb",
                 "itemListElement": [
                   {
                     "@type": "ListItem",
@@ -588,7 +253,7 @@
             "external_handle": "",
             "external_id": "552866114572775",
             "profile_link": "https://www.facebook.com/552866114572775",
-            "profile_picture": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=WjV80GN4LskQ7kNvwGr0WmD&_nc_oc=AdpF8-okuH4g5f1iRSbQoHSy6Dp5zSA5tCiotez3sb6sS_q0acinpVv_AdBHVSoDhl8&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&edm=AGaHXAAEAAAA&_nc_gid=M-_OnjaKWfhGtGSHAkXDVg&_nc_tpa=Q5bMBQL5W--agSVXWiTlLSm2aNXN4sJw-T9zkJhTbSc5kF1csRlVKhAPGwlJeEDMjGxo-rJbBIYM&oh=00_AQFkrGmsDaNEWdc_BZMqDaUPUChyrCStF_be9DBtDAtbAA&oe=6A902D5B",
+            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=Hq5pYCmm5xgQ7kNvwEINfOM&_nc_oc=AdpJ3TTTik9tQ0RhpHAlq48JPAjavgCrlUPOSEUcwI4jjd_4nn7EIDrUWwLqOOe9H38&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=BGGQzvUdd4cKDBBLn5WQyg&_nc_tpa=Q5bMBQJGZGV6Csu-sl5WZBcDiq2-U34W-NhKqsjA0p8Bid4DMwLmS3d00gpcUSz9S4-kOP2IzS5F&oh=00_AQIZGUu-dJLiZwvZhhPF6OKhsO41rFv2t0o2K-aulDpKTA&oe=6A9B621B",
             "service_label": "Facebook",
             "service_name": "facebook",
             "shared": true,
@@ -673,7 +338,8 @@
           ]
         }
       }
-    ]
+    ],
+    "upcoming": []
   },
   "ga4": {
     "ga4_perfeco": {
@@ -694,6 +360,6 @@
   "facebook": {
     "fan_count": 51,
     "page_post_engagements_week": 0,
-    "page_views_week": 23
+    "page_views_week": 4
   }
 }
