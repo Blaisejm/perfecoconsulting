@@ -254,11 +254,11 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "annule",
+                             "statut":  "publie",
                              "source":  "automation-queue/vendredi.json",
                              "bascule":  "perfeco-bascule-vendredi-28082026 — samedi 22/08 09:00 NC",
-                             "preuve":  "message 1662 car., visuels HTTP 200, commits b8c33ce puis 17cd011",
-                             "note":  "ARBITRAGE CLOS le 21/08 : accroche reecrite sur les chiffres du tourisme (17 000 visiteurs T2 2026, +37 %, 61 % du niveau 2023 - ISEE publie le 13/08), validee par Jean-Michel. Les chiffres emploi/creations (77 640 salaries, 1 132 activites) ont ete retires : ils avaient ete servis aux memes audiences le 21/08 par un post hors pipeline. Visuel inchange (aucun chiffre : Plus d activite. Plus de dossiers. Autant de bras qu avant.). | 28/08 16h40 NC perfeco-verif-github-actions : NON PARTI — publish-vendredi-veille-eco.yml n\u0027a AUCUN run aujourd\u0027hui alors que son cron \u00270 0 * * 5\u0027 devait le declencher a 11h00 NC (5h40 de retard au moment du controle). Le contenu est sain : vendredi.json porte date_prevue 2026-08-28 et son visuel W34 repond HTTP 200. Deuxieme derapage de cron consecutif apres le jeudi 27/08 (+8h56). Declenchement manuel (workflow_dispatch) ou report : arbitrage rendu a Jean-Michel. | 29/08 09h NC perfeco-rappel-quotidien : FENETRE DE RATTRAPAGE FERMEE. Le workflow porte un cron de repli le samedi (0 0 * * 6, prevu pour les vendredis feries) qui aurait pu servir aujourd\u0027hui a 11h00 NC, mais la bascule de 09h00 a occupe vendredi.json avec le contenu du 04/09 : le repli sortira en \u0027rien a publier\u0027. Contenu NON PERDU (vendredi-2026-08-28-pret.json versionne, 2039 car., visuel W34/00-facebook-couverture-plan-de-charge.png verifie HTTP 200 ce matin) : republiable a tout moment sur decision de Jean-Michel. Arbitrage rendu hier soir toujours sans reponse ; trois options portees au tableau de bord (abandon / republication sur un creneau libre / fusion dans la veille du 11/09). | 03/09 08h NC — DECISION DE JEAN-MICHEL : cette edition est SUPPRIMEE. L\u0027arbitrage ouvert depuis le 28/08 est clos. Le contenu (accroche tourisme ISEE T2 2026 : 17 000 visiteurs au T2, +37 %, 61 % du niveau 2023) n\u0027est pas perdu et doit etre REPRIS POUR LA PROCHAINE EDITION, soit le vendredi 11/09 — le 04/09 etant deja charge avec la filiere nickel et diffuse demain. Le fichier de staging vendredi-2026-08-28-pret.json est CONSERVE a cette fin : ne pas le supprimer comme un residu tant que le 11/09 n\u0027est pas produit."
+                             "preuve":  "LinkedIn Company Page 7 impressions et profil perso 69 impressions ; tableau \u0027Interactions avec le contenu\u0027 de l\u0027admin Company : « Publie par jean-michel Blaise 28/08/2026 ». Verifie de visu le 03/09/2026.",
+                             "note":  "ARBITRAGE CLOS le 21/08 : accroche reecrite sur les chiffres du tourisme (17 000 visiteurs T2 2026, +37 %, 61 % du niveau 2023 - ISEE publie le 13/08), validee par Jean-Michel. Les chiffres emploi/creations (77 640 salaries, 1 132 activites) ont ete retires : ils avaient ete servis aux memes audiences le 21/08 par un post hors pipeline. Visuel inchange (aucun chiffre : Plus d activite. Plus de dossiers. Autant de bras qu avant.). | 28/08 16h40 NC perfeco-verif-github-actions : NON PARTI — publish-vendredi-veille-eco.yml n\u0027a AUCUN run aujourd\u0027hui alors que son cron \u00270 0 * * 5\u0027 devait le declencher a 11h00 NC (5h40 de retard au moment du controle). Le contenu est sain : vendredi.json porte date_prevue 2026-08-28 et son visuel W34 repond HTTP 200. Deuxieme derapage de cron consecutif apres le jeudi 27/08 (+8h56). Declenchement manuel (workflow_dispatch) ou report : arbitrage rendu a Jean-Michel. | 29/08 09h NC perfeco-rappel-quotidien : FENETRE DE RATTRAPAGE FERMEE. Le workflow porte un cron de repli le samedi (0 0 * * 6, prevu pour les vendredis feries) qui aurait pu servir aujourd\u0027hui a 11h00 NC, mais la bascule de 09h00 a occupe vendredi.json avec le contenu du 04/09 : le repli sortira en \u0027rien a publier\u0027. Contenu NON PERDU (vendredi-2026-08-28-pret.json versionne, 2039 car., visuel W34/00-facebook-couverture-plan-de-charge.png verifie HTTP 200 ce matin) : republiable a tout moment sur decision de Jean-Michel. Arbitrage rendu hier soir toujours sans reponse ; trois options portees au tableau de bord (abandon / republication sur un creneau libre / fusion dans la veille du 11/09). | 03/09 08h NC — DECISION DE JEAN-MICHEL : cette edition est SUPPRIMEE. L\u0027arbitrage ouvert depuis le 28/08 est clos. Le contenu (accroche tourisme ISEE T2 2026 : 17 000 visiteurs au T2, +37 %, 61 % du niveau 2023) n\u0027est pas perdu et doit etre REPRIS POUR LA PROCHAINE EDITION, soit le vendredi 11/09 — le 04/09 etant deja charge avec la filiere nickel et diffuse demain. Le fichier de staging vendredi-2026-08-28-pret.json est CONSERVE a cette fin : ne pas le supprimer comme un residu tant que le 11/09 n\u0027est pas produit. | 03/09 19h NC perfeco-rappel-quotidien : STATUT CORRIGE (annule -\u003e publie). Cette entree etait tenue pour « jamais partie » depuis le 28/08, sur la seule foi de l\u0027absence de run GitHub Actions ce jour-la, puis passee en « annule » le 03/09 au matin. La verification directe sur LinkedIn montre qu\u0027elle a bien ete publiee sur les deux canaux. Explication la plus probable : le cron de repli du samedi 29/08 l\u0027a publiee, precisement parce que la bascule du 29/08 09h00 n\u0027avait PAS pousse — le depot portait donc encore date_prevue 2026-08-28 quand le workflow l\u0027a lu. L\u0027echec de la bascule a sauve la publication."
                          },
                          {
                              "id":  "2026-09-01-mardi",
@@ -338,56 +338,56 @@
                              "date_nc":  "2026-09-08",
                              "heure_nc":  "11:00",
                              "format":  "mardi",
-                             "libelle":  "Post long / carrousel — Serie 2, episode 2/8",
-                             "sujet":  "Choisir les 3-5 indicateurs qui comptent (2/8)",
-                             "semaine":  null,
+                             "libelle":  "Carrousel — Le Rythme de Pilotage 2/8",
+                             "sujet":  "Choisir les 3 a 5 indicateurs qui comptent — trois questions pour trier, et la regle « un entre, un sort »",
+                             "semaine":  "W36",
                              "canaux":  [
                                             "linkedin_company",
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_file",
+                             "source":  "automation-queue/mardi.json",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  "03/09 19h NC perfeco-rappel-quotidien : PRODUIT INTEGRALEMENT par l\u0027etape 1quater, a J-5. mardi-carrousel-creation s\u0027est declenchee le 31/08 et n\u0027a produit qu\u0027une seule image avant de mourir (w36-cover-choisir-indicateurs-01.png, 11h37), sans article, sans slide, sans file — 3e echec consecutif. Livre : 7 slides deployees et verifiees HTTP 200, articles perfeco.nc FR + EN en ligne (200), automation-queue/mardi.json en file (2 319 car.), article perfsystemique.fr #127 programme au 08/09 11h03 NC avec auto-partage Jetpack neutralise. Commits 255ec2d et suivants."
                          },
                          {
                              "id":  "2026-09-10-jeudi",
                              "date_nc":  "2026-09-10",
                              "heure_nc":  "11:00",
                              "format":  "jeudi",
-                             "libelle":  "Post court",
-                             "sujet":  "a definir (suit l episode 2/8)",
-                             "semaine":  null,
+                             "libelle":  "Post court — Le Rythme de Pilotage 2/8",
+                             "sujet":  "« Un entre, un sort » : donner une porte de sortie au tableau de bord",
+                             "semaine":  "W36",
                              "canaux":  [
                                             "linkedin_company",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_staging",
+                             "source":  "automation-queue/jeudi-W36-pret.json",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  "03/09 19h NC perfeco-rappel-quotidien : PRODUIT par l\u0027etape 1quater a J-7 (jeudi-postcourt-creation n\u0027avait rien produit). En staging jeudi-W36-pret.json (1 406 car., visuel W36/04-trois-questions.png). Premier angle ecarte apres verification : le post court du 20/08 traitait deja le « test des 3 questions » sur les indicateurs, dont « qui le regarde, nommement ». Bascule par perfeco-bascule-w36-05092026, samedi 05/09 18h00 NC, APRES la republication Facebook de 15h30 qui relit jeudi.json et exige encore la date du 03/09."
                          },
                          {
                              "id":  "2026-09-11-vendredi",
                              "date_nc":  "2026-09-11",
                              "heure_nc":  "11:00",
                              "format":  "vendredi",
-                             "libelle":  "Veille economique NC",
-                             "sujet":  "Reprise de l\u0027accroche tourisme (ISEE T2 2026) — edition du 28/08 supprimee et reportee",
-                             "semaine":  null,
+                             "libelle":  "Veille economique — IPC juillet 2026",
+                             "sujet":  "Inflation a +1,1 % sur un an, mais 21 points d\u0027ecart entre l\u0027energie (+18,6 %) et les produits manufactures (-2,9 %) : construire son propre indice plutot que d\u0027indexer sur la moyenne",
+                             "semaine":  "HS-veille-eco-ipc-ecarts",
                              "canaux":  [
                                             "linkedin_company",
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_staging",
+                             "source":  "automation-queue/vendredi-2026-09-11-pret.json",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "03/09 08h NC perfeco-verif-github-actions — DECISION DE JEAN-MICHEL : la veille eco du 28/08 ayant ete supprimee, son contenu est repris ici. Source deja redigee et validee : automation-queue/vendredi-2026-08-28-pret.json (2 039 car.), visuel W34/00-facebook-couverture-plan-de-charge.png verifie HTTP 200. A RELIRE AVANT REPRISE : les chiffres ISEE du T2 2026 auront pres d\u0027un mois, verifier qu\u0027aucune publication intermediaire n\u0027a resservi les memes donnees aux memes audiences (c\u0027est ce qui avait deja impose la reecriture du 21/08). Production attendue a J-8, soit le 03/09."
+                             "note":  "03/09 08h NC perfeco-verif-github-actions — DECISION DE JEAN-MICHEL : la veille eco du 28/08 ayant ete supprimee, son contenu est repris ici. Source deja redigee et validee : automation-queue/vendredi-2026-08-28-pret.json (2 039 car.), visuel W34/00-facebook-couverture-plan-de-charge.png verifie HTTP 200. A RELIRE AVANT REPRISE : les chiffres ISEE du T2 2026 auront pres d\u0027un mois, verifier qu\u0027aucune publication intermediaire n\u0027a resservi les memes donnees aux memes audiences (c\u0027est ce qui avait deja impose la reecriture du 21/08). Production attendue a J-8, soit le 03/09. | 03/09 19h NC perfeco-rappel-quotidien : SUJET REMPLACE. La reprise du contenu du 28/08, decidee le 03/09 au matin, est abandonnee — cette veille eco a bien ete publiee le 28/08 (voir l\u0027entree correspondante), la republier serait un doublon a trois semaines d\u0027intervalle sur les memes audiences. Contenu neuf produit le 03/09 (1 841 car.), visuel dedie W36/00-facebook-ipc-ecarts.png (HTTP 200), en staging vendredi-2026-09-11-pret.json. Le staging vendredi-2026-08-28-pret.json n\u0027a plus d\u0027usage et peut etre supprime."
                          },
                          {
                              "id":  "2026-09-15-mardi",
