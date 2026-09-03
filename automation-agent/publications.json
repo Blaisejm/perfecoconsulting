@@ -291,10 +291,10 @@
                                             "linkedin_company",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "publie",
                              "source":  "automation-queue/jeudi.json",
                              "bascule":  "perfeco-bascule-jeudi-03092026 — samedi 29/08 18:00 NC",
-                             "preuve":  null,
+                             "preuve":  "Run GitHub 33713885966 du 03/09 04:07 UTC : webhook Make 4 operations a 04:07:40Z (LinkedIn Company + Facebook, profil perso exclu). Confirme par check-apres-publication.yml du 03/09 07:53 UTC : « Toutes les publications attendues aujourd hui sont confirmees, sur les bons canaux ». Statut inscrit par perfeco-verif-github-actions le 03/09.",
                              "note":  "Produit le 26/08 par jeudi-postcourt-creation (J-8). Staging automation-queue/jeudi-W35-pret.json, commit 5252c84, 1 257 car., schema social_post seul. Angle : zoom sur le SEUL 4e marqueur (relire les decisions de la seance precedente, 2 min en ouverture), volontairement pas sur les quatre — les jeudis du 30/07, 13/08 et 27/08 ont deja servi trois listes de quatre d affilee. Bascule programmee SAMEDI 18h00 et non vendredi : publish-samedi-republication-facebook.yml relit jeudi.json le samedi a 15h30 et exige qu il porte encore la date du 27/08. ATTENTION VISUEL EN 404 au 26/08 : W35/04-un-rythme-quatre-choses.png non deploye, deploiements Netlify en echec malgre le correctif netlify.toml (commit 92d45eb) ; redeploiement par API refuse (Forbidden). Meme blocage que le mardi 01/09 et le vendredi 04/09. Action Jean-Michel : crédits de build Netlify. | 31/08 07h30 NC perfeco-rappel-quotidien : DEUX POINTS LEVES. (1) VISUEL EN LIGNE : W35/04-un-rythme-quatre-choses.png repond HTTP 200, l\u0027alerte 404 du 26/08 est caduque. (2) BASCULE REPAREE : perfeco-bascule-jeudi-03092026 s\u0027est declenchee le 31/08 07h28 NC en rattrapage (37h de retard), n\u0027a RIEN ecrit, puis s\u0027est desactivee comme accomplie — jeudi.json restait sur date_prevue 2026-08-27 (W34) en local ET sur origin/main. Sans reparation, publish-jeudi-post-court.yml aurait abandonne le 03/09 sur date perimee. Staging recopie, 4 champs controles, commit be5b6a3 pousse et verifie sur origin/main. 3e echec de bascule sur 3 en dix jours : mecanisme a deplacer vers GitHub Actions (arbitrage porte au tableau de bord)."
                          },
                          {
