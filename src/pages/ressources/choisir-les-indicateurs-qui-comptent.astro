@@ -1,0 +1,200 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base
+  title="Choisir les 3 à 5 indicateurs qui comptent"
+  description="Un tableau de bord ne souffre pas d'un indicateur manquant, mais de trente-cinq indicateurs de trop. Les trois questions qui décident si une ligne reste ou sort, et la règle qui empêche le tableau de regrossir."
+  canonicalOverride="https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/"
+>
+  <Nav langAlternate="/en/resources/choosing-the-few-metrics-that-matter" />
+  <main class="pt-16">
+
+    <!-- Hero article -->
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="text-xs bg-teal/20 text-teal font-medium px-3 py-1 rounded-full">Pilotage</span>
+          <span class="text-xs bg-teal/20 text-teal font-medium px-3 py-1 rounded-full">Indicateurs</span>
+          <span class="text-xs bg-teal/20 text-teal font-medium px-3 py-1 rounded-full">Gouvernance</span>
+          <time class="text-xs text-gray-400" datetime="2026-09-08">8 septembre 2026</time>
+        </div>
+        <p class="text-sm text-amber-400 font-semibold mb-3 uppercase tracking-widest">Série Le Rythme de Pilotage · 2/8</p>
+        <h1 class="text-3xl sm:text-4xl font-bold mb-6 leading-snug">
+          Ajouter, c'est facile.<br>Retirer, c'est décider.
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Chaque ligne de votre tableau de bord est entrée pour une bonne raison. Aujourd'hui il y en a quarante, et le comité dure toujours deux heures.
+        </p>
+        <!-- Auteur -->
+        <div class="flex items-center gap-3 mt-8 pt-6 border-t border-white/10">
+          <div>
+            <p class="text-sm font-semibold text-white">Jean-Michel Blaise</p>
+            <p class="text-xs text-gray-400">Fondateur — PerfEco Consulting NC</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bandeau version complète -->
+    <div class="bg-amber-50 border-b border-amber-200 py-3 px-4">
+      <div class="max-w-3xl mx-auto flex items-center justify-between gap-4 flex-wrap text-sm text-amber-800">
+        <span>📖 Cet article est une synthèse — <a href="https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/" target="_blank" rel="noopener" class="font-semibold underline hover:text-amber-900">Lire la version complète sur perfsystemique.fr →</a></span>
+        <a href="/en/resources/choosing-the-few-metrics-that-matter" class="text-amber-700 hover:text-amber-900 font-medium text-xs">🇬🇧 Read in English</a>
+      </div>
+    </div>
+
+    <!-- Contenu article -->
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-gray">
+
+        <p class="lead text-xl text-gray-700 font-medium">
+          Deuxième épisode de la série. Le premier posait le cadre : un rythme de pilotage, c'est un rendez-vous qui revient, qui est court, dont les décisions sont écrites, et qui commence par relire la fois d'avant. Reste à savoir de quoi on parle pendant ces trente minutes. C'est là que le tableau de bord entre en scène — et c'est là que la plupart des comités se noient.
+        </p>
+
+        <h2>Trois façons d'ajouter, aucune de retirer</h2>
+
+        <p>
+          Personne n'a décidé d'avoir quarante indicateurs. Ils se sont accumulés, chacun pour une raison valable, par trois portes d'entrée très ordinaires.
+        </p>
+
+        <p>
+          <strong>La refonte du tableau de bord.</strong> On repart d'une page blanche, on met tout au propre, on harmonise les formats. Le résultat est plus lisible qu'avant — et compte plus de lignes qu'avant, parce que la refonte a été l'occasion pour chacun de faire valoir ce qui lui manquait.
+        </p>
+
+        <p>
+          <strong>Le chiffre demandé en séance.</strong> Quelqu'un pose une question à laquelle personne ne sait répondre. L'indicateur est ajouté le soir même. Il est utile ce jour-là. Il ne ressortira plus jamais du tableau.
+        </p>
+
+        <p>
+          <strong>Le reporting mensuel.</strong> Chaque direction y ajoute sa page, par souci de transparence. Personne ne relit celle du voisin. Le document grossit et devient une archive plutôt qu'un outil.
+        </p>
+
+        <p>
+          Ces trois mécaniques sont saines. Le problème n'est pas là. <strong>Chaque ligne a une porte d'entrée ; aucune n'a de porte de sortie.</strong>
+        </p>
+
+        <h2>Pourquoi le tableau grossit toujours</h2>
+
+        <p>
+          Trois raisons, et aucune n'est une négligence.
+        </p>
+
+        <p>
+          <strong>Chaque ligne a un propriétaire.</strong> Celui qui l'a demandée la défend, et il a de bonnes raisons de le faire. Proposer de retirer son indicateur, en séance, ressemble à un jugement sur son travail. La conversation est désagréable, alors elle n'a pas lieu.
+        </p>
+
+        <p>
+          <strong>On ajoute pour être tranquille.</strong> Un chiffre de plus coûte cinq minutes de paramétrage et supprime un risque : celui de ne pas l'avoir le jour où on le demandera. Le retirer coûte une conversation. L'asymétrie fait le reste.
+        </p>
+
+        <p>
+          <strong>Enlever n'est le travail de personne.</strong> Ajouter se fait en séance, en une phrase. Retirer suppose une décision explicite que rien n'inscrit à l'ordre du jour. Ce n'est au programme d'aucune réunion — donc ça n'arrive jamais.
+        </p>
+
+        <p>
+          Le résultat est connu : un comité qui passe l'essentiel de son temps à commenter des variations plutôt qu'à trancher. <strong>Un tableau de bord ne se juge pas au nombre de choses qu'il montre, mais au nombre de décisions qu'il déclenche.</strong>
+        </p>
+
+        <h2>Trois questions, et la ligne reste ou sort</h2>
+
+        <p>
+          Le tri se fait indicateur par indicateur, avec trois questions courtes. Une seule réponse manquante suffit à faire sortir la ligne.
+        </p>
+
+        <ol>
+          <li><strong>À quelle décision sert-elle ?</strong> Nommez la décision précise que cet indicateur déclenche. Pas « il nous éclaire » : quelle décision, prise par qui. Si aucune ne vient, la ligne sort.</li>
+          <li><strong>Qui la regarde, nommément ?</strong> Un nom, pas une direction. Si personne ne se lève quand on pose la question, la ligne sort.</li>
+          <li><strong>Que fait-on quand elle bouge ?</strong> L'action doit être écrite d'avance, au moins dans ses grandes lignes. Sinon ce n'est pas un indicateur de pilotage : c'est une information, et sa place est dans une annexe.</li>
+        </ol>
+
+        <p>
+          Ce tri ramène presque toujours un tableau de quarante lignes à moins de dix. Mais il ne tient pas tout seul : six mois plus tard, les mêmes portes d'entrée auront refait leur travail. D'où une quatrième règle, qui n'est pas une question mais un engagement.
+        </p>
+
+        <p>
+          <strong>Un entre, un sort.</strong> Toute nouvelle ligne en remplace une existante. Le tableau garde sa taille, et l'arbitrage se fait au moment de l'ajout — c'est-à-dire au moment où l'on est encore capable de le faire.
+        </p>
+
+        <h2>Par où commencer</h2>
+
+        <p>
+          Vous avez probablement déjà refondu ce tableau, peut-être plus d'une fois. Vous avez eu raison : il fallait bien y voir clair, et une refonte apporte réellement de la lisibilité. Ce qui a manqué n'était pas une meilleure maquette. C'était le droit d'enlever — et personne ne se l'accorde spontanément.
+        </p>
+
+        <p>Trois questions pour situer où vous en êtes :</p>
+
+        <ol>
+          <li><strong>Le test du dernier comité.</strong> Sur toutes vos lignes, combien ont déclenché une décision à votre dernier comité ?</li>
+          <li><strong>Le test du nom.</strong> Pour chaque indicateur, savez-vous nommer la personne qui agit quand il bouge ?</li>
+          <li><strong>Le test de la sortie.</strong> Quand avez-vous retiré un indicateur pour la dernière fois ?</li>
+        </ol>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-6 my-8">
+          <p class="font-semibold text-amber-900 mb-2">Notre conseil</p>
+          <p class="text-amber-900">Ne refondez rien. Gardez les cinq lignes que vous regardez déjà en premier — celles que vous cherchez d'instinct en ouvrant le document — et mettez les autres de côté pendant trois mois. Ne les supprimez pas : mettez-les en annexe. Celles qui manquent vraiment reviendront d'elles-mêmes, et vous saurez alors qu'elles ont leur place. Les autres, personne ne les réclamera — et c'est la réponse que vous cherchiez.</p>
+        </div>
+
+        <p>
+          C'est un chantier court, et c'est là son intérêt. Il ne demande ni outil nouveau, ni projet, ni réorganisation : une réunion de trente minutes et le courage d'assumer une mise en annexe réversible. Votre tableau de bord n'a sans doute pas besoin d'être reconstruit. Il a besoin qu'on lui rende sa capacité à faire décider — et c'est un travail bien plus rapide.
+        </p>
+
+        <h2>Ce que la suite de la série va couvrir</h2>
+
+        <p>
+          Le prochain épisode porte sur le journal de décision : comment garder la trace de ce qui a été tranché, et pourquoi cette trace vaut plus qu'un compte rendu. Viendront ensuite la cascade d'objectifs, le rituel hebdomadaire, la remontée d'information, le tableau de bord vivant, et l'installation durable de l'ensemble.
+        </p>
+
+        <div class="bg-gray-50 border-l-4 border-teal rounded-r-xl p-6 my-8">
+          <p class="font-semibold text-gray-800 mb-1">Question de diagnostic</p>
+          <p class="text-gray-700 text-sm">Quand avez-vous retiré un indicateur de votre tableau de bord pour la dernière fois ?</p>
+        </div>
+
+        <!-- Lien version approfondie -->
+        <div class="not-prose bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
+          <p class="text-sm font-semibold text-blue-900 mb-1">Version approfondie</p>
+          <p class="text-sm text-blue-800 mb-3">La version complète de cet article est disponible sur perfsystemique.fr.</p>
+          <a href="https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900 underline">
+            Lire l'article complet sur perfsystemique.fr →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Navigation série -->
+    <section class="border-t border-gray-200 py-10 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">Série Le Rythme de Pilotage — épisode 2 sur 8</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/ressources/installer-un-rythme-de-pilotage" class="bg-gray-50 hover:bg-gray-100 rounded-lg p-4 transition-colors">
+            <p class="text-xs text-teal font-semibold mb-1">← Épisode précédent · 1/8</p>
+            <p class="text-sm font-medium text-gray-700">Le rythme de pilotage, qu'est-ce que c'est vraiment ?</p>
+            <p class="text-xs text-gray-400 mt-1">1er septembre 2026</p>
+          </a>
+          <a href="/ressources" class="bg-gray-50 hover:bg-gray-100 rounded-lg p-4 transition-colors">
+            <p class="text-xs text-teal font-semibold mb-1">Toutes les ressources →</p>
+            <p class="text-sm font-medium text-gray-700">Les articles PerfEco sur le pilotage et l'exécution</p>
+            <p class="text-xs text-gray-400 mt-1">Depuis juin 2026</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-navy-dark text-white py-16 px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">Passer de quarante lignes à cinq ?</h2>
+        <p class="text-gray-300 mb-8">PerfEco aide les directions générales à ramener leur tableau de bord aux quelques indicateurs qui déclenchent vraiment une décision — et à tenir ce format dans la durée.</p>
+        <a href="/contact" class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors">
+          Prendre contact →
+        </a>
+        <p class="text-gray-400 text-sm mt-4">contact@perfeco.nc — +687 73 08 75</p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>
