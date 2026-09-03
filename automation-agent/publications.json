@@ -450,7 +450,7 @@
             "date_nc": "2026-09-21",
             "heure_nc": "11:00",
             "format": "mardi",
-            "libelle": "Post long / carrousel — Serie 2, episode 4/8 (AVANCE AU LUNDI)",
+            "libelle": "ANNULE — avancement au lundi abandonne (le post long reste au mardi 22/09)",
             "sujet": "La cascade d objectifs sans bureaucratie (4/8)",
             "semaine": null,
             "canaux": [
@@ -458,11 +458,11 @@
                 "linkedin_perso",
                 "facebook"
             ],
-            "statut": "prevu",
+            "statut": "annule",
             "source": null,
             "bascule": null,
             "preuve": null,
-            "note": "DECISION DE JEAN-MICHEL (21/08/2026) : semaine du 24/09 en horaires exceptionnels, a cause du jeudi 24/09 ferie en NC (Fete de la Citoyennete). Post long avance au LUNDI 21/09, post court avance au MERCREDI 23/09. Veille eco du vendredi 25/09 inchangee. Exception limitee a cette semaine : la serie reprend le mardi le 29/09. Publie un LUNDI : cron lundi ajoute a publish-mardi-carrousel.yml. Production par mardi-carrousel-creation le lundi 14/09 (viser le 21/09, PAS le 22/09).",
+            "note": "DECISION DE JEAN-MICHEL DU 03/09/2026 : la semaine du 21/09 revient a un rythme SIMPLE. Le post long reste a sa date normale, le MARDI 22/09. Le post court de cette semaine est ANNULE purement et simplement. Ceci REMPLACE la decision du 21/08/2026, qui avancait le post long au lundi 21/09 et le post court au mercredi 23/09 pour cause de jeudi 24/09 ferie (Fete de la Citoyennete). Plus aucun decalage : un seul post cette semaine-la, plus la veille eco du vendredi 25/09 qui reste inchangee. Ce creneau du lundi 21/09 n'a donc plus lieu d'etre. Ne rien produire pour cette date.",
             "arbitrage": {
                 "statut": "pris",
                 "question": "Fête de la Citoyenneté le jeudi 24/09",
@@ -476,8 +476,8 @@
             "date_nc": "2026-09-22",
             "heure_nc": "11:00",
             "format": "mardi",
-            "libelle": "Post long / carrousel",
-            "sujet": "à définir",
+            "libelle": "Post long / carrousel — Serie 2, episode 4/8",
+            "sujet": "La cascade d objectifs sans bureaucratie (4/8)",
             "semaine": null,
             "canaux": [
                 "linkedin_company",
@@ -488,7 +488,7 @@
             "source": null,
             "bascule": null,
             "preuve": null,
-            "note": null,
+            "note": "DECISION DE JEAN-MICHEL DU 03/09/2026 : la semaine du 21/09 revient a un rythme SIMPLE. Le post long reste a sa date normale, le MARDI 22/09. Le post court de cette semaine est ANNULE purement et simplement. Ceci REMPLACE la decision du 21/08/2026, qui avancait le post long au lundi 21/09 et le post court au mercredi 23/09 pour cause de jeudi 24/09 ferie (Fete de la Citoyennete). Plus aucun decalage : un seul post cette semaine-la, plus la veille eco du vendredi 25/09 qui reste inchangee. CE CRENEAU EST LE BON : c'est ici que parait l'episode 4/8, a sa date normale. Il portait 'a definir' parce que l'episode avait ete deplace au 21/09 le 21/08 ; il le recupere. Production par mardi-carrousel-creation le LUNDI 14/09 (J-8) : viser le 22/09. La serie n'est pas decalee, l'episode 5/8 reste au 29/09.",
             "arbitrage": null
         },
         {
@@ -496,18 +496,18 @@
             "date_nc": "2026-09-23",
             "heure_nc": "11:00",
             "format": "jeudi",
-            "libelle": "Post court (AVANCE AU MERCREDI)",
+            "libelle": "ANNULE — pas de post court cette semaine (jeudi 24/09 ferie)",
             "sujet": "a definir (suit l episode 4/8)",
             "semaine": null,
             "canaux": [
                 "linkedin_company",
                 "facebook"
             ],
-            "statut": "prevu",
+            "statut": "annule",
             "source": null,
             "bascule": null,
             "preuve": null,
-            "note": "DECISION DE JEAN-MICHEL (21/08/2026) : semaine du 24/09 en horaires exceptionnels, a cause du jeudi 24/09 ferie en NC (Fete de la Citoyennete). Post long avance au LUNDI 21/09, post court avance au MERCREDI 23/09. Veille eco du vendredi 25/09 inchangee. Exception limitee a cette semaine : la serie reprend le mardi le 29/09. Publie un MERCREDI : cron mercredi ajoute a publish-jeudi-post-court.yml, et la garde de la republication du samedi 26/09 elargie (elle exigeait un jeudi). Production par jeudi-postcourt-creation le mercredi 16/09 (viser le 23/09, PAS le 24/09).",
+            "note": "DECISION DE JEAN-MICHEL DU 03/09/2026 : la semaine du 21/09 revient a un rythme SIMPLE. Le post long reste a sa date normale, le MARDI 22/09. Le post court de cette semaine est ANNULE purement et simplement. Ceci REMPLACE la decision du 21/08/2026, qui avancait le post long au lundi 21/09 et le post court au mercredi 23/09 pour cause de jeudi 24/09 ferie (Fete de la Citoyennete). Plus aucun decalage : un seul post cette semaine-la, plus la veille eco du vendredi 25/09 qui reste inchangee. Ce creneau du mercredi 23/09 n'a donc plus lieu d'etre : le post court n'est pas reporte, il est annule. Ne rien produire pour cette date. CONSEQUENCE A CONNAITRE : la republication Facebook du samedi 26/09 (publish-samedi-republication-facebook.yml, 15h30 NC) relit jeudi.json et exige qu'il porte le mercredi ou le jeudi de la semaine. Aucun post court n'ayant paru, la garde de fraicheur echouera et le run s'arretera proprement sans rien republier. C'est le comportement voulu, pas une panne.",
             "arbitrage": {
                 "statut": "pris",
                 "question": "Fête de la Citoyenneté le jeudi 24/09",
@@ -529,7 +529,7 @@
             "source": null,
             "bascule": null,
             "preuve": null,
-            "note": "Seul jour ferie propre a la Nouvelle-Caledonie. DECISION DE JEAN-MICHEL (21/08/2026) : semaine du 24/09 en horaires exceptionnels, a cause du jeudi 24/09 ferie en NC (Fete de la Citoyennete). Post long avance au LUNDI 21/09, post court avance au MERCREDI 23/09. Veille eco du vendredi 25/09 inchangee. Exception limitee a cette semaine : la serie reprend le mardi le 29/09."
+            "note": "Seul jour ferie propre a la Nouvelle-Caledonie. DECISION DE JEAN-MICHEL DU 03/09/2026, qui REMPLACE celle du 21/08/2026 : plus aucun decalage cette semaine-la. Le post long reste au MARDI 22/09 (episode 4/8) et le post court est ANNULE, il n'est pas reporte au mercredi. La veille eco du vendredi 25/09 est inchangee. La semaine du 21/09 ne compte donc que DEUX publications : mardi 22/09 et vendredi 25/09. La serie reprend son rythme normal le 29/09 avec l'episode 5/8. (Pour memoire, la decision du 21/08 avancait le post long au lundi 21/09 et le post court au mercredi 23/09 ; ces deux creneaux sont desormais marques 'annule'. Les crons lundi et mercredi ajoutes a publish-mardi-carrousel.yml et publish-jeudi-post-court.yml a cette occasion restent en place : ils sont sans effet de bord, chaque workflow exigeant que date_prevue soit exactement la date du jour en NC, donc ils s'arretent a vide.)"
         },
         {
             "id": "2026-09-25-vendredi",
