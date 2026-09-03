@@ -1,0 +1,200 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Base
+  title="Choosing the 3 to 5 metrics that matter"
+  description="A dashboard rarely suffers from a missing metric. It suffers from thirty-five too many. The three questions that decide whether a line stays or goes, and the rule that stops the dashboard growing back."
+  canonicalOverride="https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/"
+>
+  <Nav langAlternate="/ressources/choisir-les-indicateurs-qui-comptent" />
+  <main class="pt-16">
+
+    <!-- Hero article -->
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="text-xs bg-teal/20 text-teal font-medium px-3 py-1 rounded-full">Management</span>
+          <span class="text-xs bg-teal/20 text-teal font-medium px-3 py-1 rounded-full">Metrics</span>
+          <span class="text-xs bg-teal/20 text-teal font-medium px-3 py-1 rounded-full">Governance</span>
+          <time class="text-xs text-gray-400" datetime="2026-09-08">8 September 2026</time>
+        </div>
+        <p class="text-sm text-amber-400 font-semibold mb-3 uppercase tracking-widest">Series: The Management Rhythm · 2/8</p>
+        <h1 class="text-3xl sm:text-4xl font-bold mb-6 leading-snug">
+          Adding is easy.<br>Removing is a decision.
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Every line on your dashboard was added for a good reason. There are now forty of them, and the committee still runs for two hours.
+        </p>
+        <!-- Author -->
+        <div class="flex items-center gap-3 mt-8 pt-6 border-t border-white/10">
+          <div>
+            <p class="text-sm font-semibold text-white">Jean-Michel Blaise</p>
+            <p class="text-xs text-gray-400">Founder — PerfEco Consulting NC</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full version banner -->
+    <div class="bg-amber-50 border-b border-amber-200 py-3 px-4">
+      <div class="max-w-3xl mx-auto flex items-center justify-between gap-4 flex-wrap text-sm text-amber-800">
+        <span>📖 This article is a summary — <a href="https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/" target="_blank" rel="noopener" class="font-semibold underline hover:text-amber-900">read the full version on perfsystemique.fr →</a></span>
+        <a href="/ressources/choisir-les-indicateurs-qui-comptent" class="text-amber-700 hover:text-amber-900 font-medium text-xs">🇫🇷 Lire en français</a>
+      </div>
+    </div>
+
+    <!-- Article content -->
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-gray">
+
+        <p class="lead text-xl text-gray-700 font-medium">
+          Second episode of the series. The first one set the frame: a management rhythm is a meeting that comes back, that is short, whose decisions are written down, and that opens by rereading the previous session. The open question is what you actually discuss during those thirty minutes. That is where the dashboard comes in — and where most executive committees drown.
+        </p>
+
+        <h2>Three ways to add, none to remove</h2>
+
+        <p>
+          Nobody decided to have forty metrics. They accumulated, each for a valid reason, through three very ordinary doors.
+        </p>
+
+        <p>
+          <strong>The dashboard rebuild.</strong> You start from a blank page, tidy everything up, harmonise the formats. The result is more readable than before — and has more lines than before, because the rebuild gave everyone an opening to argue for what they felt was missing.
+        </p>
+
+        <p>
+          <strong>The number requested in the meeting.</strong> Someone asks a question nobody can answer. The metric is added that same evening. It is useful that day. It will never leave the dashboard again.
+        </p>
+
+        <p>
+          <strong>The monthly report.</strong> Each department adds its page, in the name of transparency. Nobody reads their neighbour's. The document grows and becomes an archive rather than a tool.
+        </p>
+
+        <p>
+          None of these mechanisms is unhealthy. That is not the problem. <strong>Every line has a way in; none has a way out.</strong>
+        </p>
+
+        <h2>Why the dashboard always grows</h2>
+
+        <p>
+          Three reasons, and none of them is negligence.
+        </p>
+
+        <p>
+          <strong>Every line has an owner.</strong> Whoever asked for it defends it, and has good reason to. Proposing to remove someone's metric, in session, looks like a judgement on their work. The conversation is uncomfortable, so it never happens.
+        </p>
+
+        <p>
+          <strong>Adding buys peace of mind.</strong> One more number costs five minutes of setup and removes a risk: not having it the day someone asks. Removing it costs a conversation. The asymmetry does the rest.
+        </p>
+
+        <p>
+          <strong>Removing is nobody's job.</strong> Adding happens in session, in one sentence. Removing requires an explicit decision that nothing ever puts on the agenda. It is on no meeting's agenda — so it never happens.
+        </p>
+
+        <p>
+          The result is familiar: a committee that spends most of its time commenting on variations rather than deciding. <strong>A dashboard is not judged by how much it shows, but by how many decisions it triggers.</strong>
+        </p>
+
+        <h2>Three questions, and the line stays or goes</h2>
+
+        <p>
+          The sorting is done metric by metric, with three short questions. A single missing answer is enough for the line to go.
+        </p>
+
+        <ol>
+          <li><strong>Which decision does it serve?</strong> Name the specific decision this metric triggers. Not "it gives us visibility": which decision, taken by whom. If none comes to mind, the line goes.</li>
+          <li><strong>Who looks at it, by name?</strong> A name, not a department. If nobody puts their hand up when you ask, the line goes.</li>
+          <li><strong>What do you do when it moves?</strong> The action must be written down in advance, at least in outline. Otherwise it is not a management metric: it is information, and it belongs in an appendix.</li>
+        </ol>
+
+        <p>
+          This sorting almost always brings a forty-line dashboard down to fewer than ten. But it does not hold on its own: six months later, the same three doors will have done their work again. Hence a fourth rule, which is not a question but a commitment.
+        </p>
+
+        <p>
+          <strong>One in, one out.</strong> Every new line replaces an existing one. The dashboard keeps its size, and the trade-off is made at the moment of adding — which is precisely the moment you are still able to make it.
+        </p>
+
+        <h2>Where to start</h2>
+
+        <p>
+          You have probably rebuilt this dashboard already, perhaps more than once. You were right to: clarity was genuinely needed, and a rebuild does deliver it. What was missing was not a better layout. It was permission to remove — and nobody grants themselves that spontaneously.
+        </p>
+
+        <p>Three questions to work out where you stand:</p>
+
+        <ol>
+          <li><strong>The last-committee test.</strong> Across all your lines, how many triggered a decision at your last committee?</li>
+          <li><strong>The name test.</strong> For each metric, can you name the person who acts when it moves?</li>
+          <li><strong>The exit test.</strong> When did you last remove a metric?</li>
+        </ol>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-6 my-8">
+          <p class="font-semibold text-amber-900 mb-2">Our advice</p>
+          <p class="text-amber-900">Rebuild nothing. Keep the five lines you already look at first — the ones you instinctively search for when you open the document — and set the others aside for three months. Do not delete them: move them to an appendix. The ones you genuinely miss will come back on their own, and you will then know they belong. Nobody will ask for the rest — and that is the answer you were looking for.</p>
+        </div>
+
+        <p>
+          It is a short piece of work, and that is the point. It needs no new tool, no project, no reorganisation: one thirty-minute meeting and the willingness to make a reversible move to an appendix. Your dashboard probably does not need rebuilding. It needs its ability to drive decisions back — and that is a far quicker job.
+        </p>
+
+        <h2>What the rest of the series covers</h2>
+
+        <p>
+          The next episode covers the decision log: how to keep a record of what has been settled, and why that record is worth more than a set of minutes. Then come the objective cascade, the weekly ritual, information flowing up without distortion, the living dashboard, and making the whole thing stick.
+        </p>
+
+        <div class="bg-gray-50 border-l-4 border-teal rounded-r-xl p-6 my-8">
+          <p class="font-semibold text-gray-800 mb-1">Diagnostic question</p>
+          <p class="text-gray-700 text-sm">When did you last remove a metric from your dashboard?</p>
+        </div>
+
+        <!-- Full version link -->
+        <div class="not-prose bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
+          <p class="text-sm font-semibold text-blue-900 mb-1">In-depth version</p>
+          <p class="text-sm text-blue-800 mb-3">The full version of this article is available on perfsystemique.fr (in French).</p>
+          <a href="https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900 underline">
+            Read the full article on perfsystemique.fr →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Series navigation -->
+    <section class="border-t border-gray-200 py-10 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">The Management Rhythm — episode 2 of 8</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/en/resources/building-a-management-rhythm-that-lasts" class="bg-gray-50 hover:bg-gray-100 rounded-lg p-4 transition-colors">
+            <p class="text-xs text-teal font-semibold mb-1">← Previous episode · 1/8</p>
+            <p class="text-sm font-medium text-gray-700">What a management rhythm actually is</p>
+            <p class="text-xs text-gray-400 mt-1">1 September 2026</p>
+          </a>
+          <a href="/en/resources" class="bg-gray-50 hover:bg-gray-100 rounded-lg p-4 transition-colors">
+            <p class="text-xs text-teal font-semibold mb-1">All resources →</p>
+            <p class="text-sm font-medium text-gray-700">PerfEco articles on management and execution</p>
+            <p class="text-xs text-gray-400 mt-1">Since June 2026</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-navy-dark text-white py-16 px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">From forty lines to five?</h2>
+        <p class="text-gray-300 mb-8">PerfEco helps executive teams bring their dashboard back to the few metrics that genuinely trigger a decision — and keep it that way over time.</p>
+        <a href="/en/contact" class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors">
+          Get in touch →
+        </a>
+        <p class="text-gray-400 text-sm mt-4">contact@perfeco.nc — +687 73 08 75</p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>
