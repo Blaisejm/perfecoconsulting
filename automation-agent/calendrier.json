@@ -136,8 +136,9 @@
       "tolerance_jours": 2
     },
     "perfeco-rapport-dimanche": {
-      "cadence": "hebdomadaire (dimanche 08h02)",
-      "tolerance_jours": 8
+      "cadence": "hebdomadaire (mardi 08h30)",
+      "tolerance_jours": 8,
+      "note": "Cadence corrigee le 04/09/2026 par perfeco-verif-github-actions : le fichier annoncait encore 'dimanche 08h02' alors que la tache a ete deplacee au MARDI le 23/08/2026 (decision JM) et que son cron reel est '30 8 * * 2'. Le controle de silence se calculait donc sur un jour de reference faux. Le NOM de la routine reste 'perfeco-rapport-dimanche' et contredit la regle de nommage du 18/08 : renommage a faire par JM, non fait ici (il casserait l'historique du journal)."
     },
     "perfeco-verif-github-actions": {
       "cadence": "lundi-vendredi (12h09)",
