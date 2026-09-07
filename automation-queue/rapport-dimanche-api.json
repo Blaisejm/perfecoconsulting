@@ -1,32 +1,32 @@
 {
-  "semaine": "2026-W36",
-  "collecte_le": "2026-09-01",
+  "semaine": "2026-W37",
+  "collecte_le": "2026-09-08",
   "wordpress": {
     "articles_published": 1,
     "comments_total": 0,
     "published": [
       {
-        "id": 119,
-        "date": "2026-08-25T11:03:00",
-        "date_gmt": "2026-08-25T00:03:00",
+        "id": 123,
+        "date": "2026-09-04T11:03:00",
+        "date_gmt": "2026-09-04T00:03:00",
         "guid": {
-          "rendered": "https://perfsystemique.fr/?p=119"
+          "rendered": "https://perfsystemique.fr/?p=123"
         },
-        "modified": "2026-08-17T18:41:02",
-        "modified_gmt": "2026-08-17T07:41:02",
-        "slug": "remettre-organisation-au-service-strategie",
+        "modified": "2026-09-03T10:05:38",
+        "modified_gmt": "2026-09-02T23:05:38",
+        "slug": "installer-un-rythme-de-pilotage",
         "status": "publish",
         "type": "post",
-        "link": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/",
+        "link": "https://perfsystemique.fr/installer-un-rythme-de-pilotage/",
         "title": {
-          "rendered": "Remettre l&rsquo;organisation au service de la stratégie"
+          "rendered": "Installer un rythme de pilotage"
         },
         "content": {
-          "rendered": "<div style=\"display:flex; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid #e5e7eb; margin-bottom:32px;\">\n<div>\n<p style=\"margin:0; font-weight:700; color:#111827;\">Jean-Michel Blaise</p>\n<p style=\"margin:4px 0 0; font-size:13px; color:#6B7280;\">Fondateur — PerfEco Consulting NC · <time datetime=\"2026-08-25\">25 août 2026</time></p>\n<p style=\"margin:4px 0 0; font-size:12px; color:#001D9F; font-weight:600;\">Série Exécution Stratégique · Article 8/8 · Fin de série</p>\n</p></div>\n</div>\n<div style=\"background:#f0f5ff; border:1px solid #c7d9f8; border-radius:8px; padding:14px 18px; margin-bottom:28px;\">\n<p style=\"margin:0; font-size:13px; color:#163D78;\">Disponible en synthèse sur <a href=\"https://www.perfeco.nc/ressources/remettre-organisation-au-service-strategie\" style=\"color:#001D9F; font-weight:600;\">perfeco.nc (FR) &#8594;</a> et <a href=\"https://www.perfeco.nc/en/resources/realigning-the-organisation-behind-the-strategy\" style=\"color:#001D9F; font-weight:600;\">perfeco.nc (EN) &#8594;</a></p>\n</div>\n<p><strong>Huit semaines, sept constats. À chaque épisode, un symptôme différent — des plans qui n&rsquo;aboutissent pas, des projets qui ralentissent, des réunions qui n&rsquo;arbitrent rien, des indicateurs qui ne déclenchent rien. Mis bout à bout, ils ne décrivent pas sept problèmes. Ils décrivent le même, vu sous sept angles.</strong></p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Sources citées</p>\n<p style=\"margin:0; color:#374151;\">McKinsey &amp; Company, <em>What is an operating model and why does it matter?</em> et <em>The new rules for getting your operating model redesign right</em> ; McKinsey &amp; Company, <em>The State of Organizations 2026</em>.</p>\n</div>\n<h2>Ce que huit semaines ont montré</h2>\n<p>Reprenons la série dans l&rsquo;ordre :</p>\n<ol>\n<li>Les plans stratégiques n&rsquo;aboutissent pas</li>\n<li>Une stratégie ne suffit pas</li>\n<li>La richesse ne suffit pas</li>\n<li>Les projets ralentissent</li>\n<li>Les réunions ne remplacent pas le pilotage</li>\n<li>Le COMEX manque de visibilité</li>\n<li>Les KPI ne font pas la performance</li>\n</ol>\n<p>Sept symptômes, une même racine : <strong>l&rsquo;organisation est construite pour fonctionner, pas pour exécuter</strong>. Elle est optimisée pour produire, livrer, tenir ses engagements courants — ce qu&rsquo;elle fait souvent très bien. Elle n&rsquo;est pas outillée pour faire avancer une intention stratégique à travers ses propres couches.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Le fil rouge</p>\n<p style=\"margin:0; color:#374151;\">Une stratégie n&rsquo;échoue presque jamais par manque d&rsquo;ambition. Elle échoue parce que l&rsquo;organisation n&rsquo;a jamais été alignée derrière elle.</p>\n</div>\n<h2>Le réflexe est de refaire un plan</h2>\n<p>Quand l&rsquo;exécution déçoit, la réponse la plus fréquente est de relancer un cycle stratégique : un nouveau plan, de nouveaux objectifs, un nouveau reporting. Trois choses changent. Une seule ne change pas : la façon dont on décide, dont on se réunit, dont l&rsquo;information remonte et dont on mesure.</p>\n<p>Autrement dit, on change le contenu de la stratégie sans toucher au système qui devait la porter. C&rsquo;est pour cela que le plan suivant échoue le plus souvent exactement comme le précédent — et pour les mêmes raisons, qu&rsquo;on redécouvre à chaque cycle.</p>\n<p>McKinsey décrit le modèle opérationnel comme ce qui doit produire quatre résultats mesurables : clarté, vitesse, compétences et engagement — la clarté signifiant que les ressources et les responsabilités sont réellement alignées sur la stratégie. C&rsquo;est précisément le maillon qui manque quand on se contente de réécrire le plan.</p>\n<h2>Les 4 alignements, dans cet ordre</h2>\n<h3>1. Décider</h3>\n<p>Qui tranche, à quel niveau, sans remonter au comité de direction. Des droits de décision explicites, pas implicites. C&rsquo;est le point de départ parce que tout le reste en dépend : un rythme de pilotage sans autorité de décision claire ne produit que des comptes rendus.</p>\n<h3>2. Rythmer</h3>\n<p>Un rituel court, à date fixe, qui produit des arbitrages — pas un tour de table d&rsquo;information. La question n&rsquo;est pas combien de réunions vous tenez, mais combien de décisions en sortent.</p>\n<h3>3. Voir</h3>\n<p>L&rsquo;information qui remonte du terrain sans être adoucie à chaque étage hiérarchique. Un comité qui décide sur une version arrangée de la réalité décide bien — sur les mauvaises données.</p>\n<h3>4. Mesurer</h3>\n<p>Des indicateurs qui déclenchent une décision, pas une ligne de reporting de plus. Chaque indicateur a un propriétaire nommé, une date de revue, un seuil fixé à l&rsquo;avance et une décision pré-engagée.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">L&rsquo;ordre compte</p>\n<p style=\"margin:0; color:#374151;\">Mesurer avant d&rsquo;avoir clarifié qui décide ne produit rien. C&rsquo;est pour cela que tant de tableaux de bord, pourtant bien construits, restent lettre morte.</p>\n</div>\n<h2>Par où commencer</h2>\n<p>Trois questions à poser à votre comité de direction, de préférence dans cet ordre :</p>\n<ol>\n<li><strong>L&rsquo;alignement le plus faible.</strong> Sur les quatre — décider, rythmer, voir, mesurer — lequel est le plus faible chez vous, et depuis combien de temps le savez-vous ?</li>\n<li><strong>Le test de la semaine type.</strong> Sur votre dernière semaine complète, combien d&rsquo;heures ont servi à faire tourner l&rsquo;organisation, et combien à faire avancer la stratégie ?</li>\n<li><strong>Le test final.</strong> Si vous n&rsquo;écriviez aucun nouveau plan cette année, exécuteriez-vous mieux ou moins bien celui qui existe déjà ?</li>\n</ol>\n<p>La troisième question est la plus inconfortable, et la plus utile. Si la réponse est &laquo; mieux &raquo;, le problème n&rsquo;a jamais été la stratégie. Il a toujours été l&rsquo;organisation qui devait la porter — et c&rsquo;est une bonne nouvelle, parce que c&rsquo;est la partie sur laquelle un dirigeant a réellement prise.</p>\n<p>Un dernier point, pour les organisations calédoniennes et du Pacifique en particulier : la taille des équipes rend ces quatre alignements plus faciles à traiter qu&rsquo;ailleurs. Peu de niveaux hiérarchiques, des circuits courts, des dirigeants proches du terrain. L&rsquo;avantage structurel est réel — encore faut-il l&rsquo;utiliser plutôt que de reproduire les lourdeurs des grandes organisations.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Question de diagnostic</p>\n<p style=\"margin:0; color:#374151;\">Sur les quatre alignements — décider, rythmer, voir, mesurer — lequel traiteriez-vous en premier, et qu&rsquo;est-ce qui vous en a empêché jusqu&rsquo;ici ?</p>\n</div>\n<div style=\"background:#163D78; color:#fff; padding:24px 28px; margin:32px 0; border-radius:8px; text-align:center;\">\n<p style=\"margin:0 0 8px; font-weight:700; font-size:1.05em;\">Par quel alignement commencer ?</p>\n<p style=\"margin:0 0 12px; color:rgba(255,255,255,0.8);\">PerfEco aide les directions générales à aligner décision, rythme, information et indicateurs derrière la stratégie — dans cet ordre.</p>\n<p style=\"margin:0; color:#FBAA16; font-weight:600;\">contact@perfeco.nc &middot; +687 73 08 75 &middot; <a href=\"https://www.perfeco.nc/\" style=\"color:#FBAA16;\">https://www.perfeco.nc/</a></p>\n</div>\n<div style=\"border-top:1px solid #e5e7eb; padding-top:24px; margin-top:32px;\">\n<p style=\"font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#9CA3AF; margin-bottom:12px;\">Série Exécution Stratégique — fin de série</p>\n<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:12px;\">\n<div style=\"background:#f0f5ff; border-radius:8px; padding:14px; border:1px solid #c7d9f8;\">\n<p style=\"font-size:11px; color:#001D9F; font-weight:700; margin:0 0 4px;\">&#8592; Article précédent &middot; 7/8</p>\n<p style=\"font-size:13px; color:#163D78; font-weight:600; margin:0;\">Les KPI ne font pas la performance</p>\n<p style=\"font-size:11px; color:#6B7280; margin:4px 0 0;\">18 août 2026</p>\n</p></div>\n<div style=\"background:#f9fafb; border-radius:8px; padding:14px;\">\n<p style=\"font-size:11px; color:#9CA3AF; font-weight:700; margin:0 0 4px;\">Prochaine série &#8594;</p>\n<p style=\"font-size:13px; color:#6B7280; font-weight:600; margin:0;\">Le Rythme de Pilotage</p>\n<p style=\"font-size:11px; color:#6B7280; margin:4px 0 0;\">À partir de début septembre 2026</p>\n</p></div>\n</div>\n</div>\n",
+          "rendered": "<div style=\"display:flex; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid #e5e7eb; margin-bottom:32px;\">\n<div>\n<p style=\"margin:0; font-weight:700; color:#111827;\">Jean-Michel Blaise</p>\n<p style=\"margin:4px 0 0; font-size:13px; color:#6B7280;\">Fondateur — PerfEco Consulting NC · <time datetime=\"2026-09-04\">4 septembre 2026</time></p>\n<p style=\"margin:4px 0 0; font-size:12px; color:#001D9F; font-weight:600;\">Série Le Rythme de Pilotage · Article 1/8 · Début de série</p>\n</p></div>\n</div>\n<div style=\"background:#f0f5ff; border:1px solid #c7d9f8; border-radius:8px; padding:14px 18px; margin-bottom:28px;\">\n<p style=\"margin:0; font-size:13px; color:#163D78;\">Disponible en synthèse sur <a href=\"https://www.perfeco.nc/ressources/installer-un-rythme-de-pilotage\" style=\"color:#001D9F; font-weight:600;\">perfeco.nc (FR) &#8594;</a> et <a href=\"https://www.perfeco.nc/en/resources/building-a-management-rhythm-that-lasts\" style=\"color:#001D9F; font-weight:600;\">perfeco.nc (EN) &#8594;</a></p>\n</div>\n<p><strong>Une nouvelle série commence. La précédente était un diagnostic : pourquoi l&rsquo;exécution stratégique déraille. Celle-ci est une méthode : comment installer un rythme de pilotage qui tient. Premier épisode, et première question — qu&rsquo;est-ce qu&rsquo;un rythme de pilotage, au juste ?</strong></p>\n<h2>Trois façons de lancer, trois façons de s&rsquo;arrêter</h2>\n<p>Vous avez probablement déjà fait l&rsquo;une de ces trois choses cette année. Peut-être les trois.</p>\n<p><strong>Le séminaire de rentrée.</strong> Deux jours hors des murs, un consultant, des post-it. Tout le monde repart avec des idées claires et l&rsquo;envie d&rsquo;y aller. Six semaines plus tard, les mêmes sujets reviennent dans les mêmes réunions.</p>\n<p><strong>Le plan d&rsquo;action.</strong> Vingt actions, des pilotes nommés, des échéances. Le document est bon. Personne ne le rouvre avant le plan suivant.</p>\n<p><strong>Le groupe de travail.</strong> Il avance vite tant qu&rsquo;on le regarde. Il s&rsquo;arrête le jour où le regard se déplace ailleurs — une urgence client, un départ, une échéance réglementaire.</p>\n<p>Ces trois dispositifs marchent. Ce n&rsquo;est pas le problème. Ils marchent au démarrage, et aucun ne prévoit ce qui vient après. <strong>Chacun démarre fort ; aucun ne prévoit la fois d&rsquo;après.</strong></p>\n<h2>Pourquoi l&rsquo;élan se perd</h2>\n<p>La tentation est de conclure que la volonté a manqué, ou que les équipes n&rsquo;ont pas suivi. C&rsquo;est rarement le cas. Trois mécaniques très ordinaires suffisent à expliquer la retombée.</p>\n<h3>1 — Le sujet sort du radar</h3>\n<p>Personne ne le reprend à une date connue de tous. Il n&rsquo;est pas abandonné : il passe simplement après. Et &laquo; après &raquo; n&rsquo;arrive jamais, parce qu&rsquo;après, il y a toujours autre chose.</p>\n<h3>2 — Les décisions se rejouent</h3>\n<p>Ce qui a été tranché n&rsquo;est écrit nulle part, ou l&rsquo;est dans un compte rendu que personne ne relit. Trois mois plus tard, la même question revient sur la table, et on en rediscute comme si c&rsquo;était la première fois. Le temps consommé la première fois est perdu — et, plus coûteux encore, l&rsquo;équipe apprend que les décisions ne tiennent pas.</p>\n<h3>3 — L&rsquo;urgence passe devant</h3>\n<p>L&rsquo;urgence, elle, revient chaque matin. Elle a un rendez-vous quotidien avec vous, sans que personne ait eu à l&rsquo;inscrire à l&rsquo;agenda. Ce qui n&rsquo;a pas de date lui cède la place — mécaniquement, sans qu&rsquo;aucune décision consciente ne soit prise.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Le point à retenir</p>\n<p style=\"margin:0; color:#374151;\">La volonté est là. C&rsquo;est l&rsquo;agenda qui décide. Un sujet sans rendez-vous récurrent perd, à chaque fois, contre un sujet qui en a un.</p>\n</div>\n<h2>Un rythme de pilotage, c&rsquo;est quatre choses</h2>\n<p>Un rythme de pilotage n&rsquo;est pas &laquo; plus de réunions &raquo;. C&rsquo;est même souvent l&rsquo;inverse : moins de réunions, mais une qui ne bouge pas. Quatre marqueurs le distinguent d&rsquo;une simple série de points.</p>\n<h3>&#9312; Ça revient</h3>\n<p>Une date fixe dans l&rsquo;agenda, y compris les semaines calmes. C&rsquo;est précisément les semaines calmes qui font la différence : un rendez-vous qu&rsquo;on n&rsquo;honore que quand ça va mal n&rsquo;est pas un rythme, c&rsquo;est une cellule de crise. La régularité n&rsquo;est pas une question de discipline morale — c&rsquo;est ce qui rend le rendez-vous prévisible, donc préparable, donc utile.</p>\n<h3>&#9313; C&rsquo;est court</h3>\n<p>Trente minutes suffisent. Une semaine chargée, on le raccourcit — on ne le supprime pas. Un format long est un format qu&rsquo;on finit par annuler ; un format court survit à tout. La durée courte a un second effet, moins évident : elle interdit le tour de table d&rsquo;information et force l&rsquo;arbitrage.</p>\n<h3>&#9314; C&rsquo;est écrit</h3>\n<p>Ce qui a été décidé tient en trois lignes, avec un nom et une date. Pas un compte rendu de séance : une liste de décisions. La distinction est fondamentale — un compte rendu raconte ce qui s&rsquo;est dit, une liste de décisions dit ce qui a été tranché.</p>\n<h3>&#9315; On relit la fois d&rsquo;avant</h3>\n<p>Chaque séance s&rsquo;ouvre sur les décisions de la précédente. Deux minutes. C&rsquo;est le marqueur le plus simple à mettre en place et, de très loin, le plus discriminant.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Le marqueur qui compte</p>\n<p style=\"margin:0; color:#374151;\">Les trois premiers marqueurs s&rsquo;installent facilement — une date, une durée, un format d&rsquo;écriture. C&rsquo;est le quatrième qui transforme une suite de réunions en rythme : sans la relecture, chaque séance repart de zéro et les décisions ne s&rsquo;accumulent jamais.</p>\n</div>\n<h2>À quoi ressemble une séance de trente minutes</h2>\n<p>La question la plus fréquente, une fois le principe admis, est la plus concrète : que met-on dans ces trente minutes ? Voici un déroulé qui fonctionne, et qui tient dans le temps imparti parce qu&rsquo;il est toujours le même.</p>\n<ul>\n<li><strong>0 à 2 minutes — la relecture.</strong> On relit à voix haute les décisions de la séance précédente. Pour chacune : faite, en cours, ou abandonnée. Rien d&rsquo;autre. On ne rediscute pas une décision faite.</li>\n<li><strong>2 à 10 minutes — les écarts.</strong> Ce qui ne se passe pas comme prévu, et cela seulement. Ce qui avance normalement ne consomme pas de temps de comité.</li>\n<li><strong>10 à 25 minutes — les arbitrages.</strong> Les deux ou trois points qui demandent une décision. Chacun est présenté avec l&rsquo;option recommandée par celui qui l&rsquo;apporte, pas comme une question ouverte.</li>\n<li><strong>25 à 30 minutes — l&rsquo;écriture.</strong> On écrit les décisions, séance tenante, à l&rsquo;écran, devant tout le monde. Ce qui n&rsquo;est pas écrit pendant la séance ne le sera pas après.</li>\n</ul>\n<p>Le point le plus souvent négligé est le dernier. Écrire après la séance, &laquo; au calme &raquo;, revient presque toujours à écrire un compte rendu — c&rsquo;est-à-dire un texte que personne ne relira. Écrire devant le groupe oblige à formuler la décision assez précisément pour que chacun la reconnaisse, et cela prend cinq minutes, pas plus.</p>\n<h2>Le journal de décision, en trois lignes</h2>\n<p>Le support n&rsquo;a aucune importance : un document partagé, une page de tableur, un canal dédié. Ce qui compte est le format, et il tient en trois éléments par décision.</p>\n<ol>\n<li><strong>Ce qui a été décidé</strong>, en une phrase, à la forme active.</li>\n<li><strong>Qui le porte</strong>, un seul nom — pas une direction, pas une équipe.</li>\n<li><strong>Pour quand</strong>, une date, pas un trimestre.</li>\n</ol>\n<p>Un nom et une date suffisent à changer la nature de la séance suivante. Sans eux, la relecture d&rsquo;ouverture n&rsquo;a rien à relire, et le rythme retombe à une série de points d&rsquo;information — exactement ce qu&rsquo;on cherchait à éviter.</p>\n<h2>Les trois objections que l&rsquo;on entend</h2>\n<p><strong>&laquo; Nous avons déjà trop de réunions. &raquo;</strong> C&rsquo;est en général vrai. Un rythme de pilotage n&rsquo;en ajoute pas une : il remplace. Dans la plupart des comités que nous accompagnons, il se substitue à un point plus long et plus flou qui existait déjà, et le solde de temps est négatif — on y gagne des heures.</p>\n<p><strong>&laquo; Notre activité est trop imprévisible pour un rendez-vous fixe. &raquo;</strong> C&rsquo;est l&rsquo;argument qui plaide le plus fortement pour le rendez-vous fixe. Plus l&rsquo;environnement bouge, plus il faut un point stable d&rsquo;où le regarder. Une organisation dont l&rsquo;agenda est entièrement dicté par l&rsquo;extérieur ne pilote plus, elle réagit.</p>\n<p><strong>&laquo; Nos décisions dépendent d&rsquo;informations que nous n&rsquo;avons pas encore. &raquo;</strong> Alors la décision à écrire est celle-là : qui va chercher l&rsquo;information, et pour quand. C&rsquo;est une décision comme une autre, et elle appartient au journal au même titre que les autres.</p>\n<h2>Par où commencer</h2>\n<p>Si vous avez déjà lancé un plan, un séminaire ou un groupe de travail, vous avez eu raison. Il faut bien un point de départ, et ces dispositifs remplissent exactement ce rôle : ils remobilisent, ils clarifient, ils remettent tout le monde dans la même pièce. Ce qui manque n&rsquo;est pas l&rsquo;élan. C&rsquo;est ce qui revient ensuite.</p>\n<p>Trois questions pour situer où vous en êtes :</p>\n<ol>\n<li><strong>Le test des quatre comptes rendus.</strong> Reprenez vos quatre derniers comptes rendus de comité. Combien de décisions y sont écrites, avec un nom et une date ?</li>\n<li><strong>Le test de l&rsquo;annulation.</strong> Sur les huit dernières semaines, combien de fois votre point de pilotage a-t-il été déplacé ou annulé ?</li>\n<li><strong>Le test de la relecture.</strong> À votre dernière séance, avez-vous commencé par relire les décisions de la précédente ?</li>\n</ol>\n<div style=\"background:#fffaf0; border-left:4px solid #FBAA16; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#8a5a00;\">Notre conseil</p>\n<p style=\"margin:0; color:#374151;\">Un seul sujet, trente minutes, le même jour chaque semaine, pendant huit semaines. Rien d&rsquo;autre. Ne cherchez pas à couvrir tout le périmètre du comité de direction dès le premier mois : choisissez le sujet qui vous coûte le plus cher aujourd&rsquo;hui, et installez le rendez-vous autour de lui. C&rsquo;est là que le rythme s&rsquo;installe — et une fois installé, il s&rsquo;étend tout seul aux autres sujets.</p>\n</div>\n<p>C&rsquo;est aussi ce qui rend ce chantier plus court qu&rsquo;il n&rsquo;en a l&rsquo;air. Vous n&rsquo;avez pas besoin de réorganiser quoi que ce soit pour commencer : il suffit d&rsquo;un créneau, d&rsquo;un sujet et d&rsquo;une page. Le reste vient avec la répétition.</p>\n<p>Un mot sur le contexte calédonien et pacifique, pour finir. La taille des équipes y rend ce chantier nettement plus facile qu&rsquo;ailleurs : peu de niveaux hiérarchiques, des circuits courts, des dirigeants proches du terrain. Installer un rendez-vous hebdomadaire de trente minutes qui produit des décisions écrites ne demande ici l&rsquo;accord de personne d&rsquo;autre que vous. L&rsquo;avantage structurel est réel — encore faut-il l&rsquo;utiliser.</p>\n<h2>Ce que la suite de la série va couvrir</h2>\n<p>Les sept prochains épisodes détaillent chacune des pièces : choisir les trois à cinq indicateurs qui comptent, tenir un journal de décision, faire descendre les objectifs sans bureaucratie, construire le rituel hebdomadaire qui pilote vraiment, faire remonter l&rsquo;information sans qu&rsquo;elle se déforme, entretenir un tableau de bord vivant, et enfin installer tout cela durablement.</p>\n<div style=\"background:#f8faff; border-left:4px solid #001D9F; padding:16px 20px; margin:24px 0; border-radius:0 6px 6px 0;\">\n<p style=\"margin:0 0 6px; font-weight:700; color:#163D78;\">Question de diagnostic</p>\n<p style=\"margin:0; color:#374151;\">Sur les quatre marqueurs — ça revient, c&rsquo;est court, c&rsquo;est écrit, on relit la fois d&rsquo;avant — lequel manque aujourd&rsquo;hui à votre comité de direction ?</p>\n</div>\n<div style=\"background:#163D78; color:#fff; padding:24px 28px; margin:32px 0; border-radius:8px; text-align:center;\">\n<p style=\"margin:0 0 8px; font-weight:700; font-size:1.05em;\">Installer un rythme qui tient ?</p>\n<p style=\"margin:0 0 12px; color:rgba(255,255,255,0.8);\">PerfEco aide les directions générales à installer un point de pilotage court et régulier, qui produit des décisions écrites et survit aux semaines chargées.</p>\n<p style=\"margin:0; color:#FBAA16; font-weight:600;\">contact@perfeco.nc &middot; +687 73 08 75 &middot; <a href=\"https://www.perfeco.nc/\" style=\"color:#FBAA16;\">https://www.perfeco.nc/</a></p>\n</div>\n<div style=\"border-top:1px solid #e5e7eb; padding-top:24px; margin-top:32px;\">\n<p style=\"font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#9CA3AF; margin-bottom:12px;\">Série Le Rythme de Pilotage — épisode 1 sur 8</p>\n<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:12px;\">\n<div style=\"background:#f0f5ff; border-radius:8px; padding:14px; border:1px solid #c7d9f8;\">\n<p style=\"font-size:11px; color:#001D9F; font-weight:700; margin:0 0 4px;\">&#8592; Série précédente &middot; 8/8</p>\n<p style=\"font-size:13px; color:#163D78; font-weight:600; margin:0;\"><a href=\"https://perfsystemique.fr/remettre-organisation-au-service-strategie/\" style=\"color:#163D78;\">Remettre l&rsquo;organisation au service de la stratégie</a></p>\n<p style=\"font-size:11px; color:#6B7280; margin:4px 0 0;\">25 août 2026</p>\n</p></div>\n<div style=\"background:#f9fafb; border-radius:8px; padding:14px;\">\n<p style=\"font-size:11px; color:#9CA3AF; font-weight:700; margin:0 0 4px;\">Article suivant &#8594; 2/8</p>\n<p style=\"font-size:13px; color:#6B7280; font-weight:600; margin:0;\">Choisir les 3 à 5 indicateurs qui comptent</p>\n<p style=\"font-size:11px; color:#6B7280; margin:4px 0 0;\">8 septembre 2026</p>\n</p></div>\n</div>\n</div>\n",
           "protected": false
         },
         "excerpt": {
-          "rendered": "<p>Fin de la série Exécution Stratégique. Sept constats, une seule cause : l&rsquo;organisation est construite pour fonctionner, pas pour exécuter. Les 4 alignements à traiter — décider, rythmer, voir, mesurer — dans cet ordre.</p>\n",
+          "rendered": "<p>Le plan, le seminaire, le groupe de travail remobilisent pour quelques semaines, puis tout retombe. Ce qui installe un changement, c&rsquo;est ce qui revient a date fixe. Les 4 marqueurs d&rsquo;un rythme de pilotage, le format d&rsquo;une seance de trente minutes, et le protocole de huit semaines pour l&rsquo;installer.</p>\n",
           "protected": false
         },
         "author": 1,
@@ -54,40 +54,40 @@
           "jetpack_post_was_ever_published": false
         },
         "categories": [
-          11
+          10
         ],
         "tags": [
           20,
+          24,
           32,
           17,
           13,
           18,
-          22,
           19,
           26,
-          15
+          21
         ],
         "class_list": [
-          "post-119",
+          "post-123",
           "post",
           "type-post",
           "status-publish",
           "format-standard",
           "hentry",
-          "category-organisation",
+          "category-pilotage",
           "tag-comex",
+          "tag-dirigeants",
           "tag-execution",
           "tag-gouvernance",
           "tag-management",
           "tag-nouvelle-caledonie",
-          "tag-organisation",
           "tag-pacifique",
           "tag-perfeco",
-          "tag-strategie"
+          "tag-pilotage"
         ],
-        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Remettre l&#039;organisation au service de la stratégie - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/remettre-organisation-au-service-strategie/\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Remettre l&#039;organisation au service de la stratégie - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Fin de la série Exécution Stratégique. Sept constats, une seule cause : l&#039;organisation est construite pour fonctionner, pas pour exécuter. Les 4 alignements à traiter — décider, rythmer, voir, mesurer — dans cet ordre.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/remettre-organisation-au-service-strategie/\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-08-25T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"5 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Remettre l&rsquo;organisation au service de la stratégie\",\"datePublished\":\"2026-08-25T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/\"},\"wordCount\":914,\"keywords\":[\"COMEX\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Organisation\",\"Pacifique\",\"PerfEco\",\"Stratégie\"],\"articleSection\":[\"Organisation\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/\",\"url\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/\",\"name\":\"Remettre l'organisation au service de la stratégie - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-08-25T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/remettre-organisation-au-service-strategie\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Remettre l&rsquo;organisation au service de la stratégie\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Installer un rythme de pilotage - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/installer-un-rythme-de-pilotage/\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Installer un rythme de pilotage - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Le plan, le seminaire, le groupe de travail remobilisent pour quelques semaines, puis tout retombe. Ce qui installe un changement, c&#039;est ce qui revient a date fixe. Les 4 marqueurs d&#039;un rythme de pilotage, le format d&#039;une seance de trente minutes, et le protocole de huit semaines pour l&#039;installer.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/installer-un-rythme-de-pilotage/\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-09-04T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"9 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/installer-un-rythme-de-pilotage\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/installer-un-rythme-de-pilotage\\/\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Installer un rythme de pilotage\",\"datePublished\":\"2026-09-04T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/installer-un-rythme-de-pilotage\\/\"},\"wordCount\":1767,\"keywords\":[\"COMEX\",\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/installer-un-rythme-de-pilotage\\/\",\"url\":\"https:\\/\\/perfsystemique.fr\\/installer-un-rythme-de-pilotage\\/\",\"name\":\"Installer un rythme de pilotage - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-09-04T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/installer-un-rythme-de-pilotage\\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/installer-un-rythme-de-pilotage\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/installer-un-rythme-de-pilotage\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Installer un rythme de pilotage\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
         "yoast_head_json": {
-          "title": "Remettre l'organisation au service de la stratégie - Perfsystemique.fr",
+          "title": "Installer un rythme de pilotage - Perfsystemique.fr",
           "robots": {
             "index": "index",
             "follow": "follow",
@@ -95,84 +95,84 @@
             "max-image-preview": "max-image-preview:large",
             "max-video-preview": "max-video-preview:-1"
           },
-          "canonical": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/",
+          "canonical": "https://perfsystemique.fr/installer-un-rythme-de-pilotage/",
           "og_locale": "fr_FR",
           "og_type": "article",
-          "og_title": "Remettre l'organisation au service de la stratégie - Perfsystemique.fr",
-          "og_description": "Fin de la série Exécution Stratégique. Sept constats, une seule cause : l'organisation est construite pour fonctionner, pas pour exécuter. Les 4 alignements à traiter — décider, rythmer, voir, mesurer — dans cet ordre.",
-          "og_url": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/",
+          "og_title": "Installer un rythme de pilotage - Perfsystemique.fr",
+          "og_description": "Le plan, le seminaire, le groupe de travail remobilisent pour quelques semaines, puis tout retombe. Ce qui installe un changement, c'est ce qui revient a date fixe. Les 4 marqueurs d'un rythme de pilotage, le format d'une seance de trente minutes, et le protocole de huit semaines pour l'installer.",
+          "og_url": "https://perfsystemique.fr/installer-un-rythme-de-pilotage/",
           "og_site_name": "Perfsystemique.fr",
           "article_publisher": "https://www.facebook.com/PerfecoNC/",
-          "article_published_time": "2026-08-25T00:03:00+00:00",
+          "article_published_time": "2026-09-04T00:03:00+00:00",
           "author": "Jean-Michel Blaise",
           "twitter_card": "summary_large_image",
           "twitter_misc": {
             "Écrit par": "Jean-Michel Blaise",
-            "Durée de lecture estimée": "5 minutes"
+            "Durée de lecture estimée": "9 minutes"
           },
           "schema": {
             "@context": "https://schema.org",
             "@graph": [
               {
                 "@type": "Article",
-                "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/#article",
+                "@id": "https://perfsystemique.fr/installer-un-rythme-de-pilotage/#article",
                 "isPartOf": {
-                  "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/"
+                  "@id": "https://perfsystemique.fr/installer-un-rythme-de-pilotage/"
                 },
                 "author": {
                   "name": "Jean-Michel Blaise",
                   "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
                 },
-                "headline": "Remettre l&rsquo;organisation au service de la stratégie",
-                "datePublished": "2026-08-25T00:03:00+00:00",
+                "headline": "Installer un rythme de pilotage",
+                "datePublished": "2026-09-04T00:03:00+00:00",
                 "mainEntityOfPage": {
-                  "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/"
+                  "@id": "https://perfsystemique.fr/installer-un-rythme-de-pilotage/"
                 },
-                "wordCount": 914,
+                "wordCount": 1767,
                 "keywords": [
                   "COMEX",
+                  "Dirigeants",
                   "Exécution",
                   "Gouvernance",
                   "Management",
                   "Nouvelle-Calédonie",
-                  "Organisation",
                   "Pacifique",
                   "PerfEco",
-                  "Stratégie"
+                  "Pilotage"
                 ],
                 "articleSection": [
-                  "Organisation"
+                  "Pilotage"
                 ],
                 "inLanguage": "fr-FR"
               },
               {
                 "@type": "WebPage",
-                "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/",
-                "url": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/",
-                "name": "Remettre l'organisation au service de la stratégie - Perfsystemique.fr",
+                "@id": "https://perfsystemique.fr/installer-un-rythme-de-pilotage/",
+                "url": "https://perfsystemique.fr/installer-un-rythme-de-pilotage/",
+                "name": "Installer un rythme de pilotage - Perfsystemique.fr",
                 "isPartOf": {
                   "@id": "https://perfsystemique.fr/#website"
                 },
-                "datePublished": "2026-08-25T00:03:00+00:00",
+                "datePublished": "2026-09-04T00:03:00+00:00",
                 "author": {
                   "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
                 },
                 "breadcrumb": {
-                  "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/#breadcrumb"
+                  "@id": "https://perfsystemique.fr/installer-un-rythme-de-pilotage/#breadcrumb"
                 },
                 "inLanguage": "fr-FR",
                 "potentialAction": [
                   {
                     "@type": "ReadAction",
                     "target": [
-                      "https://perfsystemique.fr/remettre-organisation-au-service-strategie/"
+                      "https://perfsystemique.fr/installer-un-rythme-de-pilotage/"
                     ]
                   }
                 ]
               },
               {
                 "@type": "BreadcrumbList",
-                "@id": "https://perfsystemique.fr/remettre-organisation-au-service-strategie/#breadcrumb",
+                "@id": "https://perfsystemique.fr/installer-un-rythme-de-pilotage/#breadcrumb",
                 "itemListElement": [
                   {
                     "@type": "ListItem",
@@ -183,7 +183,7 @@
                   {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Remettre l&rsquo;organisation au service de la stratégie"
+                    "name": "Installer un rythme de pilotage"
                   }
                 ]
               },
@@ -253,7 +253,7 @@
             "external_handle": "",
             "external_id": "552866114572775",
             "profile_link": "https://www.facebook.com/552866114572775",
-            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=Hq5pYCmm5xgQ7kNvwEINfOM&_nc_oc=AdpJ3TTTik9tQ0RhpHAlq48JPAjavgCrlUPOSEUcwI4jjd_4nn7EIDrUWwLqOOe9H38&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=BGGQzvUdd4cKDBBLn5WQyg&_nc_tpa=Q5bMBQJGZGV6Csu-sl5WZBcDiq2-U34W-NhKqsjA0p8Bid4DMwLmS3d00gpcUSz9S4-kOP2IzS5F&oh=00_AQIZGUu-dJLiZwvZhhPF6OKhsO41rFv2t0o2K-aulDpKTA&oe=6A9B621B",
+            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=abZShdMAIrgQ7kNvwEFSgc8&_nc_oc=AdoD-Ao5ZvYz7LbR-rOGjKTIr7YT3A9-YYOQEjusS-_uUhxefEnvw_zUQKkVbuwFG0c&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=92d57Ifq_nQc72Dr-bnICw&_nc_tpa=Q5bMBQLrsBoyhtC4GkxsuwxLFNisl5IaJCuAIn4Pu6NkQBYf6ynwDyoN9FF4mP0qRLv2Guvip6ql&oh=00_AQIZDQFNKhUa5scAuEiOEXeZejdDgrfra3YpunPtbbJ22A&oe=6AA26A1B",
             "service_label": "Facebook",
             "service_name": "facebook",
             "shared": true,
@@ -266,7 +266,7 @@
         "_links": {
           "self": [
             {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/119",
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/123",
               "targetHints": {
                 "allow": [
                   "GET",
@@ -297,36 +297,36 @@
           "replies": [
             {
               "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=119"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=123"
             }
           ],
           "version-history": [
             {
-              "count": 1,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/119/revisions"
+              "count": 3,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/123/revisions"
             }
           ],
           "predecessor-version": [
             {
-              "id": 120,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/119/revisions/120"
+              "id": 126,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/123/revisions/126"
             }
           ],
           "wp:attachment": [
             {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=119"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=123"
             }
           ],
           "wp:term": [
             {
               "taxonomy": "category",
               "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=119"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=123"
             },
             {
               "taxonomy": "post_tag",
               "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=119"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=123"
             }
           ],
           "curies": [
@@ -339,7 +339,341 @@
         }
       }
     ],
-    "upcoming": []
+    "upcoming": [
+      {
+        "id": 127,
+        "date": "2026-09-08T11:03:00",
+        "date_gmt": "2026-09-08T00:03:00",
+        "guid": {
+          "rendered": "https://perfsystemique.fr/?p=127"
+        },
+        "modified": "2026-09-03T18:39:41",
+        "modified_gmt": "2026-09-03T07:39:41",
+        "slug": "choisir-les-indicateurs-qui-comptent",
+        "status": "future",
+        "type": "post",
+        "link": "https://perfsystemique.fr/?p=127",
+        "title": {
+          "rendered": "Choisir les 3 à 5 indicateurs qui comptent"
+        },
+        "content": {
+          "rendered": "<p>Deuxième épisode de la série « Le Rythme de Pilotage ». Le premier posait le cadre : un rythme de pilotage, ce n&rsquo;est pas plus de réunions, c&rsquo;est un rendez-vous qui revient à date fixe, qui reste court, dont les décisions sont écrites, et qui commence par relire la séance précédente. Reste une question que ce premier épisode laissait ouverte : de quoi parle-t-on, concrètement, pendant ces trente minutes ?</p>\n<p>La réponse tient en un objet que toutes les directions générales possèdent déjà, et dont presque aucune n&rsquo;est satisfaite : le tableau de bord. C&rsquo;est lui qui alimente la séance. C&rsquo;est aussi lui qui, dans la plupart des organisations, l&rsquo;enlise.</p>\n<h2>Le symptôme : quarante lignes, deux heures de comité</h2>\n<p>Le scénario est d&rsquo;une régularité frappante. Un comité de direction se réunit devant un tableau de bord qui compte entre trente et cinquante indicateurs. La séance dure deux heures. On commente les variations, on demande des précisions, on note que tel chiffre a bougé et que tel autre sera consolidé le mois prochain. À la fin, chacun sort avec le sentiment d&rsquo;avoir passé en revue beaucoup de choses — et il serait bien en peine de citer trois décisions prises.</p>\n<p>Il serait facile d&rsquo;en conclure que le comité manque de discipline. Ce serait passer à côté du mécanisme. <strong>Un tableau de bord qui ne fait pas décider n&rsquo;est pas un tableau de bord mal tenu : c&rsquo;est un tableau de bord trop plein.</strong> Et il est trop plein pour des raisons parfaitement rationnelles, que personne n&rsquo;a jamais décidées.</p>\n<h2>Trois portes d&rsquo;entrée, aucune porte de sortie</h2>\n<p>Personne ne s&rsquo;est réveillé un matin en décidant d&rsquo;avoir quarante indicateurs. Ils sont arrivés un par un, chacun avec une justification solide, par trois chemins très ordinaires.</p>\n<h3>La refonte du tableau de bord</h3>\n<p>Tous les deux ou trois ans, on remet le tableau à plat. On repart d&rsquo;une page blanche, on harmonise les formats, on uniformise les périodes de référence, on soigne la présentation. Le résultat est objectivement meilleur que ce qu&rsquo;il remplace : plus lisible, plus cohérent, mieux tenu.</p>\n<p>Il compte aussi plus de lignes qu&rsquo;avant. La refonte a été annoncée à tout le monde, et chacun y a vu — légitimement — l&rsquo;occasion de faire valoir ce qui lui manquait. Un exercice de simplification devient ainsi, par sa mécanique même, un exercice d&rsquo;accumulation.</p>\n<h3>Le chiffre demandé en séance</h3>\n<p>Quelqu&rsquo;un pose une question à laquelle personne ne sait répondre sur le moment. La réaction est saine : on ajoute l&rsquo;indicateur. Il est disponible dès la séance suivante, et il rend un vrai service ce jour-là.</p>\n<p>Puis la question ne se repose plus. L&rsquo;indicateur, lui, reste. Il a été ajouté pour un besoin ponctuel et il occupe désormais une ligne permanente, que plus personne ne regarde mais que plus personne ne songe non plus à retirer.</p>\n<h3>Le reporting mensuel</h3>\n<p>Chaque direction contribue au document commun, par souci de transparence et parce qu&rsquo;il serait mal vu de ne rien y mettre. Le document grossit d&rsquo;une page par direction et par an. Personne ne lit la page du voisin : chacun consulte la sienne, vérifie qu&rsquo;elle est juste, et referme le document.</p>\n<p>À ce stade, l&rsquo;objet a changé de nature sans que personne l&rsquo;ait remarqué. <strong>Ce n&rsquo;est plus un outil de décision, c&rsquo;est une archive.</strong> Elle est complète, elle est à jour, et elle ne sert plus à piloter quoi que ce soit.</p>\n<p>Ces trois mécaniques ont un point commun, et c&rsquo;est le cœur du sujet : <strong>chaque ligne dispose d&rsquo;une porte d&rsquo;entrée bien identifiée ; aucune ne dispose d&rsquo;une porte de sortie.</strong></p>\n<h2>Pourquoi le tableau ne dégonfle jamais tout seul</h2>\n<p>Une fois le constat posé, la question devient : pourquoi personne ne corrige ? Trois raisons, et aucune n&rsquo;est une négligence.</p>\n<h3>Chaque ligne a un propriétaire</h3>\n<p>Derrière chaque indicateur, il y a quelqu&rsquo;un qui l&rsquo;a demandé, qui le produit, ou qui s&rsquo;en sert pour justifier son activité. Proposer de le retirer en séance ressemble, quoi qu&rsquo;on en dise, à un jugement porté sur l&rsquo;utilité de son travail. La conversation est désagréable pour tout le monde, alors elle n&rsquo;a pas lieu — et l&rsquo;indicateur reste.</p>\n<p>Ce n&rsquo;est pas de la politique interne. C&rsquo;est une réaction humaine normale dans une réunion où chacun est comptable de son périmètre.</p>\n<h3>L&rsquo;asymétrie des coûts</h3>\n<p>Ajouter un chiffre coûte cinq minutes de paramétrage, et il supprime un risque réel : celui de ne pas l&rsquo;avoir le jour où quelqu&rsquo;un le demandera. Le retirer coûte une conversation, un arbitrage, et l&rsquo;acceptation d&rsquo;un risque symétrique : celui d&rsquo;en avoir besoin plus tard.</p>\n<p>Face à cette asymétrie, tout dirigeant rationnel ajoute. Le tableau grossit non pas malgré le bon sens, mais à cause de lui.</p>\n<h3>Enlever n&rsquo;est le travail de personne</h3>\n<p>C&rsquo;est la raison la plus structurelle, et la plus facile à corriger. Ajouter un indicateur se fait en séance, en une phrase, sans procédure. Retirer un indicateur suppose une décision explicite — et rien, dans aucun ordre du jour, ne prévoit ce moment.</p>\n<p>Ce n&rsquo;est au programme d&rsquo;aucune réunion. Donc ça n&rsquo;arrive jamais. Ce n&rsquo;est pas un manque de volonté : c&rsquo;est un trou dans le processus.</p>\n<h2>Trois questions, et la ligne reste ou sort</h2>\n<p>Le tri se fait indicateur par indicateur, avec trois questions courtes. La règle est stricte : une seule réponse manquante suffit à faire sortir la ligne. C&rsquo;est cette rigueur qui rend l&rsquo;exercice praticable — sans elle, chaque ligne trouve une justification partielle et rien ne bouge.</p>\n<h3>1. À quelle décision sert-elle ?</h3>\n<p>Nommez la décision précise que cet indicateur déclenche. Pas « il nous donne de la visibilité », pas « il est important pour le suivi » : quelle décision, prise par qui, et à partir de quel seuil.</p>\n<p>Un indicateur de pilotage est un déclencheur. S&rsquo;il n&rsquo;existe aucune décision derrière lui, il peut être excellent, fiable et intéressant — sa place est dans une annexe, pas dans le document qui structure une séance de trente minutes.</p>\n<h3>2. Qui la regarde, nommément ?</h3>\n<p>Un nom, pas une direction. « La direction commerciale suit ce chiffre » est une réponse qui ne désigne personne : un service ne se lève pas en réunion, une personne si.</p>\n<p>Cette question a un effet secondaire utile. Elle révèle les indicateurs orphelins — ceux que tout le monde croyait suivis par quelqu&rsquo;un d&rsquo;autre. Ils sont généralement plus nombreux qu&rsquo;attendu, et leur sortie ne fait aucune victime, précisément parce que personne ne les regardait.</p>\n<h3>3. Que fait-on quand elle bouge ?</h3>\n<p>L&rsquo;action doit être écrite d&rsquo;avance, au moins dans ses grandes lignes : si l&rsquo;indicateur franchit tel seuil, on déclenche telle revue, on alerte telle personne, on arbitre tel budget.</p>\n<p>Si la réponse est « on en discutera le moment venu », ce n&rsquo;est pas un indicateur de pilotage. C&rsquo;est de l&rsquo;information. L&rsquo;information a de la valeur, mais elle ne mérite pas de temps de comité de direction.</p>\n<h2>La quatrième règle : un entre, un sort</h2>\n<p>Les trois questions font le tri une fois. Elles ramènent presque toujours un tableau de quarante lignes à moins de dix, et l&rsquo;effet sur la première séance qui suit est immédiat.</p>\n<p>Mais ce tri ne tient pas tout seul. Six mois plus tard, les trois portes d&rsquo;entrée décrites plus haut auront refait exactement leur travail, et le tableau sera revenu à sa taille d&rsquo;origine. C&rsquo;est ce qui explique que tant d&rsquo;organisations aient déjà « simplifié leur reporting » deux ou trois fois sans résultat durable.</p>\n<p>D&rsquo;où une quatrième règle, qui n&rsquo;est pas une question de tri mais un engagement permanent : <strong>un entre, un sort</strong>. Toute nouvelle ligne en remplace une existante. Le tableau garde sa taille.</p>\n<p>L&rsquo;intérêt de cette règle n&rsquo;est pas de faire maigrir le document — le tri initial s&rsquo;en est chargé. Il est de <strong>forcer l&rsquo;arbitrage au moment de l&rsquo;ajout</strong>, c&rsquo;est-à-dire au seul moment où il est encore facile à faire. Quand quelqu&rsquo;un demande un nouvel indicateur, la question « lequel sort en échange ? » se pose naturellement, sans mettre personne en cause, parce qu&rsquo;elle fait partie de la règle du jeu et non d&rsquo;un jugement.</p>\n<h2>Par où commencer</h2>\n<p>Vous avez probablement déjà refondu ce tableau de bord, peut-être plus d&rsquo;une fois. Vous avez eu raison de le faire : la clarté était réellement nécessaire, et une refonte l&rsquo;apporte. Ce qui a manqué n&rsquo;était pas une meilleure maquette, ni un meilleur outil.</p>\n<p>Ce qui a manqué, c&rsquo;est le droit d&rsquo;enlever — et personne ne se l&rsquo;accorde spontanément.</p>\n<p>Trois questions pour situer où vous en êtes aujourd&rsquo;hui :</p>\n<ol>\n<li><strong>Le test du dernier comité.</strong> Sur toutes vos lignes, combien ont déclenché une décision à votre dernier comité de direction ?</li>\n<li><strong>Le test du nom.</strong> Pour chaque indicateur, savez-vous nommer la personne qui agit quand il bouge ?</li>\n<li><strong>Le test de la sortie.</strong> Quand avez-vous retiré un indicateur pour la dernière fois ?</li>\n</ol>\n<p>La troisième question est la plus révélatrice. Dans la grande majorité des organisations, la réponse honnête est « jamais » — et c&rsquo;est le diagnostic complet.</p>\n<h3>Notre conseil, une seule action à engager en premier</h3>\n<p><strong>Ne refondez rien.</strong> Une refonte est un projet, elle mobilise, elle prend des mois, et l&rsquo;expérience montre qu&rsquo;elle produit un tableau plus gros.</p>\n<p>Faites l&rsquo;inverse, et faites-le petit. Gardez les cinq lignes que vous regardez déjà en premier — celles que vous cherchez d&rsquo;instinct en ouvrant le document, avant même d&rsquo;y penser — et mettez toutes les autres de côté pendant trois mois.</p>\n<p>Point important : <strong>ne les supprimez pas, mettez-les en annexe.</strong> La réversibilité est ce qui rend la décision acceptable pour tout le monde. Personne ne perd son indicateur ; il change simplement de page, et il reste consultable.</p>\n<p>Ce qui se passe ensuite est prévisible et c&rsquo;est tout l&rsquo;intérêt du dispositif. Les indicateurs qui manquent vraiment reviendront d&rsquo;eux-mêmes : quelqu&rsquo;un les réclamera, et vous saurez alors qu&rsquo;ils ont leur place — vous aurez même la décision qu&rsquo;ils servent, puisqu&rsquo;elle sera la raison de la réclamation. Les autres, personne ne les demandera. Au bout de trois mois, <strong>vous aurez la réponse que six réunions d&rsquo;arbitrage n&rsquo;auraient pas produite</strong>, et vous l&rsquo;aurez obtenue sans avoir eu à discuter une seule ligne.</p>\n<h2>Un chantier plus court qu&rsquo;il n&rsquo;y paraît</h2>\n<p>C&rsquo;est là ce qui distingue ce sujet de la plupart des chantiers de pilotage : il ne demande ni outil nouveau, ni projet, ni réorganisation, ni budget. Une réunion de trente minutes pour sélectionner les cinq lignes, une mise en annexe réversible, et trois mois d&rsquo;observation.</p>\n<p>Le contexte calédonien rend l&rsquo;exercice d&rsquo;autant plus utile. L&rsquo;activité repart dans plusieurs secteurs pendant que les effectifs, eux, n&rsquo;ont pas retrouvé leur niveau d&rsquo;avant. Il y a donc plus à piloter avec moins de monde pour le faire — et le temps de comité de direction devient une ressource qu&rsquo;on ne peut plus se permettre de consacrer au commentaire de variations qui ne déclenchent rien.</p>\n<p>Votre tableau de bord n&rsquo;a sans doute pas besoin d&rsquo;être reconstruit. Il a besoin qu&rsquo;on lui rende sa capacité à faire décider, et c&rsquo;est un travail bien plus rapide qu&rsquo;une refonte.</p>\n<h2>La suite de la série</h2>\n<p>Le prochain épisode porte sur le journal de décision : comment garder la trace de ce qui a été tranché, pourquoi cette trace vaut davantage qu&rsquo;un compte rendu, et comment elle transforme la relecture d&rsquo;ouverture évoquée dans le premier épisode. Viendront ensuite la cascade d&rsquo;objectifs sans bureaucratie, le rituel hebdomadaire, la remontée d&rsquo;information sans déformation, le tableau de bord vivant, et l&rsquo;installation durable de l&rsquo;ensemble.</p>\n<hr />\n<p><em><strong>Question de diagnostic :</strong> quand avez-vous retiré un indicateur de votre tableau de bord pour la dernière fois ?</em></p>\n<p><em>Cet article est l&rsquo;épisode 2/8 de la série « Le Rythme de Pilotage ». La version synthétique est disponible sur <a href=\"https://www.perfeco.nc/ressources/choisir-les-indicateurs-qui-comptent\">perfeco.nc</a>, et en anglais sur <a href=\"https://www.perfeco.nc/en/resources/choosing-the-few-metrics-that-matter\">perfeco.nc/en</a>.</em></p>\n<p><em>PerfEco Consulting NC accompagne les directions générales d&rsquo;organisations complexes sur le pilotage, l&rsquo;exécution et la gouvernance. Contact : <a href=\"mailto:contact@perfeco.nc\">contact@perfeco.nc</a> — +687 73 08 75 — <a href=\"https://www.perfeco.nc/\">www.perfeco.nc</a></em></p>\n",
+          "protected": false
+        },
+        "excerpt": {
+          "rendered": "<p>Un tableau de bord ne souffre pas d&rsquo;un indicateur manquant, mais de trente-cinq indicateurs de trop. Pourquoi il grossit toujours, les trois questions qui decident si une ligne reste ou sort, et la regle « un entre, un sort » qui l&#8217;empeche de regrossir six mois plus tard.</p>\n",
+          "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "closed",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": {
+          "_exactmetrics_skip_tracking": false,
+          "footnotes": "",
+          "jetpack_publicize_message": "",
+          "jetpack_publicize_feature_enabled": false,
+          "jetpack_social_post_already_shared": true,
+          "jetpack_social_options": {
+            "image_generator_settings": {
+              "template": "highway",
+              "default_image_id": 0,
+              "font": "",
+              "enabled": false
+            },
+            "version": 2
+          },
+          "jetpack_post_was_ever_published": false
+        },
+        "categories": [
+          10
+        ],
+        "tags": [
+          20,
+          24,
+          32,
+          17,
+          13,
+          18,
+          19,
+          26,
+          21
+        ],
+        "class_list": [
+          "post-127",
+          "post",
+          "type-post",
+          "status-future",
+          "format-standard",
+          "hentry",
+          "category-pilotage",
+          "tag-comex",
+          "tag-dirigeants",
+          "tag-execution",
+          "tag-gouvernance",
+          "tag-management",
+          "tag-nouvelle-caledonie",
+          "tag-pacifique",
+          "tag-perfeco",
+          "tag-pilotage"
+        ],
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/?p=127\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Un tableau de bord ne souffre pas d&#039;un indicateur manquant, mais de trente-cinq indicateurs de trop. Pourquoi il grossit toujours, les trois questions qui decident si une ligne reste ou sort, et la regle « un entre, un sort » qui l&#039;empeche de regrossir six mois plus tard.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/?p=127\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-09-08T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"10 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=127#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=127\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Choisir les 3 à 5 indicateurs qui comptent\",\"datePublished\":\"2026-09-08T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=127\"},\"wordCount\":2050,\"keywords\":[\"COMEX\",\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=127\",\"url\":\"https:\\/\\/perfsystemique.fr\\/?p=127\",\"name\":\"Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-09-08T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=127#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/?p=127\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=127#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Choisir les 3 à 5 indicateurs qui comptent\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+        "yoast_head_json": {
+          "title": "Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr",
+          "robots": {
+            "index": "index",
+            "follow": "follow",
+            "max-snippet": "max-snippet:-1",
+            "max-image-preview": "max-image-preview:large",
+            "max-video-preview": "max-video-preview:-1"
+          },
+          "canonical": "https://perfsystemique.fr/?p=127",
+          "og_locale": "fr_FR",
+          "og_type": "article",
+          "og_title": "Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr",
+          "og_description": "Un tableau de bord ne souffre pas d'un indicateur manquant, mais de trente-cinq indicateurs de trop. Pourquoi il grossit toujours, les trois questions qui decident si une ligne reste ou sort, et la regle « un entre, un sort » qui l'empeche de regrossir six mois plus tard.",
+          "og_url": "https://perfsystemique.fr/?p=127",
+          "og_site_name": "Perfsystemique.fr",
+          "article_publisher": "https://www.facebook.com/PerfecoNC/",
+          "article_published_time": "2026-09-08T00:03:00+00:00",
+          "author": "Jean-Michel Blaise",
+          "twitter_card": "summary_large_image",
+          "twitter_misc": {
+            "Écrit par": "Jean-Michel Blaise",
+            "Durée de lecture estimée": "10 minutes"
+          },
+          "schema": {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Article",
+                "@id": "https://perfsystemique.fr/?p=127#article",
+                "isPartOf": {
+                  "@id": "https://perfsystemique.fr/?p=127"
+                },
+                "author": {
+                  "name": "Jean-Michel Blaise",
+                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
+                },
+                "headline": "Choisir les 3 à 5 indicateurs qui comptent",
+                "datePublished": "2026-09-08T00:03:00+00:00",
+                "mainEntityOfPage": {
+                  "@id": "https://perfsystemique.fr/?p=127"
+                },
+                "wordCount": 2050,
+                "keywords": [
+                  "COMEX",
+                  "Dirigeants",
+                  "Exécution",
+                  "Gouvernance",
+                  "Management",
+                  "Nouvelle-Calédonie",
+                  "Pacifique",
+                  "PerfEco",
+                  "Pilotage"
+                ],
+                "articleSection": [
+                  "Pilotage"
+                ],
+                "inLanguage": "fr-FR"
+              },
+              {
+                "@type": "WebPage",
+                "@id": "https://perfsystemique.fr/?p=127",
+                "url": "https://perfsystemique.fr/?p=127",
+                "name": "Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr",
+                "isPartOf": {
+                  "@id": "https://perfsystemique.fr/#website"
+                },
+                "datePublished": "2026-09-08T00:03:00+00:00",
+                "author": {
+                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
+                },
+                "breadcrumb": {
+                  "@id": "https://perfsystemique.fr/?p=127#breadcrumb"
+                },
+                "inLanguage": "fr-FR",
+                "potentialAction": [
+                  {
+                    "@type": "ReadAction",
+                    "target": [
+                      "https://perfsystemique.fr/?p=127"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://perfsystemique.fr/?p=127#breadcrumb",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://perfsystemique.fr/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Choisir les 3 à 5 indicateurs qui comptent"
+                  }
+                ]
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://perfsystemique.fr/#website",
+                "url": "https://perfsystemique.fr/",
+                "name": "Perfsystemique.fr",
+                "description": "Aligner stratégie, organisation, finance et opérations pour une performance durable",
+                "potentialAction": [
+                  {
+                    "@type": "SearchAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": "https://perfsystemique.fr/?s={search_term_string}"
+                    },
+                    "query-input": {
+                      "@type": "PropertyValueSpecification",
+                      "valueRequired": true,
+                      "valueName": "search_term_string"
+                    }
+                  }
+                ],
+                "inLanguage": "fr-FR"
+              },
+              {
+                "@type": "Person",
+                "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953",
+                "name": "Jean-Michel Blaise",
+                "image": {
+                  "@type": "ImageObject",
+                  "inLanguage": "fr-FR",
+                  "@id": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "url": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "contentUrl": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "caption": "Jean-Michel Blaise"
+                },
+                "sameAs": [
+                  "http://perfsystemique.fr"
+                ],
+                "url": "https://perfsystemique.fr/author/admin7804/"
+              }
+            ]
+          }
+        },
+        "jetpack_publicize_connections": [
+          {
+            "id": "32089949",
+            "username": "Jean-Michel  Blaise",
+            "connection_id": "25897449",
+            "display_name": "Jean-Michel  Blaise",
+            "external_handle": "",
+            "external_id": "C7Z6Ry4olO",
+            "profile_link": "https://www.linkedin.com/in/jean-michel-blaise-2867a337b",
+            "profile_picture": "https://media.licdn.com/dms/image/v2/D5603AQFuhUnwnN4zyw/profile-displayphoto-shrink_100_100/B56ZjFQ5KLHAAU-/0/1755656197004?e=1784160000&v=beta&t=z4L4H1kLLPGpvEUC3fnGD_Uj16COBPlF3NJEszZZa_I",
+            "service_label": "LinkedIn",
+            "service_name": "linkedin",
+            "shared": true,
+            "template": "",
+            "wpcom_user_id": 0
+          },
+          {
+            "id": "32089959",
+            "username": "PerfEco Consulting NC",
+            "connection_id": "25897454",
+            "display_name": "PerfEco Consulting NC",
+            "external_handle": "",
+            "external_id": "552866114572775",
+            "profile_link": "https://www.facebook.com/552866114572775",
+            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=abZShdMAIrgQ7kNvwEFSgc8&_nc_oc=AdoD-Ao5ZvYz7LbR-rOGjKTIr7YT3A9-YYOQEjusS-_uUhxefEnvw_zUQKkVbuwFG0c&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=92d57Ifq_nQc72Dr-bnICw&_nc_tpa=Q5bMBQLrsBoyhtC4GkxsuwxLFNisl5IaJCuAIn4Pu6NkQBYf6ynwDyoN9FF4mP0qRLv2Guvip6ql&oh=00_AQIZDQFNKhUa5scAuEiOEXeZejdDgrfra3YpunPtbbJ22A&oe=6AA26A1B",
+            "service_label": "Facebook",
+            "service_name": "facebook",
+            "shared": true,
+            "template": "",
+            "wpcom_user_id": 0
+          }
+        ],
+        "jetpack_featured_media_url": "",
+        "jetpack-related-posts": [],
+        "_links": {
+          "self": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/127",
+              "targetHints": {
+                "allow": [
+                  "GET",
+                  "POST",
+                  "PUT",
+                  "PATCH",
+                  "DELETE"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts"
+            }
+          ],
+          "about": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/types/post"
+            }
+          ],
+          "author": [
+            {
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/users/1"
+            }
+          ],
+          "replies": [
+            {
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=127"
+            }
+          ],
+          "version-history": [
+            {
+              "count": 1,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/127/revisions"
+            }
+          ],
+          "predecessor-version": [
+            {
+              "id": 128,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/127/revisions/128"
+            }
+          ],
+          "wp:attachment": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=127"
+            }
+          ],
+          "wp:term": [
+            {
+              "taxonomy": "category",
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=127"
+            },
+            {
+              "taxonomy": "post_tag",
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=127"
+            }
+          ],
+          "curies": [
+            {
+              "name": "wp",
+              "href": "https://api.w.org/{rel}",
+              "templated": true
+            }
+          ]
+        }
+      }
+    ]
   },
   "ga4": {
     "ga4_perfeco": {
@@ -360,6 +694,6 @@
   "facebook": {
     "fan_count": 51,
     "page_post_engagements_week": 0,
-    "page_views_week": 4
+    "page_views_week": 0
   }
 }
