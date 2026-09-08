@@ -1,0 +1,177 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base
+  title="Le journal de décision"
+  description="Le même sujet revient pour la troisième séance de suite. Il avait été tranché, mais plus personne ne retrouve ce qui avait été décidé ni sur quoi. Les quatre lignes qui rendent une décision retrouvable six mois plus tard."
+  canonicalOverride="https://perfsystemique.fr/le-journal-de-decision/"
+>
+  <Nav langAlternate="/en/resources/the-decision-log" />
+  <main class="pt-16">
+
+    <!-- Hero article -->
+    <section class="bg-navy-dark text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="text-xs bg-teal/20 text-teal font-medium px-3 py-1 rounded-full">Pilotage</span>
+          <span class="text-xs bg-teal/20 text-teal font-medium px-3 py-1 rounded-full">Décision</span>
+          <span class="text-xs bg-teal/20 text-teal font-medium px-3 py-1 rounded-full">Gouvernance</span>
+          <time class="text-xs text-gray-400" datetime="2026-09-15">15 septembre 2026</time>
+        </div>
+        <p class="text-sm text-amber-400 font-semibold mb-3 uppercase tracking-widest">Série Le Rythme de Pilotage · 3/8</p>
+        <h1 class="text-3xl sm:text-4xl font-bold mb-6 leading-snug">
+          Trois séances.<br>Le même sujet à chaque fois.
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Il a été tranché en juin. Plus personne ne retrouve ce qui avait été décidé, ni sur quoi. Alors on rediscute.
+        </p>
+        <!-- Auteur -->
+        <div class="flex items-center gap-3 mt-8 pt-6 border-t border-white/10">
+          <div>
+            <p class="text-sm font-semibold text-white">Jean-Michel Blaise</p>
+            <p class="text-xs text-gray-400">Fondateur — PerfEco Consulting NC</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bandeau version complète -->
+    <div class="bg-amber-50 border-b border-amber-200 py-3 px-4">
+      <div class="max-w-3xl mx-auto flex items-center justify-between gap-4 flex-wrap text-sm text-amber-800">
+        <span>📖 Cet article est une synthèse — <a href="https://perfsystemique.fr/le-journal-de-decision/" target="_blank" rel="noopener" class="font-semibold underline hover:text-amber-900">Lire la version complète sur perfsystemique.fr →</a></span>
+        <a href="/en/resources/the-decision-log" class="text-amber-700 hover:text-amber-900 font-medium text-xs">🇬🇧 Read in English</a>
+      </div>
+    </div>
+
+    <!-- Contenu article -->
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-gray">
+
+        <p class="lead text-xl text-gray-700 font-medium">
+          Troisième épisode de la série. Le premier posait le cadre d'un rythme de pilotage ; le deuxième réduisait le tableau de bord aux quelques indicateurs qui déclenchent vraiment une décision. Reste la question la plus simple, et la plus coûteuse quand on l'ignore : que devient une décision une fois qu'elle est prise ?
+        </p>
+
+        <h2>Trois traces, et le sujet revient quand même</h2>
+
+        <p>
+          Aucun comité de direction ne travaille sans trace. Trois dispositifs existent presque partout, et ils sont tous les trois de bons réflexes. Aucun ne garde pourtant la décision elle-même.
+        </p>
+
+        <p>
+          <strong>Le compte rendu de réunion</strong> : huit pages, tout y est. Il est envoyé, classé, et il n'est plus rouvert. <strong>Le tableau d'actions partagé</strong> : une colonne responsable, une colonne échéance. Il est réellement rempli la veille du comité suivant, quand il faut bien montrer quelque chose. <strong>Le tour de table de fin de séance</strong> : « on est d'accord ? » Tout le monde acquiesce, et chacun sort avec sa version de ce qui vient d'être décidé.
+        </p>
+
+        <p>
+          Le point commun des trois est facile à formuler, et il explique presque tout : <strong>on écrit ce qui a été dit. On n'écrit pas ce qui a été décidé.</strong>
+        </p>
+
+        <h2>Pourquoi le sujet revient</h2>
+
+        <p>
+          Personne ne rouvre un dossier par mauvaise foi. Trois mécanismes très ordinaires suffisent.
+        </p>
+
+        <p>
+          <strong>La décision est noyée.</strong> Elle se trouve quelque part dans le compte rendu, entre un point d'information et une digression. La retrouver prend plus de temps que de rediscuter le sujet — alors on rediscute.
+        </p>
+
+        <p>
+          <strong>Les faits du jour ne sont nulle part.</strong> On a noté la conclusion, jamais les deux ou trois éléments sur lesquels elle reposait. Six mois plus tard, impossible de dire si la situation a changé — ce qui justifierait de rouvrir — ou si l'on a simplement oublié.
+        </p>
+
+        <p>
+          <strong>Reposer la question ne coûte rien.</strong> Redemander passe pour de la prudence. Rappeler qu'un sujet est tranché passe pour de la rigidité. L'asymétrie est totale, et elle joue toujours dans le même sens.
+        </p>
+
+        <h2>Quatre lignes, et la décision se retrouve</h2>
+
+        <p>
+          Un journal de décision n'est pas un outil. C'est une page, tenue en continu, où chaque décision occupe quatre lignes.
+        </p>
+
+        <p>
+          <strong>1. Ce qu'on a décidé.</strong> Une phrase, au présent. La décision, pas le débat qui y a mené.<br>
+          <strong>2. Qui l'a tranchée.</strong> Un nom. Pas « le comité » — une décision sans nom n'a personne pour la rappeler.<br>
+          <strong>3. Sur quoi on s'est appuyé.</strong> Les deux ou trois faits qu'on connaissait ce jour-là.<br>
+          <strong>4. Quand on la revoit.</strong> Une date. Sans elle, la décision se rouvre n'importe quand.
+        </p>
+
+        <p>
+          La troisième ligne est celle qu'on oublie systématiquement, et c'est pourtant la seule qui répond à la vraie question du jour où le sujet revient : <strong>est-ce que les faits ont changé ?</strong> Si oui, rouvrir est légitime et l'on gagne du temps. Si non, la discussion est close en trente secondes, sans que personne ait à jouer les gardiens du temple.
+        </p>
+
+        <h2>Ce que ça change en Nouvelle-Calédonie</h2>
+
+        <p>
+          Le contexte calédonien rend l'exercice moins théorique qu'ailleurs. L'activité est repartie sur plusieurs segments, mais l'emploi salarié n'est pas revenu à son niveau d'avant : les équipes de direction sont plus resserrées qu'il y a deux ans, et les mêmes personnes siègent dans davantage d'instances. Chaque sujet rouvert une fois de trop se paie directement en heures de comité — des heures qui manquent ailleurs.
+        </p>
+
+        <p>
+          C'est aussi une question de continuité. Quand une direction se renouvelle, ou qu'un cadre clé part, un journal de décision est souvent la seule chose qui explique pourquoi l'organisation fonctionne comme elle fonctionne. Sans lui, le successeur ne reprend pas le fil : il recommence.
+        </p>
+
+        <h2>Par où commencer</h2>
+
+        <p>
+          Vous rédigez déjà des comptes rendus, et vous avez eu raison de les tenir : sans eux, plus rien ne serait tracé du tout. Ce qui manque n'est pas un compte rendu de plus, ni un outil supplémentaire — c'est une page où la décision tient toute seule.
+        </p>
+
+        <div class="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-6 my-8">
+          <p class="font-semibold text-blue-900 mb-1">Notre conseil</p>
+          <p class="text-blue-900">N'ouvrez aucun outil. À la fin de votre prochain comité, gardez dix minutes pour écrire les décisions prises : une phrase, un nom, une date. Rien d'autre. Vous saurez au comité suivant si la page vous sert — et vous le saurez sans avoir rien déployé.</p>
+        </div>
+
+        <div class="bg-gray-50 border-l-4 border-teal rounded-r-xl p-6 my-8">
+          <p class="font-semibold text-gray-800 mb-1">Question de diagnostic</p>
+          <p class="text-gray-700 text-sm">Prenez une décision prise en mars. Retrouvez-vous en deux minutes qui l'a tranchée, et sur quoi ?</p>
+        </div>
+
+        <!-- Lien version approfondie -->
+        <div class="not-prose bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
+          <p class="text-sm font-semibold text-blue-900 mb-1">Version approfondie</p>
+          <p class="text-sm text-blue-800 mb-3">La version complète de cet article est disponible sur perfsystemique.fr.</p>
+          <a href="https://perfsystemique.fr/le-journal-de-decision/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900 underline">
+            Lire l'article complet sur perfsystemique.fr →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Navigation série -->
+    <section class="border-t border-gray-200 py-10 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">Série Le Rythme de Pilotage — épisode 3 sur 8</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/ressources/choisir-les-indicateurs-qui-comptent" class="bg-gray-50 hover:bg-gray-100 rounded-lg p-4 transition-colors">
+            <p class="text-xs text-teal font-semibold mb-1">← Épisode précédent · 2/8</p>
+            <p class="text-sm font-medium text-gray-700">Choisir les 3 à 5 indicateurs qui comptent</p>
+            <p class="text-xs text-gray-400 mt-1">8 septembre 2026</p>
+          </a>
+          <a href="/ressources" class="bg-gray-50 hover:bg-gray-100 rounded-lg p-4 transition-colors">
+            <p class="text-xs text-teal font-semibold mb-1">Toutes les ressources →</p>
+            <p class="text-sm font-medium text-gray-700">Les articles PerfEco sur le pilotage et l'exécution</p>
+            <p class="text-xs text-gray-400 mt-1">Depuis juin 2026</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-navy-dark text-white py-16 px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">Arrêter de rejouer les mêmes arbitrages ?</h2>
+        <p class="text-gray-300 mb-8">PerfEco aide les directions générales à tenir un journal de décision simple — une page, quatre lignes par décision — et à s'en servir au comité suivant plutôt qu'à le classer.</p>
+        <a href="/contact" class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors">
+          Prendre contact →
+        </a>
+        <p class="text-gray-400 text-sm mt-4">contact@perfeco.nc — +687 73 08 75</p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>
