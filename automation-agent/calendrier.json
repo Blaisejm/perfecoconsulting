@@ -52,7 +52,7 @@
       "heure_nc": "11:00",
       "file": "automation-queue/jeudi.json",
       "prefixe_staging": "automation-queue/jeudi-",
-      "routine": "jeudi-postcourt-creation",
+      "routine": "mercredi-creation",
       "workflow": "publish-jeudi-post-court.yml",
       "preparation_jours": 8,
       "canaux": [
@@ -72,7 +72,7 @@
       "heure_nc": "11:00",
       "file": "automation-queue/vendredi.json",
       "prefixe_staging": "automation-queue/vendredi-",
-      "routine": "vendredi-veilleeco-creation",
+      "routine": "mercredi-creation",
       "workflow": "publish-vendredi-veille-eco.yml",
       "preparation_jours": 9,
       "canaux": [
@@ -123,13 +123,10 @@
       "cadence": "hebdomadaire (lundi 08h08)",
       "tolerance_jours": 8
     },
-    "jeudi-postcourt-creation": {
+    "mercredi-creation": {
       "cadence": "hebdomadaire (mercredi 08h03)",
-      "tolerance_jours": 8
-    },
-    "vendredi-veilleeco-creation": {
-      "cadence": "hebdomadaire (mercredi 08h05)",
-      "tolerance_jours": 8
+      "tolerance_jours": 8,
+      "_note": "Fusion du 10/09/2026 : produit le post court du jeudi (J-8) ET la veille economique du vendredi (J-9) en une seule execution. Remplace jeudi-postcourt-creation et vendredi-veilleeco-creation."
     },
     "perfeco-rappel-quotidien": {
       "cadence": "quotidienne (17h00)",
