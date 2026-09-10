@@ -4,8 +4,8 @@ name: "PerfEco — Vérification préparation contenu (filet indépendant de Cow
 # POURQUOI CE WORKFLOW EXISTE (18/08/2026)
 #
 # Cause racine établie ce jour, preuves à l'appui : les routines Cowork qui
-# préparent le contenu (mardi-carrousel-creation, jeudi-postcourt-creation,
-# vendredi-veilleeco-creation) meurent parfois SILENCIEUSEMENT.
+# préparent le contenu (mardi-carrousel-creation, mercredi-creation)
+# meurent parfois SILENCIEUSEMENT.
 #
 # Transcripts retrouvés :
 #   perfeco-fix-veille-eco-j7   14/08 → "401 OAuth access token has expired"
