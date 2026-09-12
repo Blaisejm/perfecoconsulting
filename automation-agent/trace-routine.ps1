@@ -193,6 +193,25 @@ try {
     Write-Warning "Le journal n'a pas pu etre pousse : $_"
 } finally { Pop-Location }
 
+# ---------------------------------------------------------------------------
+# Liberation du verrou d'exclusion mutuelle (regle Jean-Michel du 12/09/2026 :
+# jamais deux routines en parallele, 15 minutes d'ecart minimum, ordre respecte
+# meme quand le PC est allume tard et que les creneaux manques sont rejoues).
+# Fait ICI parce que trace-routine est le seul point de passage obligatoire de
+# TOUTES les routines : une liberation oubliee bloquerait toutes les suivantes.
+# ---------------------------------------------------------------------------
+$VERROU = Join-Path $PSScriptRoot 'verrou.ps1'
+if (Test-Path $VERROU) {
+    try {
+        & $VERROU -Liberer -Routine $Routine | ForEach-Object { Write-Host "  [verrou] $_" }
+    } catch {
+        Write-Warning "Le verrou n'a pas pu etre libere : $_"
+        Write-Warning "Le liberer a la main : & '$VERROU' -Liberer -Routine '$Routine'"
+    }
+} else {
+    Write-Warning "verrou.ps1 introuvable — verrou non libere."
+}
+
 Write-Host "OK — $($ligne.fichiers.Count) fichier(s) tracé(s)."
 if ($ligne.fichiers.Count -eq 0) {
     Write-Host "     (aucun fichier modifie : normal pour un resultat 'rien-a-faire')"
