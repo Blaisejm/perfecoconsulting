@@ -364,11 +364,11 @@
         "linkedin_company",
         "facebook"
       ],
-      "statut": "echeance_depassee",
+      "statut": "publie",
       "source": "automation-queue/jeudi.json",
       "bascule": null,
-      "preuve": null,
-      "note": "03/09 19h NC perfeco-rappel-quotidien : PRODUIT par l'etape 1quater a J-7 (jeudi-postcourt-creation n'avait rien produit). En staging jeudi-W36-pret.json (1 406 car., visuel W36/04-trois-questions.png). Premier angle ecarte apres verification : le post court du 20/08 traitait deja le « test des 3 questions » sur les indicateurs, dont « qui le regarde, nommement ». Bascule par perfeco-bascule-w36-05092026, samedi 05/09 18h00 NC, APRES la republication Facebook de 15h30 qui relit jeudi.json et exige encore la date du 03/09."
+      "preuve": "Make 4 operations (LinkedIn Company + Facebook, profil perso volontairement exclu) a 2026-09-10T04:21:35Z statut=1 ; post Facebook confirme a 2026-09-10T04:21:39Z ; run GitHub 34436861501 (etape de publication executee, non skipped) ; controle aval 34452590131 en success",
+      "note": "03/09 19h NC perfeco-rappel-quotidien : PRODUIT par l'etape 1quater a J-7 (jeudi-postcourt-creation n'avait rien produit). En staging jeudi-W36-pret.json (1 406 car., visuel W36/04-trois-questions.png). Premier angle ecarte apres verification : le post court du 20/08 traitait deja le « test des 3 questions » sur les indicateurs, dont « qui le regarde, nommement ». Bascule par perfeco-bascule-w36-05092026, samedi 05/09 18h00 NC, APRES la republication Facebook de 15h30 qui relit jeudi.json et exige encore la date du 03/09. | 12/09 perfeco-verif-github-actions : STATUT CLOS RETROACTIVEMENT. L'entree etait restee en 'echeance_depassee' et le garde-fou check-preparation-contenu la signalait comme anomalie bloquante le 11/09 (« soit elle n'est jamais partie, soit personne n'a clos son suivi »). Verification faite : elle EST partie normalement le 10/09 a 04:21 UTC (15:21 NC), sur les 2 canaux attendus. Ce n'etait donc pas une publication perdue mais un suivi non clos — la bascule perfeco-bascule-w36-05092026 a bien pousse le contenu, personne n'a ensuite marque le registre. Cause structurelle : aucune routine ne clot le registre APRES la publication, le statut 'publie' n'est ecrit que par une intervention manuelle. A traiter (voir brouillon Gmail du 12/09)."
     },
     {
       "id": "2026-09-11-vendredi",
