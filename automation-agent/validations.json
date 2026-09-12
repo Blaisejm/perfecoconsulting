@@ -1,0 +1,8 @@
+{
+    "_lisez_moi":  "Registre des validations demandees a Jean-Michel. Delai standard 48 h, au-dela le systeme applique le defaut. Regle du 12/09/2026. Ne pas editer a la main : utiliser validations.ps1.",
+    "delai_standard_heures":  48,
+    "derniere_maj":  "2026-09-12",
+    "validations":  [
+
+                    ]
+}
