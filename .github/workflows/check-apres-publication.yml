@@ -6,6 +6,34 @@ on:
     - cron: '30 7 * * 6'         # Samedi 07h30 UTC = 18h30 NC (~3h après la republication Facebook de 15h30)
   workflow_dispatch:
 
+# Écriture nécessaire depuis le 13/09/2026 : ce workflow clôt désormais l'échéance
+# dans automation-agent/publications.json quand la publication est confirmée.
+permissions:
+  contents: write
+
+# ⚠️ CORRECTION DU 13/09/2026 — les gardes de fraîcheur ne raisonnent plus en HEURES
+#
+# Les deux contrôles de fraîcheur (post Facebook « de moins de 6h », exécution Make
+# « de moins de 5h ») étaient ancrés sur l'heure COURANTE, en supposant une publication
+# à 11h00 NC et un contrôle à 14h00. Aucune des deux heures n'est garantie : le cron
+# GitHub prend régulièrement du retard.
+#
+# Le 11/09/2026, la veille éco est partie à 13h13 NC (2h13 de retard) et ce contrôle
+# est passé à 18h53 NC : 5h40 d'écart, seuil franchi, ÉCHEC — alors que le log du
+# contrôle lui-même affichait « statut=1 opérations=5 » pour 5 attendues, c'est-à-dire
+# une publication complète sur les 3 canaux. 3e faux positif de ce type.
+#
+# Les deux gardes comparent désormais le JOUR NC de l'événement au jour NC courant.
+# Un retard de cron, quelle qu'en soit l'ampleur, ne déclenche donc plus rien tant que
+# la publication a bien eu lieu dans la journée ; une publication réellement absente
+# reste détectée, puisqu'il n'existe alors aucune exécution du jour.
+#
+# Angle mort assumé : une exécution Make ANTÉRIEURE le même jour (post ad-hoc) pourrait
+# masquer l'échec de celle de 11h00. Le contrôle du nombre d'opérations qui suit ferme
+# cette porte — un ad-hoc Facebook seul compte 3 opérations, une veille en attend 5 —
+# et la règle d'espacement interdit déjà deux publications le même jour sur la Company
+# Page. Le risque résiduel est donc très inférieur au bruit qu'on supprime.
+
 # ⚠️ REFONTE DU 21/08/2026 — ce contrôle ne raisonne plus par JOUR DE LA SEMAINE
 #
 # Il ne tournait que les mardi/jeudi/vendredi et filtrait ses étapes sur le jour. Or la
@@ -30,6 +58,7 @@ jobs:
           DOW=$(TZ="Pacific/Noumea" date +%u)
           TODAY_NC=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
           echo "dow=$DOW" >> "$GITHUB_OUTPUT"
+          echo "today_nc=$TODAY_NC" >> "$GITHUB_OUTPUT"
 
           # Une file d'attente portant la date du jour = un contenu publié à 11h00 NC.
           # C'est le critère exact des workflows de publication, donc les deux ne peuvent
@@ -87,13 +116,21 @@ jobs:
             exit 1
           fi
 
-          THRESHOLD=$(( $(date -u +%s) - 6*3600 ))
-          POST_EPOCH=$(date -d "$MOST_RECENT" +%s)
-          if [ "$POST_EPOCH" -lt "$THRESHOLD" ]; then
-            echo "::error::Le post Facebook le plus récent date de plus de 6h ($MOST_RECENT) — aucune publication récente détectée. Vérifier manuellement facebook.com/PerfecoNC."
+          # ------------------------------------------------------------------
+          # FENÊTRE GLISSANTE REMPLACÉE PAR LE JOUR NC (13/09/2026)
+          # L'ancien test « moins de 6h » supposait une publication à 11h00 pile
+          # et un contrôle à 14h00. Voir l'en-tête du workflow : ce postulat a
+          # produit un faux positif le 11/09/2026.
+          # ------------------------------------------------------------------
+          TODAY_NC="${{ steps.day.outputs.today_nc }}"
+          POST_DAY_NC=$(TZ="Pacific/Noumea" date -d "$MOST_RECENT" +%Y-%m-%d)
+          echo "DEBUG: post le plus récent = $MOST_RECENT (soit le $POST_DAY_NC en heure NC)"
+          if [ "$POST_DAY_NC" != "$TODAY_NC" ]; then
+            echo "::error::Le post Facebook le plus récent date du $POST_DAY_NC (heure NC), pas d'aujourd'hui $TODAY_NC — aucune publication du jour n'est visible. Vérifier manuellement facebook.com/PerfecoNC."
             exit 1
           fi
-          echo "✅ Post Facebook récent confirmé ($MOST_RECENT)."
+          echo "fb_post_time=$MOST_RECENT" >> "$GITHUB_OUTPUT"
+          echo "✅ Post Facebook du jour confirmé ($MOST_RECENT)."
 
       - name: Vérifier l'article WordPress (Mardi)
         id: wp_check
@@ -239,10 +276,16 @@ jobs:
           echo "Dernière exécution : $TIMESTAMP — statut=$STATUS opérations=$OPS"
           echo "Attendu aujourd'hui : $EXPECTED opérations — $CANAUX"
 
-          THRESHOLD=$(( $(date -u +%s) - 5*3600 ))
-          EXEC_EPOCH=$(date -d "$TIMESTAMP" +%s)
-          if [ "$EXEC_EPOCH" -lt "$THRESHOLD" ]; then
-            echo "::error::La dernière exécution Make.com date de plus de 5h ($TIMESTAMP) — la publication de 11h00 n'a pas été traitée. Causes usuelles : scénario désactivé (le webhook accepte puis met en file sans exécuter), ou workflow de publication non déclenché. Vérifier eu1.make.com/1970457/scenarios/6916780 ET la page LinkedIn."
+          # ------------------------------------------------------------------
+          # FENÊTRE GLISSANTE REMPLACÉE PAR LE JOUR NC (13/09/2026)
+          # Même correction que pour Facebook : on exige une exécution DU JOUR,
+          # pas une exécution « de moins de 5h ». Voir l'en-tête du workflow.
+          # ------------------------------------------------------------------
+          TODAY_NC="${{ steps.day.outputs.today_nc }}"
+          EXEC_DAY_NC=$(TZ="Pacific/Noumea" date -d "$TIMESTAMP" +%Y-%m-%d)
+          echo "Exécution du $EXEC_DAY_NC (heure NC) — jour attendu : $TODAY_NC"
+          if [ "$EXEC_DAY_NC" != "$TODAY_NC" ]; then
+            echo "::error::La dernière exécution Make.com date du $EXEC_DAY_NC (heure NC), pas d'aujourd'hui $TODAY_NC ($TIMESTAMP) — la publication du jour n'a pas été traitée. Causes usuelles : scénario désactivé (le webhook accepte puis met en file sans exécuter), ou workflow de publication non déclenché. Vérifier eu1.make.com/1970457/scenarios/6916780 ET la page LinkedIn."
             exit 1
           fi
 
@@ -260,7 +303,60 @@ jobs:
             exit 1
           fi
 
+          {
+            echo "make_timestamp=$TIMESTAMP"
+            echo "make_status=$STATUS"
+            echo "make_ops=$OPS"
+            echo "make_canaux=$CANAUX"
+          } >> "$GITHUB_OUTPUT"
           echo "✅ $OPS opérations = les bons canaux ont été servis ($CANAUX) — $TIMESTAMP."
+
+      # --------------------------------------------------------------------------
+      # CLÔTURE DU REGISTRE (ajoutée le 13/09/2026)
+      #
+      # Jusqu'ici AUCUNE routine n'écrivait le statut "publie" : il fallait le saisir
+      # à la main. Toute publication réussie finissait donc mécaniquement en fausse
+      # « échéance dépassée » quelques jours plus tard, et check-preparation-contenu
+      # échouait pour une publication pourtant partie normalement — constaté le
+      # 11/09/2026 sur le post court du jeudi 10/09.
+      #
+      # La clôture appartient à ce workflow parce qu'il est le seul à détenir la
+      # PREUVE (exécution Make + post Facebook vérifié) au moment où elle est fiable.
+      # Elle n'a donc lieu que si tous les contrôles applicables du jour sont au vert :
+      # un doute sur la publication laisse l'échéance ouverte, ce qui est le but.
+      # --------------------------------------------------------------------------
+      - name: Clore l'échéance dans le registre des publications
+        id: registre
+        if: >-
+          steps.day.outputs.publication == 'true' &&
+          steps.day.outputs.format != 'republication' &&
+          steps.fb_check.outcome == 'success' &&
+          steps.social_publisher_check.outcome == 'success' &&
+          steps.wp_check.outcome != 'failure' &&
+          steps.perfeco_nc_check.outcome != 'failure'
+        run: |
+          case "${{ steps.day.outputs.format }}" in
+            carrousel) FMT_REG=mardi ;;
+            postcourt) FMT_REG=jeudi ;;
+            veille)    FMT_REG=vendredi ;;
+            *) echo "Format « ${{ steps.day.outputs.format }} » sans échéance au registre : rien à clore."; exit 0 ;;
+          esac
+
+          PREUVE="Make ${{ steps.social_publisher_check.outputs.make_ops }} operations (${{ steps.social_publisher_check.outputs.make_canaux }}) a ${{ steps.social_publisher_check.outputs.make_timestamp }} statut=${{ steps.social_publisher_check.outputs.make_status }} ; post Facebook confirme a ${{ steps.fb_check.outputs.fb_post_time }} ; cloture automatique par check-apres-publication, run ${{ github.run_id }}"
+
+          python3 automation-agent/clore-publication.py \
+            "${{ steps.day.outputs.today_nc }}" "$FMT_REG" "$PREUVE"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --no-edit origin main
+          git add automation-agent/publications.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: cloture registre — ${{ steps.day.outputs.format }} du ${{ steps.day.outputs.today_nc }} confirme publie"
+            git push
+          else
+            echo "Registre déjà à jour (échéance sans doute close par un run précédent)."
+          fi
 
       - name: Résumé
         if: always()
