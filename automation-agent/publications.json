@@ -29,7 +29,7 @@
                      "et les canaux ; les heures exactes de publication n\u0027ont pas toujours été conservées."
                  ],
     "fuseau":  "Pacific/Noumea",
-    "derniere_maj":  "2026-09-12",
+    "derniere_maj":  "2026-09-13",
     "publications":  [
                          {
                              "id":  "2026-08-11-mardi",
@@ -420,8 +420,8 @@
                                             "linkedin_company",
                                             "facebook"
                                         ],
-                             "statut":  "en_staging",
-                             "source":  "automation-queue/jeudi-W37-pret.json",
+                             "statut":  "en_file",
+                             "source":  "automation-queue/jeudi.json",
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null
@@ -489,7 +489,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "DECISION DE JEAN-MICHEL DU 03/09/2026 : la semaine du 21/09 revient a un rythme SIMPLE. Le post long reste a sa date normale, le MARDI 22/09. Le post court de cette semaine est ANNULE purement et simplement. Ceci REMPLACE la decision du 21/08/2026, qui avancait le post long au lundi 21/09 et le post court au mercredi 23/09 pour cause de jeudi 24/09 ferie (Fete de la Citoyennete). Plus aucun decalage : un seul post cette semaine-la, plus la veille eco du vendredi 25/09 qui reste inchangee. CE CRENEAU EST LE BON : c\u0027est ici que parait l\u0027episode 4/8, a sa date normale. Il portait \u0027a definir\u0027 parce que l\u0027episode avait ete deplace au 21/09 le 21/08 ; il le recupere. Production par mardi-carrousel-creation le LUNDI 14/09 (J-8) : viser le 22/09. La serie n\u0027est pas decalee, l\u0027episode 5/8 reste au 29/09.",
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-09-23-jeudi",
@@ -550,7 +551,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-09-29-mardi",
@@ -569,7 +571,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-01-jeudi",
@@ -587,7 +590,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-02-vendredi",
@@ -606,7 +610,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-06-mardi",
@@ -625,7 +630,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-08-jeudi",
@@ -643,7 +649,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-09-vendredi",
@@ -662,7 +669,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-13-mardi",
@@ -681,7 +689,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-15-jeudi",
@@ -699,7 +708,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-16-vendredi",
@@ -718,7 +728,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-20-mardi",
@@ -737,7 +748,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-22-jeudi",
@@ -755,7 +767,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-23-vendredi",
@@ -774,15 +787,16 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-10-27-mardi",
                              "date_nc":  "2026-10-27",
                              "heure_nc":  "11:00",
                              "format":  "mardi",
-                             "libelle":  "Post long / carrousel",
-                             "sujet":  "a definir (serie 3 ou hors-serie)",
+                             "libelle":  "Carrousel — Institutions 1/4 : Le projet d\u0027abord",
+                             "sujet":  "Le projet d\u0027abord, l\u0027argent ensuite — ce qu\u0027un financeur verifie avant le montant",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
@@ -790,36 +804,38 @@
                                             "facebook"
                                         ],
                              "statut":  "prevu",
-                             "source":  null,
+                             "source":  "calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "institutions"
                          },
                          {
                              "id":  "2026-10-29-jeudi",
                              "date_nc":  "2026-10-29",
                              "heure_nc":  "11:00",
                              "format":  "jeudi",
-                             "libelle":  "Post court",
-                             "sujet":  "a definir",
+                             "libelle":  "Post court — Institutions 1/4",
+                             "sujet":  "Le cout de la troisieme annee, celui qui fait tomber un dossier",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
                                             "facebook"
                                         ],
                              "statut":  "prevu",
-                             "source":  null,
+                             "source":  "calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "institutions"
                          },
                          {
                              "id":  "2026-10-30-vendredi",
                              "date_nc":  "2026-10-30",
                              "heure_nc":  "11:00",
                              "format":  "vendredi",
-                             "libelle":  "Veille economique NC",
-                             "sujet":  "a definir",
+                             "libelle":  "Radar financements n°1",
+                             "sujet":  "Remplace la veille economique sur les semaines Institutions",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
@@ -827,10 +843,11 @@
                                             "facebook"
                                         ],
                              "statut":  "prevu",
-                             "source":  null,
+                             "source":  "calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "institutions"
                          },
                          {
                              "id":  "2026-11-01-ferie",
@@ -866,7 +883,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-11-05-jeudi",
@@ -884,7 +902,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-11-06-vendredi",
@@ -903,7 +922,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-11-10-mardi",
@@ -922,7 +942,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-11-11-ferie",
@@ -957,7 +978,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-11-13-vendredi",
@@ -976,7 +998,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-11-17-mardi",
@@ -995,7 +1018,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-11-19-jeudi",
@@ -1013,7 +1037,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-11-20-vendredi",
@@ -1032,7 +1057,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-11-24-mardi",
@@ -1051,7 +1077,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-11-26-jeudi",
@@ -1069,7 +1096,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-11-27-vendredi",
@@ -1088,7 +1116,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-01-mardi",
@@ -1107,7 +1136,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-03-jeudi",
@@ -1125,7 +1155,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-04-vendredi",
@@ -1144,7 +1175,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-08-mardi",
@@ -1163,7 +1195,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-10-jeudi",
@@ -1181,7 +1214,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-11-vendredi",
@@ -1200,7 +1234,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-15-mardi",
@@ -1219,7 +1254,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-17-jeudi",
@@ -1237,7 +1273,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-18-vendredi",
@@ -1256,7 +1293,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-22-mardi",
@@ -1275,7 +1313,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-24-jeudi",
@@ -1293,7 +1332,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-25-ferie",
@@ -1336,7 +1376,8 @@
                                                "decision":  "Veille éco basculée au samedi 26/12 (règle : vendredi férié → samedi).",
                                                "tranche_le":  "2026-08-21",
                                                "par":  "Jean-Michel"
-                                           }
+                                           },
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-29-mardi",
@@ -1355,7 +1396,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2026-12-31-jeudi",
@@ -1373,7 +1415,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-01-ferie",
@@ -1416,7 +1459,8 @@
                                                "decision":  "Veille éco basculée au samedi 02/01 (règle : vendredi férié → samedi).",
                                                "tranche_le":  "2026-08-21",
                                                "par":  "Jean-Michel"
-                                           }
+                                           },
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-05-mardi",
@@ -1435,7 +1479,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-07-jeudi",
@@ -1453,7 +1498,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-08-vendredi",
@@ -1472,7 +1518,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-12-mardi",
@@ -1491,7 +1538,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-14-jeudi",
@@ -1509,7 +1557,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-15-vendredi",
@@ -1528,7 +1577,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-19-mardi",
@@ -1547,7 +1597,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-21-jeudi",
@@ -1565,7 +1616,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-22-vendredi",
@@ -1584,7 +1636,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-26-mardi",
@@ -1603,7 +1656,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-28-jeudi",
@@ -1621,7 +1675,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-01-29-vendredi",
@@ -1640,7 +1695,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-02-mardi",
@@ -1659,7 +1715,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-04-jeudi",
@@ -1677,7 +1734,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-05-vendredi",
@@ -1696,7 +1754,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-09-mardi",
@@ -1715,7 +1774,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-11-jeudi",
@@ -1733,7 +1793,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-12-vendredi",
@@ -1752,7 +1813,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-16-mardi",
@@ -1771,7 +1833,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-18-jeudi",
@@ -1789,7 +1852,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-19-vendredi",
@@ -1808,7 +1872,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-23-mardi",
@@ -1827,7 +1892,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-25-jeudi",
@@ -1845,7 +1911,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-02-26-vendredi",
@@ -1864,7 +1931,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null
+                             "note":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-02-mardi",
@@ -1884,7 +1952,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-04-jeudi",
@@ -1903,7 +1972,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-05-vendredi",
@@ -1923,7 +1993,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-09-mardi",
@@ -1943,7 +2014,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-11-jeudi",
@@ -1962,7 +2034,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-12-vendredi",
@@ -1982,7 +2055,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-16-mardi",
@@ -2002,7 +2076,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-18-jeudi",
@@ -2021,7 +2096,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-19-vendredi",
@@ -2041,7 +2117,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-23-mardi",
@@ -2061,7 +2138,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-25-jeudi",
@@ -2080,7 +2158,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-26-vendredi",
@@ -2100,7 +2179,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-03-30-mardi",
@@ -2120,7 +2200,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-01-jeudi",
@@ -2139,7 +2220,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-02-vendredi",
@@ -2159,7 +2241,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-06-mardi",
@@ -2179,7 +2262,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-08-jeudi",
@@ -2198,7 +2282,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-09-vendredi",
@@ -2218,7 +2303,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-13-mardi",
@@ -2238,7 +2324,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-15-jeudi",
@@ -2257,7 +2344,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-16-vendredi",
@@ -2277,7 +2365,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-20-mardi",
@@ -2297,7 +2386,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-22-jeudi",
@@ -2316,7 +2406,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-23-vendredi",
@@ -2336,7 +2427,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-27-mardi",
@@ -2356,7 +2448,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-29-jeudi",
@@ -2375,7 +2468,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-04-30-vendredi",
@@ -2395,7 +2489,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-05-04-mardi",
@@ -2415,7 +2510,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-05-05-jeudi",
@@ -2439,7 +2535,8 @@
                                                "question":  "Ascension tombe le 2027-05-06, un jour de jeudi. Décaler au mercredi 2027-05-05, ou sauter cette semaine ?",
                                                "echeance":  "2027-04-27",
                                                "ouvert_le":  "2026-08-21"
-                                           }
+                                           },
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-05-06-ferie",
@@ -2477,7 +2574,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-05-11-mardi",
@@ -2497,7 +2595,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-05-13-jeudi",
@@ -2516,7 +2615,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-05-14-vendredi",
@@ -2536,7 +2636,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-05-18-mardi",
@@ -2556,7 +2657,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-05-20-jeudi",
@@ -2575,7 +2677,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          },
                          {
                              "id":  "2027-05-21-vendredi",
@@ -2595,7 +2698,8 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
-                             "arbitrage":  null
+                             "arbitrage":  null,
+                             "axe":  "performance"
                          }
                      ],
     "_horizon":  "2027-05-21"
