@@ -327,6 +327,13 @@ jobs:
       # --------------------------------------------------------------------------
       - name: Clore l'échéance dans le registre des publications
         id: registre
+        # La clôture est de la COMPTABILITÉ, pas un contrôle de publication : elle ne doit
+        # jamais faire échouer ce workflow. Sans ce continue-on-error, une course au
+        # `git push` ou une erreur du script transformerait une publication parfaitement
+        # réussie en run rouge — exactement la fausse alerte que ce workflow vient de
+        # cesser de produire. Son échec est visible dans le Résumé, et le registre sera
+        # clos par le run du lendemain ou à la main.
+        continue-on-error: true
         if: >-
           steps.day.outputs.publication == 'true' &&
           steps.day.outputs.format != 'republication' &&
@@ -365,6 +372,10 @@ jobs:
           echo "WordPress (perfsystemique.fr) : ${{ steps.wp_check.outcome || 'non applicable aujourd''hui' }}"
           echo "perfeco.nc (FR+EN) : ${{ steps.perfeco_nc_check.outcome || 'non applicable aujourd''hui' }}"
           echo "Canaux réellement servis (opérations Make) : ${{ steps.social_publisher_check.outcome || 'non applicable aujourd''hui' }}"
+          echo "Clôture de l'échéance au registre : ${{ steps.registre.outcome || 'non applicable aujourd''hui' }}"
+          if [ "${{ steps.registre.outcome }}" = "failure" ]; then
+            echo "::warning::La publication est confirmée mais la clôture du registre a échoué — l'échéance reste ouverte et check-preparation-contenu la signalera. À clore à la main : python3 automation-agent/clore-publication.py <date> <mardi|jeudi|vendredi> \"<preuve>\""
+          fi
           if [ "${{ steps.fb_check.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ] || [ "${{ steps.perfeco_nc_check.outcome }}" = "failure" ] || [ "${{ steps.social_publisher_check.outcome }}" = "failure" ]; then
             echo "::error::Au moins une publication attendue aujourd'hui n'est PAS confirmée visible — vérifier manuellement et corriger si besoin."
             exit 1
