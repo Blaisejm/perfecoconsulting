@@ -1,8 +1,29 @@
 {
     "_lisez_moi":  "Registre des validations demandees a Jean-Michel. Delai standard 48 h, au-dela le systeme applique le defaut. Regle du 12/09/2026. Ne pas editer a la main : utiliser validations.ps1.",
     "delai_standard_heures":  48,
-    "derniere_maj":  "2026-09-12",
+    "derniere_maj":  "2026-09-14",
     "validations":  [
-
+                        {
+                            "id":  "v-2026-09-14-01",
+                            "routine":  "perfeco-rappel-quotidien",
+                            "objet":  "purge tableau actions en attente",
+                            "question":  "Le tableau \u0027Actions en attente\u0027 de SUIVI-AUTOMATISATION.md compte 102 lignes, dont la grande majorite sont closes et n\u0027ont jamais ete purgees. Un tableau qu\u0027on ne peut plus lire cesse d\u0027alerter. Option 1 : deplacer les lignes closes anterieures au 01/09/2026 vers une nouvelle section \u0027Historique des actions closes\u0027 du meme fichier (rien n\u0027est supprime, le fichier reste versionne). Option 2 : ne rien toucher.",
+                            "options":  [
+                                            "Deplacer les lignes closes anterieures au 01/09/2026 vers une section Historique",
+                                            "Ne rien toucher"
+                                        ],
+                            "defaut":  "Option 1 - deplacer les lignes closes anterieures au 01/09/2026 vers une section Historique du meme fichier. Aucune perte : le texte integral est conserve, le fichier est versionne dans git, et la manoeuvre est reversible d\u0027un git revert. C\u0027est le meilleur choix par defaut parce que le risque de l\u0027inaction (une alerte reelle noyee dans 100 lignes closes) est superieur au risque de l\u0027action (nul, tout est conserve et reversible).",
+                            "impact":  "Determine si le tableau de bord redevient lisible. Tant qu\u0027il compte 102 lignes, toute nouvelle alerte - comme celle de l\u0027article WP 129 aujourd\u0027hui - risque de ne pas etre vue.",
+                            "publication":  "",
+                            "ouvert_a":  "2026-09-14T11:50:36+11:00",
+                            "repondre_avant":  "2026-09-16T11:50:36+11:00",
+                            "delai_heures":  48,
+                            "ecrete":  false,
+                            "statut":  "ouvert",
+                            "decision":  null,
+                            "tranche_a":  null,
+                            "par":  null,
+                            "rappels":  1
+                        }
                     ]
 }

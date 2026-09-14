@@ -29,7 +29,7 @@
                      "et les canaux ; les heures exactes de publication n\u0027ont pas toujours été conservées."
                  ],
     "fuseau":  "Pacific/Noumea",
-    "derniere_maj":  "2026-09-13",
+    "derniere_maj":  "2026-09-14",
     "publications":  [
                          {
                              "id":  "2026-08-11-mardi",
@@ -484,8 +484,8 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_staging",
+                             "source":  "automation-queue/mardi-W38-pret.json",
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "DECISION DE JEAN-MICHEL DU 03/09/2026 : la semaine du 21/09 revient a un rythme SIMPLE. Le post long reste a sa date normale, le MARDI 22/09. Le post court de cette semaine est ANNULE purement et simplement. Ceci REMPLACE la decision du 21/08/2026, qui avancait le post long au lundi 21/09 et le post court au mercredi 23/09 pour cause de jeudi 24/09 ferie (Fete de la Citoyennete). Plus aucun decalage : un seul post cette semaine-la, plus la veille eco du vendredi 25/09 qui reste inchangee. CE CRENEAU EST LE BON : c\u0027est ici que parait l\u0027episode 4/8, a sa date normale. Il portait \u0027a definir\u0027 parce que l\u0027episode avait ete deplace au 21/09 le 21/08 ; il le recupere. Production par mardi-carrousel-creation le LUNDI 14/09 (J-8) : viser le 22/09. La serie n\u0027est pas decalee, l\u0027episode 5/8 reste au 29/09.",
