@@ -2,7 +2,7 @@
   "_comment": "STAGING - NE PAS COPIER DANS mardi.json AVANT LE 16/09/2026. Produit le 14/09/2026 par la routine mardi-carrousel-creation (J-8) pour la diffusion du MARDI 22/09/2026 (episode 4/8). mardi.json porte encore W37 / 15-09-2026, qui doit partir en premier. La bascule vers mardi.json est faite par perfeco-rappel-quotidien, etape 1quinquies (decision de Jean-Michel du 06/09/2026 : plus aucune tache one-time de bascule). Retirer cette cle _comment au moment de la bascule.",
   "semaine": "W38",
   "date_prevue": "2026-09-22",
-  "wordpress_post_id": 0,
+  "wordpress_post_id": 142,
   "perfeco_nc_url_fr": "https://www.perfeco.nc/ressources/faire-descendre-les-priorites",
   "perfeco_nc_url_en": "https://www.perfeco.nc/en/resources/making-priorities-reach-the-front-line",
   "linkedin_api_version": "202509",
