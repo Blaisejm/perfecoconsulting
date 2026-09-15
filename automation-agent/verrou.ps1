@@ -36,6 +36,9 @@ param(
     [switch]$Prendre,
     [switch]$Liberer,
     [switch]$Etat,
+    # Uniquement avec -Liberer : rendre un verrou detenu par une AUTRE routine.
+    # Reserve au deblocage manuel ; une routine ne doit jamais l'utiliser.
+    [switch]$Force,
     # Cadence imposee entre la fin d'une routine et le debut de la suivante.
     [int]$EspacementMinutes = 15,
     # Au-dela, un verrou est considere abandonne (routine morte sans liberer).
@@ -116,18 +119,60 @@ if ($Etat) {
 }
 
 # --- LIBERER ----------------------------------------------------------------
+# GARDE-FOU D'APPARTENANCE (15/09/2026, demande de Jean-Michel).
+#
+# Avant ce jour, -Liberer rendait le verrou MEME quand il appartenait a une
+# autre routine : il se contentait d'un avertissement, puis liberait.
+#
+# Constate le 15/09/2026, sans degat mais la garantie etait levee :
+#   11h52  perfeco-rapport-dimanche prend le verrou
+#   13h07  son verrou est juge perime (PerimeMinutes = 45) alors qu'elle est
+#          VIVANTE - 78 min est son regime normal (scraping 3 canaux,
+#          archivage, analyse mensuelle) - et perfeco-verif-github-actions
+#          (rang 7) le reprend
+#   13h13  perfeco-rapport-dimanche se cloture ; trace-routine.ps1 libere le
+#          verrou de perfeco-verif-github-actions, qui finit son execution
+#          SANS PROTECTION. Une troisieme routine aurait pu demarrer dessus.
+#
+# Desormais : on ne rend que ce qu'on detient. Ce garde-fou est independant du
+# defaut de peremption (arbitrage ouvert : faire battre le verrou, ou relever
+# PerimeMinutes) - il limite les degats quand la reprise a eu lieu a tort.
 if ($Liberer) {
     $e = Get-Etat
-    if ($e.detenteur -and $e.detenteur -ne $Routine) {
-        Write-Output "AVERTISSEMENT : le verrou est detenu par '$($e.detenteur)', pas par '$Routine'. Liberation quand meme."
+    $detenteur = $e.detenteur
+
+    if ($detenteur -and $detenteur -ne $Routine) {
+        if (-not $Force) {
+            Write-Output "REFUS : le verrou est detenu par '$detenteur', pas par '$Routine'. RIEN n'a ete libere."
+            Write-Output "  '$Routine' s'est donc fait reprendre son verrou pendant son execution"
+            Write-Output "  (peremption a $PerimeMinutes min sans battement). Le verrou de '$detenteur'"
+            Write-Output "  reste intact : c'est precisement le but de ce garde-fou."
+            Write-Output "  Deblocage manuel si le verrou est reellement coince :"
+            Write-Output "    & '$PSCommandPath' -Liberer -Routine '$Routine' -Force"
+            # La routine appelante est terminee : elle sort de la file d'attente,
+            # sinon elle ferait patienter les suivantes indefiniment.
+            $e.attente = @($e.attente | Where-Object { $_.routine -ne $Routine })
+            Set-Etat $e
+            exit 11
+        }
     }
+
     $e.detenteur = $null
     $e.pris_a = $null
     $e.battement = $null
     $e.derniere_liberation = Get-Horodatage
     $e.attente = @($e.attente | Where-Object { $_.routine -ne $Routine })
     Set-Etat $e
-    Write-Output "LIBERE : $Routine a $((Get-Date).ToString('HH:mm')) NC"
+
+    if ($detenteur -eq $Routine) {
+        Write-Output "LIBERE : $Routine a $((Get-Date).ToString('HH:mm')) NC"
+    } elseif (-not $detenteur) {
+        Write-Output "RIEN A LIBERER : aucun detenteur enregistre. '$Routine' a tourne sans verrou"
+        Write-Output "  (repris en cours de route, ou jamais pris). Cadence de $EspacementMinutes min"
+        Write-Output "  appliquee a partir de maintenant."
+    } else {
+        Write-Output "LIBERE EN FORCE : verrou de '$detenteur' rendu par '$Routine' a $((Get-Date).ToString('HH:mm')) NC"
+    }
     exit 0
 }
 
