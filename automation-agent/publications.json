@@ -594,8 +594,8 @@
       "date_nc": "2026-10-01",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Campagne dediee 4/10 — Simplifier le fonctionnement (visuel deja produit)",
-      "sujet": "Les couts invisibles de l organisation",
+      "libelle": "Campagne dediee 1/10 — Du cap a la mise en oeuvre (manifeste, ouvre la campagne)",
+      "sujet": "Du cap aux resultats — la promesse PerfEco",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -605,7 +605,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4.",
       "axe": "performance"
     },
     {
@@ -653,8 +653,8 @@
       "date_nc": "2026-10-08",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Campagne dediee 1/10 — manifeste",
-      "sujet": "Du cap aux resultats — la promesse PerfEco",
+      "libelle": "Campagne dediee 2/10 — Mieux travailler ensemble",
+      "sujet": "Des equipes alignees sur les memes priorites",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -664,7 +664,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4.",
       "axe": "performance"
     },
     {
@@ -723,7 +723,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4.",
       "axe": "performance"
     },
     {
@@ -771,8 +771,8 @@
       "date_nc": "2026-10-22",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Campagne dediee 5/10 — Simplifier le fonctionnement",
-      "sujet": "Traiter la cause des problemes recurrents",
+      "libelle": "Campagne dediee 4/10 — Simplifier le fonctionnement (visuel deja produit)",
+      "sujet": "Les couts invisibles de l organisation",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -782,7 +782,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4.",
       "axe": "performance"
     },
     {
@@ -810,8 +810,8 @@
       "date_nc": "2026-10-27",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Carrousel — Institutions 1/4 : Le projet d'abord",
-      "sujet": "Le projet d'abord, l'argent ensuite — ce qu'un financeur verifie avant le montant",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -819,38 +819,38 @@
         "facebook"
       ],
       "statut": "prevu",
-      "source": "calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md",
+      "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
-      "axe": "institutions"
+      "note": "CRENEAU LIBERE le 15/09/2026 : Jean-Michel a demande que la semaine du 26 au 30/10 respecte le schema hebdomadaire normal (mardi serie / jeudi campagne dediee / vendredi veille eco). La SEMAINE INSTITUTIONS I1 qui occupait ces 3 creneaux est donc A REPLANIFIER — son contenu est intact dans Perfeco-Social-Media/calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md (I1 sur 4 prevues). A arbitrer avec Jean-Michel : ou replacer I1 a I4.",
+      "axe": "performance"
     },
     {
       "id": "2026-10-29-jeudi",
       "date_nc": "2026-10-29",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court — Institutions 1/4",
-      "sujet": "Le cout de la troisieme annee, celui qui fait tomber un dossier",
+      "libelle": "Campagne dediee 5/10 — Simplifier le fonctionnement",
+      "sujet": "Traiter la cause des problemes recurrents",
       "semaine": null,
       "canaux": [
         "linkedin_company",
         "facebook"
       ],
       "statut": "prevu",
-      "source": "calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md",
+      "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
-      "axe": "institutions"
+      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4.",
+      "axe": "performance"
     },
     {
       "id": "2026-10-30-vendredi",
       "date_nc": "2026-10-30",
       "heure_nc": "11:00",
       "format": "vendredi",
-      "libelle": "Radar financements n°1",
-      "sujet": "Remplace la veille economique sur les semaines Institutions",
+      "libelle": "Post court / veille economique",
+      "sujet": "a definir",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -858,11 +858,11 @@
         "facebook"
       ],
       "statut": "prevu",
-      "source": "calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md",
+      "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
-      "axe": "institutions"
+      "note": "CRENEAU LIBERE le 15/09/2026 : Jean-Michel a demande que la semaine du 26 au 30/10 respecte le schema hebdomadaire normal (mardi serie / jeudi campagne dediee / vendredi veille eco). La SEMAINE INSTITUTIONS I1 qui occupait ces 3 creneaux est donc A REPLANIFIER — son contenu est intact dans Perfeco-Social-Media/calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md (I1 sur 4 prevues). A arbitrer avec Jean-Michel : ou replacer I1 a I4.",
+      "axe": "performance"
     },
     {
       "id": "2026-11-01-ferie",
@@ -915,7 +915,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4.",
       "axe": "performance"
     },
     {
@@ -989,7 +989,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4.",
       "axe": "performance"
     },
     {
@@ -1048,7 +1048,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4.",
       "axe": "performance"
     },
     {
@@ -1107,7 +1107,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4.",
       "axe": "performance"
     },
     {
@@ -1155,7 +1155,7 @@
       "date_nc": "2026-12-03",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Campagne dediee 10/10 — Prouver les resultats",
+      "libelle": "Campagne dediee 10/10 — Prouver les resultats — DERNIERE de la campagne",
       "sujet": "Commencer par une lecture claire de l organisation (diagnostic 60 min)",
       "semaine": null,
       "canaux": [
@@ -1166,7 +1166,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4.",
       "axe": "performance"
     },
     {
@@ -1214,8 +1214,8 @@
       "date_nc": "2026-12-10",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Campagne dediee 2/10 — repoussee : quasi-doublon de l episode 4/8 du 22/09, a reformuler",
-      "sujet": "Des equipes alignees sur les memes priorites",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1225,7 +1225,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1274,7 +1274,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1284,7 +1284,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1333,7 +1333,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1343,7 +1343,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1414,7 +1414,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1424,7 +1424,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1495,7 +1495,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1505,7 +1505,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1554,7 +1554,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1564,7 +1564,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1613,7 +1613,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1623,7 +1623,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1672,7 +1672,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1682,7 +1682,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1731,7 +1731,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1741,7 +1741,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1790,7 +1790,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1800,7 +1800,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1849,7 +1849,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1859,7 +1859,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1908,7 +1908,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1918,7 +1918,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "axe": "performance"
     },
     {
@@ -1968,7 +1968,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1978,7 +1978,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2030,7 +2030,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2040,7 +2040,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2092,7 +2092,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2102,7 +2102,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2154,7 +2154,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2164,7 +2164,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2216,7 +2216,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2226,7 +2226,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2278,7 +2278,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2288,7 +2288,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2340,7 +2340,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2350,7 +2350,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2402,7 +2402,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2412,7 +2412,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2464,7 +2464,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2474,7 +2474,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2526,7 +2526,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2536,7 +2536,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": {
         "statut": "ouvert",
         "question": "Ascension tombe le 2027-05-06, un jour de jeudi. Décaler au mercredi 2027-05-05, ou sauter cette semaine ?",
@@ -2609,7 +2609,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2619,7 +2619,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2671,7 +2671,7 @@
       "heure_nc": "11:00",
       "format": "jeudi",
       "libelle": "Post court / campagne dediee",
-      "sujet": "a definir (campagne dediee — banque a reconstituer)",
+      "sujet": "a definir (campagne dediee terminee — nouvelle banque a definir)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2681,7 +2681,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
+      "note": "La campagne dediee des 10 publications se termine le 2026-12-03. Creneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
       "arbitrage": null,
       "axe": "performance"
     },
