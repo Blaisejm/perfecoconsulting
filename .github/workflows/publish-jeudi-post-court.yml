@@ -48,34 +48,27 @@ jobs:
           TODAY_NC=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
           DOW=$(TZ="Pacific/Noumea" date +%u)
           if [ "$DATE_PREVUE" != "$TODAY_NC" ]; then
-            # Deux situations très différentes, à ne pas confondre (corrigé le 21/08/2026) :
-            if [ "$DOW" = "4" ]; then
-              # Jeudi, le jour habituel : la file DEVRAIT porter la date du jour.
-              # Un écart ici est une vraie anomalie — c'est le filet qui a rattrapé
-              # plusieurs bascules ratées. On échoue bruyamment.
-              echo "::error::date_prevue=$DATE_PREVUE ne correspond pas à aujourd'hui NC ($TODAY_NC). Abandon."
-              exit 1
-            fi
-            # Mercredi : jour ajouté pour absorber les décalages de férié. Rien à publier
-            # ici la plupart des semaines — c'est le cas NORMAL, surtout pas une erreur.
-            # Sans cette distinction, le workflow échouerait chaque semaine et noierait
-            # les vraies alertes.
-            echo "publier=false" >> "$GITHUB_OUTPUT"
-            echo "Rien à publier aujourd'hui : la file vise le $DATE_PREVUE, nous sommes le $TODAY_NC. Sortie normale."
-            exit 0
-          fi
-          echo "publier=true" >> "$GITHUB_OUTPUT"
-          echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
-
-      # ⚠️ Depuis le 17/08/2026 (décision Jean-Michel) : le post court du jeudi ne part PLUS
-      # sur le profil perso — uniquement LinkedIn Company Page + Facebook.
-      # Objectif : garantir un minimum de 48h entre deux posts du profil perso
-      # (avant : carrousel mardi → post court jeudi → veille éco vendredi = 24h entre jeudi et vendredi).
-      # Le profil perso ne reçoit donc plus que 2 posts/semaine : mardi (carrousel) et vendredi (veille éco).
-      # Mécanisme : suffixe "-NOCAROUSEL" sur le champ `semaine`, filtré côté Make.com sur la route
-      # "LinkedIn perso" — même levier que publish-mardi-carrousel.yml, déjà éprouvé en production.
-      # Pour revenir en arrière (fin du test) : retirer le suffixe ci-dessous, rien d'autre à changer.
-      - name: Publication réseaux sociaux (webhook unique — LinkedIn Company + Facebook, profil perso exclu)
+            # ── CHANGEMENT DU 15/09/2026, décision de Jean-Michel ────────────────────
+      # Le jeudi publie désormais sur LinkedIn Company Page ET LinkedIn profil perso,
+      # puis le MÊME post part sur Facebook le SAMEDI (publish-samedi-republication-facebook.yml,
+      # 15h30 NC). Facebook ne reçoit donc plus rien le jeudi.
+      #
+      # Ce que ça change par rapport à la version précédente :
+      #   - le suffixe "-NOCAROUSEL" (qui excluait le profil perso depuis le 17/08) est RETIRÉ ;
+      #   - un suffixe "-NOFB" le remplace, pour exclure Facebook.
+      #
+      # ⚠️ DÉPENDANCE MAKE.COM — sans elle, ce suffixe ne fait RIEN.
+      # Un suffixe ne bloque une route que si un filtre correspondant existe côté Make
+      # (leçon du 16/08/2026 : "-FBONLY" sans filtre avait produit un doublon LinkedIn).
+      # Filtre à créer sur le scénario 6916780, route **Facebook** :
+      #       semaine  →  "Does not contain"  →  NOFB
+      # Tant que ce filtre n'existe pas, Facebook continue de recevoir le jeudi ET la
+      # republication du samedi — c'est-à-dire le doublon relevé le 23/08/2026.
+      #
+      # La règle des 48 h d'espacement sur le profil perso est ABANDONNÉE par la même
+      # décision : le profil reçoit désormais mardi, jeudi et vendredi.
+      # ─────────────────────────────────────────────────────────────────────────
+      - name: Publication réseaux sociaux (webhook unique — LinkedIn Company + profil perso ; Facebook exclu, il reçoit le samedi)
         id: social
         if: steps.fraicheur.outputs.publier == 'true'
         env:
@@ -94,12 +87,12 @@ jobs:
 
           echo "DEBUG: longueur MESSAGE=${#MESSAGE} caractères"
           echo "DEBUG: IMAGE_URL=$IMAGE_URL"
-          echo "DEBUG: SEMAINE (avec suffixe NOCAROUSEL pour bloquer la route profil perso) = ${SEMAINE}-NOCAROUSEL"
+          echo "DEBUG: SEMAINE (avec suffixe NOFB pour bloquer la route Facebook) = ${SEMAINE}-NOFB"
 
           HTTP_CODE=$(curl -s -o /tmp/resp.txt -w "%{http_code}" -X POST "$MAKE_WEBHOOK" \
             --data-urlencode "message=$MESSAGE" \
             --data-urlencode "image_url=$IMAGE_URL" \
-            --data-urlencode "semaine=${SEMAINE}-NOCAROUSEL")
+            --data-urlencode "semaine=${SEMAINE}-NOFB")
 
           echo "HTTP $HTTP_CODE"; cat /tmp/resp.txt
           if [ "$HTTP_CODE" != "200" ]; then
@@ -116,4 +109,4 @@ jobs:
             echo "::error::L'appel au webhook a échoué — voir les logs ci-dessus."
             exit 1
           fi
-          echo "✅ Appel webhook réussi (LinkedIn Company + Facebook — profil perso volontairement exclu depuis le 17/08/2026)."
+          echo "✅ Appel webhook réussi (LinkedIn Company + profil perso). Facebook reçoit le même post le samedi 15h30 NC."
