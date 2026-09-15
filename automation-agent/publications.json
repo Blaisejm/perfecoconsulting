@@ -29,7 +29,7 @@
                      "et les canaux ; les heures exactes de publication n\u0027ont pas toujours été conservées."
                  ],
     "fuseau":  "Pacific/Noumea",
-    "derniere_maj":  "2026-09-14",
+    "derniere_maj":  "2026-09-15",
     "publications":  [
                          {
                              "id":  "2026-08-11-mardi",
@@ -353,6 +353,23 @@
                              "note":  "03/09 19h NC perfeco-rappel-quotidien : PRODUIT INTEGRALEMENT par l\u0027etape 1quater, a J-5. mardi-carrousel-creation s\u0027est declenchee le 31/08 et n\u0027a produit qu\u0027une seule image avant de mourir (w36-cover-choisir-indicateurs-01.png, 11h37), sans article, sans slide, sans file — 3e echec consecutif. Livre : 7 slides deployees et verifiees HTTP 200, articles perfeco.nc FR + EN en ligne (200), automation-queue/mardi.json en file (2 319 car.), article perfsystemique.fr #127 programme au 08/09 11h03 NC avec auto-partage Jetpack neutralise. Commits 255ec2d et suivants. | 09/09 15h NC perfeco-rappel-quotidien : STATUT CLOS. L entree etait restee en echeance_depassee faute de cloture, ce qui faisait echouer le filet check-preparation-contenu.yml (::error:: Registre). Verification faite a posteriori par l API GitHub, aucun doute : la publication est bien partie sur les 3 canaux. Le rafraichissement du registre ne peut pas deviner cet etat, mardi.json etant deja passe a l echeance du 15/09."
                          },
                          {
+                             "id":  "2026-09-09-ad-hoc",
+                             "date_nc":  "2026-09-09",
+                             "heure_nc":  "11:00",
+                             "format":  "ad-hoc",
+                             "libelle":  "",
+                             "sujet":  "82 % des dirigeants optimistes sur le ROI de l IA, 6 % en tirent une valeur mesurable - le modele operationnel, pas la technologie (source BCG 31/08/2026)",
+                             "semaine":  null,
+                             "canaux":  [
+                                            "linkedin_company"
+                                        ],
+                             "statut":  "publie_hors_pipeline",
+                             "source":  null,
+                             "bascule":  null,
+                             "preuve":  null,
+                             "note":  "Constate le 15/09 par perfeco-rappel-quotidien lors du releve J+7 sur la Company Page : post du 09/09 present sur linkedin.com/company/105618350 (18 impressions organiques au 15/09, J+6) et absent du registre. Publie hors pipeline, entre le carrousel du 08/09 et le post court du 10/09 - donc 2 jours consecutifs avec publication Company. A prendre en compte pour l espacement. Son J+7 tombe le 16/09 : mesure a prendre demain."
+                         },
+                         {
                              "id":  "2026-09-10-jeudi",
                              "date_nc":  "2026-09-10",
                              "heure_nc":  "11:00",
@@ -414,7 +431,7 @@
                              "heure_nc":  "11:00",
                              "format":  "jeudi",
                              "libelle":  "Post court",
-                             "sujet":  "a definir (suit l episode 3/8)",
+                             "sujet":  "Poser la question a voix haute en fin de comite - ecrire la decision, pas seulement ce qui s est dit (post court suivant l episode 3/8)",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
@@ -432,7 +449,7 @@
                              "heure_nc":  "11:00",
                              "format":  "vendredi",
                              "libelle":  "Veille economique NC",
-                             "sujet":  "a definir",
+                             "sujet":  "Credits de tresorerie aux entreprises -30,6 % sur un an au T2 2026, quand l habitat progresse de 73,7 % (IEOM, 07/09/2026)",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
