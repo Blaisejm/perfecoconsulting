@@ -505,7 +505,7 @@
       "source": "automation-queue/mardi-W38-pret.json",
       "bascule": null,
       "preuve": null,
-      "note": "DECISION DE JEAN-MICHEL DU 03/09/2026 : la semaine du 21/09 revient a un rythme SIMPLE. Le post long reste a sa date normale, le MARDI 22/09. Le post court de cette semaine est ANNULE purement et simplement. Ceci REMPLACE la decision du 21/08/2026, qui avancait le post long au lundi 21/09 et le post court au mercredi 23/09 pour cause de jeudi 24/09 ferie (Fete de la Citoyennete). Plus aucun decalage : un seul post cette semaine-la, plus la veille eco du vendredi 25/09 qui reste inchangee. CE CRENEAU EST LE BON : c'est ici que parait l'episode 4/8, a sa date normale. Il portait 'a definir' parce que l'episode avait ete deplace au 21/09 le 21/08 ; il le recupere. Production par mardi-carrousel-creation le LUNDI 14/09 (J-8) : viser le 22/09. MISE A JOUR DU 15/09/2026 : la phrase qui suivait ('la serie n est pas decalee, l episode 5/8 reste au 29/09') est CADUQUE. Decision de Jean-Michel du 15/09 : une semaine sur deux, toute la communication bascule sur la politique V2 Performance (parite ISO paire). Le 29/09 (ISO W40) est donc une semaine PERFORMANCE, et l episode 5/8 est reporte au mardi 06/10 (ISO W41). Voir REFERENTIEL-V2-PERFORMANCE.md.",
+      "note": "DECISION DE JEAN-MICHEL DU 03/09/2026 : la semaine du 21/09 revient a un rythme SIMPLE. Le post long reste a sa date normale, le MARDI 22/09. Le post court de cette semaine est ANNULE purement et simplement. Ceci REMPLACE la decision du 21/08/2026, qui avancait le post long au lundi 21/09 et le post court au mercredi 23/09 pour cause de jeudi 24/09 ferie (Fete de la Citoyennete). Plus aucun decalage : un seul post cette semaine-la, plus la veille eco du vendredi 25/09 qui reste inchangee. CE CRENEAU EST LE BON : c'est ici que parait l'episode 4/8, a sa date normale. Il portait 'a definir' parce que l'episode avait ete deplace au 21/09 le 21/08 ; il le recupere. Production par mardi-carrousel-creation le LUNDI 14/09 (J-8) : viser le 22/09. MISE A JOUR DU 15/09/2026 (2e version, celle-ci fait foi) : la phrase qui precedait (\"la serie n est pas decalee, l episode 5/8 reste au 29/09\") redevient VRAIE. Une alternance une semaine sur deux avait ete posee puis SUPPRIMEE le meme jour. Le rythme hebdomadaire est simple et identique chaque semaine : mardi post long/serie, jeudi post court/campagne dediee Performance, vendredi post court/veille eco. L episode 5/8 est donc bien au mardi 29/09. Voir REFERENTIEL-V2-PERFORMANCE.md.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -574,8 +574,8 @@
       "date_nc": "2026-09-29",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Visuel unique V2 Performance — territoire Simplifier le fonctionnement",
-      "sujet": "Les couts invisibles de l organisation (V2 Performance)",
+      "libelle": "Post long / carrousel — Serie 2, episode 5/8",
+      "sujet": "Le rituel hebdomadaire qui pilote vraiment (5/8)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -586,7 +586,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -594,8 +594,8 @@
       "date_nc": "2026-10-01",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir (suit l episode 5/8)",
+      "libelle": "Campagne dediee 4/10 — Simplifier le fonctionnement (visuel deja produit)",
+      "sujet": "Les couts invisibles de l organisation",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -605,7 +605,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2, ISO paire) — format et gabarit V2 Performance, cf. REFERENTIEL-V2-PERFORMANCE.md. Produit par mercredi-creation, ETAPE 0quater.",
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -633,8 +633,8 @@
       "date_nc": "2026-10-06",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Post long / carrousel — Serie 2, episode 5/8",
-      "sujet": "Le rituel hebdomadaire qui pilote vraiment (5/8)",
+      "libelle": "Post long / carrousel — Serie 2, episode 6/8",
+      "sujet": "Remonter l information sans la deformer (6/8)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -645,7 +645,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine SERIE (ISO impaire). La Serie 2 ne parait plus qu une semaine sur deux depuis la decision du 15/09/2026 : elle s etale sur le double de temps. Episode renumerote en consequence.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -653,8 +653,8 @@
       "date_nc": "2026-10-08",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir (suit l episode 6/8)",
+      "libelle": "Campagne dediee 1/10 — manifeste",
+      "sujet": "Du cap aux resultats — la promesse PerfEco",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -664,7 +664,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -692,8 +692,8 @@
       "date_nc": "2026-10-13",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Visuel unique V2 Performance",
-      "sujet": "a definir (semaine PERFORMANCE V2 — banque des 10 publications)",
+      "libelle": "Post long / carrousel — Serie 2, episode 7/8",
+      "sujet": "Le tableau de bord vivant (7/8)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -704,7 +704,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -712,8 +712,8 @@
       "date_nc": "2026-10-15",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir (suit l episode 7/8)",
+      "libelle": "Campagne dediee 3/10 — Piloter avec une information fiable",
+      "sujet": "Un reporting qui aide reellement a decider",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -723,7 +723,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2, ISO paire) — format et gabarit V2 Performance, cf. REFERENTIEL-V2-PERFORMANCE.md. Produit par mercredi-creation, ETAPE 0quater.",
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -751,8 +751,8 @@
       "date_nc": "2026-10-20",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Post long / carrousel — Serie 2, episode 6/8",
-      "sujet": "Remonter l information sans la deformer (6/8)",
+      "libelle": "Post long / carrousel — Serie 2, episode 8/8",
+      "sujet": "Installer le rythme durablement (synthese + CTA) (8/8)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -763,7 +763,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine SERIE (ISO impaire). La Serie 2 ne parait plus qu une semaine sur deux depuis la decision du 15/09/2026 : elle s etale sur le double de temps. Episode renumerote en consequence.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -771,8 +771,8 @@
       "date_nc": "2026-10-22",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir (suit l episode 8/8)",
+      "libelle": "Campagne dediee 5/10 — Simplifier le fonctionnement",
+      "sujet": "Traiter la cause des problemes recurrents",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -782,7 +782,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -884,8 +884,8 @@
       "date_nc": "2026-11-03",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Post long / carrousel — Serie 2, episode 7/8",
-      "sujet": "Le tableau de bord vivant (7/8)",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -896,7 +896,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine SERIE (ISO impaire). La Serie 2 ne parait plus qu une semaine sur deux depuis la decision du 15/09/2026 : elle s etale sur le double de temps. Episode renumerote en consequence.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -904,8 +904,8 @@
       "date_nc": "2026-11-05",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Campagne dediee 6/10 — Simplifier le fonctionnement",
+      "sujet": "Numeriser sans ajouter de complexite",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -915,7 +915,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -943,8 +943,8 @@
       "date_nc": "2026-11-10",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Visuel unique V2 Performance",
-      "sujet": "a definir (semaine PERFORMANCE V2 — banque des 10 publications)",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -955,7 +955,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -978,8 +978,8 @@
       "date_nc": "2026-11-12",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Campagne dediee 7/10 — Mieux travailler ensemble",
+      "sujet": "Aider les collaborateurs a produire un travail plus fiable",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -989,7 +989,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2, ISO paire) — format et gabarit V2 Performance, cf. REFERENTIEL-V2-PERFORMANCE.md. Produit par mercredi-creation, ETAPE 0quater.",
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1017,8 +1017,8 @@
       "date_nc": "2026-11-17",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Post long / carrousel — Serie 2, episode 8/8",
-      "sujet": "Installer le rythme durablement (synthese + CTA) (8/8)",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1029,7 +1029,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine SERIE (ISO impaire). La Serie 2 ne parait plus qu une semaine sur deux depuis la decision du 15/09/2026 : elle s etale sur le double de temps. Episode renumerote en consequence.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1037,8 +1037,8 @@
       "date_nc": "2026-11-19",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Campagne dediee 8/10 — Piloter avec une information fiable",
+      "sujet": "Etre pret face au COMEX ou au siege",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1048,7 +1048,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1076,8 +1076,8 @@
       "date_nc": "2026-11-24",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Visuel unique V2 Performance",
-      "sujet": "a definir (semaine PERFORMANCE V2 — banque des 10 publications)",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1088,7 +1088,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1096,8 +1096,8 @@
       "date_nc": "2026-11-26",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Campagne dediee 9/10 — Prouver les resultats",
+      "sujet": "Relier les gains rapides a une amelioration durable",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1107,7 +1107,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2, ISO paire) — format et gabarit V2 Performance, cf. REFERENTIEL-V2-PERFORMANCE.md. Produit par mercredi-creation, ETAPE 0quater.",
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1147,7 +1147,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1155,8 +1155,8 @@
       "date_nc": "2026-12-03",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Campagne dediee 10/10 — Prouver les resultats",
+      "sujet": "Commencer par une lecture claire de l organisation (diagnostic 60 min)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1166,7 +1166,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1194,8 +1194,8 @@
       "date_nc": "2026-12-08",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Visuel unique V2 Performance",
-      "sujet": "a definir (semaine PERFORMANCE V2 — banque des 10 publications)",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1206,7 +1206,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1214,8 +1214,8 @@
       "date_nc": "2026-12-10",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Campagne dediee 2/10 — repoussee : quasi-doublon de l episode 4/8 du 22/09, a reformuler",
+      "sujet": "Des equipes alignees sur les memes priorites",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1225,7 +1225,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2, ISO paire) — format et gabarit V2 Performance, cf. REFERENTIEL-V2-PERFORMANCE.md. Produit par mercredi-creation, ETAPE 0quater.",
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1265,7 +1265,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1273,8 +1273,8 @@
       "date_nc": "2026-12-17",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1284,7 +1284,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1312,8 +1312,8 @@
       "date_nc": "2026-12-22",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Visuel unique V2 Performance",
-      "sujet": "a definir (semaine PERFORMANCE V2 — banque des 10 publications)",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1324,7 +1324,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1332,8 +1332,8 @@
       "date_nc": "2026-12-24",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1343,7 +1343,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2, ISO paire) — format et gabarit V2 Performance, cf. REFERENTIEL-V2-PERFORMANCE.md. Produit par mercredi-creation, ETAPE 0quater.",
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1378,7 +1378,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Le vendredi 2026-12-25 est ferie (Noel). REGLE GENERALE posee par Jean-Michel le 21/08/2026 : si le vendredi est ferie, la veille economique bascule au SAMEDI. Cron samedi ajoute a publish-vendredi-veille-eco.yml. ATTENTION ce samedi-la : la republication Facebook du post court tourne a 15h30 NC — Facebook recevrait 2 posts le meme jour. Suspendre la republication cette semaine-la, ou l assumer. | Semaine PERFORMANCE (V2, ISO paire) — format et gabarit V2 Performance, cf. REFERENTIEL-V2-PERFORMANCE.md. Produit par mercredi-creation, ETAPE 0quater.",
+      "note": "Le vendredi 2026-12-25 est ferie (Noel). REGLE GENERALE posee par Jean-Michel le 21/08/2026 : si le vendredi est ferie, la veille economique bascule au SAMEDI. Cron samedi ajoute a publish-vendredi-veille-eco.yml. ATTENTION ce samedi-la : la republication Facebook du post court tourne a 15h30 NC — Facebook recevrait 2 posts le meme jour. Suspendre la republication cette semaine-la, ou l assumer.",
       "arbitrage": {
         "statut": "pris",
         "question": "Noël le vendredi 25/12",
@@ -1405,7 +1405,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1413,8 +1413,8 @@
       "date_nc": "2026-12-31",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1424,7 +1424,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1486,7 +1486,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1494,8 +1494,8 @@
       "date_nc": "2027-01-07",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1505,7 +1505,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1533,8 +1533,8 @@
       "date_nc": "2027-01-12",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Visuel unique V2 Performance",
-      "sujet": "a definir (semaine PERFORMANCE V2 — banque des 10 publications)",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1545,7 +1545,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1553,8 +1553,8 @@
       "date_nc": "2027-01-14",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1564,7 +1564,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1604,7 +1604,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1612,8 +1612,8 @@
       "date_nc": "2027-01-21",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1623,7 +1623,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1651,8 +1651,8 @@
       "date_nc": "2027-01-26",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Visuel unique V2 Performance",
-      "sujet": "a definir (semaine PERFORMANCE V2 — banque des 10 publications)",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1663,7 +1663,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1671,8 +1671,8 @@
       "date_nc": "2027-01-28",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1682,7 +1682,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1722,7 +1722,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1730,8 +1730,8 @@
       "date_nc": "2027-02-04",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1741,7 +1741,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1769,8 +1769,8 @@
       "date_nc": "2027-02-09",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Visuel unique V2 Performance",
-      "sujet": "a definir (semaine PERFORMANCE V2 — banque des 10 publications)",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1781,7 +1781,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1789,8 +1789,8 @@
       "date_nc": "2027-02-11",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1800,7 +1800,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1840,7 +1840,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1848,8 +1848,8 @@
       "date_nc": "2027-02-18",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1859,7 +1859,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1887,8 +1887,8 @@
       "date_nc": "2027-02-23",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Visuel unique V2 Performance",
-      "sujet": "a definir (semaine PERFORMANCE V2 — banque des 10 publications)",
+      "libelle": "Post long / carrousel",
+      "sujet": "a definir (serie 3 ou hors-serie)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1899,7 +1899,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "axe": "performance"
     },
     {
@@ -1907,8 +1907,8 @@
       "date_nc": "2027-02-25",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "a definir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1918,7 +1918,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "axe": "performance"
     },
     {
@@ -1958,7 +1958,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -1967,8 +1967,8 @@
       "date_nc": "2027-03-04",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1978,7 +1978,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2020,7 +2020,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2029,8 +2029,8 @@
       "date_nc": "2027-03-11",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2040,7 +2040,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2082,7 +2082,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2091,8 +2091,8 @@
       "date_nc": "2027-03-18",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2102,7 +2102,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2144,7 +2144,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2153,8 +2153,8 @@
       "date_nc": "2027-03-25",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2164,7 +2164,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2206,7 +2206,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2215,8 +2215,8 @@
       "date_nc": "2027-04-01",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2226,7 +2226,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2268,7 +2268,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2277,8 +2277,8 @@
       "date_nc": "2027-04-08",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2288,7 +2288,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2330,7 +2330,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2339,8 +2339,8 @@
       "date_nc": "2027-04-15",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2350,7 +2350,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2392,7 +2392,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2401,8 +2401,8 @@
       "date_nc": "2027-04-22",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2412,7 +2412,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2454,7 +2454,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2463,8 +2463,8 @@
       "date_nc": "2027-04-29",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2474,7 +2474,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2516,7 +2516,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2525,8 +2525,8 @@
       "date_nc": "2027-05-05",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court — ⚠️ décalé (Ascension le 2027-05-06)",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2536,7 +2536,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Le 2027-05-06 est férié en Nouvelle-Calédonie (Ascension). Règle du 21/08/2026 : un jeudi férié bascule vers le mercredi. Date proposée : 2027-05-05.",
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": {
         "statut": "ouvert",
         "question": "Ascension tombe le 2027-05-06, un jour de jeudi. Décaler au mercredi 2027-05-05, ou sauter cette semaine ?",
@@ -2599,7 +2599,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2608,8 +2608,8 @@
       "date_nc": "2027-05-13",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2619,7 +2619,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2661,7 +2661,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Semaine PERFORMANCE (V2) — decision de Jean-Michel du 15/09/2026 : une semaine sur deux, toute la communication bascule sur la politique et le gabarit V2 Performance. Regle : parite de la semaine ISO de date_prevue (ISO paire = V2). Referentiel : Perfeco-Social-Media/REFERENTIEL-V2-PERFORMANCE.md. L axe institutions n est PAS concerne par cette alternance.",
+      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
       "arbitrage": null,
       "axe": "performance"
     },
@@ -2670,8 +2670,8 @@
       "date_nc": "2027-05-20",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "libelle": "Post court",
-      "sujet": "à définir",
+      "libelle": "Post court / campagne dediee",
+      "sujet": "a definir (campagne dediee — banque a reconstituer)",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -2681,7 +2681,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": null,
+      "note": "CAMPAGNE DEDIEE Performance (V2) — creneau reserve du jeudi, decide par Jean-Michel le 15/09/2026. Gabarit visuel unique V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Banque des 10 publications : REFERENTIEL-V2-PERFORMANCE.md §4. L axe institutions garde ses propres semaines.",
       "arbitrage": null,
       "axe": "performance"
     },
