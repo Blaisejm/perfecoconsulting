@@ -41,6 +41,46 @@ jobs:
           fi
           echo "✅ Scénario PerfEco Social Publisher actif."
 
+      # Ajoutee le 15/09/2026. Motif : le 16/08/2026, un filtre EXISTAIT sur la route
+      # "LinkedIn perso" mais etait regle sur "Not equal to" au lieu de "Does not contain" —
+      # inoperant sur une valeur suffixee (le champ vaut "W33-NOCAROUSEL", pas "NOCAROUSEL").
+      # Resultat : un doublon LinkedIn. Croire un filtre present ne suffit pas, il faut
+      # verifier son OPERATEUR. Ce controle tourne avant chaque publication.
+      - name: Vérifier les filtres de routes Make (opérateur « Does not contain »)
+        id: make_filtres
+        continue-on-error: true
+        env:
+          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
+        run: |
+          HTTP_CODE=$(curl -s -o /tmp/bp.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6916780/blueprint")
+          echo "HTTP $HTTP_CODE"
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::Impossible de lire le blueprint du scenario 6916780 (HTTP $HTTP_CODE) — filtres de routes NON verifies."
+            exit 1
+          fi
+          # Toute condition de filtre Make a la forme {"a": <champ>, "b": <valeur>, "o": <operateur>}
+          jq -r '[.. | objects | select(has("o") and has("b")) | "\(.o)|\(.b)"] | .[]' /tmp/bp.json > /tmp/conds.txt || true
+          echo "--- conditions de filtre trouvees ---"; cat /tmp/conds.txt
+          FAIL=0
+          for SUF in NOFB FBONLY NOCAROUSEL; do
+            LIGNE=$(grep -i "|.*${SUF}" /tmp/conds.txt | head -1 || true)
+            if [ -z "$LIGNE" ]; then
+              echo "::error::Filtre « $SUF » ABSENT du scenario 6916780. Le suffixe envoye par le workflow ne bloquera RIEN."
+              FAIL=1
+              continue
+            fi
+            OP=$(echo "$LIGNE" | cut -d'|' -f1)
+            case "$OP" in
+              *notcontain*) echo "✅ $SUF — operateur « $OP » (Does not contain) : correct." ;;
+              *) echo "::error::Filtre « $SUF » present mais operateur « $OP » — attendu « text:notcontain » (Does not contain). Sur une valeur suffixee, « Not equal to » NE BLOQUE RIEN (incident du 16/08/2026)."; FAIL=1 ;;
+            esac
+          done
+          if [ "$FAIL" = "1" ]; then
+            echo "Corriger ici : https://eu1.make.com/1970457/scenarios/6916780/edit"
+            exit 1
+          fi
+          echo "✅ Les 3 filtres de routes sont presents et correctement configures."
+
       - name: Vérifier version API LinkedIn (426 NONEXISTENT_VERSION — utilisée pour le carrousel DRAFT du mardi)
         id: li_version
         continue-on-error: true
@@ -132,9 +172,10 @@ jobs:
         if: always()
         run: |
           echo "PerfEco Social Publisher : ${{ steps.social_publisher.outcome }}"
+          echo "Filtres de routes Make : ${{ steps.make_filtres.outcome }}"
           echo "Version API LinkedIn (carrousel mardi) : ${{ steps.li_version.outcome }}"
           echo "Article WordPress : ${{ steps.wp_check.outcome }}"
-          if [ "${{ steps.social_publisher.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ]; then
+          if [ "${{ steps.social_publisher.outcome }}" = "failure" ] || [ "${{ steps.make_filtres.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ]; then
             echo "::error::Au moins une vérification a échoué — voir logs ci-dessus. Corriger AVANT le prochain lancement de publication."
             exit 1
           fi
