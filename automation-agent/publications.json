@@ -664,7 +664,7 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4.",
+      "note": "CAMPAGNE DEDIEE Performance — creneau reserve du jeudi (decision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> consequence -> methode -> resultat -> invitation\". Detail : REFERENTIEL-V2-PERFORMANCE.md §4. | ⚠️ ANGLE IMPOSE : l episode 4/8 du mardi 22/09 (\"Faire descendre les priorites\") traite le trajet DESCENDANT d une priorite. Cette publication-ci doit traiter l accord HORIZONTAL entre services — plusieurs directions qui interpretent differemment la meme priorite, et ce qui les remet d accord. NE PAS reutiliser le chiffre 56 %/27 %. Rappel de la regle du 03/09 : c est la conjonction \"meme indicateur ET meme angle\" qui bloque.",
       "axe": "performance"
     },
     {
@@ -810,8 +810,8 @@
       "date_nc": "2026-10-27",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Post long / carrousel",
-      "sujet": "a definir (serie 3 ou hors-serie)",
+      "libelle": "Post long / carrousel — Institutions 1/4",
+      "sujet": "Le projet d abord, l argent ensuite — ce qu un financeur verifie avant le montant",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -819,11 +819,11 @@
         "facebook"
       ],
       "statut": "prevu",
-      "source": null,
+      "source": "calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md",
       "bascule": null,
       "preuve": null,
-      "note": "CRENEAU LIBERE le 15/09/2026 : Jean-Michel a demande que la semaine du 26 au 30/10 respecte le schema hebdomadaire normal (mardi serie / jeudi campagne dediee / vendredi veille eco). La SEMAINE INSTITUTIONS I1 qui occupait ces 3 creneaux est donc A REPLANIFIER — son contenu est intact dans Perfeco-Social-Media/calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md (I1 sur 4 prevues). A arbitrer avec Jean-Michel : ou replacer I1 a I4.",
-      "axe": "performance"
+      "note": "SERIE INSTITUTIONS sur le creneau du MARDI (post long / serie), decide le 15/09/2026 apres que la semaine du 26-30/10 a ete ramenee au schema hebdomadaire normal. Le carrousel I1 est DEJA LARGEMENT PRODUIT (slides redigees, visuels faits, textes LinkedIn/Facebook et articles FR+EN) dans Perfeco-Social-Media/calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md. ATTENTION : le post court du jeudi 29/10 et le radar financements du vendredi 30/10 prevus dans ce meme fichier sont MIS DE COTE — ces deux creneaux appartiennent desormais a la campagne dediee et a la veille eco.",
+      "axe": "institutions"
     },
     {
       "id": "2026-10-29-jeudi",
@@ -884,8 +884,8 @@
       "date_nc": "2026-11-03",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Post long / carrousel",
-      "sujet": "a definir (serie 3 ou hors-serie)",
+      "libelle": "Post long / carrousel — Institutions 2/4",
+      "sujet": "a definir — Institutions 2/4",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -896,8 +896,8 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
-      "axe": "performance"
+      "note": "SERIE INSTITUTIONS 2/4 sur le creneau du mardi. Contenu a produire (aucun fichier source a ce jour).",
+      "axe": "institutions"
     },
     {
       "id": "2026-11-05-jeudi",
@@ -943,8 +943,8 @@
       "date_nc": "2026-11-10",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Post long / carrousel",
-      "sujet": "a definir (serie 3 ou hors-serie)",
+      "libelle": "Post long / carrousel — Institutions 3/4",
+      "sujet": "a definir — Institutions 3/4",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -955,8 +955,8 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
-      "axe": "performance"
+      "note": "SERIE INSTITUTIONS 3/4 sur le creneau du mardi. Contenu a produire (aucun fichier source a ce jour).",
+      "axe": "institutions"
     },
     {
       "id": "2026-11-11-ferie",
@@ -1017,8 +1017,8 @@
       "date_nc": "2026-11-17",
       "heure_nc": "11:00",
       "format": "mardi",
-      "libelle": "Post long / carrousel",
-      "sujet": "a definir (serie 3 ou hors-serie)",
+      "libelle": "Post long / carrousel — Institutions 4/4",
+      "sujet": "a definir — Institutions 4/4",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -1029,8 +1029,8 @@
       "source": null,
       "bascule": null,
       "preuve": null,
-      "note": "Rythme hebdomadaire NORMAL retabli le 15/09/2026 (2e decision de Jean-Michel le meme jour) : l alternance une semaine sur deux est SUPPRIMEE. Chaque semaine est identique — mardi post long/serie, jeudi post court/campagne dediee, vendredi post court/veille eco.",
-      "axe": "performance"
+      "note": "SERIE INSTITUTIONS 4/4 sur le creneau du mardi. Contenu a produire (aucun fichier source a ce jour).",
+      "axe": "institutions"
     },
     {
       "id": "2026-11-19-jeudi",
