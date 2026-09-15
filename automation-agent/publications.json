@@ -419,10 +419,10 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "publie",
                              "source":  "automation-queue/mardi.json",
                              "bascule":  null,
-                             "preuve":  null,
+                             "preuve":  "Make 4 operations (LinkedIn Company + Facebook (profil perso servi hors Make, par l'API LinkedIn directe)) a 2026-09-15T03:41:59.352Z statut=1 ; post Facebook confirme a 2026-09-15T03:42:06+0000 ; cloture automatique par check-apres-publication, run 34947245160",
                              "note":  null
                          },
                          {
