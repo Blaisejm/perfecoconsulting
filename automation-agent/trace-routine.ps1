@@ -194,6 +194,31 @@ try {
 } finally { Pop-Location }
 
 # ---------------------------------------------------------------------------
+# Regeneration du CALENDRIER LISIBLE (demande de Jean-Michel du 15/09/2026 :
+# « ton calendrier des publications doit etre sauvegarde en dur sur le cloud,
+# il y a trop de doute a ce niveau »).
+# Fait ICI, comme le verrou, parce que trace-routine est le seul point de passage
+# obligatoire de TOUTES les routines : le document Word et le Markdown deposes sur
+# OneDrive ne peuvent donc jamais diverger du registre publications.json.
+# Un echec ici n'est jamais bloquant : la routine a deja fait son travail.
+# ---------------------------------------------------------------------------
+$CAL = Join-Path $PSScriptRoot 'calendrier-lisible.py'
+if (Test-Path $CAL) {
+    try {
+        $null = & python $CAL 16 2>&1
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "  [calendrier] document OneDrive regenere (Word + Markdown)"
+        } else {
+            Write-Warning "Le calendrier lisible n'a pas pu etre regenere (code $LASTEXITCODE) — document OneDrive possiblement perime."
+        }
+    } catch {
+        Write-Warning "Le calendrier lisible n'a pas pu etre regenere : $_"
+    }
+} else {
+    Write-Warning "calendrier-lisible.py introuvable — document OneDrive non regenere."
+}
+
+# ---------------------------------------------------------------------------
 # Liberation du verrou d'exclusion mutuelle (regle Jean-Michel du 12/09/2026 :
 # jamais deux routines en parallele, 15 minutes d'ecart minimum, ordre respecte
 # meme quand le PC est allume tard et que les creneaux manques sont rejoues).
