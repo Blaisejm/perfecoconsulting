@@ -29,7 +29,7 @@
     "et les canaux ; les heures exactes de publication n'ont pas toujours été conservées."
   ],
   "fuseau": "Pacific/Noumea",
-  "derniere_maj": "2026-09-15",
+  "derniere_maj": "2026-09-18",
   "publications": [
     {
       "id": "2026-08-11-mardi",
@@ -456,10 +456,10 @@
         "linkedin_perso",
         "facebook"
       ],
-      "statut": "en_file",
+      "statut": "publie",
       "source": "automation-queue/vendredi.json",
       "bascule": null,
-      "preuve": null,
+      "preuve": "Make 5 operations (LinkedIn Company + profil perso + Facebook) a 2026-09-18T02:24:27.198Z statut=1 ; post Facebook confirme a 2026-09-18T02:24:36+0000 ; cloture automatique par check-apres-publication, run 35322474386",
       "note": null
     },
     {
