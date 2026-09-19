@@ -48,7 +48,38 @@ jobs:
           TODAY_NC=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
           DOW=$(TZ="Pacific/Noumea" date +%u)
           if [ "$DATE_PREVUE" != "$TODAY_NC" ]; then
-            # ── CHANGEMENT DU 15/09/2026, décision de Jean-Michel ────────────────────
+            # Deux situations très différentes, à ne pas confondre (corrigé le 21/08/2026) :
+            if [ "$DOW" = "4" ]; then
+              # Jeudi, le jour habituel : la file DEVRAIT porter la date du jour.
+              # Un écart ici est une vraie anomalie — c'est le filet qui a rattrapé
+              # plusieurs bascules ratées. On échoue bruyamment.
+              echo "::error::date_prevue=$DATE_PREVUE ne correspond pas à aujourd'hui NC ($TODAY_NC). Abandon."
+              exit 1
+            fi
+            # Mercredi : jour ajouté pour absorber les décalages de férié. Rien à publier
+            # ici la plupart des semaines — c'est le cas NORMAL, surtout pas une erreur.
+            # Sans cette distinction, le workflow échouerait chaque semaine et noierait
+            # les vraies alertes.
+            echo "publier=false" >> "$GITHUB_OUTPUT"
+            echo "Rien à publier aujourd'hui : la file vise le $DATE_PREVUE, nous sommes le $TODAY_NC. Sortie normale."
+            exit 0
+          fi
+          echo "publier=true" >> "$GITHUB_OUTPUT"
+          echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
+
+      # ⚠️ RÉPARÉ LE 19/09/2026 par perfeco-rappel-quotidien.
+      # Le commit 421f204 du 15/09/2026 avait collé le bloc de commentaires ci-dessous
+      # À L'INTÉRIEUR du `if` ci-dessus, en effaçant ses 18 lignes de logique. Le script
+      # se terminait donc sur un `if ...; then` jamais fermé : erreur de syntaxe bash,
+      # étape « Vérifier la fraîcheur du contenu » en échec, étape de publication SAUTÉE.
+      # Coût réel : le post court du jeudi 17/09/2026 n'a jamais été publié (run #9,
+      # conclusion=failure), et le run du mercredi 16/09 (#8) a échoué pour la même raison
+      # alors qu'il aurait dû sortir proprement en `publier=false`.
+      # Leçon : un bloc de commentaires déplacé ne se voit pas à la relecture d'un diff,
+      # mais il casse le script AU PARSING — même classe de panne silencieuse que les
+      # .ps1 sans BOM. Toute modification d'un `run:` doit être relue en entier, pas en diff.
+      # ────────────────────────────────────────────────────────────────────────
+      # ── CHANGEMENT DU 15/09/2026, décision de Jean-Michel ──────────────────────
       # Le jeudi publie désormais sur LinkedIn Company Page ET LinkedIn profil perso,
       # puis le MÊME post part sur Facebook le SAMEDI (publish-samedi-republication-facebook.yml,
       # 15h30 NC). Facebook ne reçoit donc plus rien le jeudi.
