@@ -1,7 +1,7 @@
 {
     "_lisez_moi":  "Registre des validations demandees a Jean-Michel. Delai standard 48 h, au-dela le systeme applique le defaut. Regle du 12/09/2026. Ne pas editer a la main : utiliser validations.ps1.",
     "delai_standard_heures":  48,
-    "derniere_maj":  "2026-09-14",
+    "derniere_maj":  "2026-09-19",
     "validations":  [
                         {
                             "id":  "v-2026-09-14-01",
@@ -19,10 +19,10 @@
                             "repondre_avant":  "2026-09-16T11:50:36+11:00",
                             "delai_heures":  48,
                             "ecrete":  false,
-                            "statut":  "ouvert",
-                            "decision":  null,
-                            "tranche_a":  null,
-                            "par":  null,
+                            "statut":  "tranche_par_defaut",
+                            "decision":  "Option 1 - deplacer les lignes closes anterieures au 01/09/2026 vers une section Historique du meme fichier. Aucune perte : le texte integral est conserve, le fichier est versionne dans git, et la manoeuvre est reversible d\u0027un git revert. C\u0027est le meilleur choix par defaut parce que le risque de l\u0027inaction (une alerte reelle noyee dans 100 lignes closes) est superieur au risque de l\u0027action (nul, tout est conserve et reversible).",
+                            "tranche_a":  "2026-09-19T18:11:55+11:00",
+                            "par":  "systeme (48 h sans reponse - regle du 12/09/2026)",
                             "rappels":  1
                         }
                     ]
