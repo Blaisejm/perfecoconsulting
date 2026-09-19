@@ -501,8 +501,8 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_staging",
-                             "source":  "automation-queue/mardi-W38-pret.json",
+                             "statut":  "en_file",
+                             "source":  "automation-queue/mardi.json",
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "DÉCISION DE JEAN-MICHEL DU 03/09/2026 : la semaine du 21/09 revient a un rythme SIMPLE. Le post long reste a sa date normale, le MARDI 22/09. Le post court de cette semaine est ANNULE purement et simplement. Ceci REMPLACE la décision du 21/08/2026, qui avançait le post long au lundi 21/09 et le post court au mercredi 23/09 pour cause de jeudi 24/09 férié (Fete de la Citoyennete). Plus aucun décalage : un seul post cette semaine-la, plus la veille éco du vendredi 25/09 qui reste inchangée. CE CRÉNEAU EST LE BON : c\u0027est ici que paraît l\u0027episode 4/8, a sa date normale. Il portait \u0027a definir\u0027 parce que l\u0027episode avait été déplacé au 21/09 le 21/08 ; il le récupère. Production par mardi-carrousel-creation le LUNDI 14/09 (J-8) : viser le 22/09. MISE A JOUR DU 15/09/2026 (2e version, celle-ci fait foi) : la phrase qui précédait (\"la série n\u0027est pas décalée, l\u0027episode 5/8 reste au 29/09\") redevient VRAIE. Une alternance une semaine sur deux avait été posée puis SUPPRIMÉE le même jour. Le rythme hebdomadaire est simple et identique chaque semaine : mardi post long/série, jeudi post court/campagne dédiée Performance, vendredi post court/veille éco. L episode 5/8 est donc bien au mardi 29/09. Voir REFERENTIEL-V2-PERFORMANCE.md.",
