@@ -564,8 +564,8 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_file",
+                             "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
