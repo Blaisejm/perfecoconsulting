@@ -2,7 +2,7 @@
   "_comment": "STAGING - NE PAS COPIER DANS mardi.json AVANT LE MERCREDI 23/09/2026. Produit le 21/09/2026 par mardi-carrousel-creation a J-8 pour la diffusion du MARDI 29/09/2026 (Serie 2, episode 5/8). mardi.json doit rester sur W38 / 2026-09-22 jusqu'a la publication du 22/09 a 11h00 NC : publish-mardi-carrousel.yml compare date_prevue a la date NC du jour et n'execute rien en cas d'ecart, donc ecrire ce contenu dans mardi.json aujourd'hui annulerait silencieusement la publication de demain. La bascule est faite par perfeco-rappel-quotidien (etape 1quinquies), les taches one-time de bascule ayant ete supprimees le 06/09/2026 apres 4 echecs sur 4.",
   "semaine": "W39",
   "date_prevue": "2026-09-29",
-  "wordpress_post_id": 0,
+  "wordpress_post_id": 147,
   "perfeco_nc_url_fr": "https://www.perfeco.nc/ressources/le-point-hebdomadaire-qui-tranche",
   "perfeco_nc_url_en": "https://www.perfeco.nc/en/resources/the-weekly-meeting-that-actually-decides",
   "linkedin_api_version": "202609",
