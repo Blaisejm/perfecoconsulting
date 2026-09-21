@@ -213,6 +213,11 @@
       "cadence": "hebdomadaire (cron 0 21 * * 2 = mercredi 08h00 NC)",
       "publie": false,
       "note": "ESSAI - ne publie rien, ni webhook ni git push ni automation-queue (verifie dans le fichier le 24/08/2026). Banc d'essai de la production par cle API. Ajoute a la surveillance le 24/08/2026"
+    },
+    "check-syntaxe.yml": {
+      "cadence": "a chaque push (declencheurs push + pull_request + workflow_dispatch, pas de cron)",
+      "publie": false,
+      "note": "Garde-fou EN AMONT ajoute le 21/09/2026 apres la perte de la publication du jeudi 17/09 (commit 421f204 du 15/09 : bloc de commentaires ayant efface la logique d'un if, laissant un if jamais referme ; erreur de syntaxe bash decouverte seulement a 11h00 NC, publication perdue). Lance scripts/controle-syntaxe.mjs : bash -n sur chaque bloc run: des workflows, validite JSON des files d'attente et du registre, BOM UTF-8 des .ps1 accentues, caracteres de controle. ECHEC = le pipeline ne serait PAS executable en l'etat, corriger avant tout autre travail. AUCUN controle de fraicheur : il n'a pas de cron, son declencheur est le push - une longue absence de run signifie seulement que personne n'a pousse, jamais une panne. Ne controle QUE la syntaxe : le contenu, la fraicheur des files et les tokens restent du ressort de check-preparation-contenu.yml et des routines."
     }
   },
   "regle_j7": {
