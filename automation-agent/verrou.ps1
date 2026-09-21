@@ -81,13 +81,25 @@ param(
     # PowerShell de l'agent coupe a 10 minutes. Au-dela, le script rend la main
     # avec ATTENDRE et c'est la routine qui rappelle.
     [int]$AttenteBloquanteMax = 8,
-    # Nombre de minutes au-dela duquel on passe en force plutot que de ne jamais tourner.
+    # Nombre de minutes au-dela duquel on passe en force plutot que de ne jamais
+    # tourner. Compte depuis la PREMIERE tentative de la routine, pas depuis le
+    # debut de l'appel courant (corrige le 21/09/2026) : une routine bloquee rend
+    # la main avec ATTENDRE et rappelle toutes les 5 min, si bien que le compteur
+    # repartait de zero a chaque fois et que ce garde-fou ne se declenchait
+    # JAMAIS. La date de premiere tentative est celle de l'inscription dans la
+    # file d'attente, desormais conservee d'un appel a l'autre.
+    # Sans effet par-dessus un detenteur vivant : voir la section PRENDRE.
     [int]$AbandonApresMinutes = 75,
     # Usage INTERNE : mode batteur. Lance en tache de fond par -Prendre, ce mode
     # rafraichit le champ 'battement' tant que la routine detient le verrou. Une
     # routine ne l'appelle jamais elle-meme.
     [switch]$Battre,
     [int]$IntervalleBattementSecondes = 120,
+    # Au-dela, une inscription dans la file d'attente est tenue pour un RESIDU.
+    # Une routine qui a cesse de rappeler (session morte, PC eteint, journee
+    # terminee) ne doit ni bloquer les autres par son rang, ni accumuler un
+    # droit de passage en force qu'elle ferait valoir le lendemain.
+    [int]$InscriptionPerimeeMinutes = 240,
     # Garde-fou du batteur : il s'arrete de lui-meme au-dela, pour ne jamais
     # devenir un process zombie qui maintiendrait un verrou en vie sans routine.
     # 2 h est large : la routine la plus longue (perfeco-rapport-dimanche) tourne
@@ -314,6 +326,22 @@ function Get-Rang($nom) {
     return 99   # routine inconnue : passe en dernier, jamais bloquante pour les autres
 }
 
+# --- FILE D'ATTENTE : purge des residus ---------------------------------------
+# Indispensable depuis que l'anciennete d'une inscription donne un droit (celui
+# de passer en force, voir plus bas). Une routine qui a cesse de rappeler laisse
+# sinon une entree qui, elle, ne cesse pas de vieillir : au lancement suivant
+# elle reclamerait un passage en force immediat au titre d'une attente qui n'a
+# jamais eu lieu. Et une entree residuelle de rang faible bloquerait au passage
+# toutes les routines de rang superieur, indefiniment.
+function Remove-InscriptionsPerimees($e) {
+    $limite = (Get-Maintenant).AddMinutes(-$InscriptionPerimeeMinutes)
+    $e.attente = @($e.attente | Where-Object {
+        $d = ConvertTo-Date $_.depuis
+        $d -and $d -gt $limite
+    })
+    return $e
+}
+
 # --- BATTRE (usage interne, jamais appele par une routine) -------------------
 # Rafraichit 'battement' tant que la routine detient le verrou, puis s'arrete.
 # Trois conditions d'arret, volontairement redondantes : la routine n'est plus
@@ -433,16 +461,37 @@ if ($Liberer) {
 if (-not $Prendre) { throw "Preciser -Prendre, -Liberer ou -Etat." }
 
 $monRang = Get-Rang $Routine
-$debutAttente = Get-Maintenant
 
 # Inscription dans la file d'attente : c'est ce qui permet a une routine de rang
 # inferieur, declenchee en meme temps au reveil, d'obtenir la priorite.
-Update-Etat -Transformation {
+#
+# L'INSCRIPTION EST IDEMPOTENTE (21/09/2026). Elle etait auparavant reecrite a
+# chaque appel, ce qui remettait 'depuis' a zero toutes les 5 minutes. Or une
+# routine n'attend pas dans un seul appel : bloquee, elle rend la main avec
+# ATTENDRE et rappelle ce script. Son attente REELLE est donc la somme de ses
+# tentatives, et c'est cette somme qu'il faut mesurer - exactement le principe
+# deja retenu pour validations.ps1 -Ouvrir, idempotent sur (routine + objet) et
+# qui ne remet jamais son compteur a zero.
+$inscription = Update-Etat -Transformation {
     param($e)
-    $e.attente = @($e.attente | Where-Object { $_.routine -ne $Routine })
-    $e.attente += [pscustomobject]@{ routine = $Routine; rang = $monRang; depuis = (Get-Horodatage) }
-    return @{ etat = $e }
-} | Out-Null
+    $e = Remove-InscriptionsPerimees $e
+    $mienne = $e.attente | Where-Object { $_.routine -eq $Routine } | Select-Object -First 1
+    if ($mienne) {
+        $mienne.rang = $monRang          # le rang peut avoir change dans $RANGS
+        return @{ etat = $e; depuis = $mienne.depuis; nouvelle = $false }
+    }
+    $neuf = Get-Horodatage
+    $e.attente += [pscustomobject]@{ routine = $Routine; rang = $monRang; depuis = $neuf }
+    return @{ etat = $e; depuis = $neuf; nouvelle = $true }
+}
+
+# Point de depart du compteur d'abandon : la PREMIERE tentative, pas celle-ci.
+$debutAttente = ConvertTo-Date $inscription.depuis
+if (-not $debutAttente) { $debutAttente = Get-Maintenant }
+if (-not $inscription.nouvelle) {
+    $cumul = [int]((Get-Maintenant) - $debutAttente).TotalMinutes
+    Write-Output "Reprise d'attente : '$Routine' patiente depuis $cumul min au total (premiere tentative a $(Get-HeureNC $debutAttente) NC)."
+}
 
 # Laisse 20 s aux routines declenchees dans la meme rafale pour s'inscrire aussi,
 # sinon la premiere arrivee passe toujours, quel que soit son rang.
@@ -466,6 +515,7 @@ while ($true) {
     # l'attribuer toutes les deux.
     $d = Update-Etat -Transformation {
         param($e)
+        $e = Remove-InscriptionsPerimees $e
         $maintenant = Get-Maintenant
         $motif = $null
         $vivant = $false
@@ -569,8 +619,15 @@ while ($true) {
     }
 
     if ((Get-Maintenant) -ge $finBloquante) {
+        $cumul = [int]((Get-Maintenant) - $debutAttente).TotalMinutes
         Write-Output "ATTENDRE : $($d.motif)"
         Write-Output "Rappeler ce script a l'identique dans 5 minutes. Ne RIEN faire d'autre entre-temps."
+        # Le cumul est ce qui compte, pas la duree de CET appel : le compteur
+        # d'abandon court depuis la premiere tentative, a travers les rappels.
+        if (-not $script:AutoriserForce) {
+            $restant = [math]::Max(0, $AbandonApresMinutes - $cumul)
+            Write-Output "  Attente cumulee : $cumul min sur $AbandonApresMinutes avant passage en force (reste $restant min)."
+        }
         if ($d.vivant -and $script:AutoriserForce) {
             # Le seul cas ou l'attente peut durer : une routine vivante travaille
             # depuis longtemps. C'est voulu, mais il faut pouvoir en sortir.
