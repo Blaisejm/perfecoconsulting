@@ -112,7 +112,29 @@ jobs:
           echo "HTTP $HTTP_CODE"; cat /tmp/li_version.json
 
           if [ "$HTTP_CODE" = "426" ] || grep -q "NONEXISTENT_VERSION" /tmp/li_version.json; then
-            echo "::error::linkedin_api_version=$API_VERSION expiré (426 NONEXISTENT_VERSION) — mettre à jour .linkedin.api_version dans automation-agent/calendrier.json (format AAAAMM, ex. $(date +%Y%m)), et y reporter la date dans api_version_maj_le. C'est la SOURCE UNIQUE depuis le 21/09/2026 : ne plus corriger automation-queue/mardi.json, qui n'est qu'un repli."
+            # Ne PAS suggerer le mois courant : le test du 22/09/2026 a etabli que
+            # 202512 n'a JAMAIS ete publiee, alors que 202511 et 202601 l'encadrent,
+            # vivantes. LinkedIn ne sort pas une version chaque mois, et l'erreur
+            # s'appelle litteralement NONEXISTENT_VERSION. Conseiller « le mois
+            # courant » reviendrait donc, un mois de trou, a proposer une valeur qui
+            # casse la publication le jour meme. On CHERCHE la plus recente publiee.
+            #
+            # Sonde en LECTURE : 426 = morte, 403/200 = vivante (403 = scope de
+            # lecture absent, le token ne portant que w_member_social).
+            SUGGEREE=""
+            BASE_MOIS=$(TZ="Pacific/Noumea" date +%Y-%m-01)
+            for RECUL in $(seq 0 13); do
+              CANDIDATE=$(date -u -d "$BASE_MOIS -$RECUL month" +%Y%m 2>/dev/null || true)
+              if [ -z "$CANDIDATE" ]; then continue; fi
+              CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://api.linkedin.com/rest/me"                 -H "Authorization: Bearer $LINKEDIN_TOKEN"                 -H "LinkedIn-Version: $CANDIDATE"                 -H "X-Restli-Protocol-Version: 2.0.0" || true)
+              if [ "$CODE" = "403" ] || [ "$CODE" = "200" ]; then SUGGEREE="$CANDIDATE"; break; fi
+            done
+            if [ -n "$SUGGEREE" ]; then
+              CONSEIL="Version publiee la plus recente trouvee a l'instant : $SUGGEREE."
+            else
+              CONSEIL="Aucune version vivante trouvee sur 14 mois : verifier d'abord LINKEDIN_TOKEN (un 401 se lit comme un echec ici)."
+            fi
+            echo "::error::linkedin_api_version=$API_VERSION expiré (426 NONEXISTENT_VERSION) — mettre à jour .linkedin.api_version dans automation-agent/calendrier.json (format AAAAMM), et y reporter la date dans api_version_maj_le. $CONSEIL NE PAS prendre le mois courant de confiance : certains mois ne sont jamais publiés (cas de 202512). C'est la SOURCE UNIQUE depuis le 21/09/2026 : ne plus corriger automation-queue/mardi.json, qui n'est qu'un repli."
             exit 1
           fi
 
