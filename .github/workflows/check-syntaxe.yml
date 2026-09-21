@@ -26,6 +26,21 @@ name: "PerfEco — Contrôle de syntaxe au push (garde-fou en amont)"
 # en nommant le `if` non refermé de la ligne 10 — ce que le message d'erreur
 # de GitHub ne faisait pas.
 #
+# AJOUT DU 21/09/2026 — PARSING RÉEL DES .ps1. Le contrôle ne regardait que
+# l'ENCODAGE des .ps1 : un fichier bien encodé mais syntaxiquement cassé
+# passait au vert, alors que la routine qui l'exécute mourrait au lancement
+# sans pouvoir signaler sa propre panne. Chaque .ps1 est désormais passé au
+# vrai parseur PowerShell. Deux garanties tiennent ce contrôle :
+#   - sa sortie transite par un fichier UTF-8 et non par stdout, sans quoi les
+#     messages d'erreur accentués reviendraient en page OEM sur un Windows
+#     français, illisibles au moment précis où ils servent ;
+#   - le nombre de fichiers réellement parsés est recoupé avec le nombre de
+#     .ps1 du dépôt, et l'absence d'interpréteur est une ERREUR en CI : un
+#     contrôle qui n'a pas tourné ne doit jamais passer pour un succès.
+# Limite assumée : le runner porte pwsh 7, un peu plus permissif que le
+# PowerShell 5.1 des routines locales. Ce contrôle est donc plus laxiste que
+# l'exécution réelle, jamais plus strict.
+#
 # CE QU'IL NE FAIT PAS, et qu'il ne faut pas croire couvert : la justesse du
 # contenu, la fraîcheur des files d'attente, les images, les tokens. Cela
 # reste le travail de check-preparation-contenu.yml et des routines Cowork.
@@ -59,7 +74,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Contrôle de syntaxe (blocs run:, files d'attente, .ps1, caractères de contrôle)
+      - name: Contrôle de syntaxe (blocs run:, files d'attente, parsing .ps1, caractères de contrôle)
         run: node scripts/controle-syntaxe.mjs
 
       - name: Rappel en cas d'échec

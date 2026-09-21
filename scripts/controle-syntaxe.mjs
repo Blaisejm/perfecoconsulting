@@ -25,6 +25,9 @@
 //  3. BOM des .ps1 accentués      | trace-routine.ps1 illisible par PS 5.1 (12/09)
 //  4. caractères de contrôle      | chemins Windows mangés, \a devenu BEL (12/09)
 //  5. structure des workflows     | workflow que GitHub refuse de charger
+//  6. parsing réel des .ps1       | routine morte au lancement sur une erreur
+//                                 | de syntaxe — l'équivalent PowerShell du
+//                                 | `if` non refermé du 17/09
 //
 // CE QU'IL NE CONTRÔLE PAS, et qu'il ne faut pas croire couvert : la
 // justesse du contenu, la fraîcheur des files, les images, les tokens. Cela
@@ -161,10 +164,13 @@ function parcourir(dossier, visiteur) {
 // est devenu illisible ; le 14/09, une classe de caractères accentués a cassé
 // un autre .ps1 AU PARSING, sur un message trompeur de parenthèse manquante.
 
+let ps1Vus = 0;
+
 function controlerPs1() {
   parcourir(RACINE, (chemin, nom) => {
     if (!nom.endsWith('.ps1')) return;
     controles++;
+    ps1Vus++;
     const brut = readFileSync(chemin);
     const aBom = brut[0] === 0xef && brut[1] === 0xbb && brut[2] === 0xbf;
     const accentue = /[^\x00-\x7F]/.test(brut.toString('utf8'));
@@ -197,6 +203,135 @@ function controlerCaracteresDeControle() {
   });
 }
 
+// ── 6. Parsing réel des .ps1 ───────────────────────────────────────────────
+//
+// Le contrôle 3 ne regarde que l'ENCODAGE : un .ps1 parfaitement encodé mais
+// syntaxiquement cassé passait au vert. C'est exactement le trou qu'avait le
+// pipeline côté bash avant le 17/09, quand un `if` non refermé a coûté une
+// publication. Une routine qui meurt au lancement sur une parenthèse manquante
+// ne publie rien et, pire, ne peut pas signaler sa propre panne.
+//
+// On passe donc chaque .ps1 au vrai parseur PowerShell, celui qui servira à
+// l'exécution. Deux précautions qui comptent :
+//
+//   - LA SORTIE PASSE PAR UN FICHIER UTF-8, jamais par stdout. Sur un Windows
+//     français, la sortie console de PowerShell est en page OEM : les messages
+//     d'erreur accentués reviendraient en mojibake et deviendraient illisibles
+//     au moment precis ou on en a besoin.
+//
+//   - UN CONTRÔLE QUI N'A PAS TOURNÉ N'EST JAMAIS UN SUCCÈS. Le script compte
+//     les fichiers qu'il a réellement examinés, et on recoupe ce nombre avec
+//     celui du contrôle 3. Tout écart est une erreur : sans cela, un parseur
+//     qui plante à mi-chemin rendrait « 0 anomalie », soit un vert mensonger —
+//     la famille d'incidents la plus coûteuse de ce projet.
+//
+// LIMITE À CONNAÎTRE : sur le runner ubuntu, l'interpréteur est pwsh 7, dont
+// le parseur accepte quelques constructions que PowerShell 5.1 — celui des
+// routines locales — refuse (`??`, `?.`, ternaire). Le contrôle reste donc
+// plus permissif que la réalité d'exécution, jamais plus strict.
+
+const SCRIPT_PARSE_PS1 = [
+  'param([string]$Racine, [string]$Sortie)',
+  '$ErrorActionPreference = "Stop"',
+  '$motifExclusion = "[\\\\/](node_modules|\\.git|dist|\\.astro)[\\\\/]"',
+  '$lignes = New-Object System.Collections.Generic.List[string]',
+  '$n = 0',
+  '$fichiers = Get-ChildItem -LiteralPath $Racine -Recurse -File -Filter *.ps1 -ErrorAction SilentlyContinue |',
+  '    Where-Object { $_.FullName -notmatch $motifExclusion }',
+  'foreach ($f in $fichiers) {',
+  '    $n++',
+  '    $erreurs = $null',
+  '    $null = [System.Management.Automation.Language.Parser]::ParseFile($f.FullName, [ref]$null, [ref]$erreurs)',
+  '    if ($erreurs) {',
+  '        $rel = $f.FullName.Substring($Racine.Length).TrimStart("\\", "/").Replace("\\", "/")',
+  '        foreach ($e in $erreurs) {',
+  '            $msg = ($e.Message -replace "[\\r\\n]+", " ")',
+  '            $lignes.Add("ERREUR|" + $rel + "|" + $e.Extent.StartLineNumber + "|" + $msg)',
+  '        }',
+  '    }',
+  '}',
+  '$lignes.Add("FICHIERS|" + $n)',
+  '$lignes.Add("VERSION|" + $PSVersionTable.PSVersion.ToString())',
+  '[System.IO.File]::WriteAllLines($Sortie, $lignes, (New-Object System.Text.UTF8Encoding($false)))',
+].join('\n');
+
+function trouverPowerShell() {
+  for (const candidat of ['pwsh', 'powershell']) {
+    try {
+      execFileSync(candidat, ['-NoProfile', '-Command', 'exit 0'], { stdio: 'pipe' });
+      return candidat;
+    } catch { /* interpréteur absent : on essaie le suivant */ }
+  }
+  return null;
+}
+
+function controlerParsingPowerShell() {
+  if (ps1Vus === 0) return;   // aucun .ps1 dans le dépôt : rien à parser
+
+  const interpreteur = trouverPowerShell();
+  if (!interpreteur) {
+    const message = 'aucun interpréteur PowerShell (pwsh ni powershell) — le parsing des .ps1 n\'a PAS été contrôlé';
+    if (process.env.GITHUB_ACTIONS || process.env.CI) {
+      erreur('scripts/controle-syntaxe.mjs', `${message}, alors que ce contrôle tourne en intégration continue : un vert serait mensonger`);
+    } else {
+      avertir('scripts/controle-syntaxe.mjs', `${message} (exécution locale — le contrôle sera fait au push)`);
+    }
+    return;
+  }
+
+  const temp = mkdtempSync(join(tmpdir(), 'perfeco-ps1-'));
+  const script = join(temp, 'parse-ps1.ps1');
+  const sortie = join(temp, 'resultat.txt');
+  // Script volontairement en ASCII pur : il n'a alors pas besoin de BOM, et ne
+  // peut pas tomber lui-même dans le piège d'encodage qu'il sert à détecter.
+  writeFileSync(script, SCRIPT_PARSE_PS1, 'ascii');
+
+  try {
+    execFileSync(interpreteur, ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', script,
+                                '-Racine', RACINE, '-Sortie', sortie], { stdio: 'pipe' });
+  } catch (e) {
+    const detail = ((e.stderr && e.stderr.toString()) || e.message).trim().split('\n').join(' | ');
+    erreur('scripts/controle-syntaxe.mjs', `le parsing PowerShell n'a pas pu s'exécuter (${interpreteur}) : ${detail}`);
+    return;
+  }
+
+  if (!existsSync(sortie)) {
+    erreur('scripts/controle-syntaxe.mjs', `le parsing PowerShell n'a produit aucun résultat (${interpreteur}) — contrôle réputé NON FAIT`);
+    return;
+  }
+
+  const lignes = readFileSync(sortie, 'utf8').split(/\r?\n/).filter((l) => l.trim() !== '');
+  const ligneCompte = lignes.find((l) => l.startsWith('FICHIERS|'));
+  const ligneVersion = lignes.find((l) => l.startsWith('VERSION|'));
+
+  if (!ligneCompte) {
+    erreur('scripts/controle-syntaxe.mjs', 'le parsing PowerShell s\'est interrompu avant la fin — contrôle réputé NON FAIT');
+    return;
+  }
+
+  const parses = Number(ligneCompte.split('|')[1]);
+  controles += parses;
+
+  // Recoupement : le parseur doit avoir vu exactement les mêmes fichiers que le
+  // contrôle 3. Un écart signifie qu'une partie du dépôt est passée au travers.
+  if (parses !== ps1Vus) {
+    erreur('scripts/controle-syntaxe.mjs',
+      `le parsing PowerShell a examiné ${parses} fichier(s) .ps1 alors que le dépôt en compte ${ps1Vus} — des fichiers n'ont pas été contrôlés`);
+  }
+
+  for (const ligne of lignes) {
+    if (!ligne.startsWith('ERREUR|')) continue;
+    const [, fichier, numero, ...reste] = ligne.split('|');
+    erreur(fichier, `erreur de syntaxe PowerShell ligne ${numero} : ${reste.join('|')}`);
+  }
+
+  const version = ligneVersion ? ligneVersion.split('|')[1] : 'inconnue';
+  console.log(`Parsing PowerShell : ${parses} fichier(s) .ps1 via ${interpreteur} ${version}.`);
+  if (/^[67-9]|^\d{2}/.test(version)) {
+    console.log('  (PowerShell 7 est un peu plus permissif que le 5.1 des routines locales : ce contrôle ne peut pas être plus strict que l\'exécution réelle.)');
+  }
+}
+
 // ── Exécution ──────────────────────────────────────────────────────────────
 
 console.log('════════ Contrôle de syntaxe PerfEco (garde-fou au push) ════════\n');
@@ -204,6 +339,7 @@ controlerWorkflows();
 controlerJson();
 controlerPs1();
 controlerCaracteresDeControle();
+controlerParsingPowerShell();
 
 console.log(`${controles} contrôle(s) exécuté(s).\n`);
 
