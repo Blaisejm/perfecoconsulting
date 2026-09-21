@@ -100,6 +100,16 @@ jobs:
             SOURCE_VERSION="automation-queue/mardi.json (REPLI)"
             echo "::warning::.linkedin.api_version absent de $CALENDRIER — repli sur la file d'attente. Rétablir la source unique."
           fi
+          # Garde ajoutée le 22/09/2026, en même temps que le retrait de
+          # linkedin_api_version des files d'attente : le repli n'a plus rien à lire,
+          # donc les deux sources peuvent être vides en même temps. Sans cette sortie,
+          # l'en-tête LinkedIn-Version partirait VIDE et l'API répondrait 426 — le
+          # workflow conclurait « version expirée » alors que le vrai défaut est
+          # « source unique illisible ». Même garde que publish-mardi-carrousel.yml.
+          if [ -z "$API_VERSION" ]; then
+            echo "::error::Aucune version d'API LinkedIn trouvée, ni dans $CALENDRIER ni dans la file d'attente. Contrôle impossible : ne pas conclure que la version est valide."
+            exit 1
+          fi
           echo "DEBUG: API_VERSION=$API_VERSION (source : $SOURCE_VERSION)"
 
           jq -n --arg owner "$MEMBER_URN" '{initializeUploadRequest:{owner:$owner}}' > /tmp/li_version_body.json
