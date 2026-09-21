@@ -1,348 +1,10 @@
 {
-  "semaine": "2026-W38",
-  "collecte_le": "2026-09-15",
+  "semaine": "2026-W39",
+  "collecte_le": "2026-09-22",
   "wordpress": {
     "articles_published": 1,
     "comments_total": 0,
     "published": [
-      {
-        "id": 127,
-        "date": "2026-09-08T11:03:00",
-        "date_gmt": "2026-09-08T00:03:00",
-        "guid": {
-          "rendered": "https://perfsystemique.fr/?p=127"
-        },
-        "modified": "2026-09-14T14:33:55",
-        "modified_gmt": "2026-09-14T03:33:55",
-        "slug": "choisir-les-indicateurs-qui-comptent",
-        "status": "publish",
-        "type": "post",
-        "link": "https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/",
-        "title": {
-          "rendered": "Choisir les 3 à 5 indicateurs qui comptent"
-        },
-        "content": {
-          "rendered": "<p>Deuxième épisode de la série « Le Rythme de Pilotage ». Le premier posait le cadre : un rythme de pilotage, ce n&rsquo;est pas plus de réunions, c&rsquo;est un rendez-vous qui revient à date fixe, qui reste court, dont les décisions sont écrites, et qui commence par relire la séance précédente. Reste une question que ce premier épisode laissait ouverte : de quoi parle-t-on, concrètement, pendant ces trente minutes ?</p>\n<p>La réponse tient en un objet que toutes les directions générales possèdent déjà, et dont presque aucune n&rsquo;est satisfaite : le tableau de bord. C&rsquo;est lui qui alimente la séance. C&rsquo;est aussi lui qui, dans la plupart des organisations, l&rsquo;enlise.</p>\n<h2>Le symptôme : quarante lignes, deux heures de comité</h2>\n<p>Le scénario est d&rsquo;une régularité frappante. Un comité de direction se réunit devant un tableau de bord qui compte entre trente et cinquante indicateurs. La séance dure deux heures. On commente les variations, on demande des précisions, on note que tel chiffre a bougé et que tel autre sera consolidé le mois prochain. À la fin, chacun sort avec le sentiment d&rsquo;avoir passé en revue beaucoup de choses — et il serait bien en peine de citer trois décisions prises.</p>\n<p>Il serait facile d&rsquo;en conclure que le comité manque de discipline. Ce serait passer à côté du mécanisme. <strong>Un tableau de bord qui ne fait pas décider n&rsquo;est pas un tableau de bord mal tenu : c&rsquo;est un tableau de bord trop plein.</strong> Et il est trop plein pour des raisons parfaitement rationnelles, que personne n&rsquo;a jamais décidées.</p>\n<h2>Trois portes d&rsquo;entrée, aucune porte de sortie</h2>\n<p>Personne ne s&rsquo;est réveillé un matin en décidant d&rsquo;avoir quarante indicateurs. Ils sont arrivés un par un, chacun avec une justification solide, par trois chemins très ordinaires.</p>\n<h3>La refonte du tableau de bord</h3>\n<p>Tous les deux ou trois ans, on remet le tableau à plat. On repart d&rsquo;une page blanche, on harmonise les formats, on uniformise les périodes de référence, on soigne la présentation. Le résultat est objectivement meilleur que ce qu&rsquo;il remplace : plus lisible, plus cohérent, mieux tenu.</p>\n<p>Il compte aussi plus de lignes qu&rsquo;avant. La refonte a été annoncée à tout le monde, et chacun y a vu — légitimement — l&rsquo;occasion de faire valoir ce qui lui manquait. Un exercice de simplification devient ainsi, par sa mécanique même, un exercice d&rsquo;accumulation.</p>\n<h3>Le chiffre demandé en séance</h3>\n<p>Quelqu&rsquo;un pose une question à laquelle personne ne sait répondre sur le moment. La réaction est saine : on ajoute l&rsquo;indicateur. Il est disponible dès la séance suivante, et il rend un vrai service ce jour-là.</p>\n<p>Puis la question ne se repose plus. L&rsquo;indicateur, lui, reste. Il a été ajouté pour un besoin ponctuel et il occupe désormais une ligne permanente, que plus personne ne regarde mais que plus personne ne songe non plus à retirer.</p>\n<h3>Le reporting mensuel</h3>\n<p>Chaque direction contribue au document commun, par souci de transparence et parce qu&rsquo;il serait mal vu de ne rien y mettre. Le document grossit d&rsquo;une page par direction et par an. Personne ne lit la page du voisin : chacun consulte la sienne, vérifie qu&rsquo;elle est juste, et referme le document.</p>\n<p>À ce stade, l&rsquo;objet a changé de nature sans que personne l&rsquo;ait remarqué. <strong>Ce n&rsquo;est plus un outil de décision, c&rsquo;est une archive.</strong> Elle est complète, elle est à jour, et elle ne sert plus à piloter quoi que ce soit.</p>\n<p>Ces trois mécaniques ont un point commun, et c&rsquo;est le cœur du sujet : <strong>chaque ligne dispose d&rsquo;une porte d&rsquo;entrée bien identifiée ; aucune ne dispose d&rsquo;une porte de sortie.</strong></p>\n<h2>Pourquoi le tableau ne dégonfle jamais tout seul</h2>\n<p>Une fois le constat posé, la question devient : pourquoi personne ne corrige ? Trois raisons, et aucune n&rsquo;est une négligence.</p>\n<h3>Chaque ligne a un propriétaire</h3>\n<p>Derrière chaque indicateur, il y a quelqu&rsquo;un qui l&rsquo;a demandé, qui le produit, ou qui s&rsquo;en sert pour justifier son activité. Proposer de le retirer en séance ressemble, quoi qu&rsquo;on en dise, à un jugement porté sur l&rsquo;utilité de son travail. La conversation est désagréable pour tout le monde, alors elle n&rsquo;a pas lieu — et l&rsquo;indicateur reste.</p>\n<p>Ce n&rsquo;est pas de la politique interne. C&rsquo;est une réaction humaine normale dans une réunion où chacun est comptable de son périmètre.</p>\n<h3>L&rsquo;asymétrie des coûts</h3>\n<p>Ajouter un chiffre coûte cinq minutes de paramétrage, et il supprime un risque réel : celui de ne pas l&rsquo;avoir le jour où quelqu&rsquo;un le demandera. Le retirer coûte une conversation, un arbitrage, et l&rsquo;acceptation d&rsquo;un risque symétrique : celui d&rsquo;en avoir besoin plus tard.</p>\n<p>Face à cette asymétrie, tout dirigeant rationnel ajoute. Le tableau grossit non pas malgré le bon sens, mais à cause de lui.</p>\n<h3>Enlever n&rsquo;est le travail de personne</h3>\n<p>C&rsquo;est la raison la plus structurelle, et la plus facile à corriger. Ajouter un indicateur se fait en séance, en une phrase, sans procédure. Retirer un indicateur suppose une décision explicite — et rien, dans aucun ordre du jour, ne prévoit ce moment.</p>\n<p>Ce n&rsquo;est au programme d&rsquo;aucune réunion. Donc ça n&rsquo;arrive jamais. Ce n&rsquo;est pas un manque de volonté : c&rsquo;est un trou dans le processus.</p>\n<h2>Trois questions, et la ligne reste ou sort</h2>\n<p>Le tri se fait indicateur par indicateur, avec trois questions courtes. La règle est stricte : une seule réponse manquante suffit à faire sortir la ligne. C&rsquo;est cette rigueur qui rend l&rsquo;exercice praticable — sans elle, chaque ligne trouve une justification partielle et rien ne bouge.</p>\n<h3>1. À quelle décision sert-elle ?</h3>\n<p>Nommez la décision précise que cet indicateur déclenche. Pas « il nous donne de la visibilité », pas « il est important pour le suivi » : quelle décision, prise par qui, et à partir de quel seuil.</p>\n<p>Un indicateur de pilotage est un déclencheur. S&rsquo;il n&rsquo;existe aucune décision derrière lui, il peut être excellent, fiable et intéressant — sa place est dans une annexe, pas dans le document qui structure une séance de trente minutes.</p>\n<h3>2. Qui la regarde, nommément ?</h3>\n<p>Un nom, pas une direction. « La direction commerciale suit ce chiffre » est une réponse qui ne désigne personne : un service ne se lève pas en réunion, une personne si.</p>\n<p>Cette question a un effet secondaire utile. Elle révèle les indicateurs orphelins — ceux que tout le monde croyait suivis par quelqu&rsquo;un d&rsquo;autre. Ils sont généralement plus nombreux qu&rsquo;attendu, et leur sortie ne fait aucune victime, précisément parce que personne ne les regardait.</p>\n<h3>3. Que fait-on quand elle bouge ?</h3>\n<p>L&rsquo;action doit être écrite d&rsquo;avance, au moins dans ses grandes lignes : si l&rsquo;indicateur franchit tel seuil, on déclenche telle revue, on alerte telle personne, on arbitre tel budget.</p>\n<p>Si la réponse est « on en discutera le moment venu », ce n&rsquo;est pas un indicateur de pilotage. C&rsquo;est de l&rsquo;information. L&rsquo;information a de la valeur, mais elle ne mérite pas de temps de comité de direction.</p>\n<h2>La quatrième règle : un entre, un sort</h2>\n<p>Les trois questions font le tri une fois. Elles ramènent presque toujours un tableau de quarante lignes à moins de dix, et l&rsquo;effet sur la première séance qui suit est immédiat.</p>\n<p>Mais ce tri ne tient pas tout seul. Six mois plus tard, les trois portes d&rsquo;entrée décrites plus haut auront refait exactement leur travail, et le tableau sera revenu à sa taille d&rsquo;origine. C&rsquo;est ce qui explique que tant d&rsquo;organisations aient déjà « simplifié leur reporting » deux ou trois fois sans résultat durable.</p>\n<p>D&rsquo;où une quatrième règle, qui n&rsquo;est pas une question de tri mais un engagement permanent : <strong>un entre, un sort</strong>. Toute nouvelle ligne en remplace une existante. Le tableau garde sa taille.</p>\n<p>L&rsquo;intérêt de cette règle n&rsquo;est pas de faire maigrir le document — le tri initial s&rsquo;en est chargé. Il est de <strong>forcer l&rsquo;arbitrage au moment de l&rsquo;ajout</strong>, c&rsquo;est-à-dire au seul moment où il est encore facile à faire. Quand quelqu&rsquo;un demande un nouvel indicateur, la question « lequel sort en échange ? » se pose naturellement, sans mettre personne en cause, parce qu&rsquo;elle fait partie de la règle du jeu et non d&rsquo;un jugement.</p>\n<h2>Par où commencer</h2>\n<p>Vous avez probablement déjà refondu ce tableau de bord, peut-être plus d&rsquo;une fois. Vous avez eu raison de le faire : la clarté était réellement nécessaire, et une refonte l&rsquo;apporte. Ce qui a manqué n&rsquo;était pas une meilleure maquette, ni un meilleur outil.</p>\n<p>Ce qui a manqué, c&rsquo;est le droit d&rsquo;enlever — et personne ne se l&rsquo;accorde spontanément.</p>\n<p>Trois questions pour situer où vous en êtes aujourd&rsquo;hui :</p>\n<ol>\n<li><strong>Le test du dernier comité.</strong> Sur toutes vos lignes, combien ont déclenché une décision à votre dernier comité de direction ?</li>\n<li><strong>Le test du nom.</strong> Pour chaque indicateur, savez-vous nommer la personne qui agit quand il bouge ?</li>\n<li><strong>Le test de la sortie.</strong> Quand avez-vous retiré un indicateur pour la dernière fois ?</li>\n</ol>\n<p>La troisième question est la plus révélatrice. Dans la grande majorité des organisations, la réponse honnête est « jamais » — et c&rsquo;est le diagnostic complet.</p>\n<h3>Notre conseil, une seule action à engager en premier</h3>\n<p><strong>Ne refondez rien.</strong> Une refonte est un projet, elle mobilise, elle prend des mois, et l&rsquo;expérience montre qu&rsquo;elle produit un tableau plus gros.</p>\n<p>Faites l&rsquo;inverse, et faites-le petit. Gardez les cinq lignes que vous regardez déjà en premier — celles que vous cherchez d&rsquo;instinct en ouvrant le document, avant même d&rsquo;y penser — et mettez toutes les autres de côté pendant trois mois.</p>\n<p>Point important : <strong>ne les supprimez pas, mettez-les en annexe.</strong> La réversibilité est ce qui rend la décision acceptable pour tout le monde. Personne ne perd son indicateur ; il change simplement de page, et il reste consultable.</p>\n<p>Ce qui se passe ensuite est prévisible et c&rsquo;est tout l&rsquo;intérêt du dispositif. Les indicateurs qui manquent vraiment reviendront d&rsquo;eux-mêmes : quelqu&rsquo;un les réclamera, et vous saurez alors qu&rsquo;ils ont leur place — vous aurez même la décision qu&rsquo;ils servent, puisqu&rsquo;elle sera la raison de la réclamation. Les autres, personne ne les demandera. Au bout de trois mois, <strong>vous aurez la réponse que six réunions d&rsquo;arbitrage n&rsquo;auraient pas produite</strong>, et vous l&rsquo;aurez obtenue sans avoir eu à discuter une seule ligne.</p>\n<h2>Un chantier plus court qu&rsquo;il n&rsquo;y paraît</h2>\n<p>C&rsquo;est là ce qui distingue ce sujet de la plupart des chantiers de pilotage : il ne demande ni outil nouveau, ni projet, ni réorganisation, ni budget. Une réunion de trente minutes pour sélectionner les cinq lignes, une mise en annexe réversible, et trois mois d&rsquo;observation.</p>\n<p>Le contexte calédonien rend l&rsquo;exercice d&rsquo;autant plus utile. L&rsquo;activité repart dans plusieurs secteurs pendant que les effectifs, eux, n&rsquo;ont pas retrouvé leur niveau d&rsquo;avant. Il y a donc plus à piloter avec moins de monde pour le faire — et le temps de comité de direction devient une ressource qu&rsquo;on ne peut plus se permettre de consacrer au commentaire de variations qui ne déclenchent rien.</p>\n<p>Votre tableau de bord n&rsquo;a sans doute pas besoin d&rsquo;être reconstruit. Il a besoin qu&rsquo;on lui rende sa capacité à faire décider, et c&rsquo;est un travail bien plus rapide qu&rsquo;une refonte.</p>\n<h2>La suite de la série</h2>\n<p>Le prochain épisode porte sur le journal de décision : comment garder la trace de ce qui a été tranché, pourquoi cette trace vaut davantage qu&rsquo;un compte rendu, et comment elle transforme la relecture d&rsquo;ouverture évoquée dans le premier épisode. Viendront ensuite la cascade d&rsquo;objectifs sans bureaucratie, le rituel hebdomadaire, la remontée d&rsquo;information sans déformation, le tableau de bord vivant, et l&rsquo;installation durable de l&rsquo;ensemble.</p>\n<hr />\n<p><em><strong>Question de diagnostic :</strong> quand avez-vous retiré un indicateur de votre tableau de bord pour la dernière fois ?</em></p>\n<p><em>Cet article est l&rsquo;épisode 2/8 de la série « Le Rythme de Pilotage ». La version synthétique est disponible sur <a href=\"https://www.perfeco.nc/ressources/choisir-les-indicateurs-qui-comptent\">perfeco.nc</a>, et en anglais sur <a href=\"https://www.perfeco.nc/en/resources/choosing-the-few-metrics-that-matter\">perfeco.nc/en</a>.</em></p>\n<p><em>PerfEco Consulting NC accompagne les directions générales d&rsquo;organisations complexes sur le pilotage, l&rsquo;exécution et la gouvernance. Contact : <a href=\"mailto:contact@perfeco.nc\">contact@perfeco.nc</a> — +687 73 08 75 — <a href=\"https://www.perfeco.nc/\">www.perfeco.nc</a></em></p>\n",
-          "protected": false
-        },
-        "excerpt": {
-          "rendered": "<p>Un tableau de bord ne souffre pas d&rsquo;un indicateur manquant, mais de trente-cinq indicateurs de trop. Pourquoi il grossit toujours, les trois questions qui décident si une ligne reste ou sort, et la règle « un entre, un sort » qui l&#8217;empêche de regrossir six mois plus tard.</p>\n",
-          "protected": false
-        },
-        "author": 1,
-        "featured_media": 0,
-        "comment_status": "closed",
-        "ping_status": "open",
-        "sticky": false,
-        "template": "",
-        "format": "standard",
-        "meta": {
-          "_exactmetrics_skip_tracking": false,
-          "footnotes": "",
-          "jetpack_publicize_message": "",
-          "jetpack_publicize_feature_enabled": false,
-          "jetpack_social_post_already_shared": true,
-          "jetpack_social_options": {
-            "image_generator_settings": {
-              "template": "highway",
-              "default_image_id": 0,
-              "font": "",
-              "enabled": false
-            },
-            "version": 2
-          },
-          "jetpack_post_was_ever_published": false
-        },
-        "categories": [
-          10
-        ],
-        "tags": [
-          20,
-          24,
-          32,
-          17,
-          13,
-          18,
-          19,
-          26,
-          21
-        ],
-        "class_list": [
-          "post-127",
-          "post",
-          "type-post",
-          "status-publish",
-          "format-standard",
-          "hentry",
-          "category-pilotage",
-          "tag-comex",
-          "tag-dirigeants",
-          "tag-execution",
-          "tag-gouvernance",
-          "tag-management",
-          "tag-nouvelle-caledonie",
-          "tag-pacifique",
-          "tag-perfeco",
-          "tag-pilotage"
-        ],
-        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Un tableau de bord ne souffre pas d&#039;un indicateur manquant, mais de trente-cinq indicateurs de trop. Pourquoi il grossit toujours, les trois questions qui décident si une ligne reste ou sort, et la règle « un entre, un sort » qui l&#039;empêche de regrossir six mois plus tard.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-09-08T00:03:00+00:00\" />\n<meta property=\"article:modified_time\" content=\"2026-09-14T03:33:55+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"10 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/choisir-les-indicateurs-qui-comptent\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/choisir-les-indicateurs-qui-comptent\\/\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Choisir les 3 à 5 indicateurs qui comptent\",\"datePublished\":\"2026-09-08T00:03:00+00:00\",\"dateModified\":\"2026-09-14T03:33:55+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/choisir-les-indicateurs-qui-comptent\\/\"},\"wordCount\":2050,\"keywords\":[\"COMEX\",\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/choisir-les-indicateurs-qui-comptent\\/\",\"url\":\"https:\\/\\/perfsystemique.fr\\/choisir-les-indicateurs-qui-comptent\\/\",\"name\":\"Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-09-08T00:03:00+00:00\",\"dateModified\":\"2026-09-14T03:33:55+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/choisir-les-indicateurs-qui-comptent\\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/choisir-les-indicateurs-qui-comptent\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/choisir-les-indicateurs-qui-comptent\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Choisir les 3 à 5 indicateurs qui comptent\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
-        "yoast_head_json": {
-          "title": "Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr",
-          "robots": {
-            "index": "index",
-            "follow": "follow",
-            "max-snippet": "max-snippet:-1",
-            "max-image-preview": "max-image-preview:large",
-            "max-video-preview": "max-video-preview:-1"
-          },
-          "canonical": "https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/",
-          "og_locale": "fr_FR",
-          "og_type": "article",
-          "og_title": "Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr",
-          "og_description": "Un tableau de bord ne souffre pas d'un indicateur manquant, mais de trente-cinq indicateurs de trop. Pourquoi il grossit toujours, les trois questions qui décident si une ligne reste ou sort, et la règle « un entre, un sort » qui l'empêche de regrossir six mois plus tard.",
-          "og_url": "https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/",
-          "og_site_name": "Perfsystemique.fr",
-          "article_publisher": "https://www.facebook.com/PerfecoNC/",
-          "article_published_time": "2026-09-08T00:03:00+00:00",
-          "article_modified_time": "2026-09-14T03:33:55+00:00",
-          "author": "Jean-Michel Blaise",
-          "twitter_card": "summary_large_image",
-          "twitter_misc": {
-            "Écrit par": "Jean-Michel Blaise",
-            "Durée de lecture estimée": "10 minutes"
-          },
-          "schema": {
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Article",
-                "@id": "https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/#article",
-                "isPartOf": {
-                  "@id": "https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/"
-                },
-                "author": {
-                  "name": "Jean-Michel Blaise",
-                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
-                },
-                "headline": "Choisir les 3 à 5 indicateurs qui comptent",
-                "datePublished": "2026-09-08T00:03:00+00:00",
-                "dateModified": "2026-09-14T03:33:55+00:00",
-                "mainEntityOfPage": {
-                  "@id": "https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/"
-                },
-                "wordCount": 2050,
-                "keywords": [
-                  "COMEX",
-                  "Dirigeants",
-                  "Exécution",
-                  "Gouvernance",
-                  "Management",
-                  "Nouvelle-Calédonie",
-                  "Pacifique",
-                  "PerfEco",
-                  "Pilotage"
-                ],
-                "articleSection": [
-                  "Pilotage"
-                ],
-                "inLanguage": "fr-FR"
-              },
-              {
-                "@type": "WebPage",
-                "@id": "https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/",
-                "url": "https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/",
-                "name": "Choisir les 3 à 5 indicateurs qui comptent - Perfsystemique.fr",
-                "isPartOf": {
-                  "@id": "https://perfsystemique.fr/#website"
-                },
-                "datePublished": "2026-09-08T00:03:00+00:00",
-                "dateModified": "2026-09-14T03:33:55+00:00",
-                "author": {
-                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
-                },
-                "breadcrumb": {
-                  "@id": "https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/#breadcrumb"
-                },
-                "inLanguage": "fr-FR",
-                "potentialAction": [
-                  {
-                    "@type": "ReadAction",
-                    "target": [
-                      "https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/"
-                    ]
-                  }
-                ]
-              },
-              {
-                "@type": "BreadcrumbList",
-                "@id": "https://perfsystemique.fr/choisir-les-indicateurs-qui-comptent/#breadcrumb",
-                "itemListElement": [
-                  {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Accueil",
-                    "item": "https://perfsystemique.fr/"
-                  },
-                  {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Choisir les 3 à 5 indicateurs qui comptent"
-                  }
-                ]
-              },
-              {
-                "@type": "WebSite",
-                "@id": "https://perfsystemique.fr/#website",
-                "url": "https://perfsystemique.fr/",
-                "name": "Perfsystemique.fr",
-                "description": "Aligner stratégie, organisation, finance et opérations pour une performance durable",
-                "potentialAction": [
-                  {
-                    "@type": "SearchAction",
-                    "target": {
-                      "@type": "EntryPoint",
-                      "urlTemplate": "https://perfsystemique.fr/?s={search_term_string}"
-                    },
-                    "query-input": {
-                      "@type": "PropertyValueSpecification",
-                      "valueRequired": true,
-                      "valueName": "search_term_string"
-                    }
-                  }
-                ],
-                "inLanguage": "fr-FR"
-              },
-              {
-                "@type": "Person",
-                "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953",
-                "name": "Jean-Michel Blaise",
-                "image": {
-                  "@type": "ImageObject",
-                  "inLanguage": "fr-FR",
-                  "@id": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
-                  "url": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
-                  "contentUrl": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
-                  "caption": "Jean-Michel Blaise"
-                },
-                "sameAs": [
-                  "http://perfsystemique.fr"
-                ],
-                "url": "https://perfsystemique.fr/author/admin7804/"
-              }
-            ]
-          }
-        },
-        "jetpack_publicize_connections": [
-          {
-            "id": "32089949",
-            "username": "Jean-Michel  Blaise",
-            "connection_id": "25897449",
-            "display_name": "Jean-Michel  Blaise",
-            "external_handle": "",
-            "external_id": "C7Z6Ry4olO",
-            "profile_link": "https://www.linkedin.com/in/jean-michel-blaise-2867a337b",
-            "profile_picture": "https://media.licdn.com/dms/image/v2/D5603AQFuhUnwnN4zyw/profile-displayphoto-shrink_100_100/B56ZjFQ5KLHAAU-/0/1755656197004?e=1784160000&v=beta&t=z4L4H1kLLPGpvEUC3fnGD_Uj16COBPlF3NJEszZZa_I",
-            "service_label": "LinkedIn",
-            "service_name": "linkedin",
-            "shared": true,
-            "template": "",
-            "wpcom_user_id": 0
-          },
-          {
-            "id": "32089959",
-            "username": "PerfEco Consulting NC",
-            "connection_id": "25897454",
-            "display_name": "PerfEco Consulting NC",
-            "external_handle": "",
-            "external_id": "552866114572775",
-            "profile_link": "https://www.facebook.com/552866114572775",
-            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=1s2lG3BxOo0Q7kNvwGodakT&_nc_oc=AdrkNXJ00Ex8ZNRec26hqIPCv6z54ZTN7TqEKXzXF3zundWnEZj8IXe2LevnxE_Qzy0&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=fgFoOAqegvAvLJXkB1Mo0g&_nc_tpa=Q5bMBQIRMEPadd6-oeO2xY9kKfQ7h1lowjKhtdlu8VEMeIIgjdg8sz9thVPqjVoyESfrHm_RvO_j&oh=00_AQJVUqcDUEsDmC2Ki6bQe2FRXJfMRcWZQLla_CxgfFn25A&oe=6AACF61B",
-            "service_label": "Facebook",
-            "service_name": "facebook",
-            "shared": true,
-            "template": "",
-            "wpcom_user_id": 0
-          }
-        ],
-        "jetpack_featured_media_url": "",
-        "jetpack-related-posts": [],
-        "_links": {
-          "self": [
-            {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/127",
-              "targetHints": {
-                "allow": [
-                  "GET",
-                  "POST",
-                  "PUT",
-                  "PATCH",
-                  "DELETE"
-                ]
-              }
-            }
-          ],
-          "collection": [
-            {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts"
-            }
-          ],
-          "about": [
-            {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/types/post"
-            }
-          ],
-          "author": [
-            {
-              "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/users/1"
-            }
-          ],
-          "replies": [
-            {
-              "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=127"
-            }
-          ],
-          "version-history": [
-            {
-              "count": 2,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/127/revisions"
-            }
-          ],
-          "predecessor-version": [
-            {
-              "id": 144,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/127/revisions/144"
-            }
-          ],
-          "wp:attachment": [
-            {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=127"
-            }
-          ],
-          "wp:term": [
-            {
-              "taxonomy": "category",
-              "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=127"
-            },
-            {
-              "taxonomy": "post_tag",
-              "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=127"
-            }
-          ],
-          "curies": [
-            {
-              "name": "wp",
-              "href": "https://api.w.org/{rel}",
-              "templated": true
-            }
-          ]
-        }
-      }
-    ],
-    "upcoming": [
       {
         "id": 129,
         "date": "2026-09-15T11:03:00",
@@ -353,9 +15,9 @@
         "modified": "2026-09-14T14:33:51",
         "modified_gmt": "2026-09-14T03:33:51",
         "slug": "le-journal-de-decision",
-        "status": "future",
+        "status": "publish",
         "type": "post",
-        "link": "https://perfsystemique.fr/?p=129",
+        "link": "https://perfsystemique.fr/le-journal-de-decision/",
         "title": {
           "rendered": "Le journal de décision"
         },
@@ -409,7 +71,7 @@
           "post-129",
           "post",
           "type-post",
-          "status-future",
+          "status-publish",
           "format-standard",
           "hentry",
           "category-pilotage",
@@ -423,7 +85,7 @@
           "tag-perfeco",
           "tag-pilotage"
         ],
-        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Le journal de décision - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/?p=129\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Le journal de décision - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Le même sujet revient pour la troisième séance de suite. Il avait été tranché, mais plus personne ne retrouve ce qui avait été décidé ni sur quoi. Pourquoi les comptes rendus ne suffisent pas, et les quatre lignes qui rendent une décision retrouvable six mois plus tard.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/?p=129\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-09-15T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"10 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=129#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=129\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Le journal de décision\",\"datePublished\":\"2026-09-15T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=129\"},\"wordCount\":1944,\"keywords\":[\"COMEX\",\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=129\",\"url\":\"https:\\/\\/perfsystemique.fr\\/?p=129\",\"name\":\"Le journal de décision - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-09-15T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=129#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/?p=129\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=129#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Le journal de décision\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Le journal de décision - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/le-journal-de-decision/\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Le journal de décision - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Le même sujet revient pour la troisième séance de suite. Il avait été tranché, mais plus personne ne retrouve ce qui avait été décidé ni sur quoi. Pourquoi les comptes rendus ne suffisent pas, et les quatre lignes qui rendent une décision retrouvable six mois plus tard.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/le-journal-de-decision/\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-09-15T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"10 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-journal-de-decision\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-journal-de-decision\\/\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Le journal de décision\",\"datePublished\":\"2026-09-15T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-journal-de-decision\\/\"},\"wordCount\":1944,\"keywords\":[\"COMEX\",\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-journal-de-decision\\/\",\"url\":\"https:\\/\\/perfsystemique.fr\\/le-journal-de-decision\\/\",\"name\":\"Le journal de décision - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-09-15T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-journal-de-decision\\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/le-journal-de-decision\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-journal-de-decision\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Le journal de décision\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
         "yoast_head_json": {
           "title": "Le journal de décision - Perfsystemique.fr",
           "robots": {
@@ -433,12 +95,12 @@
             "max-image-preview": "max-image-preview:large",
             "max-video-preview": "max-video-preview:-1"
           },
-          "canonical": "https://perfsystemique.fr/?p=129",
+          "canonical": "https://perfsystemique.fr/le-journal-de-decision/",
           "og_locale": "fr_FR",
           "og_type": "article",
           "og_title": "Le journal de décision - Perfsystemique.fr",
           "og_description": "Le même sujet revient pour la troisième séance de suite. Il avait été tranché, mais plus personne ne retrouve ce qui avait été décidé ni sur quoi. Pourquoi les comptes rendus ne suffisent pas, et les quatre lignes qui rendent une décision retrouvable six mois plus tard.",
-          "og_url": "https://perfsystemique.fr/?p=129",
+          "og_url": "https://perfsystemique.fr/le-journal-de-decision/",
           "og_site_name": "Perfsystemique.fr",
           "article_publisher": "https://www.facebook.com/PerfecoNC/",
           "article_published_time": "2026-09-15T00:03:00+00:00",
@@ -453,9 +115,9 @@
             "@graph": [
               {
                 "@type": "Article",
-                "@id": "https://perfsystemique.fr/?p=129#article",
+                "@id": "https://perfsystemique.fr/le-journal-de-decision/#article",
                 "isPartOf": {
-                  "@id": "https://perfsystemique.fr/?p=129"
+                  "@id": "https://perfsystemique.fr/le-journal-de-decision/"
                 },
                 "author": {
                   "name": "Jean-Michel Blaise",
@@ -464,7 +126,7 @@
                 "headline": "Le journal de décision",
                 "datePublished": "2026-09-15T00:03:00+00:00",
                 "mainEntityOfPage": {
-                  "@id": "https://perfsystemique.fr/?p=129"
+                  "@id": "https://perfsystemique.fr/le-journal-de-decision/"
                 },
                 "wordCount": 1944,
                 "keywords": [
@@ -485,8 +147,8 @@
               },
               {
                 "@type": "WebPage",
-                "@id": "https://perfsystemique.fr/?p=129",
-                "url": "https://perfsystemique.fr/?p=129",
+                "@id": "https://perfsystemique.fr/le-journal-de-decision/",
+                "url": "https://perfsystemique.fr/le-journal-de-decision/",
                 "name": "Le journal de décision - Perfsystemique.fr",
                 "isPartOf": {
                   "@id": "https://perfsystemique.fr/#website"
@@ -496,21 +158,21 @@
                   "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
                 },
                 "breadcrumb": {
-                  "@id": "https://perfsystemique.fr/?p=129#breadcrumb"
+                  "@id": "https://perfsystemique.fr/le-journal-de-decision/#breadcrumb"
                 },
                 "inLanguage": "fr-FR",
                 "potentialAction": [
                   {
                     "@type": "ReadAction",
                     "target": [
-                      "https://perfsystemique.fr/?p=129"
+                      "https://perfsystemique.fr/le-journal-de-decision/"
                     ]
                   }
                 ]
               },
               {
                 "@type": "BreadcrumbList",
-                "@id": "https://perfsystemique.fr/?p=129#breadcrumb",
+                "@id": "https://perfsystemique.fr/le-journal-de-decision/#breadcrumb",
                 "itemListElement": [
                   {
                     "@type": "ListItem",
@@ -591,7 +253,7 @@
             "external_handle": "",
             "external_id": "552866114572775",
             "profile_link": "https://www.facebook.com/552866114572775",
-            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=1s2lG3BxOo0Q7kNvwGodakT&_nc_oc=AdrkNXJ00Ex8ZNRec26hqIPCv6z54ZTN7TqEKXzXF3zundWnEZj8IXe2LevnxE_Qzy0&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=fgFoOAqegvAvLJXkB1Mo0g&_nc_tpa=Q5bMBQIRMEPadd6-oeO2xY9kKfQ7h1lowjKhtdlu8VEMeIIgjdg8sz9thVPqjVoyESfrHm_RvO_j&oh=00_AQJVUqcDUEsDmC2Ki6bQe2FRXJfMRcWZQLla_CxgfFn25A&oe=6AACF61B",
+            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=FTMzHboCfLoQ7kNvwFrXUBO&_nc_oc=Adoqllcj14WqYGpVzbzYLYB_1vHpnW1HzXs1FHAuj3uWYriNIWdG0y1UuLQH0vXJXpU&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=kMLMs4_iud0u8Tq7k6_p4Q&_nc_tpa=Q5bMBQJ6MBshCL0gTkzEhsQXs-jtshc7jqdyznYMOwbQ49DM8QtRwqDL0iZ2IeRIOlm8Fq8HV2uD&oh=00_AQJTggWWWhvf6O_cpdgKl-QhwsM34KTdggnYXxcK75ESoQ&oe=6AB4DF1B",
             "service_label": "Facebook",
             "service_name": "facebook",
             "shared": true,
@@ -675,7 +337,9 @@
             }
           ]
         }
-      },
+      }
+    ],
+    "upcoming": [
       {
         "id": 142,
         "date": "2026-09-22T11:03:00",
@@ -924,7 +588,7 @@
             "external_handle": "",
             "external_id": "552866114572775",
             "profile_link": "https://www.facebook.com/552866114572775",
-            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=1s2lG3BxOo0Q7kNvwGodakT&_nc_oc=AdrkNXJ00Ex8ZNRec26hqIPCv6z54ZTN7TqEKXzXF3zundWnEZj8IXe2LevnxE_Qzy0&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=fgFoOAqegvAvLJXkB1Mo0g&_nc_tpa=Q5bMBQIRMEPadd6-oeO2xY9kKfQ7h1lowjKhtdlu8VEMeIIgjdg8sz9thVPqjVoyESfrHm_RvO_j&oh=00_AQJVUqcDUEsDmC2Ki6bQe2FRXJfMRcWZQLla_CxgfFn25A&oe=6AACF61B",
+            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=FTMzHboCfLoQ7kNvwFrXUBO&_nc_oc=Adoqllcj14WqYGpVzbzYLYB_1vHpnW1HzXs1FHAuj3uWYriNIWdG0y1UuLQH0vXJXpU&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=kMLMs4_iud0u8Tq7k6_p4Q&_nc_tpa=Q5bMBQJ6MBshCL0gTkzEhsQXs-jtshc7jqdyznYMOwbQ49DM8QtRwqDL0iZ2IeRIOlm8Fq8HV2uD&oh=00_AQJTggWWWhvf6O_cpdgKl-QhwsM34KTdggnYXxcK75ESoQ&oe=6AB4DF1B",
             "service_label": "Facebook",
             "service_name": "facebook",
             "shared": true,
@@ -1002,6 +666,333 @@
             }
           ]
         }
+      },
+      {
+        "id": 147,
+        "date": "2026-09-29T11:03:00",
+        "date_gmt": "2026-09-29T00:03:00",
+        "guid": {
+          "rendered": "https://perfsystemique.fr/?p=147"
+        },
+        "modified": "2026-09-29T11:03:00",
+        "modified_gmt": "2026-09-29T00:03:00",
+        "slug": "le-point-hebdomadaire-qui-tranche",
+        "status": "future",
+        "type": "post",
+        "link": "https://perfsystemique.fr/?p=147",
+        "title": {
+          "rendered": "Le point hebdomadaire qui tranche vraiment"
+        },
+        "content": {
+          "rendered": "\n<p class=\"wp-block-paragraph\"><em>Cinquième épisode de la série « Le Rythme de Pilotage ». Le premier posait le cadre d&rsquo;un rythme de pilotage, le deuxième réduisait le tableau de bord aux indicateurs qui déclenchent vraiment une décision, le troisième gardait la trace de ce qui avait été tranché, le quatrième suivait le trajet d&rsquo;une priorité jusqu&rsquo;au terrain. Reste le lieu où tout cela se joue concrètement, chaque semaine, dans presque toutes les organisations : le point hebdomadaire.</em></p>\n\n\n\n<p class=\"wp-block-paragraph\">« On se recale jeudi. » La phrase clôt des milliers de réunions chaque lundi matin, et elle est dite de bonne foi. Le jeudi venu, posez la question à deux participants séparément : qu&rsquo;aviez-vous décidé lundi ? Vous obtiendrez deux réponses différentes. Aucun des deux n&rsquo;a mal écouté. La réunion s&rsquo;est simplement terminée sans que rien n&rsquo;en sorte par écrit.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Le chiffre qui cadre cet épisode vient de l&rsquo;étude <em>The State of Teams 2026</em> d&rsquo;Atlassian, publiée le 27 avril 2026 et menée en janvier-février auprès de 12 035 salariés et 173 dirigeants de grandes entreprises. <strong>87 % des répondants disent manquer de temps ou de disponibilité pour se coordonner, chacun étant absorbé par l&rsquo;exécution de ses propres dossiers.</strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">Il faut bien lire ce que dit ce chiffre. Il ne dit pas que les gens travaillent mal, ni qu&rsquo;ils refusent de se parler. Il dit que la coordination n&rsquo;a plus de créneau — que chacun est tellement pris par ce qu&rsquo;il doit livrer qu&rsquo;il ne lui reste aucune place pour se caler avec les autres. Or il existe, ce créneau. Il s&rsquo;appelle le point hebdomadaire, il figure déjà dans tous les agendas, et il dure souvent une heure. Le problème n&rsquo;est pas qu&rsquo;il manque : c&rsquo;est qu&rsquo;il ne produit rien.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Vous avez déjà essayé de le raccourcir</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Aucune direction ne laisse son point hebdomadaire dériver sans rien tenter. Trois dispositifs reviennent presque partout, et il faut le dire d&#8217;emblée : les trois sont de bons réflexes. Une équipe qui n&rsquo;en aurait aucun serait dans une situation bien pire. Chacun s&rsquo;arrête pourtant juste avant la décision.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>L&rsquo;ordre du jour envoyé la veille.</strong> Chacun sait ce dont on va parler, chacun peut préparer, et c&rsquo;est déjà beaucoup — la moitié des réunions n&rsquo;ont pas cette chance. Mais un ordre du jour ordonne les sujets, il ne protège pas le temps de chacun d&rsquo;eux. Le premier point prend toute l&rsquo;heure, et les quatre suivants glissent à la semaine prochaine, où le même mécanisme les attend.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>La réunion debout, quinze minutes.</strong> Plus courte, plus vive, tout le monde s&rsquo;exprime, personne ne s&rsquo;installe. Le format a fait ses preuves et il a un mérite réel : il interdit le long monologue. Mais quinze minutes debout suffisent à faire un tour d&rsquo;information, pas à trancher. On en ressort avec un panorama, et sans savoir qui fait quoi.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le compte rendu envoyé le lendemain.</strong> C&rsquo;est le plus coûteux des trois, et le plus décevant. Quelqu&rsquo;un passe une heure à rédiger six paragraphes fidèles, qui ne seront relus par personne. Les décisions y figurent bel et bien — noyées au milieu de ce qui s&rsquo;est dit, sans hiérarchie, sans nom en face, sans date. Un compte rendu conserve la réunion ; il ne conserve pas la décision.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Le point commun des trois tient en une phrase : <strong>ils soignent tous le début de la réunion, alors que la décision, elle, se joue dans les cinq dernières minutes.</strong> On prépare l&rsquo;entrée avec application, et l&rsquo;on quitte la salle sans avoir rien fixé. C&rsquo;est d&rsquo;autant plus frappant que la fin est la partie la moins chère à corriger : elle ne demande ni outil, ni logiciel, ni formation.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Où part l&rsquo;heure du lundi</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Personne ne fait mal son travail. L&rsquo;heure se remplit toute seule, et trois mécanismes suffisent à l&rsquo;absorber entièrement. Ils sont tellement ordinaires qu&rsquo;on ne les voit plus.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le tour de table.</strong> Chacun raconte sa semaine, sincèrement, sans se répéter et sans mauvaise intention. Vingt minutes plus tard, on n&rsquo;a parlé que du passé, et il reste quarante minutes pour tout ce qui vient. Le tour de table a une vertu — il donne à chacun le sentiment d&rsquo;exister dans le collectif — mais il consomme le tiers de la réunion pour produire de l&rsquo;information que la plupart des participants avaient déjà.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le dossier qui déborde.</strong> Un sujet est urgent ce matin-là. Il est traité à fond, avec tout le monde autour de la table, et il prend le reste de l&rsquo;heure. Pris isolément, c&rsquo;est parfaitement raisonnable : ce dossier <em>méritait</em> une décision rapide. Le défaut n&rsquo;apparaît qu&rsquo;en cumulé — chaque semaine amène son dossier urgent, et chaque semaine les quatre autres sujets repartent sans avoir été ouverts. Au bout d&rsquo;un trimestre, certains n&rsquo;ont jamais été traités une seule fois.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>La sortie sans nom ni date.</strong> C&rsquo;est le mécanisme décisif, et le plus discret des trois. On se quitte sur « on se recale », « je reviens vers toi », « on regarde ça ensemble ». Le qui et le quand restent dans la tête de chacun, et chacun en garde une version légèrement différente — l&rsquo;un a compris qu&rsquo;il attendait un retour, l&rsquo;autre qu&rsquo;il devait relancer. Personne n&rsquo;a tort ; il n&rsquo;y a simplement aucune référence commune à consulter.</p>\n\n\n\n<p class=\"wp-block-paragraph\">L&rsquo;effet se chiffre. Une commande que trois personnes croyaient lancée par une quatrième part avec quinze jours de retard, et ce retard-là se paie en frais d&rsquo;urgence, en immobilisation, parfois en pénalité client. La décision avait pourtant bien été prise dans la salle, et elle était bonne. Elle n&rsquo;était simplement jamais devenue une ligne écrite avec un nom en face.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Quarante-cinq minutes, quatre rubriques</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Ce qui suit ne demande ni outil, ni logiciel, ni instance supplémentaire — c&rsquo;est précisément l&rsquo;intérêt. Le point hebdomadaire tient en quatre rubriques, dans cet ordre, et l&rsquo;ordre compte autant que le contenu.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>① Ce qui a bougé — 10 minutes.</strong> Les chiffres de la semaine, énoncés sans commentaire. Pas de récit, pas de justification, pas de contexte : des faits que tout le monde a déjà sous les yeux. Cette rubrique remplace le tour de table, et c&rsquo;est là qu&rsquo;elle fait gagner du temps — elle donne la même information en trois fois moins longtemps, parce qu&rsquo;elle porte sur des chiffres et non sur des personnes. Le commentaire, quand il est nécessaire, appartient à la rubrique suivante.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>② Ce qui coince — 15 minutes.</strong> Deux ou trois dossiers arrêtés, et ce qui les débloquerait. La règle est de les <em>nommer</em>, pas de les <em>traiter</em> : traiter un dossier en séance est la façon la plus sûre d&rsquo;y passer l&rsquo;heure entière, avec dix personnes dont huit sont spectatrices. Le traitement se fait après, à deux ou trois, par ceux que ça concerne. Ce que la réunion apporte ici, ce n&rsquo;est pas la solution — c&rsquo;est le fait que tout le monde sache où sont les blocages.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>③ Ce qu&rsquo;on tranche — 15 minutes.</strong> Les décisions qui ne peuvent pas attendre la semaine prochaine, prises une par une jusqu&rsquo;au oui ou au non. Une décision reportée reste une décision légitime, à condition qu&rsquo;elle reparte avec une date : « on décidera le 6 octobre » est une décision ; « on verra plus tard » n&rsquo;en est pas une. C&rsquo;est la différence entre un report assumé et un sujet qui disparaît.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>④ Ce qu&rsquo;on écrit — 5 minutes.</strong> Trois lignes : la décision, le nom de celui qui la porte, la date. Lues à voix haute avant que quiconque quitte la salle. La lecture à voix haute n&rsquo;est pas un détail de forme : c&rsquo;est le seul moment où un participant peut dire « ce n&rsquo;est pas ce que j&rsquo;avais compris », et c&rsquo;est précisément à cet instant-là que la correction ne coûte rien. Une semaine plus tard, elle coûte quinze jours de retard.</p>\n\n\n\n<p class=\"wp-block-paragraph\">C&rsquo;est la quatrième rubrique qu&rsquo;on saute toujours, parce qu&rsquo;on a déjà dépassé l&rsquo;horaire. Et c&rsquo;est pourtant la seule qui survit à la réunion. Les trois premières produisent de la compréhension partagée, ce qui est utile mais volatil ; la quatrième produit une trace, et c&rsquo;est elle qu&rsquo;on pourra relire.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Un mot sur la durée. Quarante-cinq minutes plutôt qu&rsquo;une heure n&rsquo;est pas une coquetterie : une réunion qui se termine avant l&rsquo;heure ronde libère le quart d&rsquo;heure où l&rsquo;on se dit les choses en sortant, et surtout elle rend la contrainte crédible. Une réunion d&rsquo;une heure qui déborde de dix minutes chaque semaine enseigne à tout le monde que l&rsquo;horaire n&rsquo;est pas sérieux.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Trois tests, et un seul chantier à ouvrir</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Avant de changer quoi que ce soit, trois questions permettent de savoir où vous en êtes. Elles se répondent en cinq minutes, sans réunion préalable.</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li><strong>Le test de la semaine dernière.</strong> Combien de décisions sont sorties par écrit de votre dernier point hebdomadaire ? Pas « ont été prises » : sont sorties <em>par écrit</em>, avec un nom et une date.</li>\n<li><strong>Le test de l&rsquo;horaire.</strong> Votre point finit-il à l&rsquo;heure prévue, ou déborde-t-il d&rsquo;un quart d&rsquo;heure chaque fois ? Un débordement systématique n&rsquo;est pas un problème de discipline, c&rsquo;est le signe que le format ne tient pas dans le temps alloué.</li>\n<li><strong>Le test des deux versions.</strong> Demandez à deux participants ce qui a été décidé lundi. Obtenez-vous la même réponse ? C&rsquo;est le test le plus dur des trois, et le plus révélateur.</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Notre conseil.</strong> Vous tenez ce point chaque semaine, et vous avez eu raison de l&rsquo;installer : une équipe qui se voit tous les lundis se rattrape bien plus vite qu&rsquo;une équipe qui se retrouve au trimestre. Ce qui manque est ailleurs, et c&rsquo;est une bonne nouvelle, parce que c&rsquo;est bien plus court à corriger. Gardez les cinq dernières minutes, même si vous sautez les trois premières rubriques. Trois lignes écrites avant de quitter la salle portent plus loin qu&rsquo;un ordre du jour entièrement refait — et si une seule réponse aux trois tests ci-dessus vous a gêné, commencez par celle-là, pas par les trois.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Pourquoi c&rsquo;est un sujet calédonien</h2>\n\n\n\n<p class=\"wp-block-paragraph\">L&rsquo;activité est repartie en Nouvelle-Calédonie, mais les équipes qui la portent sont plus resserrées qu&rsquo;il y a deux ans. C&rsquo;est cette combinaison-là qui rend le sujet sensible : plus de dossiers à suivre, autant de bras qu&rsquo;avant, et donc moins de marge pour absorber un malentendu.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Quand une même personne suit trois dossiers au lieu d&rsquo;un, une commande oubliée ne trouve plus de collègue disponible pour la rattraper, et un arbitrage compris de travers ne rencontre plus personne pour le corriger en chemin. Dans une organisation qui disposait d&rsquo;un encadrement plus étoffé, ces frottements se réglaient à l&rsquo;oral, dans les couloirs. Ce rattrapage informel n&rsquo;existe plus au même niveau — ce qui déplace la charge sur le seul moment formel qui reste : le point hebdomadaire.</p>\n\n\n\n<p class=\"wp-block-paragraph\">C&rsquo;est exactement la situation où cinq minutes d&rsquo;écriture valent une réunion de plus. Votre réunion du lundi n&rsquo;a sans doute pas besoin d&rsquo;être supprimée, ni refondue, ni remplacée par un outil. Elle a besoin d&rsquo;une fin — et c&rsquo;est un chantier bien plus court.</p>\n\n\n\n<hr class=\"wp-block-separator\"/>\n\n\n\n<p class=\"wp-block-paragraph\"><em>Cet article est le cinquième épisode de la série « Le Rythme de Pilotage », publiée chaque mardi. Une version courte est disponible sur <a href=\"https://www.perfeco.nc/ressources/le-point-hebdomadaire-qui-tranche\">perfeco.nc</a>, ainsi qu&rsquo;une <a href=\"https://www.perfeco.nc/en/resources/the-weekly-meeting-that-actually-decides\">version anglaise</a>.</em></p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>PerfEco Consulting NC</strong> accompagne les directions générales de Nouvelle-Calédonie et du Pacifique sur la performance de leur organisation. Un point du lundi qui sort des décisions ? Écrivez à <a href=\"mailto:contact@perfeco.nc\">contact@perfeco.nc</a> ou appelez le +687 73 08 75.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><em>Source du chiffre cité : Atlassian, </em><a href=\"https://www.atlassian.com/blog/state-of-teams-2026\"><em>The State of Teams 2026</em></a><em>, publié le 27 avril 2026 — enquête menée en janvier-février 2026 auprès de 12 035 salariés et 173 dirigeants de grandes entreprises.</em></p>\n\n",
+          "protected": false
+        },
+        "excerpt": {
+          "rendered": "<p>87 % des salariés disent manquer de temps pour se coordonner, chacun étant pris par ses propres dossiers. Le point hebdomadaire existe déjà presque partout — il lui manque cinq minutes à la fin, celles où l’on écrit la décision, le nom et la date.</p>\n",
+          "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "closed",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": {
+          "_exactmetrics_skip_tracking": false,
+          "footnotes": "",
+          "jetpack_publicize_message": "",
+          "jetpack_publicize_feature_enabled": false,
+          "jetpack_social_post_already_shared": true,
+          "jetpack_social_options": {
+            "image_generator_settings": {
+              "template": "highway",
+              "default_image_id": 0,
+              "font": "",
+              "enabled": false
+            },
+            "version": 2
+          },
+          "jetpack_post_was_ever_published": false
+        },
+        "categories": [
+          10
+        ],
+        "tags": [
+          20,
+          24,
+          32,
+          17,
+          13,
+          18,
+          19,
+          26,
+          21
+        ],
+        "class_list": [
+          "post-147",
+          "post",
+          "type-post",
+          "status-future",
+          "format-standard",
+          "hentry",
+          "category-pilotage",
+          "tag-comex",
+          "tag-dirigeants",
+          "tag-execution",
+          "tag-gouvernance",
+          "tag-management",
+          "tag-nouvelle-caledonie",
+          "tag-pacifique",
+          "tag-perfeco",
+          "tag-pilotage"
+        ],
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Le point hebdomadaire qui tranche vraiment - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/?p=147\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Le point hebdomadaire qui tranche vraiment - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"87 % des salariés disent manquer de temps pour se coordonner, chacun étant pris par ses propres dossiers. Le point hebdomadaire existe déjà presque partout — il lui manque cinq minutes à la fin, celles où l’on écrit la décision, le nom et la date.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/?p=147\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-09-29T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"10 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=147#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=147\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Le point hebdomadaire qui tranche vraiment\",\"datePublished\":\"2026-09-29T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=147\"},\"wordCount\":2003,\"keywords\":[\"COMEX\",\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=147\",\"url\":\"https:\\/\\/perfsystemique.fr\\/?p=147\",\"name\":\"Le point hebdomadaire qui tranche vraiment - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-09-29T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=147#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/?p=147\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=147#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Le point hebdomadaire qui tranche vraiment\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+        "yoast_head_json": {
+          "title": "Le point hebdomadaire qui tranche vraiment - Perfsystemique.fr",
+          "robots": {
+            "index": "index",
+            "follow": "follow",
+            "max-snippet": "max-snippet:-1",
+            "max-image-preview": "max-image-preview:large",
+            "max-video-preview": "max-video-preview:-1"
+          },
+          "canonical": "https://perfsystemique.fr/?p=147",
+          "og_locale": "fr_FR",
+          "og_type": "article",
+          "og_title": "Le point hebdomadaire qui tranche vraiment - Perfsystemique.fr",
+          "og_description": "87 % des salariés disent manquer de temps pour se coordonner, chacun étant pris par ses propres dossiers. Le point hebdomadaire existe déjà presque partout — il lui manque cinq minutes à la fin, celles où l’on écrit la décision, le nom et la date.",
+          "og_url": "https://perfsystemique.fr/?p=147",
+          "og_site_name": "Perfsystemique.fr",
+          "article_publisher": "https://www.facebook.com/PerfecoNC/",
+          "article_published_time": "2026-09-29T00:03:00+00:00",
+          "author": "Jean-Michel Blaise",
+          "twitter_card": "summary_large_image",
+          "twitter_misc": {
+            "Écrit par": "Jean-Michel Blaise",
+            "Durée de lecture estimée": "10 minutes"
+          },
+          "schema": {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Article",
+                "@id": "https://perfsystemique.fr/?p=147#article",
+                "isPartOf": {
+                  "@id": "https://perfsystemique.fr/?p=147"
+                },
+                "author": {
+                  "name": "Jean-Michel Blaise",
+                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
+                },
+                "headline": "Le point hebdomadaire qui tranche vraiment",
+                "datePublished": "2026-09-29T00:03:00+00:00",
+                "mainEntityOfPage": {
+                  "@id": "https://perfsystemique.fr/?p=147"
+                },
+                "wordCount": 2003,
+                "keywords": [
+                  "COMEX",
+                  "Dirigeants",
+                  "Exécution",
+                  "Gouvernance",
+                  "Management",
+                  "Nouvelle-Calédonie",
+                  "Pacifique",
+                  "PerfEco",
+                  "Pilotage"
+                ],
+                "articleSection": [
+                  "Pilotage"
+                ],
+                "inLanguage": "fr-FR"
+              },
+              {
+                "@type": "WebPage",
+                "@id": "https://perfsystemique.fr/?p=147",
+                "url": "https://perfsystemique.fr/?p=147",
+                "name": "Le point hebdomadaire qui tranche vraiment - Perfsystemique.fr",
+                "isPartOf": {
+                  "@id": "https://perfsystemique.fr/#website"
+                },
+                "datePublished": "2026-09-29T00:03:00+00:00",
+                "author": {
+                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
+                },
+                "breadcrumb": {
+                  "@id": "https://perfsystemique.fr/?p=147#breadcrumb"
+                },
+                "inLanguage": "fr-FR",
+                "potentialAction": [
+                  {
+                    "@type": "ReadAction",
+                    "target": [
+                      "https://perfsystemique.fr/?p=147"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://perfsystemique.fr/?p=147#breadcrumb",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://perfsystemique.fr/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Le point hebdomadaire qui tranche vraiment"
+                  }
+                ]
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://perfsystemique.fr/#website",
+                "url": "https://perfsystemique.fr/",
+                "name": "Perfsystemique.fr",
+                "description": "Aligner stratégie, organisation, finance et opérations pour une performance durable",
+                "potentialAction": [
+                  {
+                    "@type": "SearchAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": "https://perfsystemique.fr/?s={search_term_string}"
+                    },
+                    "query-input": {
+                      "@type": "PropertyValueSpecification",
+                      "valueRequired": true,
+                      "valueName": "search_term_string"
+                    }
+                  }
+                ],
+                "inLanguage": "fr-FR"
+              },
+              {
+                "@type": "Person",
+                "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953",
+                "name": "Jean-Michel Blaise",
+                "image": {
+                  "@type": "ImageObject",
+                  "inLanguage": "fr-FR",
+                  "@id": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "url": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "contentUrl": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "caption": "Jean-Michel Blaise"
+                },
+                "sameAs": [
+                  "http://perfsystemique.fr"
+                ],
+                "url": "https://perfsystemique.fr/author/admin7804/"
+              }
+            ]
+          }
+        },
+        "jetpack_publicize_connections": [
+          {
+            "id": "32089949",
+            "username": "Jean-Michel  Blaise",
+            "connection_id": "25897449",
+            "display_name": "Jean-Michel  Blaise",
+            "external_handle": "",
+            "external_id": "C7Z6Ry4olO",
+            "profile_link": "https://www.linkedin.com/in/jean-michel-blaise-2867a337b",
+            "profile_picture": "https://media.licdn.com/dms/image/v2/D5603AQFuhUnwnN4zyw/profile-displayphoto-shrink_100_100/B56ZjFQ5KLHAAU-/0/1755656197004?e=1784160000&v=beta&t=z4L4H1kLLPGpvEUC3fnGD_Uj16COBPlF3NJEszZZa_I",
+            "service_label": "LinkedIn",
+            "service_name": "linkedin",
+            "shared": true,
+            "template": "",
+            "wpcom_user_id": 0
+          },
+          {
+            "id": "32089959",
+            "username": "PerfEco Consulting NC",
+            "connection_id": "25897454",
+            "display_name": "PerfEco Consulting NC",
+            "external_handle": "",
+            "external_id": "552866114572775",
+            "profile_link": "https://www.facebook.com/552866114572775",
+            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=FTMzHboCfLoQ7kNvwFrXUBO&_nc_oc=Adoqllcj14WqYGpVzbzYLYB_1vHpnW1HzXs1FHAuj3uWYriNIWdG0y1UuLQH0vXJXpU&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=kMLMs4_iud0u8Tq7k6_p4Q&_nc_tpa=Q5bMBQJ6MBshCL0gTkzEhsQXs-jtshc7jqdyznYMOwbQ49DM8QtRwqDL0iZ2IeRIOlm8Fq8HV2uD&oh=00_AQJTggWWWhvf6O_cpdgKl-QhwsM34KTdggnYXxcK75ESoQ&oe=6AB4DF1B",
+            "service_label": "Facebook",
+            "service_name": "facebook",
+            "shared": true,
+            "template": "",
+            "wpcom_user_id": 0
+          }
+        ],
+        "jetpack_featured_media_url": "",
+        "jetpack-related-posts": [],
+        "_links": {
+          "self": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/147",
+              "targetHints": {
+                "allow": [
+                  "GET",
+                  "POST",
+                  "PUT",
+                  "PATCH",
+                  "DELETE"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts"
+            }
+          ],
+          "about": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/types/post"
+            }
+          ],
+          "author": [
+            {
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/users/1"
+            }
+          ],
+          "replies": [
+            {
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=147"
+            }
+          ],
+          "version-history": [
+            {
+              "count": 0,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/147/revisions"
+            }
+          ],
+          "wp:attachment": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=147"
+            }
+          ],
+          "wp:term": [
+            {
+              "taxonomy": "category",
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=147"
+            },
+            {
+              "taxonomy": "post_tag",
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=147"
+            }
+          ],
+          "curies": [
+            {
+              "name": "wp",
+              "href": "https://api.w.org/{rel}",
+              "templated": true
+            }
+          ]
+        }
       }
     ]
   },
@@ -1014,16 +1005,21 @@
       "top_pages": []
     },
     "ga4_perfsystemique": {
-      "sessions": 0,
-      "users": 0,
-      "pageviews": 0,
+      "sessions": 1,
+      "users": 1,
+      "pageviews": 1,
       "bounce_rate": 0,
-      "top_pages": []
+      "top_pages": [
+        {
+          "path": "/jean-michel-blaise/",
+          "pageviews": 1
+        }
+      ]
     }
   },
   "facebook": {
     "fan_count": 51,
     "page_post_engagements_week": 0,
-    "page_views_week": 3
+    "page_views_week": 0
   }
 }
