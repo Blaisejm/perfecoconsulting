@@ -42,8 +42,7 @@
         "semaine",
         "date_prevue",
         "social_post.message",
-        "social_post.image_url",
-        "linkedin_api_version"
+        "social_post.image_url"
       ]
     },
     "jeudi": {
@@ -252,5 +251,34 @@
       "2026-12-25": "Noel (vendredi)",
       "2027-01-01": "Jour de l An (vendredi)"
     }
+  },
+  "linkedin": {
+    "_comment": [
+      "SOURCE DE VERITE UNIQUE pour tout ce qui concerne l'acces a l'API LinkedIn.",
+      "",
+      "Centralise ici le 21/09/2026 a la demande de Jean-Michel. Avant cette date, la",
+      "version d'API etait RECOPIEE dans 5 endroits (2 workflows, 2 files d'attente, et",
+      "citee dans champs_requis). Elle a expire TROIS fois - 202506, 202507, 202509 - et",
+      "chaque fois elle a ete decouverte par accident : une fois par une erreur 426 en",
+      "pleine publication, une fois dans un script puis dans un SECOND script separe qu'on",
+      "avait oublie (21/07 puis 22/07/2026), une fois par la routine de surveillance.",
+      "",
+      "Desormais : les workflows lisent .linkedin.api_version ICI. La valeur qui subsiste",
+      "dans automation-queue/*.json n'est plus qu'un REPLI de securite, et toute",
+      "divergence entre les deux est signalee par controle-pipeline.mjs.",
+      "",
+      "LE TOKEN NE SE RENOUVELLE PAS TOUT SEUL : le clic 'Autoriser' est un anti-bot, il",
+      "reste a la charge de Jean-Michel. D'ou l'alarme a J-15, qui laisse le temps de s'en",
+      "occuper sans urgence."
+    ],
+    "api_version": "202609",
+    "api_version_maj_le": "2026-09-19",
+    "api_version_validite_mois": 12,
+    "token_expire_le": "2026-11-09",
+    "token_renouvele_le": "2026-09-10",
+    "alarme_jours_avant": 15,
+    "compte_publieur": "jm.blaise070@gmail.com",
+    "membre_urn": "urn:li:person:e0QUppRUQ8",
+    "note": "Le compte qui publie est jm.blaise070@gmail.com, PAS contact@perfeco.nc : verifier psettings/email avant toute autorisation. Seul le Client Secret 'Secondary' est valide (le Primary a ete revoque), il est hors depot dans secret-linkedin-PRIVE.txt. Format de la version : AAAAMM. LinkedIn retire une version environ 12 mois apres sa sortie, d'ou api_version_validite_mois."
   }
 }

@@ -457,6 +457,66 @@ if (!regf.ok) {
 }
 dire('');
 
+// ── ACCÈS LINKEDIN : péremption et dérive de la source unique ───────────────
+//
+// Centralisé dans calendrier.json le 21/09/2026 à la demande de Jean-Michel.
+// La version d'API était recopiée dans 5 endroits ; elle a expiré 3 fois, et
+// chaque fois on l'a découverte par accident — dont une fois en pleine
+// publication sur un 426. Le token, lui, ne se renouvelle pas tout seul : le
+// clic « Autoriser » est un anti-bot à la charge de Jean-Michel. D'où
+// l'alarme à J-15, qui laisse le temps de s'en occuper sans urgence.
+
+dire('──── Accès LinkedIn ────');
+{
+  const li = calendrier.linkedin;
+  if (!li) {
+    bloquant('LinkedIn — section `linkedin` absente de calendrier.json : la source unique de la version d\'API a disparu, les workflows sont retombés sur le repli de la file d\'attente.');
+  } else {
+    const alarme = li.alarme_jours_avant ?? 15;
+
+    // 1. Péremption du token — il ne se renouvelle pas tout seul.
+    if (li.token_expire_le) {
+      const reste = ecartJours(today, li.token_expire_le);
+      const ligne = `  Token : expire le ${li.token_expire_le} (dans ${reste} j) — compte ${li.compte_publieur ?? '?'}`;
+      if (reste < 0) bloquant(`LinkedIn — le token a EXPIRÉ le ${li.token_expire_le} (il y a ${-reste} j). Plus aucune publication LinkedIn ne peut partir tant qu'il n'est pas renouvelé. Le clic « Autoriser » est à la charge de Jean-Michel.`);
+      else if (reste <= alarme) bloquant(`LinkedIn — le token expire le ${li.token_expire_le}, dans ${reste} j. À renouveler MAINTENANT : le clic « Autoriser » est un anti-bot, il ne peut pas être automatisé, et sans lui les publications du mardi s'arrêtent.`);
+      else dire(`${ligne} ✅`);
+    } else {
+      alerter('LinkedIn — `token_expire_le` non renseigné dans calendrier.json : aucune alarme possible sur la péremption du token.');
+    }
+
+    // 2. Péremption de la version d'API — LinkedIn en retire une ~12 mois après sa sortie.
+    if (li.api_version && /^\d{6}$/.test(li.api_version)) {
+      const mois = Number(li.api_version.slice(4, 6));
+      const annee = Number(li.api_version.slice(0, 4));
+      const validite = li.api_version_validite_mois ?? 12;
+      const finIso = new Date(Date.UTC(annee, mois - 1 + validite, 1)).toISOString().slice(0, 10);
+      const reste = ecartJours(today, finIso);
+      if (reste < 0) bloquant(`LinkedIn — la version d'API ${li.api_version} a dépassé sa fenêtre de ${validite} mois (fin estimée ${finIso}). Un 426 NONEXISTENT_VERSION peut tomber en pleine publication. Mettre à jour .linkedin.api_version dans calendrier.json.`);
+      else if (reste <= alarme * 2) alerter(`LinkedIn — la version d'API ${li.api_version} arrive en fin de fenêtre (~${finIso}, dans ${reste} j). La relever dans calendrier.json avant qu'un 426 ne tombe.`);
+      else dire(`  Version d'API : ${li.api_version} (fenêtre estimée jusqu'au ${finIso}) ✅`);
+    } else {
+      bloquant(`LinkedIn — \`api_version\` absente ou mal formée dans calendrier.json (attendu AAAAMM, lu « ${li.api_version ?? 'rien'} »).`);
+    }
+
+    // 3. Dérive : une file d'attente qui contredit la source unique.
+    //    C'est le mode de panne que la centralisation doit rendre impossible —
+    //    encore faut-il le dire quand il se produit.
+    let derives = 0;
+    for (const nom of readdirSync('automation-queue').filter((f) => f.endsWith('.json')).sort()) {
+      const f = chargerJson(`automation-queue/${nom}`);
+      if (!f.ok) continue;
+      const repli = f.data.linkedin_api_version;
+      if (repli && repli !== li.api_version) {
+        derives++;
+        alerter(`LinkedIn — automation-queue/${nom} porte encore linkedin_api_version=${repli} alors que la source unique dit ${li.api_version}. Ce n'est qu'un repli, il ne sera pas utilisé, mais il induira en erreur qui le lira. À aligner ou à retirer.`);
+      }
+    }
+    if (derives === 0) dire('  Aucune dérive entre la source unique et les files d\'attente ✅');
+  }
+}
+dire('');
+
 // ── Bilan ───────────────────────────────────────────────────────────────────
 dire('════════ Bilan ════════');
 for (const a of avertissements) console.log(`::warning::${a}`);

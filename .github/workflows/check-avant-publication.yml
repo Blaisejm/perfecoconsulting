@@ -88,8 +88,19 @@ jobs:
           LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
         run: |
           MEMBER_URN="urn:li:person:e0QUppRUQ8"
-          API_VERSION=$(jq -r '.linkedin_api_version' automation-queue/mardi.json)
-          echo "DEBUG: API_VERSION=$API_VERSION (source : automation-queue/mardi.json)"
+          # Source unique depuis le 21/09/2026 : automation-agent/calendrier.json.
+          # La file d'attente ne sert plus que de repli.
+          CALENDRIER="automation-agent/calendrier.json"
+          # `|| true` indispensable : les `run:` tournent sous `bash -e`, une
+          # substitution en échec tuerait l'étape avant d'atteindre le repli.
+          API_VERSION=$(jq -r '.linkedin.api_version // empty' "$CALENDRIER" 2>/dev/null || true)
+          SOURCE_VERSION="$CALENDRIER"
+          if [ -z "$API_VERSION" ]; then
+            API_VERSION=$(jq -r '.linkedin_api_version // empty' automation-queue/mardi.json 2>/dev/null || true)
+            SOURCE_VERSION="automation-queue/mardi.json (REPLI)"
+            echo "::warning::.linkedin.api_version absent de $CALENDRIER — repli sur la file d'attente. Rétablir la source unique."
+          fi
+          echo "DEBUG: API_VERSION=$API_VERSION (source : $SOURCE_VERSION)"
 
           jq -n --arg owner "$MEMBER_URN" '{initializeUploadRequest:{owner:$owner}}' > /tmp/li_version_body.json
           HTTP_CODE=$(curl -s -o /tmp/li_version.json -w "%{http_code}" -X POST "https://api.linkedin.com/rest/images?action=initializeUpload" \
@@ -101,7 +112,7 @@ jobs:
           echo "HTTP $HTTP_CODE"; cat /tmp/li_version.json
 
           if [ "$HTTP_CODE" = "426" ] || grep -q "NONEXISTENT_VERSION" /tmp/li_version.json; then
-            echo "::error::linkedin_api_version=$API_VERSION expiré (426 NONEXISTENT_VERSION) — mettre à jour automation-queue/mardi.json avec une version récente (format AAAAMM, ex. $(date +%Y%m)). Utilisée uniquement pour le carrousel DRAFT du profil perso du mardi."
+            echo "::error::linkedin_api_version=$API_VERSION expiré (426 NONEXISTENT_VERSION) — mettre à jour .linkedin.api_version dans automation-agent/calendrier.json (format AAAAMM, ex. $(date +%Y%m)), et y reporter la date dans api_version_maj_le. C'est la SOURCE UNIQUE depuis le 21/09/2026 : ne plus corriger automation-queue/mardi.json, qui n'est qu'un repli."
             exit 1
           fi
 

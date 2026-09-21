@@ -108,10 +108,28 @@ jobs:
           set -e
           FILE="automation-queue/mardi.json"
           MEMBER_URN="urn:li:person:e0QUppRUQ8"
-          API_VERSION=$(jq -r '.linkedin_api_version' "$FILE")
+          # Version d'API LinkedIn : SOURCE UNIQUE dans automation-agent/calendrier.json
+          # depuis le 21/09/2026. La valeur qui subsiste dans la file d'attente n'est
+          # plus qu'un repli — elle a expiré trois fois sans que personne ne le voie,
+          # parce qu'elle était recopiée dans cinq endroits à la fois.
+          CALENDRIER="automation-agent/calendrier.json"
+          # `|| true` indispensable : GitHub lance les `run:` avec `bash -e`, et une
+          # affectation dont la substitution échoue tuerait l'étape AVANT d'atteindre
+          # le repli — le filet de sécurité ne servirait alors jamais.
+          API_VERSION=$(jq -r '.linkedin.api_version // empty' "$CALENDRIER" 2>/dev/null || true)
+          SOURCE_VERSION="$CALENDRIER"
+          if [ -z "$API_VERSION" ]; then
+            API_VERSION=$(jq -r '.linkedin_api_version // empty' "$FILE" 2>/dev/null || true)
+            SOURCE_VERSION="$FILE (REPLI)"
+            echo "::warning::.linkedin.api_version absent de $CALENDRIER — repli sur $FILE. Rétablir la source unique."
+          fi
+          if [ -z "$API_VERSION" ]; then
+            echo "::error::Aucune version d'API LinkedIn trouvée, ni dans $CALENDRIER ni dans $FILE. Le carrousel du profil perso ne peut pas partir."
+            exit 1
+          fi
           MESSAGE=$(jq -r '.linkedin_profil.message' "$FILE")
 
-          echo "DEBUG: API_VERSION=$API_VERSION"
+          echo "DEBUG: API_VERSION=$API_VERSION (source : $SOURCE_VERSION)"
           echo "DEBUG: longueur MESSAGE=${#MESSAGE} caractères"
 
           URNS=()
@@ -143,7 +161,7 @@ jobs:
             if [ -z "$UPLOAD_URL" ]; then
               echo "::error::Échec initialisation upload slide $i — HTTP $INIT_CODE, réponse ci-dessus"
               if grep -q "NONEXISTENT_VERSION" /tmp/init.json; then
-                echo "::error::426 NONEXISTENT_VERSION — mettre à jour linkedin_api_version dans automation-queue/mardi.json"
+                echo "::error::426 NONEXISTENT_VERSION — mettre à jour .linkedin.api_version dans automation-agent/calendrier.json (SOURCE UNIQUE depuis le 21/09/2026), pas dans automation-queue/mardi.json qui n'est qu'un repli."
               fi
               exit 1
             fi
