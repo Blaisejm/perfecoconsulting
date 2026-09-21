@@ -1,0 +1,73 @@
+name: "PerfEco — Contrôle de syntaxe au push (garde-fou en amont)"
+
+# ---------------------------------------------------------------------------
+# POURQUOI CE WORKFLOW EXISTE (21/09/2026)
+#
+# Le 15/09, le commit 421f204 a remplacé les 18 lignes de logique d'un `if`
+# par un bloc de commentaires dans publish-jeudi-post-court.yml, laissant le
+# `if` jamais refermé. Le 17/09 à 11h00 NC la publication du jeudi a été
+# PERDUE sur « line 12: syntax error: unexpected end of file ».
+#
+# Personne ne l'a vu entre le push et l'heure de publication, parce que rien
+# ne regardait :
+#   - aucun hook git actif dans le dépôt ;
+#   - aucun contrôle de syntaxe parmi les 9 workflows ;
+#   - le seul filet, check-preparation-contenu.yml, tourne à 19h00 NC,
+#     soit HUIT HEURES APRÈS l'heure de publication.
+# Les deux routines qui ont fini par le constater — le filet du 18/09 et
+# perfeco-verif-github-actions du 19/09 — l'ont fait deux jours trop tard.
+#
+# Règle de Jean-Michel du 28/07/2026 : « toute fiabilisation du pipeline doit
+# être vérifiée AVANT l'heure de publication, jamais après coup. » Ce
+# workflow est cette règle mise en code.
+#
+# CE QU'IL FAIT : il refuse un push qui rendrait le pipeline inexécutable.
+# Vérifié le 21/09/2026 contre la version fautive de 421f204 : il la rejette,
+# en nommant le `if` non refermé de la ligne 10 — ce que le message d'erreur
+# de GitHub ne faisait pas.
+#
+# CE QU'IL NE FAIT PAS, et qu'il ne faut pas croire couvert : la justesse du
+# contenu, la fraîcheur des files d'attente, les images, les tokens. Cela
+# reste le travail de check-preparation-contenu.yml et des routines Cowork.
+# Ce contrôle-ci ne répond qu'à une question : « est-ce que ça peut tourner ? »
+#
+# Comme le filet quotidien, il est INDÉPENDANT DE COWORK et du poste de
+# travail : il ne dépend ni du token OAuth de Claude, ni de l'ordinateur
+# allumé. C'est ce qui lui permet d'alerter quand tout le reste est muet.
+# ---------------------------------------------------------------------------
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+# Un push qui suit de près un autre annule le contrôle précédent : seule
+# compte la syntaxe de l'état final de la branche.
+concurrency:
+  group: syntaxe-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  syntaxe:
+    name: "Syntaxe du pipeline (bash, JSON, PowerShell)"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Contrôle de syntaxe (blocs run:, files d'attente, .ps1, caractères de contrôle)
+        run: node scripts/controle-syntaxe.mjs
+
+      - name: Rappel en cas d'échec
+        if: failure()
+        run: |
+          echo "::error::Le pipeline ne serait PAS exécutable en l'état."
+          echo "Les anomalies sont listées ci-dessus, avec le fichier et la ligne."
+          echo "Rappel du 17/09/2026 : une erreur de syntaxe non corrigée ici coûte"
+          echo "une publication entière — le workflow meurt à 11h00 NC et rien ne"
+          echo "rattrape la parution du jour."
+          exit 1

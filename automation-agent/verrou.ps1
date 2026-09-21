@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Verrou d'exclusion mutuelle + ordre de passage pour les routines PerfEco.
 
