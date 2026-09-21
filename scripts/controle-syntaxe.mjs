@@ -84,11 +84,34 @@ function extraireBlocsRun(texte) {
   return blocs;
 }
 
+// `bash` n'est pas dans le PATH d'une console PowerShell. Sans cette détection,
+// chaque bloc `run:` échouait sur « spawnSync bash ENOENT » et le rapport
+// affichait 32 ERREURS DE SYNTAXE pour des fichiers parfaitement sains.
+// Un garde-fou qui crie au loup 32 fois faute d'un outil finit par être ignoré,
+// et c'est le jour où il a raison que personne ne le lit — même mode de
+// défaillance que les faux positifs du filet quotidien des 31/08 et 01-02/09.
+// Un outil manquant se signale UNE fois, et ne se confond jamais avec un défaut
+// du code contrôlé.
+function bashDisponible() {
+  try { execFileSync('bash', ['-c', 'exit 0'], { stdio: 'pipe' }); return true; }
+  catch { return false; }
+}
+
 function controlerWorkflows() {
   const dossier = join(RACINE, '.github', 'workflows');
   if (!existsSync(dossier)) { avertir('.github/workflows', 'dossier absent'); return; }
   const temp = mkdtempSync(join(tmpdir(), 'perfeco-syntaxe-'));
   const fichiers = readdirSync(dossier).filter((f) => /\.ya?ml$/.test(f)).sort();
+
+  const avecBash = bashDisponible();
+  if (!avecBash) {
+    const message = '`bash` introuvable — la syntaxe des blocs `run:` n\'a PAS été contrôlée';
+    if (process.env.GITHUB_ACTIONS || process.env.CI) {
+      erreur('scripts/controle-syntaxe.mjs', `${message}, alors que ce contrôle tourne en intégration continue : un vert serait mensonger`);
+    } else {
+      avertir('scripts/controle-syntaxe.mjs', `${message} (console PowerShell — relancer depuis Git Bash, ou laisser le push s'en charger)`);
+    }
+  }
 
   for (const nom of fichiers) {
     const chemin = join(dossier, nom);
@@ -108,6 +131,7 @@ function controlerWorkflows() {
       avertir(rel, 'aucune étape `run:` détectée — vérifier que le format n\'a pas changé');
     }
     for (const bloc of blocs) {
+      if (!avecBash) continue;
       controles++;
       const code = bloc.code.replace(/\$\{\{[^}]*\}\}/g, 'GHEXPR');
       const tmpFichier = join(temp, `${nom}-${bloc.ligne}.sh`);
