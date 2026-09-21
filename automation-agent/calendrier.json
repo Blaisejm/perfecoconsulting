@@ -269,7 +269,12 @@
       "",
       "LE TOKEN NE SE RENOUVELLE PAS TOUT SEUL : le clic 'Autoriser' est un anti-bot, il",
       "reste a la charge de Jean-Michel. D'ou l'alarme a J-15, qui laisse le temps de s'en",
-      "occuper sans urgence."
+      "occuper sans urgence.",
+      "",
+      "22/09/2026 — la valeur 202609 a ete VERIFIEE en direct contre l'API (GET /rest/me, HTTP 403",
+      "ACCESS_DENIED = version acceptee ; un 426 NONEXISTENT_VERSION signalerait une version morte).",
+      "Fin de fenetre estimee : 202709. C'est la premiere fois que cette valeur est prouvee plutot",
+      "que supposee — les trois expirations precedentes avaient ete decouvertes par accident."
     ],
     "api_version": "202609",
     "api_version_maj_le": "2026-09-19",
@@ -279,6 +284,7 @@
     "alarme_jours_avant": 15,
     "compte_publieur": "jm.blaise070@gmail.com",
     "membre_urn": "urn:li:person:e0QUppRUQ8",
-    "note": "Le compte qui publie est jm.blaise070@gmail.com, PAS contact@perfeco.nc : verifier psettings/email avant toute autorisation. Seul le Client Secret 'Secondary' est valide (le Primary a ete revoque), il est hors depot dans secret-linkedin-PRIVE.txt. Format de la version : AAAAMM. LinkedIn retire une version environ 12 mois apres sa sortie, d'ou api_version_validite_mois."
+    "note": "Le compte qui publie est jm.blaise070@gmail.com, PAS contact@perfeco.nc : verifier psettings/email avant toute autorisation. Seul le Client Secret 'Secondary' est valide (le Primary a ete revoque), il est hors depot dans secret-linkedin-PRIVE.txt. Format de la version : AAAAMM. LinkedIn retire une version environ 12 mois apres sa sortie, d'ou api_version_validite_mois. TESTE EN DIRECT LE 22/09/2026, deux enseignements : (1) la fenetre de 12 mois est CONFIRMEE, la coupure tombant exactement entre 202509 (morte) et 202510 (vivante), soit 12 mois jour pour jour ; (2) mais NE JAMAIS prendre le mois courant de confiance — 202512 n'a JAMAIS ete publiee alors que 202511 et 202601 l'encadrent, vivantes. LinkedIn ne sort pas une version chaque mois, et l'erreur s'appelle litteralement NONEXISTENT_VERSION. La regle est donc : le mois publie le plus recent, VERIFIE. Pour le savoir sans deviner : node \"C:/Users/jmbla/OneDrive/Documents/claude IA/Perfeco-Social-Media/outils-ia/perfeco-publisher-mcp/verifier-version-linkedin.cjs\" --chercher (code 0 = vivante, 3 = version morte, 4 = token invalide — le 3 et le 4 n'appellent pas le meme geste).",
+    "api_version_verifiee_le": "2026-09-22"
   }
 }
