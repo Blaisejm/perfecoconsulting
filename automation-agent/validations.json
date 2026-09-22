@@ -1,7 +1,7 @@
 {
     "_lisez_moi":  "Registre des validations demandees a Jean-Michel. Delai standard 48 h, au-dela le systeme applique le defaut. Regle du 12/09/2026. Ne pas editer a la main : utiliser validations.ps1.",
     "delai_standard_heures":  48,
-    "derniere_maj":  "2026-09-22",
+    "derniere_maj":  "2026-09-23",
     "validations":  [
                         {
                             "id":  "v-2026-09-14-01",
@@ -64,10 +64,10 @@
                             "repondre_avant":  "2026-09-24T17:17:17+11:00",
                             "delai_heures":  48,
                             "ecrete":  false,
-                            "statut":  "ouvert",
-                            "decision":  null,
-                            "tranche_a":  null,
-                            "par":  null,
+                            "statut":  "tranche",
+                            "decision":  "Option 1 — acter \u0027non_publie\u0027. Le post court du jeudi 17/09 n\u0027est jamais parti sur LinkedIn et on n\u0027y revient pas : il annoncait l\u0027episode 3/8, l\u0027episode 4/8 est parti le 22/09, et le creneau du jeudi bascule sur la campagne dediee Performance des le 01/10. Le republier le remettrait hors sequence. Statut passe a \u0027non_publie\u0027 dans publications.json, et rendu TERMINAL dans planning.ps1 (exempte du recalcul par -Rafraichir) et dans scripts/controle-pipeline.mjs (exempte du controle bloquant des echeances passees et du calcul d\u0027espacement) — sans quoi le statut aurait ete reecrit en \u0027echeance_depassee\u0027 au passage suivant et l\u0027anomalie se serait rouverte seule. Verifie : planning.ps1 -Rafraichir conserve le statut, controle-pipeline.mjs sort en 0, \u0027Aucune anomalie bloquante\u0027.",
+                            "tranche_a":  "2026-09-23T09:29:07+11:00",
+                            "par":  "Jean-Michel",
                             "rappels":  1
                         }
                     ]

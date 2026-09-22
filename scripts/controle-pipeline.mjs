@@ -368,7 +368,11 @@ if (!regf.ok) {
 
   // 2. Échéances passées jamais marquées publiées : une diffusion a pu être perdue.
   for (const p of pubs) {
-    if (p.date_nc < today && !String(p.statut).startsWith('publie') && p.statut !== 'annule') {
+    // 'non_publie' ferme le cas d'une diffusion qui n'est jamais partie, une fois le constat
+    // acte par Jean-Michel (option 1 de v-2026-09-22-02, tranchee le 23/09/2026). Sans cette
+    // exemption, ce controle echouait chaque soir sur un fait deja connu et deja tranche —
+    // et un garde-fou qui echoue tous les jours pour rien finit par etre ignore.
+    if (p.date_nc < today && !String(p.statut).startsWith('publie') && p.statut !== 'annule' && p.statut !== 'non_publie') {
       const age = ecartJours(p.date_nc, today);
       bloquant(`Registre — la publication « ${p.sujet || p.id} » était prévue le ${p.date_nc} (il y a ${age} j) et n'est toujours pas marquée publiée (statut « ${p.statut} »). Soit elle n'est jamais partie, soit personne n'a clos son suivi.`);
     }
@@ -379,7 +383,7 @@ if (!regf.ok) {
   //    publié à la main est parti 2 h avant la veille éco, sur les mêmes canaux.
   const parJour = {};
   for (const p of pubs) {
-    if (p.statut === 'annule') continue;
+    if (p.statut === 'annule' || p.statut === 'non_publie') continue;   // n'a occupe aucun creneau reel
     const surCompany = (p.canaux ?? []).includes('linkedin_company');
     if (surCompany) (parJour[p.date_nc] ??= []).push(p);
   }
