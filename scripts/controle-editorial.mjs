@@ -16,6 +16,7 @@
  *   RÈGLE §6a       — un visuel se lit sans traduction.          → avertissement
  *   EMOJIS          — densité de marqueurs sur un post.          → avertissement
  *   ANTI-DOUBLON    — même indicateur ET même angle (03/09).     → avertissement
+ *   CANAUX          — le créneau part-il sur les bons réseaux ?  → bloquant à J-7
  *
  * POURQUOI 2 N'EST QU'UN AVERTISSEMENT
  * « pilotage » appartient au vocabulaire de marque (« Le Rythme de Pilotage »).
@@ -319,6 +320,77 @@ function proximite(a, b) {
   return { score: communs.length, communs };
 }
 
+/* ─────────── CANAUX — sur quels réseaux part chaque créneau ─────────── */
+// Ajouté le 23/09/2026 à la demande de Jean-Michel, en pendant de la même règle dans
+// controle-pipeline.mjs. Les deux lisent la MÊME table — calendrier.json, section
+// `formats` — et aucun des deux ne la redéclare. Deux tables de canaux finiraient par
+// diverger, et une divergence dans un garde-fou est pire que pas de garde-fou.
+//
+// Ce n'est pas un doublon du contrôle nocturne : check-preparation-contenu.yml ne passe
+// ici que `automation-queue/*.json`, jamais `publications.json`. La règle ne se déclenche
+// donc qu'à la main, sur « tout le calendrier » — c'est-à-dire au moment où l'on CALE un
+// sujet, pas au moment où l'on constate la dérive le soir.
+//
+// Ce qu'elle aurait évité : le 23/09/2026, 33 jeudis à venir annonçaient encore
+// `linkedin_company + facebook`, valeur d'avant la décision du 15/09 qui a donné le jeudi
+// à LinkedIn Company + profil perso. L'erreur a vécu huit jours et n'a été vue qu'à l'œil nu.
+function canauxRegistre(chemin) {
+  let cal;
+  try {
+    cal = JSON.parse(readFileSync('automation-agent/calendrier.json', 'utf8').replace(/^﻿/, ''));
+  } catch {
+    avert(chemin, 'CANAUX', 'automation-agent/calendrier.json illisible : impossible de vérifier sur quels réseaux part chaque créneau. C’est la source unique, partagée avec controle-pipeline.mjs.');
+    return;
+  }
+  const attendus = Object.fromEntries(
+    Object.entries(cal.formats ?? {})
+      .filter(([, f]) => Array.isArray(f.canaux) && f.canaux.length > 0)
+      .map(([cle, f]) => [cle, f.canaux]),
+  );
+  if (Object.keys(attendus).length === 0) {
+    avert(chemin, 'CANAUX', 'aucun format de calendrier.json ne déclare de `canaux` : la source unique a disparu, plus rien ne dit sur quels réseaux part chaque créneau.');
+    return;
+  }
+
+  let d;
+  try { d = JSON.parse(readFileSync(chemin, 'utf8').replace(/^﻿/, '')); } catch { return; }
+  if (!Array.isArray(d?.publications)) return;
+  // Pas de examines++ : antiDoublonRegistre a déjà compté ce fichier. Le compte doit
+  // rester un nombre de FICHIERS examinés, jamais un nombre de règles passées.
+
+  const aujourdhui = new Date().toISOString().slice(0, 10);
+  const seuil = cal.regle_j7?.seuil_alerte_jours ?? 7;
+  const jours = (iso) =>
+    Math.round((Date.parse(`${iso}T00:00:00Z`) - Date.parse(`${aujourdhui}T00:00:00Z`)) / 86400000);
+
+  const derives = [];
+  for (const p of d.publications) {
+    // On ne juge QUE l'avenir. Une entrée passée enregistre ce qui a réellement eu lieu :
+    // les jeudis d'avant le 15/09/2026 portent company+facebook parce que c'était vrai
+    // ce jour-là. Les signaler reviendrait à demander de réécrire l'histoire.
+    if (p.date_nc < aujourdhui) continue;
+    if (p.statut === 'annule' || p.statut === 'non_publie') continue;
+    const att = attendus[p.format];
+    if (!att) continue;   // ad-hoc, article, férié, republication : variables par nature
+    const reel = [...(p.canaux ?? [])].sort().join('+');
+    if (reel !== [...att].sort().join('+')) {
+      derives.push({ date: p.date_nc, format: p.format, reel, att: att.join(' + ') });
+    }
+  }
+  if (derives.length === 0) return;
+
+  // Un résumé, jamais une ligne par entrée : 33 lignes noieraient le reste.
+  const dates = derives.map((x) => x.date).sort();
+  const cas = [...new Set(derives.map((x) => `${x.format} : « ${x.reel || '(aucun)'} » au lieu de « ${x.att} »`))];
+  const message = `${derives.length} échéance(s) à venir annoncent des canaux qui ne correspondent pas à leur créneau (${dates[0]} → ${dates[dates.length - 1]}). ${cas.join(' ; ')}.`;
+  const imminentes = derives.filter((x) => jours(x.date) <= seuil);
+  if (imminentes.length > 0) {
+    err(chemin, 'CANAUX', `${message} ${imminentes.length} à moins de ${seuil} jours (${imminentes.map((x) => x.date).join(', ')}) : c’est le champ qu’on lit pour savoir où part un contenu, avant de le rédiger.`);
+  } else {
+    avert(chemin, 'CANAUX', `${message} Aucune à moins de ${seuil} jours : dérive documentaire, à corriger sans urgence.`);
+  }
+}
+
 function antiDoublonRegistre(chemin) {
   const brut = readFileSync(chemin, 'utf8').replace(/^﻿/, '');
   let d; try { d = JSON.parse(brut); } catch { return; }
@@ -466,7 +538,7 @@ ${VERT}Aucun sujet proche dans le registre.${RAZ}`);
     if (!st.isFile()) continue;
     const ext = extname(a).toLowerCase();
     if (ext === '.html') traiterHtml(a);
-    else if (basename(a) === 'publications.json') antiDoublonRegistre(a);
+    else if (basename(a) === 'publications.json') { antiDoublonRegistre(a); canauxRegistre(a); }
     else if (ext === '.json') traiterJson(a);
   }
 }
