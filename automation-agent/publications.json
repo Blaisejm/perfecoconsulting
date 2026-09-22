@@ -613,16 +613,16 @@
       "format": "jeudi",
       "libelle": "Campagne dédiée 1/10 — Du cap à la mise en œuvre (manifeste, ouvre la campagne)",
       "sujet": "Du cap aux résultats — la promesse PerfEco",
-      "semaine": null,
+      "semaine": "W39",
       "canaux": [
         "linkedin_company",
-        "facebook"
+        "linkedin_perso"
       ],
       "statut": "prevu",
-      "source": null,
+      "source": "automation-queue/jeudi-W39-pret.json",
       "bascule": null,
       "preuve": null,
-      "note": "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> conséquence -> méthode -> résultat -> invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4.",
+      "note": "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> conséquence -> méthode -> résultat -> invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | CANAUX CORRIGES le 23/09/2026 par mercredi-creation : depuis la decision du 15/09/2026 le jeudi part sur LinkedIn Company + LinkedIn PROFIL PERSO, et Facebook ne recoit plus rien ce jour-la (suffixe -NOFB envoye par publish-jeudi-post-court.yml) ; Facebook recoit le meme post le SAMEDI 03/10 a 15h30 via publish-samedi-republication-facebook.yml. L'entree portait encore linkedin_company+facebook, heritage d'avant le 15/09. | PRODUIT LE 23/09/2026 (J-8) par mercredi-creation : texte 1824 car., visuel unique au gabarit V2 (gabarit-v2-performance.html, bandeau #163D78, accent #FBAA16, 1200x1500), image https://www.perfeco.nc/slides/W39/v2-01-du-cap-aux-resultats.png verifiee HTTP 200. Manifeste d ouverture, sans chiffre externe : l indicateur propose au lecteur est le nombre de priorites portant une date et un nom. Appel a l action : diagnostic 60 minutes.",
       "axe": "performance"
     },
     {
@@ -631,18 +631,18 @@
       "heure_nc": "11:00",
       "format": "vendredi",
       "libelle": "Veille économique NC",
-      "sujet": "à définir",
-      "semaine": null,
+      "sujet": "44 % des artisans caledoniens gagnent moins que le SMG alors que le nombre d entreprises a retrouve son niveau d avant mai 2024 - angle marges : le volume revient avant le resultat, compter ce qui reste chantier par chantier",
+      "semaine": "HS-veille-eco-marge",
       "canaux": [
         "linkedin_company",
         "linkedin_perso",
         "facebook"
       ],
       "statut": "prevu",
-      "source": null,
+      "source": "automation-queue/vendredi-2026-10-02-pret.json",
       "bascule": null,
       "preuve": null,
-      "note": "Veille économique du vendredi — format, sourçage (IEOM/ISEE verifie a la source) et gabarit INCHANGÉS. Produit par mercredi-creation, partie V. La campagne dédiée Performance occupe le créneau du JEUDI, pas celui-ci.",
+      "note": "Veille économique du vendredi — format, sourçage (IEOM/ISEE verifie a la source) et gabarit INCHANGÉS. Produit par mercredi-creation, partie V. La campagne dédiée Performance occupe le créneau du JEUDI, pas celui-ci. | PRODUIT LE 23/09/2026 (J-9) par mercredi-creation. Source : Chambre de metiers et de l artisanat (CMA), chiffres rapportes par Nouvelle-Caledonie La 1ere le 18/09/2026 a 07h34 (date de publication verifiee a la source) - 44 % des professionnels sous le SMG, environ 11 000 entreprises artisanales, nombre revenu au niveau d avant mai 2024. L article ne donne ni la date ni la methode de l etude CMA : l attribution est donc faite au reporting de presse, pas a une note CMA datee. Indicateur JAMAIS servi sur ce format. Recommandation unique : sortir les cinq plus gros chantiers des 12 derniers mois et calculer le reste apres couts directs, ligne par ligne. Visuel veille-eco-w39-marge-par-chantier-01.png (gpt-image-1, 5 personnes, atelier), PNG W39/00-facebook-marge.png et W39/01-couverture-marge.png en HTTP 200.",
       "axe": "performance"
     },
     {
