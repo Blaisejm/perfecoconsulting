@@ -47,6 +47,28 @@
                             "tranche_a":  null,
                             "par":  null,
                             "rappels":  1
+                        },
+                        {
+                            "id":  "v-2026-09-22-02",
+                            "routine":  "perfeco-revue-semestrielle",
+                            "objet":  "statut du post court du 17/09",
+                            "question":  "Le post court du jeudi 17/09/2026 (Poser la question a voix haute en fin de comite) n\u0027est JAMAIS parti : le run #9 de publish-jeudi-post-court.yml a echoue sur une erreur de syntaxe bash, cause identifiee et corrigee le 19/09/2026. Son statut est reste \u0027echeance_depassee\u0027 dans publications.json, si bien que check-preparation-contenu.yml echoue chaque soir depuis 5 jours - le SEUL filet independant de Cowork est devenu du bruit. Deux issues possibles. Option 1 (RECOMMANDEE) : acter qu\u0027il n\u0027est pas parti, statut \u0027non_publie\u0027, et passer a la suite. Option 2 : le republier maintenant sur LinkedIn Company + Facebook.",
+                            "options":  [
+                                            "Option 1 - acter \u0027non_publie\u0027 et clore le suivi",
+                                            "Option 2 - republier le post court maintenant"
+                                        ],
+                            "defaut":  "Option 1 - acter \u0027non_publie\u0027. Le post court du 17/09 annoncait l\u0027episode 3/8 ; or l\u0027episode 4/8 est parti le 22/09 et le creneau du jeudi bascule sur la campagne dediee Performance des le 01/10. Le republier maintenant le remettrait hors sequence, a contretemps de la serie et de la campagne. Acter l\u0027echec ferme l\u0027anomalie, rend au filet quotidien sa valeur d\u0027alerte, et ne coute qu\u0027une publication deja perdue.",
+                            "impact":  "Tant que le statut reste \u0027echeance_depassee\u0027, check-preparation-contenu.yml echoue chaque soir et le seul controle independant de Cowork ne signale plus rien d\u0027utile.",
+                            "publication":  "2026-09-17-jeudi",
+                            "ouvert_a":  "2026-09-22T17:17:17+11:00",
+                            "repondre_avant":  "2026-09-24T17:17:17+11:00",
+                            "delai_heures":  48,
+                            "ecrete":  false,
+                            "statut":  "ouvert",
+                            "decision":  null,
+                            "tranche_a":  null,
+                            "par":  null,
+                            "rappels":  1
                         }
                     ]
 }
