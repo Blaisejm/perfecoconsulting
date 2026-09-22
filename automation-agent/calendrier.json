@@ -56,14 +56,15 @@
       "preparation_jours": 8,
       "canaux": [
         "linkedin_company",
-        "facebook"
+        "linkedin_perso"
       ],
       "champs_requis": [
         "semaine",
         "date_prevue",
         "social_post.message",
         "social_post.image_url"
-      ]
+      ],
+      "_canaux_note": "Corrige le 23/09/2026. Depuis la decision de Jean-Michel du 15/09/2026 le creneau du JEUDI part sur LinkedIn Company + profil perso ; Facebook ne recoit plus rien ce jour-la (suffixe -NOFB envoye par publish-jeudi-post-court.yml) et recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. Ce champ est la SOURCE UNIQUE des canaux attendus : controle-pipeline.mjs et controle-editorial.mjs le lisent tous deux, aucun des deux ne redeclare la table."
     },
     "vendredi": {
       "libelle": "Veille économique NC",

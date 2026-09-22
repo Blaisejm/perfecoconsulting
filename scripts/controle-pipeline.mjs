@@ -392,11 +392,21 @@ if (!regf.ok) {
   // cherche que `linkedin_company`. Mais c'est le champ qu'on lit pour répondre
   // « où part ce contenu », y compris au moment de produire : une valeur fausse
   // se propage dans un compte rendu avant de se propager dans un fichier.
-  const CANAUX_ATTENDUS = {
-    mardi: ['linkedin_company', 'linkedin_perso', 'facebook'],
-    jeudi: ['linkedin_company', 'linkedin_perso'],
-    vendredi: ['linkedin_company', 'linkedin_perso', 'facebook'],
-  };
+  // SOURCE UNIQUE : calendrier.json, section `formats`. La table y existait deja, et
+  // etait meme transportee jusqu'ici (`canaux: f.canaux`, plus haut) sans jamais etre
+  // relue — de la donnee morte. La premiere version de ce controle, ecrite le matin du
+  // 23/09/2026, redeclarait donc une quatrieme copie de la meme verite. Corrige le jour
+  // meme : deux tables de canaux finissent toujours par diverger, et une divergence dans
+  // un garde-fou est pire que pas de garde-fou. Meme motif que l'acces LinkedIn, centralise
+  // dans ce fichier le 21/09/2026.
+  const CANAUX_ATTENDUS = Object.fromEntries(
+    Object.entries(calendrier.formats ?? {})
+      .filter(([, f]) => Array.isArray(f.canaux) && f.canaux.length > 0)
+      .map(([cle, f]) => [cle, f.canaux]),
+  );
+  if (Object.keys(CANAUX_ATTENDUS).length === 0) {
+    bloquant('Canaux — aucun format de calendrier.json ne declare de `canaux` : la source unique a disparu, plus rien ne verifie sur quels reseaux part chaque creneau.');
+  }
   const derives = [];
   for (const p of pubs) {
     // On ne juge QUE l'avenir. Une entrée passée enregistre ce qui a réellement
