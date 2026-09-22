@@ -251,3 +251,13 @@ Quand Jean-Michel tranche :
 - **23/09/2026** — règle 3. Le verrou devient obligatoire avant TOUTE écriture, y compris
   hors routine, après un chevauchement constaté entre une séquence manuelle et
   `perfeco-rappel-quotidien`. Sans dégât, mais la garantie de non-parallélisme était levée.
+  Insérée le même jour dans les **10 fiches de routines** et miroitée vers le dépôt de suivi
+  par `sync-routines.ps1`. Angle retenu dans les fiches : *le verrou couvre la ROUTINE, pas la
+  SESSION* — `trace-routine.ps1` le rend en fin de routine, donc tout ce qui est écrit après,
+  dans la même session, l'est sans protection.
+  Vérifié au passage : les règles 1 et 2 étaient bien présentes dans les 10 fiches. Un premier
+  comptage avait conclu « règle 2 dans 4 fiches sur 10 » — c'était faux, la règle porte **deux
+  intitulés différents** selon les fiches (« 48 h pour valider, ensuite le système tranche seul »
+  et « toute question que tu poses a 48 h et une réponse par défaut ») et le motif de recherche
+  n'en voyait qu'un. À savoir avant tout futur inventaire : compter sur `### Règle 2`, jamais
+  sur son libellé.
