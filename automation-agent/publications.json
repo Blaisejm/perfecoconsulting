@@ -29,7 +29,6 @@
                      "et les canaux ; les heures exactes de publication n\u0027ont pas toujours été conservées."
                  ],
     "fuseau":  "Pacific/Noumea",
-    "derniere_maj":  "2026-09-22",
     "publications":  [
                          {
                              "id":  "2026-08-11-mardi",
@@ -919,7 +918,15 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "SÉRIE INSTITUTIONS 2/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour).",
-                             "axe":  "institutions"
+                             "axe":  "institutions",
+                             "arbitrage":  {
+                                               "echeance":  "2026-10-26",
+                                               "question":  "Serie Institutions : l\u0027episode 1/4 du 27/10 est deja largement produit, mais les episodes 2/4 (03/11), 3/4 (10/11) et 4/4 (17/11) n\u0027ont ni sujet arrete ni fichier source. Option 1 (RECOMMANDEE) : arreter les trois sujets maintenant a partir de Perfeco-EU Institutions/PLAN-COMMUNICATION-INSTITUTIONS.md (axe porteurs de projets uniquement, volet Bruxelles/NC2030 hors communication), pour que mardi-carrousel-creation les produise normalement a J-8. Option 2 : reduire la serie Institutions a 2 episodes (27/10 et 03/11) et rendre les mardis 10/11 et 17/11 a la serie generaliste. DEFAUT sans reponse : option 1, les trois sujets etant derives du plan existant et soumis en meme temps que le carrousel de chaque semaine.",
+                                               "statut":  "ouvert",
+                                               "ouvert_le":  "2026-09-22",
+                                               "ouvert_par":  "perfeco-revue-semestrielle",
+                                               "nature":  "editorial"
+                                           }
                          },
                          {
                              "id":  "2026-11-05-jeudi",
@@ -1113,7 +1120,15 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "Rythme hebdomadaire NORMAL rétabli le 15/09/2026 (2e décision de Jean-Michel le même jour) : l\u0027alternance une semaine sur deux est SUPPRIMÉE. Chaque semaine est identique — mardi post long/série, jeudi post court/campagne dédiée, vendredi post court/veille éco.",
-                             "axe":  "performance"
+                             "axe":  "performance",
+                             "arbitrage":  {
+                                               "echeance":  "2026-11-16",
+                                               "question":  "Le creneau du MARDI n\u0027a plus aucun contenu defini a partir du 24/11/2026 : la SERIE 2 \u0027Le Rythme de Pilotage\u0027 se termine le 20/10 (episode 8/8) et la serie Institutions le 17/11 (4/4). Six mardis consecutifs sont vides (24/11, 01/12, 08/12, 15/12, 22/12, 29/12). Option 1 (RECOMMANDEE) : une SERIE 3 de 8 episodes sur un theme du cadrage COMEX du 04/08/2026 encore jamais traite en serie - tresorerie/marges, ou competences/succession. Option 2 : des hors-series independants, sans fil conducteur. Option 3 : prolonger la serie Institutions au-dela de 4 episodes. DEFAUT sans reponse : option 1 avec le theme tresorerie/marges, qui est en tete du cadrage COMEX et n\u0027a jamais porte de serie - la serie 1 \u0027Execution Strategique\u0027 etait diagnostique (pourquoi l\u0027execution echoue), la serie 2 prescriptive (comment installer un rythme).",
+                                               "statut":  "ouvert",
+                                               "ouvert_le":  "2026-09-22",
+                                               "ouvert_par":  "perfeco-revue-semestrielle",
+                                               "nature":  "editorial"
+                                           }
                          },
                          {
                              "id":  "2026-11-26-jeudi",
@@ -1250,7 +1265,15 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "La campagne dédiée des 10 publications se termine le 2026-12-03. Créneau a alimenter par une nouvelle banque, a definir avec Jean-Michel.",
-                             "axe":  "performance"
+                             "axe":  "performance",
+                             "arbitrage":  {
+                                               "echeance":  "2026-12-02",
+                                               "question":  "La campagne dediee Performance (V2) epuise ses 10 publications le 03/12/2026. Le creneau du JEUDI n\u0027a plus de banque de sujets a partir du 10/12. Option 1 (RECOMMANDEE) : une V3 de la campagne dediee - meme gabarit #163D78/#FBAA16, meme structure situation / consequence / methode / resultat / invitation - sur 10 nouveaux sujets. Option 2 : basculer le jeudi sur un autre format (retour d\u0027experience, questions-reponses COMEX). Option 3 : suspendre le creneau du jeudi pendant l\u0027ete austral et le rouvrir en fevrier 2027. DEFAUT sans reponse : option 1, la V2 disposant deja d\u0027un referentiel et d\u0027un gabarit eprouves (REFERENTIEL-V2-PERFORMANCE.md).",
+                                               "statut":  "ouvert",
+                                               "ouvert_le":  "2026-09-22",
+                                               "ouvert_par":  "perfeco-revue-semestrielle",
+                                               "nature":  "editorial"
+                                           }
                          },
                          {
                              "id":  "2026-12-11-vendredi",
@@ -1349,7 +1372,15 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "Rythme hebdomadaire NORMAL rétabli le 15/09/2026 (2e décision de Jean-Michel le même jour) : l\u0027alternance une semaine sur deux est SUPPRIMÉE. Chaque semaine est identique — mardi post long/série, jeudi post court/campagne dédiée, vendredi post court/veille éco.",
-                             "axe":  "performance"
+                             "axe":  "performance",
+                             "arbitrage":  {
+                                               "echeance":  "2026-12-14",
+                                               "question":  "Les vacances scolaires de Nouvelle-Caledonie courent du samedi 19/12/2026 au lundi 15/02/2027 (rentree des eleves le 15/02, prerentree le 12/02) : c\u0027est l\u0027ete austral, la periode la plus creuse de l\u0027annee pour une audience COMEX en NC. Au rythme normal, une vingtaine de creneaux tombent dans cette fenetre, dont le JEUDI 24/12 (veille de Noel) et le JEUDI 31/12 (Saint-Sylvestre). Option 1 (RECOMMANDEE) : suspendre du mardi 22/12/2026 au vendredi 15/01/2027 inclus, ne garder que les deux veilles economiques deja basculees au samedi 26/12 et samedi 02/01, et reprendre le rythme normal le mardi 19/01/2027. Effet de bord favorable : les jeudis 24/12 et 31/12 disparaissant, la republication Facebook du samedi n\u0027a plus de post court a reprendre et le telescopage du samedi se resout de lui-meme. Option 2 : ne supprimer que les jeudis 24/12 et 31/12, maintenir tout le reste, et suspendre explicitement la republication Facebook des samedis 26/12 et 02/01. Option 3 : maintenir le rythme normal sur toute la periode, et suspendre quand meme la republication Facebook des samedis 26/12 et 02/01 pour eviter deux posts Facebook le meme jour. DEFAUT sans reponse : option 1, qui evite de depenser des sujets prepares sur la periode ou l\u0027audience est la plus faible, et qui supprime le telescopage Facebook sans geste supplementaire.",
+                                               "statut":  "ouvert",
+                                               "ouvert_le":  "2026-09-22",
+                                               "ouvert_par":  "perfeco-revue-semestrielle",
+                                               "nature":  "editorial"
+                                           }
                          },
                          {
                              "id":  "2026-12-24-jeudi",
@@ -2737,5 +2768,7 @@
                              "axe":  "performance"
                          }
                      ],
-    "_horizon":  "2027-05-21"
+    "_horizon":  "2027-05-21",
+    "_derniere_revue":  "2026-09-22",
+    "derniere_maj":  "2026-09-22"
 }
