@@ -321,8 +321,8 @@
       "nom": "Répétition : indicateur ET angle",
       "categorie": "editorial",
       "date": "2026-09-03",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — avertissement",
       "question": "Ce sujet reprend-il un indicateur déjà publié avec le même angle, à moins de N semaines ?",
       "note": "L'historique est dans le registre. La comparaison d'angle demande du jugement — mécaniser l'alerte, pas le verdict."
     },

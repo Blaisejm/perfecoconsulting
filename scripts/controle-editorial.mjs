@@ -8,9 +8,14 @@
  * des fichiers Markdown, qu'aucune machine ne lit. Ce script est le premier à en
  * exécuter trois :
  *
- *   1. RÈGLE nº 7  — un slogan s'énonce, il ne se déduit pas.  → BLOQUANT
- *   2. RÈGLE §6a   — un visuel se lit sans traduction.         → AVERTISSEMENT
- *   3. CHARTE      — couleurs, logo, taille du logo.           → BLOQUANT
+ *   RÈGLE nº 7      — un slogan s'énonce, il ne se déduit pas.   → BLOQUANT
+ *   RÈGLE §1        — coupures de ligne au niveau de la phrase.  → BLOQUANT
+ *   RÈGLE §2        — épaisseur autant que taille.               → BLOQUANT
+ *   RÈGLE §4        — le conseil doit dominer la slide.          → BLOQUANT
+ *   CHARTE          — couleurs, logo, taille du logo.            → BLOQUANT
+ *   RÈGLE §6a       — un visuel se lit sans traduction.          → avertissement
+ *   EMOJIS          — densité de marqueurs sur un post.          → avertissement
+ *   ANTI-DOUBLON    — même indicateur ET même angle (03/09).     → avertissement
  *
  * POURQUOI 2 N'EST QU'UN AVERTISSEMENT
  * « pilotage » appartient au vocabulaire de marque (« Le Rythme de Pilotage »).
@@ -20,8 +25,11 @@
  * réellement examinés.
  *
  * USAGE
- *   node scripts/controle-editorial.mjs <fichiers...>     HTML de carrousel, JSON de file
- *   node scripts/controle-editorial.mjs --titre "..."     un slogan isolé, avant génération
+ *   node scripts/controle-editorial.mjs <fichiers...>       HTML de carrousel, JSON de file
+ *   node scripts/controle-editorial.mjs automation-agent/publications.json   tout le calendrier
+ *   node scripts/controle-editorial.mjs --titre "..."       un slogan, avant génération
+ *   node scripts/controle-editorial.mjs --sujet "..."       un sujet, avant de le caler
+ *   node scripts/controle-editorial.mjs scripts/temoins/gabarit-casse.html   témoin : doit sortir 9 erreurs
  *
  * Sortie : code 1 si au moins une erreur bloquante, 0 sinon.
  */
@@ -242,6 +250,127 @@ function regles2et4(html, fichier) {
   }
 }
 
+/* ─────────── ANTI-DOUBLON — « même indicateur ET même angle » ───────────
+ *
+ * Règle du 03/09/2026 : un même indicateur peut revenir avec des chiffres neufs
+ * si l'angle diffère. C'est la CONJONCTION qui bloque, pas le sujet voisin.
+ *
+ * Une machine sait mesurer la proximité d'indicateur. Elle ne sait pas juger de
+ * l'angle — c'est une lecture, pas un calcul. Ce contrôle est donc un
+ * AVERTISSEMENT par construction : il signale une proximité et donne la date de
+ * l'autre publication ; la décision reste humaine. Le rendre bloquant
+ * condamnerait des rapprochements légitimes et le ferait désactiver.
+ *
+ * Il aurait signalé la collision du 22/09 : mardi 13/10 « Le tableau de bord
+ * vivant » et jeudi 15/10 « Un reporting qui aide à décider », à 48 heures.
+ */
+const VIDES = new Set([
+  'avec','sans','pour','dans','plus','moins','tout','tous','toute','toutes','leur','leurs',
+  'cette','cet','ces','celui','celle','ceux','autre','autres','meme','memes','entre','chaque',
+  'quand','comme','mais','donc','alors','ainsi','encore','aussi','bien','faire','fait','etre',
+  'avoir','peut','doit','sont','est','une','des','les','aux','par','sur','que','qui','quoi',
+  'definir','post','court','long','carrousel','veille','economique','campagne','dediee','serie',
+  'episode','banque','visuels','institutions','perfeco','nouvelle','caledonie','semaine','jeudi',
+  'mardi','vendredi','annule','ferie','republication','facebook','linkedin','article',
+  'niveau','angle','point','terme','chose','place','maniere','facon','moment','temp',
+  'jour','annee','moi','fois','partie','ensemble','nombre','apres','avant','depuis',
+]);
+
+// FAMILLES D'INDICATEURS — c'est « le même indicateur » de la règle du 03/09.
+// Le recouvrement littéral ne suffit pas : « Le tableau de bord vivant » et
+// « Un reporting qui aide à décider » ne partagent AUCUN mot, et traitaient
+// pourtant le même objet à 48 heures d'écart (collision relevée le 22/09).
+const FAMILLES = {
+  reporting:     ['tableau','bord','reporting','indicateur','kpi','donnee','mesure','chiffre','suivi'],
+  decision:      ['decision','decider','arbitrage','trancher','arbitrer','comite','choix'],
+  priorites:     ['priorite','cap','objectif','cascade','strategie','ambition'],
+  coordination:  ['silo','transversal','service','equipe','coordination','collaborer','collaboration','ensemble'],
+  argent:        ['cout','marge','tresorerie','depense','budget','financement','argent','investissement'],
+  risques:       ['risque','anticiper','incident','panne','securite'],
+  simplification:['processu','simplifier','simple','complexite','friction','lourdeur'],
+  outils:        ['outil','numerique','digital','automatiser','logiciel','application'],
+  competences:   ['competence','formation','recrutement','succession','depart','autonomie'],
+};
+
+function familles(texte) {
+  const mots = new Set(normaliser(texte));
+  const out = new Set();
+  for (const [f, cles] of Object.entries(FAMILLES))
+    if (cles.some(c => [...mots].some(m => m.startsWith(c) || c.startsWith(m))))
+      out.add(f);
+  return out;
+}
+
+const normaliser = t => (t || '')
+  .toLowerCase()
+  .normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .replace(/[^a-z0-9\s-]/g, ' ')
+  .split(/\s+/)
+  .map(m => m.replace(/s$/, ''))          // pluriel grossier, suffisant ici
+  .filter(m => m.length >= 4 && !VIDES.has(m));
+
+const semainesEntre = (a, b) =>
+  Math.abs((new Date(a) - new Date(b)) / 604800000);
+
+function proximite(a, b) {
+  const A = new Set(normaliser(a)), B = new Set(normaliser(b));
+  if (A.size < 2 || B.size < 2) return { score: 0, communs: [] };
+  const communs = [...A].filter(m => B.has(m));
+  return { score: communs.length, communs };
+}
+
+function antiDoublonRegistre(chemin) {
+  const brut = readFileSync(chemin, 'utf8').replace(/^﻿/, '');
+  let d; try { d = JSON.parse(brut); } catch { return; }
+  if (!Array.isArray(d?.publications)) return;
+  examines++;
+
+  const vivantes = d.publications.filter(p =>
+    p.statut !== 'annule' && p.format !== 'ferie' &&
+    p.sujet && !/^(a|à) d[ée]finir/i.test(p.sujet));
+
+  const aujourdhui = new Date().toISOString().slice(0, 10);
+  const aVenir = vivantes.filter(p => p.date_nc >= aujourdhui);
+
+  const trouvailles = [];
+  for (const p of aVenir) {
+    let pire = null;
+    for (const q of vivantes) {
+      if (q === p || q.date_nc > p.date_nc) continue;   // on ne compare qu'au passé du candidat
+      const ecart = semainesEntre(p.date_nc, q.date_nc);
+      if (ecart > 8) continue;                           // au-delà de 8 semaines, on se tait
+      const { score, communs } = proximite(p.sujet, q.sujet);
+      const fam = [...familles(p.sujet)].filter(f => familles(q.sujet).has(f));
+
+      // Deux voies vers le signalement :
+      //   — même famille d'indicateur à 4 semaines ou moins, même sans mot commun
+      //   — 3 mots significatifs partagés (2 si la même quinzaine)
+      const parFamille = fam.length > 0 && ecart <= 4;
+      const parMots    = score >= (ecart <= 2 ? 2 : 3);
+      if (!parFamille && !parMots) continue;
+
+      const poids = fam.length * 10 + score - ecart;  // priorité à la famille, puis à la proximité
+      if (!pire || poids > pire.poids) pire = { q, score, communs, ecart, fam, poids };
+    }
+    if (pire) {
+      const j = Math.round(pire.ecart * 7);
+      const cause = pire.fam.length
+        ? `même famille d'indicateur (${pire.fam.join(', ')})`
+        : `${pire.score} terme(s) partagé(s)`;
+      trouvailles.push({ j, message:
+        `${p.date_nc} « ${p.sujet.slice(0, 54)} » — ${cause} avec ${pire.q.date_nc} « ${pire.q.sujet.slice(0, 44)} », ${j} jour(s) d'écart. Vérifier que l'ANGLE diffère : c'est la conjonction qui bloque, pas le sujet voisin.`,
+        extrait: pire.communs.length ? pire.communs.join(', ') : null });
+    }
+  }
+
+  // Du plus serré au plus large : deux jours d'écart se traite avant vingt-huit.
+  trouvailles.sort((a, b) => a.j - b.j);
+  for (const t of trouvailles) avert(basename(chemin), 'anti-doublon', t.message, t.extrait);
+  if (trouvailles.length) {
+    console.log(`  ${GRIS}anti-doublon : ${aVenir.length} échéance(s) à venir comparées à ${vivantes.length} publication(s), ${trouvailles.length} proximité(s) signalée(s).${RAZ}`);
+  }
+}
+
 /* ─────────── Extraction des textes à contrôler ─────────── */
 // Sur un carrousel, seuls les TITRES portent la règle nº 7 : pas les étiquettes,
 // pas le corps des items, pas les listes.
@@ -307,7 +436,26 @@ if (!args.length) {
   process.exit(2);
 }
 
-if (args[0] === '--titre') {
+if (args[0] === '--sujet') {
+  // Tester un sujet candidat AVANT de le poser au calendrier.
+  const sujet = args.slice(1).join(' ');
+  const REG = 'automation-agent/publications.json';
+  examines = 1;
+  try {
+    const d = JSON.parse(readFileSync(REG, 'utf8').replace(/^﻿/, ''));
+    const vivantes = d.publications.filter(p => p.statut !== 'annule' && p.sujet && !/^(a|à) d[ée]finir/i.test(p.sujet));
+    const proches = vivantes
+      .map(q => ({ q, ...proximite(sujet, q.sujet) }))
+      .filter(x => x.score >= 2)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
+    if (!proches.length) console.log(`
+${VERT}Aucun sujet proche dans le registre.${RAZ}`);
+    else for (const x of proches)
+      avert('(sujet fourni)', 'anti-doublon',
+        `${x.q.date_nc} « ${x.q.sujet.slice(0, 60)} » — ${x.score} terme(s) en commun.`, x.communs.join(', '));
+  } catch (e) { console.error(`Registre illisible : ${e.message}`); process.exit(2); }
+} else if (args[0] === '--titre') {
   const titre = args.slice(1).join(' ');
   examines = 1;
   regle7(titre, '(titre fourni)');
@@ -318,6 +466,7 @@ if (args[0] === '--titre') {
     if (!st.isFile()) continue;
     const ext = extname(a).toLowerCase();
     if (ext === '.html') traiterHtml(a);
+    else if (basename(a) === 'publications.json') antiDoublonRegistre(a);
     else if (ext === '.json') traiterJson(a);
   }
 }
