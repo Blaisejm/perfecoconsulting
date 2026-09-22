@@ -71,8 +71,12 @@ jobs:
       # des files d'attente. Les carrousels vivent dans l'autre dépôt : leur
       # contrôle se lance localement avant l'export Puppeteer.
       #
-      # Bloquant, comme le reste de ce workflow : il tourne à 19 h NC, soit
-      # seize heures avant la publication de 11 h. Il reste donc le temps de
-      # corriger, ce qui est tout l'objet de la règle « vérification en amont ».
-      - name: Contrôle éditorial (règle nº 7, jargon §6a, charte)
-        run: node scripts/controle-editorial.mjs automation-queue/*.json
+      # Bloquant, comme le reste de ce workflow : il tourne à 16 h NC, dans la
+      # fenêtre active, dix-neuf heures avant la publication de 11 h. Il reste
+      # donc le temps de corriger — c'est tout l'objet de « vérification en amont ».
+      #
+      # L'anti-doublon, lui, n'est qu'un AVERTISSEMENT : une machine mesure la
+      # proximité d'indicateur, elle ne juge pas de l'angle. C'est la conjonction
+      # des deux qui bloque (règle du 03/09), et la seconde moitié est une lecture.
+      - name: Contrôle éditorial (règles nº 7, §1, §2, §4, charte, jargon, anti-doublon)
+        run: node scripts/controle-editorial.mjs automation-queue/*.json automation-agent/publications.json
