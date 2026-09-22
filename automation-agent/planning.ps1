@@ -103,7 +103,11 @@ if ($Rafraichir) {
 
     foreach ($e in $reg.publications) {
         # On ne touche jamais au passé : ce qui est publié est un fait acquis.
-        if ($e.statut -like 'publie*' -or $e.statut -eq 'annule') { continue }
+        # 'non_publie' : diffusion manquee, CONSTATEE et CLOSE par Jean-Michel (option 1 de la
+        # validation v-2026-09-22-02, tranchee le 23/09/2026). C'est un etat terminal au meme
+        # titre que 'publie' ou 'annule' : sans cette exemption, le rafraichissement le
+        # ramenait a 'echeance_depassee' au passage suivant et l'anomalie se rouvrait seule.
+        if ($e.statut -like 'publie*' -or $e.statut -eq 'annule' -or $e.statut -eq 'non_publie') { continue }
 
         $d = [datetime]::ParseExact($e.date_nc, 'yyyy-MM-dd', $null)
         if ($d -lt $today) {
@@ -175,11 +179,13 @@ $icone = @{
     'echec'                 = '[KO]  '
     'echeance_depassee'     = '[!!]  '
     'annule'                = '[--]  '
+    'non_publie'            = '[NON] '
 }
 $couleur = @{
     'publie' = 'Green'; 'publie_hors_pipeline' = 'Magenta'; 'en_file' = 'Green'
     'en_staging' = 'Yellow'; 'en_production' = 'Yellow'; 'prevu' = 'Gray'
     'echec' = 'Red'; 'echeance_depassee' = 'Red'; 'annule' = 'DarkGray'
+    'non_publie' = 'DarkGray'
 }
 
 # ---------------------------------------------------------------------------
