@@ -1,0 +1,440 @@
+{
+  "_comment": [
+    "Registre de l'état des règles PerfEco. Source machine — ne pas écrire le .md à la main.",
+    "etat : ecrite (un lecteur l'applique) < verifiable (question fermée possible) < executee (un contrôle bloque).",
+    "Indicateur d'autonomie = part des règles à l'état executee."
+  ],
+  "derniere_maj": "2026-09-23",
+  "regles": [
+    {
+      "id": "ps-pieges",
+      "nom": "Pièges PowerShell 5.1",
+      "categorie": "technique",
+      "date": "2026-09-12",
+      "etat": "executee",
+      "controle": "controle-syntaxe.mjs (check-syntaxe.yml)",
+      "question": "Le .ps1 a-t-il un BOM, et contient-il un caractère de contrôle ?",
+      "note": "Sept pannes silencieuses documentées. Le contrôle tourne à chaque push et bloque."
+    },
+    {
+      "id": "verif-amont",
+      "nom": "Vérification en amont",
+      "categorie": "process",
+      "date": "2026-07-28",
+      "etat": "executee",
+      "controle": "check-syntaxe.yml",
+      "question": "Les blocs run: passent-ils bash -n, les JSON sont-ils valides ?",
+      "note": "Passé en code le 21/09. Échec bloquant, pas d'avertissement."
+    },
+    {
+      "id": "registre-central",
+      "nom": "Registre central des publications",
+      "categorie": "calendrier",
+      "date": "2026-08-21",
+      "etat": "executee",
+      "controle": "controle-pipeline.mjs — dérive registre / files",
+      "question": "Le registre et les files d'attente disent-ils la même chose ?",
+      "note": "Ne jamais recalculer « le prochain mardi » seul."
+    },
+    {
+      "id": "espacement",
+      "nom": "Espacement des publications",
+      "categorie": "calendrier",
+      "date": "2026-08-17",
+      "etat": "executee",
+      "controle": "controle-pipeline.mjs — contrôle 3",
+      "question": "Deux posts le même jour sur la Company Page ?",
+      "note": "Tient compte des publications manuelles. La règle des 48 h sur le perso a été abandonnée le 15/09."
+    },
+    {
+      "id": "makecom-filtres",
+      "nom": "Filtres de routes Make.com",
+      "categorie": "technique",
+      "date": "2026-08-18",
+      "etat": "executee",
+      "controle": "check-avant-publication.yml",
+      "question": "Le filtre du suffixe est-il dans le blueprint, avec l'opérateur « does not contain » ?",
+      "note": "Un suffixe sans filtre ne bloque rien — doublon du 16/08."
+    },
+    {
+      "id": "linkedin-token",
+      "nom": "Péremption du token LinkedIn",
+      "categorie": "technique",
+      "date": "2026-09-21",
+      "etat": "executee",
+      "controle": "check-avant-publication.yml + controle-pipeline.mjs",
+      "question": "Le token expire-t-il dans moins de 15 jours ?",
+      "note": "Alarme bloquante à J-15. Source unique dans calendrier.json."
+    },
+    {
+      "id": "linkedin-version",
+      "nom": "Version d'API LinkedIn",
+      "categorie": "technique",
+      "date": "2026-09-22",
+      "etat": "executee",
+      "controle": "verifier-version-linkedin.cjs + check-avant-publication.yml",
+      "question": "La version déclarée est-elle encore servie par LinkedIn ?",
+      "note": "Fenêtre de ~12 mois, mais certains mois ne sont jamais publiés."
+    },
+    {
+      "id": "publication-reelle",
+      "nom": "« Accepted » n'est pas « publié »",
+      "categorie": "technique",
+      "date": "2026-07-18",
+      "etat": "executee",
+      "controle": "check-apres-publication.yml",
+      "question": "Le post existe-t-il réellement sur la page, aujourd'hui ?",
+      "note": "Interroge l'API Facebook et compare la date du dernier post."
+    },
+    {
+      "id": "wordpress-statut",
+      "nom": "Statut réel de l'article WordPress",
+      "categorie": "technique",
+      "date": "2026-07-21",
+      "etat": "executee",
+      "controle": "check-apres-publication.yml",
+      "question": "L'article est-il en publish, catégorisé, étiqueté, et son URL répond-elle ?",
+      "note": "Quatre contrôles distincts, dont l'URL publique."
+    },
+    {
+      "id": "bilingue",
+      "nom": "Articles bilingues FR + EN",
+      "categorie": "editorial",
+      "date": "2026-06-29",
+      "etat": "executee",
+      "controle": "check-apres-publication.yml",
+      "question": "Les deux URL, /ressources/ et /en/resources/, répondent-elles 200 ?",
+      "note": "Une des rares règles éditoriales déjà mécanisée."
+    },
+    {
+      "id": "horizon",
+      "nom": "Horizon du cahier de publication",
+      "categorie": "calendrier",
+      "date": "2026-08-21",
+      "etat": "executee",
+      "controle": "controle-pipeline.mjs — contrôle 4",
+      "question": "L'horizon du registre recule-t-il ?",
+      "note": "Complète la revue semestrielle."
+    },
+    {
+      "id": "validation-48h",
+      "nom": "Délai de validation de 48 h",
+      "categorie": "process",
+      "date": "2026-09-12",
+      "etat": "executee",
+      "controle": "controle-pipeline.mjs — contrôle 5",
+      "question": "Un arbitrage est-il ouvert depuis plus de 48 h ?",
+      "note": "Le compteur part de la question posée, pas détectée."
+    },
+    {
+      "id": "taches-planifiees",
+      "nom": "Un statut n'est pas une preuve",
+      "categorie": "process",
+      "date": "2026-08-02",
+      "etat": "executee",
+      "controle": "controle-pipeline.mjs — schéma, staging",
+      "question": "La bascule a-t-elle réellement écrit, et le schéma est-il celui attendu ?",
+      "note": "Quatre pannes d'août lui échappaient avant le 21/08."
+    },
+    {
+      "id": "image-joignable",
+      "nom": "L'image doit se télécharger",
+      "categorie": "technique",
+      "date": "2026-08-21",
+      "etat": "executee",
+      "controle": "controle-pipeline.mjs",
+      "question": "L'URL du visuel répond-elle avant l'heure de publication ?",
+      "note": "Jamais vérifié auparavant."
+    },
+    {
+      "id": "verrou",
+      "nom": "Jamais deux routines en parallèle",
+      "categorie": "process",
+      "date": "2026-09-21",
+      "etat": "executee",
+      "controle": "verrou.ps1 — mutex + battement",
+      "question": "Le verrou est-il détenu par une routine vivante ?",
+      "note": "Refondu le 21/09 : horodatage UTC, transaction indivisible, process de battement."
+    },
+    {
+      "id": "tracabilite",
+      "nom": "Traçabilité des routines",
+      "categorie": "process",
+      "date": "2026-08-21",
+      "etat": "executee",
+      "controle": "trace-routine.ps1",
+      "question": "La routine a-t-elle clôturé par un commit signé de son nom dans les deux dépôts ?",
+      "note": "Consultation par qui-a-touche.ps1."
+    },
+    {
+      "id": "typo-7",
+      "nom": "Un slogan s'énonce, il ne se déduit pas",
+      "categorie": "visuel",
+      "date": "2026-09-12",
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — bloquant",
+      "question": "Le titre contient-il « ce n'est pas », « plutôt que », « moins … que », « sans », ou deux propositions opposées ?",
+      "note": "Déclenchée trois fois le 22/09 sur les accroches du lot 2. La plus rentable à coder."
+    },
+    {
+      "id": "typo-6a",
+      "nom": "Un visuel se lit sans traduction",
+      "categorie": "visuel",
+      "date": "2026-08-19",
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — avertissement",
+      "question": "Le texte du visuel contient-il capacité, pilotage, arbitrage, alignement, levier, portage, le nouveau ?",
+      "note": "Liste de mots fermée, donc testable telle quelle."
+    },
+    {
+      "id": "typo-1",
+      "nom": "Coupures de ligne au niveau de la phrase",
+      "categorie": "visuel",
+      "date": "2026-07-12",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "Un <br> isole-t-il un article, une préposition ou un mot seul en fin de ligne ?",
+      "note": "Testable sur le HTML avant export. Ne remplace pas la relecture du PNG."
+    },
+    {
+      "id": "typo-2",
+      "nom": "Épaisseur autant que taille",
+      "categorie": "visuel",
+      "date": "2026-07-12",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "Les titres sont-ils en font-weight 900, les callouts au minimum 700 ?",
+      "note": "Lecture directe du CSS."
+    },
+    {
+      "id": "typo-4",
+      "nom": "Le conseil doit dominer la slide",
+      "categorie": "visuel",
+      "date": "2026-08-17",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "La taille du callout est-elle supérieure à celle du texte courant ?",
+      "note": "Comparaison de deux valeurs CSS."
+    },
+    {
+      "id": "emojis",
+      "nom": "Densité d'emoji sur les textes réseaux",
+      "categorie": "editorial",
+      "date": "2026-07-12",
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — avertissement",
+      "question": "Le post compte-t-il au moins un marqueur visuel par idée, et les coordonnées sont-elles sur des lignes séparées ?",
+      "note": "Ne s'applique jamais au HTML des carrousels."
+    },
+    {
+      "id": "charte-couleurs",
+      "nom": "Couleurs de charte",
+      "categorie": "visuel",
+      "date": "2026-06-26",
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — bloquant",
+      "question": "Le fichier produit contient-il #001D9F et #FBAA16 — ou #163D78 et #FBAA16 pour le gabarit V2 ?",
+      "note": "Lecture du HTML, ou échantillonnage des pixels du PNG."
+    },
+    {
+      "id": "charte-logo",
+      "nom": "Logo présent et à la bonne taille",
+      "categorie": "visuel",
+      "date": "2026-06-26",
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — bloquant",
+      "question": "Le logo est-il chargé par URL absolue, à 130 px sur fond clair et 150 px sur fond sombre ?",
+      "note": "Jamais en file:///."
+    },
+    {
+      "id": "puppeteer",
+      "nom": "Export Puppeteer",
+      "categorie": "technique",
+      "date": "2026-07-08",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "Les arguments obligatoires sont-ils présents, et toutes les images ont-elles naturalWidth > 0 ?",
+      "note": "Le second contrôle est déjà écrit dans export-slides-w44.cjs — à généraliser."
+    },
+    {
+      "id": "nommage",
+      "nom": "Nommage routines et workflows",
+      "categorie": "process",
+      "date": "2026-08-18",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "Le nom porte-t-il le jour de diffusion et le type de publication ?",
+      "note": "Sept workflows renommés le 18/08."
+    },
+    {
+      "id": "signature",
+      "nom": "Signature des routines dans leurs livrables",
+      "categorie": "process",
+      "date": "2026-09-12",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "Le brouillon porte-t-il l'objet [PerfEco · <routine>] et le pied de message ?",
+      "note": "Rend l'anti-doublon Gmail propre à chaque routine."
+    },
+    {
+      "id": "livraison-cowork",
+      "nom": "Toute routine finit par un brouillon Gmail",
+      "categorie": "process",
+      "date": "2026-07-01",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "Un brouillon a-t-il été créé pour cette exécution ?",
+      "note": "« Afficher » seul est invisible sans session ouverte."
+    },
+    {
+      "id": "j8",
+      "nom": "Règle J-8",
+      "categorie": "calendrier",
+      "date": "2026-08-19",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "Chaque échéance à J-8 a-t-elle un contenu réellement produit ?",
+      "note": "Partiellement couverte : check-preparation-contenu vérifie la file, pas la qualité du contenu."
+    },
+    {
+      "id": "mesure-j7",
+      "nom": "Mesure d'audience à J+7",
+      "categorie": "process",
+      "date": "2026-08-18",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "L'impression utilisée a-t-elle au moins 7 jours ?",
+      "note": "Une décision éditoriale a déjà été prise sur une mesure trop fraîche, le 16/08."
+    },
+    {
+      "id": "conventions-wxx",
+      "nom": "Deux conventions « WXX »",
+      "categorie": "process",
+      "date": "2026-09-15",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "L'étiquette de semaine vient-elle de la production ou de la publication ISO ?",
+      "note": "Quatre étiquettes fausses sur huit dans mesures-j7.json, corrigées le 15/09."
+    },
+    {
+      "id": "anti-doublon",
+      "nom": "Répétition : indicateur ET angle",
+      "categorie": "editorial",
+      "date": "2026-09-03",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "Ce sujet reprend-il un indicateur déjà publié avec le même angle, à moins de N semaines ?",
+      "note": "L'historique est dans le registre. La comparaison d'angle demande du jugement — mécaniser l'alerte, pas le verdict."
+    },
+    {
+      "id": "v2-visuel",
+      "nom": "Contrôle V2 — visuel conforme",
+      "categorie": "visuel",
+      "date": "2026-09-15",
+      "etat": "verifiable",
+      "controle": null,
+      "question": "Le visuel respecte-t-il #163D78 / #FBAA16, le logo officiel et le gabarit ?",
+      "note": "Un des huit contrôles V2, le seul entièrement mécanisable."
+    },
+    {
+      "id": "conseil-medecin",
+      "nom": "Registre conseil « médecin »",
+      "categorie": "editorial",
+      "date": "2026-08-17",
+      "etat": "ecrite",
+      "controle": null,
+      "question": null,
+      "note": "Reconnaître ce qui a été tenté, puis recommander, et clôturer en positif."
+    },
+    {
+      "id": "principe-management",
+      "nom": "Parler aux managers de sujets sur les managers",
+      "categorie": "editorial",
+      "date": "2026-08-04",
+      "etat": "ecrite",
+      "controle": null,
+      "question": null,
+      "note": "Et toujours une recommandation actionnable, jamais un diagnostic seul."
+    },
+    {
+      "id": "themes-comex",
+      "nom": "Cadrage des thèmes COMEX",
+      "categorie": "editorial",
+      "date": "2026-08-04",
+      "etat": "ecrite",
+      "controle": null,
+      "question": null,
+      "note": "Six thèmes à privilégier, quatre à éviter comme sujet principal."
+    },
+    {
+      "id": "preuve-honnete",
+      "nom": "Contrôle V2 — preuve honnête",
+      "categorie": "editorial",
+      "date": "2026-09-15",
+      "etat": "ecrite",
+      "controle": null,
+      "question": null,
+      "note": "Chiffre vérifié à la source, bénéfice non mesuré présenté comme un objectif. Irréductible."
+    },
+    {
+      "id": "verifier-avant",
+      "nom": "Vérifier avant d'écrire",
+      "categorie": "process",
+      "date": "2026-09-03",
+      "etat": "ecrite",
+      "controle": null,
+      "question": null,
+      "note": "La date du commit décide, jamais l'auteur. Un process en arrière-plan tourne en UTC."
+    },
+    {
+      "id": "agenda-foi",
+      "nom": "Agenda et messagerie font foi",
+      "categorie": "process",
+      "date": "2026-09-12",
+      "etat": "ecrite",
+      "controle": null,
+      "question": null,
+      "note": "Un fichier de suivi figé a produit une conclusion fausse sur le segment communes."
+    },
+    {
+      "id": "transcription",
+      "nom": "Transcription avant livrable",
+      "categorie": "process",
+      "date": "2026-08-23",
+      "etat": "ecrite",
+      "controle": null,
+      "question": null,
+      "note": "Ne vaut que pour les routines locales — les routines cloud n'ont pas accès au disque."
+    },
+    {
+      "id": "securite-cles",
+      "nom": "Sécurité des clés API",
+      "categorie": "process",
+      "date": "2026-06-30",
+      "etat": "ecrite",
+      "controle": null,
+      "question": null,
+      "note": "Ne jamais lire un fichier de credentials en conversation."
+    },
+    {
+      "id": "feries",
+      "nom": "Jours fériés et bascules",
+      "categorie": "calendrier",
+      "date": "2026-08-21",
+      "etat": "ecrite",
+      "controle": null,
+      "question": null,
+      "note": "Vendredi férié → samedi, jeudi → mercredi, mardi → lundi. Fériés calculés, revue semestrielle."
+    },
+    {
+      "id": "onedrive",
+      "nom": "Fichier OneDrive « en ligne uniquement »",
+      "categorie": "process",
+      "date": "2026-09-22",
+      "etat": "ecrite",
+      "controle": null,
+      "question": null,
+      "note": "Si python-docx ouvre le fichier, le document est sain : c'est un problème d'accès."
+    }
+  ]
+}

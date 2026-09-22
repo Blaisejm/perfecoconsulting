@@ -50,3 +50,18 @@ jobs:
       # Jean-Michel du 21/08/2026. Voir automation-agent/JOURNAL.md.
       - name: Contrôle du pipeline (files, schéma, images, staging, journal)
         run: node scripts/controle-pipeline.mjs
+
+      # Contrôle ÉDITORIAL — ajouté le 23/09/2026.
+      #
+      # Le compte des règles du 23/09 a établi que 17 règles sur 43 étaient
+      # parfaitement testables et que rien ne les testait : toutes les règles
+      # éditoriales vivaient dans du Markdown, qu'aucune machine ne lit.
+      # Ce pas-ci en exécute trois, sur ce que le dépôt peut voir — les textes
+      # des files d'attente. Les carrousels vivent dans l'autre dépôt : leur
+      # contrôle se lance localement avant l'export Puppeteer.
+      #
+      # Bloquant, comme le reste de ce workflow : il tourne à 19 h NC, soit
+      # seize heures avant la publication de 11 h. Il reste donc le temps de
+      # corriger, ce qui est tout l'objet de la règle « vérification en amont ».
+      - name: Contrôle éditorial (règle nº 7, jargon §6a, charte)
+        run: node scripts/controle-editorial.mjs automation-queue/*.json
