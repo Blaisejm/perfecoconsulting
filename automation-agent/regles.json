@@ -191,8 +191,8 @@
       "nom": "Coupures de ligne au niveau de la phrase",
       "categorie": "visuel",
       "date": "2026-07-12",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — bloquant",
       "question": "Un <br> isole-t-il un article, une préposition ou un mot seul en fin de ligne ?",
       "note": "Testable sur le HTML avant export. Ne remplace pas la relecture du PNG."
     },
@@ -201,8 +201,8 @@
       "nom": "Épaisseur autant que taille",
       "categorie": "visuel",
       "date": "2026-07-12",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — bloquant",
       "question": "Les titres sont-ils en font-weight 900, les callouts au minimum 700 ?",
       "note": "Lecture directe du CSS."
     },
@@ -211,8 +211,8 @@
       "nom": "Le conseil doit dominer la slide",
       "categorie": "visuel",
       "date": "2026-08-17",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — bloquant",
       "question": "La taille du callout est-elle supérieure à celle du texte courant ?",
       "note": "Comparaison de deux valeurs CSS."
     },
@@ -331,8 +331,8 @@
       "nom": "Contrôle V2 — visuel conforme",
       "categorie": "visuel",
       "date": "2026-09-15",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — bloquant",
       "question": "Le visuel respecte-t-il #163D78 / #FBAA16, le logo officiel et le gabarit ?",
       "note": "Un des huit contrôles V2, le seul entièrement mécanisable."
     },
