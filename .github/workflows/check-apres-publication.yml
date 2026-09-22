@@ -267,7 +267,13 @@ jobs:
           # jour aurait attendu 0 opération un jour de vraie publication.
           case "$FORMAT" in
             carrousel)     EXPECTED=4; CANAUX="LinkedIn Company + Facebook (profil perso servi hors Make, par l'API LinkedIn directe)" ;;
-            postcourt)     EXPECTED=4; CANAUX="LinkedIn Company + Facebook (profil perso volontairement exclu depuis le 17/08)" ;;
+            # ⚠️ EXPECTED reste a 4 : le compte ne change PAS avec la decision du 15/09/2026.
+            # Le bareme est « 2 operations de base + 1 par route servie » (republication 1 route = 3,
+            # carrousel et post court 2 routes = 4, veille 3 routes = 5). Le post court servait
+            # Company + Facebook, il sert desormais Company + profil perso : deux routes dans les
+            # deux cas. Seul le LIBELLE etait perime, et il s affiche dans le message d erreur,
+            # c est-a-dire au pire moment. Corrige le 23/09/2026 — ne pas « reparer » le 4.
+            postcourt)     EXPECTED=4; CANAUX="LinkedIn Company + profil perso (Facebook exclu le jeudi par le suffixe -NOFB depuis le 15/09/2026 ; il recoit le meme contenu le samedi a 15h30)" ;;
             veille)        EXPECTED=5; CANAUX="LinkedIn Company + profil perso + Facebook" ;;
             republication) EXPECTED=3; CANAUX="Facebook UNIQUEMENT (republication du post court, suffixe FBONLY)" ;;
             *)             EXPECTED=0; CANAUX="(jour sans publication attendue)" ;;
