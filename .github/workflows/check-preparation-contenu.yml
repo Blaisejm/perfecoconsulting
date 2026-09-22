@@ -27,7 +27,18 @@ name: "PerfEco — Vérification préparation contenu (filet indépendant de Cow
 
 on:
   schedule:
-    - cron: '0 8 * * *'   # Tous les jours 08h00 UTC = 19h00 NC (après la routine Cowork de 17h)
+    # 05h00 UTC = 16h00 NC, tous les jours.
+    #
+    # DÉPLACÉ LE 23/09/2026, sur demande de Jean-Michel : les contrôles doivent
+    # tomber pendant qu'il est actif, jamais le soir ni la nuit.
+    #
+    # L'horaire précédent — 19h00 NC — n'était pas un choix : il datait du temps
+    # où la routine de production tournait à 17h00. Elle a été déplacée à 08h00
+    # le 12/09/2026 (son PC était éteint à 17h), et ce contrôle est resté calé
+    # sur une routine qui n'existe plus. 16h00 NC le remet huit heures après la
+    # production, et laisse toute la fin de journée pour corriger au lieu de
+    # découvrir un défaut au moment de fermer.
+    - cron: '0 5 * * *'
   workflow_dispatch:
 
 jobs:
