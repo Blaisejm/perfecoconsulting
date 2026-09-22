@@ -145,6 +145,103 @@ function charte(html, fichier) {
   }
 }
 
+/* ─────────── RÈGLE §1 — coupures de ligne au niveau de la phrase ───────────
+ *
+ * Trois défauts seulement, tous objectifs. Volontairement PAS de contrôle
+ * « un seul mot sur la dernière ligne » : « Le projet / d'abord. / L'argent /
+ * ensuite. » est un rythme voulu, validé le 22/09. Un contrôle qui condamne une
+ * mise en page approuvée se fait désactiver, et emporte les autres avec lui.
+ */
+const MOTS_OUTILS = new Set([
+  'le','la','les','un','une','des','du','de','d','au','aux','à','en','et','ou',
+  'qui','que','qu','dans','sur','pour','par','avec','sans','son','sa','ses',
+  'leur','leurs','ce','cet','cette','ne','se','il','elle','on','nos','vos','notre','votre',
+]);
+
+const nettoyer = s => s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+
+function regle1(brut, fichier) {
+  if (!/<br\s*\/?>/i.test(brut)) return;
+  const segments = brut.split(/<br\s*\/?>/i).map(nettoyer).filter(Boolean);
+  if (segments.length < 2) return;
+
+  for (let i = 0; i < segments.length; i++) {
+    const mots = segments[i].split(/\s+/);
+    const dernier = mots[mots.length - 1].toLowerCase().replace(/[.,;:!?…'’]+$/g, '');
+
+    // (a) un segment se termine par un mot outil — il a été coupé de son groupe
+    if (i < segments.length - 1 && MOTS_OUTILS.has(dernier)) {
+      err(fichier, '§1', `Coupure après « ${mots[mots.length - 1]} » : un mot de liaison reste seul en fin de ligne, séparé du groupe qu'il introduit.`, segments[i]);
+    }
+    // (b) un segment entier n'est qu'un mot outil
+    if (mots.length === 1 && MOTS_OUTILS.has(dernier)) {
+      err(fichier, '§1', `La ligne « ${segments[i]} » ne contient qu'un mot de liaison.`, null);
+    }
+    // (c) un nombre groupé coupé en deux — « 50 000 » sur deux lignes
+    if (i < segments.length - 1 && /\d$/.test(segments[i]) && /^\d/.test(segments[i + 1])) {
+      err(fichier, '§1', `Nombre coupé entre deux lignes : « ${segments[i].slice(-6)} » puis « ${segments[i + 1].slice(0, 6)} ».`, null);
+    }
+  }
+}
+
+/* ─────────── RÈGLES §2 et §4 — épaisseur, et le conseil doit dominer ───────────
+ *
+ * Deux lectures directes du CSS, sans jugement.
+ *   §2 : un titre en dessous de 900, un encadré en dessous de 700, paraissent
+ *        faibles même à la bonne taille.
+ *   §4 : le conseil est la raison d'être de la slide. S'il est plus petit que
+ *        le texte courant, il est illisible — défaut structurel du 17/08, où
+ *        .callout p était à 21px contre 24px pour .item .text.
+ */
+function declarationsCss(html) {
+  const css = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map(m => m[1]).join('\n');
+  const regles = new Map();
+  for (const m of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+    const corps = m[2];
+    const taille = corps.match(/font-size:\s*(\d+(?:\.\d+)?)px/i);
+    const graisse = corps.match(/font-weight:\s*(\d{3})/i);
+    if (!taille && !graisse) continue;
+    for (const sel of m[1].split(',').map(s => s.trim()).filter(Boolean)) {
+      const p = regles.get(sel) || {};
+      if (taille) p.taille = parseFloat(taille[1]);
+      if (graisse) p.graisse = parseInt(graisse[1], 10);
+      regles.set(sel, p);
+    }
+  }
+  return regles;
+}
+
+const trouver = (regles, motif) => {
+  for (const [sel, p] of regles) if (motif.test(sel)) return { sel, ...p };
+  return null;
+};
+
+function regles2et4(html, fichier) {
+  const r = declarationsCss(html);
+  if (!r.size) return;
+
+  // §2 — graisses
+  for (const [motif, mini, quoi] of [
+    [/\.main-title\b/, 900, 'titre de couverture'],
+    [/\.cta-title\b/, 900, 'titre de CTA'],
+    [/\.callout p\b/, 700, 'texte de l\'encadré conseil'],
+    [/\.diag-callout\b/, 700, 'encadré de diagnostic'],
+    [/\.callout-label\b/, 800, 'intitulé de l\'encadré'],
+  ]) {
+    const t = trouver(r, motif);
+    if (t && t.graisse !== undefined && t.graisse < mini) {
+      err(fichier, '§2', `${quoi} en font-weight ${t.graisse} — minimum ${mini}. Si le texte ne tient pas, réduire la taille, jamais la graisse.`, t.sel);
+    }
+  }
+
+  // §4 — le conseil doit dominer le texte courant
+  const conseil = trouver(r, /\.callout p\b/);
+  const courant = trouver(r, /\.item .text\b/) || trouver(r, /\.index-desc\b/);
+  if (conseil?.taille && courant?.taille && conseil.taille <= courant.taille) {
+    err(fichier, '§4', `L'encadré conseil (${conseil.taille}px) n'est pas plus grand que le texte courant (${courant.taille}px). Le conseil est la raison d'être de la slide : il doit dominer.`, `${conseil.sel} vs ${courant.sel}`);
+  }
+}
+
 /* ─────────── Extraction des textes à contrôler ─────────── */
 // Sur un carrousel, seuls les TITRES portent la règle nº 7 : pas les étiquettes,
 // pas le corps des items, pas les listes.
@@ -160,11 +257,28 @@ function titresHtml(html) {
   return out;
 }
 
+// La règle §1 porte aussi sur les encadrés : « tous les <br> des callouts
+// doivent être recalés après un changement de taille » — leçon du 17/08.
+function blocsCoupables(html) {
+  const out = [];
+  for (const re of [
+    /<h1[^>]*>([\s\S]*?)<\/h1>/gi,
+    /<h2[^>]*>([\s\S]*?)<\/h2>/gi,
+    /<p[^>]*class="[^"]*subtitle[^"]*"[^>]*>([\s\S]*?)<\/p>/gi,
+    /<div[^>]*class="[^"]*callout[^"]*"[^>]*>[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/gi,
+    /<div[^>]*class="[^"]*diag-callout[^"]*"[^>]*>([\s\S]*?)<\/div>/gi,
+    /<div[^>]*class="[^"]*index-desc[^"]*"[^>]*>([\s\S]*?)<\/div>/gi,
+  ]) for (const m of html.matchAll(re)) out.push(m[1]);
+  return out;
+}
+
 function traiterHtml(chemin) {
   const html = readFileSync(chemin, 'utf8');
   const nom = basename(chemin);
   examines++;
   for (const t of titresHtml(html)) { regle7(t, nom); regle6a(t, nom); }
+  for (const b of blocsCoupables(html)) regle1(b, nom);
+  regles2et4(html, nom);
   charte(html, nom);
 }
 
