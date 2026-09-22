@@ -378,6 +378,55 @@ if (!regf.ok) {
     }
   }
 
+  // 2 bis. Les canaux annoncés correspondent-ils au créneau ?
+  //
+  // Ajouté le 23/09/2026, sur demande de Jean-Michel. Ce jour-là, 33 jeudis à
+  // venir (08/10/2026 → 20/05/2027) portaient encore `linkedin_company +
+  // facebook`, héritage d'avant la décision du 15/09 qui a donné le jeudi à
+  // LinkedIn Company + profil perso. L'erreur a vécu huit jours et n'a été vue
+  // qu'à l'œil nu, par hasard : rien ne contrôlait ce champ.
+  //
+  // Aucun automatisme n'en dérive son comportement — calendrier-lisible.py ne
+  // l'utilise pas, check-apres-publication.yml code ses attentes en dur par
+  // format, et le seul lecteur est le contrôle d'espacement ci-dessous, qui n'y
+  // cherche que `linkedin_company`. Mais c'est le champ qu'on lit pour répondre
+  // « où part ce contenu », y compris au moment de produire : une valeur fausse
+  // se propage dans un compte rendu avant de se propager dans un fichier.
+  const CANAUX_ATTENDUS = {
+    mardi: ['linkedin_company', 'linkedin_perso', 'facebook'],
+    jeudi: ['linkedin_company', 'linkedin_perso'],
+    vendredi: ['linkedin_company', 'linkedin_perso', 'facebook'],
+  };
+  const derives = [];
+  for (const p of pubs) {
+    // On ne juge QUE l'avenir. Une entrée passée enregistre ce qui a réellement
+    // eu lieu : les six jeudis d'avant le 15/09/2026 portent company+facebook
+    // parce que c'était vrai ce jour-là. Les « corriger » réécrirait l'histoire.
+    if (p.date_nc < today) continue;
+    if (p.statut === 'annule' || p.statut === 'non_publie') continue;
+    const attendu = CANAUX_ATTENDUS[p.format];
+    if (!attendu) continue;   // ad-hoc, article, férié, republication : variables par nature
+    const reel = [...(p.canaux ?? [])].sort().join('+');
+    if (reel !== [...attendu].sort().join('+')) {
+      derives.push({ date: p.date_nc, format: p.format, reel, attendu: attendu.join(' + ') });
+    }
+  }
+  if (derives.length === 0) {
+    dire('  Canaux : les échéances à venir correspondent toutes à leur créneau ✅');
+  } else {
+    // Un résumé, jamais une ligne par entrée : 33 lignes noieraient le reste et
+    // le contrôle finirait par être survolé — c'est ainsi qu'un garde-fou meurt.
+    const dates = derives.map((d) => d.date).sort();
+    const cas = [...new Set(derives.map((d) => `${d.format} : « ${d.reel || '(aucun)'} » au lieu de « ${d.attendu} »`))];
+    const msg = `Registre — ${derives.length} échéance(s) à venir annoncent des canaux qui ne correspondent pas à leur créneau (${dates[0]} → ${dates[dates.length - 1]}). ${cas.join(' ; ')}. Rappel : depuis le 15/09/2026 le jeudi part sur LinkedIn Company + profil perso, Facebook recevant le même contenu le samedi à 15h30.`;
+    const imminentes = derives.filter((d) => ecartJours(today, d.date) <= seuil);
+    if (imminentes.length > 0) {
+      bloquant(`${msg} ⚠️ ${imminentes.length} à moins de ${seuil} jours (${imminentes.map((d) => d.date).join(', ')}) : une routine de production va lire ce champ avant de rédiger.`);
+    } else {
+      alerter(`${msg} Aucune à moins de ${seuil} jours : dérive documentaire, à corriger sans urgence.`);
+    }
+  }
+
   // 3. Espacement, en tenant compte des publications MANUELLES.
   //    C'est ce que le pipeline seul ne pouvait pas voir : le 21/08/2026, un post
   //    publié à la main est parti 2 h avant la veille éco, sur les mêmes canaux.
