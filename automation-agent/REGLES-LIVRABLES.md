@@ -165,6 +165,64 @@ médias** — ce qui se produit et se diffuse. Il ne s'applique pas à :
 
 ---
 
+## Règle 3 — le verrou se prend avant toute écriture, même hors routine
+
+> « Prends le verrou avant toute écriture, même hors routine. »
+> — Jean-Michel, 23/09/2026
+
+### Pourquoi cette règle existe
+
+Le verrou ne couvrait que les **routines** : `verrou.ps1 -Prendre` est l'ÉTAPE −1 de chaque
+fiche. Mais les dépôts sont aussi écrits **hors routine** — un correctif demandé en
+conversation, un arbitrage appliqué, une correction de registre. Ces écritures-là arrivent à
+des heures imprévisibles, sur les mêmes fichiers, sans aucune exclusion mutuelle.
+
+Constaté le 23/09/2026. Une séquence manuelle (passage du 17/09 en `non_publie`, bascule du
+staging du jeudi, correction des canaux de 33 jeudis) a chevauché :
+
+- `perfeco-rappel-quotidien`, qui tournait de **09h41 à 09h46** et a basculé le carrousel du
+  29/09 ;
+- une autre session, qui modifiait `scripts/controle-editorial.mjs` à **09h24** et **09h33**.
+
+**Rien n'a cassé** — fichiers différents, et un `git pull` avant chaque écriture. Mais la
+garantie posée le 12/09 (« en aucun cas les routines ne tournent en parallèle ») était levée,
+et le raisonnement qui y avait conduit — « rien ne tourne en ce moment » — était faux.
+
+### Comment faire
+
+```powershell
+& 'C:\Projets\perfecoconsulting\automation-agent\verrou.ps1' -Prendre -Routine "intervention-manuelle"
+```
+
+Le nom est inconnu de la table `$RANGS`, donc **rang 99** : une intervention manuelle passe
+après toutes les routines planifiées. C'est la bonne priorité — la production d'abord.
+
+### ⚠️ Deux différences avec une routine, qui se paient cher si on les oublie
+
+**1. Personne ne libère le verrou à votre place.** Une routine se clôture par
+`trace-routine.ps1`, qui libère. Hors routine, il n'y a pas de clôture : il faut rendre le
+verrou explicitement, sinon il reste tenu.
+
+```powershell
+& 'C:\Projets\perfecoconsulting\automation-agent\verrou.ps1' -Liberer -Routine "intervention-manuelle"
+```
+
+L'oubli n'est pas anodin : le process de battement maintient le verrou **vivant**, donc aucune
+routine ne peut le reprendre — ni par péremption, ni en force. Le blocage dure jusqu'à
+`BattementMaxHeures` (2 h), et toutes les routines de la fenêtre attendent pour rien.
+
+**2. Le message affiché par `-Prendre` ment dans ce cas.** Il dit « Le verrou sera libéré par
+trace-routine.ps1 » — vrai pour une routine, faux ici. Ne pas s'y fier.
+
+### Ce que la règle ne change pas
+
+Les commits d'une intervention manuelle restent signés du nom git habituel : `trace-routine.ps1`
+n'étant pas appelé, rien ne les signe d'un nom de routine. **Nommer l'intervention dans le
+message de commit** est donc le seul moyen de la retrouver — `qui-a-touche.ps1` ne la verra pas
+autrement.
+
+---
+
 ## Consulter
 
 ```powershell
@@ -190,3 +248,6 @@ Quand Jean-Michel tranche :
 
 - **12/09/2026** — création. Les deux règles, le registre `validations.json`, le script
   `validations.ps1`, et l'insertion des deux règles dans les 10 fiches de routines.
+- **23/09/2026** — règle 3. Le verrou devient obligatoire avant TOUTE écriture, y compris
+  hors routine, après un chevauchement constaté entre une séquence manuelle et
+  `perfeco-rappel-quotidien`. Sans dégât, mais la garantie de non-parallélisme était levée.

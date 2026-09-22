@@ -60,6 +60,21 @@
     # Elle arrete aussi le process de battement lance a la prise.
     & 'C:\Projets\perfecoconsulting\automation-agent\verrou.ps1' -Liberer -Routine 'mercredi-creation'
 
+    # HORS ROUTINE (regle de Jean-Michel du 23/09/2026). Le verrou se prend aussi
+    # avant toute ecriture MANUELLE dans les depots : un correctif demande en
+    # conversation, un arbitrage applique, une correction de registre. Le 23/09/2026,
+    # une sequence manuelle a chevauche perfeco-rappel-quotidien (09h41-09h46) et une
+    # autre session : sans degat, mais la garantie de non-parallelisme etait levee.
+    # Le nom etant inconnu de $RANGS, il passe en rang 99 — donc apres toutes les
+    # routines planifiees, ce qui est la bonne priorite.
+    & 'C:\Projets\perfecoconsulting\automation-agent\verrou.ps1' -Prendre -Routine 'intervention-manuelle'
+
+    # ATTENTION, la difference qui se paie cher : PERSONNE ne libere a votre place.
+    # trace-routine.ps1 n'est pas appele hors routine, et le batteur maintient le
+    # verrou VIVANT — aucune routine ne pourra donc le reprendre, ni par peremption
+    # ni en force, pendant BattementMaxHeures (2 h). A rendre explicitement :
+    & 'C:\Projets\perfecoconsulting\automation-agent\verrou.ps1' -Liberer -Routine 'intervention-manuelle'
+
     # Diagnostic : qui detient le verrou, depuis quand, et son batteur est-il vivant ?
     & 'C:\Projets\perfecoconsulting\automation-agent\verrou.ps1' -Etat -Routine 'diagnostic'
 #>
