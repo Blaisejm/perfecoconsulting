@@ -80,4 +80,4 @@ jobs:
       # des deux qui bloque (règle du 03/09), et la seconde moitié est une lecture.
       - name: Contrôle éditorial (forme, charte, anti-doublon, nommage)
         run: |
-          node scripts/controle-editorial.mjs             automation-queue/*.json             automation-agent/publications.json             .github/workflows/publish-*.yml
+          node scripts/controle-editorial.mjs             automation-queue/*.json             automation-agent/publications.json             .github/workflows/publish-*.yml             automation-agent/journal-executions.jsonl
