@@ -251,8 +251,8 @@
       "nom": "Export Puppeteer",
       "categorie": "technique",
       "date": "2026-07-08",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (local, avant export) — bloquant",
       "question": "Les arguments obligatoires sont-ils présents, et toutes les images ont-elles naturalWidth > 0 ?",
       "note": "Le second contrôle est déjà écrit dans export-slides-w44.cjs — à généraliser."
     },
@@ -261,8 +261,8 @@
       "nom": "Nommage routines et workflows",
       "categorie": "process",
       "date": "2026-08-18",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — bloquant",
       "question": "Le nom porte-t-il le jour de diffusion et le type de publication ?",
       "note": "Sept workflows renommés le 18/08."
     },
@@ -271,8 +271,8 @@
       "nom": "Signature des routines dans leurs livrables",
       "categorie": "process",
       "date": "2026-09-12",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (local, sur les fiches de routines) — bloquant",
       "question": "Le brouillon porte-t-il l'objet [PerfEco · <routine>] et le pied de message ?",
       "note": "Rend l'anti-doublon Gmail propre à chaque routine."
     },

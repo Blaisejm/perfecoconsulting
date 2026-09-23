@@ -1,0 +1,4 @@
+name: "PerfEco — Publication hebdomadaire"
+on:
+  schedule:
+    - cron: '0 0 * * 1'

@@ -78,5 +78,6 @@ jobs:
       # L'anti-doublon, lui, n'est qu'un AVERTISSEMENT : une machine mesure la
       # proximité d'indicateur, elle ne juge pas de l'angle. C'est la conjonction
       # des deux qui bloque (règle du 03/09), et la seconde moitié est une lecture.
-      - name: Contrôle éditorial (règles nº 7, §1, §2, §4, charte, jargon, anti-doublon)
-        run: node scripts/controle-editorial.mjs automation-queue/*.json automation-agent/publications.json
+      - name: Contrôle éditorial (forme, charte, anti-doublon, nommage)
+        run: |
+          node scripts/controle-editorial.mjs             automation-queue/*.json             automation-agent/publications.json             .github/workflows/publish-*.yml
