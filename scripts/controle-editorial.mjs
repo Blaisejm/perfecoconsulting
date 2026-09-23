@@ -443,6 +443,81 @@ function antiDoublonRegistre(chemin) {
   }
 }
 
+/* ─────────── EXPORT PUPPETEER — les garde-fous obligatoires ───────────
+ *
+ * Règle du 08/07/2026. Quatre exigences, toutes lisibles dans le source :
+ *   — extension .cjs (un .mjs casse le require de puppeteer)
+ *   — les trois arguments de lancement
+ *   — l'attente explicite du chargement des images
+ *   — la preuve que les images ont VRAIMENT chargé (naturalWidth > 0)
+ *
+ * La quatrième est celle qui manquait partout : sans elle, Puppeteer exporte
+ * des slides sans photo et le run se termine en succès apparent.
+ */
+const ARGS_PUPPETEER = ['--allow-file-access-from-files', '--disable-web-security', '--no-sandbox'];
+
+function exportPuppeteer(src, chemin) {
+  const nom = basename(chemin);
+  if (!/\.cjs$/i.test(chemin)) {
+    err(nom, 'puppeteer', "Script d'export en .mjs ou .js — il doit être en .cjs, sinon le require de puppeteer casse.", null);
+  }
+  const manquants = ARGS_PUPPETEER.filter(a => !src.includes(a));
+  if (manquants.length) {
+    err(nom, 'puppeteer', `Argument(s) de lancement absent(s) : ${manquants.join(', ')}.`, null);
+  }
+  if (!/document\.images/.test(src)) {
+    err(nom, 'puppeteer', "Aucune attente du chargement des images. Puppeteer tirera avant que les photos soient là.", null);
+  }
+  if (!/naturalWidth/.test(src)) {
+    avert(nom, 'puppeteer', "Aucun contrôle naturalWidth — rien ne prouve que les images ont réellement chargé. Un export sans photo finit en succès apparent.", null);
+  }
+}
+
+/* ─────────── NOMMAGE — le jour de DIFFUSION, jamais celui d'exécution ───────────
+ *
+ * Règle du 18/08/2026, sept workflows renommés ce jour-là. Ne concerne que les
+ * workflows de publication : les contrôles portent leur moment d'exécution, et
+ * c'est normal.
+ */
+const JOURS = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
+
+function nommageWorkflow(src, chemin) {
+  const nom = basename(chemin);
+  if (!/^publish-/.test(nom)) return;
+  const jour = JOURS.find(j => nom.includes(j));
+  if (!jour) {
+    err(nom, 'nommage', `Le nom ne porte aucun jour de diffusion. Attendu publish-<jour>-<type>.yml — jamais le jour d'exécution.`, null);
+    return;
+  }
+  const reste = nom.replace(/^publish-/, '').replace(jour, '').replace(/[-_.]|ya?ml$/g, '');
+  if (reste.length < 4) {
+    err(nom, 'nommage', `Le nom porte le jour « ${jour} » mais pas le type de publication.`, null);
+  }
+  const champNom = src.match(/^name:\s*["']?(.+?)["']?\s*$/m);
+  if (champNom && !JOURS.some(j => champNom[1].toLowerCase().includes(j))) {
+    avert(nom, 'nommage', `Le champ name: « ${champNom[1].slice(0, 50)} » ne mentionne pas le jour de diffusion — c'est lui qu'on lit dans la liste des workflows.`, null);
+  }
+}
+
+/* ─────────── SIGNATURE DES ROUTINES ───────────
+ *
+ * Règle du 12/09/2026 : chaque routine signe ses livrables de son propre nom,
+ * dans l'objet du brouillon. C'est ce qui a rendu l'anti-doublon Gmail propre à
+ * chaque routine — sans cela, deux routines se marchent dessus dans la boîte.
+ */
+function signatureRoutine(src, chemin) {
+  const nom = basename(chemin);
+  const m = src.match(/^name:\s*(.+?)\s*$/m);
+  if (!m) return;
+  const routine = m[1].trim();
+  // Les fiches qui ne produisent aucun livrable Gmail sont hors sujet.
+  if (!/brouillon|create_draft|gmail/i.test(src)) return;
+  const signe = new RegExp(`\\[\\s*PerfEco\\s*[·.\\-]\\s*${routine.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i');
+  if (!signe.test(src)) {
+    err(nom, 'signature', `La fiche produit un brouillon Gmail mais ne porte pas l'objet « [PerfEco · ${routine}] ». Sans signature, l'anti-doublon Gmail confond les routines.`, null);
+  }
+}
+
 /* ─────────── Extraction des textes à contrôler ─────────── */
 // Sur un carrousel, seuls les TITRES portent la règle nº 7 : pas les étiquettes,
 // pas le corps des items, pas les listes.
@@ -540,6 +615,12 @@ ${VERT}Aucun sujet proche dans le registre.${RAZ}`);
     if (ext === '.html') traiterHtml(a);
     else if (basename(a) === 'publications.json') { antiDoublonRegistre(a); canauxRegistre(a); }
     else if (ext === '.json') traiterJson(a);
+    else if (['.cjs', '.mjs', '.js'].includes(ext)) {
+      const src = readFileSync(a, 'utf8');
+      if (/puppeteer/.test(src)) { examines++; exportPuppeteer(src, a); }
+    }
+    else if (ext === '.yml' || ext === '.yaml') { examines++; nommageWorkflow(readFileSync(a, 'utf8'), a); }
+    else if (/\.SKILL\.md$/i.test(a)) { examines++; signatureRoutine(readFileSync(a, 'utf8'), a); }
   }
 }
 
