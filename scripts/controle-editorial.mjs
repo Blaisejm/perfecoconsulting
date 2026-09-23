@@ -458,6 +458,14 @@ const ARGS_PUPPETEER = ['--allow-file-access-from-files', '--disable-web-securit
 
 function exportPuppeteer(src, chemin) {
   const nom = basename(chemin);
+
+  // Tous les scripts Puppeteer n'exportent pas des slides. `generate-rapport-chart.cjs`
+  // fabrique son propre HTML et photographie un graphique : il n'a AUCUNE image à
+  // attendre, et lui réclamer une attente serait un faux positif — le genre de bruit
+  // qui fait désactiver un contrôle. On ne réclame les garde-fous d'images qu'aux
+  // exportateurs de slides : ceux qui ouvrent un HTML externe ou sélectionnent .slide.
+  const exportateurDeSlides = /HTML_FILE/.test(src) || /\$\$\(['"]\.slide/.test(src);
+
   if (!/\.cjs$/i.test(chemin)) {
     err(nom, 'puppeteer', "Script d'export en .mjs ou .js — il doit être en .cjs, sinon le require de puppeteer casse.", null);
   }
@@ -465,11 +473,13 @@ function exportPuppeteer(src, chemin) {
   if (manquants.length) {
     err(nom, 'puppeteer', `Argument(s) de lancement absent(s) : ${manquants.join(', ')}.`, null);
   }
+  if (!exportateurDeSlides) return;   // pas de slides, pas d'images à garantir
+
   if (!/document\.images/.test(src)) {
     err(nom, 'puppeteer', "Aucune attente du chargement des images. Puppeteer tirera avant que les photos soient là.", null);
   }
   if (!/naturalWidth/.test(src)) {
-    avert(nom, 'puppeteer', "Aucun contrôle naturalWidth — rien ne prouve que les images ont réellement chargé. Un export sans photo finit en succès apparent.", null);
+    err(nom, 'puppeteer', "Aucun contrôle naturalWidth — rien ne prouve que les images ont réellement chargé. Un export sans photo finit en succès apparent, et l'erreur n'est vue qu'une fois publiée.", null);
   }
 }
 
