@@ -281,8 +281,8 @@
       "nom": "Toute routine finit par un brouillon Gmail",
       "categorie": "process",
       "date": "2026-07-01",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — avertissement",
       "question": "Un brouillon a-t-il été créé pour cette exécution ?",
       "note": "« Afficher » seul est invisible sans session ouverte."
     },
@@ -291,8 +291,8 @@
       "nom": "Règle J-8",
       "categorie": "calendrier",
       "date": "2026-08-19",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (check-preparation-contenu.yml) — bloquant",
       "question": "Chaque échéance à J-8 a-t-elle un contenu réellement produit ?",
       "note": "Partiellement couverte : check-preparation-contenu vérifie la file, pas la qualité du contenu."
     },
@@ -301,8 +301,8 @@
       "nom": "Mesure d'audience à J+7",
       "categorie": "process",
       "date": "2026-08-18",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (local, sur mesures-j7.json) — bloquant",
       "question": "L'impression utilisée a-t-elle au moins 7 jours ?",
       "note": "Une décision éditoriale a déjà été prise sur une mesure trop fraîche, le 16/08."
     },
@@ -311,8 +311,8 @@
       "nom": "Deux conventions « WXX »",
       "categorie": "process",
       "date": "2026-09-15",
-      "etat": "verifiable",
-      "controle": null,
+      "etat": "executee",
+      "controle": "controle-editorial.mjs (local, sur mesures-j7.json) — bloquant",
       "question": "L'étiquette de semaine vient-elle de la production ou de la publication ISO ?",
       "note": "Quatre étiquettes fausses sur huit dans mesures-j7.json, corrigées le 15/09."
     },

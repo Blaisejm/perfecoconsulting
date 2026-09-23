@@ -34,8 +34,8 @@
  *
  * Sortie : code 1 si au moins une erreur bloquante, 0 sinon.
  */
-import { readFileSync, statSync } from 'node:fs';
-import { basename, extname } from 'node:path';
+import { readFileSync, statSync, readdirSync } from 'node:fs';
+import { basename, extname, join, dirname } from 'node:path';
 
 const ROUGE = '\x1b[31m', JAUNE = '\x1b[33m', VERT = '\x1b[32m', GRIS = '\x1b[90m', RAZ = '\x1b[0m';
 const erreurs = [];
@@ -528,6 +528,132 @@ function signatureRoutine(src, chemin) {
   }
 }
 
+/* ─────────── RÈGLE J-8 — le contenu existe, pas seulement l'échéance ───────────
+ *
+ * Règle du 19/08/2026 : « relancer » veut dire PRODUIRE le contenu manquant,
+ * pas envoyer un rappel. Le contrôle vérifie donc qu'une échéance proche a
+ * réellement un texte en file — pas qu'elle est inscrite au registre.
+ */
+function regleJ8(pubs, dossierQueue, fichier) {
+  let files = [];
+  try { files = readdirSync(dossierQueue).filter(f => f.endsWith('.json')); } catch { return; }
+
+  // Tout ce qui porte une date_prevue et un message non vide, file courante ou staging.
+  const couvertes = new Map();
+  for (const f of files) {
+    try {
+      const d = JSON.parse(readFileSync(join(dossierQueue, f), 'utf8').replace(/^﻿/, ''));
+      const msg = d?.social_post?.message;
+      if (d?.date_prevue && typeof msg === 'string' && msg.trim().length > 120) {
+        couvertes.set(d.date_prevue, f);
+      }
+    } catch { /* un JSON illisible est déjà signalé par check-syntaxe */ }
+  }
+
+  const auj = new Date();
+  const limite = new Date(auj.getTime() + 8 * 86400000).toISOString().slice(0, 10);
+  const aujStr = auj.toISOString().slice(0, 10);
+
+  const proches = pubs.filter(p =>
+    p.statut === 'prevu' || p.statut === 'en_file' || p.statut === 'en_staging')
+    .filter(p => p.date_nc >= aujStr && p.date_nc <= limite)
+    .filter(p => p.format !== 'ferie' && p.format !== 'article');
+
+  for (const p of proches) {
+    if (!couvertes.has(p.date_nc)) {
+      const jours = Math.round((new Date(p.date_nc) - auj) / 86400000);
+      err(fichier, 'J-8', `${p.date_nc} (${p.format}, dans ${jours} j) n'a aucun texte en file. La règle J-8 demande le contenu PRODUIT, pas l'échéance inscrite.`, p.sujet?.slice(0, 60));
+    }
+  }
+  if (proches.length) {
+    console.log(`  ${GRIS}J-8 : ${proches.length} échéance(s) dans les 8 jours, ${proches.filter(p => couvertes.has(p.date_nc)).length} couverte(s) par un texte en file.${RAZ}`);
+  }
+}
+
+/* ─────────── MESURE À J+7 et CONVENTIONS DE SEMAINE ───────────
+ *
+ * Deux règles sur le même fichier, `mesures-j7.json` :
+ *   — 18/08/2026 : toute impression de moins de 7 jours est provisoire et ne
+ *     sert jamais à comparer. Une décision éditoriale a été prise le 16/08 sur
+ *     une mesure trop fraîche.
+ *   — 15/09/2026 : deux conventions « WXX » coexistent — la semaine de
+ *     PRODUCTION et la semaine ISO de PUBLICATION, décalées d'une semaine.
+ *     Quatre étiquettes sur huit étaient fausses. Ici, c'est la semaine ISO de
+ *     la date de publication qui fait foi.
+ *
+ * L'âge est RECALCULÉ depuis les deux dates : on ne fait pas confiance au champ
+ * `age_jours`, qui est précisément ce qu'un contrôle doit vérifier.
+ */
+function semaineIso(iso) {
+  const d = new Date(iso + 'T00:00:00Z');
+  const j = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+  j.setUTCDate(j.getUTCDate() + 4 - (j.getUTCDay() || 7));      // jeudi de la semaine
+  const debut = new Date(Date.UTC(j.getUTCFullYear(), 0, 1));
+  return { an: j.getUTCFullYear(), num: Math.ceil(((j - debut) / 86400000 + 1) / 7) };
+}
+
+function mesuresJ7(chemin) {
+  let liste;
+  try { liste = JSON.parse(readFileSync(chemin, 'utf8').replace(/^﻿/, '')); } catch { return; }
+  if (!Array.isArray(liste)) return;
+  examines++;
+
+  for (const m of liste) {
+    if (!m.date_publication || !m.date_mesure) continue;
+    const age = Math.round((new Date(m.date_mesure) - new Date(m.date_publication)) / 86400000);
+
+    if (age < 7) {
+      err(basename(chemin), 'J+7', `${m.date_publication} mesurée à ${age} jour(s) — une impression de moins de 7 jours est provisoire et ne sert jamais à comparer.`, m.sujet?.slice(0, 55));
+    }
+    if (typeof m.age_jours === 'number' && m.age_jours !== age) {
+      err(basename(chemin), 'J+7', `${m.date_publication} : age_jours vaut ${m.age_jours}, l'écart réel entre les deux dates est de ${age}. Le champ ment.`, null);
+    }
+    if (m.semaine) {
+      const { num } = semaineIso(m.date_publication);
+      const attendu = 'W' + String(num).padStart(2, '0');
+      const pose = String(m.semaine).replace(/^W0?/, 'W').padStart(3, 'W');
+      if (attendu.replace(/^W0/, 'W') !== pose.replace(/^W0/, 'W')) {
+        err(basename(chemin), 'WXX', `${m.date_publication} étiquetée ${m.semaine} — sa semaine ISO de PUBLICATION est ${attendu}. Ne pas confondre avec la semaine de production, décalée d'une semaine.`, m.sujet?.slice(0, 50));
+      }
+    }
+  }
+  console.log(`  ${GRIS}mesures J+7 : ${liste.length} mesure(s) examinée(s).${RAZ}`);
+}
+
+/* ─────────── LIVRAISON — toute routine finit par un brouillon Gmail ───────────
+ *
+ * Règle du 01/07/2026 : « Afficher » seul est invisible sans session ouverte.
+ * Le journal est du texte libre, donc AVERTISSEMENT : on signale une exécution
+ * réussie dont l'effet ne mentionne aucune livraison, sans prétendre trancher.
+ */
+function livraisonJournal(chemin) {
+  let lignes;
+  try { lignes = readFileSync(chemin, 'utf8').split('\n').filter(l => l.trim()); } catch { return; }
+  examines++;
+  // On ne juge que la DERNIÈRE exécution de chaque routine : c'est la seule
+  // question actionnable — « son dernier passage a-t-il laissé un livrable ? ».
+  // Reprocher un passage d'il y a trois semaines ne mène à aucune action.
+  const toutes = lignes.map(l => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean);
+  const derniere = new Map();
+  for (const e of toutes) if (e.routine) derniere.set(e.routine, e);   // le fichier est chronologique
+  // Et seulement les routines VIVANTES : un dernier passage vieux de plus de
+  // trente jours désigne une tâche one-time disparue — les quatre du 06/09 ont
+  // toutes été supprimées. Les signaler serait reprocher l'absence de livrable
+  // à quelque chose qui n'existe plus.
+  const limite = Date.now() - 30 * 86400000;
+  const recentes = [...derniere.values()].filter(e => {
+    const t = Date.parse(e.fin_nc || '');
+    return Number.isFinite(t) && t >= limite;
+  });
+  const muettes = recentes.filter(e =>
+    e.resultat === 'succes' && e.effet &&
+    !/brouillon|gmail|draft|courriel|mail/i.test(e.effet));
+  for (const e of muettes.slice(0, 5)) {
+    avert(basename(chemin), 'livraison', `${e.routine} (${(e.fin_nc || '').slice(0, 10)}) : exécution réussie dont l'effet ne mentionne aucun brouillon Gmail. Sans livrable, le travail est invisible.`, e.effet.slice(0, 70));
+  }
+  console.log(`  ${GRIS}livraison : dernier passage de ${recentes.length} routine(s) examiné, ${muettes.length} sans mention de livrable.${RAZ}`);
+}
+
 /* ─────────── Extraction des textes à contrôler ─────────── */
 // Sur un carrousel, seuls les TITRES portent la règle nº 7 : pas les étiquettes,
 // pas le corps des items, pas les listes.
@@ -623,7 +749,15 @@ ${VERT}Aucun sujet proche dans le registre.${RAZ}`);
     if (!st.isFile()) continue;
     const ext = extname(a).toLowerCase();
     if (ext === '.html') traiterHtml(a);
-    else if (basename(a) === 'publications.json') { antiDoublonRegistre(a); canauxRegistre(a); }
+    else if (basename(a) === 'publications.json') {
+      antiDoublonRegistre(a); canauxRegistre(a);
+      try {
+        const reg = JSON.parse(readFileSync(a, 'utf8').replace(/^﻿/, ''));
+        regleJ8(reg.publications || [], join(dirname(a), '..', 'automation-queue'), basename(a));
+      } catch { /* registre illisible : signalé ailleurs */ }
+    }
+    else if (basename(a) === 'mesures-j7.json') mesuresJ7(a);
+    else if (/journal-executions\.jsonl$/.test(a)) livraisonJournal(a);
     else if (ext === '.json') traiterJson(a);
     else if (['.cjs', '.mjs', '.js'].includes(ext)) {
       const src = readFileSync(a, 'utf8');
