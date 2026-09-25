@@ -573,7 +573,7 @@
       "heure_nc": "11:00",
       "format": "vendredi",
       "libelle": "Veille économique NC",
-      "sujet": "à définir",
+      "sujet": "Le solde d'opinion sur l'investissement reste a -0,1 pour le 4e trimestre consecutif alors que le climat des affaires atteint 105,6 points (IEOM, Tendances conjoncturelles T2 2026, publiees le 14/09/2026) - angle : ecrire la condition de declenchement du prochain investissement",
       "semaine": null,
       "canaux": [
         "linkedin_company",
@@ -584,7 +584,7 @@
       "source": "automation-queue/vendredi.json",
       "bascule": null,
       "preuve": "Make 5 operations (LinkedIn Company + profil perso + Facebook) a 2026-09-25T02:40:33.462Z statut=1 ; post Facebook confirme a 2026-09-25T02:40:40+0000 ; cloture automatique par check-apres-publication, run 36113992724",
-      "note": null,
+      "note": "[25/09/2026, perfeco-rappel-quotidien] Sujet renseigne APRES COUP : l'entree portait encore 'a definir' alors que le contenu existait depuis le 21/09. C'est precisement ce vide qui a rendu invisible le doublon signale le 22/09 (validation v-2026-09-22-01) : l'accroche reprend les 105,6 points deja publies le 18/09 a 09h35. Le delai de 48 h a expire le 24/09 vers 11h08 NC, jour ferie ou aucune routine n'a tourne ; le defaut (reecrire l'accroche sur le solde d'investissement) n'a donc jamais ete applique et le texte est parti tel quel le 25/09 a 13h40 NC. Validation close en 'caduc', pas en 'tranche_par_defaut'. CHIFFRE A NE PLUS RESSERVIR : les 105,6 points ont desormais servi DEUX fois (18/09 et 25/09).",
       "axe": "performance"
     },
     {
