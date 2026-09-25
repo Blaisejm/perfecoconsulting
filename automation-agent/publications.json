@@ -580,10 +580,10 @@
         "linkedin_perso",
         "facebook"
       ],
-      "statut": "en_file",
+      "statut": "publie",
       "source": "automation-queue/vendredi.json",
       "bascule": null,
-      "preuve": null,
+      "preuve": "Make 5 operations (LinkedIn Company + profil perso + Facebook) a 2026-09-25T02:40:33.462Z statut=1 ; post Facebook confirme a 2026-09-25T02:40:40+0000 ; cloture automatique par check-apres-publication, run 36113992724",
       "note": null,
       "axe": "performance"
     },
@@ -2788,5 +2788,5 @@
   ],
   "_horizon": "2027-05-21",
   "_derniere_revue": "2026-09-22",
-  "derniere_maj": "2026-09-23"
+  "derniere_maj": "2026-09-25"
 }
