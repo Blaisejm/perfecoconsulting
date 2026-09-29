@@ -602,10 +602,10 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "publie",
                              "source":  "automation-queue/mardi.json",
                              "bascule":  null,
-                             "preuve":  null,
+                             "preuve":  "Make 4 operations (LinkedIn Company + Facebook (profil perso servi hors Make, par l'API LinkedIn directe)) a 2026-09-29T04:34:28.518Z statut=1 ; post Facebook confirme a 2026-09-29T04:34:37+0000 ; cloture automatique par check-apres-publication, run 36550101349",
                              "note":  "Rythme hebdomadaire NORMAL rétabli le 15/09/2026 (2e décision de Jean-Michel le même jour) : l\u0027alternance une semaine sur deux est SUPPRIMÉE. Chaque semaine est identique — mardi post long/série, jeudi post court/campagne dédiée, vendredi post court/veille éco. | PRODUIT LE 21/09/2026 (J-8) par mardi-carrousel-creation. Contenu en STAGING automation-queue/mardi-W39-pret.json, bascule attendue le 23/09 par perfeco-rappel-quotidien etape 1quinquies. Chiffre d accroche 87 % - Atlassian, The State of Teams 2026 (27/04/2026, 12 035 salaries + 173 dirigeants), verifie a la source ; le chiffre MIT Sloan que la veille du 21/08 reservait a cet episode n a PAS pu etre verifie (mckinsey.com et sloanreview injoignables, hbr.org sous paywall). Article WordPress #147 programme 29/09 11h03. 7 visuels W39 en HTTP 200.",
                              "axe":  "performance"
                          },
@@ -2800,5 +2800,5 @@
                      ],
     "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-09-27"
+    "derniere_maj":  "2026-09-29"
 }
