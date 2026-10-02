@@ -641,10 +641,10 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "publie",
                              "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
-                             "preuve":  null,
+                             "preuve":  "Make 5 operations (LinkedIn Company + profil perso + Facebook) a 2026-10-02T03:18:17.317Z statut=1 ; post Facebook confirme a 2026-10-02T03:18:28+0000 ; cloture automatique par check-apres-publication, run 36990122880",
                              "note":  "Veille économique du vendredi — format, sourçage (IEOM/ISEE verifie a la source) et gabarit INCHANGÉS. Produit par mercredi-creation, partie V. La campagne dédiée Performance occupe le créneau du JEUDI, pas celui-ci. | PRODUIT LE 23/09/2026 (J-9) par mercredi-creation. Source : Chambre de metiers et de l artisanat (CMA), chiffres rapportes par Nouvelle-Caledonie La 1ere le 18/09/2026 a 07h34 (date de publication verifiee a la source) - 44 % des professionnels sous le SMG, environ 11 000 entreprises artisanales, nombre revenu au niveau d avant mai 2024. L article ne donne ni la date ni la methode de l etude CMA : l attribution est donc faite au reporting de presse, pas a une note CMA datee. Indicateur JAMAIS servi sur ce format. Recommandation unique : sortir les cinq plus gros chantiers des 12 derniers mois et calculer le reste apres couts directs, ligne par ligne. Visuel veille-eco-w39-marge-par-chantier-01.png (gpt-image-1, 5 personnes, atelier), PNG W39/00-facebook-marge.png et W39/01-couverture-marge.png en HTTP 200.",
                              "axe":  "performance"
                          },
