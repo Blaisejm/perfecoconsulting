@@ -680,8 +680,8 @@
                                             "linkedin_company",
                                             "linkedin_perso"
                                         ],
-                             "statut":  "en_staging",
-                             "source":  "automation-queue/jeudi-W40-pret.json",
+                             "statut":  "en_file",
+                             "source":  "automation-queue/jeudi.json",
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -\u003e conséquence -\u003e méthode -\u003e résultat -\u003e invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | ⚠️ ANGLE IMPOSE : l\u0027episode 4/8 du mardi 22/09 (\"Faire descendre les priorités\") traite le trajet DESCENDANT d\u0027une priorité. Cette publication-ci doit traiter l\u0027accord HORIZONTAL entre services — plusieurs directions qui interprètent différemment la même priorité, et ce qui les remet d\u0027accord. NE PAS réutiliser le chiffre 56 %/27 %. Rappel de la règle du 03/09 : c\u0027est la conjonction \"même indicateur ET même angle\" qui bloque. | CANAUX CORRIGES le 23/09/2026 : le creneau du JEUDI part sur LinkedIn Company + LinkedIn PROFIL PERSO depuis la decision de Jean-Michel du 15/09/2026. Facebook ne recoit plus rien le jeudi (suffixe -NOFB envoye par publish-jeudi-post-court.yml) : il recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. L\u0027entree portait encore linkedin_company+facebook, heritage d\u0027avant le 15/09. Correction documentaire : aucun automatisme ne derive son comportement de ce champ (seul le controle d\u0027espacement le lit, et il n\u0027y cherche que linkedin_company).",
@@ -700,8 +700,8 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_staging",
-                             "source":  "automation-queue/vendredi-2026-10-09-pret.json",
+                             "statut":  "en_file",
+                             "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "PRODUIT LE 02/10/2026 (J-7) par perfeco-rappel-quotidien etape 1quater (rattrapage : mercredi-creation n a pas tourne le 30/09). Chiffres ecartes car deja servis : emploi salarie, investissement (25/09), ecart volume/valeur (02/10). Staging a basculer par 1quinquies des que vendredi.json (02/10) est libere.",
@@ -2800,5 +2800,5 @@
                      ],
     "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-10-02"
+    "derniere_maj":  "2026-10-04"
 }
