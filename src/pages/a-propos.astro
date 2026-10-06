@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PhotoBande from '../components/PhotoBande.astro';
 import Vague from '../components/Vague.astro';
 ---
 
@@ -86,4 +87,33 @@ import Vague from '../components/Vague.astro';
         <!-- Témoignage -->
         <blockquote class="bg-navy text-white rounded-2xl p-10">
           <p class="text-xl italic text-gray-200 leading-relaxed mb-6">
-            « Jean-Michel a très bien su gérer les défis organisationnels dans un contexte managérial où il fallait faire preuve de tact. Il a montré une véritable capacité à délivrer en respectant les coûts et les délais
+            « Jean-Michel a très bien su gérer les défis organisationnels dans un contexte managérial où il fallait faire preuve de tact. Il a montré une véritable capacité à délivrer en respectant les coûts et les délais et les délais. Je le recommande sans réserve. »
+          </p>
+          <footer class="text-teal font-medium">
+            Emmanuel Fouché, Directeur EPI<br />
+            <span class="text-gray-400 font-normal text-sm">ENGIE Pacific IT — Nouméa, juillet 2024</span>
+          </footer>
+        </blockquote>
+
+        <div class="mt-14 bg-gray-50 rounded-xl p-8">
+          <h2 class="text-xl font-bold text-navy mb-6">Équipe &amp; partenaires</h2>
+          <div class="flex flex-col sm:flex-row gap-6 items-start">
+            <div>
+              <h3 class="font-semibold text-navy mb-1">Lionel Moreira</h3>
+              <p class="text-teal text-sm font-medium mb-3">Consultant senior — Organisation &amp; performance industrielle</p>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                Transformation d'organisations industrielles complexes, maîtrise des coûts et analyse de la performance. Expérience internationale dans l'énergie, la mine et le pétrole &amp; gaz.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <PhotoBande cle="jmb-couloir" format="3/2" fond="gris"
+      legende="Jean-Michel Blaise — vingt ans dans des organisations de Nouvelle-Calédonie et de Polynésie." />
+
+  </main>
+  <Footer />
+</Base>

@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PhotoBande from '../components/PhotoBande.astro';
 import Vague from '../components/Vague.astro';
 
 // Articles de blog — à terme géré via CMS Decap
@@ -210,6 +211,9 @@ const articles = [
 
       </div>
     </section>
+
+    <PhotoBande cle="lecture-dossier" format="21/9" fond="gris"
+      legende="Chaque article part d'une situation réelle, pas d'un modèle." />
 
   </main>
   <Footer />

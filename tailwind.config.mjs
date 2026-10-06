@@ -19,16 +19,19 @@ export default {
         '3xl':['1.9375rem', { lineHeight: '2.35rem' }],   // 31 px (etait 30)
         '4xl':['2.25rem',   { lineHeight: '2.5rem' }],    // inchange
         '5xl':['3rem',      { lineHeight: '1' }],         // inchange
+        // Taille propre a la barre de navigation : l'echelle relevee la faisait
+        // passer a 16 px et les entrees du menu se cassaient sur deux lignes.
+        nav:  ['0.875rem',  { lineHeight: '1.25rem' }],   // 14 px
       },
       colors: {
         // UN SEUL BLEU pour tout le site. C'est le bleu du logo lui-meme :
         // l'arret central des deux degrades principaux de PerfEco Logo OK.
-        // Choisi parmi les huit bleus du logo parce que c'est le plus clair
-        // qui garde un contraste suffisant avec le blanc (5,1:1) ; les deux
-        // bleus plus clairs du logo tombent sous le seuil de lisibilite.
+        // Descendu d'un ton le 06/10/2026 a la demande de JM. Toujours un bleu
+        // du logo : c'est l'arret le plus present de ses degrades (3 occurrences).
+        // Contraste avec le blanc 6,2:1, contre 5,1:1 pour le ton precedent.
         // Les nuances se font par transparence (bg-navy/10), jamais par une
         // seconde valeur. Il n'y a volontairement ni navy-dark ni navy-light.
-        navy: '#3870B1',
+        navy: '#3D5FA9',
         // L'ORANGE est deja celui du logo : #EF7B00 y figure tel quel.
         // `light` est le second orange du logo, `dark` une nuance plus sombre
         // derivee pour les survols — le logo n'en contient pas.

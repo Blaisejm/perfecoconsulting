@@ -319,26 +319,30 @@ export const articles = [
     porte: 'un-service',
     secteurs: [],
     date: '2026-06-23',
-    // Pas de clé `en` : l'article n'existe pas en anglais. L'index anglais
-    // renvoyait pourtant vers /en/resources/standard-file-escalation-criteria,
-    // qui est en 404 depuis la mise en ligne.
     fr: {
       slug: 'qualification-dossier-escalade-management',
       titre: 'Un dossier est-il encore standard ? Les 3 critères que tout manager doit maîtriser',
       extrait: "Un dossier cesse d'être standard dès qu'il dépasse le cadre habituel en complexité, en montant ou en risque. Trois critères simples pour éviter les erreurs de qualification.",
+    },
+    en: {
+      slug: 'standard-file-escalation-criteria',
+      titre: 'Is a file still standard? The 3 criteria every manager must master',
+      extrait: 'A file ceases to be standard as soon as it exceeds the usual framework in complexity, amount or risk. Three simple criteria that prevent costly misclassification.',
     },
   },
   {
     porte: 'contexte',
     secteurs: [],
     date: '2026-06-18',
-    // Pas de clé `en` : l'article n'existe pas en anglais. L'index anglais
-    // renvoyait pourtant vers /en/resources/geopolitical-volatility-advantage,
-    // qui est en 404 depuis la mise en ligne.
     fr: {
       slug: 'volatilite-geopolitique-avantage-comex',
       titre: 'Volatilité géopolitique : 5 leviers pour en faire un avantage compétitif',
       extrait: "L'instabilité est devenue structurelle. Comment les COMEX peuvent transformer cette contrainte en avantage ? Lecture PerfEco d'un article McKinsey Quarterly.",
+    },
+    en: {
+      slug: 'geopolitical-volatility-advantage',
+      titre: 'Geopolitical volatility: 5 levers to turn it into a competitive advantage',
+      extrait: 'Instability has become structural. How can executive committees transform this constraint into an advantage? A PerfEco reading of McKinsey Quarterly research.',
     },
   },
 ];
