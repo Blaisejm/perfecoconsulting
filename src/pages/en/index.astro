@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import Vague from '../../components/Vague.astro';
 ---
 
 <Base
@@ -14,11 +15,7 @@ import Footer from '../../components/Footer.astro';
 
     <!-- HERO -->
     <section class="relative text-white overflow-hidden bg-navy">
-      <div class="absolute bottom-0 left-0 right-0 opacity-20">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="white"/>
-        </svg>
-      </div>
+      <Vague couleur="blanc" forme={1} />
 
       <div class="max-w-5xl mx-auto px-4 py-24 relative lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
         <div>
@@ -56,15 +53,15 @@ import Footer from '../../components/Footer.astro';
               <div class="text-white/60 text-sm mt-1">areas of intervention</div>
             </div>
             <div>
-              <div class="text-2xl sm:text-3xl font-black text-teal">KPI</div>
-              <div class="text-white/60 text-sm mt-1">defined from day one</div>
+              <div class="text-2xl sm:text-3xl font-black text-teal">KPI + AI</div>
+              <div class="text-white/60 text-sm mt-1">put to work for decisions</div>
             </div>
           </div>
         </div>
 
         <div class="hidden lg:block">
           <img
-            src="/photos/jmb-presentation.jpg"
+            src="/photos/jmb-debout.jpg"
             alt="Jean-Michel Blaise — PerfEco Consulting"
             class="rounded-2xl shadow-2xl object-cover object-top w-full h-[480px]"
           />
@@ -203,7 +200,7 @@ import Footer from '../../components/Footer.astro';
 
         <blockquote class="bg-white/5 rounded-2xl overflow-hidden sm:flex sm:flex-row">
           <img
-            src="/photos/jmb-client.jpg"
+            src="/photos/jmb-echange.jpg"
             alt="PerfEco — client relationship"
             class="hidden sm:block sm:w-72 sm:h-auto object-cover object-[center_25%] shrink-0"
           />
@@ -256,7 +253,7 @@ import Footer from '../../components/Footer.astro';
       <div class="max-w-4xl mx-auto">
         <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-12 flex flex-col sm:flex-row gap-8 items-start">
           <div class="shrink-0">
-            <img src="/photos/jmb-portrait.jpg" alt="Jean-Michel Blaise" class="w-24 h-24 rounded-full object-cover shadow-lg object-[center_15%]" />
+            <img src="/photos/jmb-portrait-2026.jpg" alt="Jean-Michel Blaise" class="w-24 h-24 rounded-full object-cover shadow-lg object-[center_15%]" />
           </div>
           <div>
             <h2 class="text-2xl font-bold text-navy mb-1">Jean-Michel Blaise</h2>

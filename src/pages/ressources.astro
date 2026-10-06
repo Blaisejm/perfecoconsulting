@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Vague from '../components/Vague.astro';
 
 // Articles de blog — à terme géré via CMS Decap
 const articles = [
@@ -159,16 +160,19 @@ const articles = [
 ];
 ---
 
-<Base title="Ressources & Articles � Performance organisationnelle NC" description="Blog PerfEco : articles et guides pratiques sur la performance organisationnelle, le pilotage dirigeant et la transformation digitale en Nouvelle-Calédonie.">
+<Base title="Ressources & Articles — Performance organisationnelle NC" description="Blog PerfEco : articles et guides pratiques sur la performance organisationnelle, le pilotage dirigeant et la transformation digitale en Nouvelle-Calédonie.">
   <Nav />
   <main class="pt-16">
 
-    <section class="bg-navy text-white py-20 px-4">
-      <div class="max-w-3xl mx-auto">
+    <section class="relative bg-navy text-white pt-20 pb-28 px-4 overflow-hidden">
+      <img src="/photos/presentation-chiffres.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center opacity-25" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/55"></div>
+      <div class="relative max-w-3xl mx-auto">
         <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Ressources</p>
         <h1 class="text-4xl sm:text-5xl font-bold mb-6">Insights pour dirigeants</h1>
         <p class="text-gray-300 text-lg">Articles pratiques sur la performance organisationnelle, le pilotage et la transformation — dans le contexte NC & Pacifique.</p>
       </div>
+      <Vague couleur="blanc" forme={3} />
     </section>
 
     <section class="py-20 px-4">

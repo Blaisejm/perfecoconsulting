@@ -2,14 +2,17 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import Vague from '../../components/Vague.astro';
 ---
 
 <Base title="Our Approach — PerfEco Consulting" description="PerfEco starts from how your organisation really works — not from a theoretical model. Discover our 4-pillar method.">
   <Nav />
   <main class="pt-16">
 
-    <section class="bg-navy text-white py-20 px-4">
-      <div class="max-w-3xl mx-auto">
+    <section class="relative bg-navy text-white pt-20 pb-28 px-4 overflow-hidden">
+      <img src="/photos/methode-consultant.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center opacity-25" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/55"></div>
+      <div class="relative max-w-3xl mx-auto">
         <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Our approach</p>
         <h1 class="text-4xl sm:text-5xl font-bold mb-6">
           We start from how your organisation really works —<br />
@@ -19,6 +22,7 @@ import Footer from '../../components/Footer.astro';
           Before the first meeting, we already analyse visible signals: organisational chart, reporting lines, contract types on key positions. We arrive with hypotheses — not generic questions.
         </p>
       </div>
+      <Vague couleur="blanc" forme={2} />
     </section>
 
     <section class="py-20 px-4">

@@ -1,5 +1,10 @@
+<!-- Favicon PerfEco. Aligné le 06/10/2026 sur les deux seules couleurs du site :
+     le bleu de la configuration Tailwind et l'orange d'accent. Il portait jusque-là
+     un bleu et un vert qui n'existaient nulle part ailleurs sur le site.
+     Les anciennes valeurs ne sont volontairement pas recopiées ici : les écrire
+     en commentaire empêcherait tout audit de couleurs de conclure. -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="12" fill="#1E3A5F"/>
-  <text x="8" y="46" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#2A9D8F">P</text>
-  <text x="30" y="46" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="white">E</text>
+  <rect width="64" height="64" rx="12" fill="#3870B1"/>
+  <text x="8" y="45" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#EF7B00">P</text>
+  <text x="32" y="45" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">E</text>
 </svg>

@@ -2,18 +2,22 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import Vague from '../../components/Vague.astro';
 ---
 
 <Base title="Resources — PerfEco Consulting" description="PerfEco blog: practical articles on organisational performance, executive management and digital transformation in New Caledonia.">
   <Nav />
   <main class="pt-16">
 
-    <section class="bg-navy text-white py-20 px-4">
-      <div class="max-w-3xl mx-auto">
+    <section class="relative bg-navy text-white pt-20 pb-28 px-4 overflow-hidden">
+      <img src="/photos/presentation-chiffres.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center opacity-25" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/55"></div>
+      <div class="relative max-w-3xl mx-auto">
         <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Resources</p>
         <h1 class="text-4xl sm:text-5xl font-bold mb-6">Insights for executives</h1>
         <p class="text-gray-300 text-lg">Practical articles on organisational performance, management and transformation — in the NC &amp; Pacific context.</p>
       </div>
+      <Vague couleur="blanc" forme={3} />
     </section>
 
     <section class="py-20 px-4">
@@ -22,7 +26,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Management</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series &middot; 6/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series &middot; 6/8</span>
               <time class="text-xs text-gray-400">6 October 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Reporting up without distortion</h2>
@@ -32,7 +36,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Management</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series &middot; 5/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series &middot; 5/8</span>
               <time class="text-xs text-gray-400">29 September 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">The weekly meeting that actually decides</h2>
@@ -42,7 +46,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Management</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series &middot; 4/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series &middot; 4/8</span>
               <time class="text-xs text-gray-400">22 September 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Making priorities reach the front line</h2>
@@ -52,7 +56,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Management</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series &middot; 3/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series &middot; 3/8</span>
               <time class="text-xs text-gray-400">15 September 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">The decision log</h2>
@@ -62,7 +66,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Management</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series · 2/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series · 2/8</span>
               <time class="text-xs text-gray-400">8 September 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Choosing the 3 to 5 metrics that matter</h2>
@@ -72,7 +76,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Management</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series · 1/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series · 1/8</span>
               <time class="text-xs text-gray-400">1 September 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">What a management rhythm actually is</h2>
@@ -82,7 +86,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Organisation</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series · 8/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series · 8/8</span>
               <time class="text-xs text-gray-400">25 August 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Realigning the organisation behind the strategy</h2>
@@ -93,7 +97,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Steering</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series · 7/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series · 7/8</span>
               <time class="text-xs text-gray-400">18 August 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">KPIs do not create performance</h2>
@@ -104,7 +108,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Executive Committee</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series · 6/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series · 6/8</span>
               <time class="text-xs text-gray-400">11 August 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Executive committees often lack visibility</h2>
@@ -115,7 +119,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Steering</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series · 5/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series · 5/8</span>
               <time class="text-xs text-gray-400">4 August 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Meetings don't replace steering</h2>
@@ -126,7 +130,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Execution</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series · 4/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series · 4/8</span>
               <time class="text-xs text-gray-400">28 July 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Why projects slow down — what really derails them</h2>
@@ -137,7 +141,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Governance</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Special edition</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Special edition</span>
               <time class="text-xs text-gray-400">21 July 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Who really has the right to decide? The blind spot in executive committee governance</h2>
@@ -148,7 +152,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Performance</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series · 3/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series · 3/8</span>
               <time class="text-xs text-gray-400">15 July 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Wealth is not enough: what the highest-performing organisations understood</h2>
@@ -159,7 +163,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Strategy</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series · 2/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series · 2/8</span>
               <time class="text-xs text-gray-400">7 July 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Strategy alone is not enough: execution as a competitive advantage</h2>
@@ -170,7 +174,7 @@ import Footer from '../../components/Footer.astro';
           <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">Execution</span>
-              <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Series · 1/8</span>
+              <span class="text-xs bg-teal/10 text-teal-dark font-semibold px-2 py-0.5 rounded-full">Series · 1/8</span>
               <time class="text-xs text-gray-400">30 June 2026</time>
             </div>
             <h2 class="text-xl font-bold text-navy mb-3 leading-snug">Why strategic plans fail to deliver — even when the strategy is sound</h2>

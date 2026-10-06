@@ -1,0 +1,48 @@
+---
+// Séparateur courbe entre deux bandeaux.
+//
+// Posé le 06/10/2026 : le site n'avait qu'une seule courbe, en bas du bandeau
+// d'accueil, et des angles droits partout ailleurs. La vague est pourtant le
+// motif des visuels de campagne V2 — c'est donc le langage de la marque.
+//
+// À poser dans une section `relative overflow-hidden`. La couleur est celle de
+// la section QUI SUIT : la courbe découpe le bandeau, elle ne se pose pas dessus.
+//
+// Trois tracés pour éviter la répétition mécanique d'une page à l'autre.
+
+interface Props {
+  /** Bord où poser la courbe. */
+  position?: 'bas' | 'haut';
+  /** Couleur de la section suivante. */
+  couleur?: 'blanc' | 'gris' | 'navy';
+  /** Tracé 1, 2 ou 3. */
+  forme?: 1 | 2 | 3;
+  /** Classes supplémentaires (hauteur, opacité…). */
+  class?: string;
+}
+
+const { position = 'bas', couleur = 'blanc', forme = 1, class: extra = '' } = Astro.props;
+
+const teintes = {
+  blanc: '#FFFFFF',
+  gris: '#F9FAFB',
+  navy: '#3870B1',
+};
+
+const traces = {
+  1: 'M0,64 C320,128 760,8 1440,72 L1440,120 L0,120 Z',
+  2: 'M0,96 C420,16 900,124 1440,44 L1440,120 L0,120 Z',
+  3: 'M0,44 C280,112 620,16 1000,76 C1220,110 1340,94 1440,66 L1440,120 L0,120 Z',
+};
+---
+
+<div
+  class={`pointer-events-none absolute left-0 right-0 leading-none z-10 ${
+    position === 'bas' ? 'bottom-0' : 'top-0 rotate-180'
+  } ${extra}`}
+  aria-hidden="true"
+>
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="block w-full h-[42px] sm:h-[68px]">
+    <path d={traces[forme]} fill={teintes[couleur]} />
+  </svg>
+</div>

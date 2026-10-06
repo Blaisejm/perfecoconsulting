@@ -2,18 +2,22 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Vague from '../components/Vague.astro';
 ---
 
 <Base title="À propos" description="Jean-Michel Blaise, fondateur de PerfEco Consulting. 20+ ans d'expérience en performance organisationnelle en Nouvelle-Calédonie et Polynésie française.">
   <Nav />
   <main class="pt-16">
 
-    <section class="bg-navy text-white py-20 px-4">
-      <div class="max-w-3xl mx-auto">
+    <section class="relative bg-navy text-white pt-20 pb-28 px-4 overflow-hidden">
+      <img src="/photos/jmb-atelier-equipe.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center opacity-25" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/55"></div>
+      <div class="relative max-w-3xl mx-auto">
         <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">À propos</p>
         <h1 class="text-4xl sm:text-5xl font-bold mb-6">Jean-Michel Blaise</h1>
         <p class="text-gray-300 text-lg">Fondateur, PerfEco Consulting — Ingénieur, MBA, +20 ans Pacifique</p>
       </div>
+      <Vague couleur="blanc" forme={1} />
     </section>
 
     <section class="py-20 px-4">
@@ -22,7 +26,7 @@ import Footer from '../components/Footer.astro';
         <!-- Photo + bio -->
         <div class="flex flex-col sm:flex-row gap-8 items-start mb-12">
           <img
-            src="/photos/jmb-portrait.jpg"
+            src="/photos/jmb-portrait-2026.jpg"
             alt="Jean-Michel Blaise — Fondateur PerfEco Consulting"
             class="w-48 h-56 rounded-2xl object-cover shadow-lg object-top shrink-0"
           />
