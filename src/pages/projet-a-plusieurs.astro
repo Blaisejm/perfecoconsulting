@@ -1,0 +1,224 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Vague from '../components/Vague.astro';
+import PhotoBande from '../components/PhotoBande.astro';
+import { image } from '../data/images.js';
+
+// Porte 3 du site — « Monter un projet à plusieurs ».
+// Écrite dans le vocabulaire simplifié arrêté le 06/10/2026. La liste des mots
+// retirés est tenue dans l'arborescence du site, pas ici.
+//
+// Les trois niveaux de service sont ceux validés par JM le 07/10/2026 : cadrer,
+// trouver les partenaires, aller chercher l'argent. Aucun partenaire, aucun
+// programme et aucune ville ne sont nommés : les règles du plan Institutions
+// l'interdisent tant qu'un accord écrit n'existe pas.
+
+const signes = [
+  "Le projet dépasse ce que votre organisation peut porter seule.",
+  "Chacun est d'accord sur le principe, personne ne s'engage sur une date.",
+  "L'argent existe quelque part, mais pas sous une forme que vous savez demander.",
+  "Un partenaire a déjà résolu votre problème — à six mille kilomètres, et vous ne le savez pas.",
+];
+
+const etapes = [
+  {
+    num: '01',
+    titre: "On met le projet en mots que chacun peut signer",
+    desc: "Tant que le projet reste une bonne idée, il n'engage personne. On écrit ce qu'il produit, pour qui, à quelle date, et ce que chaque partenaire apporte. C'est court, et c'est ce qui transforme un accord de principe en engagement.",
+  },
+  {
+    num: '02',
+    titre: "On cherche les partenaires qui manquent",
+    desc: "Dans le Pacifique d'abord, où les mêmes questions se posent d'une île à l'autre. Puis du côté des projets européens, qui demandent presque toujours des partenaires de plusieurs territoires. Un projet seul n'est pas finançable ; à plusieurs, il le devient.",
+  },
+  {
+    num: '03',
+    titre: "On va chercher l'argent là où il est",
+    desc: "Les financements européens ne s'adressent pas à un projet, ils s'adressent à un groupe de partenaires qui répond à un appel, dans un calendrier et un format précis. Nous montons le dossier avec vous et nous tenons le calendrier — c'est lui qui décide, pas vous.",
+  },
+  {
+    num: '04',
+    titre: "On reste jusqu'à ce que l'équipe tienne sans nous",
+    desc: "Un projet à plusieurs ne survit pas à notre départ s'il dépendait de nous pour se parler. On part quand les partenaires ont leurs propres rendez-vous, leur propre page de suivi, et leur propre façon de trancher.",
+  },
+];
+
+const gardez = [
+  "Le projet écrit en deux pages, lisible par un financeur comme par un maire",
+  "La liste des partenaires approchés, avec ce que chacun a répondu",
+  "Le calendrier réel des appels, et la date à laquelle il faut être prêt",
+  "Une façon de décider à plusieurs quand personne n'est le chef des autres",
+];
+---
+
+<Base
+  title="Monter un projet à plusieurs"
+  description="Le projet dépasse ce que vous pouvez porter seuls, et personne n'a autorité sur les autres. Cadrer le projet, trouver les partenaires dans le Pacifique et du côté des projets européens, aller chercher le financement.">
+  <Nav />
+  <main class="pt-16">
+
+    <!-- Accroche : la phrase du visiteur -->
+    <section class="relative bg-navy text-white pt-24 pb-32 px-4 overflow-hidden">
+      <img src={image('reunion-a-distance').src} alt="" aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-25" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/55"></div>
+      <div class="relative max-w-3xl mx-auto">
+        <p class="text-white font-semibold text-sm uppercase tracking-wide mb-3">Quand le projet dépasse une seule organisation</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+          Monter un projet<br />
+          à plusieurs
+        </h1>
+        <p class="text-gray-200 text-xl leading-relaxed italic border-l-2 border-teal pl-5">
+          « Le projet nous dépasse, et personne ici n'a autorité sur les autres. »
+        </p>
+      </div>
+      <Vague couleur="blanc" forme={2} />
+    </section>
+
+    <!-- Les signes -->
+    <section class="py-20 px-4">
+      <div class="max-w-5xl mx-auto grid lg:grid-cols-5 gap-12 items-center">
+        <div class="lg:col-span-3">
+          <h2 class="text-3xl font-bold text-navy mb-8">Vous reconnaissez ça&nbsp;?</h2>
+          <ul class="space-y-4 mb-8">
+            {signes.map(s => (
+              <li class="flex gap-4 items-start">
+                <span class="text-teal-dark font-bold mt-1">—</span>
+                <span class="text-gray-700 text-lg leading-relaxed">{s}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-gray-600 text-lg leading-relaxed">
+            Ces projets échouent rarement sur la technique. Ils échouent parce que personne n'a le temps de les porter, et que personne n'a le droit de décider pour les autres.
+          </p>
+        </div>
+        <div class="lg:col-span-2">
+          <img src={image('comex-pacifique').src} alt={image('comex-pacifique').alt}
+            loading="lazy" width="1600" height="1200"
+            class="w-full aspect-[4/3] object-cover object-center rounded-xl shadow-md" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Le mécanisme -->
+    <section class="bg-gray-50 py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-8">Ce qui change à ce niveau</h2>
+        <p class="text-2xl text-navy font-semibold leading-snug mb-10">
+          Entre deux services, il y a au moins un chef commun, même très haut. Entre deux organisations, il n'y en a aucun.
+        </p>
+        <p class="text-gray-700 text-lg leading-relaxed mb-5">
+          C'est la seule vraie différence, et elle change tout. Quand deux services ne s'entendent pas, quelqu'un finit par trancher. Quand deux organisations ne s'entendent pas, le projet s'arrête — et chacun rentre chez soi sans avoir rien perdu.
+        </p>
+        <p class="text-gray-700 text-lg leading-relaxed mb-5">
+          Il faut donc fabriquer ce qui n'existe pas&nbsp;: une raison de rester. Une date commune, un résultat que personne ne peut atteindre seul, et une façon de décider que tout le monde a acceptée à l'avance.
+        </p>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          C'est aussi ce qui rend ces projets précieux. Une équipe qui a mené un projet avec des partenaires qu'elle ne choisissait pas en sort autrement — elle a appris à travailler avec des gens qui n'ont ni ses règles, ni ses chiffres, ni son chef.
+        </p>
+      </div>
+    </section>
+
+    <!-- Ce qu'on fait -->
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-4">Ce que nous faisons</h2>
+        <p class="text-gray-600 text-lg leading-relaxed mb-12 max-w-3xl">
+          Trois niveaux, qui se prennent dans cet ordre ou séparément. Beaucoup d'organisations viennent pour le troisième et repartent en ayant compris qu'il fallait commencer par le premier.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-10 mb-14">
+          {etapes.map(e => (
+            <div>
+              <div class="text-5xl font-bold text-teal/20 mb-3">{e.num}</div>
+              <h3 class="text-lg font-bold text-navy mb-3">{e.titre}</h3>
+              <p class="text-gray-600 leading-relaxed">{e.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <PhotoBande cle="ecrire-projet" format="21/9" fond="gris"
+      legende="Le projet s'écrit avec ceux qui vont le mener — c'est ce qui le rend signable." />
+
+    <!-- Avec vos équipes -->
+    <section class="relative bg-navy text-white pt-16 pb-24 px-4 overflow-hidden">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-6">Nous travaillons avec vos équipes, pas à leur place</h2>
+        <p class="text-gray-200 text-lg leading-relaxed mb-5">
+          Ce sont elles qui connaissent le terrain, et ce sont elles qui feront vivre ce qui aura été décidé. Un dossier déposé par un cabinet, sans que personne chez vous ne l'ait écrit, ne survit pas à la première question d'un financeur.
+        </p>
+        <p class="text-gray-200 text-lg leading-relaxed">
+          C'est aussi la raison d'être du projet&nbsp;: en travaillant ensemble sur un résultat daté, des équipes qui ne se connaissaient pas découvrent comment travailler ensemble. <span class="text-white font-semibold">Une addition de compétences ne fait pas une équipe — un projet mené à son terme, oui.</span>
+        </p>
+      </div>
+      <Vague couleur="blanc" forme={3} />
+    </section>
+
+    <!-- Ce que vous gardez -->
+    <section class="py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-8">Ce que vous gardez</h2>
+        <ul class="space-y-4 mb-10">
+          {gardez.map(g => (
+            <li class="flex gap-4 items-start">
+              <span class="w-2 h-2 rounded-full bg-teal mt-3 shrink-0"></span>
+              <span class="text-gray-700 text-lg leading-relaxed">{g}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="border-l-4 border-teal bg-teal/5 px-6 py-5">
+          <p class="text-navy text-lg leading-relaxed">
+            Tout cela vous reste, même si le financement n'est pas obtenu. Un projet écrit et des partenaires identifiés se représentent à l'appel suivant — et il y a toujours un appel suivant.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Est-ce le bon moment -->
+    <section class="bg-gray-50 py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-8">Est-ce le bon moment pour vous&nbsp;?</h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-10 max-w-3xl">
+          Cette porte est la bonne si votre organisation tient déjà ses engagements chez elle. Un projet à plusieurs ne répare pas une maison qui prend l'eau — il l'expose devant des témoins.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <a href="/un-service" class="group block border border-gray-200 bg-white rounded-xl overflow-hidden hover:border-teal transition">
+            <img src={image('quotidien-reprend').src} alt={image('quotidien-reprend').alt}
+              loading="lazy" width="1600" height="1200" class="w-full aspect-[16/9] object-cover object-center" />
+            <div class="p-6">
+              <p class="text-sm text-gray-500 mb-2">Si un service a encore du mal tout seul</p>
+              <p class="text-navy font-bold text-lg">Commencez par remettre un service en marche <span class="text-teal-dark">&rarr;</span></p>
+            </div>
+          </a>
+          <a href="/plusieurs-services" class="group block border border-gray-200 bg-white rounded-xl overflow-hidden hover:border-teal transition">
+            <img src={image('equipe-alignement').src} alt={image('equipe-alignement').alt}
+              loading="lazy" width="1600" height="900" class="w-full aspect-[16/9] object-cover object-center" />
+            <div class="p-6">
+              <p class="text-sm text-gray-500 mb-2">Si ce sont vos propres services qui ne se parlent pas</p>
+              <p class="text-navy font-bold text-lg">Faites-les travailler ensemble d'abord <span class="text-teal-dark">&rarr;</span></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appel -->
+    <section class="relative bg-navy text-white pt-28 pb-20 px-4 overflow-hidden">
+      <Vague position="haut" couleur="gris" forme={1} />
+      <div class="relative max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-5">Soixante minutes pour y voir clair</h2>
+        <p class="text-gray-200 text-lg leading-relaxed mb-8">
+          Un premier échange, confidentiel. Vous repartez avec une lecture de votre projet, les partenaires qui vous manquent, et une idée du calendrier. Si ce n'est pas le bon moment, nous vous le dirons aussi.
+        </p>
+        <a href="/contact" class="inline-block bg-teal hover:bg-teal-light text-gray-900 font-semibold px-8 py-4 rounded-lg transition">
+          Parler à quelqu'un
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>

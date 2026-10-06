@@ -14,9 +14,9 @@ import Vague from '../components/Vague.astro';
       <img src="/photos/consultant-client.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center opacity-25" />
       <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/55"></div>
       <div class="relative max-w-3xl mx-auto">
-        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Nos solutions</p>
+        <p class="text-white font-semibold text-sm uppercase tracking-wide mb-3">Nos solutions</p>
         <h1 class="text-4xl sm:text-5xl font-bold mb-6">Des résultats concrets pour chaque fonction</h1>
-        <p class="text-gray-300 text-lg leading-relaxed">
+        <p class="text-gray-200 text-lg leading-relaxed">
           Nos interventions couvrent l'ensemble des enjeux de performance organisationnelle — de la visibilité financière à la transformation digitale pragmatique.
         </p>
       </div>
@@ -76,13 +76,13 @@ import Vague from '../components/Vague.astro';
             <div class="flex-1">
               <div class="flex flex-wrap items-center gap-3 mb-3">
                 <h2 class="text-xl font-bold text-navy">{sol.title}</h2>
-                <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">{sol.target}</span>
+                <span class="text-xs bg-teal/10 text-teal-dark font-medium px-2 py-0.5 rounded-full">{sol.target}</span>
               </div>
               <p class="text-gray-600 mb-4">{sol.desc}</p>
               <ul class="grid sm:grid-cols-2 gap-2">
                 {sol.items.map(item => (
                   <li class="flex items-start gap-2 text-sm text-gray-600">
-                    <span class="text-teal mt-0.5 shrink-0">→</span>
+                    <span class="text-teal-dark mt-0.5 shrink-0">→</span>
                     {item}
                   </li>
                 ))}
@@ -93,7 +93,7 @@ import Vague from '../components/Vague.astro';
       </div>
 
       <div class="text-center mt-14">
-        <a href="/contact" class="inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white font-bold px-6 py-3.5 rounded-lg transition-colors shadow text-lg">
+        <a href="/contact" class="inline-flex items-center gap-2 bg-teal hover:bg-teal-light text-gray-900 font-bold px-6 py-3.5 rounded-lg transition-colors shadow text-lg">
           Discuter de votre situation
         </a>
       </div>

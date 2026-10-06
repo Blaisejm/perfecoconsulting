@@ -14,17 +14,65 @@ import Vague from '../components/Vague.astro';
       <img src="/photos/methode-consultant.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center opacity-25" />
       <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/55"></div>
       <div class="relative max-w-3xl mx-auto">
-        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Notre approche</p>
+        <p class="text-white font-semibold text-sm uppercase tracking-wide mb-3">Notre approche</p>
         <h1 class="text-4xl sm:text-5xl font-bold mb-6">
           Nous partons du fonctionnement réel —<br />
-          <span class="text-gray-400 font-normal">pas d'une restructuration déjà écrite.</span>
+          <span class="text-gray-200 font-normal">pas d'une restructuration déjà écrite.</span>
         </h1>
-        <p class="text-gray-300 text-lg leading-relaxed">
+        <p class="text-gray-200 text-lg leading-relaxed">
           Avant même la première réunion, nous analysons les signaux visibles : organigramme, rattachements, nature des contrats sur les postes clés. Nous arrivons avec des hypothèses — pas des questions génériques.
         </p>
       </div>
       <Vague couleur="blanc" forme={2} />
     </section>
+
+    <!-- Les trois portes — ajoute le 07/10/2026. C'est ici que le visiteur
+         choisit l'etendue de ce qu'il veut traiter, avant toute methode. -->
+    <section class="py-20 px-4">
+      <div class="max-w-5xl mx-auto">
+        <p class="text-teal-dark font-semibold text-sm uppercase tracking-wide mb-3">Par où commencer</p>
+        <h2 class="text-3xl font-bold text-navy mb-6">Trois façons d'entrer, selon ce qui bloque</h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-12 max-w-3xl">
+          La question n'est pas de quelle méthode vous avez besoin, mais jusqu'où va le problème.
+          Un service qui ne tient plus ses promesses ne se traite pas comme des services qui ne se
+          parlent pas, ni comme un projet qui dépasse votre organisation. Les trois se suivent&nbsp;:
+          chacun suppose que le précédent tient à peu près.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="/un-service" class="group block border border-gray-200 bg-white rounded-xl overflow-hidden hover:border-teal transition">
+            <img src="/photos/quotidien-reprend.jpg" alt="Une équipe au travail dans un même service" loading="lazy" width="1600" height="1200" class="w-full aspect-[16/9] object-cover object-center" />
+            <div class="p-6">
+              <p class="text-xs text-gray-500 uppercase tracking-wide mb-2">Un service</p>
+              <p class="text-navy font-bold text-lg mb-2">Remettre un service en marche</p>
+              <p class="text-gray-600 leading-relaxed">« Ce service n'arrive plus à tenir ce qu'il promet. » <span class="text-teal-dark font-semibold">&rarr;</span></p>
+            </div>
+          </a>
+          <a href="/plusieurs-services" class="group block border border-gray-200 bg-white rounded-xl overflow-hidden hover:border-teal transition">
+            <img src="/photos/equipe-alignement.jpg" alt="Une équipe se met d'accord autour d'une même table" loading="lazy" width="1600" height="900" class="w-full aspect-[16/9] object-cover object-center" />
+            <div class="p-6">
+              <p class="text-xs text-gray-500 uppercase tracking-wide mb-2">Plusieurs services</p>
+              <p class="text-navy font-bold text-lg mb-2">Les faire travailler ensemble</p>
+              <p class="text-gray-600 leading-relaxed">« Chacun fait bien son travail, et pourtant les projets n'avancent pas. » <span class="text-teal-dark font-semibold">&rarr;</span></p>
+            </div>
+          </a>
+          <a href="/projet-a-plusieurs" class="group block border border-gray-200 bg-white rounded-xl overflow-hidden hover:border-teal transition">
+            <img src="/photos/comex-pacifique.jpg" alt="Un comité de direction réuni dans un contexte pacifique" loading="lazy" width="1600" height="1200" class="w-full aspect-[16/9] object-cover object-center" />
+            <div class="p-6">
+              <p class="text-xs text-gray-500 uppercase tracking-wide mb-2">Un projet à plusieurs</p>
+              <p class="text-navy font-bold text-lg mb-2">Monter un projet à plusieurs</p>
+              <p class="text-gray-600 leading-relaxed">« Le projet nous dépasse, et personne n'a autorité sur les autres. » <span class="text-teal-dark font-semibold">&rarr;</span></p>
+            </div>
+          </a>
+        </div>
+        <div class="mt-10 border-l-4 border-teal bg-teal/5 px-6 py-5 max-w-3xl">
+          <p class="text-navy text-lg leading-relaxed">
+            Ce qui relie les trois&nbsp;: <span class="font-semibold">une addition de compétences ne fait pas une équipe — un projet mené à son terme, oui.</span>
+            C'est le projet, avec sa date et son résultat, qui oblige des gens à se découvrir et à se mettre d'accord. Pas une réunion de plus.
+          </p>
+        </div>
+      </div>
+    </section>
+
 
     <!-- Vision -->
     <section class="py-20 px-4">
@@ -53,7 +101,7 @@ import Vague from '../components/Vague.astro';
             { num: '04', title: 'Pilotage par les indicateurs', desc: 'KPI concrets, suivi régulier, résultats objectivés et mesurables à chaque étape de la mission.' },
           ].map(p => (
             <div class="border border-gray-100 rounded-xl p-6 shadow-sm">
-              <div class="text-teal font-bold text-xs mb-2">Pilier {p.num}</div>
+              <div class="text-teal-dark font-bold text-xs mb-2">Pilier {p.num}</div>
               <h3 class="font-bold text-navy text-lg mb-3">{p.title}</h3>
               <p class="text-gray-600 text-sm leading-relaxed">{p.desc}</p>
             </div>
@@ -73,9 +121,9 @@ import Vague from '../components/Vague.astro';
             { phase: 'Phase 3', label: 'Accompagnement', duration: '6 mois', desc: 'Suivi continu, ajustements, transfert de compétences. L\'organisation devient autonome.' },
           ].map(p => (
             <div class="bg-white rounded-xl p-6 shadow-sm text-left">
-              <div class="text-xs font-bold text-teal uppercase tracking-wide mb-1">{p.phase}</div>
+              <div class="text-xs font-bold text-teal-dark uppercase tracking-wide mb-1">{p.phase}</div>
               <div class="text-xl font-bold text-navy mb-1">{p.label}</div>
-              <div class="text-sm text-gray-400 mb-4">{p.duration}</div>
+              <div class="text-sm text-gray-500 mb-4">{p.duration}</div>
               <p class="text-gray-600 text-sm leading-relaxed">{p.desc}</p>
             </div>
           ))}
@@ -87,7 +135,7 @@ import Vague from '../components/Vague.astro';
       <p class="text-xl text-navy font-medium italic max-w-2xl mx-auto mb-8">
         « Notre rôle n'est pas de produire un diagnostic théorique. C'est de rendre lisible le fonctionnement réel pour permettre des décisions claires. »
       </p>
-      <a href="/contact" class="inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white font-bold px-6 py-3 rounded-lg transition-colors">
+      <a href="/contact" class="inline-flex items-center gap-2 bg-teal hover:bg-teal-light text-gray-900 font-bold px-6 py-3 rounded-lg transition-colors">
         Demander un diagnostic 60 min
       </a>
     </section>

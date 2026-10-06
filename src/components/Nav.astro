@@ -54,7 +54,7 @@ const currentPath = Astro.url.pathname;
             href={link.href}
             class={`px-2.5 py-2 rounded text-nav font-medium whitespace-nowrap transition-colors ${
               currentPath.startsWith(link.href)
-                ? 'text-teal bg-teal/5'
+                ? 'text-teal-dark bg-teal/5'
                 : 'text-gray-600 hover:text-navy hover:bg-gray-50'
             }`}
           >
@@ -85,7 +85,7 @@ const currentPath = Astro.url.pathname;
 
       <a
         href={ctaHref}
-        class="hidden xl:inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white text-nav font-bold px-4 py-2 rounded-lg transition-colors shadow-sm"
+        class="hidden xl:inline-flex items-center gap-2 bg-teal hover:bg-teal-light text-gray-900 text-nav font-bold px-4 py-2 rounded-lg transition-colors shadow-sm"
       >
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         {ctaLabel}
