@@ -64,9 +64,9 @@ concurrency:
 
 jobs:
   syntaxe:
-    name: "Syntaxe du pipeline (bash, JSON, PowerShell)"
+    name: "Syntaxe du pipeline (bash, JSON, PowerShell) + contraste des pages"
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -76,6 +76,31 @@ jobs:
 
       - name: Contrôle de syntaxe (blocs run:, files d'attente, parsing .ps1, caractères de contrôle)
         run: node scripts/controle-syntaxe.mjs
+
+      # ---------------------------------------------------------------------
+      # CONTRASTE — règle nº 45, ajoutée le 07/10/2026.
+      #
+      # Il faut construire le site avant de le contrôler : une classe Tailwind
+      # ne dit rien du fond réel derrière elle, seul l'arbre des éléments le
+      # dit. C'est ce qui a manqué les 6 et 7/10, quand un script qui lisait
+      # les SOURCES a mis deux liens en blanc sur fond clair sans le voir.
+      #
+      # Le témoin passe en PREMIER : si le contrôle a cessé de détecter ce
+      # qu'il doit détecter, inutile de lui demander son avis sur le site.
+      # ---------------------------------------------------------------------
+      - name: Dépendances du site
+        run: npm ci --no-audit --no-fund
+
+      - name: Témoin du contrôle de contraste (doit détecter 5 cas)
+        env:
+          CONTRASTE_ATTENDU: '5'
+        run: node scripts/controle-contraste.mjs scripts/temoins/contraste-casse.html
+
+      - name: Construction du site
+        run: npm run build
+
+      - name: Contrôle de contraste (lisibilité des textes publiés)
+        run: node scripts/controle-contraste.mjs
 
       - name: Rappel en cas d'échec
         if: failure()
