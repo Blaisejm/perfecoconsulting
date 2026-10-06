@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Vague from '../components/Vague.astro';
 import { image } from '../data/images.js';
 
 // Porte 2 du site — « Faire travailler ensemble plusieurs services ».
@@ -58,7 +59,7 @@ const gardez = [
   <main class="pt-16">
 
     <!-- Accroche : la phrase du visiteur, pas la nôtre -->
-    <section class="relative bg-navy text-white py-24 px-4 overflow-hidden">
+    <section class="relative bg-navy text-white pt-24 pb-32 px-4 overflow-hidden">
       <img
         src={image('equipe-alignement').src}
         alt=""
@@ -76,6 +77,7 @@ const gardez = [
           « Chacun fait bien son travail, et pourtant les projets n'avancent pas. »
         </p>
       </div>
+      <Vague couleur="blanc" forme={2} />
     </section>
 
     <!-- Les signes -->
@@ -124,37 +126,37 @@ const gardez = [
               class="w-full h-auto"
             >
               <!-- repères de départ et d'arrivée -->
-              <text x="60" y="34" font-size="13" font-weight="600" fill="#163D78">Le dossier arrive</text>
-              <text x="760" y="34" font-size="13" font-weight="600" fill="#163D78" text-anchor="end">Il ressort</text>
-              <line x1="60" y1="46" x2="60" y2="176" stroke="#163D78" stroke-width="1.5" />
-              <line x1="760" y1="46" x2="760" y2="176" stroke="#163D78" stroke-width="1.5" />
+              <text x="60" y="34" font-size="13" font-weight="600" fill="#3870B1">Le dossier arrive</text>
+              <text x="760" y="34" font-size="13" font-weight="600" fill="#3870B1" text-anchor="end">Il ressort</text>
+              <line x1="60" y1="46" x2="60" y2="176" stroke="#3870B1" stroke-width="1.5" />
+              <line x1="760" y1="46" x2="760" y2="176" stroke="#3870B1" stroke-width="1.5" />
 
               <!-- étiquettes des moments de travail -->
-              <text x="77" y="86" font-size="12" font-weight="600" fill="#163D78" text-anchor="middle">Service A</text>
-              <text x="262" y="86" font-size="12" font-weight="600" fill="#163D78" text-anchor="middle">Service B</text>
-              <text x="487" y="86" font-size="12" font-weight="600" fill="#163D78" text-anchor="middle">Service C</text>
-              <text x="660" y="86" font-size="12" font-weight="600" fill="#163D78" text-anchor="middle">Décision</text>
-              <line x1="77" y1="94" x2="77" y2="110" stroke="#C8CFDE" stroke-width="1.5" />
-              <line x1="262" y1="94" x2="262" y2="110" stroke="#C8CFDE" stroke-width="1.5" />
-              <line x1="487" y1="94" x2="487" y2="110" stroke="#C8CFDE" stroke-width="1.5" />
-              <line x1="660" y1="94" x2="660" y2="110" stroke="#C8CFDE" stroke-width="1.5" />
+              <text x="77" y="86" font-size="12" font-weight="600" fill="#3870B1" text-anchor="middle">Service A</text>
+              <text x="262" y="86" font-size="12" font-weight="600" fill="#3870B1" text-anchor="middle">Service B</text>
+              <text x="487" y="86" font-size="12" font-weight="600" fill="#3870B1" text-anchor="middle">Service C</text>
+              <text x="660" y="86" font-size="12" font-weight="600" fill="#3870B1" text-anchor="middle">Décision</text>
+              <line x1="77" y1="94" x2="77" y2="110" stroke="#D1D5DB" stroke-width="1.5" />
+              <line x1="262" y1="94" x2="262" y2="110" stroke="#D1D5DB" stroke-width="1.5" />
+              <line x1="487" y1="94" x2="487" y2="110" stroke="#D1D5DB" stroke-width="1.5" />
+              <line x1="660" y1="94" x2="660" y2="110" stroke="#D1D5DB" stroke-width="1.5" />
 
               <!-- le trajet : attente en gris, travail en orange -->
-              <rect x="60" y="110" width="700" height="38" fill="#E8EBF2" rx="4" />
+              <rect x="60" y="110" width="700" height="38" fill="#E5E7EB" rx="4" />
               <rect x="60"  y="110" width="34" height="38" fill="#EF7B00" rx="4" />
               <rect x="246" y="110" width="32" height="38" fill="#EF7B00" rx="4" />
               <rect x="470" y="110" width="34" height="38" fill="#EF7B00" rx="4" />
               <rect x="648" y="110" width="24" height="38" fill="#EF7B00" rx="4" />
 
               <!-- accolade : la part d'attente -->
-              <path d="M 94 162 L 94 170 L 648 170 L 648 162" fill="none" stroke="#8A93A8" stroke-width="1.4" />
-              <text x="371" y="192" font-size="13" fill="#5A6478" text-anchor="middle">entre les deux, il attend</text>
+              <path d="M 94 162 L 94 170 L 648 170 L 648 162" fill="none" stroke="#9CA3AF" stroke-width="1.4" />
+              <text x="371" y="192" font-size="13" fill="#6B7280" text-anchor="middle">entre les deux, il attend</text>
 
               <!-- légende -->
               <rect x="60" y="226" width="16" height="16" fill="#EF7B00" rx="3" />
-              <text x="84" y="239" font-size="13" fill="#3A4463">on y travaille</text>
-              <rect x="230" y="226" width="16" height="16" fill="#E8EBF2" rx="3" />
-              <text x="254" y="239" font-size="13" fill="#3A4463">il attend</text>
+              <text x="84" y="239" font-size="13" fill="#4B5563">on y travaille</text>
+              <rect x="230" y="226" width="16" height="16" fill="#E5E7EB" rx="3" />
+              <text x="254" y="239" font-size="13" fill="#4B5563">il attend</text>
             </svg>
           </div>
           <figcaption class="text-sm text-gray-500 mt-3 leading-relaxed">
@@ -203,7 +205,7 @@ const gardez = [
     </section>
 
     <!-- Avec vos équipes -->
-    <section class="bg-navy text-white py-16 px-4">
+    <section class="relative bg-navy text-white pt-16 pb-24 px-4 overflow-hidden">
       <div class="max-w-3xl mx-auto">
         <h2 class="text-2xl sm:text-3xl font-bold mb-6">Nous travaillons avec vos équipes, pas à leur place</h2>
         <p class="text-gray-200 text-lg leading-relaxed mb-5">
@@ -213,6 +215,7 @@ const gardez = [
           C'est aussi la raison d'être du projet&nbsp;: en travaillant ensemble sur un résultat daté, des équipes qui ne se parlaient qu'en réunion découvrent comment travailler ensemble. <span class="text-white font-semibold">Une addition de compétences ne fait pas une équipe — un projet mené à son terme, oui.</span>
         </p>
       </div>
+      <Vague couleur="blanc" forme={3} />
     </section>
 
     <!-- Ce que vous gardez -->
@@ -274,8 +277,9 @@ const gardez = [
     </section>
 
     <!-- Appel -->
-    <section class="bg-navy text-white py-20 px-4">
-      <div class="max-w-3xl mx-auto text-center">
+    <section class="relative bg-navy text-white pt-28 pb-20 px-4 overflow-hidden">
+      <Vague position="haut" couleur="gris" forme={1} />
+      <div class="relative max-w-3xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-5">Soixante minutes pour y voir clair</h2>
         <p class="text-gray-300 text-lg leading-relaxed mb-8">
           Un premier échange, confidentiel. Vous repartez avec une lecture de votre situation et deux ou trois pistes concrètes. Si ce n'est pas le bon moment, nous vous le dirons aussi.
