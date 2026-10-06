@@ -1,0 +1,81 @@
+<!doctype html>
+<!--
+  TÉMOIN du contrôle de contraste — doit sortir exactement 5 erreurs.
+
+  Il ne sert pas à décorer : chacun de ses blocs reproduit un défaut RÉEL
+  rencontré sur perfeco.nc les 6 et 7 octobre 2026, plus les cas qui ne doivent
+  surtout PAS être signalés. Si ce fichier cesse de sortir 5 erreurs, c'est le
+  contrôle qui a changé, pas le témoin.
+
+  Le <script> ci-dessous contient la chaîne « <script » : au premier essai, mon
+  analyseur la comptait comme une balise ouvrante et laissait tout le corps de
+  la page masqué — 56 fragments de texte pour 56 pages, et un ✔ mensonger.
+  Il est ici pour que ce bug ne puisse pas revenir sans être vu.
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Témoin du contrôle de contraste</title>
+  <script>
+    // Piège volontaire : la chaîne ci-dessous ressemble à une balise ouvrante.
+    const piege = '<script src="rien.js">';
+    const autre = "</script" + ">";
+  </script>
+  <style>
+    /* Piège volontaire : un sélecteur enfant contient un chevron. */
+    .a > .b { color: red; }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- ERREUR 1 — blanc sur un orange à 10 %, donc presque sur du blanc.
+       Cas réel : la carte « Phase 2 » des deux pages d'accueil, en ligne
+       depuis des mois sans que personne ne l'ait vue. -->
+  <div class="bg-teal/10 text-white">
+    <p>Carte de phase illisible</p>
+  </div>
+
+  <!-- ERREUR 2 — gris très clair sur blanc. Cas réel : ma propre
+       sur-correction du 07/10, qui a éclairci des textes déjà sur fond clair. -->
+  <p class="text-gray-200">Mention devenue invisible</p>
+
+  <!-- ERREUR 3 — l'orange du logo comme couleur de mots sur fond clair.
+       C'est la règle que ce contrôle protège : surface oui, mots non. -->
+  <p class="text-teal">Accroche en orange sur blanc</p>
+
+  <!-- ERREUR 4 — l'orange du logo sur le bleu : le pire cas du site, 2,20:1. -->
+  <section class="bg-navy">
+    <p class="text-teal">Surtitre orange sur le bleu</p>
+  </section>
+
+  <!-- ERREUR 5 — blanc atténué sur le bleu. Sous le seuil en petit corps.
+       Cas réel : les libellés des chiffres du bandeau d'accueil. -->
+  <section class="bg-navy">
+    <span class="text-white/60 text-sm">d'expérience Pacifique</span>
+  </section>
+
+  <!-- CE QUI NE DOIT PAS ÊTRE SIGNALÉ ----------------------------------- -->
+
+  <!-- Correct : encre sombre sur l'aplat orange — 6,34:1. C'est la solution
+       retenue pour les boutons. -->
+  <a class="bg-teal text-gray-900">Demander un diagnostic</a>
+
+  <!-- Correct : l'orange assombri comme couleur de mots sur fond clair. -->
+  <p class="text-teal-dark">Lien de lecture</p>
+
+  <!-- Correct : blanc plein sur le bleu — 6,16:1. -->
+  <section class="bg-navy">
+    <h2 class="text-3xl font-bold text-white">Un titre lisible</h2>
+    <p class="text-gray-200">Un paragraphe lisible</p>
+  </section>
+
+  <!-- Correct : un grand titre en gras n'a besoin que de 3:1. -->
+  <h1 class="text-5xl font-bold text-teal-dark">Grand titre toléré à 3:1</h1>
+
+  <!-- Correct : masqué, donc hors sujet. -->
+  <p class="sr-only">Texte réservé aux lecteurs d'écran</p>
+  <p class="hidden">Texte masqué</p>
+  <p aria-hidden="true" class="text-gray-200">Texte décoratif masqué</p>
+
+</body>
+</html>

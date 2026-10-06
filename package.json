@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "verifier:contraste": "node scripts/controle-contraste.mjs",
+    "verifier:contraste:temoin": "node scripts/controle-contraste.mjs scripts/temoins/contraste-casse.html"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
