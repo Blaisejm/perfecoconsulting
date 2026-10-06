@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname;
     <!-- Logo -->
     <a href={isEN ? '/en' : '/'} class="flex items-center gap-3 group">
       <img src="/logo-perfeco-site.svg" alt="PerfEco Consulting" class="h-10 w-auto" />
-      <span class="hidden sm:block text-xs text-gray-500 font-medium border-l border-gray-200 pl-3">
+      <span class="hidden lg:block text-xs text-gray-500 font-medium border-l border-gray-200 pl-3">
         Consulting
       </span>
     </a>
@@ -52,7 +52,7 @@ const currentPath = Astro.url.pathname;
         <li>
           <a
             href={link.href}
-            class={`px-3 py-2 rounded text-sm font-medium transition-colors ${
+            class={`px-2.5 py-2 rounded text-nav font-medium whitespace-nowrap transition-colors ${
               currentPath.startsWith(link.href)
                 ? 'text-teal bg-teal/5'
                 : 'text-gray-600 hover:text-navy hover:bg-gray-50'
@@ -85,7 +85,7 @@ const currentPath = Astro.url.pathname;
 
       <a
         href={ctaHref}
-        class="hidden sm:inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors shadow-sm"
+        class="hidden xl:inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white text-nav font-bold px-4 py-2 rounded-lg transition-colors shadow-sm"
       >
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         {ctaLabel}

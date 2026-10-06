@@ -1,0 +1,46 @@
+---
+// Bandeau photo entre deux sections de texte.
+//
+// Posé le 06/10/2026. L'image et son texte de remplacement viennent du
+// catalogue src/data/images.js : une page ne réécrit jamais un `alt`, donc il
+// ne peut pas diverger d'une page à l'autre.
+import { image } from '../data/images.js';
+
+interface Props {
+  /** Clé du catalogue d'images. */
+  cle: string;
+  /** Légende sous l'image. Facultative. */
+  legende?: string;
+  /** Format d'affichage. La photo est recadrée pour l'occuper. */
+  format?: '21/9' | '16/9' | '3/2' | '4/3';
+  /** Fond de la bande. */
+  fond?: 'blanc' | 'gris';
+}
+
+const { cle, legende, format = '21/9', fond = 'blanc' } = Astro.props;
+const img = image(cle);
+
+// Les classes doivent etre ECRITES EN TOUTES LETTRES : Tailwind lit le texte
+// source pour savoir quoi generer, il ne resout pas `aspect-[${format}]`.
+const formats = {
+  '21/9': 'aspect-[21/9]',
+  '16/9': 'aspect-[16/9]',
+  '3/2': 'aspect-[3/2]',
+  '4/3': 'aspect-[4/3]',
+};
+---
+
+<section class={`px-4 ${fond === 'gris' ? 'bg-gray-50 py-14' : 'py-14'}`}>
+  <figure class="max-w-4xl mx-auto">
+    <img
+      src={img.src}
+      alt={img.alt}
+      loading="lazy"
+      decoding="async"
+      class={`w-full object-cover object-center rounded-xl shadow-md ${formats[format]}`}
+    />
+    {legende && (
+      <figcaption class="text-sm text-gray-500 mt-3 leading-relaxed">{legende}</figcaption>
+    )}
+  </figure>
+</section>
