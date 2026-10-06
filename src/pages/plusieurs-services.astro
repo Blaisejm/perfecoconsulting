@@ -1,0 +1,291 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { image } from '../data/images.js';
+
+// Porte 2 du site — « Faire travailler ensemble plusieurs services ».
+// Écrite dans le vocabulaire simplifié arrêté le 06/10/2026. La liste des mots
+// retirés est tenue dans l'arborescence du site, pas ici : l'y recopier
+// empêcherait de contrôler cette page par simple recherche de texte.
+//
+// Images : extraites de la zone photographique des visuels de campagne V2
+// (septembre 26), recadrées en 16:9 — aucun texte incrusté, groupes de 3 à 5
+// personnes, conformément à la charte.
+
+const signes = [
+  "Un dossier attend une validation que personne n'a vraiment demandée.",
+  "Deux directions avancent sur le même sujet sans le savoir.",
+  "Une équipe livre exactement ce qu'on lui a demandé — et ce n'était pas ce qu'il fallait.",
+  "La même question revient au comité pour la troisième fois.",
+];
+
+const etapes = [
+  {
+    num: '01',
+    titre: "On suit un dossier, un vrai",
+    desc: "Pas un schéma d'organisation : un dossier réel, de son arrivée à sa sortie. On note chaque fois qu'il change de mains, et combien de temps il attend avant de repartir.",
+  },
+  {
+    num: '02',
+    titre: "On met les vrais délais sur la table",
+    desc: "Presque toujours, le temps de travail est court et le temps d'attente est long. Personne ne le sait, parce que chaque service ne voit que sa part. On rend le total visible.",
+  },
+  {
+    num: '03',
+    titre: "On lance un projet court",
+    desc: "Une date, un résultat, un nom derrière chaque décision. C'est le projet qui oblige les équipes à se mettre d'accord — une réunion de plus n'y suffirait pas.",
+  },
+  {
+    num: '04',
+    titre: "On reste jusqu'à ce que ça tienne sans nous",
+    desc: "Un changement qui dépend de notre présence n'a pas été fait. On part quand vos équipes tiennent la suite elles-mêmes.",
+  },
+];
+
+const gardez = [
+  "Le chemin réel d'un dossier, avec les temps d'attente mesurés",
+  "Les deux ou trois endroits où ça bloque vraiment, chiffrés",
+  "Un projet lancé, avec un nom derrière chaque décision et une date",
+  "Une page de suivi simple, que vous tenez vous-même après notre départ",
+];
+---
+
+<Base
+  title="Faire travailler ensemble plusieurs services"
+  description="Chacun fait bien son travail, et pourtant les projets n'avancent pas. Le temps se perd quand les dossiers passent d'un service à l'autre. Comment PerfEco le rend visible et le traite.">
+  <Nav />
+  <main class="pt-16">
+
+    <!-- Accroche : la phrase du visiteur, pas la nôtre -->
+    <section class="relative bg-navy text-white py-24 px-4 overflow-hidden">
+      <img
+        src={image('equipe-alignement').src}
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-25"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/55"></div>
+      <div class="relative max-w-3xl mx-auto">
+        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Quand plusieurs services sont concernés</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+          Faire travailler ensemble<br />
+          plusieurs services
+        </h1>
+        <p class="text-gray-200 text-xl leading-relaxed italic border-l-2 border-teal pl-5">
+          « Chacun fait bien son travail, et pourtant les projets n'avancent pas. »
+        </p>
+      </div>
+    </section>
+
+    <!-- Les signes -->
+    <section class="py-20 px-4">
+      <div class="max-w-5xl mx-auto grid lg:grid-cols-5 gap-12 items-center">
+        <div class="lg:col-span-3">
+          <h2 class="text-3xl font-bold text-navy mb-8">Vous reconnaissez ça&nbsp;?</h2>
+          <ul class="space-y-4 mb-8">
+            {signes.map(s => (
+              <li class="flex gap-4 items-start">
+                <span class="text-teal font-bold mt-1">—</span>
+                <span class="text-gray-700 text-lg leading-relaxed">{s}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-gray-600 text-lg leading-relaxed">
+            Aucun de ces signes ne désigne un service en particulier. C'est justement ce qui les rend difficiles à traiter&nbsp;: tant qu'on cherche un responsable, on ne trouve rien.
+          </p>
+        </div>
+        <div class="lg:col-span-2">
+          <img
+            src={image('reunion-blocage').src}
+            alt={image('reunion-blocage').alt}
+            loading="lazy"
+            width="1600" height="900"
+            class="w-full aspect-[4/3] object-cover object-center rounded-xl shadow-md"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Le mécanisme, expliqué simplement -->
+    <section class="bg-gray-50 py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-8">Où le temps se perd</h2>
+        <p class="text-2xl text-navy font-semibold leading-snug mb-10">
+          Le temps se perd rarement dans un service. Il se perd quand le dossier passe de l'un à l'autre.
+        </p>
+
+        <figure class="mb-10">
+          <div class="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 shadow-sm">
+            <svg
+              viewBox="0 0 820 270"
+              role="img"
+              aria-label="La vie d'un dossier qui traverse trois services : quatre courts moments où l'on travaille dessus, séparés par de longues périodes où il attend. Le temps d'attente occupe la plus grande part du trajet."
+              class="w-full h-auto"
+            >
+              <!-- repères de départ et d'arrivée -->
+              <text x="60" y="34" font-size="13" font-weight="600" fill="#163D78">Le dossier arrive</text>
+              <text x="760" y="34" font-size="13" font-weight="600" fill="#163D78" text-anchor="end">Il ressort</text>
+              <line x1="60" y1="46" x2="60" y2="176" stroke="#163D78" stroke-width="1.5" />
+              <line x1="760" y1="46" x2="760" y2="176" stroke="#163D78" stroke-width="1.5" />
+
+              <!-- étiquettes des moments de travail -->
+              <text x="77" y="86" font-size="12" font-weight="600" fill="#163D78" text-anchor="middle">Service A</text>
+              <text x="262" y="86" font-size="12" font-weight="600" fill="#163D78" text-anchor="middle">Service B</text>
+              <text x="487" y="86" font-size="12" font-weight="600" fill="#163D78" text-anchor="middle">Service C</text>
+              <text x="660" y="86" font-size="12" font-weight="600" fill="#163D78" text-anchor="middle">Décision</text>
+              <line x1="77" y1="94" x2="77" y2="110" stroke="#C8CFDE" stroke-width="1.5" />
+              <line x1="262" y1="94" x2="262" y2="110" stroke="#C8CFDE" stroke-width="1.5" />
+              <line x1="487" y1="94" x2="487" y2="110" stroke="#C8CFDE" stroke-width="1.5" />
+              <line x1="660" y1="94" x2="660" y2="110" stroke="#C8CFDE" stroke-width="1.5" />
+
+              <!-- le trajet : attente en gris, travail en orange -->
+              <rect x="60" y="110" width="700" height="38" fill="#E8EBF2" rx="4" />
+              <rect x="60"  y="110" width="34" height="38" fill="#EF7B00" rx="4" />
+              <rect x="246" y="110" width="32" height="38" fill="#EF7B00" rx="4" />
+              <rect x="470" y="110" width="34" height="38" fill="#EF7B00" rx="4" />
+              <rect x="648" y="110" width="24" height="38" fill="#EF7B00" rx="4" />
+
+              <!-- accolade : la part d'attente -->
+              <path d="M 94 162 L 94 170 L 648 170 L 648 162" fill="none" stroke="#8A93A8" stroke-width="1.4" />
+              <text x="371" y="192" font-size="13" fill="#5A6478" text-anchor="middle">entre les deux, il attend</text>
+
+              <!-- légende -->
+              <rect x="60" y="226" width="16" height="16" fill="#EF7B00" rx="3" />
+              <text x="84" y="239" font-size="13" fill="#3A4463">on y travaille</text>
+              <rect x="230" y="226" width="16" height="16" fill="#E8EBF2" rx="3" />
+              <text x="254" y="239" font-size="13" fill="#3A4463">il attend</text>
+            </svg>
+          </div>
+          <figcaption class="text-sm text-gray-500 mt-3 leading-relaxed">
+            Illustration. Les durées changent d'une organisation à l'autre&nbsp;; l'écart entre le temps passé à travailler sur un dossier et le temps où il attend, lui, se retrouve presque partout.
+          </figcaption>
+        </figure>
+
+        <p class="text-gray-700 text-lg leading-relaxed mb-5">
+          Pris séparément, chaque service fonctionne. Il a ses règles, ses chiffres, son responsable, et quelqu'un pour trancher quand deux personnes ne sont pas d'accord.
+        </p>
+        <p class="text-gray-700 text-lg leading-relaxed mb-5">
+          Entre deux services, il n'y a rien de tout cela. Pas de règle commune, pas de chiffre commun, et un responsable commun qui se trouve tout en haut — donc qu'on dérange le moins possible. Le dossier s'arrête là, et personne ne le voit, parce que chacun ne regarde que sa part.
+        </p>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          C'est pourquoi améliorer chaque service séparément ne règle presque jamais le problème&nbsp;: on rend plus rapide ce qui était déjà rapide.
+        </p>
+      </div>
+    </section>
+
+    <!-- Ce qu'on fait -->
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-12">Ce que nous faisons</h2>
+        <div class="grid sm:grid-cols-2 gap-10 mb-14">
+          {etapes.map(e => (
+            <div>
+              <div class="text-5xl font-bold text-teal/20 mb-3">{e.num}</div>
+              <h3 class="text-lg font-bold text-navy mb-3">{e.titre}</h3>
+              <p class="text-gray-600 leading-relaxed">{e.desc}</p>
+            </div>
+          ))}
+        </div>
+        <figure>
+          <img
+            src={image('ecrire-projet').src}
+            alt={image('ecrire-projet').alt}
+            loading="lazy"
+            width="1600" height="686"
+            class="w-full aspect-[21/9] object-cover object-center rounded-xl shadow-md"
+          />
+          <figcaption class="text-sm text-gray-500 mt-3">
+            Le projet s'écrit avec les équipes qui vont le mener — pas dans un rapport remis à la direction.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Avec vos équipes -->
+    <section class="bg-navy text-white py-16 px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-6">Nous travaillons avec vos équipes, pas à leur place</h2>
+        <p class="text-gray-200 text-lg leading-relaxed mb-5">
+          Ce sont elles qui connaissent le terrain, et ce sont elles qui feront vivre ce qui aura été décidé. Un rapport remis à la direction ne change rien si personne n'a participé à l'écrire.
+        </p>
+        <p class="text-gray-200 text-lg leading-relaxed">
+          C'est aussi la raison d'être du projet&nbsp;: en travaillant ensemble sur un résultat daté, des équipes qui ne se parlaient qu'en réunion découvrent comment travailler ensemble. <span class="text-white font-semibold">Une addition de compétences ne fait pas une équipe — un projet mené à son terme, oui.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Ce que vous gardez -->
+    <section class="py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-8">Ce que vous gardez</h2>
+        <ul class="space-y-4 mb-10">
+          {gardez.map(g => (
+            <li class="flex gap-4 items-start">
+              <span class="w-2 h-2 rounded-full bg-teal mt-3 shrink-0"></span>
+              <span class="text-gray-700 text-lg leading-relaxed">{g}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="border-l-4 border-teal bg-teal-light/10 px-6 py-5">
+          <p class="text-navy text-lg leading-relaxed">
+            Tout cela vous reste, quel que soit le résultat du projet. Un chemin de dossier mesuré et une page de suivi tenue par vos équipes servent encore longtemps après notre départ.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Est-ce le bon moment -->
+    <section class="bg-gray-50 py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-navy mb-8">Est-ce le bon moment pour vous&nbsp;?</h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-10 max-w-3xl">
+          Cette porte est la bonne si chaque service tient à peu près ses engagements, et que ce qui traîne, ce sont les dossiers qui passent de l'un à l'autre. Si ce n'est pas encore le cas, nous vous le dirons.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <a href="/un-service" class="group block border border-gray-200 bg-white rounded-xl overflow-hidden hover:border-teal transition">
+            <img
+              src={image('quotidien-reprend').src}
+              alt={image('quotidien-reprend').alt}
+              loading="lazy"
+              width="1600" height="1200"
+              class="w-full aspect-[16/9] object-cover object-center"
+            />
+            <div class="p-6">
+              <p class="text-sm text-gray-500 mb-2">Si un service a encore du mal tout seul</p>
+              <p class="text-navy font-bold text-lg">Commencez par remettre un service en marche <span class="text-teal">&rarr;</span></p>
+            </div>
+          </a>
+          <a href="/projet-a-plusieurs" class="group block border border-gray-200 bg-white rounded-xl overflow-hidden hover:border-teal transition">
+            <img
+              src={image('comex-pacifique').src}
+              alt={image('comex-pacifique').alt}
+              loading="lazy"
+              width="1600" height="1200"
+              class="w-full aspect-[16/9] object-cover object-center"
+            />
+            <div class="p-6">
+              <p class="text-sm text-gray-500 mb-2">S'il vous faut des partenaires et un financement</p>
+              <p class="text-navy font-bold text-lg">Montez un projet à plusieurs <span class="text-teal">&rarr;</span></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appel -->
+    <section class="bg-navy text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-5">Soixante minutes pour y voir clair</h2>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          Un premier échange, confidentiel. Vous repartez avec une lecture de votre situation et deux ou trois pistes concrètes. Si ce n'est pas le bon moment, nous vous le dirons aussi.
+        </p>
+        <a href="/contact" class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold px-8 py-4 rounded-lg transition">
+          Parler à quelqu'un
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>
