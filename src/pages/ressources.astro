@@ -169,9 +169,9 @@ const articles = [
       <img src="/photos/presentation-chiffres.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center opacity-25" />
       <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/55"></div>
       <div class="relative max-w-3xl mx-auto">
-        <p class="text-teal font-semibold text-sm uppercase tracking-wide mb-3">Ressources</p>
+        <p class="text-white font-semibold text-sm uppercase tracking-wide mb-3">Ressources</p>
         <h1 class="text-4xl sm:text-5xl font-bold mb-6">Insights pour dirigeants</h1>
-        <p class="text-gray-300 text-lg">Articles pratiques sur la performance organisationnelle, le pilotage et la transformation — dans le contexte NC & Pacifique.</p>
+        <p class="text-gray-200 text-lg">Articles pratiques sur la performance organisationnelle, le pilotage et la transformation — dans le contexte NC & Pacifique.</p>
       </div>
       <Vague couleur="blanc" forme={3} />
     </section>
@@ -184,12 +184,12 @@ const articles = [
             <article class="bg-white border border-gray-100 rounded-xl shadow-sm p-8 flex flex-col sm:flex-row gap-6">
               <div class="flex-1">
                 <div class="flex items-center gap-3 mb-3">
-                  <span class="text-xs bg-teal/10 text-teal font-medium px-2 py-0.5 rounded-full">{article.categorie}</span>
-                  <time class="text-xs text-gray-400">{new Date(article.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                  <span class="text-xs bg-teal/10 text-teal-dark font-medium px-2 py-0.5 rounded-full">{article.categorie}</span>
+                  <time class="text-xs text-gray-500">{new Date(article.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
                 </div>
                 <h2 class="text-xl font-bold text-navy mb-3 leading-snug">{article.titre}</h2>
                 <p class="text-gray-600 text-sm leading-relaxed mb-4">{article.extrait}</p>
-                <a href={`/ressources/${article.slug}`} class="text-teal font-semibold text-sm hover:underline inline-flex items-center gap-1">
+                <a href={`/ressources/${article.slug}`} class="text-teal-dark font-semibold text-sm hover:underline inline-flex items-center gap-1">
                   Lire l'article →
                 </a>
               </div>
@@ -203,7 +203,7 @@ const articles = [
           <form name="newsletter" method="POST" data-netlify="true" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input type="hidden" name="form-name" value="newsletter" />
             <input type="email" name="email" required placeholder="votre@email.nc" class="flex-1 border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
-            <button type="submit" class="bg-teal hover:bg-teal-dark text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors">
+            <button type="submit" class="bg-teal hover:bg-teal-light text-gray-900 font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors">
               S'inscrire
             </button>
           </form>
