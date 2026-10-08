@@ -1,0 +1,54 @@
+---
+// Chiffres cles animes (07/10/2026), modele « stats counter » du catalogue
+// 21st.dev transpose en Astro pur : pas de React, une vingtaine de lignes de
+// script. Le HTML livre deja la valeur FINALE — moteurs de recherche, lecteurs
+// d'ecran et navigateurs sans JavaScript lisent le bon chiffre. L'animation ne
+// part de zero que si le script tourne ET que le visiteur accepte le mouvement.
+// Prevu pour un fond navy (section Resultats de l'accueil).
+interface Chiffre { signe: string; valeur: number; label: string; sub: string; }
+// unite : espace insecable + % en francais (defaut), "%" colle en anglais.
+interface Props { chiffres: Chiffre[]; unite?: string; }
+
+const { chiffres, unite = ' %' } = Astro.props;
+---
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
+  {chiffres.map(c => (
+    <div class="group rounded-xl bg-white/5 ring-1 ring-white/15 p-6 text-center transition duration-300 hover:-translate-y-1 hover:ring-white/40">
+      <div class="text-4xl lg:text-5xl font-black tabular-nums whitespace-nowrap mb-2">
+        {c.signe}<span data-compteur={c.valeur}>{c.valeur}</span>{unite}
+      </div>
+      <div class="font-semibold">{c.label}</div>
+      <div class="text-white text-sm mt-1">{c.sub}</div>
+      <div class="mx-auto mt-4 h-1 w-10 rounded-full bg-teal transition-all duration-300 group-hover:w-20"></div>
+    </div>
+  ))}
+</div>
+
+<script>
+  const compteurs = document.querySelectorAll<HTMLElement>('[data-compteur]');
+  const calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!calme && 'IntersectionObserver' in window) {
+    const animer = (el: HTMLElement) => {
+      const cible = Number(el.dataset.compteur);
+      // Remise a zero au DEPART de l'animation seulement : si elle ne part
+      // jamais (onglet cache, robot), la vraie valeur reste affichee.
+      el.textContent = '0';
+      const debut = performance.now();
+      const pas = (t: number) => {
+        const p = Math.min((t - debut) / 1400, 1);
+        el.textContent = String(Math.round(cible * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) requestAnimationFrame(pas);
+      };
+      requestAnimationFrame(pas);
+    };
+    const obs = new IntersectionObserver((entrees) => {
+      for (const e of entrees) {
+        if (!e.isIntersecting) continue;
+        obs.unobserve(e.target);
+        animer(e.target as HTMLElement);
+      }
+    }, { threshold: 0.5 });
+    compteurs.forEach((el) => obs.observe(el));
+  }
+</script>
