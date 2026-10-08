@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import Vague from '../../components/Vague.astro';
+import Icone from '../../components/Icone.astro';
+import ChiffresCles from '../../components/ChiffresCles.astro';
 ---
 
 <Base
@@ -82,28 +84,28 @@ import Vague from '../../components/Vague.astro';
 
         <div class="grid sm:grid-cols-2 gap-6">
           <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
-            <span class="text-2xl shrink-0">📊</span>
+            <span class="shrink-0 w-11 h-11 rounded-lg bg-navy/10 text-navy flex items-center justify-center"><Icone nom="chart-column" /></span>
             <div>
               <h3 class="font-semibold text-navy mb-1">Partial data</h3>
               <p class="text-gray-600 text-sm leading-relaxed">Each department works with its own version of reality.</p>
             </div>
           </div>
           <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
-            <span class="text-2xl shrink-0">⚡</span>
+            <span class="shrink-0 w-11 h-11 rounded-lg bg-navy/10 text-navy flex items-center justify-center"><Icone nom="battery-low" /></span>
             <div>
               <h3 class="font-semibold text-navy mb-1">Overloaded key people</h3>
               <p class="text-gray-600 text-sm leading-relaxed">The strongest profiles carry too many critical topics.</p>
             </div>
           </div>
           <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
-            <span class="text-2xl shrink-0">💸</span>
+            <span class="shrink-0 w-11 h-11 rounded-lg bg-navy/10 text-navy flex items-center justify-center"><Icone nom="eye-off" /></span>
             <div>
               <h3 class="font-semibold text-navy mb-1">Hidden costs</h3>
               <p class="text-gray-600 text-sm leading-relaxed">Rework, duplication and delays are not always measured.</p>
             </div>
           </div>
           <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
-            <span class="text-2xl shrink-0">🔄</span>
+            <span class="shrink-0 w-11 h-11 rounded-lg bg-navy/10 text-navy flex items-center justify-center"><Icone nom="workflow" /></span>
             <div>
               <h3 class="font-semibold text-navy mb-1">Weak cross-functional processes</h3>
               <p class="text-gray-600 text-sm leading-relaxed">Friction slows down execution and decision-making.</p>
@@ -171,29 +173,35 @@ import Vague from '../../components/Vague.astro';
           <h2 class="text-3xl sm:text-4xl font-bold">Concrete results for leadership teams and operations</h2>
         </div>
 
+        <ChiffresCles unite="%" chiffres={[
+            { signe: '–', valeur: 30, label: 'Administrative time', sub: 'On key processes' },
+            { signe: '–', valeur: 25, label: 'Inefficient costs', sub: 'Identified and eliminated' },
+            { signe: '+', valeur: 40, label: 'Performance gain', sub: 'Measured by KPI' },
+          ]} />
+
         <div class="grid sm:grid-cols-3 gap-6 mb-14">
           <div class="bg-white/5 rounded-xl p-6 text-center">
-            <div class="text-white text-3xl mb-2">📉</div>
+            <div class="text-teal-light mb-3 flex justify-center"><Icone nom="clock" class="w-8 h-8" /></div>
             <div class="text-white font-semibold">Less administrative time</div>
           </div>
           <div class="bg-white/5 rounded-xl p-6 text-center">
-            <div class="text-white text-3xl mb-2">🎯</div>
+            <div class="text-teal-light mb-3 flex justify-center"><Icone nom="file-check" class="w-8 h-8" /></div>
             <div class="text-white font-semibold">More reliable reporting</div>
           </div>
           <div class="bg-white/5 rounded-xl p-6 text-center">
-            <div class="text-white text-3xl mb-2">⚡</div>
+            <div class="text-teal-light mb-3 flex justify-center"><Icone nom="zap" class="w-8 h-8" /></div>
             <div class="text-white font-semibold">Faster decision-making</div>
           </div>
           <div class="bg-white/5 rounded-xl p-6 text-center">
-            <div class="text-white text-3xl mb-2">💰</div>
+            <div class="text-teal-light mb-3 flex justify-center"><Icone nom="piggy-bank" class="w-8 h-8" /></div>
             <div class="text-white font-semibold">Fewer inefficient costs</div>
           </div>
           <div class="bg-white/5 rounded-xl p-6 text-center">
-            <div class="text-white text-3xl mb-2">🤝</div>
+            <div class="text-teal-light mb-3 flex justify-center"><Icone nom="handshake" class="w-8 h-8" /></div>
             <div class="text-white font-semibold">Better aligned teams</div>
           </div>
           <div class="bg-white/5 rounded-xl p-6 text-center">
-            <div class="text-white text-3xl mb-2">📊</div>
+            <div class="text-teal-light mb-3 flex justify-center"><Icone nom="gauge" class="w-8 h-8" /></div>
             <div class="text-white font-semibold">Measurable performance</div>
           </div>
         </div>

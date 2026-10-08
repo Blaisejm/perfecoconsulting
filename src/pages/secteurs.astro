@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import PhotoBande from '../components/PhotoBande.astro';
 import Vague from '../components/Vague.astro';
+import Icone from '../components/Icone.astro';
 ---
 
 <Base title="Secteurs — Industrie, BTP, Energie, Banque — Nouvelle-Caledonie" description="PerfEco intervient dans l'industrie, l'énergie, le BTP, la banque, le secteur public en Nouvelle-Calédonie et Polynésie française.">
@@ -25,28 +26,28 @@ import Vague from '../components/Vague.astro';
         <div class="grid sm:grid-cols-2 gap-8">
           {[
             {
-              icon: '⚡',
+              icon: 'factory',
               title: 'Industrie & Énergie',
               refs: 'ENGIE, Vale, Prony Resources, TotalEnergies, Enercal',
               desc: 'Environnements sous pression réglementaire et technique. Enjeux de reporting multi-niveaux, de gouvernance SI et de pilotage de projets industriels complexes.',
               enjeux: ['Fiabilité des reportings de production', 'Pilotage multi-entités', 'Conformité réglementaire', 'Transformation organisationnelle'],
             },
             {
-              icon: '🏗️',
+              icon: 'hard-hat',
               title: 'BTP & Maintenance',
               refs: 'Dumez, VCOM, groupes multi-entités',
               desc: 'Groupes en transformation nécessitant une structuration solide et une digitalisation pragmatique des processus opérationnels.',
               enjeux: ['Structuration multi-entités', 'Suivi de chantiers', 'Adoption des outils', 'Coordination inter-équipes'],
             },
             {
-              icon: '🏦',
+              icon: 'landmark',
               title: 'Banque & Assurances',
               refs: 'Structures financières du Pacifique',
               desc: 'Contraintes réglementaires locales et régionales. Besoins de reporting fiable, de conformité et de pilotage des risques.',
               enjeux: ['Pilotage des risques', 'Reporting réglementaire', 'Simplification des processus', 'Gouvernance des données'],
             },
             {
-              icon: '🏛️',
+              icon: 'building-2',
               title: 'Secteur public & Parapublic',
               refs: 'Province Sud, OPT, CCI, CAFAT, CHT Médipôle, CHS',
               desc: 'Collectivités et établissements publics NC & PF confrontés à des pressions budgétaires croissantes et des besoins de modernisation.',
@@ -54,7 +55,7 @@ import Vague from '../components/Vague.astro';
             },
           ].map(s => (
             <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-8">
-              <div class="text-3xl mb-4">{s.icon}</div>
+              <div class="w-12 h-12 rounded-xl bg-navy/10 text-navy flex items-center justify-center mb-4"><Icone nom={s.icon} class="w-7 h-7" /></div>
               <h2 class="text-xl font-bold text-navy mb-1">{s.title}</h2>
               <p class="text-teal-dark text-xs font-medium mb-4">{s.refs}</p>
               <p class="text-gray-600 text-sm leading-relaxed mb-5">{s.desc}</p>
