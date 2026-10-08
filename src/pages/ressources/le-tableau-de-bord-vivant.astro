@@ -1,0 +1,184 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base
+  title="Le tableau de bord vivant"
+  description="Trois dirigeants interrogés sur quatre fondent au moins la moitié de leurs décisions de planification sur des données de plus de 30 jours. Un tableau de bord vivant tient en quatre cases par ligne : un nom, une date, la courbe de huit semaines, et ce qu'on fait."
+  canonicalOverride="https://perfsystemique.fr/le-tableau-de-bord-vivant/"
+>
+  <Nav langAlternate="/en/resources/the-living-dashboard" />
+  <main class="pt-16">
+
+    <!-- Hero article -->
+    <section class="bg-navy text-white py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="text-xs bg-teal/20 text-white font-medium px-3 py-1 rounded-full">Pilotage</span>
+          <span class="text-xs bg-teal/20 text-white font-medium px-3 py-1 rounded-full">Tableau de bord</span>
+          <span class="text-xs bg-teal/20 text-white font-medium px-3 py-1 rounded-full">Management</span>
+          <time class="text-xs text-gray-200" datetime="2026-10-13">13 octobre 2026</time>
+        </div>
+        <p class="text-sm text-white font-semibold mb-3 uppercase tracking-widest">Série Le Rythme de Pilotage · 7/8</p>
+        <h1 class="text-3xl sm:text-4xl font-bold mb-6 leading-snug">
+          Chaque ligne a un nom et une date.
+        </h1>
+        <p class="text-gray-200 text-lg leading-relaxed">
+          Vous avez déjà un tableau de bord, et c'est l'essentiel. Pour qu'il serve à décider chaque semaine, il lui manque souvent deux petites choses : savoir qui suit chaque chiffre, et de quand il date.
+        </p>
+        <!-- Auteur -->
+        <div class="flex items-center gap-3 mt-8 pt-6 border-t border-white/10">
+          <div>
+            <p class="text-sm font-semibold text-white">Jean-Michel Blaise</p>
+            <p class="text-xs text-gray-200">Fondateur — PerfEco Consulting NC</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bandeau version complète -->
+    <div class="bg-teal/5 border-b border-teal/30 py-3 px-4">
+      <div class="max-w-3xl mx-auto flex items-center justify-between gap-4 flex-wrap text-sm text-teal-dark">
+        <span>📖 Cet article est une synthèse — <a href="https://perfsystemique.fr/le-tableau-de-bord-vivant/" target="_blank" rel="noopener" class="font-semibold underline hover:text-teal-dark">Lire la version complète sur perfsystemique.fr →</a></span>
+        <a href="/en/resources/the-living-dashboard" class="text-teal-dark hover:text-teal-dark font-medium text-xs">🇬🇧 Read in English</a>
+      </div>
+    </div>
+
+    <!-- Contenu article -->
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-gray">
+
+        <p class="lead text-xl text-gray-700 font-medium">
+          Septième épisode de la série. Le deuxième choisissait les trois à cinq indicateurs qui comptent, le cinquième installait un point hebdomadaire qui tranche, le sixième donnait une forme à ce qui remonte vers la direction. Celui-ci s'intéresse à l'outil qui relie le tout : le tableau de bord, et ce qui le garde en vie d'une semaine sur l'autre.
+        </p>
+
+        <p>
+          Le chiffre qui cadre l'épisode vient du <em>2026 Planning Intelligence Report</em> publié par l'éditeur Board le 16 septembre 2026, auprès de 300 directeurs financiers, directeurs des systèmes d'information et directeurs des opérations d'entreprises réalisant au moins 100 millions de dollars de chiffre d'affaires. <strong>Trois répondants sur quatre indiquent qu'au moins la moitié de leurs décisions de planification reposent sur des données de plus de 30 jours.</strong> L'étude est conduite par un éditeur de logiciels et porte sur de grandes entreprises : on la lira comme un signal, pas comme une mesure de ce qui se passe en Nouvelle-Calédonie. Mais le signal est clair : même là où les outils abondent, on décide souvent sur des chiffres qui ont un mois.
+        </p>
+
+        <h2>Vous avez déjà un tableau de bord</h2>
+
+        <p>
+          Presque toutes les directions en ont un, sous l'une de ces trois formes — et chacune est un bon réflexe.
+        </p>
+
+        <p>
+          <strong>Le fichier partagé</strong> : tout le monde peut le compléter, il ne coûte rien, il s'adapte à tout. Mais personne ne sait qui l'a touché en dernier. <strong>L'outil de graphiques</strong> : des courbes nettes, à jour d'un clic. Mais les chiffres qu'il affiche datent de la dernière saisie, et rien ne dit laquelle. <strong>Le rapport du mois</strong> : complet, bien présenté, relu. Mais il arrive quand le mois est déjà fini.
+        </p>
+
+        <p>
+          Le point commun des trois : <strong>les chiffres sont là, mais on ignore qui les suit, et de quand ils datent.</strong> Un tableau de bord peut être exact et pourtant arrêté.
+        </p>
+
+        <h2>Trois signes d'un tableau qui s'est arrêté</h2>
+
+        <p>
+          Rien n'y est faux. Tout y est simplement un peu ancien — et c'est plus difficile à voir qu'une erreur.
+        </p>
+
+        <p>
+          <strong>La ligne sans nom.</strong> Un chiffre baisse depuis deux semaines. Chacun pense qu'un autre s'en occupe. Personne ne prévient, parce que personne n'a été désigné pour le faire.
+        </p>
+
+        <p>
+          <strong>Le chiffre d'il y a six semaines.</strong> Il passe pour celui d'aujourd'hui, faute de date écrite à côté. On en discute en réunion avec sérieux, et la décision porte sur une situation qui a déjà changé.
+        </p>
+
+        <p>
+          <strong>Le rouge qui dure.</strong> La même ligne est rouge depuis trois mois. Tout le monde l'a vue ; rien n'est écrit en face. Au bout d'un moment, le rouge ne déclenche plus rien : il fait partie du décor.
+        </p>
+
+        <h2>Une ligne vivante, quatre cases</h2>
+
+        <p>
+          Ce qui suit ne demande ni nouveau logiciel ni nouveau rapport. Il demande d'ajouter, sur chaque ligne du tableau existant, quatre informations.
+        </p>
+
+        <p>
+          <strong>① Un nom.</strong> La personne qui suit ce chiffre et qui prévient quand il bouge. Pas un service : une personne. C'est elle qu'on appelle quand la ligne change de couleur.
+        </p>
+
+        <p>
+          <strong>② Une date.</strong> Le jour de la dernière mise à jour, écrit en clair sur la ligne. Le lecteur sait alors s'il regarde la situation de la semaine ou celle du mois dernier — et il peut décider en connaissance de cause.
+        </p>
+
+        <p>
+          <strong>③ Huit semaines.</strong> La courbe des huit dernières semaines, plutôt qu'un seul chiffre du mois. Un chiffre isolé dit où l'on est ; une courbe dit où l'on va. Pour la plupart des sujets suivis en comité, huit points suffisent à voir une tendance sans se noyer dans l'historique.
+        </p>
+
+        <p>
+          <strong>④ Ce qu'on fait.</strong> Une phrase : l'action en cours, ou « sous contrôle, on surveille ». Cette case transforme une ligne d'information en ligne de travail. C'est elle qu'on relit au point hebdomadaire décrit dans le cinquième épisode.
+        </p>
+
+        <div class="bg-navy/5 border-l-4 border-navy rounded-r-xl p-6 my-8">
+          <p class="font-semibold text-navy mb-1">Notre conseil</p>
+          <p class="text-navy">Vous suivez déjà vos chiffres dans un tableau commun, et c'est l'essentiel : beaucoup d'équipes en sont encore aux fichiers de chacun. Commencez par les deux premières cases seulement : ajoutez cette semaine deux colonnes à votre tableau actuel, un nom et une date. La courbe et l'action suivront naturellement, dès que chaque ligne aura quelqu'un pour la tenir.</p>
+        </div>
+
+        <div class="bg-gray-50 border-l-4 border-teal rounded-r-xl p-6 my-8">
+          <p class="font-semibold text-gray-800 mb-1">Question de diagnostic</p>
+          <p class="text-gray-700 text-sm">Pour chaque ligne de votre tableau de bord, pouvez-vous dire en dix secondes qui la suit ? Savez-vous de quand date le chiffre que vous regardez en ce moment ? Et votre plus ancienne ligne rouge a-t-elle une action écrite en face ?</p>
+        </div>
+
+        <h2>Pourquoi c'est un sujet calédonien</h2>
+
+        <p>
+          En Nouvelle-Calédonie, les équipes de direction sont resserrées et chacun porte plusieurs dossiers. Un tableau de bord y vit rarement grâce à un service dédié : il vit parce qu'une personne, sur chaque ligne, sait que c'est à elle de la tenir. Avec plus d'activité à suivre et pas davantage de monde pour le faire, un nom et une date coûtent moins cher qu'un nouvel outil — et rendent l'outil existant enfin utile.
+        </p>
+
+        <p>
+          Votre tableau de bord n'a sans doute pas besoin d'être refait. Il a besoin que chaque ligne ait quelqu'un pour la tenir — un chantier d'une semaine.
+        </p>
+
+        <p class="text-sm text-gray-600">
+          Source : Board, <em>2026 Planning Intelligence Report</em>, communiqué du 16 septembre 2026 (300 directeurs financiers, directeurs des systèmes d'information et directeurs des opérations d'entreprises d'au moins 100 millions de dollars de chiffre d'affaires).
+        </p>
+
+        <!-- Lien version approfondie -->
+        <div class="not-prose bg-navy/5 border border-navy/20 rounded-xl p-6 my-8">
+          <p class="text-sm font-semibold text-navy mb-1">Version approfondie</p>
+          <p class="text-sm text-navy mb-3">La version complète de cet article est disponible sur perfsystemique.fr.</p>
+          <a href="https://perfsystemique.fr/le-tableau-de-bord-vivant/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-navy underline">
+            Lire l'article complet sur perfsystemique.fr →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Navigation série -->
+    <section class="border-t border-gray-200 py-10 px-4">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-4">Série Le Rythme de Pilotage — épisode 7 sur 8</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/ressources/remonter-information-sans-la-deformer" class="bg-gray-50 hover:bg-gray-100 rounded-lg p-4 transition-colors">
+            <p class="text-xs text-teal-dark font-semibold mb-1">← Épisode précédent · 6/8</p>
+            <p class="text-sm font-medium text-gray-700">Remonter l'information sans la déformer</p>
+            <p class="text-xs text-gray-500 mt-1">6 octobre 2026</p>
+          </a>
+          <a href="/ressources" class="bg-gray-50 hover:bg-gray-100 rounded-lg p-4 transition-colors">
+            <p class="text-xs text-teal-dark font-semibold mb-1">Toutes les ressources →</p>
+            <p class="text-sm font-medium text-gray-700">Les articles PerfEco sur le pilotage et l'exécution</p>
+            <p class="text-xs text-gray-500 mt-1">Depuis juin 2026</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-navy text-white py-16 px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">Un tableau de bord ouvert chaque semaine ?</h2>
+        <p class="text-gray-200 mb-8">PerfEco aide les directions générales à tenir un tableau de bord qu'on ouvre vraiment chaque semaine — daté, suivi, et relié à des actions.</p>
+        <a href="/contact" class="inline-block bg-teal hover:bg-teal-light text-gray-900 font-semibold px-8 py-3 rounded-lg transition-colors">
+          Prendre contact →
+        </a>
+        <p class="text-gray-200 text-sm mt-4">contact@perfeco.nc — +687 73 08 75</p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>
