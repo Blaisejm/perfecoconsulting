@@ -700,10 +700,10 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "publie",
                              "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
-                             "preuve":  null,
+                             "preuve":  "Make 5 operations (LinkedIn Company + profil perso + Facebook) a 2026-10-09T03:49:24.033Z statut=1 ; post Facebook confirme a 2026-10-09T03:49:33+0000 ; cloture automatique par check-apres-publication, run 37916328096",
                              "note":  "PRODUIT LE 02/10/2026 (J-7) par perfeco-rappel-quotidien etape 1quater (rattrapage : mercredi-creation n a pas tourne le 30/09). Chiffres ecartes car deja servis : emploi salarie, investissement (25/09), ecart volume/valeur (02/10). Staging a basculer par 1quinquies des que vendredi.json (02/10) est libere.",
                              "axe":  "performance"
                          },
@@ -2800,5 +2800,5 @@
                      ],
     "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-10-06"
+    "derniere_maj":  "2026-10-09"
 }
