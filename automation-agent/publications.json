@@ -664,7 +664,7 @@
                              "statut":  "publie",
                              "source":  "automation-queue/mardi.json",
                              "bascule":  null,
-                             "preuve":  "Make 4 operations (LinkedIn Company + Facebook (profil perso servi hors Make, par l'API LinkedIn directe)) a 2026-10-06T05:11:25.522Z statut=1 ; post Facebook confirme a 2026-10-06T05:11:34+0000 ; cloture automatique par check-apres-publication, run 37446073268",
+                             "preuve":  "Make 4 operations (LinkedIn Company + Facebook (profil perso servi hors Make, par l\u0027API LinkedIn directe)) a 2026-10-06T05:11:25.522Z statut=1 ; post Facebook confirme a 2026-10-06T05:11:34+0000 ; cloture automatique par check-apres-publication, run 37446073268",
                              "note":  "Rythme hebdomadaire NORMAL rétabli le 15/09/2026 (2e décision de Jean-Michel le même jour) : l\u0027alternance une semaine sur deux est SUPPRIMÉE. Chaque semaine est identique — mardi post long/série, jeudi post court/campagne dédiée, vendredi post court/veille éco.",
                              "axe":  "performance"
                          },
@@ -680,7 +680,7 @@
                                             "linkedin_company",
                                             "linkedin_perso"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "echeance_depassee",
                              "source":  "automation-queue/jeudi.json",
                              "bascule":  null,
                              "preuve":  null,
@@ -739,8 +739,8 @@
                                             "linkedin_company",
                                             "linkedin_perso"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_staging",
+                             "source":  "automation-queue/jeudi-W41-pret.json",
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -\u003e conséquence -\u003e méthode -\u003e résultat -\u003e invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | CANAUX CORRIGES le 23/09/2026 : le creneau du JEUDI part sur LinkedIn Company + LinkedIn PROFIL PERSO depuis la decision de Jean-Michel du 15/09/2026. Facebook ne recoit plus rien le jeudi (suffixe -NOFB envoye par publish-jeudi-post-court.yml) : il recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. L\u0027entree portait encore linkedin_company+facebook, heritage d\u0027avant le 15/09. Correction documentaire : aucun automatisme ne derive son comportement de ce champ (seul le controle d\u0027espacement le lit, et il n\u0027y cherche que linkedin_company).",
@@ -759,8 +759,8 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_staging",
+                             "source":  "automation-queue/vendredi-2026-10-16-pret.json",
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "Veille économique du vendredi — format, sourçage (IEOM/ISEE verifie a la source) et gabarit INCHANGÉS. Produit par mercredi-creation, partie V. La campagne dédiée Performance occupe le créneau du JEUDI, pas celui-ci.",
@@ -2800,5 +2800,5 @@
                      ],
     "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-10-06"
+    "derniere_maj":  "2026-10-09"
 }
