@@ -1,7 +1,7 @@
 {
     "_lisez_moi":  "Registre des validations demandees a Jean-Michel. Delai standard 48 h, au-dela le systeme applique le defaut. Regle du 12/09/2026. Ne pas editer a la main : utiliser validations.ps1.",
     "delai_standard_heures":  48,
-    "derniere_maj":  "2026-09-25",
+    "derniere_maj":  "2026-10-13",
     "validations":  [
                         {
                             "id":  "v-2026-09-14-01",
@@ -69,6 +69,29 @@
                             "tranche_a":  "2026-09-23T09:29:07+11:00",
                             "par":  "Jean-Michel",
                             "rappels":  1
+                        },
+                        {
+                            "id":  "v-2026-10-13-01",
+                            "routine":  "mardi-carrousel-creation",
+                            "objet":  "serie 2 episode 8/8 apres le report du 7/8",
+                            "question":  "L\u0027episode 7/8 n\u0027est pas parti le 13/10 (jamais mis en file) ; il est reprogramme au mardi 20/10. Ou placer le 8/8 \u0027Installer le rythme durablement (synthese + CTA)\u0027 ? 1) mardi 27/10, et la serie Institutions decalee d\u0027une semaine (I1 03/11, I2 10/11, I3 17/11, I4 24/11 - qui comble le premier mardi vide). 2) mardi 27/10 en gardant I1 au 27/10 : impossible sans 2 posts le meme jour, donc I1 03/11 et Institutions ramenee a 3 episodes. 3) supprimer le 8/8 : la serie s\u0027arrete au 7/8 le 20/10, Institutions inchangee au 27/10.",
+                            "options":  [
+                                            "8/8 le 27/10, Institutions +1 semaine",
+                                            "8/8 le 27/10, Institutions reduite a 3 episodes",
+                                            "pas de 8/8, serie close au 7/8"
+                                        ],
+                            "defaut":  "Option 1 : 8/8 le 27/10, Institutions decalee d\u0027une semaine - garde la serie complete, ne coupe aucun episode Institutions, et comble le mardi 24/11 qui etait vide",
+                            "impact":  "contenu du mardi 27/10 (8/8 ou I1) et calendrier des 4 mardis Institutions jusqu\u0027au 24/11",
+                            "publication":  "2026-10-27-mardi",
+                            "ouvert_a":  "2026-10-13T20:11:07+11:00",
+                            "repondre_avant":  "2026-10-15T20:11:07+11:00",
+                            "delai_heures":  48,
+                            "ecrete":  false,
+                            "statut":  "ouvert",
+                            "decision":  null,
+                            "tranche_a":  null,
+                            "par":  null,
+                            "rappels":  0
                         }
                     ]
 }
