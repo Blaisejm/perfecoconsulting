@@ -759,10 +759,10 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "publie",
                              "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
-                             "preuve":  null,
+                             "preuve":  "Make 5 operations (LinkedIn Company + profil perso + Facebook) a 2026-10-16T02:25:21.986Z statut=1 ; post Facebook confirme a 2026-10-16T02:25:27+0000 ; cloture automatique par check-apres-publication, run 38870680031",
                              "note":  "Veille économique du vendredi — format, sourçage (IEOM/ISEE verifie a la source) et gabarit INCHANGÉS. Produit par mercredi-creation, partie V. La campagne dédiée Performance occupe le créneau du JEUDI, pas celui-ci.",
                              "axe":  "performance"
                          },
@@ -2800,5 +2800,5 @@
                      ],
     "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-10-14"
+    "derniere_maj":  "2026-10-16"
 }
