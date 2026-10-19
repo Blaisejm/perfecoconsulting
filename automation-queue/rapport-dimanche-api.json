@@ -1,32 +1,33 @@
 {
-  "semaine": "2026-W42",
-  "collecte_le": "2026-10-13",
+  "semaine": "2026-W43",
+  "collecte_le": "2026-10-20",
   "wordpress": {
-    "articles_published": 1,
+    "articles_published": 0,
     "comments_total": 0,
-    "published": [
+    "published": [],
+    "upcoming": [
       {
-        "id": 152,
-        "date": "2026-10-06T11:03:00",
-        "date_gmt": "2026-10-06T00:03:00",
+        "id": 155,
+        "date": "2026-10-20T11:03:00",
+        "date_gmt": "2026-10-20T00:03:00",
         "guid": {
-          "rendered": "https://perfsystemique.fr/?p=152"
+          "rendered": "https://perfsystemique.fr/?p=155"
         },
-        "modified": "2026-10-06T11:03:00",
-        "modified_gmt": "2026-10-06T00:03:00",
-        "slug": "remonter-information-sans-la-deformer",
-        "status": "publish",
+        "modified": "2026-10-20T11:03:00",
+        "modified_gmt": "2026-10-20T00:03:00",
+        "slug": "le-tableau-de-bord-vivant",
+        "status": "future",
         "type": "post",
-        "link": "https://perfsystemique.fr/remonter-information-sans-la-deformer/",
+        "link": "https://perfsystemique.fr/?p=155",
         "title": {
-          "rendered": "Remonter l&rsquo;information sans la déformer"
+          "rendered": "Le tableau de bord vivant"
         },
         "content": {
-          "rendered": "\n<p class=\"wp-block-paragraph\"><em>Sixième épisode de la série « Le Rythme de Pilotage ». Le quatrième suivait le trajet d&rsquo;une priorité du comité de direction jusqu&rsquo;au terrain, le cinquième installait un point hebdomadaire qui tranche vraiment. Celui-ci prend le chemin inverse : ce qui remonte du terrain vers la direction, puis vers le conseil d&rsquo;administration.</em></p>\n\n\n\n<p class=\"wp-block-paragraph\">« Dites-nous quand ça ne va pas. Nous préférons le savoir maintenant plutôt que de le découvrir dans quelques années. » C&rsquo;est, en substance, une demande que l&rsquo;on entend souvent chez des administrateurs. Ils ne réclament pas davantage de rapports : ils en reçoivent déjà beaucoup. Ils réclament une information sur laquelle on peut décider.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Le chiffre qui cadre cet épisode vient du rapport <em>The Trust Gap: State of the Workplace Insights</em>, publié par Radical Candor le 7 mai 2026 à partir de 600 répondants américains interrogés entre le 24 février et le 30 mars 2026. <strong>46 % des dirigeants interrogés estiment manquer de retours honnêtes dans leur entreprise.</strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">Il faut lire ce chiffre avec prudence : l&rsquo;échantillon est modeste, il est américain, et le rapport ne détaille pas sa répartition par fonction. C&rsquo;est un signal, pas une mesure. Mais le signal est parlant : près d&rsquo;un dirigeant sur deux sent que ce qui lui parvient n&rsquo;est pas tout à fait ce qui se passe. Et ce sentiment ne vient pas d&rsquo;un manque d&rsquo;information — la plupart des directions en reçoivent davantage qu&rsquo;elles ne peuvent en lire.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Vous avez déjà demandé plus d&rsquo;information</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Aucune direction ne reste sans rien faire face à ce flou. Trois réponses reviennent presque partout, et toutes trois sont de bons réflexes. Vous en avez sans doute mis au moins deux en place, et vous avez eu raison.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le tableau de bord du mois.</strong> Les chiffres arrivent à l&rsquo;heure, bien rangés, comparables d&rsquo;un mois sur l&rsquo;autre. C&rsquo;est déjà beaucoup, et nombre d&rsquo;organisations n&rsquo;en ont pas. Mais un tableau de bord dit ce qui s&rsquo;est passé ; il dit rarement ce qui ne va pas, et jamais ce qu&rsquo;il faudrait faire. Ce qui inquiète l&rsquo;équipe reste entre les lignes.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>L&rsquo;étude complète.</strong> Quand un sujet devient important, on commande une étude : cent pages, sérieuses, documentées. Personne n&rsquo;a le temps de les lire avant la réunion où il faudra décider. On en lit donc le résumé — et c&rsquo;est dans le résumé que tout se joue, comme on va le voir.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>La porte ouverte.</strong> « Venez me voir s&rsquo;il y a un souci. » La formule est sincère, et elle compte. Mais elle attend que l&rsquo;autre vienne. On vient, en effet — le jour où le souci est devenu une crise, parce que c&rsquo;est le jour où il n&rsquo;est plus possible de ne pas venir.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Le point commun des trois tient en une phrase : <strong>ils apportent tous des faits, mais aucun ne propose quoi faire, ni ne dit à quel point on en est sûr.</strong> Ajouter de l&rsquo;information ne rend pas l&rsquo;information plus juste.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Ce qui se perd en montant</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Personne ne ment. Chaque étage simplifie un peu, de bonne foi, pour faire court et pour ne pas encombrer l&rsquo;étage du dessus. Trois pertes suffisent pourtant à déformer ce qui arrive en haut.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le résumé qui gomme.</strong> Une étude de cent pages devient un tableau d&rsquo;une page. C&rsquo;est nécessaire : personne ne lira les cent pages. Mais les réserves de l&rsquo;auteur — ses « sous réserve de », ses hypothèses fragiles, ses « à confirmer » — restent dans le rapport. Le tableau, lui, n&rsquo;en garde rien. Ce qui était une piste devient une conclusion.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>L&rsquo;estimation devenue certitude.</strong> Un poste de coût évalué « à la grosse louche » au début de l&rsquo;étude arrive en réunion avec deux chiffres après la virgule. Rien n&rsquo;a été falsifié : la précision de la mise en forme a simplement remplacé l&rsquo;incertitude du calcul. Le conseil décide alors sur un chiffre dont personne ne lui a dit qu&rsquo;il était fragile — et découvre plus tard que l&rsquo;écart était connu depuis le début.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>La mauvaise nouvelle qui attend.</strong> On espère redresser la situation avant d&rsquo;en parler, ce qui est profondément humain : personne n&rsquo;aime arriver avec un problème qu&rsquo;il n&rsquo;a pas encore résolu. On en parle donc quand il reste peu de choix. Le conseil découvre alors, parfois des années plus tard et au détour d&rsquo;un audit, ce qu&rsquo;il aurait préféré savoir au premier trimestre.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Une page, trois temps</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Ce qui suit ne demande ni nouvel outil ni rapport supplémentaire. Il demande de changer la <em>forme</em> de ce qui remonte. Et cette forme tient sur une seule page.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>① Où on en est.</strong> Les faits, et deux ou trois chiffres qui parlent vraiment de votre activité. Les ratios comptables standard ne disent pas grand-chose d&rsquo;une activité à cycle long, ou d&rsquo;un projet qui ne produira ses recettes que dans trois ans. Mieux vaut deux indicateurs que les administrateurs comprennent du premier coup qu&rsquo;une page entière de ratios qu&rsquo;ils survolent.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>② Les options.</strong> Deux ou trois chemins possibles, avec pour chacun ce qu&rsquo;il coûte et ce qu&rsquo;il risque. Une seule option présentée, c&rsquo;est une décision déjà prise, déguisée en information. Trois options, c&rsquo;est une décision rendue à ceux qui doivent la prendre.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>③ Une recommandation.</strong> Celle que l&rsquo;équipe défendrait si on lui demandait son avis. Elle n&rsquo;enlève rien au pouvoir de ceux qui décident : le conseil garde la décision, il ne la prend simplement plus à l&rsquo;aveugle. Et l&rsquo;équipe, de son côté, cesse de faire semblant de ne pas avoir d&rsquo;avis.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Et, à côté de chaque chiffre, un mot : mesuré, estimé ou supposé.</strong> C&rsquo;est la règle la plus simple, et celle qui change le plus. Personne ne demande à une équipe de tout savoir ; on lui demande de dire ce qu&rsquo;elle sait et ce qu&rsquo;elle suppose. Un chiffre estimé n&rsquo;est pas une faute — un chiffre estimé présenté comme mesuré en est une. On ne peut pas demander à des décideurs de jouer une décision aux dés.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Notre conseil</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Vous demandez déjà des comptes réguliers, et vous avez raison : une direction qui reçoit un point chaque mois voit plus clair qu&rsquo;une direction qui attend le bilan annuel. Ce qui manque est ailleurs — le droit de dire tôt, et le droit de dire « je ne suis pas sûr ».</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Commencez par une seule chose : demandez qu&rsquo;à côté de chaque chiffre figure un mot — mesuré, estimé ou supposé.</strong> C&rsquo;est le changement le plus court à installer, et il rend les deux autres naturels : une équipe qui doit qualifier ses chiffres finit très vite par proposer des options. Puis remerciez en public la prochaine mauvaise nouvelle qui vous arrive tôt. Les suivantes arriveront plus vite.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Trois questions de diagnostic</h2>\n\n\n\n<ul class=\"wp-block-list\"><li><strong>Le test de la dernière mauvaise nouvelle</strong> — combien de temps s&rsquo;est écoulé entre le jour où elle était connue en interne et le jour où elle vous est parvenue ?</li><li><strong>Le test du chiffre</strong> — dans votre dernier rapport, sauriez-vous dire quels chiffres étaient mesurés, et lesquels étaient estimés ?</li><li><strong>Le test de la proposition</strong> — votre dernier dossier proposait-il une option à retenir, ou seulement des faits ?</li></ul>\n\n\n\n<p class=\"wp-block-paragraph\">Une seule réponse gênante suffit à savoir par où commencer.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Pourquoi c&rsquo;est un sujet calédonien</h2>\n\n\n\n<p class=\"wp-block-paragraph\">En Nouvelle-Calédonie, beaucoup d&rsquo;organisations rendent compte à un conseil d&rsquo;administration où siègent des actionnaires — publics ou privés — qui ne vivent pas l&rsquo;activité au quotidien. Ce qu&rsquo;ils attendent d&rsquo;un dirigeant est simple : être prévenus quand ça ne va pas, plutôt que de le découvrir plus tard. Dans des équipes resserrées, où chacun porte plusieurs dossiers, une page claire vaut mieux qu&rsquo;un rapport complet que personne n&rsquo;a eu le temps de lire.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Votre système de reporting n&rsquo;a sans doute pas besoin d&rsquo;être refait. Il a besoin d&rsquo;une forme qui aide à trancher — et c&rsquo;est un chantier bien plus court.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><em>Source : Radical Candor, </em>The Trust Gap: State of the Workplace Insights<em>, communiqué du 7 mai 2026 (600 répondants aux États-Unis, enquête menée du 24 février au 30 mars 2026).</em></p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Série « Le Rythme de Pilotage » — épisode 6/8.</strong> Épisode précédent : <a href=\"https://perfsystemique.fr/le-point-hebdomadaire-qui-tranche/\">Le point hebdomadaire qui tranche vraiment</a>. Version synthétique sur <a href=\"https://www.perfeco.nc/ressources/remonter-information-sans-la-deformer\">perfeco.nc</a>.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Des remontées qui aident à trancher ? PerfEco Consulting NC accompagne les directions générales et les conseils — <a href=\"mailto:contact@perfeco.nc\">contact@perfeco.nc</a> — +687 73 08 75 — <a href=\"https://www.perfeco.nc/\">www.perfeco.nc</a></p>\n\n",
+          "rendered": "\n<p class=\"wp-block-paragraph\"><em>Septième épisode de la série « Le Rythme de Pilotage ». Le deuxième choisissait les trois à cinq indicateurs qui comptent, le cinquième installait un point hebdomadaire qui tranche, le sixième donnait une forme à ce qui remonte vers la direction. Celui-ci s&rsquo;intéresse à l&rsquo;outil qui relie le tout : le tableau de bord, et ce qui le garde en vie d&rsquo;une semaine sur l&rsquo;autre.</em></p>\n\n\n\n<p class=\"wp-block-paragraph\">Un comité de direction ouvre son tableau de bord. Une ligne est orange. On en discute dix minutes, on s&rsquo;accorde sur une explication, on passe à la suivante. Personne ne demande de quand date le chiffre, ni qui le suit. La semaine suivante, la même ligne est toujours orange, et la discussion recommence presque à l&rsquo;identique.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Le chiffre qui cadre cet épisode vient du <em>2026 Planning Intelligence Report</em>, publié par l&rsquo;éditeur Board le 16 septembre 2026, auprès de 300 directeurs financiers, directeurs des systèmes d&rsquo;information et directeurs des opérations d&rsquo;entreprises réalisant au moins 100 millions de dollars de chiffre d&rsquo;affaires. <strong>Trois répondants sur quatre indiquent qu&rsquo;au moins la moitié de leurs décisions de planification reposent sur des données de plus de 30 jours.</strong> Le même rapport relève que 27 % seulement de ces organisations savent replanifier en temps réel.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Il faut lire ce chiffre avec prudence : l&rsquo;étude est conduite par un éditeur de logiciels, et elle porte sur de grandes entreprises, loin de la taille moyenne des organisations calédoniennes. C&rsquo;est un signal, pas une mesure de ce qui se passe ici. Mais le signal est clair : même là où les outils abondent, on décide souvent sur des chiffres qui ont un mois. Le problème n&rsquo;est donc pas d&rsquo;abord technique.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Vous avez déjà un tableau de bord</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Presque toutes les directions en ont un, sous l&rsquo;une de trois formes. Chacune est un bon réflexe, et vous en utilisez sans doute au moins une avec raison.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le fichier partagé.</strong> Tout le monde peut le compléter, il ne coûte rien, il s&rsquo;adapte à tout. C&rsquo;est souvent lui qui a sorti l&rsquo;équipe des fichiers de chacun. Mais personne ne sait qui l&rsquo;a touché en dernier, ni si la ligne du stock a été mise à jour cette semaine ou le mois dernier.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>L&rsquo;outil de graphiques.</strong> Des courbes nettes, à jour d&rsquo;un clic, agréables à projeter en réunion. Mais les chiffres qu&rsquo;il affiche datent de la dernière saisie ou du dernier import, et rien à l&rsquo;écran ne dit lequel.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le rapport du mois.</strong> Complet, bien présenté, relu. C&rsquo;est le document le plus sérieux des trois. Mais il arrive quand le mois est déjà fini, et les décisions qu&rsquo;il éclaire portent sur une situation qui a eu le temps de changer.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Le point commun des trois : les chiffres sont là, mais on ignore qui les suit et de quand ils datent. Un tableau de bord peut être parfaitement exact et pourtant arrêté.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Trois signes d&rsquo;un tableau qui s&rsquo;est arrêté</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Rien n&rsquo;y est faux. Tout y est simplement un peu ancien — et c&rsquo;est plus difficile à voir qu&rsquo;une erreur, parce qu&rsquo;une erreur finit toujours par choquer quelqu&rsquo;un.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>La ligne sans nom.</strong> Un chiffre baisse depuis deux semaines. Chacun pense qu&rsquo;un autre s&rsquo;en occupe : le contrôle de gestion pense que c&rsquo;est l&rsquo;opérationnel, l&rsquo;opérationnel pense que c&rsquo;est le contrôle de gestion. Personne ne prévient, parce que personne n&rsquo;a été désigné pour le faire.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le chiffre d&rsquo;il y a six semaines.</strong> Il passe pour celui d&rsquo;aujourd&rsquo;hui, faute de date écrite à côté. On en discute en réunion avec sérieux, on arbitre, et la décision porte sur une situation qui a déjà changé.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le rouge qui dure.</strong> La même ligne est rouge depuis trois mois. Tout le monde l&rsquo;a vue ; rien n&rsquo;est écrit en face. Au bout d&rsquo;un moment, le rouge ne déclenche plus rien : il fait partie du décor, et le jour où une autre ligne passe au rouge, elle ne choque plus personne non plus.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Une ligne vivante, quatre cases</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Ce qui suit ne demande ni nouveau logiciel, ni nouveau rapport, ni projet informatique. Il demande d&rsquo;ajouter, sur chaque ligne du tableau que vous avez déjà, quatre informations.</p>\n\n\n\n<ol class=\"wp-block-list\"><li><strong>Un nom.</strong> La personne qui suit ce chiffre et qui prévient quand il bouge. Pas un service : une personne. C&rsquo;est elle qu&rsquo;on appelle quand la ligne change de couleur, et c&rsquo;est elle qui parle de la ligne en comité.</li><li><strong>Une date.</strong> Le jour de la dernière mise à jour, écrit en clair sur la ligne. Le lecteur sait alors s&rsquo;il regarde la situation de la semaine ou celle du mois dernier — et il décide en connaissance de cause.</li><li><strong>Huit semaines.</strong> La courbe des huit dernières semaines, plutôt qu&rsquo;un seul chiffre du mois. Un chiffre isolé dit où l&rsquo;on est ; une courbe dit où l&rsquo;on va. Pour la plupart des sujets suivis en comité, huit points suffisent à voir une tendance sans se noyer dans l&rsquo;historique.</li><li><strong>Ce qu&rsquo;on fait.</strong> Une phrase : l&rsquo;action en cours, ou « sous contrôle, on surveille ». Cette case transforme une ligne d&rsquo;information en ligne de travail. C&rsquo;est elle qu&rsquo;on relit au point hebdomadaire décrit dans le cinquième épisode.</li></ol>\n\n\n\n<p class=\"wp-block-paragraph\">Ces quatre cases prolongent les épisodes précédents. Le deuxième épisode limitait le tableau à trois à cinq indicateurs : c&rsquo;est ce qui rend le nom et la date tenables, car personne ne date quarante lignes chaque semaine. Le sixième demandait d&rsquo;indiquer, à côté de chaque chiffre, s&rsquo;il est mesuré, estimé ou supposé : la date en est le complément naturel.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Notre conseil</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Vous suivez déjà vos chiffres dans un tableau commun, et c&rsquo;est l&rsquo;essentiel : beaucoup d&rsquo;équipes en sont encore aux fichiers de chacun. <strong>Commencez par les deux premières cases seulement : ajoutez cette semaine deux colonnes à votre tableau actuel, un nom et une date.</strong> Ne cherchez pas encore la courbe ni l&rsquo;action. Elles suivront naturellement, dès que chaque ligne aura quelqu&rsquo;un pour la tenir — c&rsquo;est en général la personne nommée qui demande d&rsquo;elle-même à voir la tendance.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Trois questions de diagnostic</h2>\n\n\n\n<ul class=\"wp-block-list\"><li><strong>Le test du nom</strong> — pour chaque ligne de votre tableau de bord, pouvez-vous dire en dix secondes qui la suit ?</li><li><strong>Le test de la date</strong> — savez-vous de quand date le chiffre que vous regardez en ce moment ?</li><li><strong>Le test du rouge</strong> — votre plus ancienne ligne rouge a-t-elle une action écrite en face ?</li></ul>\n\n\n\n<p class=\"wp-block-paragraph\">Une seule réponse hésitante suffit à savoir par où commencer.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Pourquoi c&rsquo;est un sujet calédonien</h2>\n\n\n\n<p class=\"wp-block-paragraph\">En Nouvelle-Calédonie, les équipes de direction sont resserrées et chacun porte plusieurs dossiers. Un tableau de bord y vit rarement grâce à un service dédié : il vit parce qu&rsquo;une personne, sur chaque ligne, sait que c&rsquo;est à elle de la tenir. Avec plus d&rsquo;activité à suivre et pas davantage de monde pour le faire, un nom et une date coûtent moins cher qu&rsquo;un nouvel outil — et rendent l&rsquo;outil existant enfin utile.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Votre tableau de bord n&rsquo;a sans doute pas besoin d&rsquo;être refait. Il a besoin que chaque ligne ait quelqu&rsquo;un pour la tenir — un chantier d&rsquo;une semaine.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><em>Source : Board, </em>2026 Planning Intelligence Report<em>, communiqué du 16 septembre 2026 (300 directeurs financiers, directeurs des systèmes d&rsquo;information et directeurs des opérations d&rsquo;entreprises d&rsquo;au moins 100 millions de dollars de chiffre d&rsquo;affaires).</em></p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Série « Le Rythme de Pilotage » — épisode 7/8.</strong> Épisode précédent : <a href=\"https://perfsystemique.fr/remonter-information-sans-la-deformer/\">Remonter l&rsquo;information sans la déformer</a>. Version synthétique sur <a href=\"https://www.perfeco.nc/ressources/le-tableau-de-bord-vivant\">perfeco.nc</a>.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Un tableau de bord qu&rsquo;on ouvre vraiment chaque semaine ? PerfEco Consulting NC accompagne les directions générales — <a href=\"mailto:contact@perfeco.nc\">contact@perfeco.nc</a> — +687 73 08 75 — <a href=\"https://www.perfeco.nc/\">www.perfeco.nc</a></p>\n\n",
           "protected": false
         },
         "excerpt": {
-          "rendered": "<p>46 % des dirigeants interrogés disent manquer de retours honnêtes dans leur entreprise. Ajouter des rapports n’y change rien : ce qui remonte doit tenir sur une page, en trois temps — où on en est, les options, une recommandation — avec, à côté de chaque chiffre, un mot : mesuré, estimé ou supposé.</p>\n",
+          "rendered": "<p>Trois dirigeants interrogés sur quatre fondent au moins la moitié de leurs décisions de planification sur des données de plus de 30 jours. Un tableau de bord vivant tient en quatre cases par ligne : un nom, une date, la courbe des huit dernières semaines, et ce qu’on fait. Commencez par les deux premières.</p>\n",
           "protected": false
         },
         "author": 1,
@@ -68,10 +69,10 @@
           21
         ],
         "class_list": [
-          "post-152",
+          "post-155",
           "post",
           "type-post",
-          "status-publish",
+          "status-future",
           "format-standard",
           "hentry",
           "category-pilotage",
@@ -85,9 +86,9 @@
           "tag-perfeco",
           "tag-pilotage"
         ],
-        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Remonter l&#039;information sans la déformer - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/remonter-information-sans-la-deformer/\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Remonter l&#039;information sans la déformer - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"46 % des dirigeants interrogés disent manquer de retours honnêtes dans leur entreprise. Ajouter des rapports n’y change rien : ce qui remonte doit tenir sur une page, en trois temps — où on en est, les options, une recommandation — avec, à côté de chaque chiffre, un mot : mesuré, estimé ou supposé.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/remonter-information-sans-la-deformer/\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-10-06T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"7 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/remonter-information-sans-la-deformer\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/remonter-information-sans-la-deformer\\/\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Remonter l&rsquo;information sans la déformer\",\"datePublished\":\"2026-10-06T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/remonter-information-sans-la-deformer\\/\"},\"wordCount\":1416,\"keywords\":[\"COMEX\",\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/remonter-information-sans-la-deformer\\/\",\"url\":\"https:\\/\\/perfsystemique.fr\\/remonter-information-sans-la-deformer\\/\",\"name\":\"Remonter l'information sans la déformer - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-10-06T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/remonter-information-sans-la-deformer\\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/remonter-information-sans-la-deformer\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/remonter-information-sans-la-deformer\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Remonter l&rsquo;information sans la déformer\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Le tableau de bord vivant - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/?p=155\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Le tableau de bord vivant - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Trois dirigeants interrogés sur quatre fondent au moins la moitié de leurs décisions de planification sur des données de plus de 30 jours. Un tableau de bord vivant tient en quatre cases par ligne : un nom, une date, la courbe des huit dernières semaines, et ce qu’on fait. Commencez par les deux premières.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/?p=155\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-10-20T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"6 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Le tableau de bord vivant\",\"datePublished\":\"2026-10-20T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155\"},\"wordCount\":1268,\"keywords\":[\"COMEX\",\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155\",\"url\":\"https:\\/\\/perfsystemique.fr\\/?p=155\",\"name\":\"Le tableau de bord vivant - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-10-20T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/?p=155\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Le tableau de bord vivant\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
         "yoast_head_json": {
-          "title": "Remonter l'information sans la déformer - Perfsystemique.fr",
+          "title": "Le tableau de bord vivant - Perfsystemique.fr",
           "robots": {
             "index": "index",
             "follow": "follow",
@@ -95,40 +96,40 @@
             "max-image-preview": "max-image-preview:large",
             "max-video-preview": "max-video-preview:-1"
           },
-          "canonical": "https://perfsystemique.fr/remonter-information-sans-la-deformer/",
+          "canonical": "https://perfsystemique.fr/?p=155",
           "og_locale": "fr_FR",
           "og_type": "article",
-          "og_title": "Remonter l'information sans la déformer - Perfsystemique.fr",
-          "og_description": "46 % des dirigeants interrogés disent manquer de retours honnêtes dans leur entreprise. Ajouter des rapports n’y change rien : ce qui remonte doit tenir sur une page, en trois temps — où on en est, les options, une recommandation — avec, à côté de chaque chiffre, un mot : mesuré, estimé ou supposé.",
-          "og_url": "https://perfsystemique.fr/remonter-information-sans-la-deformer/",
+          "og_title": "Le tableau de bord vivant - Perfsystemique.fr",
+          "og_description": "Trois dirigeants interrogés sur quatre fondent au moins la moitié de leurs décisions de planification sur des données de plus de 30 jours. Un tableau de bord vivant tient en quatre cases par ligne : un nom, une date, la courbe des huit dernières semaines, et ce qu’on fait. Commencez par les deux premières.",
+          "og_url": "https://perfsystemique.fr/?p=155",
           "og_site_name": "Perfsystemique.fr",
           "article_publisher": "https://www.facebook.com/PerfecoNC/",
-          "article_published_time": "2026-10-06T00:03:00+00:00",
+          "article_published_time": "2026-10-20T00:03:00+00:00",
           "author": "Jean-Michel Blaise",
           "twitter_card": "summary_large_image",
           "twitter_misc": {
             "Écrit par": "Jean-Michel Blaise",
-            "Durée de lecture estimée": "7 minutes"
+            "Durée de lecture estimée": "6 minutes"
           },
           "schema": {
             "@context": "https://schema.org",
             "@graph": [
               {
                 "@type": "Article",
-                "@id": "https://perfsystemique.fr/remonter-information-sans-la-deformer/#article",
+                "@id": "https://perfsystemique.fr/?p=155#article",
                 "isPartOf": {
-                  "@id": "https://perfsystemique.fr/remonter-information-sans-la-deformer/"
+                  "@id": "https://perfsystemique.fr/?p=155"
                 },
                 "author": {
                   "name": "Jean-Michel Blaise",
                   "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
                 },
-                "headline": "Remonter l&rsquo;information sans la déformer",
-                "datePublished": "2026-10-06T00:03:00+00:00",
+                "headline": "Le tableau de bord vivant",
+                "datePublished": "2026-10-20T00:03:00+00:00",
                 "mainEntityOfPage": {
-                  "@id": "https://perfsystemique.fr/remonter-information-sans-la-deformer/"
+                  "@id": "https://perfsystemique.fr/?p=155"
                 },
-                "wordCount": 1416,
+                "wordCount": 1268,
                 "keywords": [
                   "COMEX",
                   "Dirigeants",
@@ -147,32 +148,32 @@
               },
               {
                 "@type": "WebPage",
-                "@id": "https://perfsystemique.fr/remonter-information-sans-la-deformer/",
-                "url": "https://perfsystemique.fr/remonter-information-sans-la-deformer/",
-                "name": "Remonter l'information sans la déformer - Perfsystemique.fr",
+                "@id": "https://perfsystemique.fr/?p=155",
+                "url": "https://perfsystemique.fr/?p=155",
+                "name": "Le tableau de bord vivant - Perfsystemique.fr",
                 "isPartOf": {
                   "@id": "https://perfsystemique.fr/#website"
                 },
-                "datePublished": "2026-10-06T00:03:00+00:00",
+                "datePublished": "2026-10-20T00:03:00+00:00",
                 "author": {
                   "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
                 },
                 "breadcrumb": {
-                  "@id": "https://perfsystemique.fr/remonter-information-sans-la-deformer/#breadcrumb"
+                  "@id": "https://perfsystemique.fr/?p=155#breadcrumb"
                 },
                 "inLanguage": "fr-FR",
                 "potentialAction": [
                   {
                     "@type": "ReadAction",
                     "target": [
-                      "https://perfsystemique.fr/remonter-information-sans-la-deformer/"
+                      "https://perfsystemique.fr/?p=155"
                     ]
                   }
                 ]
               },
               {
                 "@type": "BreadcrumbList",
-                "@id": "https://perfsystemique.fr/remonter-information-sans-la-deformer/#breadcrumb",
+                "@id": "https://perfsystemique.fr/?p=155#breadcrumb",
                 "itemListElement": [
                   {
                     "@type": "ListItem",
@@ -183,7 +184,7 @@
                   {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Remonter l&rsquo;information sans la déformer"
+                    "name": "Le tableau de bord vivant"
                   }
                 ]
               },
@@ -253,7 +254,7 @@
             "external_handle": "",
             "external_id": "552866114572775",
             "profile_link": "https://www.facebook.com/552866114572775",
-            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=UJsjDBN3gt0Q7kNvwFThewl&_nc_oc=Adq_PCfSAJnLB2ba-L1_0rkf8mu44v_0G2EEYCThGAIn2HlDbOCD8BBm2vHZTPTpv6Q&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=-yz9DulF2LkdQtKdfu1_bg&_nc_tpa=Q5bMBQLyLCzFjEquZ4OhkSghTum3MF0hj_JSPCj6cum13nO9sFS9pU8Z29_8Mc9rRfdEwzAgr5RK&oh=00_AQOdavQAgV3UDp8mak15LsVs7n79V6GOA87iPCkntkwhtw&oe=6AD369DB",
+            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=QoZKoGunOtgQ7kNvwFH69_T&_nc_oc=AdqqyPDBOleVJ3LJ0hNFGrDNSn-43lFVwsD9RcPBF4ameazN0ZePiGIWadMTImTIMdE&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=0bVcxtdxhD658sAdBZ08Hw&_nc_tpa=Q5bMBQImHzFf8nrwwKG2mjAzZFfXkUUm-23hzObAqsYL7A13CTSu9owUUqjCRigEk_QNeuxXmTPO&oh=00_AQP-dW8fhJAXjHf5KX5JT0E_2ua6jG994w9sD8fygZej7g&oe=6ADAAA1B",
             "service_label": "Facebook",
             "service_name": "facebook",
             "shared": true,
@@ -266,7 +267,7 @@
         "_links": {
           "self": [
             {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/152",
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/155",
               "targetHints": {
                 "allow": [
                   "GET",
@@ -297,36 +298,30 @@
           "replies": [
             {
               "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=152"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=155"
             }
           ],
           "version-history": [
             {
-              "count": 1,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/152/revisions"
-            }
-          ],
-          "predecessor-version": [
-            {
-              "id": 153,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/152/revisions/153"
+              "count": 0,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/155/revisions"
             }
           ],
           "wp:attachment": [
             {
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=152"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=155"
             }
           ],
           "wp:term": [
             {
               "taxonomy": "category",
               "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=152"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=155"
             },
             {
               "taxonomy": "post_tag",
               "embeddable": true,
-              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=152"
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=155"
             }
           ],
           "curies": [
@@ -338,8 +333,7 @@
           ]
         }
       }
-    ],
-    "upcoming": []
+    ]
   },
   "ga4": {
     "ga4_perfeco": {
@@ -360,6 +354,6 @@
   "facebook": {
     "fan_count": 51,
     "page_post_engagements_week": 0,
-    "page_views_week": 1
+    "page_views_week": 0
   }
 }
