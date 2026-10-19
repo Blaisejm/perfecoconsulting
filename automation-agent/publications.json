@@ -739,7 +739,7 @@
                                             "linkedin_company",
                                             "linkedin_perso"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "echeance_depassee",
                              "source":  "automation-queue/jeudi.json",
                              "bascule":  null,
                              "preuve":  null,
@@ -759,7 +759,7 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "echeance_depassee",
                              "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
                              "preuve":  null,
@@ -2800,5 +2800,5 @@
                      ],
     "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-10-14"
+    "derniere_maj":  "2026-10-17"
 }
