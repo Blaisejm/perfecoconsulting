@@ -1,3 +1,6 @@
+import { db } from '../../db/index.js';
+import { leads } from '../../db/schema.js';
+
 // Échappe les caractères HTML pour éviter l'injection
 function escapeHtml(str) {
   return String(str)
@@ -20,7 +23,7 @@ export default async (req) => {
 
   try {
     const body = await req.json();
-    const { nom, email, organisation, message, honeypot } = body;
+    const { nom, email, organisation, message, honeypot, langue } = body;
 
     // Protection anti-bot : le champ honeypot doit être vide
     if (honeypot) {
@@ -59,6 +62,20 @@ export default async (req) => {
     const safeEmail = escapeHtml(email);
     const safeOrg = organisation ? escapeHtml(organisation) : '';
     const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
+
+    // Enregistre la demande en base avant l'envoi de l'email,
+    // afin de ne perdre aucun lead même si l'email échoue.
+    try {
+      await db.insert(leads).values({
+        nom,
+        email,
+        organisation: organisation || null,
+        message,
+        langue: langue === 'en' ? 'en' : 'fr',
+      });
+    } catch (dbErr) {
+      console.error('Échec de l\'enregistrement du lead :', dbErr);
+    }
 
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
