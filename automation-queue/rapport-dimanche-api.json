@@ -1,11 +1,10 @@
 {
-  "semaine": "2026-W43",
-  "collecte_le": "2026-10-20",
+  "semaine": "2026-W44",
+  "collecte_le": "2026-10-27",
   "wordpress": {
-    "articles_published": 0,
+    "articles_published": 1,
     "comments_total": 0,
-    "published": [],
-    "upcoming": [
+    "published": [
       {
         "id": 155,
         "date": "2026-10-20T11:03:00",
@@ -16,9 +15,9 @@
         "modified": "2026-10-20T11:03:00",
         "modified_gmt": "2026-10-20T00:03:00",
         "slug": "le-tableau-de-bord-vivant",
-        "status": "future",
+        "status": "publish",
         "type": "post",
-        "link": "https://perfsystemique.fr/?p=155",
+        "link": "https://perfsystemique.fr/le-tableau-de-bord-vivant/",
         "title": {
           "rendered": "Le tableau de bord vivant"
         },
@@ -72,7 +71,7 @@
           "post-155",
           "post",
           "type-post",
-          "status-future",
+          "status-publish",
           "format-standard",
           "hentry",
           "category-pilotage",
@@ -86,7 +85,7 @@
           "tag-perfeco",
           "tag-pilotage"
         ],
-        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Le tableau de bord vivant - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/?p=155\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Le tableau de bord vivant - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Trois dirigeants interrogés sur quatre fondent au moins la moitié de leurs décisions de planification sur des données de plus de 30 jours. Un tableau de bord vivant tient en quatre cases par ligne : un nom, une date, la courbe des huit dernières semaines, et ce qu’on fait. Commencez par les deux premières.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/?p=155\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-10-20T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"6 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Le tableau de bord vivant\",\"datePublished\":\"2026-10-20T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155\"},\"wordCount\":1268,\"keywords\":[\"COMEX\",\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155\",\"url\":\"https:\\/\\/perfsystemique.fr\\/?p=155\",\"name\":\"Le tableau de bord vivant - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-10-20T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/?p=155\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=155#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Le tableau de bord vivant\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Le tableau de bord vivant - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/le-tableau-de-bord-vivant/\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Le tableau de bord vivant - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Trois dirigeants interrogés sur quatre fondent au moins la moitié de leurs décisions de planification sur des données de plus de 30 jours. Un tableau de bord vivant tient en quatre cases par ligne : un nom, une date, la courbe des huit dernières semaines, et ce qu’on fait. Commencez par les deux premières.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/le-tableau-de-bord-vivant/\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-10-20T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"6 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-tableau-de-bord-vivant\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-tableau-de-bord-vivant\\/\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Le tableau de bord vivant\",\"datePublished\":\"2026-10-20T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-tableau-de-bord-vivant\\/\"},\"wordCount\":1268,\"keywords\":[\"COMEX\",\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Management\",\"Nouvelle-Calédonie\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Pilotage\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-tableau-de-bord-vivant\\/\",\"url\":\"https:\\/\\/perfsystemique.fr\\/le-tableau-de-bord-vivant\\/\",\"name\":\"Le tableau de bord vivant - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-10-20T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-tableau-de-bord-vivant\\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/le-tableau-de-bord-vivant\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/le-tableau-de-bord-vivant\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Le tableau de bord vivant\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
         "yoast_head_json": {
           "title": "Le tableau de bord vivant - Perfsystemique.fr",
           "robots": {
@@ -96,12 +95,12 @@
             "max-image-preview": "max-image-preview:large",
             "max-video-preview": "max-video-preview:-1"
           },
-          "canonical": "https://perfsystemique.fr/?p=155",
+          "canonical": "https://perfsystemique.fr/le-tableau-de-bord-vivant/",
           "og_locale": "fr_FR",
           "og_type": "article",
           "og_title": "Le tableau de bord vivant - Perfsystemique.fr",
           "og_description": "Trois dirigeants interrogés sur quatre fondent au moins la moitié de leurs décisions de planification sur des données de plus de 30 jours. Un tableau de bord vivant tient en quatre cases par ligne : un nom, une date, la courbe des huit dernières semaines, et ce qu’on fait. Commencez par les deux premières.",
-          "og_url": "https://perfsystemique.fr/?p=155",
+          "og_url": "https://perfsystemique.fr/le-tableau-de-bord-vivant/",
           "og_site_name": "Perfsystemique.fr",
           "article_publisher": "https://www.facebook.com/PerfecoNC/",
           "article_published_time": "2026-10-20T00:03:00+00:00",
@@ -116,9 +115,9 @@
             "@graph": [
               {
                 "@type": "Article",
-                "@id": "https://perfsystemique.fr/?p=155#article",
+                "@id": "https://perfsystemique.fr/le-tableau-de-bord-vivant/#article",
                 "isPartOf": {
-                  "@id": "https://perfsystemique.fr/?p=155"
+                  "@id": "https://perfsystemique.fr/le-tableau-de-bord-vivant/"
                 },
                 "author": {
                   "name": "Jean-Michel Blaise",
@@ -127,7 +126,7 @@
                 "headline": "Le tableau de bord vivant",
                 "datePublished": "2026-10-20T00:03:00+00:00",
                 "mainEntityOfPage": {
-                  "@id": "https://perfsystemique.fr/?p=155"
+                  "@id": "https://perfsystemique.fr/le-tableau-de-bord-vivant/"
                 },
                 "wordCount": 1268,
                 "keywords": [
@@ -148,8 +147,8 @@
               },
               {
                 "@type": "WebPage",
-                "@id": "https://perfsystemique.fr/?p=155",
-                "url": "https://perfsystemique.fr/?p=155",
+                "@id": "https://perfsystemique.fr/le-tableau-de-bord-vivant/",
+                "url": "https://perfsystemique.fr/le-tableau-de-bord-vivant/",
                 "name": "Le tableau de bord vivant - Perfsystemique.fr",
                 "isPartOf": {
                   "@id": "https://perfsystemique.fr/#website"
@@ -159,21 +158,21 @@
                   "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
                 },
                 "breadcrumb": {
-                  "@id": "https://perfsystemique.fr/?p=155#breadcrumb"
+                  "@id": "https://perfsystemique.fr/le-tableau-de-bord-vivant/#breadcrumb"
                 },
                 "inLanguage": "fr-FR",
                 "potentialAction": [
                   {
                     "@type": "ReadAction",
                     "target": [
-                      "https://perfsystemique.fr/?p=155"
+                      "https://perfsystemique.fr/le-tableau-de-bord-vivant/"
                     ]
                   }
                 ]
               },
               {
                 "@type": "BreadcrumbList",
-                "@id": "https://perfsystemique.fr/?p=155#breadcrumb",
+                "@id": "https://perfsystemique.fr/le-tableau-de-bord-vivant/#breadcrumb",
                 "itemListElement": [
                   {
                     "@type": "ListItem",
@@ -254,7 +253,7 @@
             "external_handle": "",
             "external_id": "552866114572775",
             "profile_link": "https://www.facebook.com/552866114572775",
-            "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=QoZKoGunOtgQ7kNvwFH69_T&_nc_oc=AdqqyPDBOleVJ3LJ0hNFGrDNSn-43lFVwsD9RcPBF4ameazN0ZePiGIWadMTImTIMdE&_nc_zt=24&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=0bVcxtdxhD658sAdBZ08Hw&_nc_tpa=Q5bMBQImHzFf8nrwwKG2mjAzZFfXkUUm-23hzObAqsYL7A13CTSu9owUUqjCRigEk_QNeuxXmTPO&oh=00_AQP-dW8fhJAXjHf5KX5JT0E_2ua6jG994w9sD8fygZej7g&oe=6ADAAA1B",
+            "profile_picture": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=azgAtpeoo_oQ7kNvwEnDOpr&_nc_oc=Adr1PnozOBNjSiT036zQMPYSjuOAtHgikLseO_Pm8jRW5Gm7Zoj7I8-n1G7aXfSqaRI&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&edm=AGaHXAAEAAAA&_nc_gid=4rvUIC_g0LS3mR7MLbARrw&_nc_tpa=Q5bMBQKE8jaXq9pk-IIbIZryOjPt5PucO9VodRywvFqp99ybJ1ndsjSUkTIwo4CwlaRP0W_4Timu&oh=00_AQOWEVnvf9e1EATntR9inUmdSMkPFUFNEazILlLJLBJ--w&oe=6AE3741B",
             "service_label": "Facebook",
             "service_name": "facebook",
             "shared": true,
@@ -303,8 +302,14 @@
           ],
           "version-history": [
             {
-              "count": 0,
+              "count": 1,
               "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/155/revisions"
+            }
+          ],
+          "predecessor-version": [
+            {
+              "id": 157,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/155/revisions/157"
             }
           ],
           "wp:attachment": [
@@ -322,6 +327,332 @@
               "taxonomy": "post_tag",
               "embeddable": true,
               "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=155"
+            }
+          ],
+          "curies": [
+            {
+              "name": "wp",
+              "href": "https://api.w.org/{rel}",
+              "templated": true
+            }
+          ]
+        }
+      }
+    ],
+    "upcoming": [
+      {
+        "id": 159,
+        "date": "2026-11-03T11:03:00",
+        "date_gmt": "2026-11-03T00:03:00",
+        "guid": {
+          "rendered": "https://perfsystemique.fr/?p=159"
+        },
+        "modified": "2026-11-03T11:03:00",
+        "modified_gmt": "2026-11-03T00:03:00",
+        "slug": "le-projet-dabord-largent-ensuite",
+        "status": "future",
+        "type": "post",
+        "link": "https://perfsystemique.fr/?p=159",
+        "title": {
+          "rendered": "Le projet d’abord, l’argent ensuite"
+        },
+        "content": {
+          "rendered": "\n<p class=\"wp-block-paragraph\"><em>Premier épisode de PerfEco Institutions : quatre articles consacrés aux projets des communes, des provinces, des établissements publics et des entreprises — leur financement, leur montage, leur exécution. On commence par ce qui vient avant tout le reste : le projet écrit.</em></p>\n\n\n\n<h2 class=\"wp-block-heading\">La phrase qu&rsquo;on entend partout</h2>\n\n\n\n<p class=\"wp-block-paragraph\">« On a le projet. Il nous manque juste le financement. » On l&rsquo;entend en mairie comme en entreprise, et elle est sincère. Presque à chaque fois, après dix minutes d&rsquo;échange, une autre réalité apparaît : le projet existe dans les têtes, dans des réunions, parfois dans un courrier. Il n&rsquo;existe pas encore sur une page que quelqu&rsquo;un d&rsquo;extérieur pourrait lire et comprendre seul.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Ce constat n&rsquo;a rien d&rsquo;un reproche. Un projet utile naît presque toujours d&rsquo;un besoin réel, porté par des gens qui le connaissent bien. Ce qui lui manque, c&rsquo;est la forme qui permet à un financeur de dire oui.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Trois démarches qui partent d&rsquo;une bonne intention</h2>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le guichet repéré en premier.</strong> Une aide est ouverte, la date limite est connue : on écrit le projet pour qu&rsquo;il entre dans les cases. Le dossier ressemble alors à l&rsquo;appel, et de moins en moins à ce que la structure voulait vraiment construire.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le dossier monté en trois semaines.</strong> La date de dépôt approche. On réunit les pièces dans l&rsquo;urgence, on complète les annexes la veille. Le dossier part, mais les questions de fond restent ouvertes.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Le projet que tout le monde soutient.</strong> Chacun le trouve utile, les élus comme les équipes. Personne ne l&rsquo;a signé, et personne n&rsquo;a dit qui le porterait une fois lancé.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Les trois ont un point commun : on écrit le projet en même temps qu&rsquo;on demande l&rsquo;argent. Le financeur reçoit alors une demande avant de recevoir un projet.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Ce qu&rsquo;un financeur vérifie avant le montant</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Avant de regarder la somme demandée, un financeur vérifie trois choses, et dans cet ordre.</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li><strong>Qui signe.</strong> Le nom de la personne qui engage la structure, et celui de la personne qui exploitera l&rsquo;équipement ou le service une fois construit.</li>\n\n\n<li><strong>Ce qui est déjà prêt.</strong> Les études, le terrain, les autorisations. Ce qui manque se voit en deux minutes de lecture.</li>\n\n\n<li><strong>Votre part.</strong> Le financeur veut la voir écrite dans un budget déjà voté, et pas seulement annoncée en réunion.</li>\n</ul>\n\n\n\n<h2 class=\"wp-block-heading\">Les quatre réponses qui rendent un projet présentable</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Un projet devient présentable quand il répond clairement à quatre questions.</p>\n\n\n\n<ol class=\"wp-block-list\">\n<li><strong>À qui ça sert.</strong> Combien de personnes, et pour quoi faire. C&rsquo;est souvent un chiffre que la structure a déjà.</li>\n\n\n<li><strong>Qui le porte.</strong> Un nom, celui d&rsquo;une personne. Un service ne porte pas un projet : une personne le fait.</li>\n\n\n<li><strong>Ce que ça coûte.</strong> Le chantier, puis chaque année qui suivra la mise en service.</li>\n\n\n<li><strong>Qui rendra compte.</strong> La personne qui produira les justificatifs demandés à la fin, et sur quel temps de travail.</li>\n</ol>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\">\n<p class=\"wp-block-paragraph\"><strong>Question de diagnostic</strong> — Sur le projet dont vous parlez le plus, qui signe l&rsquo;engagement ? Combien coûtera son fonctionnement trois ans après la mise en service ? Et qui produira les pièces demandées par le financeur ?</p>\n</blockquote>\n\n\n\n<h2 class=\"wp-block-heading\">Le coût de la troisième année</h2>\n\n\n\n<p class=\"wp-block-paragraph\">La troisième réponse est celle qu&rsquo;on oublie le plus souvent. On chiffre le chantier avec soin, puis on laisse de côté l&rsquo;entretien, le personnel, l&rsquo;énergie, les assurances. Or c&rsquo;est ce coût des années suivantes qui décide si le projet tient une fois construit. Le financeur le regarde en dernier, et c&rsquo;est souvent là qu&rsquo;il dit non.</p>\n\n\n\n<p class=\"wp-block-paragraph\">En Nouvelle-Calédonie, les budgets d&rsquo;investissement sont plus serrés qu&rsquo;il y a deux ans. Les équipes qui montaient les dossiers ne sont pas toujours remplacées quand elles partent. Les projets utiles existent : ils attendent une page écrite, et quelqu&rsquo;un qui ait le temps de l&rsquo;écrire.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Dix lignes à écrire cette semaine</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Vous portez déjà des projets utiles, et vous avez eu raison de les porter. Notre conseil : prenez celui dont vous parlez le plus souvent, et écrivez-le en dix lignes. À qui il sert, qui le signe, ce qu&rsquo;il coûte — le chantier et les années suivantes —, qui rendra compte.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Si une des quatre lignes reste vide, vous savez par où commencer. Si les quatre sont remplies, vous avez déjà la première page de votre dossier, et elle tiendra quel que soit le guichet choisi ensuite.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Ce que fait PerfEco Institutions</h2>\n\n\n\n<p class=\"wp-block-paragraph\">PerfEco Institutions accompagne les communes, les provinces, les établissements publics et les entreprises, de la première page du projet jusqu&rsquo;au dernier justificatif : écrire le projet, chiffrer son coût complet, désigner qui le porte et qui rendra compte, puis suivre son exécution.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Aucun cabinet ne peut garantir l&rsquo;obtention d&rsquo;un financement. Ce que vous gardez dans tous les cas : un projet mûr, un plan de financement chiffré et un tableau de bord réutilisable.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Version synthétique et version anglaise sur perfeco.nc : <a href=\"https://www.perfeco.nc/ressources/le-projet-dabord-largent-ensuite\">Le projet d’abord, l’argent ensuite</a> · <a href=\"https://www.perfeco.nc/en/resources/the-project-first-the-funding-second\">The project first, the funding second</a>. Contact : contact@perfeco.nc — +687 73 08 75.</p>\n",
+          "protected": false
+        },
+        "excerpt": {
+          "rendered": "<p>Un projet utile ne trouve pas toujours de financement, et la raison est rarement celle qu’on croit. Avant de chercher un guichet, quatre réponses rendent un projet présentable : à qui il sert, qui le porte, ce qu’il coûte, qui rendra compte. Elles tiennent en dix lignes.</p>\n",
+          "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "closed",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": {
+          "_exactmetrics_skip_tracking": false,
+          "footnotes": "",
+          "jetpack_publicize_message": "",
+          "jetpack_publicize_feature_enabled": false,
+          "jetpack_social_post_already_shared": true,
+          "jetpack_social_options": {
+            "image_generator_settings": {
+              "template": "highway",
+              "default_image_id": 0,
+              "font": "",
+              "enabled": false
+            },
+            "version": 2
+          },
+          "jetpack_post_was_ever_published": false
+        },
+        "categories": [
+          11
+        ],
+        "tags": [
+          24,
+          32,
+          17,
+          18,
+          22,
+          19,
+          26,
+          21
+        ],
+        "class_list": [
+          "post-159",
+          "post",
+          "type-post",
+          "status-future",
+          "format-standard",
+          "hentry",
+          "category-organisation",
+          "tag-dirigeants",
+          "tag-execution",
+          "tag-gouvernance",
+          "tag-nouvelle-caledonie",
+          "tag-organisation",
+          "tag-pacifique",
+          "tag-perfeco",
+          "tag-pilotage"
+        ],
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Le projet d’abord, l’argent ensuite - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/?p=159\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Le projet d’abord, l’argent ensuite - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Un projet utile ne trouve pas toujours de financement, et la raison est rarement celle qu’on croit. Avant de chercher un guichet, quatre réponses rendent un projet présentable : à qui il sert, qui le porte, ce qu’il coûte, qui rendra compte. Elles tiennent en dix lignes.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/?p=159\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-11-03T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"4 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=159#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=159\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Le projet d’abord, l’argent ensuite\",\"datePublished\":\"2026-11-03T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=159\"},\"wordCount\":859,\"keywords\":[\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Nouvelle-Calédonie\",\"Organisation\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Organisation\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=159\",\"url\":\"https:\\/\\/perfsystemique.fr\\/?p=159\",\"name\":\"Le projet d’abord, l’argent ensuite - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-11-03T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=159#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/?p=159\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=159#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Le projet d’abord, l’argent ensuite\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+        "yoast_head_json": {
+          "title": "Le projet d’abord, l’argent ensuite - Perfsystemique.fr",
+          "robots": {
+            "index": "index",
+            "follow": "follow",
+            "max-snippet": "max-snippet:-1",
+            "max-image-preview": "max-image-preview:large",
+            "max-video-preview": "max-video-preview:-1"
+          },
+          "canonical": "https://perfsystemique.fr/?p=159",
+          "og_locale": "fr_FR",
+          "og_type": "article",
+          "og_title": "Le projet d’abord, l’argent ensuite - Perfsystemique.fr",
+          "og_description": "Un projet utile ne trouve pas toujours de financement, et la raison est rarement celle qu’on croit. Avant de chercher un guichet, quatre réponses rendent un projet présentable : à qui il sert, qui le porte, ce qu’il coûte, qui rendra compte. Elles tiennent en dix lignes.",
+          "og_url": "https://perfsystemique.fr/?p=159",
+          "og_site_name": "Perfsystemique.fr",
+          "article_publisher": "https://www.facebook.com/PerfecoNC/",
+          "article_published_time": "2026-11-03T00:03:00+00:00",
+          "author": "Jean-Michel Blaise",
+          "twitter_card": "summary_large_image",
+          "twitter_misc": {
+            "Écrit par": "Jean-Michel Blaise",
+            "Durée de lecture estimée": "4 minutes"
+          },
+          "schema": {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Article",
+                "@id": "https://perfsystemique.fr/?p=159#article",
+                "isPartOf": {
+                  "@id": "https://perfsystemique.fr/?p=159"
+                },
+                "author": {
+                  "name": "Jean-Michel Blaise",
+                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
+                },
+                "headline": "Le projet d’abord, l’argent ensuite",
+                "datePublished": "2026-11-03T00:03:00+00:00",
+                "mainEntityOfPage": {
+                  "@id": "https://perfsystemique.fr/?p=159"
+                },
+                "wordCount": 859,
+                "keywords": [
+                  "Dirigeants",
+                  "Exécution",
+                  "Gouvernance",
+                  "Nouvelle-Calédonie",
+                  "Organisation",
+                  "Pacifique",
+                  "PerfEco",
+                  "Pilotage"
+                ],
+                "articleSection": [
+                  "Organisation"
+                ],
+                "inLanguage": "fr-FR"
+              },
+              {
+                "@type": "WebPage",
+                "@id": "https://perfsystemique.fr/?p=159",
+                "url": "https://perfsystemique.fr/?p=159",
+                "name": "Le projet d’abord, l’argent ensuite - Perfsystemique.fr",
+                "isPartOf": {
+                  "@id": "https://perfsystemique.fr/#website"
+                },
+                "datePublished": "2026-11-03T00:03:00+00:00",
+                "author": {
+                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
+                },
+                "breadcrumb": {
+                  "@id": "https://perfsystemique.fr/?p=159#breadcrumb"
+                },
+                "inLanguage": "fr-FR",
+                "potentialAction": [
+                  {
+                    "@type": "ReadAction",
+                    "target": [
+                      "https://perfsystemique.fr/?p=159"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://perfsystemique.fr/?p=159#breadcrumb",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://perfsystemique.fr/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Le projet d’abord, l’argent ensuite"
+                  }
+                ]
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://perfsystemique.fr/#website",
+                "url": "https://perfsystemique.fr/",
+                "name": "Perfsystemique.fr",
+                "description": "Aligner stratégie, organisation, finance et opérations pour une performance durable",
+                "potentialAction": [
+                  {
+                    "@type": "SearchAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": "https://perfsystemique.fr/?s={search_term_string}"
+                    },
+                    "query-input": {
+                      "@type": "PropertyValueSpecification",
+                      "valueRequired": true,
+                      "valueName": "search_term_string"
+                    }
+                  }
+                ],
+                "inLanguage": "fr-FR"
+              },
+              {
+                "@type": "Person",
+                "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953",
+                "name": "Jean-Michel Blaise",
+                "image": {
+                  "@type": "ImageObject",
+                  "inLanguage": "fr-FR",
+                  "@id": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "url": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "contentUrl": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "caption": "Jean-Michel Blaise"
+                },
+                "sameAs": [
+                  "http://perfsystemique.fr"
+                ],
+                "url": "https://perfsystemique.fr/author/admin7804/"
+              }
+            ]
+          }
+        },
+        "jetpack_publicize_connections": [
+          {
+            "id": "32089949",
+            "username": "Jean-Michel  Blaise",
+            "connection_id": "25897449",
+            "display_name": "Jean-Michel  Blaise",
+            "external_handle": "",
+            "external_id": "C7Z6Ry4olO",
+            "profile_link": "https://www.linkedin.com/in/jean-michel-blaise-2867a337b",
+            "profile_picture": "https://media.licdn.com/dms/image/v2/D5603AQFuhUnwnN4zyw/profile-displayphoto-shrink_100_100/B56ZjFQ5KLHAAU-/0/1755656197004?e=1784160000&v=beta&t=z4L4H1kLLPGpvEUC3fnGD_Uj16COBPlF3NJEszZZa_I",
+            "service_label": "LinkedIn",
+            "service_name": "linkedin",
+            "shared": true,
+            "template": "",
+            "wpcom_user_id": 0
+          },
+          {
+            "id": "32089959",
+            "username": "PerfEco Consulting NC",
+            "connection_id": "25897454",
+            "display_name": "PerfEco Consulting NC",
+            "external_handle": "",
+            "external_id": "552866114572775",
+            "profile_link": "https://www.facebook.com/552866114572775",
+            "profile_picture": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=azgAtpeoo_oQ7kNvwEnDOpr&_nc_oc=Adr1PnozOBNjSiT036zQMPYSjuOAtHgikLseO_Pm8jRW5Gm7Zoj7I8-n1G7aXfSqaRI&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&edm=AGaHXAAEAAAA&_nc_gid=4rvUIC_g0LS3mR7MLbARrw&_nc_tpa=Q5bMBQKE8jaXq9pk-IIbIZryOjPt5PucO9VodRywvFqp99ybJ1ndsjSUkTIwo4CwlaRP0W_4Timu&oh=00_AQOWEVnvf9e1EATntR9inUmdSMkPFUFNEazILlLJLBJ--w&oe=6AE3741B",
+            "service_label": "Facebook",
+            "service_name": "facebook",
+            "shared": true,
+            "template": "",
+            "wpcom_user_id": 0
+          }
+        ],
+        "jetpack_featured_media_url": "",
+        "jetpack-related-posts": [],
+        "_links": {
+          "self": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/159",
+              "targetHints": {
+                "allow": [
+                  "GET",
+                  "POST",
+                  "PUT",
+                  "PATCH",
+                  "DELETE"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts"
+            }
+          ],
+          "about": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/types/post"
+            }
+          ],
+          "author": [
+            {
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/users/1"
+            }
+          ],
+          "replies": [
+            {
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=159"
+            }
+          ],
+          "version-history": [
+            {
+              "count": 0,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/159/revisions"
+            }
+          ],
+          "wp:attachment": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=159"
+            }
+          ],
+          "wp:term": [
+            {
+              "taxonomy": "category",
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=159"
+            },
+            {
+              "taxonomy": "post_tag",
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=159"
             }
           ],
           "curies": [
