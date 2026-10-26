@@ -759,10 +759,10 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "echeance_depassee",
+                             "statut":  "publie",
                              "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
-                             "preuve":  null,
+                             "preuve":  "Make 5 operations (LinkedIn Company + profil perso + Facebook) a 2026-10-16T02:25:21.986Z statut=1 ; post Facebook confirme a 2026-10-16T02:25:27+0000 ; cloture automatique par check-apres-publication, run 38870680031",
                              "note":  "Veille économique du vendredi — format, sourçage (IEOM/ISEE verifie a la source) et gabarit INCHANGÉS. Produit par mercredi-creation, partie V. La campagne dédiée Performance occupe le créneau du JEUDI, pas celui-ci.",
                              "axe":  "performance"
                          },
@@ -779,10 +779,10 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "publie",
                              "source":  "automation-queue/mardi.json",
                              "bascule":  null,
-                             "preuve":  null,
+                             "preuve":  "Make 4 operations (LinkedIn Company + Facebook (profil perso servi hors Make, par l'API LinkedIn directe)) a 2026-10-20T03:42:01.925Z statut=1 ; post Facebook confirme a 2026-10-20T03:42:07+0000 ; cloture automatique par check-apres-publication, run 39392432479",
                              "note":  "EPISODE 7/8 REPORTE ICI depuis le 13/10 (non publie faute de mise en file) - decision de mardi-carrousel-creation le 13/10/2026, le contenu 7/8 etant deja produit et la serie ne pouvant sauter un episode. Mis en file le 13/10 : mardi.json W41, WordPress #155 programme 20/10 11h03. Le 8/8 (synthese + CTA) est a replacer : defaut propose = mardi 27/10, Institutions decalee d une semaine (I1 03/11 ... I4 24/11, qui comble le premier mardi vide) - validation v-2026-10-13-01. | Rythme hebdomadaire NORMAL rétabli le 15/09/2026 (2e décision de Jean-Michel le même jour) : l\u0027alternance une semaine sur deux est SUPPRIMÉE. Chaque semaine est identique — mardi post long/série, jeudi post court/campagne dédiée, vendredi post court/veille éco.",
                              "axe":  "performance"
                          },
@@ -2800,5 +2800,5 @@
                      ],
     "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-10-17"
+    "derniere_maj":  "2026-10-20"
 }
