@@ -838,11 +838,11 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
+                             "statut":  "echeance_depassee",
                              "source":  "calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "SÉRIE INSTITUTIONS sur le créneau du MARDI (post long / série), decide le 15/09/2026 après que la semaine du 26-30/10 a été ramenée au schéma hebdomadaire normal. Le carrousel I1 est DÉJÀ LARGEMENT PRODUIT (slides rédigées, visuels faits, textes LinkedIn/Facebook et articles FR+EN) dans Perfeco-Social-Media/calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md. ATTENTION : le post court du jeudi 29/10 et le radar financements du vendredi 30/10 prévus dans ce même fichier sont MIS DE COTE — ces deux créneaux appartiennent désormais a la campagne dédiée et a la veille éco.",
+                             "note":  "SÉRIE INSTITUTIONS sur le créneau du MARDI (post long / série), decide le 15/09/2026 après que la semaine du 26-30/10 a été ramenée au schéma hebdomadaire normal. Le carrousel I1 est DÉJÀ LARGEMENT PRODUIT (slides rédigées, visuels faits, textes LinkedIn/Facebook et articles FR+EN) dans Perfeco-Social-Media/calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md. ATTENTION : le post court du jeudi 29/10 et le radar financements du vendredi 30/10 prévus dans ce même fichier sont MIS DE COTE — ces deux créneaux appartiennent désormais a la campagne dédiée et a la veille éco. | 27/10/2026 : NON PUBLIE - mardi.json etait reste au 20/10 (pipeline bloque du 16 au 27/10 par un conflit git sur ce registre). I1 reporte au 03/11 sur decision de Jean-Michel.",
                              "axe":  "institutions"
                          },
                          {
@@ -906,19 +906,19 @@
                              "date_nc":  "2026-11-03",
                              "heure_nc":  "11:00",
                              "format":  "mardi",
-                             "libelle":  "Post long / carrousel — Institutions 2/4",
-                             "sujet":  "à définir — Institutions 2/4",
-                             "semaine":  null,
+                             "libelle":  "Post long / carrousel — Institutions 1/4",
+                             "sujet":  "Le projet d\u0027abord, l\u0027argent ensuite — ce qu\u0027un financeur vérifie avant le montant",
+                             "semaine":  "W44",
                              "canaux":  [
                                             "linkedin_company",
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_file",
+                             "source":  "automation-queue/mardi.json",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "SÉRIE INSTITUTIONS 2/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour).",
+                             "note":  "SÉRIE INSTITUTIONS sur le créneau du MARDI (post long / série), decide le 15/09/2026 après que la semaine du 26-30/10 a été ramenée au schéma hebdomadaire normal. Le carrousel I1 est DÉJÀ LARGEMENT PRODUIT (slides rédigées, visuels faits, textes LinkedIn/Facebook et articles FR+EN) dans Perfeco-Social-Media/calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md. ATTENTION : le post court du jeudi 29/10 et le radar financements du vendredi 30/10 prévus dans ce même fichier sont MIS DE COTE — ces deux créneaux appartiennent désormais a la campagne dédiée et a la veille éco. | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close). PRODUIT LE 27/10/2026 : 7 slides W44 deployees (HTTP 200), articles perfeco.nc FR /ressources/le-projet-dabord-largent-ensuite + EN /en/resources/the-project-first-the-funding-second en ligne, WordPress #159 programme 03/11 11h03 (Publicize desactive, accents OK). Texte relu (LanguageTool + relecteur independant, retouches appliquees) ; mention \u0027une semaine sur deux\u0027 retiree (alternance supprimee le 15/09).",
                              "axe":  "institutions",
                              "arbitrage":  {
                                                "echeance":  "2026-10-26",
@@ -973,8 +973,8 @@
                              "date_nc":  "2026-11-10",
                              "heure_nc":  "11:00",
                              "format":  "mardi",
-                             "libelle":  "Post long / carrousel — Institutions 3/4",
-                             "sujet":  "à définir — Institutions 3/4",
+                             "libelle":  "Post long / carrousel — Institutions 2/4",
+                             "sujet":  "à définir — Institutions 2/4",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
@@ -985,7 +985,7 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "SÉRIE INSTITUTIONS 3/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour).",
+                             "note":  "SÉRIE INSTITUTIONS 2/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close).",
                              "axe":  "institutions"
                          },
                          {
@@ -1049,8 +1049,8 @@
                              "date_nc":  "2026-11-17",
                              "heure_nc":  "11:00",
                              "format":  "mardi",
-                             "libelle":  "Post long / carrousel — Institutions 4/4",
-                             "sujet":  "à définir — Institutions 4/4",
+                             "libelle":  "Post long / carrousel — Institutions 3/4",
+                             "sujet":  "à définir — Institutions 3/4",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
@@ -1061,7 +1061,7 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "SÉRIE INSTITUTIONS 4/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour).",
+                             "note":  "SÉRIE INSTITUTIONS 3/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close).",
                              "axe":  "institutions"
                          },
                          {
@@ -1108,8 +1108,8 @@
                              "date_nc":  "2026-11-24",
                              "heure_nc":  "11:00",
                              "format":  "mardi",
-                             "libelle":  "Post long / carrousel",
-                             "sujet":  "à définir (série 3 ou hors-série)",
+                             "libelle":  "Post long / carrousel — Institutions 4/4",
+                             "sujet":  "à définir — Institutions 4/4",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
@@ -1120,8 +1120,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "Rythme hebdomadaire NORMAL rétabli le 15/09/2026 (2e décision de Jean-Michel le même jour) : l\u0027alternance une semaine sur deux est SUPPRIMÉE. Chaque semaine est identique — mardi post long/série, jeudi post court/campagne dédiée, vendredi post court/veille éco.",
-                             "axe":  "performance",
+                             "note":  "SÉRIE INSTITUTIONS 4/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close).",
+                             "axe":  "institutions",
                              "arbitrage":  {
                                                "echeance":  "2026-11-16",
                                                "question":  "Le creneau du MARDI n\u0027a plus aucun contenu defini a partir du 24/11/2026 : la SERIE 2 \u0027Le Rythme de Pilotage\u0027 se termine le 20/10 (episode 8/8) et la serie Institutions le 17/11 (4/4). Six mardis consecutifs sont vides (24/11, 01/12, 08/12, 15/12, 22/12, 29/12). Option 1 (RECOMMANDEE) : une SERIE 3 de 8 episodes sur un theme du cadrage COMEX du 04/08/2026 encore jamais traite en serie - tresorerie/marges, ou competences/succession. Option 2 : des hors-series independants, sans fil conducteur. Option 3 : prolonger la serie Institutions au-dela de 4 episodes. DEFAUT sans reponse : option 1 avec le theme tresorerie/marges, qui est en tete du cadrage COMEX et n\u0027a jamais porte de serie - la serie 1 \u0027Execution Strategique\u0027 etait diagnostique (pourquoi l\u0027execution echoue), la serie 2 prescriptive (comment installer un rythme).",

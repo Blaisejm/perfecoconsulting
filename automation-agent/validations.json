@@ -1,7 +1,7 @@
 {
     "_lisez_moi":  "Registre des validations demandees a Jean-Michel. Delai standard 48 h, au-dela le systeme applique le defaut. Regle du 12/09/2026. Ne pas editer a la main : utiliser validations.ps1.",
     "delai_standard_heures":  48,
-    "derniere_maj":  "2026-10-13",
+    "derniere_maj":  "2026-10-27",
     "validations":  [
                         {
                             "id":  "v-2026-09-14-01",
@@ -87,10 +87,10 @@
                             "repondre_avant":  "2026-10-15T20:11:07+11:00",
                             "delai_heures":  48,
                             "ecrete":  false,
-                            "statut":  "ouvert",
-                            "decision":  null,
-                            "tranche_a":  null,
-                            "par":  null,
+                            "statut":  "tranche",
+                            "decision":  "Ni l\u0027option 1 ni l\u0027option 2 telles quelles : Institutions I1 publiee le 03/11 (le 27/10 est perdu, pipeline bloque), I2-I4 decalees aux 10, 17 et 24/11 ; le 8/8 \u0027Installer le rythme durablement\u0027 est CONSERVE pour un mardi ulterieur a fixer.",
+                            "tranche_a":  "2026-10-27T09:23:55+11:00",
+                            "par":  "Jean-Michel",
                             "rappels":  0
                         }
                     ]
