@@ -838,7 +838,7 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "echeance_depassee",
+                             "statut":  "prevu",
                              "source":  "calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md",
                              "bascule":  null,
                              "preuve":  null,
