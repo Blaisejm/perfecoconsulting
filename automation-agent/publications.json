@@ -782,7 +782,7 @@
                              "statut":  "publie",
                              "source":  "automation-queue/mardi.json",
                              "bascule":  null,
-                             "preuve":  "Make 4 operations (LinkedIn Company + Facebook (profil perso servi hors Make, par l'API LinkedIn directe)) a 2026-10-20T03:42:01.925Z statut=1 ; post Facebook confirme a 2026-10-20T03:42:07+0000 ; cloture automatique par check-apres-publication, run 39392432479",
+                             "preuve":  "Make 4 operations (LinkedIn Company + Facebook (profil perso servi hors Make, par l\u0027API LinkedIn directe)) a 2026-10-20T03:42:01.925Z statut=1 ; post Facebook confirme a 2026-10-20T03:42:07+0000 ; cloture automatique par check-apres-publication, run 39392432479",
                              "note":  "EPISODE 7/8 REPORTE ICI depuis le 13/10 (non publie faute de mise en file) - decision de mardi-carrousel-creation le 13/10/2026, le contenu 7/8 etant deja produit et la serie ne pouvant sauter un episode. Mis en file le 13/10 : mardi.json W41, WordPress #155 programme 20/10 11h03. Le 8/8 (synthese + CTA) est a replacer : defaut propose = mardi 27/10, Institutions decalee d une semaine (I1 03/11 ... I4 24/11, qui comble le premier mardi vide) - validation v-2026-10-13-01. | Rythme hebdomadaire NORMAL rétabli le 15/09/2026 (2e décision de Jean-Michel le même jour) : l\u0027alternance une semaine sur deux est SUPPRIMÉE. Chaque semaine est identique — mardi post long/série, jeudi post court/campagne dédiée, vendredi post court/veille éco.",
                              "axe":  "performance"
                          },
@@ -798,11 +798,11 @@
                                             "linkedin_company",
                                             "linkedin_perso"
                                         ],
-                             "statut":  "en_staging",
+                             "statut":  "echeance_depassee",
                              "source":  "automation-queue/jeudi-W42-pret.json",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -\u003e conséquence -\u003e méthode -\u003e résultat -\u003e invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | CANAUX CORRIGES le 23/09/2026 : le creneau du JEUDI part sur LinkedIn Company + LinkedIn PROFIL PERSO depuis la decision de Jean-Michel du 15/09/2026. Facebook ne recoit plus rien le jeudi (suffixe -NOFB envoye par publish-jeudi-post-court.yml) : il recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. L\u0027entree portait encore linkedin_company+facebook, heritage d\u0027avant le 15/09. Correction documentaire : aucun automatisme ne derive son comportement de ce champ (seul le controle d\u0027espacement le lit, et il n\u0027y cherche que linkedin_company). | PRODUIT LE 14/10/2026 (J-8) par mercredi-creation : staging jeudi-W42-pret.json, texte 1652 car., visuel V2 W42/v2-04-comptez-les-etapes.png (photo du 15/09, titre « Comptez les étapes d un dossier ordinaire »). Angle : suivre un dossier ordinaire, compter étapes, ressaisies et jours, retirer l étape qui ne protège de rien ; indicateur = délai demande vers décision.",
+                             "note":  "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -\u003e conséquence -\u003e méthode -\u003e résultat -\u003e invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | CANAUX CORRIGES le 23/09/2026 : le creneau du JEUDI part sur LinkedIn Company + LinkedIn PROFIL PERSO depuis la decision de Jean-Michel du 15/09/2026. Facebook ne recoit plus rien le jeudi (suffixe -NOFB envoye par publish-jeudi-post-court.yml) : il recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. L\u0027entree portait encore linkedin_company+facebook, heritage d\u0027avant le 15/09. Correction documentaire : aucun automatisme ne derive son comportement de ce champ (seul le controle d\u0027espacement le lit, et il n\u0027y cherche que linkedin_company). | PRODUIT LE 14/10/2026 (J-8) par mercredi-creation : staging jeudi-W42-pret.json, texte 1652 car., visuel V2 W42/v2-04-comptez-les-etapes.png (photo du 15/09, titre « Comptez les étapes d un dossier ordinaire »). Angle : suivre un dossier ordinaire, compter étapes, ressaisies et jours, retirer l étape qui ne protège de rien ; indicateur = délai demande vers décision. | REPORTE le 27/10/2026 (intervention-manuelle, accord de Jean-Michel) : jamais bascule en file a cause du conflit git publications.json qui bloquait tous les push des routines depuis le 16/10 ; workflow en echec ce jour-la. Contenu recale tel quel au 29/10.",
                              "axe":  "performance"
                          },
                          {
@@ -818,11 +818,11 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_staging",
+                             "statut":  "echeance_depassee",
                              "source":  "automation-queue/vendredi-2026-10-23-pret.json",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "PRODUIT LE 14/10/2026 (J-9) par mercredi-creation : staging vendredi-2026-10-23-pret.json, image W42/00-facebook-recrutement.png (HTTP 200).",
+                             "note":  "PRODUIT LE 14/10/2026 (J-9) par mercredi-creation : staging vendredi-2026-10-23-pret.json, image W42/00-facebook-recrutement.png (HTTP 200). | REPORTE le 27/10/2026 (intervention-manuelle, accord de Jean-Michel) : jamais bascule en file a cause du conflit git publications.json qui bloquait tous les push des routines depuis le 16/10 ; workflow en echec ce jour-la. Contenu recale tel quel au 30/10.",
                              "axe":  "performance"
                          },
                          {
@@ -850,18 +850,18 @@
                              "date_nc":  "2026-10-29",
                              "heure_nc":  "11:00",
                              "format":  "jeudi",
-                             "libelle":  "Campagne dédiée 5/10 — Simplifier le fonctionnement",
-                             "sujet":  "Traiter la cause des problèmes récurrents",
-                             "semaine":  null,
+                             "libelle":  "Campagne dédiée 4/10 — Simplifier le fonctionnement",
+                             "sujet":  "Les coûts invisibles de l\u0027organisation",
+                             "semaine":  "W43",
                              "canaux":  [
                                             "linkedin_company",
                                             "linkedin_perso"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_file",
+                             "source":  "automation-queue/jeudi.json",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -\u003e conséquence -\u003e méthode -\u003e résultat -\u003e invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | CANAUX CORRIGES le 23/09/2026 : le creneau du JEUDI part sur LinkedIn Company + LinkedIn PROFIL PERSO depuis la decision de Jean-Michel du 15/09/2026. Facebook ne recoit plus rien le jeudi (suffixe -NOFB envoye par publish-jeudi-post-court.yml) : il recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. L\u0027entree portait encore linkedin_company+facebook, heritage d\u0027avant le 15/09. Correction documentaire : aucun automatisme ne derive son comportement de ce champ (seul le controle d\u0027espacement le lit, et il n\u0027y cherche que linkedin_company).",
+                             "note":  "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -\u003e conséquence -\u003e méthode -\u003e résultat -\u003e invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | CANAUX CORRIGES le 23/09/2026 : le creneau du JEUDI part sur LinkedIn Company + LinkedIn PROFIL PERSO depuis la decision de Jean-Michel du 15/09/2026. Facebook ne recoit plus rien le jeudi (suffixe -NOFB envoye par publish-jeudi-post-court.yml) : il recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. L\u0027entree portait encore linkedin_company+facebook, heritage d\u0027avant le 15/09. Correction documentaire : aucun automatisme ne derive son comportement de ce champ (seul le controle d\u0027espacement le lit, et il n\u0027y cherche que linkedin_company). | 27/10/2026 : porte desormais la campagne 4/10 (reportee du 22/10). Le contenu prevu ici (Campagne dédiée 5/10 — Simplifier le fonctionnement / Traiter la cause des problèmes récurrents) reste A REPLACER : decalage de la suite de la campagne a arbitrer par Jean-Michel.",
                              "axe":  "performance"
                          },
                          {
@@ -869,19 +869,19 @@
                              "date_nc":  "2026-10-30",
                              "heure_nc":  "11:00",
                              "format":  "vendredi",
-                             "libelle":  "Post court / veille économique",
-                             "sujet":  "à définir",
+                             "libelle":  "Veille économique NC",
+                             "sujet":  "+700 emplois salariés privés en un an : 56 650 postes au T2 2026 (+1,2 %), fin d une longue période de destructions d emplois — angle : réécrire le poste avant de recruter (distinct du 21/08, angle rétention)",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_file",
+                             "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "CRÉNEAU LIBERE le 15/09/2026 : Jean-Michel a demande que la semaine du 26 au 30/10 respecte le schéma hebdomadaire normal (mardi série / jeudi campagne dédiée / vendredi veille éco). La SEMAINE INSTITUTIONS I1 qui occupait ces 3 créneaux est donc A REPLANIFIER — son contenu est intact dans Perfeco-Social-Media/calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md (I1 sur 4 prévues). A arbitrer avec Jean-Michel : ou replacer I1 a I4.",
+                             "note":  "CRÉNEAU LIBERE le 15/09/2026 : Jean-Michel a demande que la semaine du 26 au 30/10 respecte le schéma hebdomadaire normal (mardi série / jeudi campagne dédiée / vendredi veille éco). La SEMAINE INSTITUTIONS I1 qui occupait ces 3 créneaux est donc A REPLANIFIER — son contenu est intact dans Perfeco-Social-Media/calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md (I1 sur 4 prévues). A arbitrer avec Jean-Michel : ou replacer I1 a I4. | 27/10/2026 : veille ISEE T2 2026 (+700 emplois prives, angle reecrire le poste avant de recruter) reportee du 23/10, contenu inchange.",
                              "axe":  "performance"
                          },
                          {
@@ -2800,5 +2800,5 @@
                      ],
     "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-10-20"
+    "derniere_maj":  "2026-10-27"
 }
