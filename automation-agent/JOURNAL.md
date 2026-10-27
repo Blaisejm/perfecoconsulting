@@ -45,6 +45,7 @@ Cowork. Une routine morte ne peut pas mentir sur son propre compte.
 | `alerte` | ✅ | ce qui reste bloqué, ou `null` |
 | `fichiers` | ✅ | *(depuis le 21/08/2026)* chemins réellement modifiés, renseignés automatiquement |
 | `commits` | ✅ | *(depuis le 21/08/2026)* `suivi=<hash>` et/ou `projet=<hash>` |
+| `push_echecs` | ✅ | *(depuis le 27/10/2026)* push refusés et non rattrapés, vide si tout est arrivé sur GitHub. Non vide = `alerte` préfixée `PUSH EN ECHEC` et code de sortie 4 |
 
 **`effet` et `preuve` sont le cœur.** Une ligne qui dit « routine exécutée » sans dire
 quoi ni le prouver reproduit exactement le défaut du `lastRunAt`.
@@ -73,6 +74,13 @@ Le script fait trois choses que la méthode manuelle ne faisait pas :
 2. Il signe ces commits **du nom de la routine**, pas de « Jean-Michel Blaise ».
 3. Il renseigne `fichiers` et `commits` tout seul, à partir de ce que git constate —
    donc sans risque d'oubli ni de déclaration inexacte.
+4. *(depuis le 27/10/2026)* Il **vérifie chaque push**. Refusé : un `git pull` (fusion), puis
+   un nouveau push. Si la fusion tombe en conflit, elle est annulée (dépôt laissé propre,
+   commits gardés en local), l'échec est inscrit dans `push_echecs` et `alerte`, la sortie
+   affiche `PUSH: ECHEC` et le script rend le **code 4**. Jamais de résolution automatique
+   d'un conflit. Avant cette date, le push était jeté dans `Out-Null` : du 16 au 27/10/2026,
+   un conflit sur `publications.json` a bloqué tous les push sans un mot, et cinq
+   publications ont été perdues.
 
 Format en ajout seul, une ligne par enregistrement : deux routines qui écrivent le même
 jour ne produisent pas de conflit de fusion.
