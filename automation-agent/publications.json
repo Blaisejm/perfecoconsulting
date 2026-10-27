@@ -921,12 +921,11 @@
                              "note":  "SÉRIE INSTITUTIONS sur le créneau du MARDI (post long / série), decide le 15/09/2026 après que la semaine du 26-30/10 a été ramenée au schéma hebdomadaire normal. Le carrousel I1 est DÉJÀ LARGEMENT PRODUIT (slides rédigées, visuels faits, textes LinkedIn/Facebook et articles FR+EN) dans Perfeco-Social-Media/calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md. ATTENTION : le post court du jeudi 29/10 et le radar financements du vendredi 30/10 prévus dans ce même fichier sont MIS DE COTE — ces deux créneaux appartiennent désormais a la campagne dédiée et a la veille éco. | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close). PRODUIT LE 27/10/2026 : 7 slides W44 deployees (HTTP 200), articles perfeco.nc FR /ressources/le-projet-dabord-largent-ensuite + EN /en/resources/the-project-first-the-funding-second en ligne, WordPress #159 programme 03/11 11h03 (Publicize desactive, accents OK). Texte relu (LanguageTool + relecteur independant, retouches appliquees) ; mention \u0027une semaine sur deux\u0027 retiree (alternance supprimee le 15/09).",
                              "axe":  "institutions",
                              "arbitrage":  {
-                                               "echeance":  "2026-10-26",
+                                               "statut":  "pris",
                                                "question":  "Serie Institutions : l\u0027episode 1/4 du 27/10 est deja largement produit, mais les episodes 2/4 (03/11), 3/4 (10/11) et 4/4 (17/11) n\u0027ont ni sujet arrete ni fichier source. Option 1 (RECOMMANDEE) : arreter les trois sujets maintenant a partir de Perfeco-EU Institutions/PLAN-COMMUNICATION-INSTITUTIONS.md (axe porteurs de projets uniquement, volet Bruxelles/NC2030 hors communication), pour que mardi-carrousel-creation les produise normalement a J-8. Option 2 : reduire la serie Institutions a 2 episodes (27/10 et 03/11) et rendre les mardis 10/11 et 17/11 a la serie generaliste. DEFAUT sans reponse : option 1, les trois sujets etant derives du plan existant et soumis en meme temps que le carrousel de chaque semaine.",
-                                               "statut":  "ouvert",
-                                               "ouvert_le":  "2026-09-22",
-                                               "ouvert_par":  "perfeco-revue-semestrielle",
-                                               "nature":  "editorial"
+                                               "decision":  "Option 1 retenue : sujets du plan Institutions par.8 — I2 \u0027Sept questions avant de chercher un financement\u0027 (10/11, recentré notation 0-5, CTA revue de portefeuille), I3 \u0027Vu de l\u0027intérieur\u0027 (17/11, sans CTA), I4 \u0027Après la subvention\u0027 (24/11). Dates décalées d\u0027une semaine après la perte du 27/10.",
+                                               "tranche_le":  "2026-10-27",
+                                               "par":  "Jean-Michel"
                                            }
                          },
                          {
@@ -974,7 +973,7 @@
                              "heure_nc":  "11:00",
                              "format":  "mardi",
                              "libelle":  "Post long / carrousel — Institutions 2/4",
-                             "sujet":  "à définir — Institutions 2/4",
+                             "sujet":  "Sept questions avant de chercher un financement — la grille du Passeport notée de 0 à 5",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
@@ -985,7 +984,7 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "SÉRIE INSTITUTIONS 2/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close).",
+                             "note":  "SÉRIE INSTITUTIONS 2/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close). | SUJET ARRETE le 27/10/2026 par Jean-Michel (en session, intervention-manuelle). ANGLE : recentré sur la NOTATION 0-5 des sept dimensions (pertinence, maturité technique, portage et gouvernance, budget et cofinancement, éligibilité, impact et indicateurs, calendrier et capacité) — ce qu\u0027un score faible signifie concrètement et par où commencer. I1 ayant déjà présenté \u0027quatre réponses\u0027, NE PAS refaire la liste : c\u0027est l\u0027outil de notation qui est neuf. CTA : revue confidentielle de portefeuille (60-90 min), PAS l\u0027auto-diagnostic, qui n\u0027existe pas (page /institutions en 404 au 27/10). Source : PLAN-COMMUNICATION-INSTITUTIONS.md par.8 (PerfEco Consulting NC\\Perfeco-EU Institutions). Onze lignes rouges du par.6 obligatoires avant mise en file.",
                              "axe":  "institutions"
                          },
                          {
@@ -1050,7 +1049,7 @@
                              "heure_nc":  "11:00",
                              "format":  "mardi",
                              "libelle":  "Post long / carrousel — Institutions 3/4",
-                             "sujet":  "à définir — Institutions 3/4",
+                             "sujet":  "Vu de l\u0027intérieur : comment un financeur lit un dossier",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
@@ -1061,7 +1060,7 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "SÉRIE INSTITUTIONS 3/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close).",
+                             "note":  "SÉRIE INSTITUTIONS 3/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close). | SUJET ARRETE le 27/10/2026 par Jean-Michel (en session, intervention-manuelle). Ce qu\u0027un évaluateur ouvre en premier, ce qui fait écarter une candidature en deux minutes, la différence entre une note de concept qui passe le premier filtre et une qui n\u0027y arrive pas, ce que le comité ne met jamais par écrit. Raconté comme un métier (biographie et pratique), jamais comme un résultat obtenu. AUCUN CTA, volontairement : un épisode par bloc sans appel à l\u0027action rend les autres crédibles. Un mémo vocal de JM sur canal perfeco-institutions enrichirait fortement l\u0027épisode. Source : PLAN-COMMUNICATION-INSTITUTIONS.md par.8 (PerfEco Consulting NC\\Perfeco-EU Institutions). Onze lignes rouges du par.6 obligatoires avant mise en file.",
                              "axe":  "institutions"
                          },
                          {
@@ -1109,7 +1108,7 @@
                              "heure_nc":  "11:00",
                              "format":  "mardi",
                              "libelle":  "Post long / carrousel — Institutions 4/4",
-                             "sujet":  "à définir — Institutions 4/4",
+                             "sujet":  "Après la subvention — le reste à charge, l\u0027audit et les justificatifs",
                              "semaine":  null,
                              "canaux":  [
                                             "linkedin_company",
@@ -1120,16 +1119,8 @@
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "SÉRIE INSTITUTIONS 4/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close).",
-                             "axe":  "institutions",
-                             "arbitrage":  {
-                                               "echeance":  "2026-11-16",
-                                               "question":  "Le creneau du MARDI n\u0027a plus aucun contenu defini a partir du 24/11/2026 : la SERIE 2 \u0027Le Rythme de Pilotage\u0027 se termine le 20/10 (episode 8/8) et la serie Institutions le 17/11 (4/4). Six mardis consecutifs sont vides (24/11, 01/12, 08/12, 15/12, 22/12, 29/12). Option 1 (RECOMMANDEE) : une SERIE 3 de 8 episodes sur un theme du cadrage COMEX du 04/08/2026 encore jamais traite en serie - tresorerie/marges, ou competences/succession. Option 2 : des hors-series independants, sans fil conducteur. Option 3 : prolonger la serie Institutions au-dela de 4 episodes. DEFAUT sans reponse : option 1 avec le theme tresorerie/marges, qui est en tete du cadrage COMEX et n\u0027a jamais porte de serie - la serie 1 \u0027Execution Strategique\u0027 etait diagnostique (pourquoi l\u0027execution echoue), la serie 2 prescriptive (comment installer un rythme).",
-                                               "statut":  "ouvert",
-                                               "ouvert_le":  "2026-09-22",
-                                               "ouvert_par":  "perfeco-revue-semestrielle",
-                                               "nature":  "editorial"
-                                           }
+                             "note":  "SÉRIE INSTITUTIONS 4/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close). | SUJET ARRETE le 27/10/2026 par Jean-Michel (en session, intervention-manuelle). Le projet est financé : commencent le reste à charge à couvrir, les dépenses rejetées à l\u0027audit, les jalons contractuels, les indicateurs à produire, la clôture à documenter. Une subvention obtenue et mal exécutée coûte plus cher qu\u0027une subvention refusée. Épisode-pont vers Performance, il referme la série. CTA : revue de portefeuille. Source : PLAN-COMMUNICATION-INSTITUTIONS.md par.8 (PerfEco Consulting NC\\Perfeco-EU Institutions). Onze lignes rouges du par.6 obligatoires avant mise en file.",
+                             "axe":  "institutions"
                          },
                          {
                              "id":  "2026-11-26-jeudi",
@@ -1188,7 +1179,15 @@
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "Rythme hebdomadaire NORMAL rétabli le 15/09/2026 (2e décision de Jean-Michel le même jour) : l\u0027alternance une semaine sur deux est SUPPRIMÉE. Chaque semaine est identique — mardi post long/série, jeudi post court/campagne dédiée, vendredi post court/veille éco.",
-                             "axe":  "performance"
+                             "axe":  "performance",
+                             "arbitrage":  {
+                                               "echeance":  "2026-11-23",
+                                               "question":  "Le creneau du MARDI n\u0027a plus aucun contenu defini a partir du 01/12/2026 : la serie Institutions se termine le 24/11 (4/4, decalee d\u0027une semaine apres la perte du 27/10). Mardis vides : 01/12, 08/12, 15/12, 22/12, 29/12. L\u0027episode 8/8 de la SERIE 2 \u0027Installer le rythme durablement\u0027 est CONSERVE (decision JM du 27/10) et attend un mardi. Option 1 (RECOMMANDEE) : 8/8 le 01/12, puis une SERIE 3 de 8 episodes sur un theme du cadrage COMEX jamais traite en serie - tresorerie/marges, ou competences/succession. Option 2 : 8/8 le 01/12 puis des hors-series independants. Option 3 : prolonger la serie Institutions. DEFAUT sans reponse : option 1 avec tresorerie/marges. (Arbitrage ouvert le 22/09 par perfeco-revue-semestrielle sur le 24/11, deplace et reformule le 27/10 par intervention-manuelle.)",
+                                               "statut":  "ouvert",
+                                               "ouvert_le":  "2026-09-22",
+                                               "ouvert_par":  "perfeco-revue-semestrielle",
+                                               "nature":  "editorial"
+                                           }
                          },
                          {
                              "id":  "2026-12-03-jeudi",
