@@ -66,13 +66,72 @@ $stamp  = $nowNC.ToString("dd/MM/yyyy HH:mm")
 
 $fichiersTouches = @()
 $commits         = @()
+$pushEchecs      = @()
 
 function Invoke-Git {
     param([string] $Repo, [string[]] $GitArgs)
     Push-Location $Repo
-    try   { & git @GitArgs 2>&1 }
-    catch { Write-Warning "git $($GitArgs -join ' ') a echoue dans $Repo : $_"; $null }
+    try   { & git @GitArgs 2>&1; $script:gitCode = $LASTEXITCODE }
+    catch { Write-Warning "git $($GitArgs -join ' ') a echoue dans $Repo : $_"; $script:gitCode = 1; $null }
     finally { Pop-Location }
+}
+
+# ---------------------------------------------------------------------------
+# Push VÉRIFIÉ (ajouté le 27/10/2026, intervention-manuelle, demande de JM).
+#
+# Avant, le push était jeté dans Out-Null. Du 16 au 27/10/2026, un conflit sur
+# publications.json (registre rafraîchi en local, clôturé par GitHub Actions)
+# a fait refuser TOUS les push des routines, sans un mot : 3 commits restés en
+# local, bascules jamais arrivées sur origin, 5 publications perdues (22, 23,
+# 24 et 27/10), et un journal qui affichait « ligne ajoutee et poussee ».
+#
+# Désormais : push → si refusé, UN pull (fusion) puis nouveau push. Si le pull
+# tombe en conflit, la fusion est annulée (dépôt laissé propre, commits locaux
+# intacts) et l'échec est RENDU : champ `push_echecs` du journal, `alerte`
+# préfixée, ligne `PUSH: ECHEC` en sortie et code de sortie 4. On ne résout
+# jamais un conflit automatiquement : c'est une décision humaine.
+#
+# Le succès ne se déduit pas du code de retour seul : on vérifie que HEAD est
+# bien arrivé sur la branche distante.
+# ---------------------------------------------------------------------------
+# Sortie git lisible : en 5.1, la redirection 2>&1 enveloppe stderr dans des
+# ErrorRecord dont l'affichage noie le message. On ne garde que les lignes utiles.
+function Resume-Git {
+    param($Sortie)
+    $lignes = @($Sortie | ForEach-Object { $_.ToString().Trim() } | Where-Object { $_ -match 'rejected|error|fatal|CONFLICT|conflit' })
+    if ($lignes.Count -eq 0) { $lignes = @($Sortie | ForEach-Object { $_.ToString().Trim() } | Where-Object { $_ } | Select-Object -First 2) }
+    ($lignes -join ' / ')
+}
+
+function Push-Verifie {
+    param([string] $Repo, [string] $Etiquette)
+
+    $out = Invoke-Git -Repo $Repo -GitArgs @('push', '-q', 'origin', 'HEAD')
+    if ($script:gitCode -ne 0) {
+        Write-Warning "$Etiquette : push refuse, tentative de fusion avec origin : $(Resume-Git $out)"
+        $pull = Invoke-Git -Repo $Repo -GitArgs @('pull', '--no-rebase', '--no-edit', '-q', 'origin', 'HEAD')
+        if ($script:gitCode -ne 0) {
+            $conflits = @(Invoke-Git -Repo $Repo -GitArgs @('diff', '--name-only', '--diff-filter=U')) -join ', '
+            Invoke-Git -Repo $Repo -GitArgs @('merge', '--abort') | Out-Null
+            $raison = if ($conflits) { "conflit sur $conflits" } else { Resume-Git $pull }
+            $script:pushEchecs += "$Etiquette : push refuse et fusion impossible ($raison) - fusion annulee, commits restes en local"
+            return $false
+        }
+        $out = Invoke-Git -Repo $Repo -GitArgs @('push', '-q', 'origin', 'HEAD')
+        if ($script:gitCode -ne 0) {
+            $script:pushEchecs += "$Etiquette : push refuse meme apres fusion ($(Resume-Git $out))"
+            return $false
+        }
+    }
+
+    $local  = (Invoke-Git -Repo $Repo -GitArgs @('rev-parse', 'HEAD')) -join ''
+    $distant = (Invoke-Git -Repo $Repo -GitArgs @('rev-parse', '@{u}')) -join ''
+    if ($script:gitCode -ne 0 -or $local.Trim() -ne $distant.Trim()) {
+        $court = $local.Trim(); if ($court.Length -gt 7) { $court = $court.Substring(0, 7) }
+        $script:pushEchecs += "$Etiquette : push annonce reussi mais HEAD $court absent de la branche distante"
+        return $false
+    }
+    return $true
 }
 
 # ---------------------------------------------------------------------------
@@ -128,9 +187,11 @@ function Commit-Repo {
         Write-Warning "$Etiquette : le commit n'a pas abouti. $out"
     }
 
-    # Push silencieux : le dépôt de suivi n'a pas de remote, c'est attendu.
+    # Le dépôt de suivi n'a pas de remote : pas de push, c'est attendu.
     $remote = Invoke-Git -Repo $Repo -GitArgs @('remote')
-    if ($remote) { Invoke-Git -Repo $Repo -GitArgs @('push', '-q', 'origin', 'HEAD') | Out-Null }
+    if ($remote) {
+        if (Push-Verifie -Repo $Repo -Etiquette $Etiquette) { Write-Host "  [$Etiquette] pousse sur origin" }
+    }
 }
 
 Write-Host "trace-routine — $Routine ($Resultat) — $stamp NC"
@@ -166,15 +227,21 @@ Commit-Repo -Repo $REPO_PROJET -Etiquette 'projet' -ExcludeJournal
 # ---------------------------------------------------------------------------
 # 2. Ligne de journal — enrichie de la liste des fichiers réellement touchés.
 # ---------------------------------------------------------------------------
+if ($pushEchecs.Count -gt 0) {
+    $prefixe = "PUSH EN ECHEC (" + ($pushEchecs -join ' | ') + ")"
+    $Alerte  = if ([string]::IsNullOrWhiteSpace($Alerte)) { $prefixe } else { "$prefixe ; $Alerte" }
+}
+
 $ligne = [ordered]@{
-    routine  = $Routine
-    fin_nc   = $finNC
-    resultat = $Resultat
-    effet    = $Effet
-    preuve   = $Preuve
-    alerte   = if ([string]::IsNullOrWhiteSpace($Alerte)) { $null } else { $Alerte }
-    fichiers = @($fichiersTouches | Sort-Object -Unique)
-    commits  = @($commits)
+    routine     = $Routine
+    fin_nc      = $finNC
+    resultat    = $Resultat
+    effet       = $Effet
+    preuve      = $Preuve
+    alerte      = if ([string]::IsNullOrWhiteSpace($Alerte)) { $null } else { $Alerte }
+    fichiers    = @($fichiersTouches | Sort-Object -Unique)
+    commits     = @($commits)
+    push_echecs = @($pushEchecs)
 }
 
 $json = ($ligne | ConvertTo-Json -Compress -Depth 4)
@@ -182,16 +249,19 @@ $json = ($ligne | ConvertTo-Json -Compress -Depth 4)
 # UTF-8 sans BOM, saut de ligne LF : le journal se lit ligne à ligne.
 [System.IO.File]::AppendAllText($JOURNAL, $json + "`n", (New-Object System.Text.UTF8Encoding($false)))
 
-Push-Location $REPO_PROJET
-try {
-    & git add -- 'automation-agent/journal-executions.jsonl' 2>&1 | Out-Null
-    & git -c "user.name=$Routine" -c "user.email=$MAIL" `
-        commit -q -m "journal: $Routine - $Resultat" 2>&1 | Out-Null
-    & git push -q origin HEAD 2>&1 | Out-Null
+Invoke-Git -Repo $REPO_PROJET -GitArgs @('add', '--', 'automation-agent/journal-executions.jsonl') | Out-Null
+Invoke-Git -Repo $REPO_PROJET -GitArgs @(
+    '-c', "user.name=$Routine", '-c', "user.email=$MAIL",
+    'commit', '-q', '-m', "journal: $Routine - $Resultat"
+) | Out-Null
+$echecsAvantJournal = $pushEchecs.Count
+if (Push-Verifie -Repo $REPO_PROJET -Etiquette 'journal') {
     Write-Host "  [journal] ligne ajoutee et poussee"
-} catch {
-    Write-Warning "Le journal n'a pas pu etre pousse : $_"
-} finally { Pop-Location }
+} else {
+    # Ce dernier échec ne peut plus figurer dans la ligne déjà écrite : il passe
+    # par la sortie et le code de retour ci-dessous.
+    Write-Warning "[journal] ligne ajoutee en LOCAL seulement : $($pushEchecs[$echecsAvantJournal..($pushEchecs.Count - 1)] -join ' | ')"
+}
 
 # ---------------------------------------------------------------------------
 # Regeneration du CALENDRIER LISIBLE (demande de Jean-Michel du 15/09/2026 :
@@ -235,6 +305,15 @@ if (Test-Path $VERROU) {
     }
 } else {
     Write-Warning "verrou.ps1 introuvable — verrou non libere."
+}
+
+if ($pushEchecs.Count -gt 0) {
+    Write-Host ""
+    Write-Host "PUSH: ECHEC — rien de ce que cette routine a commite n'est garanti sur GitHub."
+    $pushEchecs | ForEach-Object { Write-Host "  - $_" }
+    Write-Host "  Les workflows GitHub (publication, bascules) ne voient PAS ces commits. A signaler"
+    Write-Host "  dans le brouillon Gmail et a resoudre a la main (git pull, resoudre le conflit, git push)."
+    exit 4
 }
 
 Write-Host "OK — $($ligne.fichiers.Count) fichier(s) tracé(s)."
