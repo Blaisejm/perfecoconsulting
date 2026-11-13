@@ -138,6 +138,8 @@ $RANGS = @{
     'perfeco-rapport-dimanche'    = 5
     'perfeco-revue-semestrielle'  = 6
     'perfeco-verif-github-actions' = 7
+    # Administratif (14/11/2026) : factures du mois pour le cabinet Broussan, le 2 a 09h30.
+    'factures-mensuelles-broussan' = 8
 }
 
 $FICHIER = Join-Path $env:USERPROFILE '.claude\verrou-routines.json'

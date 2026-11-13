@@ -152,6 +152,10 @@
     "perfeco-revue-semestrielle": {
       "cadence": "semestrielle (1er fevrier et 1er aout, 08h00)",
       "tolerance_jours": 190
+    },
+    "factures-mensuelles-broussan": {
+      "cadence": "mensuelle (le 2 du mois, 09h30)",
+      "tolerance_jours": 35
     }
   },
   "workflows_surveilles": {
