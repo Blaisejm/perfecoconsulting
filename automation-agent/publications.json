@@ -1186,7 +1186,8 @@
                                                "statut":  "ouvert",
                                                "ouvert_le":  "2026-09-22",
                                                "ouvert_par":  "perfeco-revue-semestrielle",
-                                               "nature":  "editorial"
+                                               "nature":  "editorial",
+                                               "relaye_le":  "2026-11-13"
                                            }
                          },
                          {
@@ -1272,7 +1273,8 @@
                                                "statut":  "ouvert",
                                                "ouvert_le":  "2026-09-22",
                                                "ouvert_par":  "perfeco-revue-semestrielle",
-                                               "nature":  "editorial"
+                                               "nature":  "editorial",
+                                               "relaye_le":  "2026-11-13"
                                            },
                              "visuel":  "01-projet-cap-partage.png",
                              "visuel_url":  "https://www.perfeco.nc/slides/campagne-v2/01-projet-cap-partage.png"
