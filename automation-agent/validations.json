@@ -1,7 +1,7 @@
 {
     "_lisez_moi":  "Registre des validations demandees a Jean-Michel. Delai standard 48 h, au-dela le systeme applique le defaut. Regle du 12/09/2026. Ne pas editer a la main : utiliser validations.ps1.",
     "delai_standard_heures":  48,
-    "derniere_maj":  "2026-10-27",
+    "derniere_maj":  "2026-11-13",
     "validations":  [
                         {
                             "id":  "v-2026-09-14-01",
@@ -92,6 +92,29 @@
                             "tranche_a":  "2026-10-27T09:23:55+11:00",
                             "par":  "Jean-Michel",
                             "rappels":  0
+                        },
+                        {
+                            "id":  "v-2026-11-13-01",
+                            "routine":  "perfeco-rappel-quotidien",
+                            "objet":  "replanification apres arret 27/10-13/11",
+                            "question":  "Aucune publication n\u0027est partie du 05/11 au 13/11 (routines muettes depuis le 27/10, scenario Make 6916780 inactif depuis le 30/10). Comment reprendre ? Option 1 : reprendre chaque format au premier episode non publie, la suite glissant d\u0027autant - mardi 17/11 = Institutions I2 (notation 0-5, a produire), I3 24/11, I4 01/12, serie 2 8/8 au 08/12 ; jeudi 19/11 = campagne 4/10 \u0027Les couts invisibles\u0027 (deja produite), puis 5/10 le 26/11, etc. ; vendredi 20/11 = veille eco neuve. I1 reste publie sur le seul profil perso (03/11). Option 2 : garder le calendrier tel quel (I3 le 17/11, I4 le 24/11, campagne 7/10 le 19/11), I2 et les episodes manques sont abandonnes. Option 3 : republier d\u0027abord I1 sur Company + Facebook le 17/11, puis I2 le 24/11, I3 le 01/12, I4 le 08/12.",
+                            "options":  [
+                                            "1 - reprendre au premier episode non publie (glissement)",
+                                            "2 - garder le calendrier, abandonner les episodes manques",
+                                            "3 - republier I1 sur Company+Facebook puis glisser"
+                                        ],
+                            "defaut":  "Option 1 : rien de ce que Jean-Michel a arrete n\u0027est perdu, l\u0027ordre des series est respecte, le contenu deja produit (campagne 4/10) est utilise, et le mardi 01/12 vide se trouve rempli par I4.",
+                            "impact":  "Determine quoi produire pour le 17/11 (I2 ou I3), le 19/11 (campagne 4/10 ou 7/10), et decale ou non les arbitrages du 01/12 et du 10/12.",
+                            "publication":  "2026-11-17-mardi",
+                            "ouvert_a":  "2026-11-13T20:27:55+11:00",
+                            "repondre_avant":  "2026-11-15T20:27:55+11:00",
+                            "delai_heures":  48,
+                            "ecrete":  false,
+                            "statut":  "ouvert",
+                            "decision":  null,
+                            "tranche_a":  null,
+                            "par":  null,
+                            "rappels":  1
                         }
                     ]
 }
