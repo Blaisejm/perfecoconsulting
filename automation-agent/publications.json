@@ -838,7 +838,7 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
+                             "statut":  "echeance_depassee",
                              "source":  "calendrier-editorial/2026-10-27-SEMAINE-INSTITUTIONS-I1.md",
                              "bascule":  null,
                              "preuve":  null,
@@ -857,7 +857,7 @@
                                             "linkedin_company",
                                             "linkedin_perso"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "echeance_depassee",
                              "source":  "automation-queue/jeudi.json",
                              "bascule":  null,
                              "preuve":  null,
@@ -877,7 +877,7 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "echeance_depassee",
                              "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
                              "preuve":  null,
@@ -914,7 +914,7 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "echeance_depassee",
                              "source":  "automation-queue/mardi.json",
                              "bascule":  null,
                              "preuve":  null,
@@ -940,7 +940,7 @@
                                             "linkedin_company",
                                             "linkedin_perso"
                                         ],
-                             "statut":  "prevu",
+                             "statut":  "echeance_depassee",
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
@@ -960,7 +960,7 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
+                             "statut":  "echeance_depassee",
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
@@ -980,7 +980,7 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
+                             "statut":  "echeance_depassee",
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
@@ -1016,7 +1016,7 @@
                                             "linkedin_company",
                                             "linkedin_perso"
                                         ],
-                             "statut":  "prevu",
+                             "statut":  "echeance_depassee",
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
@@ -2799,5 +2799,5 @@
                      ],
     "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-10-27"
+    "derniere_maj":  "2026-11-13"
 }
