@@ -1036,7 +1036,7 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
+                             "statut":  "echeance_depassee",
                              "source":  null,
                              "bascule":  null,
                              "preuve":  null,
@@ -2801,5 +2801,5 @@
                      ],
     "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-11-13"
+    "derniere_maj":  "2026-11-14"
 }
