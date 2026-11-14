@@ -140,6 +140,8 @@ $RANGS = @{
     'perfeco-verif-github-actions' = 7
     # Administratif (14/11/2026) : factures du mois pour le cabinet Broussan, le 2 a 09h30.
     'factures-mensuelles-broussan' = 8
+    # Administratif (14/11/2026) : elements IR prives pour le cabinet Broussan, 15 fev. et 15 aout a 09h30.
+    'ir-semestriel-broussan'       = 9
 }
 
 $FICHIER = Join-Path $env:USERPROFILE '.claude\verrou-routines.json'
