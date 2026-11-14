@@ -156,6 +156,10 @@
     "factures-mensuelles-broussan": {
       "cadence": "mensuelle (le 2 du mois, 09h30)",
       "tolerance_jours": 35
+    },
+    "ir-semestriel-broussan": {
+      "cadence": "semestrielle (15 fevrier et 15 aout, 09h30)",
+      "tolerance_jours": 190
     }
   },
   "workflows_surveilles": {
