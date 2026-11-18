@@ -10,6 +10,8 @@ name: "Diagnostic des accès (lecture seule) — Facebook, LinkedIn, Make"
 #   - LINKEDIN_TOKEN est-il vivant ?
 #   - MAKE_API_TOKEN a-t-il les droits d'écriture (réactivation, purge de file) ?
 #
+# Relances par push (pas de gh local) : 19/11/2026 après le nouveau MAKE_API_TOKEN.
+#
 # Ce workflow NE PUBLIE RIEN et N'ÉCRIT RIEN. Il n'affiche jamais un jeton :
 # seuls des champs choisis (scopes, dates, statuts) sont extraits par jq.
 # Les résultats sont émis en annotations ::notice::, lisibles sans connexion
