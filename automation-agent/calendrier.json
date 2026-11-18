@@ -160,6 +160,11 @@
     "ir-semestriel-broussan": {
       "cadence": "semestrielle (15 fevrier et 15 aout, 09h30)",
       "tolerance_jours": 190
+    },
+    "perfeco-revue-qualite-hebdo": {
+      "cadence": "hebdomadaire (dimanche 09h00)",
+      "tolerance_jours": 8,
+      "_note": "Creee le 18/11/2026 a la demande de Jean-Michel : verifie ce qui est reellement publie sur LinkedIn perso, LinkedIn Company et Facebook, et alimente automation-agent/ameliorations-publications.json, lu par les routines de creation."
     }
   },
   "workflows_surveilles": {
