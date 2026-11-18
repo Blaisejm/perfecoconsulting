@@ -10,6 +10,13 @@
       et les routines respectent la cadence definie. En aucun cas les routines ne
       tournent en parallele ou en meme temps. »
 
+    CADENCE RAMENEE A 5 MINUTES le 18/11/2026, decision de Jean-Michel :
+    « Merci de changer la regle et de passer a 5 minutes d'ecart et non 15 minutes
+      entre les verrous. » Constate ce jour-la : 5 routines en file d'attente apres un
+    blocage, et 15 minutes perdues a CHAQUE passage, soit plus d'une heure d'attente
+    pure avant la derniere. L'exclusion mutuelle et l'ordre des rangs sont INCHANGES :
+    seul l'ecart entre la fin d'une routine et le debut de la suivante passe a 5 min.
+
     POURQUOI CE SCRIPT EXISTE. Le cron dit QUAND declencher, il ne dit rien sur ce
     qui se passe au reveil de la machine. Constate le 12/09/2026, PC allume vers
     11h30 : perfeco-verif-github-actions a 11h47, perfeco-rappel-quotidien a 11h57
@@ -89,7 +96,8 @@ param(
     # Reserve au deblocage manuel ; une routine ne doit jamais l'utiliser.
     [switch]$Force,
     # Cadence imposee entre la fin d'une routine et le debut de la suivante.
-    [int]$EspacementMinutes = 15,
+    # 15 min du 12/09 au 18/11/2026, 5 min depuis (decision de Jean-Michel du 18/11/2026).
+    [int]$EspacementMinutes = 5,
     # Au-dela, un verrou est considere abandonne (routine morte sans liberer).
     [int]$PerimeMinutes = 45,
     # Attente bloquante maximale dans UN appel. Volontairement < 10 min : l'outil
@@ -579,7 +587,7 @@ while ($true) {
             }
         }
 
-        # 3. La cadence de 15 minutes depuis la derniere liberation est-elle tenue ?
+        # 3. La cadence ($EspacementMinutes min, 5 depuis le 18/11/2026) depuis la derniere liberation est-elle tenue ?
         if (-not $motif -and $e.derniere_liberation) {
             $lib = ConvertTo-Date $e.derniere_liberation
             if ($lib) {
