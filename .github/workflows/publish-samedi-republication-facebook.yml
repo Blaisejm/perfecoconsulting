@@ -68,8 +68,31 @@ jobs:
           # La fenêtre reste volontairement étroite (2 jours nommés, pas « les 4 derniers
           # jours ») : republier au hasard un contenu ancien serait pire que ne rien republier.
 
-      - name: Republier sur Facebook uniquement (webhook unique, LinkedIn bloqué par filtre Make)
+      # ── ÉTAPE 3 DE LA DIFFUSION 100 % CLOUD (19/11/2026, « lance l'étape 3 » de Jean-Michel) ──
+      # Facebook est publié EN DIRECT par l'API Graph (scripts/facebook-photo.sh), sans Make.
+      # Le samedi est le premier créneau basculé : un seul canal, et Make reste en repli.
+      # REPLI : si l'appel direct échoue AVANT publication ou est refusé explicitement par
+      # Facebook (code 2 : rien n'a été créé), l'ancien envoi Make FBONLY part à sa place.
+      # Si l'envoi est parti sans réponse claire (code 1), PAS de repli (risque de doublon) :
+      # l'étape échoue et l'issue « alerte » s'ouvre.
+      - name: Facebook — republication EN DIRECT (API Graph)
+        id: fb_direct
+        continue-on-error: true
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          RC=0
+          bash scripts/facebook-photo.sh automation-queue/jeudi.json || RC=$?
+          if [ "$RC" = "2" ]; then
+            echo "repli=oui" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Facebook direct::échec avant publication — repli sur Make (FBONLY, étape suivante)."
+            exit 0
+          fi
+          exit "$RC"
+
+      - name: REPLI — republier sur Facebook par Make (seulement si l'appel direct a échoué avant publication)
         id: social
+        if: steps.fb_direct.outputs.repli == 'oui'
         env:
           MAKE_WEBHOOK: ${{ secrets.MAKE_WEBHOOK }}
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
@@ -107,9 +130,14 @@ jobs:
       - name: Vérifier les résultats
         if: always()
         run: |
-          echo "Republication Facebook : ${{ steps.social.outcome }}"
+          echo "Facebook en direct : ${{ steps.fb_direct.outcome }} (repli Make demandé : ${{ steps.fb_direct.outputs.repli || 'non' }}) — ${{ steps.fb_direct.outputs.fb_lien }}"
+          echo "Repli Make : ${{ steps.social.outcome }}"
+          if [ "${{ steps.fb_direct.outcome }}" = "failure" ]; then
+            echo "::error::Facebook direct : état incertain — vérifier la Page AVANT tout nouvel envoi."
+            exit 1
+          fi
           if [ "${{ steps.social.outcome }}" = "failure" ]; then
-            echo "::error::L'appel au webhook a échoué — voir les logs ci-dessus."
+            echo "::error::Le repli Make a échoué aussi — Facebook n'a reçu AUCUNE republication."
             exit 1
           fi
           echo "✅ Facebook republié avec le contenu du jeudi."

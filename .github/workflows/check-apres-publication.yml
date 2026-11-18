@@ -135,6 +135,17 @@ jobs:
             echo "::error::Le post Facebook le plus récent date du $POST_DAY_NC (heure NC), pas d'aujourd'hui $TODAY_NC — aucune publication du jour n'est visible. Vérifier manuellement facebook.com/PerfecoNC."
             exit 1
           fi
+          if [ "${{ steps.day.outputs.format }}" = "republication" ]; then
+            NB=0
+            for T in $(jq -r '.data[].created_time // empty' /tmp/fb_posts.json); do
+              [ "$(TZ="Pacific/Noumea" date -d "$T" +%Y-%m-%d)" = "$TODAY_NC" ] && NB=$((NB+1))
+            done
+            echo "Posts Facebook du jour (NC) : $NB"
+            if [ "$NB" -gt 1 ]; then
+              echo "::error::DOUBLON FACEBOOK — $NB posts aujourd'hui pour une seule republication (direct + repli Make ?). Supprimer le doublon sur facebook.com/PerfecoNC."
+              exit 1
+            fi
+          fi
           echo "fb_post_time=$MOST_RECENT" >> "$GITHUB_OUTPUT"
           echo "✅ Post Facebook du jour confirmé ($MOST_RECENT)."
 
@@ -296,6 +307,21 @@ jobs:
           TODAY_NC="${{ steps.day.outputs.today_nc }}"
           EXEC_DAY_NC=$(TZ="Pacific/Noumea" date -d "$TIMESTAMP" +%Y-%m-%d)
           echo "Exécution du $EXEC_DAY_NC (heure NC) — jour attendu : $TODAY_NC"
+          # Depuis le 19/11/2026 (étape 3) : la republication du samedi part EN DIRECT par
+          # l'API Graph ; Make n'est qu'un repli. Aucune exécution Make aujourd'hui est donc
+          # le cas NORMAL un samedi — la preuve est le post Facebook vérifié plus haut.
+          if [ "$FORMAT" = "republication" ] && [ "$EXEC_DAY_NC" != "$TODAY_NC" ]; then
+            if [ "${{ steps.fb_check.outcome }}" = "success" ]; then
+              {
+                echo "make_timestamp=aucune"; echo "make_status=sans-objet"; echo "make_ops=0"
+                echo "make_canaux=Facebook servi en direct par l'API Graph (Make non sollicite)"
+              } >> "$GITHUB_OUTPUT"
+              echo "✅ Aucune exécution Make aujourd'hui : republication Facebook servie en direct (post du jour vérifié)."
+              exit 0
+            fi
+            echo "::error::Ni exécution Make aujourd'hui, ni post Facebook du jour vérifié : la republication n'est pas partie."
+            exit 1
+          fi
           if [ "$EXEC_DAY_NC" != "$TODAY_NC" ]; then
             echo "::error::La dernière exécution Make.com date du $EXEC_DAY_NC (heure NC), pas d'aujourd'hui $TODAY_NC ($TIMESTAMP) — la publication du jour n'a pas été traitée. Causes usuelles : scénario désactivé (le webhook accepte puis met en file sans exécuter), ou workflow de publication non déclenché. Vérifier eu1.make.com/1970457/scenarios/6916780 ET la page LinkedIn."
             exit 1
