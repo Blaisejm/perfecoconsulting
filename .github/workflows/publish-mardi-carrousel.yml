@@ -104,9 +104,36 @@ jobs:
           echo "HTTP $HTTP_CODE"; cat /tmp/resp.txt
           [ "$HTTP_CODE" = "200" ]
 
-      - name: LinkedIn profil perso (carrousel PUBLIÉ directement — appel API direct)
-        id: li_profil
+      # ── CHANGEMENT DU 18/11/2026, décision de Jean-Michel (« Oui, passe le carrousel perso en PDF ») ──
+      # Le profil perso reçoit désormais le carrousel en DOCUMENT PDF (vrai carrousel à
+      # faire défiler) : en multi-images, LinkedIn affichait une mosaïque et recadrait la
+      # couverture (titre collé au bord gauche sur I1 le 03/11). Le PDF est assemblé à
+      # partir des mêmes PNG (linkedin_profil.image_urls), par scripts/linkedin-carrousel-pdf.sh.
+      #
+      # REPLI : si le PDF échoue AVANT toute création de post (code 2 du script : upload,
+      # traitement, version d'API...), l'ancienne étape multi-images ci-dessous part à sa
+      # place — le mardi ne reste jamais sans post perso. Si la création du post elle-même
+      # a été tentée (code 1), PAS de repli : l'état est incertain et un repli risquerait
+      # un doublon ; l'étape échoue et l'alerte part.
+      - name: LinkedIn profil perso — carrousel en DOCUMENT PDF (API directe)
+        id: li_pdf
         if: steps.fraicheur.outputs.publier == 'true'
+        continue-on-error: true
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+        run: |
+          RC=0
+          bash scripts/linkedin-carrousel-pdf.sh automation-queue/mardi.json PUBLISHED || RC=$?
+          if [ "$RC" = "2" ]; then
+            echo "repli=oui" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Carrousel PDF::échec avant création du post — repli sur le carrousel multi-images (étape suivante)."
+            exit 0
+          fi
+          exit "$RC"
+
+      - name: LinkedIn profil perso — REPLI multi-images (seulement si le PDF a échoué avant création)
+        id: li_profil
+        if: steps.fraicheur.outputs.publier == 'true' && steps.li_pdf.outputs.repli == 'oui'
         continue-on-error: true
         env:
           LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
@@ -210,8 +237,9 @@ jobs:
         if: always()
         run: |
           echo "LinkedIn Company Page + Facebook (webhook unique) : ${{ steps.social.outcome }}"
-          echo "LinkedIn profil perso (carrousel publié directement) : ${{ steps.li_profil.outcome }}"
-          if [ "${{ steps.social.outcome }}" = "failure" ] || [ "${{ steps.li_profil.outcome }}" = "failure" ]; then
+          echo "LinkedIn profil perso — document PDF : ${{ steps.li_pdf.outcome }} (repli demandé : ${{ steps.li_pdf.outputs.repli || 'non' }})"
+          echo "LinkedIn profil perso — repli multi-images : ${{ steps.li_profil.outcome }}"
+          if [ "${{ steps.social.outcome }}" = "failure" ] || [ "${{ steps.li_pdf.outcome }}" = "failure" ] || [ "${{ steps.li_profil.outcome }}" = "failure" ]; then
             echo "::error::Au moins un canal a échoué — voir les logs des étapes ci-dessus."
             exit 1
           fi
