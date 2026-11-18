@@ -30,6 +30,12 @@ on:
 # publier. Le coût est un run à vide par semaine ; le bénéfice est que le pipeline
 # absorbe désormais n'importe quel décalage pour férié, sans intervention.
 
+# Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Jamais deux exécutions simultanées d'une même publication (pas de doublon si un run manuel croise le cron).
+# cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
+concurrency:
+  group: publication-mardi
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest

@@ -1,0 +1,83 @@
+name: "Diagnostic des accès (lecture seule) — Facebook, LinkedIn, Make"
+
+# ---------------------------------------------------------------------------
+# POURQUOI CE WORKFLOW EXISTE (18/11/2026, étape 1 de la diffusion 100 % cloud)
+#
+# Voir Perfeco-Social-Media/ARCHITECTURE-DIFFUSION-CLOUD.md (dépôt claude IA).
+# Avant de publier Facebook en direct par l'API Graph et de laisser GitHub
+# réparer Make tout seul, il faut savoir CE QUE LES JETONS PERMETTENT :
+#   - FB_PAGE_TOKEN porte-t-il pages_manage_posts ? expire-t-il ?
+#   - LINKEDIN_TOKEN est-il vivant ?
+#   - MAKE_API_TOKEN a-t-il les droits d'écriture (réactivation, purge de file) ?
+#
+# Ce workflow NE PUBLIE RIEN et N'ÉCRIT RIEN. Il n'affiche jamais un jeton :
+# seuls des champs choisis (scopes, dates, statuts) sont extraits par jq.
+# Les résultats sont émis en annotations ::notice::, lisibles sans connexion
+# par l'API publique des annotations (les logs, eux, répondent 403).
+# ---------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/diagnostic-acces.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Facebook — identité, scopes et expiration du jeton de Page
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          set -u
+          if [ -z "$FB_PAGE_TOKEN" ]; then echo "::error title=Facebook::secret FB_PAGE_TOKEN absent"; exit 0; fi
+          CODE=$(curl -s -o /tmp/me.json -w "%{http_code}" -G "https://graph.facebook.com/v19.0/me" \
+            --data-urlencode "fields=id,name" --data-urlencode "access_token=$FB_PAGE_TOKEN")
+          echo "::notice title=Facebook /me::HTTP $CODE — $(jq -c '{id,name,erreur:.error.message}' /tmp/me.json)"
+          CODE=$(curl -s -o /tmp/dbg.json -w "%{http_code}" -G "https://graph.facebook.com/v19.0/debug_token" \
+            --data-urlencode "input_token=$FB_PAGE_TOKEN" --data-urlencode "access_token=$FB_PAGE_TOKEN")
+          RESUME=$(jq -c '.data | {type, is_valid, profile_id, expires_at, data_access_expires_at, scopes, erreur:.error.message}' /tmp/dbg.json 2>/dev/null || echo "illisible")
+          echo "::notice title=Facebook debug_token::HTTP $CODE — $RESUME"
+          if jq -e '.data.scopes // [] | index("pages_manage_posts")' /tmp/dbg.json >/dev/null; then
+            echo "::notice title=Facebook publication directe::pages_manage_posts PRÉSENT — publication par l'API Graph possible."
+          else
+            echo "::warning title=Facebook publication directe::pages_manage_posts ABSENT — un nouveau jeton de Page est nécessaire avant l'étape 3."
+          fi
+          EXP=$(jq -r '.data.expires_at // "inconnu"' /tmp/dbg.json)
+          if [ "$EXP" = "0" ]; then
+            echo "::notice title=Facebook expiration::jeton SANS expiration (expires_at=0)."
+          elif [ "$EXP" != "inconnu" ]; then
+            echo "::warning title=Facebook expiration::le jeton expire le $(date -u -d @"$EXP" +%Y-%m-%d)."
+          fi
+
+      - name: LinkedIn — jeton membre vivant ?
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+        run: |
+          set -u
+          CODE=$(curl -s -o /tmp/ui.json -w "%{http_code}" "https://api.linkedin.com/v2/userinfo" \
+            -H "Authorization: Bearer $LINKEDIN_TOKEN")
+          echo "::notice title=LinkedIn userinfo::HTTP $CODE — $(jq -c '{sub, name, erreur:(.message // .error)}' /tmp/ui.json 2>/dev/null || echo illisible)"
+
+      - name: Make — droits du jeton API, état du scénario et de sa file
+        env:
+          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
+        run: |
+          set -u
+          API="https://eu1.make.com/api/v2"
+          H="Authorization: Token $MAKE_API_TOKEN"
+          CODE=$(curl -s -o /tmp/auth.json -w "%{http_code}" -H "$H" "$API/users/me/current-authorization")
+          echo "::notice title=Make droits du jeton::HTTP $CODE — $(jq -c '.authorization.scope // .scope // .' /tmp/auth.json | head -c 900)"
+          CODE=$(curl -s -o /tmp/sc.json -w "%{http_code}" -H "$H" "$API/scenarios/6916780")
+          echo "::notice title=Make scénario 6916780::HTTP $CODE — $(jq -c '.scenario | {name, isActive, isinvalid, islinked, hookId: .hookId}' /tmp/sc.json 2>/dev/null)"
+          HOOK=$(jq -r '.scenario.hookId // empty' /tmp/sc.json)
+          [ -z "$HOOK" ] && HOOK=3534727
+          CODE=$(curl -s -o /tmp/hk.json -w "%{http_code}" -H "$H" "$API/hooks/$HOOK")
+          echo "::notice title=Make webhook $HOOK::HTTP $CODE — $(jq -c '.hook | {name, enabled, queueCount, queueLimit, gone}' /tmp/hk.json 2>/dev/null)"
+          CODE=$(curl -s -o /tmp/inc.json -w "%{http_code}" -H "$H" "$API/hooks/$HOOK/incomings")
+          echo "::notice title=Make file du webhook::HTTP $CODE — $(jq -c '{elements: ((.incomings // []) | length), champs: ((.incomings // [])[0] | keys? // [])}' /tmp/inc.json 2>/dev/null)"

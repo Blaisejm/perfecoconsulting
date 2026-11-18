@@ -1,0 +1,129 @@
+name: "PerfEco — Veille des jetons (LinkedIn : seul geste manuel restant)"
+
+# ---------------------------------------------------------------------------
+# POURQUOI CE WORKFLOW EXISTE (18/11/2026, étape 1 de la diffusion 100 % cloud)
+#
+# Le jeton LinkedIn du profil perso vit ~60 jours et son renouvellement exige
+# un clic « Autoriser » de Jean-Michel (anti-bot) : c'est le SEUL geste manuel
+# que la diffusion cloud conserve. Jusqu'ici, le rappel était une routine
+# Cowork locale (linkedin-token-renewal-reminder) — muette si le PC est éteint.
+#
+# Ce workflow, quotidien, remplace ce rappel :
+#   - J-15 et moins : ouvre (une seule fois) une issue « alerte » avec la procédure.
+#                     L'issue envoie un e-mail GitHub ; elle se referme seule
+#                     quand calendrier.json porte une nouvelle date d'expiration.
+#   - J-7 et moins  : le workflow ÉCHOUE chaque jour → e-mail natif GitHub quotidien.
+#   - 401 avant la date prévue : échec immédiat (jeton révoqué ou date fausse).
+#   - Version d'API (calendrier.json → linkedin.api_version) à moins d'un mois
+#     de la fin de sa fenêtre de 12 mois : avertissement, puis échec une fois dépassée.
+#
+# SOURCE UNIQUE : automation-agent/calendrier.json → .linkedin
+# Après un renouvellement : mettre à jour le secret LINKEDIN_TOKEN, puis
+# token_expire_le et token_renouvele_le dans calendrier.json.
+# ---------------------------------------------------------------------------
+
+on:
+  schedule:
+    - cron: '0 21 * * *'   # 21h00 UTC = 08h00 Nouvelle-Calédonie, tous les jours
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/check-jetons.yml']
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: check-jetons
+  cancel-in-progress: false
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Jeton LinkedIn — échéance, validité, version d'API
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -u
+          CAL="automation-agent/calendrier.json"
+          EXPIRE=$(jq -r '.linkedin.token_expire_le // empty' "$CAL")
+          VERSION=$(jq -r '.linkedin.api_version // empty' "$CAL")
+          VALIDITE=$(jq -r '.linkedin.api_version_validite_mois // 12' "$CAL")
+          SEUIL=$(jq -r '.linkedin.alarme_jours_avant // 15' "$CAL")
+          AUJ=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          ECHEC=0
+
+          if [ -z "$EXPIRE" ]; then
+            echo "::error title=Jeton LinkedIn::.linkedin.token_expire_le absent de $CAL — échéance inconnue, impossible de prévenir à temps."
+            exit 1
+          fi
+          RESTE=$(( ( $(date -u -d "$EXPIRE" +%s) - $(date -u -d "$AUJ" +%s) ) / 86400 ))
+          echo "Jeton LinkedIn : expire le $EXPIRE, soit dans $RESTE jour(s) (aujourd'hui NC : $AUJ)."
+
+          # 1. Le jeton répond-il ? (un 401 avant l'échéance = révoqué, ou date fausse)
+          CODE=$(curl -s -o /tmp/ui.json -w "%{http_code}" "https://api.linkedin.com/v2/userinfo" \
+            -H "Authorization: Bearer $LINKEDIN_TOKEN")
+          if [ "$CODE" = "200" ]; then
+            echo "✅ LinkedIn /v2/userinfo → HTTP 200, le jeton est vivant."
+          else
+            echo "::error title=Jeton LinkedIn MORT::/v2/userinfo répond HTTP $CODE alors que l'échéance enregistrée est le $EXPIRE. Les publications du profil perso échoueront tant que le jeton n'est pas renouvelé."
+            ECHEC=1
+          fi
+
+          # 2. Échéance : issue à J-15, échec quotidien à J-7.
+          TITRE="Jeton LinkedIn à renouveler avant le $EXPIRE"
+          EXISTANTE=$(gh issue list --state open --label alerte --search "Jeton LinkedIn à renouveler in:title" --json number,title --jq '.[0].number // empty')
+          if [ "$RESTE" -le "$SEUIL" ] || [ "$ECHEC" = "1" ]; then
+            gh label create alerte --color B60205 --description "Alerte de la diffusion PerfEco" 2>/dev/null || true
+            if [ -z "$EXISTANTE" ]; then
+              cat > /tmp/corps.md <<EOF
+          Le jeton LinkedIn du profil perso (secret \`LINKEDIN_TOKEN\`) expire le **$EXPIRE** — dans **$RESTE jour(s)**.
+          C'est le seul geste manuel de la diffusion : il demande ton clic « Autoriser » (anti-bot LinkedIn).
+
+          **Procédure (5 minutes, à enchaîner sans pause : le code d'autorisation expire en moins d'une minute)**
+          1. Vérifier d'être connecté à LinkedIn avec le compte **jm.blaise070@gmail.com** (pas contact@perfeco.nc).
+          2. Ouvrir : https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=866isezb6erb8z&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fdevelopers%2Ftools%2Foauth%2Fredirect&scope=openid%20profile%20email%20w_member_social
+          3. Cliquer « Autoriser », puis échanger le code immédiatement avec le **Client Secret Secondary** (fichier hors dépôt \`secret-linkedin-PRIVE.txt\`) — Claude peut le faire avec toi.
+          4. Coller le nouveau jeton dans le secret GitHub \`LINKEDIN_TOKEN\` (Settings → Secrets and variables → Actions).
+          5. Dans \`automation-agent/calendrier.json\` : \`token_renouvele_le\` = aujourd'hui, \`token_expire_le\` = aujourd'hui + 60 jours.
+
+          Cette issue se ferme toute seule le lendemain du renouvellement. À partir de J-7, le workflow \`check-jetons\` échoue chaque jour (e-mail GitHub) tant que rien n'est fait.
+          EOF
+              sed -i 's/^          //' /tmp/corps.md
+              gh issue create --title "$TITRE" --label alerte --assignee Blaisejm --body-file /tmp/corps.md \
+                || gh issue create --title "$TITRE" --label alerte --body-file /tmp/corps.md
+              echo "::warning title=Jeton LinkedIn::issue d'alerte ouverte ($RESTE jour(s) avant expiration)."
+            else
+              gh issue comment "$EXISTANTE" --body "Rappel du $AUJ : plus que **$RESTE jour(s)** avant l'expiration du $EXPIRE." >/dev/null
+              echo "::warning title=Jeton LinkedIn::$RESTE jour(s) avant expiration — issue #$EXISTANTE déjà ouverte, rappel ajouté."
+            fi
+          elif [ -n "$EXISTANTE" ]; then
+            gh issue close "$EXISTANTE" --comment "Échéance repoussée au $EXPIRE ($RESTE jours) et jeton vivant : renouvellement constaté, issue close automatiquement."
+            echo "✅ Renouvellement constaté, issue #$EXISTANTE fermée."
+          fi
+          if [ "$RESTE" -le 7 ]; then
+            echo "::error title=Jeton LinkedIn::expire dans $RESTE jour(s) ($EXPIRE) — renouvellement à faire MAINTENANT (procédure dans l'issue « alerte »)."
+            ECHEC=1
+          fi
+
+          # 3. Fenêtre de la version d'API (≈ 12 mois après sa sortie).
+          if [ -n "$VERSION" ]; then
+            FIN=$(date -u -d "${VERSION:0:4}-${VERSION:4:2}-01 +$VALIDITE month" +%Y-%m-%d)
+            RESTE_V=$(( ( $(date -u -d "$FIN" +%s) - $(date -u -d "$AUJ" +%s) ) / 86400 ))
+            if [ "$RESTE_V" -lt 0 ]; then
+              echo "::error title=Version d'API LinkedIn::$VERSION a dépassé sa fenêtre estimée ($FIN) — mettre à jour .linkedin.api_version dans $CAL (le mois publié le plus récent, VÉRIFIÉ)."
+              ECHEC=1
+            elif [ "$RESTE_V" -le 31 ]; then
+              echo "::warning title=Version d'API LinkedIn::$VERSION arrive en fin de fenêtre le $FIN ($RESTE_V jours)."
+            else
+              echo "✅ Version d'API $VERSION valable jusqu'au $FIN environ."
+            fi
+          fi
+
+          exit $ECHEC

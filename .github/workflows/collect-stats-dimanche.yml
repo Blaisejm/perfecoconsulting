@@ -11,6 +11,12 @@ on:
 permissions:
   contents: write
 
+# Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Écrit et pousse dans le dépôt : un seul écrivain à la fois (remplace verrou.ps1 côté cloud).
+# cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
+concurrency:
+  group: perfeco-depot
+  cancel-in-progress: false
+
 jobs:
   collect:
     runs-on: ubuntu-latest

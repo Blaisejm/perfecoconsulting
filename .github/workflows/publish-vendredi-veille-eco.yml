@@ -21,6 +21,12 @@ on:
 # concerné (la republication est filtrée FBONLY), mais la règle d'espacement vise aussi
 # Facebook : suspendre la republication ce samedi-là, ou l'assumer explicitement.
 
+# Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Jamais deux exécutions simultanées d'une même publication.
+# cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
+concurrency:
+  group: publication-vendredi
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest

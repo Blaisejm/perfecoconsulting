@@ -46,6 +46,12 @@ permissions:
 # workflows de publication eux-mêmes, donc les deux ne peuvent plus diverger.
 # Les jours sans publication, toutes les étapes sont sautées et le run se termine à vide.
 
+# Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Écrit et pousse publications.json : un seul écrivain du dépôt à la fois (remplace verrou.ps1 côté cloud).
+# cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
+concurrency:
+  group: perfeco-depot
+  cancel-in-progress: false
+
 jobs:
   check:
     runs-on: ubuntu-latest
