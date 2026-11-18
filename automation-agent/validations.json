@@ -1,7 +1,7 @@
 {
     "_lisez_moi":  "Registre des validations demandees a Jean-Michel. Delai standard 48 h, au-dela le systeme applique le defaut. Regle du 12/09/2026. Ne pas editer a la main : utiliser validations.ps1.",
     "delai_standard_heures":  48,
-    "derniere_maj":  "2026-11-13",
+    "derniere_maj":  "2026-11-18",
     "validations":  [
                         {
                             "id":  "v-2026-09-14-01",
@@ -110,10 +110,10 @@
                             "repondre_avant":  "2026-11-15T20:27:55+11:00",
                             "delai_heures":  48,
                             "ecrete":  false,
-                            "statut":  "ouvert",
-                            "decision":  null,
-                            "tranche_a":  null,
-                            "par":  null,
+                            "statut":  "tranche",
+                            "decision":  "Option 1 - glissement : reprise au premier episode non publie, et les suivants dans l\u0027ordre (jeudi 19/11 = campagne 4/10, mardi 24/11 = I2, 01/12 = I3, 08/12 = I4, 15/12 = serie 2 8/8)",
+                            "tranche_a":  "2026-11-18T13:35:25+11:00",
+                            "par":  "Jean-Michel",
                             "rappels":  1
                         }
                     ]
