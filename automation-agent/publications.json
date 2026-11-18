@@ -1075,8 +1075,8 @@
                                             "linkedin_company",
                                             "linkedin_perso"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_file",
+                             "source":  "automation-queue/jeudi.json",
                              "bascule":  null,
                              "preuve":  null,
                              "note":  "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -\u003e conséquence -\u003e méthode -\u003e résultat -\u003e invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | CANAUX CORRIGES le 23/09/2026 : le creneau du JEUDI part sur LinkedIn Company + LinkedIn PROFIL PERSO depuis la decision de Jean-Michel du 15/09/2026. Facebook ne recoit plus rien le jeudi (suffixe -NOFB envoye par publish-jeudi-post-court.yml) : il recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. L\u0027entree portait encore linkedin_company+facebook, heritage d\u0027avant le 15/09. Correction documentaire : aucun automatisme ne derive son comportement de ce champ (seul le controle d\u0027espacement le lit, et il n\u0027y cherche que linkedin_company).",
@@ -1095,8 +1095,8 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_file",
+                             "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
                              "preuve":  null,
                              "note":  null,
@@ -1386,7 +1386,8 @@
                                                "statut":  "ouvert",
                                                "ouvert_le":  "2026-09-22",
                                                "ouvert_par":  "perfeco-revue-semestrielle",
-                                               "nature":  "editorial"
+                                               "nature":  "editorial",
+                                               "relaye_le":  "2026-11-18"
                                            }
                          },
                          {
@@ -2631,7 +2632,8 @@
                                                "statut":  "ouvert",
                                                "question":  "Ascension tombe le 2027-05-06, un jour de jeudi. Décaler au mercredi 2027-05-05, ou sauter cette semaine ?",
                                                "echeance":  "2027-04-27",
-                                               "ouvert_le":  "2026-08-21"
+                                               "ouvert_le":  "2026-08-21",
+                                               "relaye_le":  "2026-11-18"
                                            },
                              "axe":  "performance"
                          },
