@@ -32,6 +32,11 @@ on:
 
 # Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Jamais deux exécutions simultanées d'une même publication (pas de doublon si un run manuel croise le cron).
 # cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
+# issues: write depuis le 19/11/2026 : un échec ouvre une issue « alerte » (e-mail GitHub, PC éteint).
+permissions:
+  contents: read
+  issues: write
+
 concurrency:
   group: publication-mardi
   cancel-in-progress: false
@@ -80,6 +85,7 @@ jobs:
         continue-on-error: true
         env:
           MAKE_WEBHOOK: ${{ secrets.MAKE_WEBHOOK }}
+          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
         run: |
           if [ -z "$MAKE_WEBHOOK" ]; then
             echo "::error::Le secret MAKE_WEBHOOK est vide ou absent — publication annulee (rien envoye)."
@@ -95,6 +101,9 @@ jobs:
           echo "DEBUG: longueur MESSAGE=${#MESSAGE} caractères"
           echo "DEBUG: IMAGE_URL=$IMAGE_URL"
           echo "DEBUG: SEMAINE (avec suffixe NOCAROUSEL pour bloquer la route profil perso) = ${SEMAINE}-NOCAROUSEL"
+
+          # Garde du 19/11/2026 (étape 2) : message non vide, image en 200, scénario actif — sinon rien n'est envoyé.
+          bash scripts/garde-make.sh "$FILE"
 
           HTTP_CODE=$(curl -s -o /tmp/resp.txt -w "%{http_code}" -X POST "$MAKE_WEBHOOK" \
             --data-urlencode "message=$MESSAGE" \
@@ -245,3 +254,13 @@ jobs:
           fi
           echo "✅ Company Page + Facebook envoyés via le webhook unique. Profil perso : carrousel PUBLIÉ directement (plus de brouillon à finaliser)."
           echo "⚠️ Un HTTP 201 confirme la création du post côté LinkedIn, pas la diffusion Company Page/Facebook (qui dépend du scénario Make.com) — vérification réelle par check-apres-publication.yml."
+
+      - name: Issue « alerte » si la publication a échoué
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          AUJ=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          bash scripts/issue-alerte.sh "Publication mardi (carrousel) en échec — $AUJ" "La publication **mardi (carrousel)** du $AUJ a échoué (workflow \`${{ github.workflow }}\`).
+
+          Vérifier sur les canaux ce qui est réellement parti AVANT tout nouvel envoi (pas de doublon). Le détail est dans les annotations du run ci-dessous."
