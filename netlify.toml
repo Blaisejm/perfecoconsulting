@@ -42,8 +42,17 @@
   # Coût accepté : ~12 builds/mois en plus (les commits de slides), à comparer aux
   # 66 builds/mois d'avant le correctif du 21/08 — l'essentiel de l'économie
   # (les 43 commits d'automatisation) est conservé.
+  #
+  # 🔴 CORRECTIF 18/11/2026 (intervention-manuelle, diagnostic demandé par Jean-Michel)
+  # — site figé au 27/10 (main@4c63aec) pendant trois semaines.
+  # Tous les journaux de build portaient « Failed to fetch cache ». Quand Netlify
+  # construit sans cache, il donne à $CACHED_COMMIT_REF la MÊME valeur que
+  # $COMMIT_REF : le git diff ne voyait donc jamais rien, et la commande sortait 0
+  # (build annulé) à chaque push, y compris pour public/slides/W47/ le 18/11. Sans
+  # build réussi, le cache ne se reconstitue jamais : le blocage était permanent.
+  # On construit désormais aussi dans ce cas, comme lorsque la référence est vide.
   # ---------------------------------------------------------------------------
-  ignore = 'if [ -z "$CACHED_COMMIT_REF" ]; then exit 1; fi; git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- src astro.config.mjs package.json package-lock.json tailwind.config.mjs netlify.toml public/photos public/slides public/favicon.svg public/logo-perfeco.svg public/logo-perfeco-site.svg public/robots.txt public/sitemap.xml'
+  ignore = 'if [ -z "$CACHED_COMMIT_REF" ] || [ "$CACHED_COMMIT_REF" = "$COMMIT_REF" ]; then exit 1; fi; git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- src astro.config.mjs package.json package-lock.json tailwind.config.mjs netlify.toml public/photos public/slides public/favicon.svg public/logo-perfeco.svg public/logo-perfeco-site.svg public/robots.txt public/sitemap.xml'
 
 [build.environment]
   NODE_VERSION = "20"
