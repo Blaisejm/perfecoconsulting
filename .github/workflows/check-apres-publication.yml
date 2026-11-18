@@ -185,6 +185,30 @@ jobs:
           fi
           echo "✅ Article WordPress #$POST_ID publié et accessible ($LINK)."
 
+      # Ajouté le 19/11/2026 : l'article de fond du jeudi sur perfsystemique.fr,
+      # planifié par publish-jeudi-article-wordpress.yml (bloc « wordpress » de jeudi.json).
+      - name: Vérifier l'article WordPress du jeudi (perfsystemique.fr)
+        id: wp_jeudi_check
+        if: steps.day.outputs.format == 'postcourt'
+        continue-on-error: true
+        env:
+          WP_LOGIN: ${{ secrets.WP_LOGIN }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          SLUG=$(jq -r '.wordpress.slug // empty' automation-queue/jeudi.json)
+          if [ -z "$SLUG" ]; then echo "Pas d'article WordPress prévu ce jeudi."; exit 0; fi
+          AUTH=$(printf '%s:%s' "$WP_LOGIN" "$WP_APP_PASSWORD" | base64 -w0)
+          curl -s -o /tmp/wpj.json -H "Authorization: Basic $AUTH" "https://perfsystemique.fr/wp-json/wp/v2/posts?slug=$SLUG&status=publish,future,draft&context=edit"
+          ID=$(jq -r '.[0].id // empty' /tmp/wpj.json); STATUS=$(jq -r '.[0].status // empty' /tmp/wpj.json)
+          DATE=$(jq -r '.[0].date // empty' /tmp/wpj.json); LINK=$(jq -r '.[0].link // empty' /tmp/wpj.json)
+          echo "Article « $SLUG » : #$ID statut=$STATUS date=$DATE"
+          if [ -z "$ID" ]; then echo "::error::Article WordPress du jeudi « $SLUG » introuvable — jamais planifié (voir publish-jeudi-article-wordpress.yml)."; exit 1; fi
+          if [ "$STATUS" != "publish" ]; then echo "::error::Article WordPress #$ID au statut « $STATUS » à 14h (attendu publish) — https://perfsystemique.fr/wp-admin/post.php?post=$ID&action=edit"; exit 1; fi
+          if [ "${DATE:0:10}" != "${{ steps.day.outputs.today_nc }}" ]; then echo "::error::Article WordPress #$ID daté du $DATE, pas d'aujourd'hui."; exit 1; fi
+          CODE=$(curl -s -o /dev/null -w "%{http_code}" "$LINK")
+          if [ "$CODE" != "200" ]; then echo "::error::Article #$ID publié mais URL publique en HTTP $CODE ($LINK)."; exit 1; fi
+          echo "✅ Article WordPress du jeudi #$ID publié et accessible ($LINK)."
+
       - name: Vérifier l'article perfeco.nc FR+EN (Mardi)
         id: perfeco_nc_check
         if: steps.day.outputs.carrousel == 'true'
@@ -378,6 +402,7 @@ jobs:
           steps.fb_check.outcome == 'success' &&
           steps.social_publisher_check.outcome == 'success' &&
           steps.wp_check.outcome != 'failure' &&
+          steps.wp_jeudi_check.outcome != 'failure' &&
           steps.perfeco_nc_check.outcome != 'failure'
         run: |
           case "${{ steps.day.outputs.format }}" in
@@ -408,13 +433,14 @@ jobs:
         run: |
           echo "Facebook : ${{ steps.fb_check.outcome || 'non applicable aujourd''hui' }}"
           echo "WordPress (perfsystemique.fr) : ${{ steps.wp_check.outcome || 'non applicable aujourd''hui' }}"
+          echo "WordPress article du jeudi : ${{ steps.wp_jeudi_check.outcome || 'non applicable aujourd''hui' }}"
           echo "perfeco.nc (FR+EN) : ${{ steps.perfeco_nc_check.outcome || 'non applicable aujourd''hui' }}"
           echo "Canaux réellement servis (opérations Make) : ${{ steps.social_publisher_check.outcome || 'non applicable aujourd''hui' }}"
           echo "Clôture de l'échéance au registre : ${{ steps.registre.outcome || 'non applicable aujourd''hui' }}"
           if [ "${{ steps.registre.outcome }}" = "failure" ]; then
             echo "::warning::La publication est confirmée mais la clôture du registre a échoué — l'échéance reste ouverte et check-preparation-contenu la signalera. À clore à la main : python3 automation-agent/clore-publication.py <date> <mardi|jeudi|vendredi> \"<preuve>\""
           fi
-          if [ "${{ steps.fb_check.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ] || [ "${{ steps.perfeco_nc_check.outcome }}" = "failure" ] || [ "${{ steps.social_publisher_check.outcome }}" = "failure" ]; then
+          if [ "${{ steps.fb_check.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ] || [ "${{ steps.wp_jeudi_check.outcome }}" = "failure" ] || [ "${{ steps.perfeco_nc_check.outcome }}" = "failure" ] || [ "${{ steps.social_publisher_check.outcome }}" = "failure" ]; then
             echo "::error::Au moins une publication attendue aujourd'hui n'est PAS confirmée visible — vérifier manuellement et corriger si besoin."
             exit 1
           fi
