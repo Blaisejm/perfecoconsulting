@@ -1,0 +1,51 @@
+name: "ESSAI (ne publie rien) — Facebook et profil perso en direct, sans Make"
+
+# ---------------------------------------------------------------------------
+# Étape 3 de la diffusion 100 % cloud (19/11/2026, feu vert de Jean-Michel :
+# « lance l'étape 3 »). Essai à blanc des deux scripts de publication directe
+# sur les files ACTUELLES, AVANT tout branchement dans les workflows de publication :
+#   - Facebook (API Graph) : --dry-run — jeton, droits, Page, image, message ;
+#     aucune requête de publication n'est envoyée (Graph n'a pas de brouillon sûr).
+#   - Profil perso LinkedIn : --dry-run (le script sait aussi faire un essai en
+#     BROUILLON invisible supprimé aussitôt : DRAFT --supprimer-apres).
+# Make n'est jamais appelé. Se lance seul quand ce fichier ou les scripts changent.
+# ---------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/essai-diffusion-directe.yml'
+      - 'scripts/facebook-photo.sh'
+      - 'scripts/linkedin-post-image.sh'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: essai-diffusion-directe
+  cancel-in-progress: false
+
+jobs:
+  essai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Facebook direct — essai à blanc (jeudi.json, contenu de la republication du samedi)
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: bash scripts/facebook-photo.sh automation-queue/jeudi.json --dry-run
+
+      - name: Facebook direct — essai à blanc (vendredi.json)
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: bash scripts/facebook-photo.sh automation-queue/vendredi.json --dry-run
+
+      - name: LinkedIn perso direct — essai à blanc (vendredi.json)
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+        run: bash scripts/linkedin-post-image.sh automation-queue/vendredi.json --dry-run
+
