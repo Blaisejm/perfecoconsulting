@@ -23,6 +23,12 @@ on:
     - cron: '30 4 * * 6'  # Samedi 04h30 UTC = 15h30 Nouvelle-Calédonie
   workflow_dispatch:
 
+# Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Jamais deux exécutions simultanées d'une même publication.
+# cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
+concurrency:
+  group: publication-samedi
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest

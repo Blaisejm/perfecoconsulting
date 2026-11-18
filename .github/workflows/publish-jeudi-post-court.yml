@@ -29,6 +29,12 @@ on:
 # élargie le même jour pour accepter aussi samedi − 3 (mercredi), sans quoi la
 # republication du samedi 26/09 aurait été abandonnée.
 
+# Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Jamais deux exécutions simultanées d'une même publication.
+# cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
+concurrency:
+  group: publication-jeudi
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
