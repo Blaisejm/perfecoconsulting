@@ -8,12 +8,37 @@ on:
   # n'était couvert par aucune vérification avant publication. Les autres semaines, ce run
   # vérifie l'infrastructure (scénario Make actif, token LinkedIn valide) — utile tous les
   # jours et sans faux positif.
+    # Seconde passe ajoutée le 19/11/2026 (diffusion cloud, étape 2) : 23h30 UTC = 10h30 NC,
+    # 30 min avant les publications de 11h00. Si Make s'est désactivé après 07h00, il est
+    # réparé (ou l'alerte part) avant l'appel du webhook.
+    - cron: '30 23 * * 0,1,2,3,4'
   workflow_dispatch:
     inputs:
       force_wp_check:
         description: "Forcer la vérification WordPress même si ce n'est pas mardi (test manuel)"
         type: boolean
         default: false
+      dry_run:
+        description: "Auto-réparation Make en ESSAI : décrire sans rien réactiver"
+        type: boolean
+        default: true
+  # Un push de ce fichier ou des scripts lance un ESSAI (auto-réparation en dry-run).
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/check-avant-publication.yml'
+      - 'scripts/make-auto-reparation.sh'
+      - 'scripts/garde-make.sh'
+      - 'scripts/issue-alerte.sh'
+
+# issues: write depuis le 19/11/2026 : les échecs ouvrent une issue « alerte » (e-mail GitHub, PC éteint).
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: check-avant-publication
+  cancel-in-progress: false
 
 jobs:
   check:
@@ -21,25 +46,42 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Vérifier scénario PerfEco Social Publisher (6916780)
+      # Depuis le 19/11/2026 : plus seulement un constat. Si le scénario est inactif,
+      # il est réactivé par l'API Make — SAUF si la file du webhook contient des appels
+      # en attente (ils partiraient hors calendrier) ou si le scénario est « invalid ».
+      # Essai (push, ou dispatch avec dry_run) : décrit sans rien modifier.
+      - name: Scénario PerfEco Social Publisher (6916780) — contrôle et auto-réparation
         id: social_publisher
         continue-on-error: true
         env:
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
         run: |
-          HTTP_CODE=$(curl -s -o /tmp/sp.json -w "%{http_code}" -H "Authorization: Token $MAKE_API_TOKEN" "https://eu1.make.com/api/v2/scenarios/6916780")
-          echo "HTTP $HTTP_CODE"; cat /tmp/sp.json
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "::error::Impossible d'interroger le scénario PerfEco Social Publisher (6916780) — HTTP $HTTP_CODE"
-            exit 1
-          fi
-          IS_ACTIVE=$(jq -r '.scenario.isActive' /tmp/sp.json)
-          echo "isActive=$IS_ACTIVE"
-          if [ "$IS_ACTIVE" != "true" ]; then
-            echo "::error::Scénario PerfEco Social Publisher (6916780) INACTIF — https://eu1.make.com/1970457/scenarios/6916780/edit — vérifier la queue puis réactiver. Rappel : plan Make.com limité à 2 scénarios actifs, vérifier qu'aucun 3e n'a été activé par erreur."
-            exit 1
-          fi
-          echo "✅ Scénario PerfEco Social Publisher actif."
+          MODE=""
+          if [ "${{ github.event_name }}" = "push" ] || [ "${{ inputs.dry_run }}" = "true" ]; then MODE="--dry-run"; echo "Mode ESSAI : rien ne sera réactivé."; fi
+          bash scripts/make-auto-reparation.sh $MODE
+
+      # Garde du jour, 4 h avant l'appel : message non vide, image en HTTP 200, scénario actif.
+      # Même script que celui qui s'exécute juste avant chaque webhook (scripts/garde-make.sh).
+      - name: Garde du contenu Make de la publication du jour
+        id: garde_jour
+        continue-on-error: true
+        env:
+          MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
+        run: |
+          TODAY_NC=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          TROUVE=0
+          for F in automation-queue/mardi.json automation-queue/jeudi.json automation-queue/vendredi.json; do
+            [ -f "$F" ] || continue
+            D=$(jq -r '.date_prevue // ""' "$F")
+            if [ "$D" = "$TODAY_NC" ]; then
+              TROUVE=1; echo "── $F (publication aujourd'hui)"
+              bash scripts/garde-make.sh "$F" || exit 1
+            elif [ "${{ github.event_name }}" = "push" ]; then
+              echo "── $F (essai, publication le $D : résultat indicatif, ne fait pas échouer)"
+              bash scripts/garde-make.sh "$F" || true
+            fi
+          done
+          [ "$TROUVE" = "1" ] || echo "Aucune publication Make prévue aujourd'hui ($TODAY_NC)."
 
       # Ajoutee le 15/09/2026. Motif : le 16/08/2026, un filtre EXISTAIT sur la route
       # "LinkedIn perso" mais etait regle sur "Not equal to" au lieu de "Does not contain" —
@@ -214,12 +256,32 @@ jobs:
       - name: Résumé
         if: always()
         run: |
-          echo "PerfEco Social Publisher : ${{ steps.social_publisher.outcome }}"
+          echo "PerfEco Social Publisher : ${{ steps.social_publisher.outcome }} (état : ${{ steps.social_publisher.outputs.etat }})"
+          echo "Garde du contenu du jour : ${{ steps.garde_jour.outcome }}"
           echo "Filtres de routes Make : ${{ steps.make_filtres.outcome }}"
           echo "Version API LinkedIn (carrousel mardi) : ${{ steps.li_version.outcome }}"
           echo "Article WordPress : ${{ steps.wp_check.outcome }}"
-          if [ "${{ steps.social_publisher.outcome }}" = "failure" ] || [ "${{ steps.make_filtres.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ]; then
+          if [ "${{ steps.social_publisher.outcome }}" = "failure" ] || [ "${{ steps.garde_jour.outcome }}" = "failure" ] || [ "${{ steps.make_filtres.outcome }}" = "failure" ] || [ "${{ steps.li_version.outcome }}" = "failure" ] || [ "${{ steps.wp_check.outcome }}" = "failure" ]; then
             echo "::error::Au moins une vérification a échoué — voir logs ci-dessus. Corriger AVANT le prochain lancement de publication."
             exit 1
           fi
           echo "✅ Scénario Make.com actif, version API LinkedIn valide, article WordPress prêt (si mardi)."
+
+      # Les échecs des runs PLANIFIÉS ouvrent une issue « alerte » (une par jour). Un essai
+      # (push) n'alerte pas : son échec se lit dans le run et l'e-mail natif de GitHub.
+      - name: Issue « alerte » si une vérification a échoué
+        if: failure() && github.event_name != 'push'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          AUJ=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          HEURE=$(TZ="Pacific/Noumea" date +%H:%M)
+          bash scripts/issue-alerte.sh "Vérification avant publication en échec — $AUJ" "La vérification de $HEURE NC a échoué, avant les publications de 11h00.
+
+          - Scénario Make : **${{ steps.social_publisher.outcome }}** (état : ${{ steps.social_publisher.outputs.etat }})
+          - Garde du contenu du jour : **${{ steps.garde_jour.outcome }}**
+          - Filtres de routes Make : **${{ steps.make_filtres.outcome }}**
+          - Version d'API LinkedIn : **${{ steps.li_version.outcome }}**
+          - Article WordPress : **${{ steps.wp_check.outcome }}**
+
+          Le détail (et la marche à suivre) est dans les annotations du run ci-dessous. Une passe de 10h30 NC refait la vérification."
