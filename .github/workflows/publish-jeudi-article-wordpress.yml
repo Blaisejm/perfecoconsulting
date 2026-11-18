@@ -1,0 +1,58 @@
+name: "PerfEco — Article de fond du jeudi sur perfsystemique.fr (planification 11h03 NC)"
+
+# ---------------------------------------------------------------------------
+# 19/11/2026 — demande de Jean-Michel : « tu peux intégrer perfsystemique.fr dans la
+# chaîne de diffusion média avec de la création d'articles » ; choix « Jeudi : article
+# Performance » et « Dans le cloud ».
+#
+# La routine du jeudi (mercredi-creation) place un bloc « wordpress » dans
+# automation-queue/jeudi.json. Ce workflow le PLANIFIE (statut future) à date_prevue
+# 11h03 NC par l'API REST — jamais par le MCP create_wordpress_post (non fiable).
+# WordPress publie lui-même à l'heure : rien ne dépend d'un cron GitHub à 11h03.
+#
+# Déclencheurs :
+#   - push de jeudi.json : planification dès que le contenu arrive (J-1 en général) ;
+#   - 07h30 NC lun→ven : filet de sécurité + vérification de l'article déjà planifié
+#     (idempotent : un slug existant n'est jamais recréé).
+# Garde-fous dans scripts/wordpress-article.sh : date passée → rien ; jour même après
+# 10h45 → refus (une date passée publierait aussitôt) ; > 10 jours → plus tard.
+# Contrôle à 14h00 : check-apres-publication.yml (article en ligne, URL publique en 200).
+# ---------------------------------------------------------------------------
+
+on:
+  push:
+    branches: [main]
+    paths: ['automation-queue/jeudi.json']
+  schedule:
+    - cron: '30 20 * * 0,1,2,3,4'   # 20h30 UTC = 07h30 NC, lundi → vendredi
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: article-wordpress
+  cancel-in-progress: false
+
+jobs:
+  planifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Planifier (ou vérifier) l'article du jeudi
+        env:
+          WP_LOGIN: ${{ secrets.WP_LOGIN }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: bash scripts/wordpress-article.sh automation-queue/jeudi.json planifier
+
+      - name: Issue « alerte » si la planification a échoué
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          AUJ=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          bash scripts/issue-alerte.sh "Article WordPress du jeudi non planifié — $AUJ" "L'article de fond du jeudi (perfsystemique.fr) n'a pas pu être planifié ou n'est pas conforme.
+
+          Rien n'a été publié : l'article non conforme reste en brouillon. Le détail est dans les annotations du run ci-dessous."
