@@ -1,0 +1,38 @@
+name: "ESSAI (ne publie rien) — carrousel perso en document PDF, brouillon supprimé"
+
+# ---------------------------------------------------------------------------
+# Essai complet du chemin PDF de publish-mardi-carrousel.yml, SANS RIEN PUBLIER :
+# assemblage du PDF à partir des slides de la file mardi actuelle, upload par
+# la Documents API, attente du traitement, création du post en lifecycleState
+# DRAFT (invisible du public), puis SUPPRESSION de ce brouillon.
+# Make, la Company Page et Facebook ne sont jamais appelés.
+#
+# Se lance tout seul quand ce fichier ou le script change sur main, ou à la main.
+# Résultat lisible dans les annotations du run.
+# ---------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/essai-carrousel-pdf.yml'
+      - 'scripts/linkedin-carrousel-pdf.sh'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publication-mardi
+  cancel-in-progress: false
+
+jobs:
+  essai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Carrousel PDF en brouillon puis suppression
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+        run: bash scripts/linkedin-carrousel-pdf.sh automation-queue/mardi.json DRAFT --supprimer-apres
