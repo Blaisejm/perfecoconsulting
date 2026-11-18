@@ -123,6 +123,16 @@ param(
     # terminee) ne doit ni bloquer les autres par son rang, ni accumuler un
     # droit de passage en force qu'elle ferait valoir le lendemain.
     [int]$InscriptionPerimeeMinutes = 240,
+    # SILENCE : au-dela, une inscription qui n'a plus RAPPELE est un fantome, quel
+    # que soit son age. Ajoute le 18/11/2026 a la demande de Jean-Michel (« raccourcis
+    # le delai de purge des attentes fantomes ») : ce jour-la, veille-marches-publics-nc
+    # (rang 1) avait abandonne a 11h34 sans se desinscrire ; le verrou etait LIBRE
+    # depuis 12h20 mais toutes les routines de rang superieur attendaient ce rang 1
+    # qui ne viendrait plus. La purge a 240 min mesurait l'age depuis la PREMIERE
+    # tentative, donc ne distinguait pas une routine qui attend longtemps d'une
+    # routine morte. Une routine vivante rappelle toutes les 5 min (consigne
+    # ATTENDRE) : 15 min de silence = trois rappels manques, elle est morte.
+    [int]$InscriptionSilencieuseMinutes = 15,
     # Garde-fou du batteur : il s'arrete de lui-meme au-dela, pour ne jamais
     # devenir un process zombie qui maintiendrait un verrou en vie sans routine.
     # 2 h est large : la routine la plus longue (perfeco-rapport-dimanche) tourne
@@ -144,6 +154,8 @@ $RANGS = @{
     'mercredi-creation'           = 3
     'perfeco-rappel-quotidien'    = 4
     'perfeco-rapport-dimanche'    = 5
+    # Revue qualite des publications (18/11/2026) : dimanche 09h00, lecture seule sur les reseaux.
+    'perfeco-revue-qualite-hebdo' = 5
     'perfeco-revue-semestrielle'  = 6
     'perfeco-verif-github-actions' = 7
     # Administratif (14/11/2026) : factures du mois pour le cabinet Broussan, le 2 a 09h30.
@@ -362,9 +374,15 @@ function Get-Rang($nom) {
 # toutes les routines de rang superieur, indefiniment.
 function Remove-InscriptionsPerimees($e) {
     $limite = (Get-Maintenant).AddMinutes(-$InscriptionPerimeeMinutes)
+    $silence = (Get-Maintenant).AddMinutes(-$InscriptionSilencieuseMinutes)
     $e.attente = @($e.attente | Where-Object {
         $d = ConvertTo-Date $_.depuis
-        $d -and $d -gt $limite
+        # 'vu_le' = dernier rappel (18/11/2026). Une inscription d'avant ce champ
+        # n'en a pas : on retombe alors sur 'depuis', ce qui la purge si elle n'a
+        # pas rappele depuis 15 min (si elle est vivante, elle se reinscrit au
+        # rappel suivant, avec 'vu_le' cette fois).
+        $vu = if ($_.PSObject.Properties['vu_le'] -and $_.vu_le) { ConvertTo-Date $_.vu_le } else { $d }
+        $d -and $d -gt $limite -and $vu -and $vu -gt $silence
     })
     return $e
 }
@@ -404,7 +422,10 @@ if ($Etat) {
     if ($e.derniere_liberation) { Write-Output "Derniere liberation : $($e.derniere_liberation)" }
     if ($e.attente -and $e.attente.Count -gt 0) {
         Write-Output "En attente :"
-        foreach ($a in $e.attente) { Write-Output ("  rang {0}  {1}  (depuis {2})" -f $a.rang, $a.routine, $a.depuis) }
+        foreach ($a in $e.attente) {
+            $vu = if ($a.PSObject.Properties['vu_le'] -and $a.vu_le) { $a.vu_le } else { "jamais (ancien format)" }
+            Write-Output ("  rang {0}  {1}  (depuis {2}, dernier rappel {3})" -f $a.rang, $a.routine, $a.depuis, $vu)
+        }
     }
     exit 0
 }
@@ -505,10 +526,13 @@ $inscription = Update-Etat -Transformation {
     $mienne = $e.attente | Where-Object { $_.routine -eq $Routine } | Select-Object -First 1
     if ($mienne) {
         $mienne.rang = $monRang          # le rang peut avoir change dans $RANGS
+        # Signe de vie : chaque rappel rafraichit 'vu_le' (18/11/2026), sans
+        # toucher a 'depuis' qui mesure l'attente cumulee.
+        $mienne | Add-Member -NotePropertyName vu_le -NotePropertyValue (Get-Horodatage) -Force
         return @{ etat = $e; depuis = $mienne.depuis; nouvelle = $false }
     }
     $neuf = Get-Horodatage
-    $e.attente += [pscustomobject]@{ routine = $Routine; rang = $monRang; depuis = $neuf }
+    $e.attente += [pscustomobject]@{ routine = $Routine; rang = $monRang; depuis = $neuf; vu_le = $neuf }
     return @{ etat = $e; depuis = $neuf; nouvelle = $true }
 }
 

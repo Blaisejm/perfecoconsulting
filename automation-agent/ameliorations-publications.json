@@ -1,0 +1,66 @@
+{
+  "_comment": [
+    "Registre des points d'amelioration des publications PerfEco (LinkedIn perso, LinkedIn Company, Facebook).",
+    "Demande de Jean-Michel du 18/11/2026 : verifier ce qui est reellement publie, relever ce qui peut etre ameliore",
+    "(presentation, graphisme, langue, adaptation au canal) et enregistrer chaque point pour les publications suivantes.",
+    "",
+    "Ecrit par perfeco-revue-qualite-hebdo (dimanche). Lu par mardi-carrousel-creation, mercredi-creation et",
+    "perfeco-rappel-quotidien AVANT toute production. Ne pas editer a la main : passer par ameliorations.py.",
+    "",
+    "Cycle d'un point : ouvert -> applique (declare par une routine de creation) -> clos (constate corrige sur la page",
+    "publiee par la revue suivante) ; ou rouvert si le defaut est encore visible ; ou abandonne (raison obligatoire).",
+    "Un constat revenu 2 fois ou plus (occurrences >= 2) est candidat a une regle PERMANENTE de la charte."
+  ],
+  "points": [
+    {
+      "id": "A-2026-11-18-01",
+      "constate_le": "2026-11-18T13:36:23+11:00",
+      "par": "jean-michel",
+      "publication": "2026-11-03-mardi",
+      "canal": "tous",
+      "categorie": "visuel",
+      "priorite": "haute",
+      "formats": [
+        "tous"
+      ],
+      "constat": "Couverture I1 « Le projet d'abord. L'argent ensuite. » : sur le profil perso, le titre colle au bord gauche et se lit mal. LinkedIn affiche les images en mosaïque et recadre la couverture au centre, ce qui supprime la marge gauche. Deux titres se concurrencent (encart « 4 réponses » au-dessus du titre) et le sous-titre lavande sur fond bleu manque de contraste.",
+      "recommandation": "Composer toute couverture et tout visuel Facebook en ZONE SÛRE : logo et textes dans le carré central (170 px libres en haut et en bas sur un 1200x1500), au moins 12 % de marge latérale, titre centré, UN seul titre dominant (compteur ou encart en dessous, plus petit), sous-titre blanc ou or. Contrôler l'aperçu recadré en carré avant la mise en file.",
+      "preuve": "Capture envoyée par JM le 18/11/2026 ; source public/slides/W44/01-couverture-projet-dabord.png ; mémoire feedback_typographie_carrousel.md §8",
+      "statut": "ouvert",
+      "applique_dans": null,
+      "occurrences": 1,
+      "historique": [
+        {
+          "le": "2026-11-18T13:36:23+11:00",
+          "evenement": "ouvert",
+          "detail": "Couverture I1 « Le projet d'abord. L'argent ensuite. » : sur le profil perso, le titre colle au bord gauche et se lit mal. LinkedIn affiche les images en mosaïque et recadre la couverture au centre, ce qui supprime la marge gauche. Deux titres se concurrencent (encart « 4 réponses » au-dessus du titre) et le sous-titre lavande sur fond bleu manque de contraste."
+        }
+      ]
+    },
+    {
+      "id": "A-2026-11-18-02",
+      "constate_le": "2026-11-18T13:37:49+11:00",
+      "par": "intervention-manuelle",
+      "publication": "2026-11-19-jeudi",
+      "canal": "facebook",
+      "categorie": "visuel",
+      "priorite": "moyenne",
+      "formats": [
+        "jeudi"
+      ],
+      "constat": "Gabarit V2 du jeudi (ex. v2-04-comptez-les-etapes.png, publié le 19/11, repris par Facebook le samedi) : recadré en carré par Facebook, le logo PerfEco en bas à droite disparaît entièrement et le titre touche le bas du carré.",
+      "recommandation": "Dans gabarit-v2-performance.html, remonter le bloc titre et le logo dans le carré central (au moins 170 px au-dessus du bas sur un 1200x1500) ; vérifier avec automation-agent/apercu-recadrage.py avant la mise en file.",
+      "preuve": "Aperçu carré calculé le 18/11/2026 sur https://www.perfeco.nc/slides/W42/v2-04-comptez-les-etapes.png",
+      "statut": "ouvert",
+      "applique_dans": null,
+      "occurrences": 1,
+      "historique": [
+        {
+          "le": "2026-11-18T13:37:49+11:00",
+          "evenement": "ouvert",
+          "detail": "Gabarit V2 du jeudi (ex. v2-04-comptez-les-etapes.png, publié le 19/11, repris par Facebook le samedi) : recadré en carré par Facebook, le logo PerfEco en bas à droite disparaît entièrement et le titre touche le bas du carré."
+        }
+      ]
+    }
+  ]
+}
