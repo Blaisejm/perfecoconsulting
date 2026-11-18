@@ -10,6 +10,8 @@ name: "Diagnostic des accès (lecture seule) — Facebook, LinkedIn, Make"
 #   - LINKEDIN_TOKEN est-il vivant ?
 #   - MAKE_API_TOKEN a-t-il les droits d'écriture (réactivation, purge de file) ?
 #
+# Relances par push (pas de gh local) : 19/11/2026 après le nouveau MAKE_API_TOKEN (x2).
+#
 # Ce workflow NE PUBLIE RIEN et N'ÉCRIT RIEN. Il n'affiche jamais un jeton :
 # seuls des champs choisis (scopes, dates, statuts) sont extraits par jq.
 # Les résultats sont émis en annotations ::notice::, lisibles sans connexion
@@ -69,6 +71,20 @@ jobs:
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
         run: |
           set -u
+          # Forme du secret, SANS jamais l'afficher (ajouté le 19/11/2026 après deux 401
+          # « Invalid token header ») : longueur, blancs, préfixe « Token », format UUID.
+          T="$MAKE_API_TOKEN"
+          BLANCS=$(printf '%s' "$T" | tr -cd '[:space:]' | wc -c)
+          case "$T" in [Tt]oken*) PREFIXE=oui ;; *) PREFIXE=non ;; esac
+          NET=$(printf '%s' "$T" | tr -d '[:space:]"')
+          NET=${NET#Token}; NET=${NET#token}
+          echo "$NET" | grep -Eq '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' && UUID=oui || UUID=non
+          echo "::notice title=Make forme du secret::longueur ${#T} (attendu 36), blancs/retours à la ligne : $BLANCS, commence par « Token » : $PREFIXE, une fois nettoyé au format UUID : $UUID (longueur nettoyée ${#NET})"
+          # Zone : un jeton créé sur une autre zone que eu1 répond 401 sur eu1.
+          for Z in eu1 eu2 us1 us2; do
+            C=$(curl -s -o /dev/null -w "%{http_code}" -H "Authorization: Token $NET" "https://$Z.make.com/api/v2/users/me")
+            echo "::notice title=Make zone $Z::jeton nettoyé → HTTP $C"
+          done
           API="https://eu1.make.com/api/v2"
           H="Authorization: Token $MAKE_API_TOKEN"
           CODE=$(curl -s -o /tmp/auth.json -w "%{http_code}" -H "$H" "$API/users/me/current-authorization")
