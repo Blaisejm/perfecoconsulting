@@ -1,0 +1,38 @@
+name: "ESSAI (ne publie rien) — article du jeudi sur perfsystemique.fr, brouillon supprimé"
+
+# ---------------------------------------------------------------------------
+# 19/11/2026 — article de fond du jeudi (campagne Performance) sur perfsystemique.fr,
+# créé et planifié dans le cloud. Essai complet de scripts/wordpress-article.sh SANS
+# RIEN PUBLIER : brouillon créé (metas Jetpack anti-partage posées), relu (contenu non
+# vide, accents de l'extrait, slug, date, catégorie, metas), puis SUPPRIMÉ définitivement.
+# Contenu : témoin scripts/temoins/article-jeudi-essai.json. Se lance seul quand ce
+# fichier, le script ou le témoin change sur main.
+# ---------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/essai-article-wordpress.yml'
+      - 'scripts/wordpress-article.sh'
+      - 'scripts/temoins/article-jeudi-essai.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: article-wordpress
+  cancel-in-progress: false
+
+jobs:
+  essai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Article WordPress — brouillon, relecture, suppression
+        env:
+          WP_LOGIN: ${{ secrets.WP_LOGIN }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: bash scripts/wordpress-article.sh scripts/temoins/article-jeudi-essai.json essai
