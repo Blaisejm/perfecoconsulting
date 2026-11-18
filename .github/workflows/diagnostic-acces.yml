@@ -80,11 +80,6 @@ jobs:
           NET=${NET#Token}; NET=${NET#token}
           echo "$NET" | grep -Eq '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' && UUID=oui || UUID=non
           echo "::notice title=Make forme du secret::longueur ${#T} (attendu 36), blancs/retours à la ligne : $BLANCS, commence par « Token » : $PREFIXE, une fois nettoyé au format UUID : $UUID (longueur nettoyée ${#NET})"
-          # Zone : un jeton créé sur une autre zone que eu1 répond 401 sur eu1.
-          for Z in eu1 eu2 us1 us2; do
-            C=$(curl -s -o /dev/null -w "%{http_code}" -H "Authorization: Token $NET" "https://$Z.make.com/api/v2/users/me")
-            echo "::notice title=Make zone $Z::jeton nettoyé → HTTP $C"
-          done
           API="https://eu1.make.com/api/v2"
           H="Authorization: Token $MAKE_API_TOKEN"
           CODE=$(curl -s -o /tmp/auth.json -w "%{http_code}" -H "$H" "$API/users/me/current-authorization")
@@ -97,3 +92,15 @@ jobs:
           echo "::notice title=Make webhook $HOOK::HTTP $CODE — $(jq -c '.hook | {name, enabled, queueCount, queueLimit, gone}' /tmp/hk.json 2>/dev/null)"
           CODE=$(curl -s -o /tmp/inc.json -w "%{http_code}" -H "$H" "$API/hooks/$HOOK/incomings")
           echo "::notice title=Make file du webhook::HTTP $CODE — $(jq -c '{elements: ((.incomings // []) | length), champs: ((.incomings // [])[0] | keys? // [])}' /tmp/inc.json 2>/dev/null)"
+          # Routes du scénario (ajouté le 19/11/2026, étape 3) : quel filtre protège quel
+          # canal. Indispensable pour réduire Make à la Company Page sans trou ni doublon.
+          CODE=$(curl -s -o /tmp/bp.json -w "%{http_code}" -H "$H" "$API/scenarios/6916780/blueprint")
+          echo "::notice title=Make blueprint::HTTP $CODE"
+          jq -c '[.. | objects | select(has("routes")) | .routes[] | {
+                    filtre: (.flow[0].filter.name // null),
+                    conditions: [(.flow[0].filter.conditions // [])[][] | "\(.a) \(.o) \(.b)"],
+                    modules: [.flow[] | "\(.module)#\(.id)"]
+                  }] | to_entries[] | "route \(.key + 1) : \(.value)"' -r /tmp/bp.json 2>/dev/null | head -c 3000 | while IFS= read -r L; do
+            echo "::notice title=Make route::$L"
+          done
+          jq -r '[.response.blueprint.flow[]? | "\(.module)#\(.id)"] | join(" → ")' /tmp/bp.json 2>/dev/null | sed 's/^/::notice title=Make flux principal::/'
