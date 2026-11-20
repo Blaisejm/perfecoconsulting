@@ -1101,10 +1101,10 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "publie",
                              "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
-                             "preuve":  null,
+                             "preuve":  "Make 5 operations (LinkedIn Company + profil perso + Facebook) a 2026-11-20T04:59:35.855Z statut=1 ; post Facebook confirme a 2026-11-20T04:59:41+0000 ; cloture automatique par check-apres-publication, run 44786389675",
                              "note":  null,
                              "axe":  "performance"
                          },
