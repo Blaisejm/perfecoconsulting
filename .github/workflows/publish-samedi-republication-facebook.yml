@@ -22,15 +22,19 @@ on:
   #
   # PLUSIEURS DÉCLENCHEMENTS depuis le 20/11/2026 (feu vert de Jean-Michel) : le cron
   # GitHub part souvent avec 5 à 7 h de retard. Minutes peu chargées (jamais :00 ni :30).
-  # Le premier arrivé ATTEND 15h30 NC sur place, puis pose le tag pub-samedi-<date>
+  # HEURE CIBLE 11h00 NC depuis le 21/11/2026 (Jean-Michel : « publier de préférence
+  # vers 11h en Nouvelle-Calédonie surtout pour FB ») — auparavant 15h30.
+  # Le premier arrivé ATTEND 11h00 NC sur place, puis pose le tag pub-samedi-<date>
   # et publie ; les suivants voient le tag et s'arrêtent (scripts/creneau-publication.sh).
   # Après 17h00 NC, plus rien ne part : issue « alerte ».
+  # Les quatre premiers créneaux sont le VENDREDI en UTC = le SAMEDI matin en NC.
   schedule:
-    - cron: '47 0 * * 6'  # Samedi 11h47 NC — attend 15h30
-    - cron: '47 1 * * 6'  # Samedi 12h47 NC — secours
-    - cron: '47 2 * * 6'  # Samedi 13h47 NC — secours
-    - cron: '47 3 * * 6'  # Samedi 14h47 NC — secours
-    - cron: '17 5 * * 6'  # Samedi 16h17 NC — rattrapage (limite 17h00)
+    - cron: '47 20 * * 5'  # Samedi 07h47 NC — attend 11h00
+    - cron: '47 21 * * 5'  # Samedi 08h47 NC — secours
+    - cron: '47 22 * * 5'  # Samedi 09h47 NC — secours
+    - cron: '47 23 * * 5'  # Samedi 10h47 NC — secours
+    - cron: '17 1 * * 6'   # Samedi 12h17 NC — rattrapage
+    - cron: '17 3 * * 6'   # Samedi 14h17 NC — rattrapage (limite 17h00)
   workflow_dispatch:
 
 # Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Jamais deux exécutions simultanées d'une même publication.
@@ -52,13 +56,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Créneau — déjà publié ? sinon attendre 15h30 NC (limite 17h00)
+      - name: Créneau — déjà publié ? sinon attendre 11h00 NC (limite 17h00)
         id: creneau
-        run: bash scripts/creneau-publication.sh attendre samedi 1530 1700
+        run: bash scripts/creneau-publication.sh attendre samedi 1100 1700
+
+      # Vendredi férié → la veille éco part CE samedi à 11h00, Facebook compris. Deux posts
+      # Facebook le même jour sont interdits : la republication saute ce samedi-là
+      # (cas connus : 26/12/2026 et 02/01/2027). Ajouté le 20/11/2026 avec le passage à 11h00.
+      - name: Samedi de veille éco reportée ? alors pas de republication
+        id: espacement
+        if: steps.creneau.outputs.suite == 'publier'
+        run: |
+          AUJ=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          V=$(jq -r '.date_prevue // ""' automation-queue/vendredi.json 2>/dev/null)
+          if [ "$V" = "$AUJ" ]; then
+            echo "::notice title=Republication samedi::la veille éco du vendredi férié part aujourd'hui sur Facebook — republication SAUTÉE (jamais deux posts Facebook le même jour)."
+            echo "republier=non" >> "$GITHUB_OUTPUT"
+          else
+            echo "republier=oui" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Vérifier que le contenu du jeudi est bien celui de cette semaine
         id: check
-        if: steps.creneau.outputs.suite == 'publier'
+        if: steps.espacement.outputs.republier == 'oui'
         run: |
           set -e
           FILE="automation-queue/jeudi.json"
@@ -94,7 +114,7 @@ jobs:
       # l'étape échoue et l'issue « alerte » s'ouvre.
       - name: Créneau — poser le tag du jour (un seul run publie)
         id: tag
-        if: steps.creneau.outputs.suite == 'publier'
+        if: steps.espacement.outputs.republier == 'oui'
         run: bash scripts/creneau-publication.sh prendre samedi
 
       - name: Facebook — republication EN DIRECT (API Graph)

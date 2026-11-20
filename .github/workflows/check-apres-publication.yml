@@ -6,12 +6,11 @@ on:
     # 5 à 8 h de retard. Un créneau qui trouve la publication du jour pas encore terminée
     # sort à vide ; le verdict se rend une seule fois (tag controle-<format>-<date>),
     # au plus tard au premier créneau après 20h00 NC (scripts/fenetre-controle.sh).
-    - cron: '13 3 * * 1,2,3,4,5'  # Lun→Ven 14h13 NC
-    - cron: '13 6 * * 1,2,3,4,5'  # Lun→Ven 17h13 NC — secours
-    - cron: '13 9 * * 1,2,3,4,5'  # Lun→Ven 20h13 NC — verdict
-    - cron: '43 7 * * 6'          # Samedi 18h43 NC
-    - cron: '43 9 * * 6'          # Samedi 20h43 NC — verdict
-    - cron: '43 11 * * 6'         # Samedi 22h43 NC — secours
+    # Depuis le 21/11/2026 TOUTES les publications visent 11h00 NC, samedi compris :
+    # mêmes créneaux du lundi au samedi.
+    - cron: '13 3 * * 1,2,3,4,5,6'  # Lun→Sam 14h13 NC
+    - cron: '13 6 * * 1,2,3,4,5,6'  # Lun→Sam 17h13 NC — secours
+    - cron: '13 9 * * 1,2,3,4,5,6'  # Lun→Sam 20h13 NC — verdict
   workflow_dispatch:
 
 # Écriture nécessaire depuis le 13/09/2026 : ce workflow clôt désormais l'échéance
@@ -348,7 +347,7 @@ jobs:
             # Company + Facebook, il sert desormais Company + profil perso : deux routes dans les
             # deux cas. Seul le LIBELLE etait perime, et il s affiche dans le message d erreur,
             # c est-a-dire au pire moment. Corrige le 23/09/2026 — ne pas « reparer » le 4.
-            postcourt)     EXPECTED=4; CANAUX="LinkedIn Company + profil perso (Facebook exclu le jeudi par le suffixe -NOFB depuis le 15/09/2026 ; il recoit le meme contenu le samedi a 15h30)" ;;
+            postcourt)     EXPECTED=4; CANAUX="LinkedIn Company + profil perso (Facebook exclu le jeudi par le suffixe -NOFB depuis le 15/09/2026 ; il recoit le meme contenu le samedi a 11h00 depuis le 21/11/2026)" ;;
             veille)        EXPECTED=5; CANAUX="LinkedIn Company + profil perso + Facebook" ;;
             republication) EXPECTED=3; CANAUX="Facebook UNIQUEMENT (republication du post court, suffixe FBONLY)" ;;
             *)             EXPECTED=0; CANAUX="(jour sans publication attendue)" ;;
