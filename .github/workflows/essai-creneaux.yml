@@ -1,0 +1,87 @@
+name: "ESSAI (ne publie rien) — créneaux multiples, attente, tags anti-doublon, fenêtre du contrôle"
+
+# ---------------------------------------------------------------------------
+# 20/11/2026 — correction des retards de cron (feu vert de Jean-Michel : « Oui, feu vert »).
+# Essai à blanc de scripts/creneau-publication.sh et scripts/fenetre-controle.sh AVANT
+# la bascule des workflows de publication. Aucun canal n'est appelé : seuls des tags
+# « essai-… » sont posés, puis supprimés à la fin. Se lance seul quand ces fichiers changent.
+# ---------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/essai-creneaux.yml'
+      - 'scripts/creneau-publication.sh'
+      - 'scripts/fenetre-controle.sh'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: essai-creneaux
+  cancel-in-progress: false
+
+jobs:
+  essai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CRENEAU_ESSAI: "1"
+      CONTROLE_ESSAI: "1"
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Créneaux et tags anti-doublon
+        run: |
+          set -u
+          git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
+          KO=0
+          attendu() { # <libellé> <code attendu> <suite attendue> <commande…>
+            L="$1"; C="$2"; S="$3"; shift 3
+            OUT=$(GITHUB_OUTPUT=/dev/null "$@" 2>&1); RC=$?
+            echo "$OUT"
+            if [ "$RC" = "$C" ] && echo "$OUT" | grep -q "suite=$S"; then echo "✅ $L : code $RC, suite=$S"
+            else echo "::error title=Essai créneaux::$L — attendu code $C suite=$S, obtenu code $RC"; KO=1; fi
+          }
+          D=scripts/creneau-publication.sh
+          CRENEAU_HEURE=1000 attendu "avant l'heure → attend puis publier" 0 publier bash $D attendre essai 1530 1700
+          attendu "1er run pose le tag"                0 publier bash $D prendre essai
+          attendu "2e run : tag déjà là (prendre)"     0 deja    bash $D prendre essai
+          CRENEAU_HEURE=1200 attendu "3e run : tag déjà là (attendre)" 0 deja bash $D attendre essai 1530 1700
+          CRENEAU_HEURE=1600 attendu "rattrapage avant la limite"   0 publier    bash $D attendre essai2 1530 1700
+          CRENEAU_HEURE=1800 attendu "après la limite → rien, alerte" 1 hors_delai bash $D attendre essai3 1530 1700
+          exit $KO
+
+      - name: Fenêtre du contrôle après publication
+        run: |
+          set -u
+          git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
+          KO=0
+          verifie() { # <libellé> <motif attendu> <commande…>
+            L="$1"; M="$2"; shift 2
+            OUT=$(GITHUB_OUTPUT=/dev/null "$@" 2>&1); echo "$OUT"
+            if echo "$OUT" | grep -q -- "$M"; then echo "✅ $L"; else echo "::error title=Essai contrôle::$L — « $M » absent"; KO=1; fi
+          }
+          F=scripts/fenetre-controle.sh
+          CONTROLE_MAINTENANT="2026-11-22T01:24:00+11:00" verifie "run de 01h24 dimanche → contrôle le samedi" "today_nc=2026-11-21" bash $F jour
+          CONTROLE_MAINTENANT="2026-11-22T01:24:00+11:00" verifie "… jour 6"                             "dow=6"                bash $F jour
+          CONTROLE_MAINTENANT="2026-11-21T18:43:00+11:00" verifie "run de 18h43 samedi → samedi"        "today_nc=2026-11-21" bash $F jour
+          CONTROLE_MAINTENANT="2026-11-19T15:00:00+11:00" verifie "jeudi 19/11 : publication terminée"  "etat_publication=terminee" bash $F publication publish-jeudi-post-court.yml 2026-11-19 2000
+          CONTROLE_MAINTENANT="2026-11-26T15:00:00+11:00" verifie "jeudi 26/11 à 15h, rien encore → attente" "attente=true"  bash $F publication publish-jeudi-post-court.yml 2026-11-26 2000
+          CONTROLE_MAINTENANT="2026-11-26T21:00:00+11:00" verifie "jeudi 26/11 à 21h, rien → verdict"   "attente=false" bash $F publication publish-jeudi-post-court.yml 2026-11-26 2000
+          verifie "verdict pas encore rendu" "verdict_rendu=false" bash $F verdict essai 2026-01-01 existe
+          bash $F verdict essai 2026-01-01 poser
+          verifie "verdict rendu une seule fois" "verdict_rendu=true" bash $F verdict essai 2026-01-01 existe
+          exit $KO
+
+      - name: Nettoyage des tags d'essai
+        if: always()
+        run: |
+          for T in $(git ls-remote --tags origin 'refs/tags/essai-*' | awk '{print $2}' | sed 's#refs/tags/##' | grep -v '\^{}$'); do
+            git push -q origin --delete "refs/tags/$T" && echo "Supprimé : $T"
+          done
+          echo "Tags d'essai restants : $(git ls-remote --tags origin 'refs/tags/essai-*' | wc -l)"
