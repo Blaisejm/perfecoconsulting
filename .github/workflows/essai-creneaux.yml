@@ -53,6 +53,7 @@ jobs:
           attendu "2e run : tag déjà là (prendre)"     0 deja    bash $D prendre essai
           CRENEAU_HEURE=1200 attendu "3e run : tag déjà là (attendre)" 0 deja bash $D attendre essai 1530 1700
           CRENEAU_HEURE=1600 attendu "rattrapage avant la limite"   0 publier    bash $D attendre essai2 1530 1700
+          CRENEAU_HEURE=0747 attendu "samedi 07h47 → attend 11h00 puis publier" 0 publier bash $D attendre essai4 1100 1700
           CRENEAU_HEURE=1800 attendu "après la limite → rien, alerte" 1 hors_delai bash $D attendre essai3 1530 1700
           exit $KO
 
