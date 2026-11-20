@@ -19,15 +19,26 @@ on:
   # tourne désormais aussi le samedi à 18h30 NC (3h après) et vérifie que l'exécution
   # Make n'a consommé que 3 opérations — c'est-à-dire Facebook seul. Toute
   # sur-publication déclenche une alerte le jour même.
+  #
+  # PLUSIEURS DÉCLENCHEMENTS depuis le 20/11/2026 (feu vert de Jean-Michel) : le cron
+  # GitHub part souvent avec 5 à 7 h de retard. Minutes peu chargées (jamais :00 ni :30).
+  # Le premier arrivé ATTEND 15h30 NC sur place, puis pose le tag pub-samedi-<date>
+  # et publie ; les suivants voient le tag et s'arrêtent (scripts/creneau-publication.sh).
+  # Après 17h00 NC, plus rien ne part : issue « alerte ».
   schedule:
-    - cron: '30 4 * * 6'  # Samedi 04h30 UTC = 15h30 Nouvelle-Calédonie
+    - cron: '47 0 * * 6'  # Samedi 11h47 NC — attend 15h30
+    - cron: '47 1 * * 6'  # Samedi 12h47 NC — secours
+    - cron: '47 2 * * 6'  # Samedi 13h47 NC — secours
+    - cron: '47 3 * * 6'  # Samedi 14h47 NC — secours
+    - cron: '17 5 * * 6'  # Samedi 16h17 NC — rattrapage (limite 17h00)
   workflow_dispatch:
 
 # Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Jamais deux exécutions simultanées d'une même publication.
 # cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
 # issues: write depuis le 19/11/2026 : un échec ouvre une issue « alerte » (e-mail GitHub, PC éteint).
+# contents: write depuis le 20/11/2026 : uniquement pour poser le tag pub-samedi-<date> (anti-doublon).
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 concurrency:
@@ -37,11 +48,17 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
 
+      - name: Créneau — déjà publié ? sinon attendre 15h30 NC (limite 17h00)
+        id: creneau
+        run: bash scripts/creneau-publication.sh attendre samedi 1530 1700
+
       - name: Vérifier que le contenu du jeudi est bien celui de cette semaine
         id: check
+        if: steps.creneau.outputs.suite == 'publier'
         run: |
           set -e
           FILE="automation-queue/jeudi.json"
@@ -75,8 +92,14 @@ jobs:
       # Facebook (code 2 : rien n'a été créé), l'ancien envoi Make FBONLY part à sa place.
       # Si l'envoi est parti sans réponse claire (code 1), PAS de repli (risque de doublon) :
       # l'étape échoue et l'issue « alerte » s'ouvre.
+      - name: Créneau — poser le tag du jour (un seul run publie)
+        id: tag
+        if: steps.creneau.outputs.suite == 'publier'
+        run: bash scripts/creneau-publication.sh prendre samedi
+
       - name: Facebook — republication EN DIRECT (API Graph)
         id: fb_direct
+        if: steps.tag.outputs.suite == 'publier'
         continue-on-error: true
         env:
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
@@ -128,7 +151,7 @@ jobs:
           echo "✅ Webhook accepté (HTTP 200) — Facebook uniquement, LinkedIn bloqué par les filtres Make.com."
 
       - name: Vérifier les résultats
-        if: always()
+        if: always() && steps.tag.outputs.suite == 'publier'
         run: |
           echo "Facebook en direct : ${{ steps.fb_direct.outcome }} (repli Make demandé : ${{ steps.fb_direct.outputs.repli || 'non' }}) — ${{ steps.fb_direct.outputs.fb_lien }}"
           echo "Repli Make : ${{ steps.social.outcome }}"
