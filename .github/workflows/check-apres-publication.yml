@@ -2,14 +2,24 @@ name: PerfEco — Vérification après-midi (publication réellement visible)
 
 on:
   schedule:
-    - cron: '0 3 * * 1,2,3,4,5'  # Lun→Ven 03h00 UTC = 14h00 NC (~3h après les publications de 11h00)
-    - cron: '30 7 * * 6'         # Samedi 07h30 UTC = 18h30 NC (~3h après la republication Facebook de 15h30)
+    # PLUSIEURS CRÉNEAUX depuis le 20/11/2026 (feu vert de Jean-Michel) : le cron part avec
+    # 5 à 8 h de retard. Un créneau qui trouve la publication du jour pas encore terminée
+    # sort à vide ; le verdict se rend une seule fois (tag controle-<format>-<date>),
+    # au plus tard au premier créneau après 20h00 NC (scripts/fenetre-controle.sh).
+    - cron: '13 3 * * 1,2,3,4,5'  # Lun→Ven 14h13 NC
+    - cron: '13 6 * * 1,2,3,4,5'  # Lun→Ven 17h13 NC — secours
+    - cron: '13 9 * * 1,2,3,4,5'  # Lun→Ven 20h13 NC — verdict
+    - cron: '43 7 * * 6'          # Samedi 18h43 NC
+    - cron: '43 9 * * 6'          # Samedi 20h43 NC — verdict
+    - cron: '43 11 * * 6'         # Samedi 22h43 NC — secours
   workflow_dispatch:
 
 # Écriture nécessaire depuis le 13/09/2026 : ce workflow clôt désormais l'échéance
 # dans automation-agent/publications.json quand la publication est confirmée.
+# actions: read depuis le 20/11/2026 : lire l'état du run de publication du jour.
 permissions:
   contents: write
+  actions: read
 
 # ⚠️ CORRECTION DU 13/09/2026 — les gardes de fraîcheur ne raisonnent plus en HEURES
 #
@@ -60,9 +70,14 @@ jobs:
 
       - name: Déterminer ce qui a été publié aujourd'hui
         id: day
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          DOW=$(TZ="Pacific/Noumea" date +%u)
-          TODAY_NC=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          # Jour contrôlé = jour NC de (maintenant − 6 h) depuis le 20/11/2026 : un run
+          # retardé après minuit contrôle la VEILLE, pas un dimanche vide (faux vert).
+          bash scripts/fenetre-controle.sh jour > /tmp/jour.txt; cat /tmp/jour.txt
+          DOW=$(sed -n 's/^→ dow=//p' /tmp/jour.txt)
+          TODAY_NC=$(sed -n 's/^→ today_nc=//p' /tmp/jour.txt)
           echo "dow=$DOW" >> "$GITHUB_OUTPUT"
           echo "today_nc=$TODAY_NC" >> "$GITHUB_OUTPUT"
 
@@ -89,6 +104,23 @@ jobs:
           PUBLICATION=false
           [ "$FORMAT" != "aucun" ] && PUBLICATION=true
 
+          # Publication du jour pas encore terminée (cron en retard) ou verdict déjà rendu
+          # par un créneau précédent : ce run sort à vide (20/11/2026).
+          if $PUBLICATION; then
+            case "$FORMAT" in
+              carrousel)     WF=publish-mardi-carrousel.yml ;;
+              postcourt)     WF=publish-jeudi-post-court.yml ;;
+              veille)        WF=publish-vendredi-veille-eco.yml ;;
+              republication) WF=publish-samedi-republication-facebook.yml ;;
+            esac
+            bash scripts/fenetre-controle.sh verdict "$FORMAT" "$TODAY_NC" existe > /tmp/v.txt; cat /tmp/v.txt
+            bash scripts/fenetre-controle.sh publication "$WF" "$TODAY_NC" 2000 > /tmp/p.txt; cat /tmp/p.txt
+            if grep -q 'verdict_rendu=true' /tmp/v.txt || grep -q 'attente=true' /tmp/p.txt; then
+              echo "Contrôle de $FORMAT du $TODAY_NC : rien à faire dans ce créneau."
+              PUBLICATION=false; CARROUSEL=false; FORMAT=aucun
+            fi
+          fi
+
           {
             echo "carrousel=$CARROUSEL"
             echo "publication=$PUBLICATION"
@@ -102,7 +134,9 @@ jobs:
 
       - name: Vérifier le post Facebook du jour
         id: fb_check
-        if: steps.day.outputs.publication == 'true'
+        # Le jeudi n'a pas de Facebook (suffixe -NOFB ; il le reçoit le samedi) : contrôle
+        # réservé aux jours qui ont réellement Facebook (20/11/2026 — faux échec du 19/11).
+        if: steps.day.outputs.publication == 'true' && steps.day.outputs.format != 'postcourt'
         continue-on-error: true
         env:
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
@@ -399,7 +433,7 @@ jobs:
         if: >-
           steps.day.outputs.publication == 'true' &&
           steps.day.outputs.format != 'republication' &&
-          steps.fb_check.outcome == 'success' &&
+          (steps.fb_check.outcome == 'success' || steps.day.outputs.format == 'postcourt') &&
           steps.social_publisher_check.outcome == 'success' &&
           steps.wp_check.outcome != 'failure' &&
           steps.wp_jeudi_check.outcome != 'failure' &&
@@ -427,6 +461,10 @@ jobs:
           else
             echo "Registre déjà à jour (échéance sans doute close par un run précédent)."
           fi
+
+      - name: Noter le verdict (un seul par publication, les créneaux suivants s'arrêtent)
+        if: always() && steps.day.outputs.publication == 'true'
+        run: bash scripts/fenetre-controle.sh verdict "${{ steps.day.outputs.format }}" "${{ steps.day.outputs.today_nc }}" poser
 
       - name: Résumé
         if: always()
