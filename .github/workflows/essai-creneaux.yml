@@ -42,7 +42,7 @@ jobs:
           KO=0
           attendu() { # <libellé> <code attendu> <suite attendue> <commande…>
             L="$1"; C="$2"; S="$3"; shift 3
-            OUT=$(GITHUB_OUTPUT=/dev/null "$@" 2>&1); RC=$?
+            RC=0; OUT=$(GITHUB_OUTPUT=/dev/null "$@" 2>&1) || RC=$?
             echo "$OUT"
             if [ "$RC" = "$C" ] && echo "$OUT" | grep -q "suite=$S"; then echo "✅ $L : code $RC, suite=$S"
             else echo "::error title=Essai créneaux::$L — attendu code $C suite=$S, obtenu code $RC"; KO=1; fi
@@ -63,7 +63,7 @@ jobs:
           KO=0
           verifie() { # <libellé> <motif attendu> <commande…>
             L="$1"; M="$2"; shift 2
-            OUT=$(GITHUB_OUTPUT=/dev/null "$@" 2>&1); echo "$OUT"
+            OUT=$(GITHUB_OUTPUT=/dev/null "$@" 2>&1) || true; echo "$OUT"
             if echo "$OUT" | grep -q -- "$M"; then echo "✅ $L"; else echo "::error title=Essai contrôle::$L — « $M » absent"; KO=1; fi
           }
           F=scripts/fenetre-controle.sh
