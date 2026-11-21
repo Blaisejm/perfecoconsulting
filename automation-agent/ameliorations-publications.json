@@ -187,6 +187,58 @@
           "detail": "Tournures écrites ou orales-écrites qui se lisent deux fois : « Pour la retirer, il en faudrait une autre, et elle se tient rarement » (il/elle flottants), « font le relevé », « C'est ainsi que nous travaillons avec les équipes », « chacune en voit seulement un morceau »."
         }
       ]
+    },
+    {
+      "id": "A-2026-11-22-06",
+      "constate_le": "2026-11-22T09:48:29+11:00",
+      "par": "perfeco-revue-qualite-hebdo",
+      "publication": "2026-11-19-jeudi",
+      "canal": "linkedin_perso",
+      "categorie": "adaptation_canal",
+      "priorite": "moyenne",
+      "formats": [
+        "jeudi",
+        "vendredi"
+      ],
+      "constat": "Profil perso Jean-Michel (constate le 22/11) : les posts du 19/11 et du 20/11 sont ecrits a la voix de la Company (« Notre conseil », « C'est ainsi que nous travaillons avec les equipes », « Nous documenterons ») alors que les posts du perso du mois d'octobre disent « Mon conseil » et « Je ».",
+      "recommandation": "Pour le profil perso, ecrire a la premiere personne (« Mon conseil », « je »), reserver « nous / notre » a la Company ; adapter la phrase avant l'envoi au perso.",
+      "preuve": "profil LinkedIn perso, posts 19/11 (2 j) et 20/11 (1 j) vs post du 20/10 « Mon conseil »",
+      "statut": "ouvert",
+      "applique_dans": null,
+      "occurrences": 1,
+      "historique": [
+        {
+          "le": "2026-11-22T09:48:29+11:00",
+          "evenement": "ouvert",
+          "detail": "Profil perso Jean-Michel (constate le 22/11) : les posts du 19/11 et du 20/11 sont ecrits a la voix de la Company (« Notre conseil », « C'est ainsi que nous travaillons avec les equipes », « Nous documenterons ») alors que les posts du perso du mois d'octobre disent « Mon conseil » et « Je »."
+        }
+      ]
+    },
+    {
+      "id": "A-2026-11-22-07",
+      "constate_le": "2026-11-22T09:48:29+11:00",
+      "par": "perfeco-revue-qualite-hebdo",
+      "publication": "2026-11-20-vendredi",
+      "canal": "facebook",
+      "categorie": "technique",
+      "priorite": "moyenne",
+      "formats": [
+        "jeudi",
+        "vendredi"
+      ],
+      "constat": "Heures reelles Facebook constatees le 22/11 : vendredi 20/11 publie a 15h59 NC, samedi 21/11 a 12h45 NC ; la regle du 20/11 vise 11h00 NC pour tous les canaux.",
+      "recommandation": "Verifier l'heure effective de chaque workflow Facebook (cron GitHub en retard) et signaler tout ecart superieur a 30 min dans la verification apres publication.",
+      "preuve": "page Facebook PerfecoNC : « Vendredi 20 novembre 2026 a 15:59 », « Samedi 21 novembre 2026 a 12:45 »",
+      "statut": "ouvert",
+      "applique_dans": null,
+      "occurrences": 1,
+      "historique": [
+        {
+          "le": "2026-11-22T09:48:29+11:00",
+          "evenement": "ouvert",
+          "detail": "Heures reelles Facebook constatees le 22/11 : vendredi 20/11 publie a 15h59 NC, samedi 21/11 a 12h45 NC ; la regle du 20/11 vise 11h00 NC pour tous les canaux."
+        }
+      ]
     }
   ]
 }
