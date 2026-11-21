@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Visuel jeudi — Les besoins cachés</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Arial', sans-serif; background: #d0d0d0; }
+
+  .slide {
+    width: 1200px;
+    height: 1500px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 24px auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+    background: #001D9F;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 64px 72px 56px;
+  }
+
+  .logo-zone img {
+    height: 130px;
+    filter: brightness(0) invert(1);
+    object-fit: contain;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(251,170,22,0.18);
+    border: 1px solid rgba(251,170,22,0.5);
+    color: #FBAA16;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 9px 22px;
+    border-radius: 100px;
+    margin-top: 44px;
+    align-self: flex-start;
+  }
+
+  .main-title {
+    font-size: 72px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+    margin-top: 36px;
+  }
+  .main-title .accent { color: #FBAA16; }
+
+  .signals {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .signal-item {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-left: 6px solid #FBAA16;
+    border-radius: 0 14px 14px 0;
+    padding: 26px 32px;
+    font-size: 28px;
+    color: rgba(255,255,255,0.92);
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .closing {
+    margin-top: 64px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    padding-top: 48px;
+  }
+  .closing .line {
+    font-size: 42px;
+    color: #FBAA16;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+  .url {
+    margin-top: auto;
+    padding-top: 60px;
+    font-size: 19px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div class="content">
+      <div class="logo-zone">
+        <img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco">
+      </div>
+      <div class="badge">Diagnostic organisation</div>
+      <div class="main-title">Vos irritants du quotidien<br>sont déjà un <span class="accent">diagnostic</span>.</div>
+      <div class="signals">
+        <div class="signal-item">Temps perdu dans le fonctionnement interne</div>
+        <div class="signal-item">Coûts subis, difficiles à piloter</div>
+        <div class="signal-item">Équipes sous tension</div>
+        <div class="signal-item">Projets qui ralentissent</div>
+      </div>
+      <div class="closing">
+        <div class="line">Un besoin non formulé<br>peut déjà coûter cher.</div>
+        <div class="url">T : +687 73 08 75 · Mail : contact@perfeco.nc · Site : www.perfeco.nc</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

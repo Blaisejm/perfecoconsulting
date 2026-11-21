@@ -1,9 +1,23 @@
 name: PerfEco — Publication jeudi (post court, webhook unique)
 
 on:
+  # PLUSIEURS DÉCLENCHEMENTS depuis le 22/11/2026 (feu vert de Jean-Michel ; heure cible
+  # 11h00 NC) : le cron GitHub part avec 5 h de retard ou plus. Le premier arrivé
+  # ATTEND 11h00 NC, pose le tag pub-jeudi-<date> et publie ; les suivants voient le tag
+  # et s'arrêtent (scripts/creneau-publication.sh). Après 17h00 NC, rien ne part : alerte.
+  # Les créneaux de la VEILLE en UTC sont le matin du jour J en NC.
   schedule:
-    - cron: '0 0 * * 4'  # Jeudi 00h00 UTC = 11h00 Nouvelle-Calédonie (cas normal)
-    - cron: '0 0 * * 3'  # Mercredi 00h00 UTC = 11h00 NC — décalages exceptionnels (voir ci-dessous)
+    # Jeudi NC (cas normal)
+    - cron: '47 20 * * 3'  # Jeudi 07h47 NC — attend 11h00
+    - cron: '47 21 * * 3'  # Jeudi 08h47 NC — secours
+    - cron: '47 22 * * 3'  # Jeudi 09h47 NC — secours
+    - cron: '47 23 * * 3'  # Jeudi 10h47 NC — secours
+    - cron: '17 1 * * 4'   # Jeudi 12h17 NC — rattrapage
+    - cron: '17 3 * * 4'   # Jeudi 14h17 NC — rattrapage (limite 17h00)
+    # Mercredi NC — décalages exceptionnels (voir ci-dessous) ; à vide les autres semaines
+    - cron: '47 20 * * 2'  # Mercredi 07h47 NC
+    - cron: '47 22 * * 2'  # Mercredi 09h47 NC
+    - cron: '17 1 * * 3'   # Mercredi 12h17 NC — rattrapage
   workflow_dispatch:
 
 # ⚠️ POURQUOI UN CRON LE MERCREDI (ajouté le 21/08/2026)
@@ -32,8 +46,9 @@ on:
 # Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Jamais deux exécutions simultanées d'une même publication.
 # cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
 # issues: write depuis le 19/11/2026 : un échec ouvre une issue « alerte » (e-mail GitHub, PC éteint).
+# contents: write depuis le 22/11/2026 : uniquement pour poser le tag pub-jeudi-<date> (anti-doublon).
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 concurrency:
@@ -43,6 +58,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
 
@@ -78,6 +94,16 @@ jobs:
           echo "publier=true" >> "$GITHUB_OUTPUT"
           echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
 
+      - name: Créneau — déjà publié ? sinon attendre 11h00 NC (limite 17h00)
+        id: creneau
+        if: steps.fraicheur.outputs.publier == 'true'
+        run: bash scripts/creneau-publication.sh attendre jeudi 1100 1700
+
+      - name: Créneau — poser le tag du jour (un seul run publie)
+        id: tag
+        if: steps.creneau.outputs.suite == 'publier'
+        run: bash scripts/creneau-publication.sh prendre jeudi
+
       # ⚠️ RÉPARÉ LE 19/09/2026 par perfeco-rappel-quotidien.
       # Le commit 421f204 du 15/09/2026 avait collé le bloc de commentaires ci-dessous
       # À L'INTÉRIEUR du `if` ci-dessus, en effaçant ses 18 lignes de logique. Le script
@@ -93,7 +119,7 @@ jobs:
       # ── CHANGEMENT DU 15/09/2026, décision de Jean-Michel ──────────────────────
       # Le jeudi publie désormais sur LinkedIn Company Page ET LinkedIn profil perso,
       # puis le MÊME post part sur Facebook le SAMEDI (publish-samedi-republication-facebook.yml,
-      # 15h30 NC). Facebook ne reçoit donc plus rien le jeudi.
+      # 11h00 NC depuis le 21/11/2026, 15h30 avant). Facebook ne reçoit donc plus rien le jeudi.
       #
       # Ce que ça change par rapport à la version précédente :
       #   - le suffixe "-NOCAROUSEL" (qui excluait le profil perso depuis le 17/08) est RETIRÉ ;
@@ -112,7 +138,7 @@ jobs:
       # ─────────────────────────────────────────────────────────────────────────
       - name: Publication réseaux sociaux (webhook unique — LinkedIn Company + profil perso ; Facebook exclu, il reçoit le samedi)
         id: social
-        if: steps.fraicheur.outputs.publier == 'true'
+        if: steps.tag.outputs.suite == 'publier'
         env:
           MAKE_WEBHOOK: ${{ secrets.MAKE_WEBHOOK }}
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
@@ -148,14 +174,14 @@ jobs:
           echo "✅ Webhook accepté (HTTP 200) — vérification réelle faite par check-apres-publication.yml."
 
       - name: Vérifier les résultats et faire échouer le job si besoin
-        if: always()
+        if: always() && steps.tag.outputs.suite == 'publier'
         run: |
           echo "Publication réseaux sociaux : ${{ steps.social.outcome }}"
           if [ "${{ steps.social.outcome }}" = "failure" ]; then
             echo "::error::L'appel au webhook a échoué — voir les logs ci-dessus."
             exit 1
           fi
-          echo "✅ Appel webhook réussi (LinkedIn Company + profil perso). Facebook reçoit le même post le samedi 15h30 NC."
+          echo "✅ Appel webhook réussi (LinkedIn Company + profil perso). Facebook reçoit le même post le samedi 11h00 NC."
 
       - name: Issue « alerte » si la publication a échoué
         if: failure()

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Carrousel W39 — Le rituel hebdomadaire qui pilote vraiment (Serie 2, 5/8)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Arial', sans-serif; background: #d0d0d0; }
+
+  .slide {
+    width: 1200px;
+    height: 1500px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 24px auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+  }
+
+  /* SLIDE 1 — Couverture plein-cadre + dégradé */
+  .slide-1 { background: #001D9F; }
+  .slide-1 .bg-photo { position: absolute; inset: 0; z-index: 0; }
+  .slide-1 .bg-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 30%; display: block; }
+  .slide-1 .bg-gradient {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(105deg, rgba(0,29,159,0.98) 0%, rgba(0,29,159,0.95) 38%, rgba(0,29,159,0.80) 55%, rgba(0,29,159,0.35) 75%, rgba(0,29,159,0.05) 100%);
+  }
+  .slide-1 .content { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: 52px 56px 52px 96px; max-width: 700px; }
+  .slide-1 .logo-zone img { height: 172px; filter: brightness(0) invert(1); object-fit: contain; }
+  .slide-1 .serie-badge {
+    display: inline-block; background: rgba(251,170,22,0.18); border: 1px solid rgba(251,170,22,0.5); color: #FBAA16;
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 20px; border-radius: 100px;
+    margin-top: 44px; align-self: flex-start;
+  }
+  .slide-1 .stat-block {
+    margin-top: 36px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-left: 5px solid #FBAA16;
+    border-radius: 0 14px 14px 0; padding: 22px 28px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+  }
+  .slide-1 .stat-num { font-size: 66px; font-weight: 900; color: #FBAA16; line-height: 1; }
+  .slide-1 .stat-text { font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.85); line-height: 1.4; }
+  .slide-1 .main-title { font-size: 64px; font-weight: 900; color: #fff; line-height: 1.24; letter-spacing: -0.5px; margin-top: 40px; }
+  .slide-1 .main-title .accent { color: #FBAA16; }
+  .slide-1 .subtitle { font-size: 24px; font-weight: 600; color: rgba(255,255,255,0.68); line-height: 1.95; margin-top: 18px; }
+  .slide-1 .slide-num { position: absolute; bottom: 52px; right: 60px; font-size: 13px; color: rgba(255,255,255,0.28); font-weight: 700; letter-spacing: 3px; z-index: 2; }
+  .slide-1 .url { margin-top: auto; font-size: 14px; color: rgba(255,255,255,0.35); font-weight: 500; letter-spacing: 0.5px; }
+
+  /* SLIDES CONTENU (2, 3, 4) — fond blanc */
+  .slide-content { background: #FFFFFF; color: #111827; flex-direction: column; }
+  .slide-content .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 44px 96px 0; flex-shrink: 0; }
+  .slide-content .logo-zone img { height: 150px; object-fit: contain; }
+  .slide-content .slide-num { font-size: 14px; color: #CBD5E1; font-weight: 700; letter-spacing: 3px; }
+  .slide-content .deco-bar { height: 5px; background: linear-gradient(to right, #001D9F 0%, #FBAA16 50%, transparent 100%); margin: 28px 96px 0; border-radius: 3px; }
+  .slide-content .slide-tag {
+    display: inline-block; background: #EDF4FF; color: #001D9F; font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.5px; padding: 7px 18px; border-radius: 100px; margin: 28px 96px 0; align-self: flex-start;
+  }
+  .slide-content h2 { font-size: 44px; font-weight: 900; color: #001D9F; line-height: 1.15; padding: 16px 96px 0; letter-spacing: -0.5px; }
+  .slide-content h2 .accent { color: #FBAA16; }
+  .slide-content .lead { font-size: 22px; color: #475569; padding: 14px 96px 0; line-height: 1.55; }
+  /* Encadrés conseil / fil rouge — DOIVENT dominer le reste de la slide (règle Jean-Michel 17/08/2026) */
+  .callout { margin: 28px 96px 12px; background: #EDF4FF; border-left: 9px solid #001D9F; border-radius: 0 14px 14px 0; padding: 28px 34px; box-shadow: 0 3px 14px rgba(0,29,159,0.10); }
+  .callout-label { font-size: 17px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; color: #001D9F; margin-bottom: 12px; }
+  .callout p { font-size: 29px; color: #001D9F; line-height: 1.42; font-weight: 800; }
+  .item-list { padding: 40px 96px 0; display: flex; flex-direction: column; gap: 26px; flex: 1; justify-content: space-between; }
+  .item { display: flex; align-items: flex-start; gap: 18px; padding: 26px 30px; background: #F8FAFF; border-radius: 14px; border: 1px solid #E2E8F0; }
+  .item.featured { background: #EDF4FF; border-color: #C7D9F8; }
+  .item .icon { width: 48px; height: 48px; background: #001D9F; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; color: white; font-weight: 900; }
+  .item .icon.gold { background: #FBAA16; }
+  .item .label { font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #001D9F; margin-bottom: 5px; }
+  .item .text { font-size: 24px; color: #374151; line-height: 1.4; }
+  .slide-content .bottom-bar { margin-top: auto; padding: 24px 96px 40px; border-top: 1px solid #F1F5F9; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .slide-content .bottom-bar .url { font-size: 13px; color: #94A3B8; font-weight: 500; }
+  .slide-content .bottom-bar .series { font-size: 12px; color: #001D9F; font-weight: 700; letter-spacing: 0.5px; }
+
+  /* Cartes (slide 2) */
+  .index-list { padding: 34px 96px 0; display: flex; flex-direction: column; gap: 26px; flex: 1; justify-content: space-between; }
+  .index-card { background: #F8FAFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 46px 34px; }
+  .index-card:last-child { background: #EDF4FF; border-color: #C7D9F8; }
+  .index-card .index-name { font-size: 27px; font-weight: 800; color: #001D9F; margin-bottom: 8px; }
+  .index-card .index-desc { font-size: 23px; color: #475569; line-height: 1.45; }
+
+  /* Bande photo (slide 3) */
+  .photo-strip { margin: 30px 96px 0; flex: 1; min-height: 300px; border-radius: 14px; overflow: hidden; }
+  .photo-strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+
+  /* SLIDE 5 — Diagnostic avec photo fond flou */
+  .slide-diag { background: #FFFFFF; flex-direction: column; }
+  .slide-diag .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 44px 96px 0; flex-shrink: 0; position: relative; z-index: 2; }
+  .slide-diag .logo-zone img { height: 150px; object-fit: contain; }
+  .slide-diag .slide-num { font-size: 14px; color: #CBD5E1; font-weight: 700; letter-spacing: 3px; }
+  .slide-diag .deco-bar { height: 5px; background: linear-gradient(to right, #001D9F, #FBAA16, transparent); margin: 28px 96px 0; border-radius: 3px; position: relative; z-index: 2; }
+  .slide-diag .bg-photo-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 580px; z-index: 0; overflow: hidden; }
+  .slide-diag .bg-photo-bottom img { width: 100%; height: 100%; object-fit: cover; object-position: center 32%; display: block; filter: saturate(0.7) brightness(0.85); }
+  .slide-diag .bg-photo-bottom::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 200px; background: linear-gradient(to bottom, #fff, transparent); z-index: 1; }
+  .slide-diag .bg-photo-bottom::after { content: ''; position: absolute; inset: 0; background: rgba(0,29,159,0.42); z-index: 1; }
+  .slide-diag .content { position: relative; z-index: 2; display: flex; flex-direction: column; flex: 1; padding: 0 96px; }
+  .slide-diag .slide-tag { display: inline-block; background: #EDF4FF; color: #001D9F; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 7px 18px; border-radius: 100px; margin-top: 24px; align-self: flex-start; }
+  .slide-diag h2 { font-size: 44px; font-weight: 900; color: #001D9F; line-height: 1.15; margin-top: 16px; letter-spacing: -0.5px; }
+  .slide-diag h2 .accent { color: #FBAA16; }
+  .slide-diag .lead { font-size: 19px; color: #475569; line-height: 1.5; margin-top: 10px; }
+  .slide-diag .diag-questions { display: flex; flex-direction: column; gap: 14px; margin-top: 22px; }
+  .slide-diag .diag-q { background: rgba(255,255,255,0.97); border-left: 4px solid #001D9F; border-radius: 0 12px 12px 0; padding: 18px 22px; box-shadow: 0 2px 12px rgba(0,29,159,0.08); }
+  .slide-diag .diag-q .q-label { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: #001D9F; margin-bottom: 6px; }
+  .slide-diag .diag-q .q-text { font-size: 19px; color: #163D78; line-height: 1.45; font-weight: 600; }
+  .slide-diag .diag-q.gold-q { border-left-color: #FBAA16; }
+  .slide-diag .diag-q.gold-q .q-label { color: #92600A; }
+  .slide-diag .diag-callout { margin-top: 20px; background: rgba(255,255,255,0.98); border: 2px solid rgba(251,170,22,0.65); border-left: 9px solid #FBAA16; border-radius: 0 14px 14px 0; padding: 26px 30px; font-size: 27px; color: #92600A; line-height: 1.42; font-weight: 800; box-shadow: 0 3px 16px rgba(251,170,22,0.22); }
+  .slide-diag .bottom-bar { position: relative; z-index: 2; padding: 20px 96px 36px; display: flex; align-items: center; justify-content: space-between; }
+  .slide-diag .bottom-bar .url { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 500; }
+  .slide-diag .bottom-bar .series { font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 700; }
+
+  /* SLIDE 6 — CTA sombre */
+  .slide-6 { background: linear-gradient(155deg, #163D78 0%, #001D9F 60%, #0015A0 100%); color: white; flex-direction: column; }
+  .slide-6 .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 52px 96px 0; }
+  .slide-6 .logo-zone img { height: 172px; filter: brightness(0) invert(1); object-fit: contain; }
+  .slide-6 .slide-num { font-size: 14px; color: rgba(255,255,255,0.28); font-weight: 700; letter-spacing: 3px; }
+  .slide-6 .deco-bar { height: 4px; background: linear-gradient(to right, #FBAA16, rgba(251,170,22,0.2), transparent); margin: 36px 96px 0; border-radius: 3px; }
+  .slide-6 .cta-title { font-size: 54px; font-weight: 900; line-height: 1.15; padding: 84px 96px 0; letter-spacing: -1px; }
+  .slide-6 .cta-title .gold { color: #FBAA16; }
+  .slide-6 .cta-sub { font-size: 27px; color: rgba(255,255,255,0.68); padding: 34px 96px 0; line-height: 1.55; }
+  .slide-6 .cta-checks { padding: 58px 96px 0; display: flex; flex-direction: column; gap: 38px; }
+  .slide-6 .check { display: flex; align-items: center; gap: 16px; font-size: 24px; color: rgba(255,255,255,0.85); }
+  .slide-6 .dot { width: 9px; height: 9px; background: #FBAA16; border-radius: 50%; flex-shrink: 0; }
+  .slide-6 .contact-box { margin: 74px 96px 0; background: rgba(251,170,22,0.1); border: 1px solid rgba(251,170,22,0.3); border-radius: 18px; padding: 42px 36px; }
+  .slide-6 .contact-label { font-size: 14px; color: #FBAA16; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+  .slide-6 .contact-info { font-size: 30px; color: white; font-weight: 700; line-height: 1.6; }
+  .slide-6 .contact-url { font-size: 22px; color: #FBAA16; margin-top: 6px; }
+  .slide-6 .bottom-bar { margin-top: auto; padding: 0 96px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .slide-6 .series-label { font-size: 13px; color: rgba(255,255,255,0.28); text-transform: uppercase; letter-spacing: 2px; }
+
+  /* SLIDE FACEBOOK — variante couverture, polices +30% (règle du 27/07/2026), logo inchangé */
+  .slide-fb .content { max-width: 880px; }
+  .slide-fb .bg-gradient {
+    background: linear-gradient(105deg, rgba(0,29,159,0.97) 0%, rgba(0,29,159,0.93) 44%, rgba(0,29,159,0.84) 62%, rgba(0,29,159,0.34) 80%, rgba(0,29,159,0.04) 100%);
+  }
+  .slide-fb .stat-num { font-size: 86px; }
+  .slide-fb .stat-text { font-size: 26px; }
+  .slide-fb .main-title { font-size: 83px; }
+  .slide-fb .subtitle { font-size: 31px; line-height: 1.85; }
+</style>
+</head>
+<body>
+
+
+
+<!-- ===== SLIDE 1 — Couverture ===== -->
+<div class="slide slide-1">
+  <div class="bg-photo">
+    <img src="w39-cover-point-hebdo-01.png" alt="">
+  </div>
+  <div class="bg-gradient"></div>
+  <div class="content">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="serie-badge">Série Le Rythme de Pilotage · 5/8</span>
+    <div class="stat-block">
+      <span class="stat-num">87&nbsp;%</span>
+      <span class="stat-text">des salariés disent manquer<br>de temps pour se coordonner,<br>chacun étant pris par ses dossiers.</span>
+    </div>
+    <h1 class="main-title">Une heure<br>de réunion.<br><span class="accent">Rien d'écrit</span>.</h1>
+    <p class="subtitle">Vous avez déjà un point<br>chaque semaine. Il lui manque<br>cinq minutes à la fin.</p>
+    <span class="url" style="margin-top:auto;">https://www.perfeco.nc/</span>
+  </div>
+  <span class="slide-num">01</span>
+</div>
+
+<!-- ===== SLIDE 2 — Ce que vous avez déjà tenté ===== -->
+<div class="slide slide-content">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">02</span>
+  </div>
+  <div class="deco-bar"></div>
+  <span class="slide-tag">Ce que vous avez déjà tenté</span>
+  <h2>Vous avez déjà essayé<br>de le <span class="accent">raccourcir</span></h2>
+  <p class="lead">Les trois sont de bons réflexes. Chacun s'arrête juste avant la décision.</p>
+  <div class="index-list">
+    <div class="index-card">
+      <div class="index-name">L'ordre du jour envoyé la veille</div>
+      <div class="index-desc">Chacun sait ce dont on va parler.<br>Le premier sujet prend quand même toute l'heure.</div>
+    </div>
+    <div class="index-card">
+      <div class="index-name">La réunion debout, quinze minutes</div>
+      <div class="index-desc">Plus courte, plus vive, tout le monde parle.<br>On en ressort sans savoir qui fait quoi.</div>
+    </div>
+    <div class="index-card">
+      <div class="index-name">Le compte rendu du lendemain</div>
+      <div class="index-desc">Six paragraphes, relus par personne.<br>Les décisions y sont, noyées dans le reste.</div>
+    </div>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Le point commun</div>
+    <p>Les trois soignent le début de la réunion.<br>La décision, elle, se joue dans<br>les cinq dernières minutes.</p>
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">Le Rythme de Pilotage · 5/8</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 3 — Où part l'heure du lundi ===== -->
+<div class="slide slide-content">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">03</span>
+  </div>
+  <div class="deco-bar"></div>
+  <span class="slide-tag">Ce qui se passe vraiment</span>
+  <h2>Où part<br>l'<span class="accent">heure du lundi</span></h2>
+  <p class="lead">Personne ne fait mal son travail. L'heure se remplit toute seule.</p>
+  <div class="item-list">
+    <div class="item">
+      <div class="icon">1</div>
+      <div><div class="label">Le tour de table</div><div class="text">Chacun raconte sa semaine.<br>Vingt minutes plus tard,<br>on n'a parlé que du passé.</div></div>
+    </div>
+    <div class="item">
+      <div class="icon">2</div>
+      <div><div class="label">Le dossier qui déborde</div><div class="text">Un sujet urgent ce matin-là<br>prend le reste de l'heure.<br>Les quatre autres attendent.</div></div>
+    </div>
+    <div class="item featured">
+      <div class="icon gold">3</div>
+      <div><div class="label">La sortie sans nom ni date</div><div class="text">On se quitte sur «&nbsp;on se recale&nbsp;».<br>Le qui et le quand restent<br>dans les têtes de chacun.</div></div>
+    </div>
+  </div>
+  <div class="photo-strip">
+    <img src="w39-slide3-tour-de-table-01.png" alt="">
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">Le Rythme de Pilotage · 5/8</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 4 — Quarante-cinq minutes, quatre rubriques ===== -->
+<div class="slide slide-content">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">04</span>
+  </div>
+  <div class="deco-bar"></div>
+  <span class="slide-tag">Ce qui tient dans la durée</span>
+  <h2>Quarante-cinq minutes,<br><span class="accent">quatre rubriques</span></h2>
+  <div class="item-list">
+    <div class="item">
+      <div class="icon" style="font-size:22px;font-weight:900;">&#9312;</div>
+      <div><div class="label">Ce qui a bougé · 10&nbsp;min</div><div class="text">Les chiffres de la semaine,<br>énoncés sans commentaire.</div></div>
+    </div>
+    <div class="item">
+      <div class="icon" style="font-size:22px;font-weight:900;">&#9313;</div>
+      <div><div class="label">Ce qui coince · 15&nbsp;min</div><div class="text">Deux ou trois dossiers arrêtés.<br>On les nomme, on ne les traite pas.</div></div>
+    </div>
+    <div class="item">
+      <div class="icon" style="font-size:22px;font-weight:900;">&#9314;</div>
+      <div><div class="label">Ce qu'on tranche · 15&nbsp;min</div><div class="text">Les décisions qui ne peuvent<br>pas attendre la semaine prochaine.</div></div>
+    </div>
+    <div class="item featured">
+      <div class="icon gold" style="font-size:22px;font-weight:900;">&#9315;</div>
+      <div><div class="label">Ce qu'on écrit · 5&nbsp;min</div><div class="text">Trois lignes : la décision,<br>le nom, la date. Lues à voix haute.</div></div>
+    </div>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Notre conseil</div>
+    <p>Gardez les cinq dernières minutes,<br>même si vous sautez les trois<br>premières rubriques.</p>
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">Le Rythme de Pilotage · 5/8</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 5 — Par où commencer ===== -->
+<div class="slide slide-diag">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">05</span>
+  </div>
+  <div class="deco-bar"></div>
+  <div class="bg-photo-bottom">
+    <img src="w39-slide5-trois-lignes-01.png" alt="">
+  </div>
+  <div class="content">
+    <span class="slide-tag">Question de diagnostic</span>
+    <h2>Par où <span class="accent">commencer</span>&nbsp;?</h2>
+    <p class="lead">Vous tenez ce point chaque semaine, et vous avez eu raison de l'installer : une équipe qui se voit tous les lundis se rattrape plus vite qu'une équipe qui se retrouve au trimestre. Ce qui manque est ailleurs — c'est une trace écrite en sortant.</p>
+    <div class="diag-questions">
+      <div class="diag-q">
+        <div class="q-label">1 — Le test de la semaine dernière</div>
+        <div class="q-text">Combien de décisions sont sorties par écrit de votre dernier point&nbsp;?</div>
+      </div>
+      <div class="diag-q">
+        <div class="q-label">2 — Le test de l'horaire</div>
+        <div class="q-text">Votre point finit-il à l'heure prévue, ou déborde-t-il d'un quart d'heure chaque fois&nbsp;?</div>
+      </div>
+      <div class="diag-q gold-q">
+        <div class="q-label">3 — Le test des deux versions</div>
+        <div class="q-text">Demandez à deux participants ce qui a été décidé lundi. Obtenez-vous la même réponse&nbsp;?</div>
+      </div>
+    </div>
+    <div class="diag-callout">
+      Notre conseil : une seule réponse gênante suffit.<br>Prenez celle-là, et changez une seule chose<br>à votre prochain point.
+    </div>
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">Le Rythme de Pilotage · 5/8</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 6 — CTA ===== -->
+<div class="slide slide-6">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">06</span>
+  </div>
+  <div class="deco-bar"></div>
+  <h2 class="cta-title">Un point du lundi<br><span class="gold">qui sort des décisions&nbsp;?</span></h2>
+  <p class="cta-sub">PerfEco aide les directions générales à transformer leur<br>point hebdomadaire en cinq minutes qui tranchent —<br>une décision, un nom, une date — plutôt qu'à ajouter<br>une réunion de plus à la semaine.</p>
+  <div class="cta-checks">
+    <div class="check"><span class="dot"></span>Quarante-cinq minutes, quatre rubriques, une fin ferme</div>
+    <div class="check"><span class="dot"></span>Trois lignes écrites avant de quitter la salle</div>
+    <div class="check"><span class="dot"></span>Un nom et une date pour chaque décision</div>
+    <div class="check"><span class="dot"></span>La même réponse chez tous les participants le lendemain</div>
+  </div>
+  <div class="contact-box">
+    <div class="contact-label">Prendre contact</div>
+    <div class="contact-info">contact@perfeco.nc<br>+687 73 08 75</div>
+    <div class="contact-url">https://www.perfeco.nc/</div>
+  </div>
+  <div class="bottom-bar">
+    <span class="series-label">Série Le Rythme de Pilotage · 5/8 · Septembre 2026</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE FACEBOOK — variante couverture (00-facebook, polices +30%) ===== -->
+<div class="slide slide-1 slide-fb">
+  <div class="bg-photo">
+    <img src="w39-cover-point-hebdo-01.png" alt="">
+  </div>
+  <div class="bg-gradient"></div>
+  <div class="content">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="serie-badge">Série Le Rythme de Pilotage · 5/8</span>
+    <div class="stat-block">
+      <span class="stat-num">87&nbsp;%</span>
+      <span class="stat-text">des salariés disent manquer<br>de temps pour se coordonner.</span>
+    </div>
+    <h1 class="main-title">Une heure<br>de réunion.<br><span class="accent">Rien d'écrit</span>.</h1>
+    <p class="subtitle">Vous avez déjà un point<br>chaque semaine. Il lui manque<br>cinq minutes à la fin.</p>
+    <span class="url" style="margin-top:auto;">https://www.perfeco.nc/</span>
+  </div>
+</div>
+
+</body>
+</html>

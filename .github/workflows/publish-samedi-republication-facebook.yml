@@ -28,7 +28,15 @@ on:
   # et publie ; les suivants voient le tag et s'arrêtent (scripts/creneau-publication.sh).
   # Après 17h00 NC, plus rien ne part : issue « alerte ».
   # Les quatre premiers créneaux sont le VENDREDI en UTC = le SAMEDI matin en NC.
+  #
+  # RELAIS DE VEILLEURS depuis le 22/11/2026 (accord de Jean-Michel : « Oui, le relais ») :
+  # les deux crons d'ENTRÉE ci-dessous partent la VEILLE au soir (NC). Même avec 5 à 7 h
+  # de retard, l'un d'eux arrive dans la nuit ; il dort par tranches de 5 h 30 et se relance
+  # lui-même par workflow_dispatch (démarrage en secondes) jusqu'à 11h00 NC.
+  # Les créneaux du matin restent en SECOURS si la chaîne se rompt.
   schedule:
+    - cron: '47 8 * * 5'   # Vendredi 19h47 NC — entrée du relais
+    - cron: '47 12 * * 5'  # Vendredi 23h47 NC — entrée du relais (secours)
     - cron: '47 20 * * 5'  # Samedi 07h47 NC — attend 11h00
     - cron: '47 21 * * 5'  # Samedi 08h47 NC — secours
     - cron: '47 22 * * 5'  # Samedi 09h47 NC — secours
@@ -41,9 +49,11 @@ on:
 # cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
 # issues: write depuis le 19/11/2026 : un échec ouvre une issue « alerte » (e-mail GitHub, PC éteint).
 # contents: write depuis le 20/11/2026 : uniquement pour poser le tag pub-samedi-<date> (anti-doublon).
+# actions: write depuis le 22/11/2026 : le veilleur se relance lui-même (workflow_dispatch).
 permissions:
   contents: write
   issues: write
+  actions: write
 
 concurrency:
   group: publication-samedi
@@ -58,6 +68,9 @@ jobs:
 
       - name: Créneau — déjà publié ? sinon attendre 11h00 NC (limite 17h00)
         id: creneau
+        env:
+          CRENEAU_JOUR_SEMAINE: "6"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash scripts/creneau-publication.sh attendre samedi 1100 1700
 
       # Vendredi férié → la veille éco part CE samedi à 11h00, Facebook compris. Deux posts

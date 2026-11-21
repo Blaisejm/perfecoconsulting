@@ -1,9 +1,23 @@
 name: PerfEco — Publication vendredi (veille économique, webhook unique)
 
 on:
+  # PLUSIEURS DÉCLENCHEMENTS depuis le 22/11/2026 (feu vert de Jean-Michel ; heure cible
+  # 11h00 NC) : le cron GitHub part avec 5 h de retard ou plus. Le premier arrivé
+  # ATTEND 11h00 NC, pose le tag pub-vendredi-<date> et publie ; les suivants voient le tag
+  # et s'arrêtent (scripts/creneau-publication.sh). Après 17h00 NC, rien ne part : alerte.
+  # Les créneaux de la VEILLE en UTC sont le matin du jour J en NC.
   schedule:
-    - cron: '0 0 * * 5'  # Vendredi 00h00 UTC = 11h00 Nouvelle-Calédonie (cas normal)
-    - cron: '0 0 * * 6'  # Samedi 00h00 UTC = 11h00 NC — vendredi férié (voir ci-dessous)
+    # Vendredi NC (cas normal)
+    - cron: '47 20 * * 4'  # Vendredi 07h47 NC — attend 11h00
+    - cron: '47 21 * * 4'  # Vendredi 08h47 NC — secours
+    - cron: '47 22 * * 4'  # Vendredi 09h47 NC — secours
+    - cron: '47 23 * * 4'  # Vendredi 10h47 NC — secours
+    - cron: '17 1 * * 5'   # Vendredi 12h17 NC — rattrapage
+    - cron: '17 3 * * 5'   # Vendredi 14h17 NC — rattrapage (limite 17h00)
+    # Samedi NC — vendredi férié (voir ci-dessous) ; à vide les autres semaines
+    - cron: '47 20 * * 5'  # Samedi 07h47 NC
+    - cron: '47 22 * * 5'  # Samedi 09h47 NC
+    - cron: '17 1 * * 6'   # Samedi 12h17 NC — rattrapage
   workflow_dispatch:
 
 # ⚠️ POURQUOI UN CRON LE SAMEDI (ajouté le 21/08/2026)
@@ -15,17 +29,17 @@ on:
 # Même mécanique que les crons lundi/mercredi des deux autres publications : un écart de
 # date le VENDREDI reste une anomalie bruyante, un écart le samedi est une sortie normale.
 #
-# ⚠️ TÉLESCOPAGE À SURVEILLER CES SAMEDIS-LÀ : publish-samedi-republication-facebook.yml
-# republie le post court sur Facebook à 15h30 NC. Un samedi de bascule, Facebook recevrait
-# donc DEUX posts le même jour (veille éco 11h + republication 15h30). LinkedIn n'est pas
-# concerné (la republication est filtrée FBONLY), mais la règle d'espacement vise aussi
-# Facebook : suspendre la republication ce samedi-là, ou l'assumer explicitement.
+# TÉLESCOPAGE RÉGLÉ LE 20/11/2026 : la republication Facebook du samedi vise elle aussi
+# 11h00 NC. Un samedi de bascule (vendredi férié), publish-samedi-republication-facebook.yml
+# voit que vendredi.json porte la date du jour et SAUTE la republication : jamais deux posts
+# Facebook le même jour.
 
 # Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Jamais deux exécutions simultanées d'une même publication.
 # cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
 # issues: write depuis le 19/11/2026 : un échec ouvre une issue « alerte » (e-mail GitHub, PC éteint).
+# contents: write depuis le 22/11/2026 : uniquement pour poser le tag pub-vendredi-<date> (anti-doublon).
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 concurrency:
@@ -35,6 +49,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
 
@@ -65,9 +80,19 @@ jobs:
           echo "publier=true" >> "$GITHUB_OUTPUT"
           echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
 
+      - name: Créneau — déjà publié ? sinon attendre 11h00 NC (limite 17h00)
+        id: creneau
+        if: steps.fraicheur.outputs.publier == 'true'
+        run: bash scripts/creneau-publication.sh attendre vendredi 1100 1700
+
+      - name: Créneau — poser le tag du jour (un seul run publie)
+        id: tag
+        if: steps.creneau.outputs.suite == 'publier'
+        run: bash scripts/creneau-publication.sh prendre vendredi
+
       - name: Publication réseaux sociaux (webhook unique — LinkedIn Company + LinkedIn perso + Facebook)
         id: social
-        if: steps.fraicheur.outputs.publier == 'true'
+        if: steps.tag.outputs.suite == 'publier'
         env:
           MAKE_WEBHOOK: ${{ secrets.MAKE_WEBHOOK }}
           MAKE_API_TOKEN: ${{ secrets.MAKE_API_TOKEN }}
@@ -103,7 +128,7 @@ jobs:
           echo "✅ Webhook accepté (HTTP 200) — vérification réelle faite par check-apres-publication.yml."
 
       - name: Vérifier les résultats et faire échouer le job si besoin
-        if: always()
+        if: always() && steps.tag.outputs.suite == 'publier'
         run: |
           echo "Publication réseaux sociaux : ${{ steps.social.outcome }}"
           if [ "${{ steps.social.outcome }}" = "failure" ]; then

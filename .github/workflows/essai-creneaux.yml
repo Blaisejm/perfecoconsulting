@@ -18,7 +18,7 @@ on:
 
 permissions:
   contents: write
-  actions: read
+  actions: write
 
 concurrency:
   group: essai-creneaux
@@ -55,7 +55,40 @@ jobs:
           CRENEAU_HEURE=1600 attendu "rattrapage avant la limite"   0 publier    bash $D attendre essai2 1530 1700
           CRENEAU_HEURE=0747 attendu "samedi 07h47 → attend 11h00 puis publier" 0 publier bash $D attendre essai4 1100 1700
           CRENEAU_HEURE=0747 attendu "mardi 07h47 → attend 11h00 puis publier" 0 publier bash $D attendre essai5 1100 1700
+          CRENEAU_HEURE=0747 attendu "jeudi 07h47 → attend 11h00 puis publier" 0 publier bash $D attendre essai6 1100 1700
+          CRENEAU_HEURE=0747 attendu "vendredi 07h47 → attend 11h00 puis publier" 0 publier bash $D attendre essai7 1100 1700
+          attendu "jeudi : 1er run pose le tag"  0 publier bash $D prendre essai6
+          attendu "jeudi : 2e run refusé"        0 deja    bash $D prendre essai6
           CRENEAU_HEURE=1800 attendu "après la limite → rien, alerte" 1 hors_delai bash $D attendre essai3 1530 1700
+          exit $KO
+
+      - name: Relais de veilleurs (22/11/2026)
+        env:
+          EVENEMENT: ${{ github.event_name }}
+        run: |
+          set -u
+          git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
+          KO=0
+          attendu() {
+            L="$1"; C="$2"; S="$3"; shift 3
+            RC=0; OUT=$(GITHUB_OUTPUT=/dev/null "$@" 2>&1) || RC=$?
+            echo "$OUT"
+            if [ "$RC" = "$C" ] && echo "$OUT" | grep -q "suite=$S"; then echo "✅ $L : code $RC, suite=$S"
+            else echo "::error title=Essai relais::$L — attendu code $C suite=$S, obtenu code $RC"; KO=1; fi
+          }
+          D=scripts/creneau-publication.sh
+          DEMAIN_DOW=$(TZ=Pacific/Noumea date -d tomorrow +%u)
+          DEMAIN=$(TZ=Pacific/Noumea date -d tomorrow +%Y-%m-%d)
+          CRENEAU_JOUR_SEMAINE=$DEMAIN_DOW attendu "veille au soir, > 5 h 40 → sommeil puis relance" 0 relais bash $D attendre essai8 1100 1700
+          git tag "essai-pub-essai9-$DEMAIN" && git push -q origin "refs/tags/essai-pub-essai9-$DEMAIN"
+          CRENEAU_JOUR_SEMAINE=$DEMAIN_DOW attendu "veille, publication de demain déjà faite → arrêt" 0 deja bash $D attendre essai9 1100 1700
+          if [ "$EVENEMENT" = "push" ]; then
+            # Vraie relance par workflow_dispatch avec le GITHUB_TOKEN : crée UN run de cet essai
+            # (événement workflow_dispatch), qui, lui, ne relance plus rien.
+            CRENEAU_ESSAI_RELANCE=1 CRENEAU_JOUR_SEMAINE=$DEMAIN_DOW attendu "VRAIE relance workflow_dispatch (HTTP 204)" 0 relais bash $D attendre essai10 1100 1700
+          else
+            echo "Run lancé par le relais ($EVENEMENT) : la relance réelle a donc fonctionné. Pas de nouvelle relance."
+          fi
           exit $KO
 
       - name: Fenêtre du contrôle après publication

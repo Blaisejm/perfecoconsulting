@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Veille éco — Créances douteuses NC — vendredi 14/08/2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Arial', sans-serif; background: #d0d0d0; }
+
+  .slide {
+    width: 1200px;
+    height: 1500px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 24px auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+    background: #001D9F;
+  }
+  .bg-photo { position: absolute; inset: 0; z-index: 0; }
+  .bg-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 20%; display: block; }
+  .bg-gradient {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(105deg, rgba(0,29,159,0.98) 0%, rgba(0,29,159,0.95) 38%, rgba(0,29,159,0.80) 55%, rgba(0,29,159,0.35) 75%, rgba(0,29,159,0.05) 100%);
+  }
+  .content { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: 52px 56px 52px 96px; max-width: 700px; }
+  .logo-zone img { height: 172px; filter: brightness(0) invert(1); object-fit: contain; }
+  .tag {
+    display: inline-block; background: rgba(251,170,22,0.18); border: 1px solid rgba(251,170,22,0.5); color: #FBAA16;
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 20px; border-radius: 100px;
+    margin-top: 44px; align-self: flex-start;
+  }
+  .stat-block {
+    margin-top: 36px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-left: 5px solid #FBAA16;
+    border-radius: 0 14px 14px 0; padding: 22px 28px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+  }
+  .stat-num { font-size: 66px; font-weight: 900; color: #FBAA16; line-height: 1; }
+  .stat-text { font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.85); line-height: 1.4; }
+  .main-title { font-size: 60px; font-weight: 900; color: #fff; line-height: 1.12; letter-spacing: -0.5px; margin-top: 32px; }
+  .main-title .accent { color: #FBAA16; }
+  .subtitle { font-size: 22px; font-weight: 600; color: rgba(255,255,255,0.62); line-height: 1.5; margin-top: 18px; }
+  .url { margin-top: auto; font-size: 14px; color: rgba(255,255,255,0.35); font-weight: 500; letter-spacing: 0.5px; }
+
+  .slide-fb .stat-num { font-size: 86px; }
+  .slide-fb .stat-text { font-size: 26px; }
+  .slide-fb .main-title { font-size: 78px; }
+  .slide-fb .subtitle { font-size: 29px; }
+</style>
+</head>
+<body>
+
+<!-- ===== SLIDE LinkedIn ===== -->
+<div class="slide">
+  <div class="bg-photo"><img src="veille-eco-w33-creances-nc-01.png" alt=""></div>
+  <div class="bg-gradient"></div>
+  <div class="content">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="tag">Nouvelle-Calédonie · IEOM, 2026</span>
+    <div class="stat-block">
+      <span class="stat-num">9%</span>
+      <span class="stat-text">des encours de crédit aux entreprises sont désormais des créances douteuses<br><strong style="color:rgba(255,255,255,0.55);font-size:15px;font-weight:600;">— un taux qui a plus que doublé depuis 2023</strong></span>
+    </div>
+    <h1 class="main-title">Les impayés ne<br>préviennent pas.<br><span class="accent">Le pilotage, si.</span></h1>
+    <p class="subtitle">Anticiper le risque client vaut<br>mieux que subir la trésorerie.</p>
+    <span class="url">https://www.perfeco.nc/</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE Facebook (00-facebook, polices +30%) ===== -->
+<div class="slide slide-fb">
+  <div class="bg-photo"><img src="veille-eco-w33-creances-nc-01.png" alt=""></div>
+  <div class="bg-gradient"></div>
+  <div class="content">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="tag">Nouvelle-Calédonie · IEOM, 2026</span>
+    <div class="stat-block">
+      <span class="stat-num">9%</span>
+      <span class="stat-text">des encours de crédit aux entreprises sont désormais des créances douteuses<br><strong style="color:rgba(255,255,255,0.55);font-size:19px;font-weight:600;">— un taux qui a plus que doublé depuis 2023</strong></span>
+    </div>
+    <h1 class="main-title">Les impayés ne<br>préviennent pas.<br><span class="accent">Le pilotage, si.</span></h1>
+    <p class="subtitle">Anticiper le risque client vaut<br>mieux que subir la trésorerie.</p>
+    <span class="url">https://www.perfeco.nc/</span>
+  </div>
+</div>
+
+</body>
+</html>
