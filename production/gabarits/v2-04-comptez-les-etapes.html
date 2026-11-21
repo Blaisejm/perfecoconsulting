@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Campagne dédiée 4/10 — Les coûts invisibles de l’organisation (jeudi 22/10/2026)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif; background: #d0d0d0; }
+
+  /* ═══════════════════════════════════════════════════════════════
+     GABARIT V2 « Performance » — visuel unique, 1200 x 1500 (4:5)
+     Copie conforme de images-library/linkedin-carousel/gabarit-v2-performance.html
+     Bandeau #163D78, accent #FBAA16, logo officiel.
+     Publication 4/10 de la campagne dediee — jeudi 22/10/2026.
+     ═══════════════════════════════════════════════════════════════ */
+
+  .slide {
+    width: 1200px; height: 1500px;
+    position: relative; overflow: hidden;
+    margin: 24px auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+    background: #163D78;
+  }
+
+  .v2-photo { position: absolute; inset: 0; z-index: 0; }
+  .v2-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; }
+
+  .v2-band {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 478px; z-index: 2;
+  }
+  .v2-band svg { position: absolute; top: -118px; left: 0; width: 100%; height: 120px; display: block; }
+  .v2-band .band-body { position: absolute; inset: 0; background: #163D78; }
+
+  .v2-text { position: absolute; z-index: 3; left: 96px; right: 110px; bottom: 132px; }
+  .v2-title { color: #FFFFFF; text-transform: uppercase; letter-spacing: -0.5px; }
+  .v2-title .l1 { display: block; font-size: 62px; font-weight: 900; line-height: 1.10; }
+  .v2-title .l2 { display: block; font-size: 56px; font-weight: 400; line-height: 1.16; }
+  .v2-rule { width: 190px; height: 9px; background: #FBAA16; border-radius: 5px; margin-top: 34px; }
+
+  .v2-corner { position: absolute; right: 0; bottom: 0; width: 430px; height: 250px; z-index: 4; }
+  .v2-corner .sheet {
+    position: absolute; right: 0; bottom: 0; width: 430px; height: 200px;
+    background: #FFFFFF; border-top-left-radius: 150px;
+  }
+  .v2-corner .arc {
+    position: absolute; right: 0; bottom: 0; width: 470px; height: 240px;
+    border-top-left-radius: 175px;
+    border-top: 11px solid #FBAA16; border-left: 11px solid #FBAA16;
+    border-right: none; border-bottom: none;
+  }
+  .v2-corner .logo { position: absolute; right: 46px; bottom: 46px; }
+  .v2-corner .logo img { height: 120px; object-fit: contain; display: block; }
+
+  .v2-scrim {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 760px; z-index: 1;
+    background: linear-gradient(to top, rgba(22,61,120,0.22) 0%, rgba(22,61,120,0.06) 50%, rgba(22,61,120,0) 100%);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ Campagne dediee 4/10 · jeudi 22/10/2026 · « Les couts invisibles de l organisation » ═══ -->
+<div class="slide">
+  <div class="v2-photo">
+    <img src="v2-w40-couts-invisibles-01.png" alt="">
+  </div>
+  <div class="v2-scrim"></div>
+
+  <div class="v2-band">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,120 L0,58 C300,10 640,-10 900,6 C1040,15 1130,30 1200,44 L1200,120 Z" fill="#163D78"></path>
+    </svg>
+    <div class="band-body"></div>
+  </div>
+
+  <div class="v2-text">
+    <h1 class="v2-title">
+      <span class="l1">Comptez les &eacute;tapes</span>
+      <span class="l2">d’un dossier<br>ordinaire</span>
+    </h1>
+    <div class="v2-rule"></div>
+  </div>
+
+  <div class="v2-corner">
+    <div class="sheet"></div>
+    <div class="arc"></div>
+    <div class="logo"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Carrousel LinkedIn — PerfEco — Pourquoi les plans stratégiques n'aboutissent pas ?</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a1a; font-family: Arial, sans-serif; padding: 40px 20px; }
+  h1 { color: #fff; text-align: center; margin-bottom: 8px; font-size: 16px; opacity: 0.5; }
+  .slides-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+  .slide-wrapper { display: flex; flex-direction: column; align-items: center; }
+  .slide-label { color: rgba(255,255,255,0.3); font-size: 11px; margin-top: 8px; letter-spacing: 2px; text-transform: uppercase; }
+
+  .slide {
+    width: 540px; height: 810px;
+    position: relative; overflow: hidden;
+    border-radius: 4px; box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    flex-shrink: 0;
+  }
+
+  /* === SLIDES SOMBRES (1 et 6) === */
+  .slide-photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    transform: scale(1.06) translateY(-4%);
+  }
+  .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(30,86,163,0.94) 44%, rgba(30,86,163,0.58) 68%, rgba(30,86,163,0.1) 100%);
+  }
+  .overlay-bottom {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 28%;
+    background: linear-gradient(to top, rgba(22,61,120,0.65), transparent);
+  }
+  .content-dark {
+    position: absolute; inset: 0;
+    padding: 48px 36px;
+    display: flex; flex-direction: column;
+    width: 62%;
+  }
+  .logo-zone-dark { display: flex; align-items: flex-start; margin-bottom: auto; min-height: 35%; }
+  .logo-dark { width: 130px; height: auto; filter: brightness(0) invert(1); opacity: 0.9; }
+
+  .badge {
+    display: inline-block;
+    background: #F3AF36; color: #163D78;
+    font-size: 11px; font-weight: 900;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 2px;
+    margin-bottom: 16px; width: fit-content;
+  }
+  .slide-title-dark {
+    font-size: 28px; font-weight: 900; color: #fff;
+    line-height: 1.15; margin-bottom: 16px;
+    text-transform: uppercase; letter-spacing: -0.3px;
+  }
+  .slide-title-dark .gold { color: #F3AF36; }
+  .slide-subtitle-dark {
+    font-size: 14px; color: rgba(255,255,255,0.80);
+    line-height: 1.6; font-style: italic;
+  }
+
+  /* === SLIDES BLANCHES (2 à 5) === */
+  .slide-white { background: #fff; }
+  .content-white {
+    position: absolute; inset: 0;
+    padding: 38px 42px 70px;
+    display: flex; flex-direction: column;
+  }
+  .logo-zone-white {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px; padding-bottom: 14px;
+    border-bottom: 1px solid #EDF4FF;
+  }
+  .logo-white { width: 96px; height: auto; }
+  .section-tag {
+    font-size: 10px; font-weight: 900; letter-spacing: 2.5px;
+    text-transform: uppercase; color: #1E56A3;
+    background: #EDF4FF; padding: 3px 10px; border-radius: 2px;
+  }
+  .white-title {
+    font-size: 21px; font-weight: 900; color: #111827;
+    line-height: 1.2; margin-bottom: 16px; text-transform: uppercase;
+  }
+  .white-title .accent { color: #1E56A3; }
+  .callout-blue {
+    background: #EDF4FF; border-left: 4px solid #1E56A3;
+    padding: 13px 16px; border-radius: 0 4px 4px 0; margin-bottom: 18px;
+  }
+  .callout-blue p { font-size: 14px; color: #163D78; line-height: 1.5; font-weight: 700; font-style: italic; }
+  .callout-note { font-size: 12px; color: #6B7280; margin-top: 6px; font-style: italic; font-weight: 400; }
+
+  /* Entonnoir slide 2 */
+  .funnel { display: flex; flex-direction: column; gap: 0; margin: 12px 0; }
+  .funnel-step {
+    display: flex; align-items: center; gap: 12px;
+    background: #1E56A3; color: #fff; font-weight: 800;
+    font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;
+    padding: 12px 18px; margin-bottom: 2px; border-radius: 4px;
+    position: relative;
+  }
+  .funnel-step.light { background: #EDF4FF; color: #163D78; }
+  .funnel-icon { font-size: 18px; }
+  .funnel-arrow {
+    text-align: center; color: #F3AF36; font-size: 20px;
+    font-weight: 900; margin: 2px 0;
+  }
+  .funnel-gap {
+    background: #f0f0f0; color: #6B7280; font-size: 12px;
+    font-style: italic; text-align: center; padding: 8px;
+    border-radius: 4px; margin: 4px 0;
+  }
+
+  /* Symptômes slide 3 */
+  .symptom-list { display: flex; flex-direction: column; gap: 8px; }
+  .symptom-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: #f8faff; border-radius: 6px; padding: 10px 14px;
+    border-left: 3px solid transparent;
+  }
+  .symptom-item.warn { border-left-color: #F3AF36; }
+  .symptom-num {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #1E56A3; color: #fff; font-size: 11px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .symptom-text { font-size: 13px; color: #374151; line-height: 1.4; font-weight: 700; }
+  .symptom-sub { font-size: 11.5px; color: #9CA3AF; margin-top: 2px; font-weight: 400; }
+
+  /* Flux slide 4 */
+  .flow-vertical { display: flex; flex-direction: column; gap: 4px; margin: 10px 0; }
+  .flow-box {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 18px; border-radius: 6px;
+    background: #1E56A3; color: #fff;
+  }
+  .flow-box.result { background: #163D78; }
+  .flow-box-icon { font-size: 20px; width: 32px; text-align: center; flex-shrink: 0; }
+  .flow-box-text { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; }
+  .flow-box-sub { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 2px; font-weight: 400; text-transform: none; letter-spacing: 0; }
+  .flow-connector { text-align: center; color: #F3AF36; font-size: 18px; font-weight: 900; }
+
+  /* Leviers slide 5 */
+  .levier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+  .levier-item {
+    background: #EDF4FF; border-radius: 6px; padding: 16px;
+    border-left: 4px solid #1E56A3;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .levier-num { font-size: 10px; font-weight: 900; letter-spacing: 2px; color: #F3AF36; text-transform: uppercase; }
+  .levier-text { font-size: 13px; font-weight: 800; color: #163D78; line-height: 1.3; }
+  .levier-sub { font-size: 11px; color: #6B7280; line-height: 1.3; }
+  .levier-note {
+    background: #163D78; color: rgba(255,255,255,0.85);
+    font-size: 12px; padding: 10px 14px; border-radius: 4px;
+    margin-top: 6px; font-style: italic; line-height: 1.4;
+  }
+
+  /* Slide 6 CTA sombre */
+  .content-cta {
+    position: absolute; inset: 0;
+    background: #163D78;
+    padding: 48px 44px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .cta-serie { font-size: 10px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 32px; }
+  .cta-quote {
+    font-size: 26px; font-weight: 900; color: #F3AF36;
+    line-height: 1.25; margin-bottom: 10px; text-transform: uppercase;
+    letter-spacing: -0.3px;
+  }
+  .cta-sub-quote { font-size: 14px; color: rgba(255,255,255,0.7); font-style: italic; margin-bottom: 36px; line-height: 1.5; }
+  .cta-separator { width: 48px; height: 3px; background: #F3AF36; margin: 0 auto 28px; }
+  .cta-action { font-size: 13.5px; color: #fff; font-weight: 700; line-height: 1.6; margin-bottom: 24px; }
+  .cta-coords { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 2; }
+  .cta-site { color: #F3AF36; font-weight: 700; }
+
+  /* Footer commun */
+  .footer-dark {
+    position: absolute; bottom: 20px; left: 36px; right: 36px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.15); padding-top: 10px;
+  }
+  .footer-light {
+    position: absolute; bottom: 20px; left: 42px; right: 42px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid #EDF4FF; padding-top: 10px;
+  }
+  .f-label-dark { font-size: 9px; color: rgba(255,255,255,0.4); letter-spacing: 0.5px; }
+  .f-num-dark { font-size: 9px; color: rgba(255,255,255,0.4); }
+  .f-label-light { font-size: 9px; color: rgba(0,0,0,0.3); letter-spacing: 0.5px; }
+  .f-num-light { font-size: 9px; color: rgba(0,0,0,0.3); }
+</style>
+</head>
+<body>
+<h1>Carrousel PerfEco — Pourquoi les plans stratégiques n'aboutissent pas ?</h1>
+<div class="slides-grid">
+
+  <!-- ===== SLIDE 1 — COUVERTURE ===== -->
+  <div class="slide-wrapper">
+  <div class="slide">
+    <img class="slide-photo" src="../images/personnages/groupe-comex-reunion-01.png" alt="Groupe COMEX en réunion stratégique">
+    <div class="overlay"></div>
+    <div class="overlay-bottom"></div>
+    <div class="content-dark">
+      <div class="logo-zone-dark">
+        <img class="logo-dark" src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco Consulting">
+      </div>
+      <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding: 16px 0;">
+        <div class="badge">Série · Exécution Stratégique · 1/8</div>
+        <div class="slide-title-dark">
+          POURQUOI LES PLANS<br>STRATÉGIQUES<br>N'<span class="gold">ABOUTISSENT</span><br>PAS ?
+        </div>
+        <div class="slide-subtitle-dark">La stratégie est rarement le problème.</div>
+      </div>
+    </div>
+    <div class="footer-dark">
+      <span class="f-label-dark">https://www.perfeco.nc/</span>
+      <span class="f-num-dark">01 / 06</span>
+    </div>
+  </div>
+  <div class="slide-label">Slide 1 — Couverture</div>
+  </div>
+
+  <!-- ===== SLIDE 2 — LE CONSTAT ===== -->
+  <div class="slide-wrapper">
+  <div class="slide slide-white">
+    <div class="content-white">
+      <div class="logo-zone-white">
+        <img class="logo-white" src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco Consulting">
+        <span class="section-tag">Le constat</span>
+      </div>
+      <div class="white-title">LA STRATÉGIE N'EST QUE<br>LE <span class="accent">POINT DE DÉPART</span></div>
+      <div class="callout-blue">
+        <p>Une stratégie brillante ne produit aucune valeur tant qu'elle n'est pas exécutée.</p>
+      </div>
+      <div class="funnel">
+        <div class="funnel-step">
+          <span class="funnel-icon">🎯</span>
+          <div><strong>Stratégie</strong><br><span style="font-size:11px; font-weight:400; opacity:0.8;">Où voulons-nous aller ?</span></div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step light">
+          <span class="funnel-icon" style="opacity:0.5;">⚙️</span>
+          <div style="color:#1E56A3;"><strong>Exécution</strong><br><span style="font-size:11px; font-weight:400; color:#6B7280;">Comment y parvenir réellement ?</span></div>
+        </div>
+        <div class="funnel-gap">⚠️ C'est ici que les organisations perdent du terrain</div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step">
+          <span class="funnel-icon">📈</span>
+          <div><strong>Résultats</strong><br><span style="font-size:11px; font-weight:400; opacity:0.8;">Valeur créée pour l'organisation</span></div>
+        </div>
+      </div>
+      <div class="callout-blue" style="margin-top:14px;">
+        <p>Les organisations perdent rarement sur la stratégie. Elles perdent sur la capacité à l'exécuter.</p>
+      </div>
+    </div>
+    <div class="footer-light">
+      <span class="f-label-light">https://www.perfeco.nc/</span>
+      <span class="f-num-light">02 / 06</span>
+    </div>
+  </div>
+  <div class="slide-label">Slide 2 — Le constat</div>
+  </div>
+
+  <!-- ===== SLIDE 3 — LES SYMPTÔMES ===== -->
+  <div class="slide-wrapper">
+  <div class="slide slide-white">
+    <div class="content-white">
+      <div class="logo-zone-white">
+        <img class="logo-white" src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco Consulting">
+        <span class="section-tag">Les symptômes</span>
+      </div>
+      <div class="white-title">5 SIGNAUX QUE L'<span class="accent">EXÉCUTION</span><br>SE DÉGRADE</div>
+      <div class="symptom-list">
+        <div class="symptom-item warn">
+          <div class="symptom-num">1</div>
+          <div>
+            <div class="symptom-text">Des projets qui prennent du retard</div>
+            <div class="symptom-sub">Les livrables glissent sans raison apparente</div>
+          </div>
+        </div>
+        <div class="symptom-item warn">
+          <div class="symptom-num">2</div>
+          <div>
+            <div class="symptom-text">Des priorités qui changent constamment</div>
+            <div class="symptom-sub">Les équipes peinent à maintenir le cap</div>
+          </div>
+        </div>
+        <div class="symptom-item warn">
+          <div class="symptom-num">3</div>
+          <div>
+            <div class="symptom-text">Les décisions remontent au COMEX</div>
+            <div class="symptom-sub">Même les arbitrages opérationnels simples</div>
+          </div>
+        </div>
+        <div class="symptom-item warn">
+          <div class="symptom-num">4</div>
+          <div>
+            <div class="symptom-text">Des réunions nombreuses, peu concluantes</div>
+            <div class="symptom-sub">On se réunit mais on ne décide pas</div>
+          </div>
+        </div>
+        <div class="symptom-item warn">
+          <div class="symptom-num">5</div>
+          <div>
+            <div class="symptom-text">Des indicateurs qui décrivent le passé</div>
+            <div class="symptom-sub">Mais n'aident pas à décider pour demain</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout-blue" style="margin-top:12px;">
+        <p>Pris isolément, chacun semble anodin. Ensemble, ils ralentissent fortement l'organisation.</p>
+      </div>
+    </div>
+    <div class="footer-light">
+      <span class="f-label-light">https://www.perfeco.nc/</span>
+      <span class="f-num-light">03 / 06</span>
+    </div>
+  </div>
+  <div class="slide-label">Slide 3 — Les symptômes</div>
+  </div>
+
+  <!-- ===== SLIDE 4 — LES CAUSES ===== -->
+  <div class="slide-wrapper">
+  <div class="slide slide-white">
+    <div class="content-white">
+      <div class="logo-zone-white">
+        <img class="logo-white" src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco Consulting">
+        <span class="section-tag">Les causes</span>
+      </div>
+      <div class="white-title">CE QUI FREINE<br>RÉELLEMENT L'<span class="accent">EXÉCUTION</span></div>
+      <div class="callout-blue">
+        <p>Le problème vient rarement d'un manque de compétence. Il vient de l'organisation elle-même.</p>
+      </div>
+      <div class="flow-vertical">
+        <div class="flow-box">
+          <div class="flow-box-icon">🏗️</div>
+          <div>
+            <div class="flow-box-text">Organisation trop complexe</div>
+            <div class="flow-box-sub">Rôles flous, doublons de responsabilités</div>
+          </div>
+        </div>
+        <div class="flow-connector">↓</div>
+        <div class="flow-box">
+          <div class="flow-box-icon">🔗</div>
+          <div>
+            <div class="flow-box-text">Coordination difficile</div>
+            <div class="flow-box-sub">Silos, manque de fluidité inter-services</div>
+          </div>
+        </div>
+        <div class="flow-connector">↓</div>
+        <div class="flow-box">
+          <div class="flow-box-icon">⏳</div>
+          <div>
+            <div class="flow-box-text">Décisions ralenties</div>
+            <div class="flow-box-sub">Information dispersée, pilotage approximatif</div>
+          </div>
+        </div>
+        <div class="flow-connector">↓</div>
+        <div class="flow-box result">
+          <div class="flow-box-icon">📉</div>
+          <div>
+            <div class="flow-box-text">Exécution affaiblie</div>
+            <div class="flow-box-sub">La stratégie ne se concrétise pas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-light">
+      <span class="f-label-light">https://www.perfeco.nc/</span>
+      <span class="f-num-light">04 / 06</span>
+    </div>
+  </div>
+  <div class="slide-label">Slide 4 — Les causes</div>
+  </div>
+
+  <!-- ===== SLIDE 5 — LES LEVIERS ===== -->
+  <div class="slide-wrapper">
+  <div class="slide slide-white">
+    <div class="content-white">
+      <div class="logo-zone-white">
+        <img class="logo-white" src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco Consulting">
+        <span class="section-tag">Les leviers</span>
+      </div>
+      <div class="white-title">4 CARACTÉRISTIQUES DES ORGANISATIONS<br>QUI <span class="accent">EXÉCUTENT BIEN</span></div>
+      <div class="levier-grid">
+        <div class="levier-item">
+          <div class="levier-num">Levier 01</div>
+          <div class="levier-text">Responsabilités clairement définies</div>
+          <div class="levier-sub">Chacun sait ce qu'il décide, ce qu'il remonte</div>
+        </div>
+        <div class="levier-item">
+          <div class="levier-num">Levier 02</div>
+          <div class="levier-text">Priorités limitées et partagées</div>
+          <div class="levier-sub">Moins de projets, mieux exécutés</div>
+        </div>
+        <div class="levier-item">
+          <div class="levier-num">Levier 03</div>
+          <div class="levier-text">Indicateurs utiles à la décision</div>
+          <div class="levier-sub">Pas des tableaux de bord, des outils de pilotage</div>
+        </div>
+        <div class="levier-item">
+          <div class="levier-num">Levier 04</div>
+          <div class="levier-text">Coordination fluide entre équipes</div>
+          <div class="levier-sub">Les silos sont traversés, pas contournés</div>
+        </div>
+      </div>
+      <div class="levier-note">
+        Quand ces éléments sont réunis, la stratégie cesse d'être un document pour devenir une réalité opérationnelle.
+      </div>
+      <div class="callout-blue" style="margin-top:12px;">
+        <p>Le problème n'est pas la stratégie. C'est l'organisation qui doit permettre de l'exécuter.</p>
+      </div>
+    </div>
+    <div class="footer-light">
+      <span class="f-label-light">https://www.perfeco.nc/</span>
+      <span class="f-num-light">05 / 06</span>
+    </div>
+  </div>
+  <div class="slide-label">Slide 5 — Les leviers</div>
+  </div>
+
+  <!-- ===== SLIDE 6 — CTA ===== -->
+  <div class="slide-wrapper">
+  <div class="slide">
+    <div class="content-cta">
+      <div class="cta-serie">Série Exécution Stratégique · PerfEco</div>
+      <div class="cta-quote">La performance<br>se joue souvent<br>dans l'exécution.</div>
+      <div class="cta-sub-quote">Nous intervenons pour rapprocher la stratégie<br>de son exécution.</div>
+      <div class="cta-separator"></div>
+      <div class="cta-action">Échangeons sur les leviers qui pourraient<br>accélérer l'exécution de votre stratégie.</div>
+      <div class="cta-coords">
+        <span class="cta-site">https://www.perfeco.nc/</span><br>
+        contact@perfeco.nc · +687 73 08 75
+      </div>
+      <img style="width:110px; margin-top:28px; filter: brightness(0) invert(1); opacity:0.6;" src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco Consulting">
+    </div>
+    <div class="footer-dark">
+      <span class="f-label-dark">https://www.perfeco.nc/</span>
+      <span class="f-num-dark">06 / 06</span>
+    </div>
+  </div>
+  <div class="slide-label">Slide 6 — CTA</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Carrousel W34 — Remettre l organisation au service de la strategie</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Arial', sans-serif; background: #d0d0d0; }
+
+  .slide {
+    width: 1200px;
+    height: 1500px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 24px auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+  }
+
+  /* SLIDE 1 — Couverture plein-cadre + dégradé */
+  .slide-1 { background: #001D9F; }
+  .slide-1 .bg-photo { position: absolute; inset: 0; z-index: 0; }
+  .slide-1 .bg-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 76% 22%; display: block; }
+  .slide-1 .bg-gradient {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(105deg, rgba(0,29,159,0.98) 0%, rgba(0,29,159,0.95) 38%, rgba(0,29,159,0.80) 55%, rgba(0,29,159,0.35) 75%, rgba(0,29,159,0.05) 100%);
+  }
+  .slide-1 .content { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: 52px 56px 52px 96px; max-width: 700px; }
+  .slide-1 .logo-zone img { height: 172px; filter: brightness(0) invert(1); object-fit: contain; }
+  .slide-1 .serie-badge {
+    display: inline-block; background: rgba(251,170,22,0.18); border: 1px solid rgba(251,170,22,0.5); color: #FBAA16;
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 20px; border-radius: 100px;
+    margin-top: 44px; align-self: flex-start;
+  }
+  .slide-1 .stat-block {
+    margin-top: 36px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-left: 5px solid #FBAA16;
+    border-radius: 0 14px 14px 0; padding: 22px 28px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+  }
+  .slide-1 .stat-num { font-size: 66px; font-weight: 900; color: #FBAA16; line-height: 1; }
+  .slide-1 .stat-text { font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.85); line-height: 1.4; }
+  .slide-1 .main-title { font-size: 64px; font-weight: 900; color: #fff; line-height: 1.12; letter-spacing: -0.5px; margin-top: 32px; }
+  .slide-1 .main-title .accent { color: #FBAA16; }
+  .slide-1 .subtitle { font-size: 24px; font-weight: 600; color: rgba(255,255,255,0.62); line-height: 1.5; margin-top: 18px; }
+  .slide-1 .slide-num { position: absolute; bottom: 52px; right: 60px; font-size: 13px; color: rgba(255,255,255,0.28); font-weight: 700; letter-spacing: 3px; z-index: 2; }
+  .slide-1 .url { margin-top: auto; font-size: 14px; color: rgba(255,255,255,0.35); font-weight: 500; letter-spacing: 0.5px; }
+
+  /* SLIDES CONTENU (2, 3, 4) — fond blanc */
+  .slide-content { background: #FFFFFF; color: #111827; flex-direction: column; }
+  .slide-content .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 44px 96px 0; flex-shrink: 0; }
+  .slide-content .logo-zone img { height: 150px; object-fit: contain; }
+  .slide-content .slide-num { font-size: 14px; color: #CBD5E1; font-weight: 700; letter-spacing: 3px; }
+  .slide-content .deco-bar { height: 5px; background: linear-gradient(to right, #001D9F 0%, #FBAA16 50%, transparent 100%); margin: 28px 96px 0; border-radius: 3px; }
+  .slide-content .slide-tag {
+    display: inline-block; background: #EDF4FF; color: #001D9F; font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.5px; padding: 7px 18px; border-radius: 100px; margin: 28px 96px 0; align-self: flex-start;
+  }
+  .slide-content h2 { font-size: 44px; font-weight: 900; color: #001D9F; line-height: 1.15; padding: 16px 96px 0; letter-spacing: -0.5px; }
+  .slide-content h2 .accent { color: #FBAA16; }
+  .slide-content .lead { font-size: 22px; color: #475569; padding: 14px 96px 0; line-height: 1.55; }
+  /* Encadrés conseil / fil rouge — DOIVENT dominer le reste de la slide (règle Jean-Michel 17/08/2026) */
+  .callout { margin: 28px 96px 12px; background: #EDF4FF; border-left: 9px solid #001D9F; border-radius: 0 14px 14px 0; padding: 28px 34px; box-shadow: 0 3px 14px rgba(0,29,159,0.10); }
+  .callout-label { font-size: 17px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; color: #001D9F; margin-bottom: 12px; }
+  .callout p { font-size: 29px; color: #001D9F; line-height: 1.42; font-weight: 800; }
+  .item-list { padding: 44px 96px 0; display: flex; flex-direction: column; gap: 36px; flex: 1; justify-content: space-between; }
+  .item { display: flex; align-items: flex-start; gap: 18px; padding: 28px 30px; background: #F8FAFF; border-radius: 14px; border: 1px solid #E2E8F0; }
+  .item.featured { background: #EDF4FF; border-color: #C7D9F8; }
+  .item .icon { width: 48px; height: 48px; background: #001D9F; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; color: white; font-weight: 900; }
+  .item .icon.gold { background: #FBAA16; }
+  .item .label { font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #001D9F; margin-bottom: 5px; }
+  .item .text { font-size: 24px; color: #374151; line-height: 1.4; }
+  .slide-content .bottom-bar { margin-top: auto; padding: 24px 96px 40px; border-top: 1px solid #F1F5F9; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .slide-content .bottom-bar .url { font-size: 13px; color: #94A3B8; font-weight: 500; }
+  .slide-content .bottom-bar .series { font-size: 12px; color: #001D9F; font-weight: 700; letter-spacing: 0.5px; }
+
+  /* Indices list (slide 2) */
+  .index-list { padding: 26px 96px 0; display: flex; flex-direction: column; gap: 22px; flex: 1; justify-content: space-between; }
+  .index-card { background: #F8FAFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 30px 32px; }
+  .index-card .index-name { font-size: 24px; font-weight: 800; color: #001D9F; margin-bottom: 6px; }
+  .index-card .index-desc { font-size: 21px; color: #475569; line-height: 1.45; }
+  .gauge-track { margin-top: 12px; height: 10px; background: #E2E8F0; border-radius: 5px; overflow: hidden; }
+  .gauge-fill { height: 100%; border-radius: 5px; background: linear-gradient(to right, #001D9F, #0028C7); }
+  .gauge-fill.gold { background: linear-gradient(to right, #FBAA16, #F65D00); }
+
+  /* Récapitulatif de série (slide 2) */
+  .recap-list { padding: 30px 96px 0; display: flex; flex-direction: column; gap: 14px; flex: 1; justify-content: space-between; }
+  .recap-row { display: flex; align-items: center; gap: 20px; background: #F8FAFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px 26px; }
+  .recap-row:last-child { background: #EDF4FF; border-color: #C7D9F8; }
+  .recap-num { width: 42px; height: 42px; flex-shrink: 0; background: #001D9F; color: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; }
+  .recap-row:last-child .recap-num { background: #FBAA16; }
+  .recap-text { font-size: 23px; font-weight: 700; color: #163D78; line-height: 1.3; }
+
+  /* Diagramme chaîne cassée (slide 3) */
+  .chain-diagram { padding: 34px 72px 0; display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+  .chain-row { display: flex; gap: 16px; justify-content: center; align-items: stretch; width: 100%; max-width: 940px; }
+  .chain-box { flex: 1; background: #F8FAFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 22px 12px; text-align: center; font-size: 19px; font-weight: 800; color: #163D78; display: flex; align-items: center; justify-content: center; }
+  .chain-box.done { background: #EDF4FF; border-color: #C7D9F8; }
+  .chain-box.missing { background: #FFFFFF; border: 2px dashed #FBAA16; color: #92600A; }
+  .chain-arrow { display: flex; align-items: center; font-size: 26px; font-weight: 900; color: #C7D9F8; }
+  .chain-outcome { margin-top: 28px; background: #FBAA16; color: #163D78; font-weight: 800; font-size: 24px; padding: 22px 44px; border-radius: 100px; text-align: center; line-height: 1.35; }
+
+  /* Bande photo (slide 3) */
+  .photo-strip { margin: 30px 96px 0; flex: 1; min-height: 260px; border-radius: 14px; overflow: hidden; }
+  .photo-strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 32%; display: block; }
+
+  /* SLIDE 5 — Diagnostic avec photo fond flou */
+  .slide-diag { background: #FFFFFF; flex-direction: column; }
+  .slide-diag .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 44px 96px 0; flex-shrink: 0; position: relative; z-index: 2; }
+  .slide-diag .logo-zone img { height: 150px; object-fit: contain; }
+  .slide-diag .slide-num { font-size: 14px; color: #CBD5E1; font-weight: 700; letter-spacing: 3px; }
+  .slide-diag .deco-bar { height: 5px; background: linear-gradient(to right, #001D9F, #FBAA16, transparent); margin: 28px 96px 0; border-radius: 3px; position: relative; z-index: 2; }
+  .slide-diag .bg-photo-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 580px; z-index: 0; overflow: hidden; }
+  .slide-diag .bg-photo-bottom img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: saturate(0.7) brightness(0.85); }
+  .slide-diag .bg-photo-bottom::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 200px; background: linear-gradient(to bottom, #fff, transparent); z-index: 1; }
+  .slide-diag .bg-photo-bottom::after { content: ''; position: absolute; inset: 0; background: rgba(0,29,159,0.42); z-index: 1; }
+  .slide-diag .content { position: relative; z-index: 2; display: flex; flex-direction: column; flex: 1; padding: 0 96px; }
+  .slide-diag .slide-tag { display: inline-block; background: #EDF4FF; color: #001D9F; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 7px 18px; border-radius: 100px; margin-top: 24px; align-self: flex-start; }
+  .slide-diag h2 { font-size: 44px; font-weight: 900; color: #001D9F; line-height: 1.15; margin-top: 16px; letter-spacing: -0.5px; }
+  .slide-diag h2 .accent { color: #FBAA16; }
+  .slide-diag .lead { font-size: 19px; color: #475569; line-height: 1.5; margin-top: 10px; }
+  .slide-diag .diag-questions { display: flex; flex-direction: column; gap: 14px; margin-top: 22px; }
+  .slide-diag .diag-q { background: rgba(255,255,255,0.97); border-left: 4px solid #001D9F; border-radius: 0 12px 12px 0; padding: 18px 22px; box-shadow: 0 2px 12px rgba(0,29,159,0.08); }
+  .slide-diag .diag-q .q-label { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: #001D9F; margin-bottom: 6px; }
+  .slide-diag .diag-q .q-text { font-size: 19px; color: #163D78; line-height: 1.45; font-weight: 600; }
+  .slide-diag .diag-q.gold-q { border-left-color: #FBAA16; }
+  .slide-diag .diag-q.gold-q .q-label { color: #92600A; }
+  .slide-diag .diag-callout { margin-top: 20px; background: rgba(255,255,255,0.98); border: 2px solid rgba(251,170,22,0.65); border-left: 9px solid #FBAA16; border-radius: 0 14px 14px 0; padding: 26px 30px; font-size: 27px; color: #92600A; line-height: 1.42; font-weight: 800; box-shadow: 0 3px 16px rgba(251,170,22,0.22); }
+  .slide-diag .bottom-bar { position: relative; z-index: 2; padding: 20px 96px 36px; display: flex; align-items: center; justify-content: space-between; }
+  .slide-diag .bottom-bar .url { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 500; }
+  .slide-diag .bottom-bar .series { font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 700; }
+
+  /* SLIDE 6 — CTA sombre */
+  .slide-6 { background: linear-gradient(155deg, #163D78 0%, #001D9F 60%, #0015A0 100%); color: white; flex-direction: column; }
+  .slide-6 .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 52px 96px 0; }
+  .slide-6 .logo-zone img { height: 172px; filter: brightness(0) invert(1); object-fit: contain; }
+  .slide-6 .slide-num { font-size: 14px; color: rgba(255,255,255,0.28); font-weight: 700; letter-spacing: 3px; }
+  .slide-6 .deco-bar { height: 4px; background: linear-gradient(to right, #FBAA16, rgba(251,170,22,0.2), transparent); margin: 36px 96px 0; border-radius: 3px; }
+  .slide-6 .cta-title { font-size: 50px; font-weight: 900; line-height: 1.15; padding: 44px 96px 0; letter-spacing: -1px; }
+  .slide-6 .cta-title .gold { color: #FBAA16; }
+  .slide-6 .cta-sub { font-size: 26px; color: rgba(255,255,255,0.68); padding: 22px 96px 0; line-height: 1.5; }
+  .slide-6 .cta-checks { padding: 36px 96px 0; display: flex; flex-direction: column; gap: 22px; }
+  .slide-6 .check { display: flex; align-items: center; gap: 16px; font-size: 24px; color: rgba(255,255,255,0.85); }
+  .slide-6 .dot { width: 9px; height: 9px; background: #FBAA16; border-radius: 50%; flex-shrink: 0; }
+  .slide-6 .contact-box { margin: 44px 96px 0; background: rgba(251,170,22,0.1); border: 1px solid rgba(251,170,22,0.3); border-radius: 18px; padding: 30px 36px; }
+  .slide-6 .contact-label { font-size: 14px; color: #FBAA16; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+  .slide-6 .contact-info { font-size: 30px; color: white; font-weight: 700; line-height: 1.6; }
+  .slide-6 .contact-url { font-size: 22px; color: #FBAA16; margin-top: 6px; }
+  .slide-6 .bottom-bar { margin-top: auto; padding: 0 96px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .slide-6 .series-label { font-size: 13px; color: rgba(255,255,255,0.28); text-transform: uppercase; letter-spacing: 2px; }
+
+  /* SLIDE FACEBOOK — variante couverture, polices +30% (règle du 27/07/2026), logo inchangé */
+  .slide-fb .stat-num { font-size: 86px; }
+  .slide-fb .stat-text { font-size: 26px; }
+  .slide-fb .main-title { font-size: 83px; }
+  .slide-fb .subtitle { font-size: 31px; }
+</style>
+</head>
+<body>
+
+<!-- ===== SLIDE 1 — Couverture ===== -->
+<div class="slide slide-1">
+  <div class="bg-photo">
+    <img src="w34-cover-alignement-groupe-01.png" alt="">
+  </div>
+  <div class="bg-gradient"></div>
+  <div class="content">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="serie-badge">Série Exécution Stratégique · 8/8</span>
+    <div class="stat-block">
+      <span class="stat-num">2,3&nbsp;&times;</span>
+      <span class="stat-text">plus de chances de figurer parmi les organisations les plus performantes, pour celles qui alignent leur modèle opérationnel sur leur stratégie<br><strong style="color:rgba(255,255,255,0.6);font-size:15px;font-weight:600;">— McKinsey &amp; Company</strong></span>
+    </div>
+    <h1 class="main-title">Aligner avant<br>de <span class="accent">relancer.</span></h1>
+    <p class="subtitle">Après huit semaines de diagnostic,<br>une seule cause revient : l'organisation<br>n'est pas construite pour exécuter.</p>
+    <span class="url" style="margin-top:auto;">https://www.perfeco.nc/</span>
+  </div>
+  <span class="slide-num">01</span>
+</div>
+
+<!-- ===== SLIDE 2 — Les chiffres ===== -->
+<div class="slide slide-content">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">02</span>
+  </div>
+  <div class="deco-bar"></div>
+  <span class="slide-tag">Ce que huit semaines ont montré</span>
+  <h2>Sept constats,<br>une seule <span class="accent">cause</span></h2>
+  <div class="recap-list">
+    <div class="recap-row"><span class="recap-num">1</span><span class="recap-text">Les plans stratégiques n'aboutissent pas</span></div>
+    <div class="recap-row"><span class="recap-num">2</span><span class="recap-text">Une stratégie ne suffit pas</span></div>
+    <div class="recap-row"><span class="recap-num">3</span><span class="recap-text">La richesse ne suffit pas</span></div>
+    <div class="recap-row"><span class="recap-num">4</span><span class="recap-text">Les projets ralentissent</span></div>
+    <div class="recap-row"><span class="recap-num">5</span><span class="recap-text">Les réunions ne remplacent pas le pilotage</span></div>
+    <div class="recap-row"><span class="recap-num">6</span><span class="recap-text">Le COMEX manque de visibilité</span></div>
+    <div class="recap-row"><span class="recap-num">7</span><span class="recap-text">Les KPI ne font pas la performance</span></div>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Le fil rouge</div>
+    <p>Sept symptômes, une même racine.<br>Donc un seul chantier à ouvrir, pas sept.<br>C'est plutôt une bonne nouvelle.</p>
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">Exécution Stratégique · 8/8</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 3 — Le malentendu ===== -->
+<div class="slide slide-content">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">03</span>
+  </div>
+  <div class="deco-bar"></div>
+  <span class="slide-tag">Ce que la plupart tentent d'abord</span>
+  <h2>Refaire un plan,<br>c'est déjà un <span class="accent">bon réflexe</span></h2>
+  <p class="lead">Un nouveau cycle stratégique remobilise, clarifie, redonne un cap.<br>Il ne suffit simplement pas à lui seul — et ce n'est pas votre faute.</p>
+  <div class="chain-diagram">
+    <div class="chain-row">
+      <div class="chain-box done">Nouveau plan</div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-box done">Nouveaux objectifs</div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-box done">Nouveau reporting</div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-box missing">Même organisation</div>
+    </div>
+    <div class="chain-outcome">Le maillon qui manque est aussi celui<br>sur lequel vous avez le plus de prise.</div>
+  </div>
+  <div class="photo-strip">
+    <img src="w34-slide3-table-travail-01.png" alt="">
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">Exécution Stratégique · 8/8</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 4 — 4 conditions ===== -->
+<div class="slide slide-content">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">04</span>
+  </div>
+  <div class="deco-bar"></div>
+  <span class="slide-tag">Ce qui fonctionne</span>
+  <h2>Les 4 alignements,<br>dans <span class="accent">cet ordre</span></h2>
+  <div class="item-list">
+    <div class="item">
+      <div class="icon" style="font-size:22px;font-weight:900;">①</div>
+      <div><div class="label">Décider</div><div class="text">Qui tranche, à quel niveau, sans remonter au COMEX.<br>Des droits de décision explicites, pas implicites.</div></div>
+    </div>
+    <div class="item">
+      <div class="icon" style="font-size:22px;font-weight:900;">②</div>
+      <div><div class="label">Rythmer</div><div class="text">Un rituel court, à date fixe, qui produit des arbitrages<br>— pas un tour de table d'information.</div></div>
+    </div>
+    <div class="item">
+      <div class="icon" style="font-size:22px;font-weight:900;">③</div>
+      <div><div class="label">Voir</div><div class="text">L'information qui remonte du terrain sans être<br>adoucie à chaque étage hiérarchique.</div></div>
+    </div>
+    <div class="item featured">
+      <div class="icon gold" style="font-size:22px;font-weight:900;">④</div>
+      <div><div class="label">Mesurer</div><div class="text">Des indicateurs qui déclenchent une décision,<br>pas une ligne de reporting de plus.</div></div>
+    </div>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Notre conseil</div>
+    <p>N'en lancez qu'un seul : le plus faible chez vous.<br>Un alignement traité proprement porte plus loin<br>que quatre chantiers menés de front.</p>
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">Exécution Stratégique · 8/8</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 5 — Question de diagnostic ===== -->
+<div class="slide slide-diag">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">05</span>
+  </div>
+  <div class="deco-bar"></div>
+  <div class="bg-photo-bottom">
+    <img src="w34-slide5-marche-couloir-01.png" alt="">
+  </div>
+  <div class="content">
+    <span class="slide-tag">Question de diagnostic</span>
+    <h2>Par où <span class="accent">commencer</span>&nbsp;?</h2>
+    <p class="lead">Trois questions à poser à votre comité de direction.</p>
+    <div class="diag-questions">
+      <div class="diag-q">
+        <div class="q-label">1 — L'alignement le plus faible</div>
+        <div class="q-text">Sur les quatre — décider, rythmer, voir, mesurer — lequel est le plus faible chez vous&nbsp;?</div>
+      </div>
+      <div class="diag-q">
+        <div class="q-label">2 — Le test de la semaine type</div>
+        <div class="q-text">Sur votre dernière semaine complète, combien d'heures ont servi à faire tourner l'organisation, et combien à faire avancer la stratégie&nbsp;?</div>
+      </div>
+      <div class="diag-q gold-q">
+        <div class="q-label">3 — Le test final</div>
+        <div class="q-text">Si vous n'écriviez aucun nouveau plan cette année,<br>exécuteriez-vous mieux ou moins bien celui qui existe déjà&nbsp;?</div>
+      </div>
+    </div>
+    <div class="diag-callout">
+      Votre stratégie n'a sans doute pas besoin d'être réécrite.<br>Elle a besoin d'une organisation alignée derrière elle —<br>un chantier bien plus court.
+    </div>
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">Exécution Stratégique · 8/8</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 6 — CTA ===== -->
+<div class="slide slide-6">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">06</span>
+  </div>
+  <div class="deco-bar"></div>
+  <h2 class="cta-title">Par quel alignement<br><span class="gold">commencer&nbsp;?</span></h2>
+  <p class="cta-sub">PerfEco aide les directions générales à aligner décision, rythme, information et indicateurs derrière la stratégie — dans cet ordre.</p>
+  <div class="cta-checks">
+    <div class="check"><span class="dot"></span>Clarifier qui décide quoi, et à quel niveau</div>
+    <div class="check"><span class="dot"></span>Installer un rythme de pilotage qui produit des arbitrages</div>
+    <div class="check"><span class="dot"></span>Réduire le filtrage entre le terrain et le comité de direction</div>
+    <div class="check"><span class="dot"></span>Ramener le tableau de bord aux indicateurs qui font agir</div>
+  </div>
+  <div class="contact-box">
+    <div class="contact-label">Prendre contact</div>
+    <div class="contact-info">contact@perfeco.nc<br>+687 73 08 75</div>
+    <div class="contact-url">https://www.perfeco.nc/</div>
+  </div>
+  <div class="bottom-bar">
+    <span class="series-label">Série Exécution Stratégique · 8/8 · FIN DE SÉRIE · Août 2026</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE FACEBOOK — variante couverture (00-facebook, polices +30%) ===== -->
+<div class="slide slide-1 slide-fb">
+  <div class="bg-photo">
+    <img src="w34-cover-alignement-groupe-01.png" alt="">
+  </div>
+  <div class="bg-gradient"></div>
+  <div class="content">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="serie-badge">Série Exécution Stratégique · 8/8</span>
+    <div class="stat-block">
+      <span class="stat-num">2,3&nbsp;&times;</span>
+      <span class="stat-text">plus de chances d'être parmi<br>les organisations les plus<br>performantes, pour celles qui<br>alignent leur organisation<br>sur leur stratégie<br><strong style="color:rgba(255,255,255,0.6);font-size:19px;font-weight:600;">— McKinsey &amp; Company</strong></span>
+    </div>
+    <h1 class="main-title">Aligner<br>avant de<br><span class="accent">relancer.</span></h1>
+    <p class="subtitle">Une seule cause revient :<br>l'organisation n'est pas<br>construite pour exécuter.</p>
+    <span class="url" style="margin-top:auto;">https://www.perfeco.nc/</span>
+  </div>
+</div>
+
+</body>
+</html>

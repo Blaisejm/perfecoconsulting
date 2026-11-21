@@ -1,0 +1,46 @@
+name: "ESSAI (ne publie rien) — export des slides dans le cloud (production/)"
+
+# ---------------------------------------------------------------------------
+# Étape 4 de la diffusion 100 % cloud (22/11/2026) : prouve que les gabarits et
+# l'export Puppeteer rapatriés dans production/ produisent des PNG PC éteint.
+# N'écrit rien dans le dépôt, ne publie rien : les PNG sont un artefact du run.
+# ---------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/essai-production.yml'
+      - 'production/outils/**'
+      - 'production/gabarits/**'
+
+permissions:
+  contents: read
+
+jobs:
+  essai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Installer Puppeteer
+        run: npm install --no-save puppeteer
+      - name: Exporter un carrousel (photo du dépôt + logo du site)
+        run: |
+          node production/outils/export-slides.cjs production/gabarits/carousel-qui-a-le-droit-de-decider.html sortie-essai
+          N=$(ls sortie-essai/*.png | wc -l)
+          [ "$N" -ge 1 ] || { echo "::error::aucune slide exportée"; exit 1; }
+          for f in sortie-essai/*.png; do
+            T=$(stat -c %s "$f"); [ "$T" -gt 20000 ] || { echo "::error::$f suspect ($T octets)"; exit 1; }
+          done
+          echo "::notice title=Export cloud::$N slide(s) exportée(s) dans GitHub Actions, sans le PC."
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: slides-essai-${{ github.run_number }}
+          path: sortie-essai/
+          retention-days: 14
