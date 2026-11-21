@@ -61,6 +61,132 @@
           "detail": "Gabarit V2 du jeudi (ex. v2-04-comptez-les-etapes.png, publié le 19/11, repris par Facebook le samedi) : recadré en carré par Facebook, le logo PerfEco en bas à droite disparaît entièrement et le titre touche le bas du carré."
         }
       ]
+    },
+    {
+      "id": "A-2026-11-22-01",
+      "constate_le": "2026-11-22T06:47:06+11:00",
+      "par": "perfeco-revue-qualite-hebdo",
+      "publication": "2026-11-19-jeudi",
+      "canal": "facebook",
+      "categorie": "visuel",
+      "priorite": "moyenne",
+      "formats": [
+        "jeudi"
+      ],
+      "constat": "Visuel du post jeudi 19/11, repris sur Facebook le samedi 21/11 : une seule personne à un bureau, alors que la charte prévoit un groupe de 3 à 6 personnes multiculturel.",
+      "recommandation": "Pour un visuel avec personnes, montrer un groupe de 3 à 6 personnes conforme à la charte ; sinon un visuel sans personne isolée.",
+      "preuve": "capture Facebook PerfecoNC du 22/11 (post du samedi 21/11 12h45, photo d'un homme seul)",
+      "statut": "ouvert",
+      "applique_dans": null,
+      "occurrences": 1,
+      "historique": [
+        {
+          "le": "2026-11-22T06:47:06+11:00",
+          "evenement": "ouvert",
+          "detail": "Visuel du post jeudi 19/11, repris sur Facebook le samedi 21/11 : une seule personne à un bureau, alors que la charte prévoit un groupe de 3 à 6 personnes multiculturel."
+        }
+      ]
+    },
+    {
+      "id": "A-2026-11-22-02",
+      "constate_le": "2026-11-22T06:47:07+11:00",
+      "par": "perfeco-revue-qualite-hebdo",
+      "publication": "2026-11-19-jeudi",
+      "canal": "tous",
+      "categorie": "structure",
+      "priorite": "moyenne",
+      "formats": [
+        "jeudi",
+        "vendredi"
+      ],
+      "constat": "Même gabarit de post d'une semaine à l'autre : mêmes formules « Notre conseil » et « Le bénéfice », même enchaînement de blocs (19/11 et 20/11). Le lecteur reconnaît la structure avant de lire.",
+      "recommandation": "Varier les formules d'ouverture et de transition d'un post à l'autre (sans toucher aux emoji, règle maintenue).",
+      "preuve": "texte publié LinkedIn Company le 19/11 et le 20/11, blocs 2 à 5",
+      "statut": "ouvert",
+      "applique_dans": null,
+      "occurrences": 1,
+      "historique": [
+        {
+          "le": "2026-11-22T06:47:07+11:00",
+          "evenement": "ouvert",
+          "detail": "Même gabarit de post d'une semaine à l'autre : mêmes formules « Notre conseil » et « Le bénéfice », même enchaînement de blocs (19/11 et 20/11). Le lecteur reconnaît la structure avant de lire."
+        }
+      ]
+    },
+    {
+      "id": "A-2026-11-22-03",
+      "constate_le": "2026-11-22T06:47:07+11:00",
+      "par": "perfeco-revue-qualite-hebdo",
+      "publication": "2026-11-19-jeudi",
+      "canal": "linkedin_company",
+      "categorie": "adaptation_canal",
+      "priorite": "basse",
+      "formats": [
+        "tous"
+      ],
+      "constat": "Neuf à dix hashtags en fin de post LinkedIn (19/11 et 20/11), ce qui alourdit la fin du texte.",
+      "recommandation": "Ramener à 3 à 5 hashtags par post LinkedIn.",
+      "preuve": "page LinkedIn Company, posts du 19/11 et du 20/11",
+      "statut": "ouvert",
+      "applique_dans": null,
+      "occurrences": 1,
+      "historique": [
+        {
+          "le": "2026-11-22T06:47:07+11:00",
+          "evenement": "ouvert",
+          "detail": "Neuf à dix hashtags en fin de post LinkedIn (19/11 et 20/11), ce qui alourdit la fin du texte."
+        }
+      ]
+    },
+    {
+      "id": "A-2026-11-22-04",
+      "constate_le": "2026-11-22T06:52:53+11:00",
+      "par": "perfeco-revue-qualite-hebdo",
+      "publication": "2026-11-19-jeudi",
+      "canal": "tous",
+      "categorie": "langue",
+      "priorite": "haute",
+      "formats": [
+        "tous"
+      ],
+      "constat": "« Une étape en moins, ce sont des heures rendues aux équipes, tous les mois, sans investissement. » : promesse non étayée (« tous les mois », « sans investissement ») qu'un DAF ne croit pas, et aucun geste concret.",
+      "recommandation": "Remplacer par un geste mesurable : « Une étape en moins, c'est du temps rendu à chaque passage du dossier. Mesurez-le sur le vôtre. » Ne jamais promettre de gain chiffré sans source.",
+      "preuve": "relecteur indépendant du 22/11 (verdict À RETOUCHER), texte publié LinkedIn Company 19/11, dernière ligne du bloc 7",
+      "statut": "ouvert",
+      "applique_dans": null,
+      "occurrences": 1,
+      "historique": [
+        {
+          "le": "2026-11-22T06:52:53+11:00",
+          "evenement": "ouvert",
+          "detail": "« Une étape en moins, ce sont des heures rendues aux équipes, tous les mois, sans investissement. » : promesse non étayée (« tous les mois », « sans investissement ») qu'un DAF ne croit pas, et aucun geste concret."
+        }
+      ]
+    },
+    {
+      "id": "A-2026-11-22-05",
+      "constate_le": "2026-11-22T06:52:53+11:00",
+      "par": "perfeco-revue-qualite-hebdo",
+      "publication": "2026-11-19-jeudi",
+      "canal": "tous",
+      "categorie": "langue",
+      "priorite": "moyenne",
+      "formats": [
+        "tous"
+      ],
+      "constat": "Tournures écrites ou orales-écrites qui se lisent deux fois : « Pour la retirer, il en faudrait une autre, et elle se tient rarement » (il/elle flottants), « font le relevé », « C'est ainsi que nous travaillons avec les équipes », « chacune en voit seulement un morceau ».",
+      "recommandation": "Nommer le sujet (« il faudrait une autre réunion, et celle-ci se tient rarement ») ; remplacer « faire le relevé » par « noter » ; retirer les formules de communication interne sans contenu.",
+      "preuve": "relecteur indépendant du 22/11 : clarté 4, naturel 3 ; passages faibles n°2, 3, 4, 6",
+      "statut": "ouvert",
+      "applique_dans": null,
+      "occurrences": 1,
+      "historique": [
+        {
+          "le": "2026-11-22T06:52:53+11:00",
+          "evenement": "ouvert",
+          "detail": "Tournures écrites ou orales-écrites qui se lisent deux fois : « Pour la retirer, il en faudrait une autre, et elle se tient rarement » (il/elle flottants), « font le relevé », « C'est ainsi que nous travaillons avec les équipes », « chacune en voit seulement un morceau »."
+        }
+      ]
     }
   ]
 }
