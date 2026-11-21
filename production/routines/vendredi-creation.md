@@ -153,3 +153,39 @@ git push -u origin "$B"
 
 Si le push est refusé, dis-le dans le rapport avec le message exact : ne pousse **jamais** sur
 `main` pour contourner. Ajoute le nom de la branche en tête du rapport.
+
+## MODE PRODUCTION (depuis le 22/11/2026, Jean-Michel : « Oui, en production »)
+
+Quand la consigne de la routine dit **MODE PRODUCTION**, l'étape finale ci-dessus (branche ombre) est
+REMPLACÉE par celle-ci. Tout le reste (étapes 0 à 6) est inchangé.
+
+**0. Rien à produire ?** Si la cible du registre est à plus de 10 jours, ou si une file
+(`automation-queue/vendredi.json` ou `automation-queue/vendredi-<date>-pret.json`) porte déjà cette
+date, **ne produis rien** : fais seulement les contrôles (date, texte, image en HTTP 200) et dis-le.
+
+**1. Où écrire.** Si `automation-queue/vendredi.json` porte une `date_prevue` passée (déjà publiée),
+écris directement `automation-queue/vendredi.json` ; sinon, écris le staging
+`automation-queue/vendredi-<date>-pret.json` (la bascule est faite ailleurs). Jamais par-dessus une
+file dont la date est à venir.
+
+**2. Quoi ajouter dans le commit.** La file ; `public/slides/W<SS>/01-couverture-<slug>.png` et
+`00-facebook-<slug>.png` ; le HTML dans `production/sorties/<date>/` (photo en chemin
+`../../images/banque/…`) ; ta ligne dans `production/images/banque/USAGE.json` ; dans
+`automation-agent/publications.json`, **édition ciblée** de l'entrée `<date>-vendredi` seulement :
+`sujet`, `semaine`, `source`, et une note (« produit par la routine cloud creation-vendredi-cloud le
+<date> »). Remplace les valeurs par des remplacements de texte dans le bloc de cette entrée, puis
+`json.loads` sur le fichier entier avant d'écrire : **jamais** de `json.dump` du fichier entier (il est
+au format PowerShell, le reformater produit un diff de 3 000 lignes). Ne touche pas au `statut` :
+il est recalculé depuis les fichiers.
+
+**3. Pousser sur main, proprement.**
+```bash
+git add <fichiers listés ci-dessus> && git commit -m "creation-vendredi-cloud : file du vendredi <date> — <sujet court>"
+for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 30; done
+```
+En cas de conflit au rebase : `git rebase --abort`, n'écrase rien, et dis-le dans le rapport.
+
+**4. Contrôle relu sur origin/main.** `git fetch origin` puis `git show origin/main:<fichier de file>`
+relu en JSON (date, longueur du texte, image_url). Puis attends le déploiement du site (jusqu'à 10
+minutes, toutes les 30 secondes) : l'`image_url` doit répondre **HTTP 200** (`curl -s -o /dev/null -w
+"%{http_code}"`). Si elle ne répond pas, dis-le en tête du rapport : la publication échouerait.
