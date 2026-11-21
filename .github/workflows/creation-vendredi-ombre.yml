@@ -1,0 +1,103 @@
+name: "OMBRE (ne publie rien) — création cloud de la veille éco du vendredi"
+
+# ---------------------------------------------------------------------------
+# Étape 5 de la diffusion 100 % cloud (22/11/2026, Jean-Michel : « accélère la migration
+# des routines de création »). La création du vendredi (PARTIE 2 de mercredi-creation)
+# tourne ici, PC éteint, par le Claude Agent SDK (clé API — 15 essais réussis depuis
+# septembre avec le workflow shadow-vendredi-veille-eco, 0,51 à 1,35 $ le run).
+#
+# MODE OMBRE : la sortie (file + 2 PNG) est poussée sur une branche ombre/vendredi-<date>,
+# JAMAIS sur main. La routine locale reste seule écrivain de la vraie file tant que ce
+# mode n'a pas fait UN cycle conforme (règle d'accélération du 22/11/2026). Ensuite
+# seulement, bascule en production et désactivation de la partie vendredi en local
+# (action de Jean-Michel dans l'app) : jamais deux écrivains de la même publication.
+# ---------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/creation-vendredi-ombre.yml'
+      - 'production/routines/vendredi-creation.md'
+
+permissions:
+  contents: write   # pousser la branche ombre/… (jamais main)
+  issues: write
+
+concurrency:
+  group: creation-vendredi
+  cancel-in-progress: false
+
+jobs:
+  ombre:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Outils (Agent SDK, Puppeteer, OpenAI)
+        run: npm install --no-save @anthropic-ai/claude-agent-sdk puppeteer openai
+
+      - name: Créer le dossier de sortie
+        run: mkdir -p sortie/visuel sortie/public/slides sortie/automation-queue
+
+      - name: Exécuter la routine de création (Agent SDK)
+        id: run
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          CLAUDE_MAX_TURNS: "120"
+          RUN_TITRE: "OMBRE creation vendredi"
+          RUN_ENTETE: "**Mode ombre — rien n'a été publié, la vraie file n'a pas été touchée.**\nLa sortie est sur la branche ombre/vendredi-<date> (voir plus bas).\nÀ comparer avec ce que la routine locale mercredi-creation produit pour le même vendredi."
+        run: node scripts/claude-agent-run.mjs production/routines/vendredi-creation.md sortie-agent
+
+      - name: Contrôler la sortie et la pousser sur une branche ombre
+        id: branche
+        if: always()
+        run: |
+          F=$(ls sortie/automation-queue/vendredi-*-pret.json 2>/dev/null | head -1)
+          if [ -z "$F" ]; then echo "::error title=Ombre vendredi::aucune file produite dans sortie/automation-queue/"; exit 1; fi
+          python3 - "$F" <<'PY'
+          import json, sys
+          d = json.load(open(sys.argv[1], encoding="utf-8"))
+          m = d["social_post"]["message"]; u = d["social_post"]["image_url"]
+          assert d.get("date_prevue") and len(m) >= 300 and u.startswith("https://www.perfeco.nc/slides/W"), "file incomplète"
+          print(f"✅ file {d['date_prevue']} {d.get('semaine')} — {len(m)} caractères — {u}")
+          PY
+          N=$(find sortie/public/slides -name '*.png' | wc -l)
+          [ "$N" -ge 2 ] || { echo "::error title=Ombre vendredi::$N PNG exporté(s), 2 attendus"; exit 1; }
+          D=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1],encoding='utf-8'))['date_prevue'])" "$F")
+          B="ombre/vendredi-$D-run${{ github.run_number }}"
+          git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -q -b "$B"
+          mkdir -p automation-queue public/slides
+          cp "$F" automation-queue/
+          cp -r sortie/public/slides/* public/slides/
+          mkdir -p production/sorties-ombre && cp sortie/visuel/*.html production/sorties-ombre/ 2>/dev/null || true
+          git add automation-queue public/slides production/sorties-ombre
+          git commit -q -m "ombre : création cloud de la veille éco du $D (run ${{ github.run_number }}) — NE PAS FUSIONNER sans comparaison"
+          git push -q origin "refs/heads/$B"
+          echo "branche=$B" >> "$GITHUB_OUTPUT"
+          echo "::notice title=Ombre vendredi::sortie poussée sur $B (main intact)."
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ombre-vendredi-${{ github.run_number }}
+          path: |
+            sortie/
+            sortie-agent/
+          retention-days: 30
+
+      - name: Publier le rapport en issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          [ -s sortie-agent/issue.md ] || { echo "::error::rapport absent"; exit 1; }
+          { cat sortie-agent/issue.md; echo; echo "---"; echo "Branche de sortie : \`${{ steps.branche.outputs.branche || 'aucune (contrôle en échec)' }}\`"; } > /tmp/issue.md
+          gh issue create --title "$(cat sortie-agent/issue-title.txt)" --body-file /tmp/issue.md

@@ -40,10 +40,17 @@ const runUrl =
 
 /** Compose l'issue et l'écrit sur disque. Appelé sur TOUS les chemins de sortie. */
 function ecrireIssue({ etat, cout, tours, corps, erreur }) {
+  // RUN_ENTETE / RUN_TITRE (22/11/2026) : la même mécanique sert aux routines de création en
+  // mode ombre ; sans ces variables, l'issue reste celle de l'essai historique de la veille éco.
+  const entete = process.env.RUN_ENTETE
+    ? process.env.RUN_ENTETE.split('\n').map((l) => `> ${l}`)
+    : [
+        '> **Essai en parallèle — rien n\'a été publié.**',
+        '> La routine Cowork `vendredi-veilleeco-creation` reste la production.',
+        '> Cette issue sert à comparer les deux sorties de la même semaine.',
+      ];
   const lignes = [
-    '> **Essai en parallèle — rien n\'a été publié.**',
-    '> La routine Cowork `vendredi-veilleeco-creation` reste la production.',
-    '> Cette issue sert à comparer les deux sorties de la même semaine.',
+    ...entete,
     '',
     '| | |',
     '|---|---|',
@@ -65,7 +72,7 @@ function ecrireIssue({ etat, cout, tours, corps, erreur }) {
   writeFileSync(resolve(outDir, 'issue.md'), lignes.join('\n'));
   writeFileSync(
     resolve(outDir, 'issue-title.txt'),
-    `Essai cle API - veille eco - run ${runNumber} (${etat})`,
+    `${process.env.RUN_TITRE || 'Essai cle API - veille eco'} - run ${runNumber} (${etat})`,
   );
 }
 
@@ -106,9 +113,9 @@ try {
   for await (const message of query({
     prompt,
     options: {
-      model: 'claude-opus-5',
+      model: process.env.CLAUDE_MODEL || 'claude-opus-5',
       cwd: process.cwd(),
-      maxTurns: 60,
+      maxTurns: Number(process.env.CLAUDE_MAX_TURNS || 60),
 
       // Runner GitHub jetable, sans humain pour approuver : on autorise les outils.
       // Les règles de refus ci-dessous s'appliquent MALGRÉ ce mode (elles sont
