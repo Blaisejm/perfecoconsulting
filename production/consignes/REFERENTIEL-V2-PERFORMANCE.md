@@ -67,7 +67,7 @@ Conséquences :
 - **La Série 2 garde son rythme hebdomadaire** — 5/8 au 29/09, 6/8 au 06/10, 7/8 au 13/10,
   8/8 au 20/10. Aucun étalement.
 - **La campagne dédiée démarre le jeudi 01/10** par le manifeste « Du cap aux résultats »
-  (choix de Jean-Michel), et se termine le **jeudi 03/12** avec la 10ᵉ publication.
+  (choix de Jean-Michel), et se termine le **jeudi 03/12** avec la 10ᵉ publication. ⚠️ **Mis à jour le 22/11/2026 : après les reports d'octobre et le glissement du 18/11, la 10ᵉ publication tombe le jeudi 31/12/2026** — le registre `publications.json` fait foi pour les dates, pas les tableaux ci-dessous.
 - **Le vendredi n'est pas concerné** : la veille éco garde format, sourçage et gabarit.
 - **Le mardi n'est pas concerné** : carrousel 6 slides, charte #001D9F / #FBAA16, inchangé.
 

@@ -1192,19 +1192,19 @@
                              "date_nc":  "2026-12-03",
                              "heure_nc":  "11:00",
                              "format":  "jeudi",
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_staging",
+                             "source":  "automation-queue/jeudi-W49-pret.json",
                              "bascule":  null,
                              "preuve":  null,
                              "libelle":  "Campagne dédiée 6/10 — Simplifier le fonctionnement",
                              "sujet":  "Numériser sans ajouter de complexité",
-                             "note":  "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -\u003e conséquence -\u003e méthode -\u003e résultat -\u003e invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | CANAUX CORRIGES le 23/09/2026 : le creneau du JEUDI part sur LinkedIn Company + LinkedIn PROFIL PERSO depuis la decision de Jean-Michel du 15/09/2026. Facebook ne recoit plus rien le jeudi (suffixe -NOFB envoye par publish-jeudi-post-court.yml) : il recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. L\u0027entree portait encore linkedin_company+facebook, heritage d\u0027avant le 15/09. Correction documentaire : aucun automatisme ne derive son comportement de ce champ (seul le controle d\u0027espacement le lit, et il n\u0027y cherche que linkedin_company). | 18/11/2026 (intervention-manuelle, décision de Jean-Michel, v-2026-11-13-01 option 1) : glissement — reprise au premier épisode non publié (créneau précédemment : Campagne dédiée 9/10 — Prouver les résultats)",
+                             "note":  "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -\u003e conséquence -\u003e méthode -\u003e résultat -\u003e invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | CANAUX CORRIGES le 23/09/2026 : le creneau du JEUDI part sur LinkedIn Company + LinkedIn PROFIL PERSO depuis la decision de Jean-Michel du 15/09/2026. Facebook ne recoit plus rien le jeudi (suffixe -NOFB envoye par publish-jeudi-post-court.yml) : il recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. L\u0027entree portait encore linkedin_company+facebook, heritage d\u0027avant le 15/09. Correction documentaire : aucun automatisme ne derive son comportement de ce champ (seul le controle d\u0027espacement le lit, et il n\u0027y cherche que linkedin_company). | 18/11/2026 (intervention-manuelle, décision de Jean-Michel, v-2026-11-13-01 option 1) : glissement — reprise au premier épisode non publié (créneau précédemment : Campagne dédiée 9/10 — Prouver les résultats) | 22/11/2026 : PRODUIT par la ROUTINE CLOUD creation-jeudi-cloud (ombre du 22/11, branche ombre/jeudi-2026-12-03), validé par Jean-Michel (« Oui, en production »). Post relu (relecteur indépendant 5/4/4/4/5), article de 910 mots relu après retouche (4/5/4/4/5), slug numeriser-sans-ajouter-de-complexite libre, catégorie 11. Visuel W49/v2-06-arreter-l-ancien-circuit.png (photo de la banque w41-slide3-ligne-datee, 3 personnes). Staging jeudi-W49-pret.json, mis en place par intervention-manuelle-cloud.",
                              "axe":  "performance",
                              "canaux":  [
                                             "linkedin_company",
                                             "linkedin_perso"
                                         ],
-                             "semaine":  null
+                             "semaine":  "W49"
                          },
                          {
                              "id":  "2026-12-04-vendredi",
@@ -1257,7 +1257,7 @@
                              "preuve":  null,
                              "arbitrage":  {
                                                "echeance":  "2026-12-02",
-                                               "question":  "[Mis à jour le 18/11/2026 par le glissement : la campagne V2 se termine désormais le 24/12 (10/10), sous réserve de l\u0027arbitrage sur les vacances australes du 22/12.] La campagne dediee Performance (V2) epuise ses 10 publications le 03/12/2026. Le creneau du JEUDI n\u0027a plus de banque de sujets a partir du 10/12. Option 1 (RECOMMANDEE) : une V3 de la campagne dediee - meme gabarit #163D78/#FBAA16, meme structure situation / consequence / methode / resultat / invitation - sur 10 nouveaux sujets. Option 2 : basculer le jeudi sur un autre format (retour d\u0027experience, questions-reponses COMEX). Option 3 : suspendre le creneau du jeudi pendant l\u0027ete austral et le rouvrir en fevrier 2027. DEFAUT sans reponse : option 1, la V2 disposant deja d\u0027un referentiel et d\u0027un gabarit eprouves (REFERENTIEL-V2-PERFORMANCE.md).",
+                                               "question":  "[Mis à jour le 18/11/2026 par le glissement : la campagne V2 se termine désormais le JEUDI 31/12/2026 (10/10 — corrigé le 22/11/2026 après la réinsertion du 5/10), sous réserve de l\u0027arbitrage sur les vacances australes du 22/12.] La campagne dediee Performance (V2) epuise ses 10 publications le 03/12/2026. Le creneau du JEUDI n\u0027a plus de banque de sujets a partir du 10/12. Option 1 (RECOMMANDEE) : une V3 de la campagne dediee - meme gabarit #163D78/#FBAA16, meme structure situation / consequence / methode / resultat / invitation - sur 10 nouveaux sujets. Option 2 : basculer le jeudi sur un autre format (retour d\u0027experience, questions-reponses COMEX). Option 3 : suspendre le creneau du jeudi pendant l\u0027ete austral et le rouvrir en fevrier 2027. DEFAUT sans reponse : option 1, la V2 disposant deja d\u0027un referentiel et d\u0027un gabarit eprouves (REFERENTIEL-V2-PERFORMANCE.md).",
                                                "statut":  "ouvert",
                                                "ouvert_le":  "2026-09-22",
                                                "ouvert_par":  "perfeco-revue-semestrielle",
