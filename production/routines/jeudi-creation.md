@@ -153,3 +153,46 @@ git push -u origin "$B"
 
 Si le push est refusé, dis-le dans le rapport avec le message exact : ne pousse **jamais** sur
 `main` pour contourner. Ajoute le nom de la branche en tête du rapport.
+
+## MODE PRODUCTION (depuis le 22/11/2026, Jean-Michel : « Oui, en production »)
+
+Quand la consigne de la routine dit **MODE PRODUCTION**, l'étape finale ci-dessus (branche ombre) est
+REMPLACÉE par celle-ci. Tout le reste (étapes 0 à 6) est inchangé.
+
+**0. Rien à produire ?** Si la cible du registre est à plus de 10 jours, ou si une file
+(`automation-queue/jeudi.json` ou `automation-queue/jeudi-W<SS>-pret.json`) porte déjà cette date,
+**ne produis rien** : fais seulement les contrôles (date, texte, bloc `wordpress`, image en HTTP 200).
+
+**1. Où écrire — règle du samedi.** `automation-queue/jeudi.json` sert DEUX fois : le jeudi
+(LinkedIn) puis le SAMEDI suivant (republication Facebook, qui exige que `jeudi.json` porte encore la
+date du jeudi). N'écris donc `jeudi.json` directement QUE si sa `date_prevue` + 2 jours (le samedi)
+est déjà passée ; sinon écris le staging `automation-queue/jeudi-W<SS>-pret.json` avec un champ
+`_comment` en tête (« FICHIER DE STAGING — diffusion jeudi <date> ; à basculer après la publication du
+jeudi en cours ET sa republication du samedi, jamais un samedi ; bascule par perfeco-rappel-quotidien,
+étape 1quinquies »). Jamais par-dessus une file dont la date est à venir.
+
+**2. Quoi ajouter dans le commit.** La file ; `public/slides/W<SS>/v2-<NN>-<slug>.png` ; le HTML dans
+`production/sorties/<date>/` (photo en chemin `../../images/banque/…`) ; ta ligne dans
+`production/images/banque/USAGE.json` ; dans `automation-agent/publications.json`, **édition ciblée**
+de l'entrée `<date>-jeudi` seulement (`semaine`, `source`, une note « produit par la routine cloud
+creation-jeudi-cloud le <date> ») : remplacements de texte dans le bloc de cette entrée, puis
+`json.loads` sur le fichier entier avant d'écrire. **Jamais** de `json.dump` du fichier entier.
+Ne touche pas au `statut` (recalculé depuis les fichiers).
+
+**3. Relecteurs : minimum 4 partout.** Après tes retouches, relance le relecteur indépendant sur le
+post ET sur l'article. Tant qu'une note est inférieure à 4, retouche et relance (3 tours au plus ;
+au-delà, mets en file quand même mais signale-le en tête du rapport). Rappel : le titre de l'article
+commence par l'intitulé de l'épisode ; tu peux le compléter après « : ».
+
+**4. Pousser sur main, proprement.**
+```bash
+git add <fichiers listés ci-dessus> && git commit -m "creation-jeudi-cloud : file du jeudi <date> — <épisode>"
+for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 30; done
+```
+En cas de conflit au rebase : `git rebase --abort`, n'écrase rien, dis-le dans le rapport.
+
+**5. Contrôle relu sur origin/main.** `git fetch origin` puis `git show origin/main:<fichier de file>`
+relu en JSON (date, longueur du post, mots de l'article, slug, image_url). Attends le déploiement du
+site (jusqu'à 10 minutes) : l'`image_url` doit répondre **HTTP 200**. L'article WordPress n'est
+planifié par le workflow `publish-jeudi-article-wordpress.yml` qu'une fois la file basculée dans
+`jeudi.json` : en staging, c'est normal qu'il ne le soit pas encore.
