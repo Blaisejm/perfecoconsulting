@@ -1212,18 +1212,18 @@
                              "heure_nc":  "11:00",
                              "format":  "vendredi",
                              "libelle":  "Veille économique NC",
-                             "sujet":  "à définir",
-                             "semaine":  null,
+                             "sujet":  "IEOM : +40 % de dossiers de surendettement en un an (fin septembre 2026) — écrire sa règle d'avance sur salaire",
+                             "semaine":  "W49",
                              "canaux":  [
                                             "linkedin_company",
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_staging",
+                             "source":  "automation-queue/vendredi-2026-12-04-pret.json",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  null,
+                             "note":  "22/11/2026 : produit par la ROUTINE CLOUD creation-vendredi-cloud (ombre, branche ombre/vendredi-2026-12-04), validé par JM (« Oui, après vérif juridique »). Vérification juridique : DTE Nouvelle-Calédonie, fiche Salaire — acompte de droit sur demande (Lp. 143-2), remboursement d'une avance limité à 1/10e de chaque paie (Lp. 144-12) : texte ajusté en conséquence, renvoi au conseil. Dégradé Facebook éclairci (A-2026-11-22-01). Mis en staging par intervention-manuelle-cloud.",
                              "axe":  "performance"
                          },
                          {
