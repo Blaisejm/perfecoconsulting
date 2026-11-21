@@ -20,9 +20,34 @@ le sous-titre doivent y être entiers, lisibles, et pas collés à un bord.
 Code de sortie 0 ; 2 si l'image est introuvable.
 """
 import os
+import subprocess
 import sys
+import tempfile
 
-from PIL import Image
+
+def _charger_pillow():
+    """Pillow absent ou cassé (cas du conteneur des routines cloud, 22/11/2026 : « cannot
+    import name '_imaging' ») : on l'installe dans un environnement virtuel temporaire et on
+    relance le script avec ce Python-là. Aucun réglage d'environnement à demander à JM."""
+    try:
+        from PIL import Image  # noqa: F401
+        return Image
+    except Exception as e:  # ImportError, ou module système incomplet
+        if os.environ.get("APERCU_PILLOW_VENV"):
+            print(f"ERREUR : Pillow inutilisable même dans l'environnement temporaire : {e}")
+            sys.exit(3)
+        venv = os.path.join(tempfile.gettempdir(), "apercu-recadrage-venv")
+        py = os.path.join(venv, "Scripts" if os.name == "nt" else "bin", "python")
+        print(f"Pillow indisponible ({e.__class__.__name__}) : installation dans {venv}…")
+        if not os.path.exists(py):
+            subprocess.run([sys.executable, "-m", "venv", venv], check=True)
+        subprocess.run([py, "-m", "pip", "install", "-q", "pillow"], check=True)
+        env = dict(os.environ, APERCU_PILLOW_VENV="1")
+        env.pop("PYTHONPATH", None)
+        sys.exit(subprocess.run([py, "-I", "-X", "utf8", os.path.abspath(__file__), *sys.argv[1:]], env=env).returncode)
+
+
+Image = _charger_pillow()
 
 
 def main():
