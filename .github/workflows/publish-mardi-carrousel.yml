@@ -1,9 +1,23 @@
 name: "PerfEco — Publication mardi (carrousel : Company + Facebook + profil perso, tout publié directement)"
 
 on:
+  # PLUSIEURS DÉCLENCHEMENTS depuis le 22/11/2026 (feu vert de Jean-Michel ; heure cible
+  # 11h00 NC) : le cron GitHub part avec 5 h de retard ou plus. Le premier arrivé
+  # ATTEND 11h00 NC, pose le tag pub-mardi-<date> et publie ; les suivants voient le tag
+  # et s'arrêtent (scripts/creneau-publication.sh). Après 17h00 NC, rien ne part : alerte.
+  # Les créneaux du DIMANCHE/LUNDI en UTC sont le LUNDI/MARDI matin en NC.
   schedule:
-    - cron: '0 0 * * 2'  # Mardi 00h00 UTC = 11h00 Nouvelle-Calédonie (cas normal)
-    - cron: '0 0 * * 1'  # Lundi 00h00 UTC = 11h00 NC — décalages exceptionnels (voir ci-dessous)
+    # Mardi NC (cas normal)
+    - cron: '47 20 * * 1'  # Mardi 07h47 NC — attend 11h00
+    - cron: '47 21 * * 1'  # Mardi 08h47 NC — secours
+    - cron: '47 22 * * 1'  # Mardi 09h47 NC — secours
+    - cron: '47 23 * * 1'  # Mardi 10h47 NC — secours
+    - cron: '17 1 * * 2'   # Mardi 12h17 NC — rattrapage
+    - cron: '17 3 * * 2'   # Mardi 14h17 NC — rattrapage (limite 17h00)
+    # Lundi NC — décalages exceptionnels (voir ci-dessous) ; à vide les autres semaines
+    - cron: '47 20 * * 0'  # Lundi 07h47 NC
+    - cron: '47 22 * * 0'  # Lundi 09h47 NC
+    - cron: '17 1 * * 1'   # Lundi 12h17 NC — rattrapage
   workflow_dispatch:
 
 # ⚠️ POURQUOI UN CRON LE LUNDI (ajouté le 21/08/2026)
@@ -33,8 +47,9 @@ on:
 # Ajouté le 18/11/2026 (diffusion 100 % cloud, étape 1) — Jamais deux exécutions simultanées d'une même publication (pas de doublon si un run manuel croise le cron).
 # cancel-in-progress: false = le run suivant ATTEND, il n'annule jamais celui en cours.
 # issues: write depuis le 19/11/2026 : un échec ouvre une issue « alerte » (e-mail GitHub, PC éteint).
+# contents: write depuis le 22/11/2026 : uniquement pour poser le tag pub-mardi-<date> (anti-doublon).
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 concurrency:
@@ -44,6 +59,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
 
@@ -79,9 +95,19 @@ jobs:
           echo "publier=true" >> "$GITHUB_OUTPUT"
           echo "Contenu à jour pour aujourd'hui ($TODAY_NC)."
 
+      - name: Créneau — déjà publié ? sinon attendre 11h00 NC (limite 17h00)
+        id: creneau
+        if: steps.fraicheur.outputs.publier == 'true'
+        run: bash scripts/creneau-publication.sh attendre mardi 1100 1700
+
+      - name: Créneau — poser le tag du jour (un seul run publie)
+        id: tag
+        if: steps.creneau.outputs.suite == 'publier'
+        run: bash scripts/creneau-publication.sh prendre mardi
+
       - name: LinkedIn Company Page + Facebook (webhook unique, profil perso suspendu via filtre Make)
         id: social
-        if: steps.fraicheur.outputs.publier == 'true'
+        if: steps.tag.outputs.suite == 'publier'
         continue-on-error: true
         env:
           MAKE_WEBHOOK: ${{ secrets.MAKE_WEBHOOK }}
@@ -126,7 +152,7 @@ jobs:
       # un doublon ; l'étape échoue et l'alerte part.
       - name: LinkedIn profil perso — carrousel en DOCUMENT PDF (API directe)
         id: li_pdf
-        if: steps.fraicheur.outputs.publier == 'true'
+        if: steps.tag.outputs.suite == 'publier'
         continue-on-error: true
         env:
           LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
@@ -142,7 +168,7 @@ jobs:
 
       - name: LinkedIn profil perso — REPLI multi-images (seulement si le PDF a échoué avant création)
         id: li_profil
-        if: steps.fraicheur.outputs.publier == 'true' && steps.li_pdf.outputs.repli == 'oui'
+        if: steps.tag.outputs.suite == 'publier' && steps.li_pdf.outputs.repli == 'oui'
         continue-on-error: true
         env:
           LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
@@ -243,7 +269,7 @@ jobs:
           [ "$HTTP_CODE" = "201" ]
 
       - name: Vérifier les résultats et faire échouer le job si besoin
-        if: always()
+        if: always() && steps.tag.outputs.suite == 'publier'
         run: |
           echo "LinkedIn Company Page + Facebook (webhook unique) : ${{ steps.social.outcome }}"
           echo "LinkedIn profil perso — document PDF : ${{ steps.li_pdf.outcome }} (repli demandé : ${{ steps.li_pdf.outputs.repli || 'non' }})"
