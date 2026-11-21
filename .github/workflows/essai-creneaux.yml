@@ -55,6 +55,10 @@ jobs:
           CRENEAU_HEURE=1600 attendu "rattrapage avant la limite"   0 publier    bash $D attendre essai2 1530 1700
           CRENEAU_HEURE=0747 attendu "samedi 07h47 → attend 11h00 puis publier" 0 publier bash $D attendre essai4 1100 1700
           CRENEAU_HEURE=0747 attendu "mardi 07h47 → attend 11h00 puis publier" 0 publier bash $D attendre essai5 1100 1700
+          CRENEAU_HEURE=0747 attendu "jeudi 07h47 → attend 11h00 puis publier" 0 publier bash $D attendre essai6 1100 1700
+          CRENEAU_HEURE=0747 attendu "vendredi 07h47 → attend 11h00 puis publier" 0 publier bash $D attendre essai7 1100 1700
+          attendu "jeudi : 1er run pose le tag"  0 publier bash $D prendre essai6
+          attendu "jeudi : 2e run refusé"        0 deja    bash $D prendre essai6
           CRENEAU_HEURE=1800 attendu "après la limite → rien, alerte" 1 hors_delai bash $D attendre essai3 1530 1700
           exit $KO
 
