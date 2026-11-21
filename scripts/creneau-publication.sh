@@ -40,6 +40,52 @@ sortie "tag=$TAG"
 case "$MODE" in
 attendre)
   CIBLE="${3:?HHMM cible}"; LIMITE="${4:?HHMM limite}"
+  # ── RELAIS DE VEILLEURS (22/11/2026, accord de Jean-Michel : « Oui, le relais ») ──
+  # Même les créneaux du matin partent avec 5 h de retard (samedi 21/11 : publié à 12h45).
+  # Un workflow_dispatch, lui, démarre en quelques secondes. Des crons d'ENTRÉE la veille
+  # au soir lancent donc un veilleur : s'il est à plus de 5 h 40 de l'heure cible, il dort
+  # 5 h 30 puis se relance lui-même (workflow_dispatch, GITHUB_TOKEN, actions: write) ;
+  # sinon il attend l'heure cible et publie. Aucun jeton ni compte externe.
+  # Activé par CRENEAU_JOUR_SEMAINE (1=lundi … 7=dimanche, jour NC de la publication) :
+  # un run lancé un autre jour vise la prochaine date NC qui porte ce jour.
+  D="$DATE_NC"
+  if [ -n "${CRENEAU_JOUR_SEMAINE:-}" ] && [ "$(TZ=$NC date +%u)" != "$CRENEAU_JOUR_SEMAINE" ]; then
+    for k in 1 2 3 4 5 6; do
+      D=$(TZ=$NC date -d "$DATE_NC +$k day" +%Y-%m-%d)
+      [ "$(TZ=$NC date -d "$D 12:00" +%u)" = "$CRENEAU_JOUR_SEMAINE" ] && break
+    done
+  fi
+  ATTENTE=$(( $(TZ=$NC date -d "$D ${CIBLE:0:2}:${CIBLE:2:2}" +%s) - $(date +%s) ))
+  if [ -n "${CRENEAU_JOUR_SEMAINE:-}" ] && { [ "$D" != "$DATE_NC" ] || [ "$ATTENTE" -gt 20400 ]; }; then
+    TAG="$PREFIXE-$JOUR-$D"
+    if tag_existe; then sortie "suite=deja"; exit 0; fi
+    if [ "$ATTENTE" -le 20400 ]; then
+      echo "Veilleur : publication du $D à ${CIBLE:0:2}h${CIBLE:2:2} NC dans ${ATTENTE} s — attente sur place."
+      [ "${CRENEAU_ESSAI:-}" = "1" ] && ATTENTE=$(( ATTENTE > 10 ? 10 : ATTENTE ))
+      [ "$ATTENTE" -gt 0 ] && sleep "$ATTENTE"
+      if tag_existe; then sortie "suite=deja"; exit 0; fi
+      sortie "suite=publier"; exit 0
+    fi
+    SOMMEIL=19800; [ "${CRENEAU_ESSAI:-}" = "1" ] && SOMMEIL=5
+    echo "Veilleur : publication du $D à ${CIBLE:0:2}h${CIBLE:2:2} NC dans ${ATTENTE} s (> 5 h 40) — sommeil de ${SOMMEIL} s, puis relance."
+    sleep "$SOMMEIL"
+    if tag_existe; then sortie "suite=deja"; exit 0; fi
+    WF=$(echo "${GITHUB_WORKFLOW_REF:-}" | sed -n 's#.*/\.github/workflows/\([^@]*\)@.*#\1#p')
+    if [ "${CRENEAU_ESSAI:-}" = "1" ] && [ "${CRENEAU_ESSAI_RELANCE:-}" != "1" ]; then
+      echo "::notice title=Veilleur $JOUR::relance SIMULÉE (essai) de ${WF:-?} — rien n'est déclenché."
+      sortie "suite=relais"; exit 0
+    fi
+    CODE=$(curl -s -o /tmp/relais.txt -w "%{http_code}" -X POST \
+      -H "Authorization: Bearer ${GH_TOKEN:-}" -H "Accept: application/vnd.github+json" \
+      "https://api.github.com/repos/${GITHUB_REPOSITORY:-Blaisejm/perfecoconsulting}/actions/workflows/$WF/dispatches" \
+      -d '{"ref":"main"}')
+    if [ "$CODE" = "204" ]; then
+      echo "::notice title=Veilleur $JOUR::relais lancé ($WF, workflow_dispatch) — vise le $D à ${CIBLE:0:2}h${CIBLE:2:2} NC."
+      sortie "suite=relais"; exit 0
+    fi
+    echo "::error title=Veilleur $JOUR::relance impossible ($WF, HTTP $CODE $(head -c 200 /tmp/relais.txt)) — les créneaux du matin restent en secours."
+    sortie "suite=relais_rompu"; exit 1
+  fi
   if tag_existe; then
     echo "::notice title=Créneau $JOUR::déjà publié aujourd'hui ($TAG présent) — ce déclenchement de secours s'arrête là."
     sortie "suite=deja"; exit 0
