@@ -12,7 +12,8 @@ ni prospects, ni arbitrages, ni données personnelles, ni comptabilité, ni jeto
 | Dossier | Contenu | Source sur le PC |
 |---|---|---|
 | `gabarits/` | carrousels HTML, gabarit V2 Performance (`gabarit-v2-performance.html`), variante Facebook zone sûre (bloc `/* ZONE SÛRE FACEBOOK */` de `carousel-le-projet-dabord.html`) | `images-library/linkedin-carousel/` |
-| `images/personnages/` | les 10 personnages et groupes Pacific (charte : 3 à 6 personnes, multiculturel) | `images-library/personnages/` |
+| `images/banque/` | **banque d'images validées** (choix de Jean-Michel du 22/11/2026, pas de génération sauf demande) : 49 photos de groupe déjà publiées, compressées en JPEG ≤ 1400 px, **toutes contrôlées le 22/11/2026 : 3 à 6 personnes, multiculturel Pacifique**. `USAGE.json` : qui a utilisé quoi (pas de réemploi sur 8 publications) | `images-library/linkedin-carousel/*-01.png` + 2 groupes de `personnages/` |
+| `images/personnages/` | portraits et groupes de référence des personnages. **Hors charte pour un visuel** : 7 portraits individuels et un groupe de 2 (`groupe-consultant-client-01`), relevé A-2026-11-22-01. Ne pas utiliser en fond de visuel | `images-library/personnages/` |
 | `outils/export-slides.cjs` | export Puppeteer des slides en PNG, **chemins en arguments** | `outils-ia/perfeco-publisher-mcp/export-slides.cjs` et `export-v2.cjs` |
 | `outils/generate-image.mjs` | génération d'image (gpt-image-1), sortie dans `production/images/` ; exige le secret `OPENAI_API_KEY` | `outils-ia/perfeco-publisher-mcp/generate-image.mjs` |
 | `consignes/` | référentiel V2, règles éditoriales, relecture FR (skill + exemples de calibrage), personnages, stratégie de diffusion des images, gabarits d'article, banque de visuels V2 | `base-connaissance/`, `templates/`, racine |
@@ -29,3 +30,9 @@ Restent PRIVÉS, hors de ce dépôt : transcriptions Whisper, registre des valid
 nominatif, notes de prospection, comptabilité Broussan, compte de service GA4.
 
 Essai : `.github/workflows/essai-production.yml` exporte un gabarit dans GitHub Actions.
+
+`routines/` : consignes des routines de création cloud (routine claude.ai, choix de Jean-Michel),
+en MODE OMBRE tant qu'un cycle conforme n'a pas été comparé à la routine locale : la sortie part
+sur une branche `ombre/<format>-<date>`, jamais sur `main`.
+
+Écartée de la banque : `w28-cover-comex-pacifique` (≈ 7 personnes, au-delà de la charte).

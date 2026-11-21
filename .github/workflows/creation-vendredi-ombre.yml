@@ -13,13 +13,10 @@ name: "OMBRE (ne publie rien) — création cloud de la veille éco du vendredi"
 # (action de Jean-Michel dans l'app) : jamais deux écrivains de la même publication.
 # ---------------------------------------------------------------------------
 
+# 22/11/2026 : Jean-Michel a choisi les ROUTINES CLOUD claude.ai comme moteur de création.
+# Ce workflow Agent SDK reste une OMBRE DE COMPARAISON, lancée à la main seulement.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/creation-vendredi-ombre.yml'
-      - 'production/routines/vendredi-creation.md'
 
 permissions:
   contents: write   # pousser la branche ombre/… (jamais main)
