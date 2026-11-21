@@ -1153,18 +1153,18 @@
                              "heure_nc":  "11:00",
                              "format":  "vendredi",
                              "libelle":  "Veille économique NC",
-                             "sujet":  "à définir",
-                             "semaine":  null,
+                             "sujet":  "CCI-NC : 3 657 chefs d'entreprise et salariés formés en 2025 (+68 %) — au retour de formation, déléguer une décision par écrit",
+                             "semaine":  "W48",
                              "canaux":  [
                                             "linkedin_company",
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_file",
+                             "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
                              "preuve":  null,
-                             "note":  "Veille économique du vendredi — format, sourçage (IEOM/ISEE verifie a la source) et gabarit INCHANGÉS. Produit par mercredi-creation, partie V. La campagne dédiée Performance occupe le créneau du JEUDI, pas celui-ci.",
+                             "note":  "Veille économique du vendredi — format, sourçage (IEOM/ISEE verifie a la source) et gabarit INCHANGÉS. Produit par mercredi-creation, partie V. La campagne dédiée Performance occupe le créneau du JEUDI, pas celui-ci. | 22/11/2026 : produit par l'ombre cloud du 22/11 (run Agent SDK 44951158418, issue #17), validé par JM (« Le sujet CCI du cloud »). Source : CCI-NC, rapport d'activité 2025, repris par NC La 1ère le 03/11/2026. Visuel reconstruit sur main (photo de la banque veille-eco-w37-echeances-reportees-01, zone sûre vérifiée par apercu-recadrage.py) : slides/W48/00-facebook-formation.png et 01-couverture-formation.png. Mis en file par intervention-manuelle-cloud.",
                              "axe":  "performance"
                          },
                          {
