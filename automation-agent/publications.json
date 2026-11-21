@@ -1074,10 +1074,10 @@
                              "date_nc":  "2026-11-19",
                              "heure_nc":  "11:00",
                              "format":  "jeudi",
-                             "statut":  "echeance_depassee",
+                             "statut":  "publie",
                              "source":  "automation-queue/jeudi.json",
                              "bascule":  null,
-                             "preuve":  null,
+                             "preuve":  "LinkedIn Company + profil perso en ligne, constate le 20/11/2026 (session Taches planifiees bloquees) : publie vers 18h NC le 19/11 par le run publish-jeudi-post-court 44476713578 (cron GitHub en retard de 7 h). Facebook : republie en direct le samedi 21/11 par le run 44852033874 (post 122205984014748730, is_published=true). Cloture manuelle (intervention-manuelle-cloud) : le jour precede la bascule du controle de l'apres-midi.",
                              "libelle":  "Campagne dédiée 4/10 — Simplifier le fonctionnement",
                              "sujet":  "Les coûts invisibles de l\u0027organisation",
                              "note":  "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -\u003e conséquence -\u003e méthode -\u003e résultat -\u003e invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | CANAUX CORRIGES le 23/09/2026 : le creneau du JEUDI part sur LinkedIn Company + LinkedIn PROFIL PERSO depuis la decision de Jean-Michel du 15/09/2026. Facebook ne recoit plus rien le jeudi (suffixe -NOFB envoye par publish-jeudi-post-court.yml) : il recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. L\u0027entree portait encore linkedin_company+facebook, heritage d\u0027avant le 15/09. Correction documentaire : aucun automatisme ne derive son comportement de ce champ (seul le controle d\u0027espacement le lit, et il n\u0027y cherche que linkedin_company). | 27/10/2026 : porte desormais la campagne 4/10 (reportee du 22/10). Le contenu prevu ici (Campagne dédiée 5/10 — Simplifier le fonctionnement / Traiter la cause des problèmes récurrents) reste A REPLACER : decalage de la suite de la campagne a arbitrer par Jean-Michel. | 18/11/2026 (intervention-manuelle, décision de Jean-Michel, v-2026-11-13-01 option 1) : glissement — reprise au premier épisode non publié (créneau précédemment : Campagne dédiée 8/10 — Piloter avec une information fiable)",
@@ -2930,5 +2930,5 @@
                      ],
     "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-11-20"
+    "derniere_maj":  "2026-11-19"
 }
