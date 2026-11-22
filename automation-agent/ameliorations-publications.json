@@ -239,6 +239,56 @@
           "detail": "Heures reelles Facebook constatees le 22/11 : vendredi 20/11 publie a 15h59 NC, samedi 21/11 a 12h45 NC ; la regle du 20/11 vise 11h00 NC pour tous les canaux."
         }
       ]
+    },
+    {
+      "id": "A-2026-11-22-08",
+      "constate_le": "2026-11-22T18:08:54+11:00",
+      "par": "jean-michel",
+      "publication": "2026-11-21-samedi",
+      "canal": "tous",
+      "categorie": "visuel",
+      "priorite": "haute",
+      "formats": [
+        "tous"
+      ],
+      "constat": "Republication Facebook du 21/11 (visuel V2 « Comptez les étapes ») : le logo PerfEco est trop petit, coincé dans l'angle blanc en bas à droite ; on le remarque à peine.",
+      "recommandation": "Agrandir nettement le logo PerfEco sur tous les visuels : au moins 18 % de la largeur (environ 220 px sur 1200), placé DANS la zone sûre (carré central), jamais dans un angle qui sera recadré ; vérifier sa lisibilité sur l'aperçu carré ET sur l'aperçu mosaïque.",
+      "preuve": "Capture envoyée par JM le 22/11/2026 (post Facebook du 21/11 à 12h45)",
+      "statut": "ouvert",
+      "applique_dans": null,
+      "occurrences": 1,
+      "historique": [
+        {
+          "le": "2026-11-22T18:08:54+11:00",
+          "evenement": "ouvert",
+          "detail": "Republication Facebook du 21/11 (visuel V2 « Comptez les étapes ») : le logo PerfEco est trop petit, coincé dans l'angle blanc en bas à droite ; on le remarque à peine."
+        }
+      ]
+    },
+    {
+      "id": "A-2026-11-22-09",
+      "constate_le": "2026-11-22T18:08:54+11:00",
+      "par": "jean-michel",
+      "publication": "2026-11-21-samedi",
+      "canal": "facebook",
+      "categorie": "adaptation_canal",
+      "priorite": "haute",
+      "formats": [
+        "tous"
+      ],
+      "constat": "Sur Facebook (vue Page, ordinateur), le visuel portrait 4:5 s'affiche rétréci au milieu d'un large cadre : grandes bandes bleues à gauche et à droite, photo et titre petits.",
+      "recommandation": "Produire pour Facebook une variante CARRÉE dédiée (1200x1200), composée pour ce format (photo plus grande, titre et logo plus gros, rien dans les marges) au lieu de réutiliser le portrait 4:5 ; LinkedIn garde le 4:5. Valable pour le jeudi (republié le samedi), le vendredi et le mardi.",
+      "preuve": "Capture envoyée par JM le 22/11/2026",
+      "statut": "ouvert",
+      "applique_dans": null,
+      "occurrences": 1,
+      "historique": [
+        {
+          "le": "2026-11-22T18:08:54+11:00",
+          "evenement": "ouvert",
+          "detail": "Sur Facebook (vue Page, ordinateur), le visuel portrait 4:5 s'affiche rétréci au milieu d'un large cadre : grandes bandes bleues à gauche et à droite, photo et titre petits."
+        }
+      ]
     }
   ]
 }
