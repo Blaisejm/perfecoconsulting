@@ -54,8 +54,10 @@
     border-top: 11px solid #FBAA16; border-left: 11px solid #FBAA16;
     border-right: none; border-bottom: none;
   }
-  .v2-corner .logo { position: absolute; right: 46px; bottom: 46px; }
-  .v2-corner .logo img { height: 120px; object-fit: contain; display: block; }
+  /* Logo agrandi le 22/11/2026 (A-2026-11-22-08) : version recadrée du site (sans le vide du SVG d'origine),
+     260 px de large = 22 % de la largeur. */
+  .v2-corner .logo { position: absolute; right: 52px; bottom: 54px; }
+  .v2-corner .logo img { width: 260px; height: auto; object-fit: contain; display: block; }
 
   /* ── Variante fond clair (photo plus lumineuse) : voile pour garantir
      le contraste du bandeau, jamais de texte pose directement sur la photo ── */
@@ -92,7 +94,7 @@
   <div class="v2-corner">
     <div class="sheet"></div>
     <div class="arc"></div>
-    <div class="logo"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <div class="logo"><img src="https://www.perfeco.nc/logo-perfeco-site.svg" alt="PerfEco"></div>
   </div>
 </div>
 

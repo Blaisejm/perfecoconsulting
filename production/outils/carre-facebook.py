@@ -75,7 +75,7 @@ def main():
   .titre .accent {{ color: #FBAA16; }}
   .sous-titre {{ color: #fff; font-size: 27px; font-weight: 600; line-height: 1.5; margin-top: 18px; }}
   .logo {{ margin-top: auto; }}
-  .logo img {{ width: 240px; filter: brightness(0) invert(1); display: block; }}
+  .logo img {{ width: 240px; filter: brightness(0) invert(1); display: block; }}  /* logo recadré du site : 240 px visibles */
 </style></head><body>
 <div class="slide">
   <div class="photo"><img src="{html.escape(o.photo)}" alt=""></div>
@@ -84,7 +84,7 @@ def main():
     {chiffre}
     <h1 class="titre">{titre}</h1>
     {sous}
-    <div class="logo"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <div class="logo"><img src="https://www.perfeco.nc/logo-perfeco-site.svg" alt="PerfEco"></div>
   </div>
 </div>
 </body></html>
