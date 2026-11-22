@@ -92,7 +92,13 @@ jobs:
 
           # Le samedi est une republication : elle ne s'appuie sur aucune file datée du jour.
           REPUBLICATION=false
-          [ "$DOW" = "6" ] && REPUBLICATION=true
+          # 23/11/2026 : pas de republication quand la veille éco (vendredi férié) part ce samedi
+          # (26/12, 02/01 : c'est la veille qu'on contrôle), ni quand le jeudi de la semaine est
+          # SUSPENDU (pause 22/12 → 15/01 décidée par Jean-Michel) : rien n'a été publié à reprendre.
+          if [ "$DOW" = "6" ] && ! $VEILLE; then
+            JEUDI=$(date -d "$TODAY_NC -2 days" +%Y-%m-%d)
+            if bash scripts/creneau-suspendu.sh jeudi "$JEUDI"; then echo "Jeudi $JEUDI suspendu : pas de republication à contrôler."; else REPUBLICATION=true; fi
+          fi
 
           FORMAT=aucun
           $CARROUSEL     && FORMAT=carrousel

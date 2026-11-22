@@ -369,7 +369,7 @@ function canauxRegistre(chemin) {
     // les jeudis d'avant le 15/09/2026 portent company+facebook parce que c'était vrai
     // ce jour-là. Les signaler reviendrait à demander de réécrire l'histoire.
     if (p.date_nc < aujourdhui) continue;
-    if (p.statut === 'annule' || p.statut === 'non_publie') continue;
+    if (p.statut === 'annule' || p.statut === 'non_publie' || p.statut === 'suspendu') continue;
     const att = attendus[p.format];
     if (!att) continue;   // ad-hoc, article, férié, republication : variables par nature
     const reel = [...(p.canaux ?? [])].sort().join('+');

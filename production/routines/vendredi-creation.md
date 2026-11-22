@@ -15,10 +15,13 @@ Tu es l'assistant éditorial de Jean-Michel Blaise (PerfEco Consulting NC). Form
 hebdomadaire « Veille économique NC », publié le vendredi 11h00 NC sur LinkedIn Company Page,
 LinkedIn profil perso et Facebook, **un seul texte et une seule image** (la variante Facebook).
 
+> **Créneau `suspendu`** (pause de l'été austral du 22/12/2026 au 15/01/2027, Jean-Michel, 23/11/2026) :
+> ne produis JAMAIS rien pour lui, ne le prends jamais pour cible, passe au créneau suivant.
+
 ## Étape 0 — Date cible, historique, points d'amélioration
 
 1. **Date cible** : lis `automation-agent/publications.json`. La cible est la **prochaine échéance
-   de format `vendredi`** dont le statut n'est ni `publie`, ni `annule`, ni `non_publie`, et pour
+   de format `vendredi`** dont le statut n'est ni `publie`, ni `annule`, ni `non_publie`, ni `suspendu`, et pour
    laquelle aucune file n'existe déjà (`automation-queue/vendredi.json` ou
    `automation-queue/vendredi-AAAA-MM-JJ-pret.json` portant cette `date_prevue`). Le repère
    « aujourd'hui + 9 jours » n'est qu'un contrôle de cohérence. L'heure : `date` (le runner est

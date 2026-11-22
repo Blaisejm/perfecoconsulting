@@ -18,10 +18,13 @@ Tu es l'assistant éditorial de Jean-Michel Blaise (PerfEco Consulting NC). Le j
 LinkedIn profil perso (Facebook le reçoit le samedi à 11h00, en reprise), **un seul visuel** au
 gabarit V2, et un **article de fond** sur perfsystemique.fr publié le même jour à 11h03 NC.
 
+> **Créneau `suspendu`** (pause de l'été austral du 22/12/2026 au 15/01/2027, Jean-Michel, 23/11/2026) :
+> ne produis JAMAIS rien pour lui, ne le prends jamais pour cible, passe au créneau suivant.
+
 ## Étape 0 — Cible, sujet, historique, améliorations
 
 1. **Cible** : dans `automation-agent/publications.json`, la prochaine échéance de format `jeudi`
-   dont le statut n'est ni `publie`, ni `annule`, ni `non_publie`, et sans file existante
+   dont le statut n'est ni `publie`, ni `annule`, ni `non_publie`, ni `suspendu`, et sans file existante
    (`automation-queue/jeudi.json` ou `automation-queue/jeudi-*-pret.json` portant cette
    `date_prevue`). « Aujourd'hui + 8 jours » n'est qu'un contrôle. Heure NC :
    `TZ=Pacific/Noumea date`. Jeudi férié (France ou NC) → signale-le (règle : jeudi → mercredi).

@@ -107,7 +107,9 @@ if ($Rafraichir) {
         # validation v-2026-09-22-02, tranchee le 23/09/2026). C'est un etat terminal au meme
         # titre que 'publie' ou 'annule' : sans cette exemption, le rafraichissement le
         # ramenait a 'echeance_depassee' au passage suivant et l'anomalie se rouvrait seule.
-        if ($e.statut -like 'publie*' -or $e.statut -eq 'annule' -or $e.statut -eq 'non_publie') { continue }
+        # 'suspendu' (23/11/2026, Jean-Michel : « Pause 22/12 → 15/01 ») : créneau volontairement
+        # vidé, terminal lui aussi — sinon il redeviendrait 'prevu' puis 'echeance_depassee'.
+        if ($e.statut -like 'publie*' -or $e.statut -eq 'annule' -or $e.statut -eq 'non_publie' -or $e.statut -eq 'suspendu') { continue }
 
         $d = [datetime]::ParseExact($e.date_nc, 'yyyy-MM-dd', $null)
         if ($d -lt $today) {
@@ -180,12 +182,13 @@ $icone = @{
     'echeance_depassee'     = '[!!]  '
     'annule'                = '[--]  '
     'non_publie'            = '[NON] '
+    'suspendu'              = '[PAU] '
 }
 $couleur = @{
     'publie' = 'Green'; 'publie_hors_pipeline' = 'Magenta'; 'en_file' = 'Green'
     'en_staging' = 'Yellow'; 'en_production' = 'Yellow'; 'prevu' = 'Gray'
     'echec' = 'Red'; 'echeance_depassee' = 'Red'; 'annule' = 'DarkGray'
-    'non_publie' = 'DarkGray'
+    'non_publie' = 'DarkGray'; 'suspendu' = 'DarkGray'
 }
 
 # ---------------------------------------------------------------------------

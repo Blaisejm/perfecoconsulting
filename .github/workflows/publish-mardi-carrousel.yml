@@ -67,6 +67,8 @@ jobs:
         id: fraicheur
         run: |
           set -e
+          # Pause décidée par Jean-Michel (registre « suspendu ») : sortie normale, sans alerte.
+          if bash scripts/creneau-suspendu.sh mardi; then echo "publier=false" >> "$GITHUB_OUTPUT"; exit 0; fi
           FILE="automation-queue/mardi.json"
           if [ ! -f "$FILE" ]; then
             echo "::error::Fichier $FILE introuvable."

@@ -14,12 +14,15 @@
 > citent, dans un fichier, un commit, un message de commit ou la branche.** Elles servent à contrôler
 > ce que tu écris, pas à être recopiées.
 
+> **Créneau `suspendu`** (pause de l'été austral du 22/12/2026 au 15/01/2027, Jean-Michel, 23/11/2026) :
+> ne produis JAMAIS rien pour lui, ne le prends jamais pour cible, passe au créneau suivant.
+
 ## Étape 0 — Cible, sujet, historique, améliorations
 
 1. **Cible** : celle que la consigne de ta routine impose. À défaut : la prochaine échéance `mardi`
    de `automation-agent/publications.json` sans file (`automation-queue/mardi.json` ou
-   `automation-queue/mardi-W<SS>-pret.json` portant cette date), statut ni `publie`, ni `annule`, ni
-   `non_publie`. Heure NC : `TZ=Pacific/Noumea date`. Mardi férié → signale-le (règle : mardi → lundi).
+   `automation-queue/mardi-W<SS>-pret.json` portant cette date), statut ni `publie`, ni `annule`, ni `non_publie`, ni
+   `suspendu`. Heure NC : `TZ=Pacific/Noumea date`. Mardi férié → signale-le (règle : mardi → lundi).
 2. **Sujet** : `libelle` et `sujet` de l'échéance, et son `axe` (`institutions` ou série). Ne choisis
    jamais un sujet toi-même.
 3. **Historique** : les entrées `mardi` passées du registre, et la file de la semaine précédente

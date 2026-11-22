@@ -94,6 +94,8 @@ jobs:
         if: steps.espacement.outputs.republier == 'oui'
         run: |
           set -e
+          # Pause (registre « suspendu ») : le jeudi de la semaine n'a rien publié, rien à reprendre.
+          if bash scripts/creneau-suspendu.sh jeudi "$(TZ="Pacific/Noumea" date -d "-2 days" +%Y-%m-%d)"; then echo "republier=non" >> "$GITHUB_OUTPUT"; exit 0; fi
           FILE="automation-queue/jeudi.json"
           if [ ! -f "$FILE" ]; then
             echo "::error::Fichier $FILE introuvable — rien à republier."
@@ -127,7 +129,7 @@ jobs:
       # l'étape échoue et l'issue « alerte » s'ouvre.
       - name: Créneau — poser le tag du jour (un seul run publie)
         id: tag
-        if: steps.espacement.outputs.republier == 'oui'
+        if: steps.espacement.outputs.republier == 'oui' && steps.check.outputs.republier != 'non'
         run: bash scripts/creneau-publication.sh prendre samedi
 
       - name: Facebook — republication EN DIRECT (API Graph)
