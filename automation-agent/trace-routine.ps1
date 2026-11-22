@@ -79,7 +79,10 @@ function Masquer-Sensible([string] $t) {
     if ([string]::IsNullOrEmpty($t)) { return $t }
     $t = [regex]::Replace($t, '\b[A-Z]{2}\d{2}(?:[ ]?[A-Z0-9]){11,30}\b', '[MASQUÉ]')
     $t = [regex]::Replace($t, '(?i)\b(RIB|IBAN)\b\s*:?\s*[A-Z0-9][A-Z0-9 \-]{4,}', '$1 [MASQUÉ]')
+    # Dates ISO protégées (23/11/2026 : « W48 2026-11-24 » faisait 10 chiffres et était masqué).
+    $t = [regex]::Replace($t, '\b(\d{4})-(\d{2})-(\d{2})\b', '§D$1§$2§$3§')
     $t = [regex]::Replace($t, '(?<!\d)(?<!(?i:runs/|run |runs |job |job/|r-|r))\d(?:[ .\-]?\d){9,}', '[MASQUÉ]')
+    $t = [regex]::Replace($t, '§D(\d{4})§(\d{2})§(\d{2})§', '$1-$2-$3')
     return $t
 }
 if ($ROUTINES_PRIVEES -contains $Routine) {
