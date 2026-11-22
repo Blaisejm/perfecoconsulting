@@ -28,7 +28,8 @@ sortie() { [ -n "${GITHUB_OUTPUT:-}" ] && echo "$1" >> "$GITHUB_OUTPUT"; }
 
 [ -n "${FB_PAGE_TOKEN:-}" ] || avant "FB_PAGE_TOKEN vide."
 MESSAGE=$(jq -r '.social_post.message // empty' "$FILE")
-IMAGE_URL=$(jq -r '.social_post.image_url // empty' "$FILE")
+# Image carrée Facebook (1200×1200) si la file en porte une, sinon l'image commune (22/11/2026, A-2026-11-22-09).
+IMAGE_URL=$(jq -r '.social_post.facebook_image_url // .social_post.image_url // empty' "$FILE")
 [ -n "$MESSAGE" ] && [ "${#MESSAGE}" -ge 80 ] || avant ".social_post.message vide ou trop court (${#MESSAGE} car.) dans $FILE."
 [ -n "$IMAGE_URL" ] || avant ".social_post.image_url vide dans $FILE."
 

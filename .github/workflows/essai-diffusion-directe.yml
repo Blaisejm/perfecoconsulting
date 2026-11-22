@@ -19,6 +19,7 @@ on:
       - '.github/workflows/essai-diffusion-directe.yml'
       - 'scripts/facebook-photo.sh'
       - 'scripts/linkedin-post-image.sh'
+      - 'scripts/facebook-direct-ou-repli.sh'
 
 permissions:
   contents: read
@@ -49,3 +50,12 @@ jobs:
           LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
         run: bash scripts/linkedin-post-image.sh automation-queue/vendredi.json --dry-run
 
+      - name: Facebook direct avec IMAGE CARRÉE — essai à blanc (22/11/2026)
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          # File de test : vendredi.json + un champ facebook_image_url (ici l'image existante, joignable).
+          jq '.social_post.facebook_image_url = .social_post.image_url' automation-queue/vendredi.json > /tmp/test-carre.json
+          OUT=$(bash scripts/facebook-photo.sh /tmp/test-carre.json --dry-run); echo "$OUT"
+          echo "$OUT" | grep -q "$(jq -r '.social_post.facebook_image_url' /tmp/test-carre.json)" || { echo "::error::l'image carrée n'est pas celle utilisée"; exit 1; }
+          bash scripts/facebook-direct-ou-repli.sh /tmp/test-carre.json --dry-run
