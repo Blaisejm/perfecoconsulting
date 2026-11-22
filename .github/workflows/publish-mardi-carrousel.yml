@@ -131,10 +131,18 @@ jobs:
           # Garde du 19/11/2026 (étape 2) : message non vide, image en 200, scénario actif — sinon rien n'est envoyé.
           bash scripts/garde-make.sh "$FILE"
 
+          # Image carrée Facebook (22/11/2026, A-2026-11-22-09) : si la file en porte une, Facebook part
+          # EN DIRECT (étape suivante) et Make ne sert plus Facebook ce jour-là (suffixe -NOFB).
+          SUFFIXE_FB=""
+          if [ -n "$(jq -r '.social_post.facebook_image_url // empty' "$FILE")" ]; then
+            SUFFIXE_FB="-NOFB"; echo "fb_direct=oui" >> "$GITHUB_OUTPUT"
+            echo "Image carrée présente : Facebook en direct, Make sans Facebook (suffixe -NOFB)."
+          fi
+
           HTTP_CODE=$(curl -s -o /tmp/resp.txt -w "%{http_code}" -X POST "$MAKE_WEBHOOK" \
             --data-urlencode "message=$MESSAGE" \
             --data-urlencode "image_url=$IMAGE_URL" \
-            --data-urlencode "semaine=${SEMAINE}-NOCAROUSEL")
+            --data-urlencode "semaine=${SEMAINE}-NOCAROUSEL${SUFFIXE_FB}")
 
           echo "HTTP $HTTP_CODE"; cat /tmp/resp.txt
           [ "$HTTP_CODE" = "200" ]
@@ -150,6 +158,14 @@ jobs:
       # place — le mardi ne reste jamais sans post perso. Si la création du post elle-même
       # a été tentée (code 1), PAS de repli : l'état est incertain et un repli risquerait
       # un doublon ; l'étape échoue et l'alerte part.
+      - name: Facebook EN DIRECT avec l'image carrée (seulement si la file en porte une)
+        id: fb_direct
+        if: "!cancelled() && steps.tag.outputs.suite == 'publier' && steps.social.outputs.fb_direct == 'oui'"
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          MAKE_WEBHOOK: ${{ secrets.MAKE_WEBHOOK }}
+        run: bash scripts/facebook-direct-ou-repli.sh automation-queue/mardi.json
+
       - name: LinkedIn profil perso — carrousel en DOCUMENT PDF (API directe)
         id: li_pdf
         if: steps.tag.outputs.suite == 'publier'
@@ -271,6 +287,11 @@ jobs:
       - name: Vérifier les résultats et faire échouer le job si besoin
         if: always() && steps.tag.outputs.suite == 'publier'
         run: |
+          if [ "${{ steps.fb_direct.outcome }}" = "failure" ]; then
+            echo "::error::Facebook direct (image carrée) en échec, repli compris — vérifier la Page avant tout nouvel envoi."
+            exit 1
+          fi
+          [ "${{ steps.fb_direct.outcome }}" = "success" ] && echo "✅ Facebook publié en direct avec l'image carrée."
           echo "LinkedIn Company Page + Facebook (webhook unique) : ${{ steps.social.outcome }}"
           echo "LinkedIn profil perso — document PDF : ${{ steps.li_pdf.outcome }} (repli demandé : ${{ steps.li_pdf.outputs.repli || 'non' }})"
           echo "LinkedIn profil perso — repli multi-images : ${{ steps.li_profil.outcome }}"

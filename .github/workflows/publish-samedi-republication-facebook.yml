@@ -161,7 +161,7 @@ jobs:
           set -e
           FILE="automation-queue/jeudi.json"
           MESSAGE=$(jq -r '.social_post.message' "$FILE")
-          IMAGE_URL=$(jq -r '.social_post.image_url' "$FILE")
+          IMAGE_URL=$(jq -r '.social_post.facebook_image_url // .social_post.image_url' "$FILE")
           SEMAINE=$(jq -r '.semaine' "$FILE")
 
           echo "DEBUG: longueur MESSAGE=${#MESSAGE} caractères"

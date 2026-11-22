@@ -352,6 +352,12 @@ jobs:
             republication) EXPECTED=3; CANAUX="Facebook UNIQUEMENT (republication du post court, suffixe FBONLY)" ;;
             *)             EXPECTED=0; CANAUX="(jour sans publication attendue)" ;;
           esac
+          # Image carrée Facebook (22/11/2026) : Facebook est alors publié EN DIRECT, hors Make
+          # (suffixe -NOFB) — une route Make de moins. La présence du post Facebook reste vérifiée plus haut.
+          case "$FORMAT" in carrousel) FQ=automation-queue/mardi.json ;; veille) FQ=automation-queue/vendredi.json ;; *) FQ="" ;; esac
+          if [ -n "$FQ" ] && [ -n "$(jq -r '.social_post.facebook_image_url // empty' "$FQ" 2>/dev/null)" ]; then
+            EXPECTED=$((EXPECTED - 1)); CANAUX="$CANAUX — Facebook servi EN DIRECT (image carrée), hors Make"
+          fi
 
           echo "Dernière exécution : $TIMESTAMP — statut=$STATUS opérations=$OPS"
           echo "Attendu aujourd'hui : $EXPECTED opérations — $CANAUX"
