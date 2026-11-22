@@ -189,3 +189,7 @@ En cas de conflit au rebase : `git rebase --abort`, n'écrase rien, et dis-le da
 relu en JSON (date, longueur du texte, image_url). Puis attends le déploiement du site (jusqu'à 10
 minutes, toutes les 30 secondes) : l'`image_url` doit répondre **HTTP 200** (`curl -s -o /dev/null -w
 "%{http_code}"`). Si elle ne répond pas, dis-le en tête du rapport : la publication échouerait.
+
+## Pièces jointes du brouillon Gmail
+
+Le connecteur Gmail refuse tout appel de plus de 4,2 Mo (≈ 3,1 Mo de fichiers). Si tu joins un visuel, joins un **aperçu JPEG** de 800 px de large (qualité 80), jamais le PNG d'origine, et donne le lien du PNG.

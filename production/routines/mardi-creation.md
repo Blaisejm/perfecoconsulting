@@ -49,6 +49,10 @@
 - **Zone sûre (couverture ET variante Facebook)** : titre et logo dans le carré central, 170 px libres en
   haut et en bas, marge latérale ≥ 176 px (la mosaïque LinkedIn coupe 140 px de chaque côté), titre
   centré, un seul titre dominant, sous-titre en blanc plein ou en or.
+- **Le groupe reste visible sous le voile** (point A-2026-11-22-01, relevé de nouveau sur l'ombre du
+  01/12) : le dégradé bleu ne couvre jamais toute la photo. Garde au moins un tiers de l'image à moins de
+  35 % d'opacité, là où sont les visages, et vérifie sur le PNG (et sur l'aperçu carré) que 3 personnes au
+  moins se distinguent. Sinon, éclaircis le dégradé ou décale `object-position`.
 - **Export** (Puppeteer ; s'il manque : `npm install --no-save puppeteer`) :
   `node production/outils/export-slides.cjs sortie/visuel/carousel-<slug>.html sortie/public/slides/W<SS> 01-couverture-<slug>,02-…,03-…,04-…,05-…,06-…,00-facebook-<slug>`
   (`<SS>` = semaine ISO du mardi cible ; adapte les noms à l'ordre des `.slide` du fichier).
@@ -123,3 +127,9 @@ git commit -m "ombre : création cloud mardi du <date_prevue> — NE PAS FUSIONN
 git push -u origin "$B"
 ```
 Si le push est refusé, dis-le avec le message exact : jamais `main` pour contourner.
+
+## Pièces jointes du brouillon Gmail
+
+Le connecteur Gmail refuse tout appel de plus de 4,2 Mo (≈ 3,1 Mo de fichiers). Ne joins jamais les PNG
+d'origine : joins des **aperçus JPEG** de la couverture et de la variante Facebook, 800 px de large,
+qualité 80 (Pillow, ou `apercu-recadrage.py` puis conversion), et donne les liens des PNG sur la branche.

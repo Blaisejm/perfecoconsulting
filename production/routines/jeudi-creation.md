@@ -196,3 +196,7 @@ relu en JSON (date, longueur du post, mots de l'article, slug, image_url). Atten
 site (jusqu'à 10 minutes) : l'`image_url` doit répondre **HTTP 200**. L'article WordPress n'est
 planifié par le workflow `publish-jeudi-article-wordpress.yml` qu'une fois la file basculée dans
 `jeudi.json` : en staging, c'est normal qu'il ne le soit pas encore.
+
+## Pièces jointes du brouillon Gmail
+
+Le connecteur Gmail refuse tout appel de plus de 4,2 Mo (≈ 3,1 Mo de fichiers). Si tu joins un visuel, joins un **aperçu JPEG** de 800 px de large (qualité 80), jamais le PNG d'origine, et donne le lien du PNG.
