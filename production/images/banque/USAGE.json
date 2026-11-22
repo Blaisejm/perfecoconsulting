@@ -13,5 +13,20 @@
     "photo": "w41-slide3-ligne-datee-01.jpg",
     "date_prevue": "2026-12-03",
     "format": "jeudi"
+  },
+  {
+    "photo": "groupe-comex-reunion-01.jpg",
+    "date_prevue": "2026-12-01",
+    "format": "mardi"
+  },
+  {
+    "photo": "w33-slide3-revue-documents-01.jpg",
+    "date_prevue": "2026-12-01",
+    "format": "mardi"
+  },
+  {
+    "photo": "w34-slide3-table-travail-01.jpg",
+    "date_prevue": "2026-12-01",
+    "format": "mardi"
   }
 ]

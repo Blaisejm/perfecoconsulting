@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Carrousel W49 — Comment un financeur lit un dossier (PerfEco Institutions 3/4)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Poppins', 'Arial', sans-serif; background: #d0d0d0; }
+
+  .slide {
+    width: 1200px;
+    height: 1500px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 24px auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+  }
+
+  /* SLIDE 1 — Couverture en ZONE SÛRE (règle du 18/11/2026) : tout dans le carré central,
+     170 px libres en haut et en bas, 176 px de marge latérale, titre centré, un seul titre. */
+  .slide-1 { background: #001D9F; }
+  .slide-1 .bg-photo { position: absolute; inset: 0; z-index: 0; }
+  .slide-1 .bg-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; display: block; }
+  .slide-1 .bg-gradient {
+    position: absolute; inset: 0; z-index: 1;
+    background: radial-gradient(ellipse 85% 70% at 50% 50%, rgba(0,29,159,0.94) 0%, rgba(0,29,159,0.90) 55%, rgba(0,29,159,0.74) 100%);
+  }
+  .slide-1 .content {
+    position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%;
+    padding: 170px 176px; align-items: center; justify-content: center; text-align: center;
+  }
+  .slide-1 .logo-zone img { height: 150px; filter: brightness(0) invert(1); object-fit: contain; }
+  .slide-1 .serie-badge {
+    display: inline-block; background: rgba(251,170,22,0.18); border: 1px solid rgba(251,170,22,0.6); color: #FBAA16;
+    font-size: 16px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 9px 22px; border-radius: 100px;
+    margin-top: 40px;
+  }
+  .slide-1 .main-title { font-size: 64px; font-weight: 900; color: #FFFFFF; line-height: 1.18; letter-spacing: -0.5px; margin-top: 44px; }
+  .slide-1 .main-title .accent { color: #FBAA16; }
+  .slide-1 .subtitle { font-size: 24px; font-weight: 600; color: #FFFFFF; line-height: 1.6; margin-top: 30px; }
+  .slide-1 .slide-num { position: absolute; bottom: 52px; right: 60px; font-size: 13px; color: rgba(255,255,255,0.35); font-weight: 700; letter-spacing: 3px; z-index: 2; }
+
+  /* SLIDES CONTENU (2, 3, 4) — fond blanc */
+  .slide-content { background: #FFFFFF; color: #163D78; flex-direction: column; }
+  .slide-content .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 44px 96px 0; flex-shrink: 0; }
+  .slide-content .logo-zone img { height: 130px; object-fit: contain; }
+  .slide-content .slide-num { font-size: 14px; color: #163D78; opacity: 0.4; font-weight: 700; letter-spacing: 3px; }
+  .slide-content .deco-bar { height: 5px; background: linear-gradient(to right, #001D9F 0%, #FBAA16 50%, transparent 100%); margin: 28px 96px 0; border-radius: 3px; }
+  .slide-content .slide-tag {
+    display: inline-block; background: #EDF4FF; color: #001D9F; font-size: 14px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.5px; padding: 8px 20px; border-radius: 100px; margin: 28px 96px 0; align-self: flex-start;
+  }
+  .slide-content h2 { font-size: 48px; font-weight: 900; color: #001D9F; line-height: 1.15; padding: 18px 96px 0; letter-spacing: -0.5px; }
+  .slide-content h2 .accent { color: #FBAA16; }
+  .slide-content .lead { font-size: 25px; color: #163D78; padding: 16px 96px 0; line-height: 1.5; }
+  /* Encadrés conseil — DOIVENT dominer la slide (règle du 17/08/2026) */
+  .callout { margin: 30px 96px 12px; background: #EDF4FF; border-left: 9px solid #001D9F; border-radius: 0 14px 14px 0; padding: 30px 36px; box-shadow: 0 3px 14px rgba(0,29,159,0.10); }
+  .callout-label { font-size: 18px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; color: #001D9F; margin-bottom: 12px; }
+  .callout p { font-size: 29px; color: #001D9F; line-height: 1.42; font-weight: 800; }
+  .item-list { padding: 34px 96px 0; display: flex; flex-direction: column; gap: 22px; flex: 1; justify-content: space-between; }
+  .item { display: flex; align-items: flex-start; gap: 20px; padding: 26px 30px; background: #FFFFFF; border-radius: 14px; border: 2px solid #EDF4FF; }
+  .item.featured { background: #EDF4FF; }
+  .item .icon { width: 52px; height: 52px; background: #001D9F; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; color: #FFFFFF; font-weight: 900; }
+  .item .icon.gold { background: #FBAA16; color: #001D9F; }
+  .item .label { font-size: 23px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #001D9F; margin-bottom: 6px; }
+  .item .text { font-size: 26px; color: #163D78; line-height: 1.4; }
+  .slide-content .bottom-bar { margin-top: auto; padding: 24px 96px 40px; border-top: 2px solid #EDF4FF; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .slide-content .bottom-bar .url { font-size: 14px; color: #163D78; opacity: 0.6; font-weight: 500; }
+  .slide-content .bottom-bar .series { font-size: 14px; color: #001D9F; font-weight: 700; letter-spacing: 0.5px; }
+
+  /* Cartes (slide 2) */
+  .index-list { padding: 34px 96px 0; display: flex; flex-direction: column; gap: 24px; flex: 1; justify-content: space-between; }
+  .index-card { background: #FFFFFF; border: 2px solid #EDF4FF; border-left: 6px solid #001D9F; border-radius: 0 14px 14px 0; padding: 40px 36px; }
+  .index-card .index-name { font-size: 30px; font-weight: 800; color: #001D9F; margin-bottom: 10px; }
+  .index-card .index-desc { font-size: 26px; color: #163D78; line-height: 1.45; }
+
+  /* Bande photo (slide 3) */
+  .photo-strip { margin: 30px 96px 0; flex: 1; min-height: 300px; border-radius: 14px; overflow: hidden; }
+  .photo-strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; display: block; }
+
+  /* SLIDE 5 — Diagnostic, photo en fond bas */
+  .slide-diag { background: #FFFFFF; flex-direction: column; }
+  .slide-diag .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 44px 96px 0; flex-shrink: 0; position: relative; z-index: 2; }
+  .slide-diag .logo-zone img { height: 130px; object-fit: contain; }
+  .slide-diag .slide-num { font-size: 14px; color: #163D78; opacity: 0.4; font-weight: 700; letter-spacing: 3px; }
+  .slide-diag .deco-bar { height: 5px; background: linear-gradient(to right, #001D9F, #FBAA16, transparent); margin: 28px 96px 0; border-radius: 3px; position: relative; z-index: 2; }
+  .slide-diag .bg-photo-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 640px; z-index: 0; overflow: hidden; }
+  .slide-diag .bg-photo-bottom img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: saturate(0.7) brightness(0.85); }
+  .slide-diag .bg-photo-bottom::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 200px; background: linear-gradient(to bottom, #FFFFFF, transparent); z-index: 1; }
+  .slide-diag .bg-photo-bottom::after { content: ''; position: absolute; inset: 0; background: rgba(0,29,159,0.42); z-index: 1; }
+  .slide-diag .content { position: relative; z-index: 2; display: flex; flex-direction: column; flex: 1; padding: 0 96px; }
+  .slide-diag .slide-tag { display: inline-block; background: #EDF4FF; color: #001D9F; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 8px 20px; border-radius: 100px; margin-top: 26px; align-self: flex-start; }
+  .slide-diag h2 { font-size: 48px; font-weight: 900; color: #001D9F; line-height: 1.15; margin-top: 18px; letter-spacing: -0.5px; }
+  .slide-diag h2 .accent { color: #FBAA16; }
+  .slide-diag .lead { font-size: 23px; color: #163D78; line-height: 1.5; margin-top: 12px; }
+  .slide-diag .diag-questions { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+  .slide-diag .diag-q { background: rgba(255,255,255,0.97); border-left: 5px solid #001D9F; border-radius: 0 12px 12px 0; padding: 20px 24px; box-shadow: 0 2px 12px rgba(0,29,159,0.08); }
+  .slide-diag .diag-q .q-label { font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: #001D9F; margin-bottom: 6px; }
+  .slide-diag .diag-q .q-text { font-size: 23px; color: #163D78; line-height: 1.42; font-weight: 600; }
+  .slide-diag .diag-q.gold-q { border-left-color: #FBAA16; }
+  .slide-diag .diag-callout { margin-top: 22px; background: rgba(255,255,255,0.98); border: 2px solid rgba(251,170,22,0.65); border-left: 9px solid #FBAA16; border-radius: 0 14px 14px 0; padding: 26px 30px; font-size: 29px; color: #001D9F; line-height: 1.42; font-weight: 800; box-shadow: 0 3px 16px rgba(251,170,22,0.22); }
+  .slide-diag .bottom-bar { position: relative; z-index: 2; margin-top: auto; padding: 20px 96px 36px; display: flex; align-items: center; justify-content: space-between; }
+  .slide-diag .bottom-bar .url { font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 500; }
+  .slide-diag .bottom-bar .series { font-size: 14px; color: #FFFFFF; font-weight: 700; }
+
+  /* SLIDE 6 — Conclusion, fond sombre, SANS appel commercial */
+  .slide-6 { background: linear-gradient(155deg, #163D78 0%, #001D9F 70%); color: #FFFFFF; flex-direction: column; }
+  .slide-6 .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 52px 96px 0; }
+  .slide-6 .logo-zone img { height: 150px; filter: brightness(0) invert(1); object-fit: contain; }
+  .slide-6 .slide-num { font-size: 14px; color: rgba(255,255,255,0.35); font-weight: 700; letter-spacing: 3px; }
+  .slide-6 .deco-bar { height: 4px; background: linear-gradient(to right, #FBAA16, rgba(251,170,22,0.2), transparent); margin: 36px 96px 0; border-radius: 3px; }
+  .slide-6 .cta-title { font-size: 66px; font-weight: 900; line-height: 1.15; padding: 100px 96px 0; letter-spacing: -1px; }
+  .slide-6 .cta-title .gold { color: #FBAA16; }
+  .slide-6 .cta-sub { font-size: 32px; color: #FFFFFF; padding: 34px 96px 0; line-height: 1.5; font-weight: 600; }
+  .slide-6 .cta-checks { padding: 70px 96px 0; display: flex; flex-direction: column; gap: 46px; }
+  .slide-6 .check { display: flex; align-items: center; gap: 20px; font-size: 30px; color: rgba(255,255,255,0.92); }
+  .slide-6 .dot { width: 11px; height: 11px; background: #FBAA16; border-radius: 50%; flex-shrink: 0; }
+  .slide-6 .next-box { margin: 96px 96px 0; background: rgba(251,170,22,0.1); border: 1px solid rgba(251,170,22,0.35); border-radius: 18px; padding: 38px 36px; }
+  .slide-6 .next-label { font-size: 16px; color: #FBAA16; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .slide-6 .next-info { font-size: 34px; color: #FFFFFF; font-weight: 700; line-height: 1.45; }
+  .slide-6 .next-url { font-size: 22px; color: #FBAA16; margin-top: 10px; }
+  .slide-6 .bottom-bar { margin-top: auto; padding: 0 96px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .slide-6 .series-label { font-size: 14px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2px; }
+
+  /* ZONE SÛRE FACEBOOK — variante couverture (00-facebook), polices agrandies, logo inchangé.
+     Règle du 18/11/2026 : tout dans le carré central, 170 px libres en haut et en bas,
+     marge latérale >= 176 px, titre centré, un seul titre dominant, sous-titre en blanc plein. */
+  .slide-fb .content { padding: 170px 176px; }
+  .slide-fb .serie-badge { font-size: 18px; margin-top: 36px; }
+  .slide-fb .main-title { font-size: 92px; line-height: 1.1; margin-top: 40px; }
+  .slide-fb .subtitle { font-size: 32px; font-weight: 700; line-height: 1.5; margin-top: 30px; }
+  .slide-fb .slide-num { display: none; }
+</style>
+</head>
+<body>
+
+<!-- ===== SLIDE 1 — Couverture (zone sûre) ===== -->
+<div class="slide slide-1">
+  <div class="bg-photo">
+    <img src="groupe-comex-reunion-01.jpg" alt="">
+  </div>
+  <div class="bg-gradient"></div>
+  <div class="content">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="serie-badge">PerfEco Institutions · 3/4 · Vu de l'intérieur</span>
+    <h1 class="main-title">Comment<br>un financeur<br>lit <span class="accent">votre dossier</span></h1>
+    <p class="subtitle">Ce qu'il ouvre en premier.<br>Ce qui l'arrête en deux&nbsp;minutes.</p>
+  </div>
+  <span class="slide-num">01</span>
+</div>
+
+<!-- ===== SLIDE 2 — Constat : ce que vous avez déjà tenté ===== -->
+<div class="slide slide-content">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">02</span>
+  </div>
+  <div class="deco-bar"></div>
+  <span class="slide-tag">Ce que vous faites déjà</span>
+  <h2>Trois efforts sérieux<br>pour un dossier <span class="accent">solide</span></h2>
+  <p class="lead">Chacun part d'une bonne intention.<br>Le lecteur, lui, a une pile de dossiers.</p>
+  <div class="index-list">
+    <div class="index-card">
+      <div class="index-name">Des annexes en plus</div>
+      <div class="index-desc">Pour montrer le sérieux du travail.<br>Le dossier s'épaissit.</div>
+    </div>
+    <div class="index-card">
+      <div class="index-name">Les mots de l'appel repris</div>
+      <div class="index-desc">Pour cocher chaque critère.<br>Le projet ressemble à tous les autres.</div>
+    </div>
+    <div class="index-card">
+      <div class="index-name">Le budget chiffré à la fin</div>
+      <div class="index-desc">Quand le texte est enfin prêt.<br>Les deux racontent deux projets.</div>
+    </div>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Ce qui se passe à la lecture</div>
+    <p>L'évaluateur décide en quelques minutes<br>s'il lira votre dossier jusqu'au bout.</p>
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">PerfEco Institutions · 3/4</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 3 — Ce qu'il ouvre en premier (photo) ===== -->
+<div class="slide slide-content">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">03</span>
+  </div>
+  <div class="deco-bar"></div>
+  <span class="slide-tag">Vu de l'intérieur</span>
+  <h2>Ce que l'évaluateur<br>ouvre <span class="accent">en premier</span></h2>
+  <p class="lead">Avant de lire le texte en entier,<br>il ouvre trois pages.</p>
+  <div class="item-list">
+    <div class="item">
+      <div class="icon">1</div>
+      <div><div class="label">La première page</div><div class="text">Il cherche le projet en une phrase&nbsp;:<br>qui, pour qui, combien.</div></div>
+    </div>
+    <div class="item">
+      <div class="icon">2</div>
+      <div><div class="label">Le budget</div><div class="text">Il le compare au texte.<br>Chaque action a sa ligne de dépense.</div></div>
+    </div>
+    <div class="item featured">
+      <div class="icon gold">3</div>
+      <div><div class="label">Le calendrier</div><div class="text">Il vérifie que l'équipe annoncée<br>peut tenir ces dates.</div></div>
+    </div>
+  </div>
+  <div class="photo-strip">
+    <img src="w33-slide3-revue-documents-01.jpg" alt="">
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">PerfEco Institutions · 3/4</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 4 — Cadre : ce qui fait écarter un dossier ===== -->
+<div class="slide slide-content">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">04</span>
+  </div>
+  <div class="deco-bar"></div>
+  <span class="slide-tag">Les deux premières minutes</span>
+  <h2>Ce qui fait écarter<br>un dossier <span class="accent">très vite</span></h2>
+  <div class="item-list">
+    <div class="item">
+      <div class="icon">1</div>
+      <div><div class="label">Une pièce obligatoire manque</div><div class="text">Le dossier s'arrête là,<br>quelle que soit la qualité du projet.</div></div>
+    </div>
+    <div class="item">
+      <div class="icon">2</div>
+      <div><div class="label">Le budget raconte autre chose</div><div class="text">Une action sans dépense,<br>une dépense sans action.</div></div>
+    </div>
+    <div class="item">
+      <div class="icon">3</div>
+      <div><div class="label">Un chiffre change</div><div class="text">Page 2 et page 14 donnent<br>deux montants différents.</div></div>
+    </div>
+    <div class="item featured">
+      <div class="icon gold">4</div>
+      <div><div class="label">Des objectifs flous</div><div class="text">«&nbsp;Améliorer&nbsp;», «&nbsp;renforcer&nbsp;»,<br>sans date ni chiffre.</div></div>
+    </div>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Ce que le comité garde pour lui</div>
+    <p>«&nbsp;Cette équipe ira-t-elle au bout&nbsp;?&nbsp;»<br>La question se pose à chaque dossier.<br>Le courrier de refus ne l'écrit jamais.</p>
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">PerfEco Institutions · 3/4</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 5 — Diagnostic (photo) ===== -->
+<div class="slide slide-diag">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">05</span>
+  </div>
+  <div class="deco-bar"></div>
+  <div class="bg-photo-bottom">
+    <img src="w34-slide3-table-travail-01.jpg" alt="">
+  </div>
+  <div class="content">
+    <span class="slide-tag">Question de diagnostic</span>
+    <h2>Relisez votre dossier<br><span class="accent">comme lui</span></h2>
+    <p class="lead">Votre dossier est déjà sérieux.<br>Trois tests montrent comment il sera lu.</p>
+    <div class="diag-questions">
+      <div class="diag-q">
+        <div class="q-label">1 — Le test de la première page</div>
+        <div class="q-text">Après une minute, un lecteur extérieur<br>résume-t-il le projet en une phrase&nbsp;?</div>
+      </div>
+      <div class="diag-q">
+        <div class="q-label">2 — Le test du budget</div>
+        <div class="q-text">Chaque ligne de dépense renvoie-t-elle<br>à une action décrite dans le texte&nbsp;?</div>
+      </div>
+      <div class="diag-q gold-q">
+        <div class="q-label">3 — Le test de l'équipe</div>
+        <div class="q-text">Le dossier dit-il qui fait quoi,<br>et avec combien de temps&nbsp;?</div>
+      </div>
+    </div>
+    <div class="diag-callout">
+      Notre conseil&nbsp;: avant le dépôt, faites lire<br>votre dossier à quelqu'un d'extérieur.<br>Cinq minutes. Puis demandez-lui<br>ce qu'il a compris.
+    </div>
+  </div>
+  <div class="bottom-bar">
+    <span class="url">https://www.perfeco.nc/</span>
+    <span class="series">PerfEco Institutions · 3/4</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 6 — Conclusion (sans appel commercial) ===== -->
+<div class="slide slide-6">
+  <div class="top-bar">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="slide-num">06</span>
+  </div>
+  <div class="deco-bar"></div>
+  <h2 class="cta-title">Un dossier se juge<br><span class="gold">en quelques minutes.</span></h2>
+  <p class="cta-sub">Écrivez-le pour ce lecteur-là&nbsp;:<br>pressé, méthodique<br>et attentif aux détails.</p>
+  <div class="cta-checks">
+    <div class="check"><span class="dot"></span>Une première page qui dit le projet en une phrase</div>
+    <div class="check"><span class="dot"></span>Un budget où chaque ligne renvoie au texte</div>
+    <div class="check"><span class="dot"></span>Les mêmes chiffres d'une page à l'autre</div>
+    <div class="check"><span class="dot"></span>Une équipe nommée, avec son temps</div>
+  </div>
+  <div class="next-box">
+    <div class="next-label">Dernier épisode · mardi 8&nbsp;décembre</div>
+    <div class="next-info">Après l'accord du financeur&nbsp;:<br>ce qui commence vraiment.</div>
+    <div class="next-url">https://www.perfeco.nc/</div>
+  </div>
+  <div class="bottom-bar">
+    <span class="series-label">PerfEco Institutions · 3/4 · Décembre 2026</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE FACEBOOK — variante couverture (00-facebook, zone sûre) ===== -->
+<div class="slide slide-1 slide-fb">
+  <div class="bg-photo">
+    <img src="groupe-comex-reunion-01.jpg" alt="">
+  </div>
+  <div class="bg-gradient"></div>
+  <div class="content">
+    <div class="logo-zone"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+    <span class="serie-badge">PerfEco Institutions · 3/4</span>
+    <h1 class="main-title">Comment<br>un financeur<br>lit <span class="accent">votre<br>dossier</span></h1>
+    <p class="subtitle">Ce qu'il ouvre en premier.<br>Ce qui l'arrête en deux&nbsp;minutes.</p>
+  </div>
+  <span class="slide-num">00</span>
+</div>
+
+</body>
+</html>
