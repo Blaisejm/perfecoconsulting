@@ -1172,20 +1172,20 @@
                              "date_nc":  "2026-12-01",
                              "heure_nc":  "11:00",
                              "format":  "mardi",
-                             "statut":  "prevu",
-                             "source":  null,
+                             "statut":  "en_staging",
+                             "source":  "automation-queue/mardi-W49-pret.json",
                              "bascule":  null,
                              "preuve":  null,
                              "libelle":  "Post long / carrousel — Institutions 3/4",
                              "sujet":  "Vu de l\u0027intérieur : comment un financeur lit un dossier",
-                             "note":  "SÉRIE INSTITUTIONS 3/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close). | SUJET ARRETE le 27/10/2026 par Jean-Michel (en session, intervention-manuelle). Ce qu\u0027un évaluateur ouvre en premier, ce qui fait écarter une candidature en deux minutes, la différence entre une note de concept qui passe le premier filtre et une qui n\u0027y arrive pas, ce que le comité ne met jamais par écrit. Raconté comme un métier (biographie et pratique), jamais comme un résultat obtenu. AUCUN CTA, volontairement : un épisode par bloc sans appel à l\u0027action rend les autres crédibles. Un mémo vocal de JM sur canal perfeco-institutions enrichirait fortement l\u0027épisode. Source : PLAN-COMMUNICATION-INSTITUTIONS.md par.8 (PerfEco Consulting NC\\Perfeco-EU Institutions). Onze lignes rouges du par.6 obligatoires avant mise en file. | 18/11/2026 (intervention-manuelle, décision de Jean-Michel, v-2026-11-13-01 option 1) : glissement — reprise au premier épisode non publié (créneau précédemment : Post long / carrousel)",
+                             "note":  "SÉRIE INSTITUTIONS 3/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close). | SUJET ARRETE le 27/10/2026 par Jean-Michel (en session, intervention-manuelle). Ce qu\u0027un évaluateur ouvre en premier, ce qui fait écarter une candidature en deux minutes, la différence entre une note de concept qui passe le premier filtre et une qui n\u0027y arrive pas, ce que le comité ne met jamais par écrit. Raconté comme un métier (biographie et pratique), jamais comme un résultat obtenu. AUCUN CTA, volontairement : un épisode par bloc sans appel à l\u0027action rend les autres crédibles. Un mémo vocal de JM sur canal perfeco-institutions enrichirait fortement l\u0027épisode. Source : PLAN-COMMUNICATION-INSTITUTIONS.md par.8 (PerfEco Consulting NC\\Perfeco-EU Institutions). Onze lignes rouges du par.6 obligatoires avant mise en file. | 18/11/2026 (intervention-manuelle, décision de Jean-Michel, v-2026-11-13-01 option 1) : glissement — reprise au premier épisode non publié (créneau précédemment : Post long / carrousel) | 22/11/2026 : PRODUIT par la ROUTINE CLOUD creation-mardi-cloud (ombre du 22/11, branche ombre/mardi-2026-12-01), valid\u00e9 par Jean-Michel (\u00ab Oui, en production \u00bb) apr\u00e8s corrections : accroche de l'article WordPress r\u00e9\u00e9crite (relecteur ind\u00e9pendant 4/4/4/4/5, PUBLIABLE), voile de la version 4:5 \u00e9clairci, variante Facebook CARR\u00c9E (W49/00-facebook-carre-financeur-lit-dossier.png, Facebook en direct, Make en -NOFB), titre du document PDF du profil renseign\u00e9. Carrousel 6 visuels W49 (photos de la banque groupe-comex-reunion-01, w33-slide3-revue-documents-01, w34-slide3-table-travail-01). Entr\u00e9es des pages index (ressources.astro, en/resources.astro) \u00e0 ajouter APR\u00c8S la cr\u00e9ation locale du 23/11. Staging mardi-W49-pret.json, mis en place par intervention-manuelle-cloud.",
                              "axe":  "institutions",
                              "canaux":  [
                                             "linkedin_company",
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "semaine":  null
+                             "semaine":  "W49"
                          },
                          {
                              "id":  "2026-12-03-jeudi",
