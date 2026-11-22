@@ -1,0 +1,59 @@
+name: "PerfEco — Article du mardi sur perfsystemique.fr (planification 11h03 NC)"
+
+# ---------------------------------------------------------------------------
+# 22/11/2026 — création du mardi passée dans le cloud (Jean-Michel : « Oui, en
+# production » ; Institutions : « Oui, publier aussi » sur perfsystemique.fr).
+#
+# Jusqu'ici l'article du mardi était créé EN LOCAL (mardi-carrousel-creation, étape
+# 4.8, script PowerShell) et son ID reporté dans wordpress_post_id. La routine cloud
+# creation-mardi-cloud ne fait que poser le bloc « wordpress » dans la file : ce
+# workflow le PLANIFIE (statut future) à date_prevue 11h03 NC par l'API REST, avec le
+# même script que le jeudi (scripts/wordpress-article.sh). WordPress publie seul à
+# l'heure. Les contrôles avant/après retrouvent l'article par son slug quand
+# wordpress_post_id est absent.
+#
+# Déclencheurs : push de mardi.json ; 07h30 NC lun→ven (filet, idempotent : un slug
+# existant est seulement vérifié). Une file sans bloc « wordpress » ne fait rien.
+# ---------------------------------------------------------------------------
+
+on:
+  push:
+    branches: [main]
+    paths: ['automation-queue/mardi.json']
+  schedule:
+    - cron: '33 20 * * 0,1,2,3,4'   # 20h33 UTC = 07h33 NC, lundi → vendredi
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: article-wordpress
+  cancel-in-progress: false
+
+jobs:
+  planifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Planifier (ou vérifier) l'article du mardi
+        env:
+          WP_LOGIN: ${{ secrets.WP_LOGIN }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          # Article déjà créé par la routine LOCALE (wordpress_post_id renseigné) : elle le gère.
+          ID=$(jq -r '.wordpress_post_id // empty' automation-queue/mardi.json)
+          if [ -n "$ID" ] && [ "$ID" != "0" ]; then echo "wordpress_post_id=$ID : article géré par la routine locale, rien à faire."; exit 0; fi
+          bash scripts/wordpress-article.sh automation-queue/mardi.json planifier
+
+      - name: Issue « alerte » si la planification a échoué
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          AUJ=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          bash scripts/issue-alerte.sh "Article WordPress du mardi non planifié — $AUJ" "L'article du mardi (perfsystemique.fr) n'a pas pu être planifié ou n'est pas conforme.
+
+          Rien n'a été publié : l'article non conforme reste en brouillon. Le détail est dans les annotations du run ci-dessous."

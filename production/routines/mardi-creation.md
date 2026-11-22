@@ -128,6 +128,53 @@ git push -u origin "$B"
 ```
 Si le push est refusé, dis-le avec le message exact : jamais `main` pour contourner.
 
+## MODE PRODUCTION (depuis le 22/11/2026, Jean-Michel : « Oui, en production »)
+
+Quand la consigne de la routine dit **MODE PRODUCTION**, l'étape finale ci-dessus (branche ombre) est
+REMPLACÉE par celle-ci. Tout le reste (étapes 0 à 5) est inchangé.
+
+**0. Rien à produire ?** Si la cible du registre est à plus de 10 jours, ou si une file
+(`automation-queue/mardi.json` ou `automation-queue/mardi-W<SS>-pret.json`) porte déjà cette date,
+**ne produis rien** : fais seulement les contrôles (date, textes, bloc `wordpress`, 7 images en HTTP 200,
+pages article FR et EN en HTTP 200 ou présentes sur main).
+
+**1. Où écrire.** N'écris `automation-queue/mardi.json` directement QUE si sa `date_prevue` est déjà
+passée (heure NC) ; sinon écris le staging `automation-queue/mardi-W<SS>-pret.json` avec le champ
+`_comment` de l'étape 4. Jamais par-dessus une file dont la date est aujourd'hui ou à venir.
+
+**2. Quoi ajouter dans le commit.** La file ; les 7 PNG + le carré dans `public/slides/W<SS>/` ; les HTML
+dans `production/sorties/<date>/` (photos en chemin `../../images/banque/…`) ; les articles
+`src/pages/ressources/<slug-fr>.astro` et `src/pages/en/resources/<slug-en>.astro` ; leurs entrées en
+tête de `articles[]` dans `src/pages/ressources.astro` et `src/pages/en/resources.astro` (insertion
+ciblée, jamais réécriture du fichier) ; tes lignes de `production/images/banque/USAGE.json` ; dans
+`automation-agent/publications.json`, **édition ciblée** de l'entrée `<date>-mardi` seulement
+(`semaine`, `source`, une note « produit par la routine cloud creation-mardi-cloud le <date> ») :
+remplacements de texte dans le bloc de cette entrée, puis `json.loads` sur le fichier entier avant
+d'écrire. **Jamais** de `json.dump` du fichier entier.
+
+**3. Champs propres au cloud.** `linkedin_profil.titre_document` (titre du PDF du profil perso, sans
+emoji, ≤ 60 caractères) et `social_post.facebook_image_url` (le carré). **Pas** de `wordpress_post_id` :
+l'article est planifié par `publish-mardi-article-wordpress.yml` quand la file arrive dans `mardi.json`,
+et les contrôles le retrouvent par son slug. Si la consigne de ta routine autorise perfsystemique.fr pour
+l'axe de la semaine, le bloc `wordpress` est obligatoire.
+
+**4. Relecteurs : minimum 4 partout** (post Company, post perso, chapeau des articles, article
+WordPress, l'accroche comprise). Tant qu'une note est inférieure à 4, retouche et relance (3 tours au
+plus ; au-delà, mets en file quand même mais signale-le en tête du rapport).
+
+**5. Pousser sur main, proprement.**
+```bash
+git add <fichiers listés ci-dessus> && git commit -m "creation-mardi-cloud : file du mardi <date> — <épisode>"
+for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 30; done
+```
+En cas de conflit au rebase : `git rebase --abort`, n'écrase rien, dis-le dans le rapport.
+
+**6. Contrôle relu sur origin/main.** `git fetch origin` puis `git show origin/main:<fichier de file>`
+relu en JSON (date, longueurs, 6 `image_urls`, `facebook_image_url`, `titre_document`, slug WordPress
+libre). Attends le déploiement du site (jusqu'à 10 minutes) : les 7 images, le carré et les deux pages
+article doivent répondre **HTTP 200**. Relis enfin tes fichiers poussés : **aucune règle ni aucun nom
+confidentiel**.
+
 ## Pièces jointes du brouillon Gmail
 
 Le connecteur Gmail refuse tout appel de plus de 4,2 Mo (≈ 3,1 Mo de fichiers). Ne joins jamais les PNG

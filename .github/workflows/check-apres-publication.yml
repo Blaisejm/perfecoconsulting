@@ -191,6 +191,15 @@ jobs:
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
         run: |
           POST_ID=$(jq -r '.wordpress_post_id // empty' automation-queue/mardi.json)
+          # 22/11/2026 : la routine cloud creation-mardi-cloud ne connaît pas l'ID (l'article est
+          # planifié par publish-mardi-article-wordpress.yml) — on le retrouve alors par son slug.
+          if [ -z "$POST_ID" ] || [ "$POST_ID" = "0" ]; then
+            SLUG=$(jq -r '.wordpress.slug // empty' automation-queue/mardi.json)
+            if [ -n "$SLUG" ]; then
+              POST_ID=$(curl -s -H "Authorization: Basic $(printf '%s:%s' "$WP_LOGIN" "$WP_APP_PASSWORD" | base64 -w0)" "https://perfsystemique.fr/wp-json/wp/v2/posts?slug=$SLUG&status=publish,future,draft,pending&context=edit" | jq -r '.[0].id // empty')
+              echo "Article retrouvé par son slug « $SLUG » : #${POST_ID:-introuvable}"
+            fi
+          fi
           if [ -z "$POST_ID" ] || [ "$POST_ID" = "0" ]; then
             echo "::error::wordpress_post_id absent/invalide dans automation-queue/mardi.json — impossible de vérifier l'article de cette semaine."
             exit 1
