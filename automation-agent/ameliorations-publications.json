@@ -26,14 +26,19 @@
       "constat": "Couverture I1 « Le projet d'abord. L'argent ensuite. » : sur le profil perso, le titre colle au bord gauche et se lit mal. LinkedIn affiche les images en mosaïque et recadre la couverture au centre, ce qui supprime la marge gauche. Deux titres se concurrencent (encart « 4 réponses » au-dessus du titre) et le sous-titre lavande sur fond bleu manque de contraste.",
       "recommandation": "Composer toute couverture et tout visuel Facebook en ZONE SÛRE : logo et textes dans le carré central (170 px libres en haut et en bas sur un 1200x1500), au moins 12 % de marge latérale, titre centré, UN seul titre dominant (compteur ou encart en dessous, plus petit), sous-titre blanc ou or. Contrôler l'aperçu recadré en carré avant la mise en file.",
       "preuve": "Capture envoyée par JM le 18/11/2026 ; source public/slides/W44/01-couverture-projet-dabord.png ; mémoire feedback_typographie_carrousel.md §8",
-      "statut": "ouvert",
-      "applique_dans": null,
+      "statut": "applique",
+      "applique_dans": "jeudi-2026-11-26",
       "occurrences": 1,
       "historique": [
         {
           "le": "2026-11-18T13:36:23+11:00",
           "evenement": "ouvert",
           "detail": "Couverture I1 « Le projet d'abord. L'argent ensuite. » : sur le profil perso, le titre colle au bord gauche et se lit mal. LinkedIn affiche les images en mosaïque et recadre la couverture au centre, ce qui supprime la marge gauche. Deux titres se concurrencent (encart « 4 réponses » au-dessus du titre) et le sous-titre lavande sur fond bleu manque de contraste."
+        },
+        {
+          "le": "2026-11-23T08:46:16+11:00",
+          "evenement": "applique",
+          "detail": "jeudi-2026-11-26 : Appliqué au jeudi 26/11 (épisode 5/10) par mercredi-creation : zone sûre vérifiée (aperçus carré+mosaïque), carré Facebook dédié, groupe de 4 personnes, logo en pastille 190 px, 5 hashtags, formules d'ouverture variées, textes relus"
         }
       ]
     },
@@ -51,14 +56,19 @@
       "constat": "Gabarit V2 du jeudi (ex. v2-04-comptez-les-etapes.png, publié le 19/11, repris par Facebook le samedi) : recadré en carré par Facebook, le logo PerfEco en bas à droite disparaît entièrement et le titre touche le bas du carré.",
       "recommandation": "Dans gabarit-v2-performance.html, remonter le bloc titre et le logo dans le carré central (au moins 170 px au-dessus du bas sur un 1200x1500) ; vérifier avec automation-agent/apercu-recadrage.py avant la mise en file.",
       "preuve": "Aperçu carré calculé le 18/11/2026 sur https://www.perfeco.nc/slides/W42/v2-04-comptez-les-etapes.png",
-      "statut": "ouvert",
-      "applique_dans": null,
+      "statut": "applique",
+      "applique_dans": "jeudi-2026-11-26",
       "occurrences": 1,
       "historique": [
         {
           "le": "2026-11-18T13:37:49+11:00",
           "evenement": "ouvert",
           "detail": "Gabarit V2 du jeudi (ex. v2-04-comptez-les-etapes.png, publié le 19/11, repris par Facebook le samedi) : recadré en carré par Facebook, le logo PerfEco en bas à droite disparaît entièrement et le titre touche le bas du carré."
+        },
+        {
+          "le": "2026-11-23T08:46:17+11:00",
+          "evenement": "applique",
+          "detail": "jeudi-2026-11-26 : Appliqué au jeudi 26/11 (épisode 5/10) par mercredi-creation : zone sûre vérifiée (aperçus carré+mosaïque), carré Facebook dédié, groupe de 4 personnes, logo en pastille 190 px, 5 hashtags, formules d'ouverture variées, textes relus"
         }
       ]
     },
@@ -76,14 +86,19 @@
       "constat": "Visuel du post jeudi 19/11, repris sur Facebook le samedi 21/11 : une seule personne à un bureau, alors que la charte prévoit un groupe de 3 à 6 personnes multiculturel.",
       "recommandation": "Pour un visuel avec personnes, montrer un groupe de 3 à 6 personnes conforme à la charte ; sinon un visuel sans personne isolée.",
       "preuve": "capture Facebook PerfecoNC du 22/11 (post du samedi 21/11 12h45, photo d'un homme seul)",
-      "statut": "ouvert",
-      "applique_dans": null,
+      "statut": "applique",
+      "applique_dans": "jeudi-2026-11-26",
       "occurrences": 1,
       "historique": [
         {
           "le": "2026-11-22T06:47:06+11:00",
           "evenement": "ouvert",
           "detail": "Visuel du post jeudi 19/11, repris sur Facebook le samedi 21/11 : une seule personne à un bureau, alors que la charte prévoit un groupe de 3 à 6 personnes multiculturel."
+        },
+        {
+          "le": "2026-11-23T08:46:17+11:00",
+          "evenement": "applique",
+          "detail": "jeudi-2026-11-26 : Appliqué au jeudi 26/11 (épisode 5/10) par mercredi-creation : zone sûre vérifiée (aperçus carré+mosaïque), carré Facebook dédié, groupe de 4 personnes, logo en pastille 190 px, 5 hashtags, formules d'ouverture variées, textes relus"
         }
       ]
     },
@@ -102,14 +117,19 @@
       "constat": "Même gabarit de post d'une semaine à l'autre : mêmes formules « Notre conseil » et « Le bénéfice », même enchaînement de blocs (19/11 et 20/11). Le lecteur reconnaît la structure avant de lire.",
       "recommandation": "Varier les formules d'ouverture et de transition d'un post à l'autre (sans toucher aux emoji, règle maintenue).",
       "preuve": "texte publié LinkedIn Company le 19/11 et le 20/11, blocs 2 à 5",
-      "statut": "ouvert",
-      "applique_dans": null,
+      "statut": "applique",
+      "applique_dans": "jeudi-2026-11-26",
       "occurrences": 1,
       "historique": [
         {
           "le": "2026-11-22T06:47:07+11:00",
           "evenement": "ouvert",
           "detail": "Même gabarit de post d'une semaine à l'autre : mêmes formules « Notre conseil » et « Le bénéfice », même enchaînement de blocs (19/11 et 20/11). Le lecteur reconnaît la structure avant de lire."
+        },
+        {
+          "le": "2026-11-23T08:46:17+11:00",
+          "evenement": "applique",
+          "detail": "jeudi-2026-11-26 : Appliqué au jeudi 26/11 (épisode 5/10) par mercredi-creation : zone sûre vérifiée (aperçus carré+mosaïque), carré Facebook dédié, groupe de 4 personnes, logo en pastille 190 px, 5 hashtags, formules d'ouverture variées, textes relus"
         }
       ]
     },
@@ -127,14 +147,19 @@
       "constat": "Neuf à dix hashtags en fin de post LinkedIn (19/11 et 20/11), ce qui alourdit la fin du texte.",
       "recommandation": "Ramener à 3 à 5 hashtags par post LinkedIn.",
       "preuve": "page LinkedIn Company, posts du 19/11 et du 20/11",
-      "statut": "ouvert",
-      "applique_dans": null,
+      "statut": "applique",
+      "applique_dans": "jeudi-2026-11-26",
       "occurrences": 1,
       "historique": [
         {
           "le": "2026-11-22T06:47:07+11:00",
           "evenement": "ouvert",
           "detail": "Neuf à dix hashtags en fin de post LinkedIn (19/11 et 20/11), ce qui alourdit la fin du texte."
+        },
+        {
+          "le": "2026-11-23T08:46:17+11:00",
+          "evenement": "applique",
+          "detail": "jeudi-2026-11-26 : Appliqué au jeudi 26/11 (épisode 5/10) par mercredi-creation : zone sûre vérifiée (aperçus carré+mosaïque), carré Facebook dédié, groupe de 4 personnes, logo en pastille 190 px, 5 hashtags, formules d'ouverture variées, textes relus"
         }
       ]
     },
@@ -152,14 +177,19 @@
       "constat": "« Une étape en moins, ce sont des heures rendues aux équipes, tous les mois, sans investissement. » : promesse non étayée (« tous les mois », « sans investissement ») qu'un DAF ne croit pas, et aucun geste concret.",
       "recommandation": "Remplacer par un geste mesurable : « Une étape en moins, c'est du temps rendu à chaque passage du dossier. Mesurez-le sur le vôtre. » Ne jamais promettre de gain chiffré sans source.",
       "preuve": "relecteur indépendant du 22/11 (verdict À RETOUCHER), texte publié LinkedIn Company 19/11, dernière ligne du bloc 7",
-      "statut": "ouvert",
-      "applique_dans": null,
+      "statut": "applique",
+      "applique_dans": "jeudi-2026-11-26",
       "occurrences": 1,
       "historique": [
         {
           "le": "2026-11-22T06:52:53+11:00",
           "evenement": "ouvert",
           "detail": "« Une étape en moins, ce sont des heures rendues aux équipes, tous les mois, sans investissement. » : promesse non étayée (« tous les mois », « sans investissement ») qu'un DAF ne croit pas, et aucun geste concret."
+        },
+        {
+          "le": "2026-11-23T08:46:17+11:00",
+          "evenement": "applique",
+          "detail": "jeudi-2026-11-26 : Appliqué au jeudi 26/11 (épisode 5/10) par mercredi-creation : zone sûre vérifiée (aperçus carré+mosaïque), carré Facebook dédié, groupe de 4 personnes, logo en pastille 190 px, 5 hashtags, formules d'ouverture variées, textes relus"
         }
       ]
     },
@@ -177,14 +207,19 @@
       "constat": "Tournures écrites ou orales-écrites qui se lisent deux fois : « Pour la retirer, il en faudrait une autre, et elle se tient rarement » (il/elle flottants), « font le relevé », « C'est ainsi que nous travaillons avec les équipes », « chacune en voit seulement un morceau ».",
       "recommandation": "Nommer le sujet (« il faudrait une autre réunion, et celle-ci se tient rarement ») ; remplacer « faire le relevé » par « noter » ; retirer les formules de communication interne sans contenu.",
       "preuve": "relecteur indépendant du 22/11 : clarté 4, naturel 3 ; passages faibles n°2, 3, 4, 6",
-      "statut": "ouvert",
-      "applique_dans": null,
+      "statut": "applique",
+      "applique_dans": "jeudi-2026-11-26",
       "occurrences": 1,
       "historique": [
         {
           "le": "2026-11-22T06:52:53+11:00",
           "evenement": "ouvert",
           "detail": "Tournures écrites ou orales-écrites qui se lisent deux fois : « Pour la retirer, il en faudrait une autre, et elle se tient rarement » (il/elle flottants), « font le relevé », « C'est ainsi que nous travaillons avec les équipes », « chacune en voit seulement un morceau »."
+        },
+        {
+          "le": "2026-11-23T08:46:17+11:00",
+          "evenement": "applique",
+          "detail": "jeudi-2026-11-26 : Appliqué au jeudi 26/11 (épisode 5/10) par mercredi-creation : zone sûre vérifiée (aperçus carré+mosaïque), carré Facebook dédié, groupe de 4 personnes, logo en pastille 190 px, 5 hashtags, formules d'ouverture variées, textes relus"
         }
       ]
     },
@@ -254,14 +289,19 @@
       "constat": "Republication Facebook du 21/11 (visuel V2 « Comptez les étapes ») : le logo PerfEco est trop petit, coincé dans l'angle blanc en bas à droite ; on le remarque à peine.",
       "recommandation": "Agrandir nettement le logo PerfEco sur tous les visuels : au moins 18 % de la largeur (environ 220 px sur 1200), placé DANS la zone sûre (carré central), jamais dans un angle qui sera recadré ; vérifier sa lisibilité sur l'aperçu carré ET sur l'aperçu mosaïque.",
       "preuve": "Capture envoyée par JM le 22/11/2026 (post Facebook du 21/11 à 12h45)",
-      "statut": "ouvert",
-      "applique_dans": null,
+      "statut": "applique",
+      "applique_dans": "jeudi-2026-11-26",
       "occurrences": 1,
       "historique": [
         {
           "le": "2026-11-22T18:08:54+11:00",
           "evenement": "ouvert",
           "detail": "Republication Facebook du 21/11 (visuel V2 « Comptez les étapes ») : le logo PerfEco est trop petit, coincé dans l'angle blanc en bas à droite ; on le remarque à peine."
+        },
+        {
+          "le": "2026-11-23T08:46:17+11:00",
+          "evenement": "applique",
+          "detail": "jeudi-2026-11-26 : Appliqué au jeudi 26/11 (épisode 5/10) par mercredi-creation : zone sûre vérifiée (aperçus carré+mosaïque), carré Facebook dédié, groupe de 4 personnes, logo en pastille 190 px, 5 hashtags, formules d'ouverture variées, textes relus"
         }
       ]
     },
@@ -279,14 +319,19 @@
       "constat": "Sur Facebook (vue Page, ordinateur), le visuel portrait 4:5 s'affiche rétréci au milieu d'un large cadre : grandes bandes bleues à gauche et à droite, photo et titre petits.",
       "recommandation": "Produire pour Facebook une variante CARRÉE dédiée (1200x1200), composée pour ce format (photo plus grande, titre et logo plus gros, rien dans les marges) au lieu de réutiliser le portrait 4:5 ; LinkedIn garde le 4:5. Valable pour le jeudi (republié le samedi), le vendredi et le mardi.",
       "preuve": "Capture envoyée par JM le 22/11/2026",
-      "statut": "ouvert",
-      "applique_dans": null,
+      "statut": "applique",
+      "applique_dans": "jeudi-2026-11-26",
       "occurrences": 1,
       "historique": [
         {
           "le": "2026-11-22T18:08:54+11:00",
           "evenement": "ouvert",
           "detail": "Sur Facebook (vue Page, ordinateur), le visuel portrait 4:5 s'affiche rétréci au milieu d'un large cadre : grandes bandes bleues à gauche et à droite, photo et titre petits."
+        },
+        {
+          "le": "2026-11-23T08:46:17+11:00",
+          "evenement": "applique",
+          "detail": "jeudi-2026-11-26 : Appliqué au jeudi 26/11 (épisode 5/10) par mercredi-creation : zone sûre vérifiée (aperçus carré+mosaïque), carré Facebook dédié, groupe de 4 personnes, logo en pastille 190 px, 5 hashtags, formules d'ouverture variées, textes relus"
         }
       ]
     }
