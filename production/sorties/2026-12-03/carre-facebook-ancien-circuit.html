@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><title>Facebook carré</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Arial', sans-serif; background: #d0d0d0; }
+  .slide { width: 1200px; height: 1200px; position: relative; overflow: hidden; margin: 24px auto; background: #001D9F; }
+  .photo { position: absolute; left: 0; top: 0; width: 1200px; height: 560px; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+  .photo::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px;
+                   background: linear-gradient(180deg, rgba(0,29,159,0) 0%, rgba(0,29,159,1) 100%); }
+  .bandeau { position: absolute; left: 0; top: 560px; width: 1200px; height: 640px;
+              padding: 34px 132px 56px; display: flex; flex-direction: column; align-items: center;
+              text-align: center; background: #001D9F; }
+  .libelle { color: #FBAA16; font-size: 20px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+  .chiffre { color: #FBAA16; font-size: 36px; font-weight: 800; line-height: 1.2; margin-top: 14px; }
+  .titre { color: #fff; font-size: 62px; font-weight: 900; line-height: 1.16; margin-top: 18px; letter-spacing: -0.5px; }
+  .titre .accent { color: #FBAA16; }
+  .sous-titre { color: #fff; font-size: 27px; font-weight: 600; line-height: 1.5; margin-top: 18px; }
+  .logo { margin-top: auto; }
+  .logo img { width: 240px; filter: brightness(0) invert(1); display: block; }
+</style></head><body>
+<div class="slide">
+  <div class="photo"><img src="../../images/banque/w41-slide3-ligne-datee-01.jpg" alt=""></div>
+  <div class="bandeau">
+    <div class="libelle">Simplifier le fonctionnement · 6/10</div>
+    
+    <h1 class="titre">Numériser,<br><span class="accent">c’est aussi arrêter</span><br><span class="accent">l’ancien circuit</span></h1>
+    <p class="sous-titre">Écrivez ce que l’outil remplace, puis fixez la date d’arrêt.</p>
+    <div class="logo"><img src="https://www.perfeco.nc/logo-perfeco.svg" alt="PerfEco"></div>
+  </div>
+</div>
+</body></html>
