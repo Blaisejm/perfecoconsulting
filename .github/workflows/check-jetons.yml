@@ -87,7 +87,7 @@ jobs:
           C'est le seul geste manuel de la diffusion : il demande ton clic « Autoriser » (anti-bot LinkedIn).
 
           **Procédure (5 minutes, à enchaîner sans pause : le code d'autorisation expire en moins d'une minute)**
-          1. Vérifier d'être connecté à LinkedIn avec le compte **jm.blaise070@gmail.com** (pas contact@perfeco.nc).
+          1. Vérifier d'être connecté à LinkedIn avec le compte **Gmail personnel de Jean-Michel** (pas contact@perfeco.nc).
           2. Ouvrir : https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=866isezb6erb8z&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fdevelopers%2Ftools%2Foauth%2Fredirect&scope=openid%20profile%20email%20w_member_social
           3. Cliquer « Autoriser », puis échanger le code immédiatement avec le **Client Secret Secondary** (fichier hors dépôt \`secret-linkedin-PRIVE.txt\`) — Claude peut le faire avec toi.
           4. Coller le nouveau jeton dans le secret GitHub \`LINKEDIN_TOKEN\` (Settings → Secrets and variables → Actions).
