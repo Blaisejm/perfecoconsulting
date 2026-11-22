@@ -64,6 +64,33 @@ $nowNC  = [System.DateTimeOffset]::UtcNow.ToOffset([TimeSpan]::FromHours(11))
 $finNC  = $nowNC.ToString("yyyy-MM-ddTHH:mm:sszzz")
 $stamp  = $nowNC.ToString("dd/MM/yyyy HH:mm")
 
+# ---------------------------------------------------------------------------
+# PROTECTION DU JOURNAL PUBLIC (ajoutée le 22/11/2026, décision de Jean-Michel
+# « Masquer + purger + bloquer », après la fuite d'un numéro de compte le 14/11).
+# Ce journal et les messages de commit vont dans le dépôt GitHub PUBLIC.
+#  1. Routines PRIVÉES : aucun détail (ni effet, ni preuve, ni alerte) — seulement
+#     « [routine privée] » et le résultat. Leur journal détaillé est sur OneDrive.
+#  2. Filtre générique : IBAN, RIB et toute suite de 10 chiffres ou plus sont masqués,
+#     sauf les identifiants de runs GitHub et de brouillons Gmail (préfixes run, runs/,
+#     job, r-, r), indispensables comme preuves.
+# ---------------------------------------------------------------------------
+$ROUTINES_PRIVEES = @('factures-mensuelles-broussan', 'ir-semestriel-broussan')
+function Masquer-Sensible([string] $t) {
+    if ([string]::IsNullOrEmpty($t)) { return $t }
+    $t = [regex]::Replace($t, '\b[A-Z]{2}\d{2}(?:[ ]?[A-Z0-9]){11,30}\b', '[MASQUÉ]')
+    $t = [regex]::Replace($t, '(?i)\b(RIB|IBAN)\b\s*:?\s*[A-Z0-9][A-Z0-9 \-]{4,}', '$1 [MASQUÉ]')
+    $t = [regex]::Replace($t, '(?<!\d)(?<!(?i:runs/|run |runs |job |job/|r-|r))\d(?:[ .\-]?\d){9,}', '[MASQUÉ]')
+    return $t
+}
+if ($ROUTINES_PRIVEES -contains $Routine) {
+    $Effet  = '[routine privée]'
+    $Preuve = '[routine privée]'
+    if (-not [string]::IsNullOrWhiteSpace($Alerte)) { $Alerte = '[routine privée] alerte transmise par brouillon Gmail' }
+}
+$Effet  = Masquer-Sensible $Effet
+$Preuve = Masquer-Sensible $Preuve
+$Alerte = Masquer-Sensible $Alerte
+
 $fichiersTouches = @()
 $commits         = @()
 $pushEchecs      = @()
@@ -244,6 +271,7 @@ $ligne = [ordered]@{
     push_echecs = @($pushEchecs)
 }
 
+$ligne.alerte = Masquer-Sensible $ligne.alerte   # le préfixe PUSH EN ECHEC peut contenir un message git
 $json = ($ligne | ConvertTo-Json -Compress -Depth 4)
 
 # UTF-8 sans BOM, saut de ligne LF : le journal se lit ligne à ligne.
