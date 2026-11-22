@@ -200,3 +200,17 @@ planifié par le workflow `publish-jeudi-article-wordpress.yml` qu'une fois la f
 ## Pièces jointes du brouillon Gmail
 
 Le connecteur Gmail refuse tout appel de plus de 4,2 Mo (≈ 3,1 Mo de fichiers). Si tu joins un visuel, joins un **aperçu JPEG** de 800 px de large (qualité 80), jamais le PNG d'origine, et donne le lien du PNG.
+
+## Variante Facebook CARRÉE et logo agrandi (22/11/2026, Jean-Michel — points A-2026-11-22-08 et 09)
+
+Facebook affiche mal le 4:5 (image rétrécie entre deux bandes, logo minuscule). Pour CHAQUE publication
+qui part sur Facebook (y compris la republication du samedi, qui reprend la file du jeudi) :
+1. Produis un carré 1200×1200 avec le générateur (photo de groupe en haut, bandeau bleu, logo à 240 px) :
+   `python3 production/outils/carre-facebook.py --photo ../../images/banque/<photo>.jpg --titre "<ligne 1>|<ligne 2>" --accent 1 [--libelle "…"] [--chiffre "…"] [--sous-titre "…"] --position "50% 35%" --sortie-html production/sorties/<date>/carre-facebook-<slug>.html`
+   puis `node production/outils/export-slides.cjs production/sorties/<date>/carre-facebook-<slug>.html public/slides/W<SS> 00-facebook-carre-<slug>`.
+   Un seul titre dominant ; le chiffre, s'il y en a un, reste une ligne d'appui. Mêmes textes que le visuel
+   (relus par LanguageTool). Regarde le PNG : groupe visible, logo net, rien de coupé.
+2. Ajoute dans la file `social_post.facebook_image_url` = `https://www.perfeco.nc/slides/W<SS>/00-facebook-carre-<slug>.png`.
+   LinkedIn garde `image_url` (4:5) ; Facebook prend le carré (publication directe, Make sans Facebook).
+3. **Logo** sur tous les visuels : au moins 18 % de la largeur (≈ 220 px sur 1200), dans la zone sûre ;
+   vérifie-le sur les aperçus recadrés.
