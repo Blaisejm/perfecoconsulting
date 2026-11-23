@@ -29,7 +29,11 @@
    `automation-queue/mardi-W<SS>-pret.json` portant cette date), statut ni `publie`, ni `annule`, ni `non_publie`, ni
    `suspendu`. Heure NC : `TZ=Pacific/Noumea date`. Mardi férié → signale-le (règle : mardi → lundi).
 2. **Sujet** : `libelle` et `sujet` de l'échéance, et son `axe` (`institutions` ou série). Ne choisis
-   jamais un sujet toi-même.
+   jamais un sujet toi-même. **Série 3 « Le cash d'abord »** (libellé contenant « Série 3 », du
+   19/01 au 09/03/2027, plan validé par Jean-Michel le 23/11/2026) : lis
+   `production/consignes/SERIE-3-LE-CASH-DABORD.md`. Pour l'épisode visé, le « déjà tenté » et la
+   recommandation unique de la table sont imposés ; applique ses points de vigilance. Pas d'appel
+   commercial aux épisodes 1 à 7 (slide 6 sans CTA), Diagnostic stratégique 60 minutes à l'épisode 8.
 3. **Historique** : les entrées `mardi` passées du registre, et la file de la semaine précédente
    (`git log -p -- automation-queue/mardi.json`) : jamais « même indicateur ET même angle ».
 4. **Améliorations** : `python3 automation-agent/ameliorations.py lister --format mardi` (et `--format

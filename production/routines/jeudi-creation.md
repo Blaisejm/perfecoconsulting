@@ -37,9 +37,17 @@ gabarit V2, et un **article de fond** sur perfsystemique.fr publié le même jou
    jamais un sujet toi-même. Détail de chaque épisode : `production/consignes/REFERENTIEL-V2-PERFORMANCE.md`
    §4. Si l'échéance porte `axe: "institutions"`, arrête-toi et dis-le : ce cas reste local.
 3. **Compteur de fin de campagne** : nombre d'échéances `jeudi` au statut `prevu` dont le libellé
-   contient « Campagne dédiée N/10 ». S'il vaut 2, 1 ou 0, mets l'alerte **en tête** du rapport
+   contient « Campagne dédiée N/10 » **ou « Campagne V3 N/10 »** (la V3 prend la suite de la V2
+   sans interruption). S'il vaut 2, 1 ou 0, mets l'alerte **en tête** du rapport
    (combien restent, date de la dernière, question : nouvelle banque de 10, autre campagne, ou
    autre usage du jeudi ?).
+3bis. **Campagne V3** (libellé « Campagne V3 N/10 — <territoire> », jeudis du 04/02 au 08/04/2027,
+   plan validé par Jean-Michel le 23/11/2026) : le détail de chaque publication et les **écarts
+   d'angle à tenir** sont dans `production/consignes/REFERENTIEL-V3-PERFORMANCE.md` (et non dans le
+   référentiel V2). Même gabarit, même structure, même article de fond ; fichiers du visuel nommés
+   `v3-<NN>-<slug>` au lieu de `v2-<NN>-<slug>` ; jamais d'argent (cash, marges, coûts : terrain de
+   la série 3 du mardi) ; Diagnostic stratégique 60 minutes seulement au 10/10. Le registre ne porte
+   plus de `visuel_url` pour ces jeudis : le visuel est toujours produit à l'étape 4.
 4. **Historique** : les entrées `jeudi` passées du registre et les notes ; « même indicateur ET
    même angle » interdit une reprise.
 5. **Améliorations** : `python3 automation-agent/ameliorations.py lister --format jeudi`, applique
