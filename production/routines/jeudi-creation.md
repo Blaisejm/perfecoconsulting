@@ -20,6 +20,11 @@ gabarit V2, et un **article de fond** sur perfsystemique.fr publié le même jou
 
 > **Créneau `suspendu`** (pause de l'été austral du 22/12/2026 au 15/01/2027, Jean-Michel, 23/11/2026) :
 > ne produis JAMAIS rien pour lui, ne le prends jamais pour cible, passe au créneau suivant.
+>
+> **Sujet « À VALIDER »** (plans de la série 3 du mardi et de la campagne V3 du jeudi, soumis à
+> Jean-Michel le 23/11/2026) : si le `sujet` de l'échéance ciblée commence par « À VALIDER », ne
+> produis RIEN, même si elle est à J-8 ; fais seulement les contrôles et mets en tête du brouillon
+> « sujet non validé par Jean-Michel ». Ne passe pas à l'échéance suivante pour autant.
 
 ## Étape 0 — Cible, sujet, historique, améliorations
 
