@@ -1,0 +1,94 @@
+name: PerfEco — Déclencheur de la publication de 11h00 (relais de la routine cloud)
+
+# 25/11/2026 — Jean-Michel : « Oui, fiabilise 11h00 ».
+# Le cron GitHub part avec plusieurs heures de retard (jeudi 19/11 ~18h, vendredi 20/11 ~16h,
+# mardi 24/11 15h59 NC). La routine cloud claude.ai « declencheur-publication-cloud » tourne
+# vers 10h45 NC (PC éteint) et pousse automation-agent/declencheur-publication.json : ce push
+# lance ce workflow quasi immédiatement. Il lance alors (workflow_dispatch, GITHUB_TOKEN,
+# actions: write — même mécanisme que le relais de veilleurs du samedi) le ou les workflows de
+# publication du jour, calculés par scripts/declencheur-publication.sh.
+#
+# AUCUNE garde n'est déplacée ici : chaque workflow de publication garde sa garde « suspendu »,
+# sa garde de fraîcheur, l'attente de 11h00 NC et le tag anti-doublon pub-<jour>-AAAA-MM-JJ.
+# Les crons GitHub restent en place en rattrapage ; le premier run arrivé pose le tag, les
+# suivants s'arrêtent. Si cloud et cron partent tous les deux : une seule publication.
+#
+# Fichier déclencheur : {"date_nc": "AAAA-MM-JJ", "demande_a": "HH:MM NC", "par": "...",
+#   "essai": false, "essai_date": null, "essai_dispatch": []}
+#   - date_nc différente d'aujourd'hui NC → rien (push tardif ou ancien fichier) ;
+#   - essai: true → calcule la liste pour essai_date (défaut date_nc) SANS rien lancer, sauf
+#     les workflows nommés dans essai_dispatch (lancés pour de vrai : réservé à un jour où ils
+#     sortent normalement sans publier).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'automation-agent/declencheur-publication.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+  issues: write
+
+concurrency:
+  group: declencheur-publication
+  cancel-in-progress: false
+
+jobs:
+  relais:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lancer la publication du jour
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          F=automation-agent/declencheur-publication.json
+          AUJ=$(TZ=Pacific/Noumea date +%Y-%m-%d)
+          HEURE=$(TZ=Pacific/Noumea date +%H:%M)
+          if [ ! -f "$F" ]; then echo "::error::$F absent."; exit 1; fi
+          DATE_NC=$(jq -r '.date_nc // empty' "$F")
+          ESSAI=$(jq -r '.essai // false' "$F")
+          PAR=$(jq -r '.par // "?"' "$F")
+          echo "Déclencheur : date_nc=$DATE_NC, essai=$ESSAI, par=$PAR — il est $HEURE NC le $AUJ."
+          if [ "$DATE_NC" != "$AUJ" ]; then
+            echo "::notice title=Déclencheur::le fichier vise le $DATE_NC, nous sommes le $AUJ — rien n'est lancé (sortie normale)."
+            exit 0
+          fi
+          CIBLE="$AUJ"
+          if [ "$ESSAI" = "true" ]; then CIBLE=$(jq -r '.essai_date // empty' "$F"); [ -n "$CIBLE" ] || CIBLE="$AUJ"; fi
+          LISTE=$(bash scripts/declencheur-publication.sh liste "$CIBLE") || { echo "::error::calcul de la liste impossible."; exit 1; }
+          echo "Workflows à lancer pour le $CIBLE : ${LISTE:-aucun}"
+          lancer() {
+            CODE=$(curl -s -o /tmp/disp.txt -w "%{http_code}" -X POST \
+              -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/$1/dispatches" -d '{"ref":"main"}')
+            if [ "$CODE" = "204" ]; then echo "::notice title=Déclencheur::$1 lancé (workflow_dispatch) à $HEURE NC."; return 0; fi
+            echo "::error title=Déclencheur::$1 non lancé — HTTP $CODE $(head -c 300 /tmp/disp.txt). Les crons GitHub restent en rattrapage."
+            return 1
+          }
+          KO=0
+          if [ "$ESSAI" = "true" ]; then
+            for W in $LISTE; do echo "::notice title=Déclencheur (essai)::$W SERAIT lancé pour le $CIBLE — rien n'est lancé."; done
+            for W in $(jq -r '.essai_dispatch[]? // empty' "$F"); do lancer "$W" || KO=1; done
+            exit $KO
+          fi
+          if [ -z "$LISTE" ]; then
+            echo "::notice title=Déclencheur::rien à publier le $AUJ."
+            exit 0
+          fi
+          for W in $LISTE; do lancer "$W" || KO=1; done
+          exit $KO
+
+      - name: Issue « alerte » si le relais a échoué
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          AUJ=$(TZ="Pacific/Noumea" date +%Y-%m-%d)
+          bash scripts/issue-alerte.sh "Déclencheur de la publication de 11h00 en échec — $AUJ" "Le relais \`${{ github.workflow }}\` n'a pas pu lancer la publication du $AUJ. Les crons GitHub restent en rattrapage (avec leur retard habituel). Vérifier les canaux avant tout envoi manuel."
