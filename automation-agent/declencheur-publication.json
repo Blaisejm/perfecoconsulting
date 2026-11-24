@@ -1,9 +1,9 @@
 {
   "_comment": "Fichier déclencheur de la publication de 11h00 NC. Écrit par la routine cloud declencheur-publication-cloud ; son push lance .github/workflows/declencheur-publication.yml. Ne pas modifier à la main hors essai.",
   "date_nc": "2026-11-25",
-  "demande_a": "07:05 NC",
-  "par": "intervention-manuelle-cloud (essai de mise en place)",
+  "demande_a": "07:06 NC",
+  "par": "declencheur-publication-cloud",
   "essai": true,
   "essai_date": "2026-11-26",
-  "essai_dispatch": ["publish-vendredi-veille-eco.yml"]
+  "essai_dispatch": []
 }
