@@ -162,6 +162,10 @@ $RANGS = @{
     'factures-mensuelles-broussan' = 8
     # Administratif (14/11/2026) : elements IR prives pour le cabinet Broussan, 15 fev. et 15 aout a 09h30.
     'ir-semestriel-broussan'       = 9
+    # Rotary (25/11/2026) : compte rendu du Dejeuner des Presidents a partir de la
+    # transcription locale. Rang 10, apres tout le reste : elle ne produit rien que
+    # les autres attendent, et peut etre longue (lecture d une transcription d 1 h 20).
+    'rcl-compte-rendu'             = 10
 }
 
 $FICHIER = Join-Path $env:USERPROFILE '.claude\verrou-routines.json'
