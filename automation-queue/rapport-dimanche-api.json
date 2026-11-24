@@ -1,11 +1,664 @@
 {
-  "semaine": "2026-W47",
-  "collecte_le": "2026-11-17",
+  "semaine": "2026-W48",
+  "collecte_le": "2026-11-24",
   "wordpress": {
-    "articles_published": 0,
+    "articles_published": 1,
     "comments_total": 0,
-    "published": [],
-    "upcoming": []
+    "published": [
+      {
+        "id": 167,
+        "date": "2026-11-24T11:03:00",
+        "date_gmt": "2026-11-24T00:03:00",
+        "guid": {
+          "rendered": "https://perfsystemique.fr/?p=167"
+        },
+        "modified": "2026-11-24T11:03:00",
+        "modified_gmt": "2026-11-24T00:03:00",
+        "slug": "sept-questions-avant-de-chercher-un-financement",
+        "status": "publish",
+        "type": "post",
+        "link": "https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/",
+        "title": {
+          "rendered": "Sept questions avant de chercher un financement : notez votre projet de 0 à 5"
+        },
+        "content": {
+          "rendered": "<p>Deuxième épisode de PerfEco Institutions. Le premier posait le principe : le projet s&rsquo;écrit avant de chercher qui va le payer. Celui-ci donne l&rsquo;outil : sept questions, notées de 0 à 5. Elles tiennent sur une page, et elles disent où en est votre projet.</p>\n<h2>Pourquoi noter son projet</h2>\n<p>Quand on porte un projet depuis longtemps, on ne sait plus très bien où il en est. Chacun en garde une image, et les images ne sont pas les mêmes d&rsquo;une personne à l&rsquo;autre. Le maire pense à l&rsquo;équipement, le technicien au chantier, le service financier au budget.</p>\n<p>Une note oblige à répondre. Elle met tout le monde d&rsquo;accord sur deux choses : ce qui existe déjà, et ce qui reste à écrire. C&rsquo;est la méthode que nous utilisons pour le Passeport « Projet finançable », réduite ici à l&rsquo;essentiel.</p>\n<h2>La règle du jeu</h2>\n<p>Chaque question reçoit une note de 0 à 5. Notez le projet tel qu&rsquo;il est écrit aujourd&rsquo;hui, et non tel que vous l&rsquo;espérez.</p>\n<ul>\n<li><strong>0 à 1 : rien d&rsquo;écrit.</strong> La réponse n&rsquo;existe que dans la tête de quelques personnes.</li>\n<li><strong>2 à 3 : à moitié écrit.</strong> La réponse existe, mais elle change selon la personne qui la donne.</li>\n<li><strong>4 à 5 : écrit et daté.</strong> La réponse tient sur une page, avec un nom et une date.</li>\n</ul>\n<h2>Questions 1 à 3 : le projet lui-même</h2>\n<p><strong>1. À qui ça sert.</strong> Un besoin décrit, et un nombre de personnes concernées. Si vous pouvez écrire le nombre d&rsquo;habitants ou de salariés concernés, avec l&rsquo;origine du chiffre, la note monte. Note 1 : personne n&rsquo;a compté les bénéficiaires.</p>\n<p><strong>2. Où il en est.</strong> Les études, le terrain, les autorisations. Note 1 : tout reste à faire. Note 5 : les pièces existent et sont rangées au même endroit, avec leur date.</p>\n<p><strong>3. Qui le porte.</strong> Un nom qui décide et qui signe, pas un service. Note 1 : chacun pense que c&rsquo;est un autre. Un projet que tout le monde soutient et que personne ne porte avance rarement.</p>\n<h2>Questions 4 à 7 : l&rsquo;argent et la suite</h2>\n<p><strong>4. Qui paie quoi.</strong> Votre part, celle des autres financeurs, et le coût des années qui suivent la mise en service. Note 1 : seul le total est connu. Le financeur regarde d&rsquo;abord votre part, et il veut la voir écrite dans un budget voté.</p>\n<p><strong>5. Ce que le guichet accepte.</strong> Les règles de l&rsquo;aide collent au projet : dépenses admises, période, bénéficiaires. Note 1 : personne n&rsquo;a lu les règles en entier. C&rsquo;est la question qui évite d&rsquo;écrire un projet pour entrer dans une case.</p>\n<p><strong>6. Comment on saura que ça marche.</strong> Un chiffre de départ, un chiffre d&rsquo;arrivée, une date. Note 1 : le texte dit « améliorer » ou « renforcer », sans chiffre. Sans point de départ, personne ne pourra dire à la fin si le projet a réussi.</p>\n<p><strong>7. Qui a le temps de le faire.</strong> Des noms, des heures, un calendrier. Note 1 : on compte sur le temps libre de chacun. Un projet financé demande des heures de travail : montage, suivi, justificatifs. On a tendance à la sauter, parce qu&rsquo;elle oblige à parler des personnes plus que du projet. Elle décide pourtant de la suite.</p>\n<h2>Noter à deux, séparément</h2>\n<p>Faites noter le projet par deux personnes qui le connaissent, chacune de son côté, puis comparez. Un écart de deux points sur une question dit que la réponse n&rsquo;est écrite nulle part. C&rsquo;est un signal utile, et il vaut mieux le trouver avant le financeur.</p>\n<p>Ne faites pas la moyenne des sept notes. Une moyenne de 3 peut cacher un 0 et un 5, et c&rsquo;est le 0 qui arrêtera le dossier. La note la plus basse est celle qui compte.</p>\n<h2>Ce que fait une note basse</h2>\n<p>Vous avez déjà répondu à plusieurs de ces questions, sans les noter. Vous avez eu raison de porter ce projet, et une note basse ne le remet pas en cause. Elle dit seulement quelle page n&rsquo;est pas encore écrite.</p>\n<p>Chercher une aide avant d&rsquo;avoir noté son projet, c&rsquo;est écrire la demande et le projet en même temps, au risque qu&rsquo;ils ne s&rsquo;ajustent pas. Noter d&rsquo;abord, c&rsquo;est arriver chez le financeur avec un projet qui tient seul.</p>\n<h2>Notre conseil : une seule note à la fois</h2>\n<p>Ne travaillez que la note la plus basse. Une page bien écrite fait davantage avancer le projet que sept pages commencées. Écrivez la réponse en dix lignes, avec un nom et une date, puis notez-vous à nouveau.</p>\n<p>Si la note la plus basse est la septième, commencez par là : désignez une personne, comptez ses heures, et inscrivez-les au calendrier. Un projet sans personne pour le faire n&rsquo;est pas encore un projet.</p>\n<h2>Ce que fait PerfEco Institutions</h2>\n<p>PerfEco Institutions accompagne les communes, les provinces, les établissements publics et les entreprises, du premier projet jusqu&rsquo;au dernier justificatif. Nous proposons une revue confidentielle de vos projets, en 60 à 90 minutes : nous notons ensemble les sept questions, projet par projet, puis nous choisissons un projet pilote avec son plan d&rsquo;action.</p>\n<p>Aucun cabinet ne peut garantir l&rsquo;obtention d&rsquo;un financement. Ce que vous gardez dans tous les cas : un projet mûr, un plan de financement chiffré et un tableau de bord réutilisable.</p>\n<h2>La suite de la série</h2>\n<p>Le 1er décembre, troisième épisode de PerfEco Institutions : comment un financeur lit un dossier, ce qu&rsquo;il ouvre en premier et ce qui l&rsquo;arrête en deux minutes.</p>\n",
+          "protected": false
+        },
+        "excerpt": {
+          "rendered": "<p>Une note de 0 à 5 sur sept questions dit où en est un projet, avant même de chercher un guichet. Voici les sept questions, ce que signifie une note basse, et la seule page à écrire en premier.</p>\n",
+          "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "closed",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": {
+          "_exactmetrics_skip_tracking": false,
+          "footnotes": "",
+          "jetpack_publicize_message": "",
+          "jetpack_publicize_feature_enabled": false,
+          "jetpack_social_post_already_shared": true,
+          "jetpack_social_options": {
+            "image_generator_settings": {
+              "template": "highway",
+              "default_image_id": 0,
+              "font": "",
+              "enabled": false
+            },
+            "version": 2
+          },
+          "jetpack_post_was_ever_published": false
+        },
+        "categories": [
+          11
+        ],
+        "tags": [
+          24,
+          32,
+          17,
+          18,
+          22,
+          19,
+          26,
+          21
+        ],
+        "class_list": [
+          "post-167",
+          "post",
+          "type-post",
+          "status-publish",
+          "format-standard",
+          "hentry",
+          "category-organisation",
+          "tag-dirigeants",
+          "tag-execution",
+          "tag-gouvernance",
+          "tag-nouvelle-caledonie",
+          "tag-organisation",
+          "tag-pacifique",
+          "tag-perfeco",
+          "tag-pilotage"
+        ],
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Sept questions avant de chercher un financement : notez votre projet de 0 à 5 - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Sept questions avant de chercher un financement : notez votre projet de 0 à 5 - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Une note de 0 à 5 sur sept questions dit où en est un projet, avant même de chercher un guichet. Voici les sept questions, ce que signifie une note basse, et la seule page à écrire en premier.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-11-24T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"4 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/sept-questions-avant-de-chercher-un-financement\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/sept-questions-avant-de-chercher-un-financement\\/\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Sept questions avant de chercher un financement : notez votre projet de 0 à 5\",\"datePublished\":\"2026-11-24T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/sept-questions-avant-de-chercher-un-financement\\/\"},\"wordCount\":895,\"keywords\":[\"Dirigeants\",\"Exécution\",\"Gouvernance\",\"Nouvelle-Calédonie\",\"Organisation\",\"Pacifique\",\"PerfEco\",\"Pilotage\"],\"articleSection\":[\"Organisation\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/sept-questions-avant-de-chercher-un-financement\\/\",\"url\":\"https:\\/\\/perfsystemique.fr\\/sept-questions-avant-de-chercher-un-financement\\/\",\"name\":\"Sept questions avant de chercher un financement : notez votre projet de 0 à 5 - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-11-24T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/sept-questions-avant-de-chercher-un-financement\\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/sept-questions-avant-de-chercher-un-financement\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/sept-questions-avant-de-chercher-un-financement\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Sept questions avant de chercher un financement : notez votre projet de 0 à 5\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+        "yoast_head_json": {
+          "title": "Sept questions avant de chercher un financement : notez votre projet de 0 à 5 - Perfsystemique.fr",
+          "robots": {
+            "index": "index",
+            "follow": "follow",
+            "max-snippet": "max-snippet:-1",
+            "max-image-preview": "max-image-preview:large",
+            "max-video-preview": "max-video-preview:-1"
+          },
+          "canonical": "https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/",
+          "og_locale": "fr_FR",
+          "og_type": "article",
+          "og_title": "Sept questions avant de chercher un financement : notez votre projet de 0 à 5 - Perfsystemique.fr",
+          "og_description": "Une note de 0 à 5 sur sept questions dit où en est un projet, avant même de chercher un guichet. Voici les sept questions, ce que signifie une note basse, et la seule page à écrire en premier.",
+          "og_url": "https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/",
+          "og_site_name": "Perfsystemique.fr",
+          "article_publisher": "https://www.facebook.com/PerfecoNC/",
+          "article_published_time": "2026-11-24T00:03:00+00:00",
+          "author": "Jean-Michel Blaise",
+          "twitter_card": "summary_large_image",
+          "twitter_misc": {
+            "Écrit par": "Jean-Michel Blaise",
+            "Durée de lecture estimée": "4 minutes"
+          },
+          "schema": {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Article",
+                "@id": "https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/#article",
+                "isPartOf": {
+                  "@id": "https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/"
+                },
+                "author": {
+                  "name": "Jean-Michel Blaise",
+                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
+                },
+                "headline": "Sept questions avant de chercher un financement : notez votre projet de 0 à 5",
+                "datePublished": "2026-11-24T00:03:00+00:00",
+                "mainEntityOfPage": {
+                  "@id": "https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/"
+                },
+                "wordCount": 895,
+                "keywords": [
+                  "Dirigeants",
+                  "Exécution",
+                  "Gouvernance",
+                  "Nouvelle-Calédonie",
+                  "Organisation",
+                  "Pacifique",
+                  "PerfEco",
+                  "Pilotage"
+                ],
+                "articleSection": [
+                  "Organisation"
+                ],
+                "inLanguage": "fr-FR"
+              },
+              {
+                "@type": "WebPage",
+                "@id": "https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/",
+                "url": "https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/",
+                "name": "Sept questions avant de chercher un financement : notez votre projet de 0 à 5 - Perfsystemique.fr",
+                "isPartOf": {
+                  "@id": "https://perfsystemique.fr/#website"
+                },
+                "datePublished": "2026-11-24T00:03:00+00:00",
+                "author": {
+                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
+                },
+                "breadcrumb": {
+                  "@id": "https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/#breadcrumb"
+                },
+                "inLanguage": "fr-FR",
+                "potentialAction": [
+                  {
+                    "@type": "ReadAction",
+                    "target": [
+                      "https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://perfsystemique.fr/sept-questions-avant-de-chercher-un-financement/#breadcrumb",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://perfsystemique.fr/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Sept questions avant de chercher un financement : notez votre projet de 0 à 5"
+                  }
+                ]
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://perfsystemique.fr/#website",
+                "url": "https://perfsystemique.fr/",
+                "name": "Perfsystemique.fr",
+                "description": "Aligner stratégie, organisation, finance et opérations pour une performance durable",
+                "potentialAction": [
+                  {
+                    "@type": "SearchAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": "https://perfsystemique.fr/?s={search_term_string}"
+                    },
+                    "query-input": {
+                      "@type": "PropertyValueSpecification",
+                      "valueRequired": true,
+                      "valueName": "search_term_string"
+                    }
+                  }
+                ],
+                "inLanguage": "fr-FR"
+              },
+              {
+                "@type": "Person",
+                "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953",
+                "name": "Jean-Michel Blaise",
+                "image": {
+                  "@type": "ImageObject",
+                  "inLanguage": "fr-FR",
+                  "@id": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "url": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "contentUrl": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "caption": "Jean-Michel Blaise"
+                },
+                "sameAs": [
+                  "http://perfsystemique.fr"
+                ],
+                "url": "https://perfsystemique.fr/author/admin7804/"
+              }
+            ]
+          }
+        },
+        "jetpack_publicize_connections": [
+          {
+            "id": "32089949",
+            "username": "Jean-Michel  Blaise",
+            "connection_id": "25897449",
+            "display_name": "Jean-Michel  Blaise",
+            "external_handle": "",
+            "external_id": "C7Z6Ry4olO",
+            "profile_link": "https://www.linkedin.com/in/jean-michel-blaise-2867a337b",
+            "profile_picture": "https://media.licdn.com/dms/image/v2/D5603AQFuhUnwnN4zyw/profile-displayphoto-shrink_100_100/B56ZjFQ5KLHAAU-/0/1755656197004?e=1784160000&v=beta&t=z4L4H1kLLPGpvEUC3fnGD_Uj16COBPlF3NJEszZZa_I",
+            "service_label": "LinkedIn",
+            "service_name": "linkedin",
+            "shared": true,
+            "template": "",
+            "wpcom_user_id": 0
+          },
+          {
+            "id": "32089959",
+            "username": "PerfEco Consulting NC",
+            "connection_id": "25897454",
+            "display_name": "PerfEco Consulting NC",
+            "external_handle": "",
+            "external_id": "552866114572775",
+            "profile_link": "https://www.facebook.com/552866114572775",
+            "profile_picture": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=f907e8&_nc_ohc=vQ5lkTO8ZmwQ7kNvwHf4QXz&_nc_oc=AdpN9EUqKIp_iKbjUUjWhZPtjw2AKw0X41uCVuAWBoKnljSDFiqwlfs6c56tpFBLCv0&_nc_zt=24&_nc_ht=scontent-dfw5-3.xx&edm=AGaHXAAEAAAA&_nc_gid=kcq8zEfFKXk9cCQeJAYKHA&_nc_tpa=Q5bMBQK8GeBtlkudujEWAojawOm7mB8FJ_i8N-BGiX0L45c6ULeUwEdpfSY5NpmVNLsc6A-i9PSQ&oh=00_AQRTftREBmfGRuhXAtqN0ezoTCz5dRosGFUrjNKdLul1gw&oe=6B0B011B",
+            "service_label": "Facebook",
+            "service_name": "facebook",
+            "shared": true,
+            "template": "",
+            "wpcom_user_id": 0
+          }
+        ],
+        "jetpack_featured_media_url": "",
+        "jetpack-related-posts": [],
+        "_links": {
+          "self": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/167",
+              "targetHints": {
+                "allow": [
+                  "GET",
+                  "POST",
+                  "PUT",
+                  "PATCH",
+                  "DELETE"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts"
+            }
+          ],
+          "about": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/types/post"
+            }
+          ],
+          "author": [
+            {
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/users/1"
+            }
+          ],
+          "replies": [
+            {
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=167"
+            }
+          ],
+          "version-history": [
+            {
+              "count": 1,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/167/revisions"
+            }
+          ],
+          "predecessor-version": [
+            {
+              "id": 168,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/167/revisions/168"
+            }
+          ],
+          "wp:attachment": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=167"
+            }
+          ],
+          "wp:term": [
+            {
+              "taxonomy": "category",
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=167"
+            },
+            {
+              "taxonomy": "post_tag",
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=167"
+            }
+          ],
+          "curies": [
+            {
+              "name": "wp",
+              "href": "https://api.w.org/{rel}",
+              "templated": true
+            }
+          ]
+        }
+      }
+    ],
+    "upcoming": [
+      {
+        "id": 165,
+        "date": "2026-11-26T11:03:00",
+        "date_gmt": "2026-11-26T00:03:00",
+        "guid": {
+          "rendered": "https://perfsystemique.fr/?p=165"
+        },
+        "modified": "2026-11-23T08:47:06",
+        "modified_gmt": "2026-11-22T21:47:06",
+        "slug": "traiter-la-cause-des-problemes-recurrents",
+        "status": "future",
+        "type": "post",
+        "link": "https://perfsystemique.fr/?p=165",
+        "title": {
+          "rendered": "Traiter la cause des problèmes récurrents : une question, une cause, une date"
+        },
+        "content": {
+          "rendered": "<h2>La situation : le même problème revient</h2>\n<p>Une facture part avec une erreur d&rsquo;adresse. Un chantier est livré sans le bon document. Un client est relancé trois fois pour la même pièce manquante. Dans chaque cas, quelqu&rsquo;un règle la difficulté vite et bien, et la journée continue.</p>\n<p>Cette scène est courante dans les entreprises et les administrations calédoniennes. Elle a une qualité : la réactivité. Quand un client attend, on corrige d&rsquo;abord et on s&rsquo;interroge ensuite. C&rsquo;est un bon réflexe, et il fait honneur à ceux qui l&rsquo;ont.</p>\n<p>Le problème, c&rsquo;est le « ensuite » : il arrive rarement, car une autre urgence a déjà pris la place de la première.</p>\n<h2>La conséquence : on répare sans cesse la même chose</h2>\n<p>Une correction rapide traite l&rsquo;effet visible. Elle laisse en place ce qui a rendu l&rsquo;erreur possible. Par exemple : une information saisie à deux endroits, une validation qui dépend d&rsquo;une seule personne, un document que personne n&rsquo;est chargé de vérifier.</p>\n<p>Tant que cette cause reste là, le problème revient. Il change de nom, de client, de chantier, mais il garde la même origine. Et chaque retour coûte un peu de temps à quelqu&rsquo;un :</p>\n<ul>\n<li>le collaborateur qui corrige, et qui s&rsquo;arrête de faire autre chose ;</li>\n<li>le responsable qui relance, rassure, puis s&rsquo;excuse ;</li>\n<li>le client ou l&rsquo;usager, dont la confiance s&rsquo;use à chaque répétition.</li>\n</ul>\n<p>Prenons le client relancé trois fois pour la même pièce. À la première relance, on s&rsquo;excuse et on réclame la pièce. À la deuxième, on s&rsquo;agace un peu. À la troisième, une question affleure : pourquoi ne pas prévenir le client dès l&rsquo;ouverture du dossier ? Mais personne ne la pose, car chaque relance est traitée comme un incident isolé.</p>\n<p>Pris un par un, ces retours paraissent anodins. Additionnés sur un trimestre, ils forment une charge que personne n&rsquo;a jamais budgétée, et qui explique souvent pourquoi les équipes se sentent toujours en retard.</p>\n<p>Cela relève de l&rsquo;urgence, pas du manque de rigueur. Régler passe avant chercher, et c&rsquo;est normal : l&rsquo;organisation n&rsquo;a simplement pas prévu de moment pour la recherche de la cause.</p>\n<h2>La méthode : une question, une cause, une date</h2>\n<p>Inutile de lancer un grand chantier. Une méthode simple suffit, en trois temps.</p>\n<p><strong>1. Choisir un seul problème.</strong> Prenez celui qui est revenu au moins trois fois ce trimestre. Si vous hésitez entre deux, retenez celui qui mobilise le plus de monde à chaque retour. Un seul sujet à la fois, sinon aucun n&rsquo;avance.</p>\n<p><strong>2. Réunir ceux qui le vivent, et poser une question.</strong> Invitez la personne qui corrige, celle qui reçoit la réclamation et celle qui, en amont, produit l&rsquo;information ou le document. Posez une seule question : « Qu&rsquo;est-ce qui lui a permis de se reproduire ? ». Reposez-la sur chaque réponse (« et qu&rsquo;est-ce qui a permis cela ? »), jusqu&rsquo;à une cause que l&rsquo;équipe peut modifier elle-même. Une réunion de trente à quarante-cinq minutes suffit généralement.</p>\n<p><strong>3. Écrire la cause, nommer un responsable, fixer une date.</strong> Une phrase pour la cause, un prénom pour la personne qui la traite, un jour précis pour vérifier. Sans ces trois éléments, la réunion produit une bonne discussion et aucun changement.</p>\n<p>Quelques précautions rendent la démarche plus sûre. Cherchez la cause dans le fonctionnement, pas dans la personne : le jour où l&rsquo;on cherche un coupable, tout le monde cesse de signaler les problèmes. Et acceptez qu&rsquo;une première cause soit incomplète : si le problème revient quand même, la question se pose à nouveau, avec une réponse plus précise.</p>\n<h2>L&rsquo;indicateur : combien de fois le problème revient-il ?</h2>\n<p>Pour savoir si la cause a bien été traitée, un seul chiffre suffit : le nombre de retours du même problème d&rsquo;ici à la fin du trimestre. Comparez-le à celui du trimestre précédent, sur ce cas précis et nulle part ailleurs.</p>\n<p>Ce suivi reste simple : c&rsquo;est votre propre comptage, sur votre propre problème, qui dit si le changement fonctionne. S&rsquo;il n&rsquo;y a plus de retour, la cause est traitée. S&rsquo;il y en a encore, reprenez la question.</p>\n<p>Dans l&rsquo;exemple de la pièce manquante, la cause peut être simple. La liste des documents à fournir n&rsquo;est jamais remise au client à l&rsquo;ouverture du dossier. La réponse tient alors en une action, un responsable et une date, et la troisième relance n&rsquo;a plus de raison d&rsquo;exister.</p>\n<p>Ce chiffre a aussi un effet utile : il rend visible un coût que personne ne voyait.</p>\n<h2>L&rsquo;invitation : commencez par un seul problème</h2>\n<p>Vous n&rsquo;avez rien à reconstruire. Vous connaissez déjà le problème qui revient chez vous, et ceux qui le vivent savent souvent mieux que quiconque ce qui le permet. Il manque seulement le moment pour poser la question.</p>\n<p>Alors, quel problème est revenu le plus souvent dans votre organisation ce trimestre ? Choisissez-le dès cette semaine, réservez trente minutes et posez la question à ceux qui le vivent.</p>\n<p>Le jour où la cause est traitée, la troisième relance n&rsquo;a plus de raison d&rsquo;exister, et vos équipes retrouvent du temps pour autre chose que réparer.</p>\n<p>Si vous souhaitez en discuter, PerfEco propose un diagnostic stratégique de 60 minutes, confidentiel, pour repérer avec vous les problèmes qui reviennent et leurs causes. Écrivez à contact@perfeco.nc ou appelez le +687 73 08 75.</p>\n",
+          "protected": false
+        },
+        "excerpt": {
+          "rendered": "<p>Le même problème revient, et quelqu&rsquo;un le règle à chaque fois. Posez une question, nommez la cause et fixez une date : le problème cesse de revenir.</p>\n",
+          "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "closed",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": {
+          "_exactmetrics_skip_tracking": false,
+          "footnotes": "",
+          "jetpack_publicize_message": "",
+          "jetpack_publicize_feature_enabled": false,
+          "jetpack_social_post_already_shared": true,
+          "jetpack_social_options": {
+            "image_generator_settings": {
+              "template": "highway",
+              "default_image_id": 0,
+              "font": "",
+              "enabled": false
+            },
+            "version": 2
+          },
+          "jetpack_post_was_ever_published": false
+        },
+        "categories": [
+          11
+        ],
+        "tags": [
+          22,
+          14,
+          21,
+          36,
+          37
+        ],
+        "class_list": [
+          "post-165",
+          "post",
+          "type-post",
+          "status-future",
+          "format-standard",
+          "hentry",
+          "category-organisation",
+          "tag-organisation",
+          "tag-performance",
+          "tag-pilotage",
+          "tag-processus",
+          "tag-simplification"
+        ],
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v27.6 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Traiter la cause des problèmes récurrents : une question, une cause, une date - Perfsystemique.fr</title>\n<!-- Avis aux administrateurs et administratrices : cette page n’affiche pas de méta description car elle n’en a pas. Vous pouvez donc soit l’ajouter spécifiquement pour cette page soit vous rendre dans vos réglages (Yoast SEO - Réglages) pour configurer un modèle. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://perfsystemique.fr/?p=165\" />\n<meta property=\"og:locale\" content=\"fr_FR\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Traiter la cause des problèmes récurrents : une question, une cause, une date - Perfsystemique.fr\" />\n<meta property=\"og:description\" content=\"Le même problème revient, et quelqu&#039;un le règle à chaque fois. Posez une question, nommez la cause et fixez une date : le problème cesse de revenir.\" />\n<meta property=\"og:url\" content=\"https://perfsystemique.fr/?p=165\" />\n<meta property=\"og:site_name\" content=\"Perfsystemique.fr\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/PerfecoNC/\" />\n<meta property=\"article:published_time\" content=\"2026-11-26T00:03:00+00:00\" />\n<meta name=\"author\" content=\"Jean-Michel Blaise\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Écrit par\" />\n\t<meta name=\"twitter:data1\" content=\"Jean-Michel Blaise\" />\n\t<meta name=\"twitter:label2\" content=\"Durée de lecture estimée\" />\n\t<meta name=\"twitter:data2\" content=\"5 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=165#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=165\"},\"author\":{\"name\":\"Jean-Michel Blaise\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"headline\":\"Traiter la cause des problèmes récurrents : une question, une cause, une date\",\"datePublished\":\"2026-11-26T00:03:00+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=165\"},\"wordCount\":926,\"keywords\":[\"Organisation\",\"Performance\",\"Pilotage\",\"Processus\",\"Simplification\"],\"articleSection\":[\"Organisation\"],\"inLanguage\":\"fr-FR\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=165\",\"url\":\"https:\\/\\/perfsystemique.fr\\/?p=165\",\"name\":\"Traiter la cause des problèmes récurrents : une question, une cause, une date - Perfsystemique.fr\",\"isPartOf\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\"},\"datePublished\":\"2026-11-26T00:03:00+00:00\",\"author\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=165#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/perfsystemique.fr\\/?p=165\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/?p=165#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https:\\/\\/perfsystemique.fr\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Traiter la cause des problèmes récurrents : une question, une cause, une date\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#website\",\"url\":\"https:\\/\\/perfsystemique.fr\\/\",\"name\":\"Perfsystemique.fr\",\"description\":\"Aligner stratégie, organisation, finance et opérations pour une performance durable\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/perfsystemique.fr\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"fr-FR\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/perfsystemique.fr\\/#\\/schema\\/person\\/5be46e0612c4c78c02a7c71a00620953\",\"name\":\"Jean-Michel Blaise\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"fr-FR\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g\",\"caption\":\"Jean-Michel Blaise\"},\"sameAs\":[\"http:\\/\\/perfsystemique.fr\"],\"url\":\"https:\\/\\/perfsystemique.fr\\/author\\/admin7804\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+        "yoast_head_json": {
+          "title": "Traiter la cause des problèmes récurrents : une question, une cause, une date - Perfsystemique.fr",
+          "robots": {
+            "index": "index",
+            "follow": "follow",
+            "max-snippet": "max-snippet:-1",
+            "max-image-preview": "max-image-preview:large",
+            "max-video-preview": "max-video-preview:-1"
+          },
+          "canonical": "https://perfsystemique.fr/?p=165",
+          "og_locale": "fr_FR",
+          "og_type": "article",
+          "og_title": "Traiter la cause des problèmes récurrents : une question, une cause, une date - Perfsystemique.fr",
+          "og_description": "Le même problème revient, et quelqu'un le règle à chaque fois. Posez une question, nommez la cause et fixez une date : le problème cesse de revenir.",
+          "og_url": "https://perfsystemique.fr/?p=165",
+          "og_site_name": "Perfsystemique.fr",
+          "article_publisher": "https://www.facebook.com/PerfecoNC/",
+          "article_published_time": "2026-11-26T00:03:00+00:00",
+          "author": "Jean-Michel Blaise",
+          "twitter_card": "summary_large_image",
+          "twitter_misc": {
+            "Écrit par": "Jean-Michel Blaise",
+            "Durée de lecture estimée": "5 minutes"
+          },
+          "schema": {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Article",
+                "@id": "https://perfsystemique.fr/?p=165#article",
+                "isPartOf": {
+                  "@id": "https://perfsystemique.fr/?p=165"
+                },
+                "author": {
+                  "name": "Jean-Michel Blaise",
+                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
+                },
+                "headline": "Traiter la cause des problèmes récurrents : une question, une cause, une date",
+                "datePublished": "2026-11-26T00:03:00+00:00",
+                "mainEntityOfPage": {
+                  "@id": "https://perfsystemique.fr/?p=165"
+                },
+                "wordCount": 926,
+                "keywords": [
+                  "Organisation",
+                  "Performance",
+                  "Pilotage",
+                  "Processus",
+                  "Simplification"
+                ],
+                "articleSection": [
+                  "Organisation"
+                ],
+                "inLanguage": "fr-FR"
+              },
+              {
+                "@type": "WebPage",
+                "@id": "https://perfsystemique.fr/?p=165",
+                "url": "https://perfsystemique.fr/?p=165",
+                "name": "Traiter la cause des problèmes récurrents : une question, une cause, une date - Perfsystemique.fr",
+                "isPartOf": {
+                  "@id": "https://perfsystemique.fr/#website"
+                },
+                "datePublished": "2026-11-26T00:03:00+00:00",
+                "author": {
+                  "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953"
+                },
+                "breadcrumb": {
+                  "@id": "https://perfsystemique.fr/?p=165#breadcrumb"
+                },
+                "inLanguage": "fr-FR",
+                "potentialAction": [
+                  {
+                    "@type": "ReadAction",
+                    "target": [
+                      "https://perfsystemique.fr/?p=165"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://perfsystemique.fr/?p=165#breadcrumb",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://perfsystemique.fr/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Traiter la cause des problèmes récurrents : une question, une cause, une date"
+                  }
+                ]
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://perfsystemique.fr/#website",
+                "url": "https://perfsystemique.fr/",
+                "name": "Perfsystemique.fr",
+                "description": "Aligner stratégie, organisation, finance et opérations pour une performance durable",
+                "potentialAction": [
+                  {
+                    "@type": "SearchAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": "https://perfsystemique.fr/?s={search_term_string}"
+                    },
+                    "query-input": {
+                      "@type": "PropertyValueSpecification",
+                      "valueRequired": true,
+                      "valueName": "search_term_string"
+                    }
+                  }
+                ],
+                "inLanguage": "fr-FR"
+              },
+              {
+                "@type": "Person",
+                "@id": "https://perfsystemique.fr/#/schema/person/5be46e0612c4c78c02a7c71a00620953",
+                "name": "Jean-Michel Blaise",
+                "image": {
+                  "@type": "ImageObject",
+                  "inLanguage": "fr-FR",
+                  "@id": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "url": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "contentUrl": "https://secure.gravatar.com/avatar/947535a6c724efa955261000714e510cafada19d0b38f6ca401ef19b16c995e2?s=96&d=mm&r=g",
+                  "caption": "Jean-Michel Blaise"
+                },
+                "sameAs": [
+                  "http://perfsystemique.fr"
+                ],
+                "url": "https://perfsystemique.fr/author/admin7804/"
+              }
+            ]
+          }
+        },
+        "jetpack_publicize_connections": [
+          {
+            "id": "32089949",
+            "username": "Jean-Michel  Blaise",
+            "connection_id": "25897449",
+            "display_name": "Jean-Michel  Blaise",
+            "external_handle": "",
+            "external_id": "C7Z6Ry4olO",
+            "profile_link": "https://www.linkedin.com/in/jean-michel-blaise-2867a337b",
+            "profile_picture": "https://media.licdn.com/dms/image/v2/D5603AQFuhUnwnN4zyw/profile-displayphoto-shrink_100_100/B56ZjFQ5KLHAAU-/0/1755656197004?e=1784160000&v=beta&t=z4L4H1kLLPGpvEUC3fnGD_Uj16COBPlF3NJEszZZa_I",
+            "service_label": "LinkedIn",
+            "service_name": "linkedin",
+            "shared": true,
+            "template": "",
+            "wpcom_user_id": 0
+          },
+          {
+            "id": "32089959",
+            "username": "PerfEco Consulting NC",
+            "connection_id": "25897454",
+            "display_name": "PerfEco Consulting NC",
+            "external_handle": "",
+            "external_id": "552866114572775",
+            "profile_link": "https://www.facebook.com/552866114572775",
+            "profile_picture": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-1/474380228_122135251742542192_3652025823566324122_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=f907e8&_nc_ohc=vQ5lkTO8ZmwQ7kNvwHf4QXz&_nc_oc=AdpN9EUqKIp_iKbjUUjWhZPtjw2AKw0X41uCVuAWBoKnljSDFiqwlfs6c56tpFBLCv0&_nc_zt=24&_nc_ht=scontent-dfw5-3.xx&edm=AGaHXAAEAAAA&_nc_gid=kcq8zEfFKXk9cCQeJAYKHA&_nc_tpa=Q5bMBQK8GeBtlkudujEWAojawOm7mB8FJ_i8N-BGiX0L45c6ULeUwEdpfSY5NpmVNLsc6A-i9PSQ&oh=00_AQRTftREBmfGRuhXAtqN0ezoTCz5dRosGFUrjNKdLul1gw&oe=6B0B011B",
+            "service_label": "Facebook",
+            "service_name": "facebook",
+            "shared": true,
+            "template": "",
+            "wpcom_user_id": 0
+          }
+        ],
+        "jetpack_featured_media_url": "",
+        "jetpack-related-posts": [],
+        "_links": {
+          "self": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/165",
+              "targetHints": {
+                "allow": [
+                  "GET",
+                  "POST",
+                  "PUT",
+                  "PATCH",
+                  "DELETE"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts"
+            }
+          ],
+          "about": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/types/post"
+            }
+          ],
+          "author": [
+            {
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/users/1"
+            }
+          ],
+          "replies": [
+            {
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/comments?post=165"
+            }
+          ],
+          "version-history": [
+            {
+              "count": 1,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/165/revisions"
+            }
+          ],
+          "predecessor-version": [
+            {
+              "id": 166,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/posts/165/revisions/166"
+            }
+          ],
+          "wp:attachment": [
+            {
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/media?parent=165"
+            }
+          ],
+          "wp:term": [
+            {
+              "taxonomy": "category",
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/categories?post=165"
+            },
+            {
+              "taxonomy": "post_tag",
+              "embeddable": true,
+              "href": "https://perfsystemique.fr/wp-json/wp/v2/tags?post=165"
+            }
+          ],
+          "curies": [
+            {
+              "name": "wp",
+              "href": "https://api.w.org/{rel}",
+              "templated": true
+            }
+          ]
+        }
+      }
+    ]
   },
   "ga4": {
     "ga4_perfeco": {
