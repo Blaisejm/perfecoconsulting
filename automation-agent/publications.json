@@ -1116,7 +1116,7 @@
                              "statut":  "publie",
                              "source":  "automation-queue/mardi.json",
                              "bascule":  null,
-                             "preuve":  "Make 3 operations (LinkedIn Company + Facebook (profil perso servi hors Make, par l'API LinkedIn directe) \u2014 Facebook servi EN DIRECT (image carr\u00e9e), hors Make) a 2026-11-24T04:59:58.212Z statut=1 ; post Facebook confirme a 2026-11-24T04:59:59+0000 ; cloture automatique par check-apres-publication, run 45406247312",
+                             "preuve":  "Make 3 operations (LinkedIn Company + Facebook (profil perso servi hors Make, par l\u0027API LinkedIn directe) — Facebook servi EN DIRECT (image carrée), hors Make) a 2026-11-24T04:59:58.212Z statut=1 ; post Facebook confirme a 2026-11-24T04:59:59+0000 ; cloture automatique par check-apres-publication, run 45406247312",
                              "libelle":  "Post long / carrousel — Institutions 2/4",
                              "sujet":  "Sept questions avant de chercher un financement — la grille du Passeport notée de 0 à 5",
                              "note":  "SÉRIE INSTITUTIONS 2/4 sur le créneau du mardi. Contenu a produire (aucun fichier source a ce jour). | 27/10/2026 (intervention-manuelle, decision de Jean-Michel) : serie Institutions decalee d une semaine apres la perte du mardi 27/10 (pipeline bloque du 16 au 27/10). I1 03/11, I2 10/11, I3 17/11, I4 24/11. Le 8/8 de la serie 2 est conserve pour plus tard (validation v-2026-10-13-01 close). | SUJET ARRETE le 27/10/2026 par Jean-Michel (en session, intervention-manuelle). ANGLE : recentré sur la NOTATION 0-5 des sept dimensions (pertinence, maturité technique, portage et gouvernance, budget et cofinancement, éligibilité, impact et indicateurs, calendrier et capacité) — ce qu\u0027un score faible signifie concrètement et par où commencer. I1 ayant déjà présenté \u0027quatre réponses\u0027, NE PAS refaire la liste : c\u0027est l\u0027outil de notation qui est neuf. CTA : revue confidentielle de portefeuille (60-90 min), PAS l\u0027auto-diagnostic, qui n\u0027existe pas (page /institutions en 404 au 27/10). Source : PLAN-COMMUNICATION-INSTITUTIONS.md par.8 (PerfEco Consulting NC\\Perfeco-EU Institutions). Onze lignes rouges du par.6 obligatoires avant mise en file. | 18/11/2026 (intervention-manuelle, décision de Jean-Michel, v-2026-11-13-01 option 1) : glissement — reprise au premier épisode non publié (créneau précédemment : Post long / carrousel — Institutions 4/4)",
@@ -2860,6 +2860,26 @@
                              "semaine":  null
                          },
                          {
+                             "id":  "2027-05-28-vendredi",
+                             "date_nc":  "2027-05-28",
+                             "heure_nc":  "11:00",
+                             "format":  "vendredi",
+                             "libelle":  "Veille économique NC",
+                             "sujet":  "à définir",
+                             "semaine":  null,
+                             "canaux":  [
+                                            "linkedin_company",
+                                            "linkedin_perso",
+                                            "facebook"
+                                        ],
+                             "statut":  "prevu",
+                             "source":  null,
+                             "bascule":  null,
+                             "preuve":  null,
+                             "note":  null,
+                             "arbitrage":  null
+                         },
+                         {
                              "id":  "2027-06-01-mardi",
                              "date_nc":  "2027-06-01",
                              "heure_nc":  "11:00",
@@ -2940,7 +2960,7 @@
                              "semaine":  null
                          }
                      ],
-    "_horizon":  "2027-05-21",
     "_derniere_revue":  "2026-09-22",
-    "derniere_maj":  "2026-11-24"
+    "derniere_maj":  "2026-11-25",
+    "_horizon":  "2027-05-25"
 }
