@@ -1127,10 +1127,10 @@
       "date_nc": "2026-11-26",
       "heure_nc": "11:00",
       "format": "jeudi",
-      "statut": "en_file",
+      "statut": "publie",
       "source": "automation-queue/jeudi.json",
       "bascule": null,
-      "preuve": null,
+      "preuve": "Make 4 operations (LinkedIn Company + profil perso (Facebook exclu le jeudi par le suffixe -NOFB depuis le 15/09/2026 ; il recoit le meme contenu le samedi a 11h00 depuis le 21/11/2026)) a 2026-11-26T00:00:05.293Z statut=1 ; post Facebook confirme a  ; cloture automatique par check-apres-publication, run 45820794982",
       "libelle": "Campagne dédiée 5/10 — Simplifier le fonctionnement",
       "sujet": "Traiter la cause des problèmes récurrents",
       "note": "CAMPAGNE DÉDIÉE Performance — créneau reserve du jeudi (décision de Jean-Michel du 15/09/2026). Ordre naturel 1/10 a 10/10. Gabarit gabarit-v2-performance.html (bandeau #163D78, accent #FBAA16), texte en \"situation -> conséquence -> méthode -> résultat -> invitation\". Détail : REFERENTIEL-V2-PERFORMANCE.md §4. | CANAUX CORRIGES le 23/09/2026 : le creneau du JEUDI part sur LinkedIn Company + LinkedIn PROFIL PERSO depuis la decision de Jean-Michel du 15/09/2026. Facebook ne recoit plus rien le jeudi (suffixe -NOFB envoye par publish-jeudi-post-court.yml) : il recoit le meme contenu le SAMEDI a 15h30 via publish-samedi-republication-facebook.yml. L'entree portait encore linkedin_company+facebook, heritage d'avant le 15/09. Correction documentaire : aucun automatisme ne derive son comportement de ce champ (seul le controle d'espacement le lit, et il n'y cherche que linkedin_company). | 18/11/2026 (intervention-manuelle, décision de Jean-Michel « et suivants ensuite ») : épisode 5/10 jamais publié ni replacé depuis le 27/10, réinséré dans l'ordre naturel de la campagne. Contenu à produire.",
@@ -2949,6 +2949,6 @@
     }
   ],
   "_derniere_revue": "2026-09-22",
-  "derniere_maj": "2026-11-25",
+  "derniere_maj": "2026-11-26",
   "_horizon": "2027-05-25"
 }
