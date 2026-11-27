@@ -1160,10 +1160,10 @@
                                             "linkedin_perso",
                                             "facebook"
                                         ],
-                             "statut":  "en_file",
+                             "statut":  "publie",
                              "source":  "automation-queue/vendredi.json",
                              "bascule":  null,
-                             "preuve":  null,
+                             "preuve":  "Make 4 operations (LinkedIn Company + profil perso + Facebook \u2014 Facebook servi EN DIRECT (image carr\u00e9e), hors Make) a 2026-11-27T00:00:02.654Z statut=1 ; post Facebook confirme a 2026-11-27T00:00:03+0000 ; cloture automatique par check-apres-publication, run 45997661937",
                              "note":  "Veille économique du vendredi — format, sourçage (IEOM/ISEE verifie a la source) et gabarit INCHANGÉS. Produit par mercredi-creation, partie V. La campagne dédiée Performance occupe le créneau du JEUDI, pas celui-ci. | 22/11/2026 : produit par l\u0027ombre cloud du 22/11 (run Agent SDK 44951158418, issue #17), validé par JM (« Le sujet CCI du cloud »). Source : CCI-NC, rapport d\u0027activité 2025, repris par NC La 1ère le 03/11/2026. Visuel reconstruit sur main (photo de la banque veille-eco-w37-echeances-reportees-01, zone sûre vérifiée par apercu-recadrage.py) : slides/W48/00-facebook-formation.png et 01-couverture-formation.png. Mis en file par intervention-manuelle-cloud.",
                              "axe":  "performance"
                          },
